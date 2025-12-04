@@ -22,7 +22,6 @@ import os
 
 def main(
     bids_root: str,
-    description: str,
     band: str,
     recon_dir: str,
     radius: float,
@@ -33,8 +32,7 @@ def main(
         root=os.path.join(bids_root,f"derivatives/epoch({ref})"),
         suffix=band,
         datatype='epoch(band)(power)',
-        description=description,
-        extension=".fif",
+        extension=".h5",
         check=False,
     )
     
@@ -42,19 +40,25 @@ def main(
     
     for epoch_path in tqdm(epoch_paths.match(), desc='Processing subjects'):
         
+        if epoch_path.description == 'baseline' or epoch_path.processing == 'baseline':
+            continue
+        
         epochs = mne.read_epochs(epoch_path, preload=True)
         
         logging.info(f'Processing {epoch_path.subject}')
         # get the ROI label
-        montage = epochs.get_montage()
-        
-        sub_id = re.sub(r'^D0+', 'D', epoch_path.subject)
-        to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
-        trans = mne.transforms.Transform(fro='head', to='mri',
-                                        trans=to_fsaverage['trans'])
-        force2frame(montage, trans.from_str)  
-        montage.apply_trans(trans) 
-        pos_m = montage.get_positions()['ch_pos']
+        try:
+            montage = epochs.get_montage()
+            sub_id = re.sub(r'^D0+', 'D', epoch_path.subject)
+            to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
+            trans = mne.transforms.Transform(fro='head', to='mri',
+                                            trans=to_fsaverage['trans'])
+            force2frame(montage, trans.from_str)  
+            montage.apply_trans(trans) 
+            pos_m = montage.get_positions()['ch_pos']
+        except FileNotFoundError:
+            logging.warning(f"Talxfm file not found for {epoch_path.subject}, skipping")
+            continue
         
         df = pd.DataFrame(pos_m).T
         df.columns = ['x', 'y', 'z']
@@ -62,8 +66,11 @@ def main(
         df = df.reset_index().rename(columns={'index': 'channel'})
         
         # perception: 0-1s, production: -0.5-0.5s
-        tmin = 0 if description == 'perception' else -0.5
-        tmax = 1 if description == 'perception' else 0.5
+        # tmin = 0 if description == 'perception' else -0.5
+        # tmax = 1 if description == 'perception' else 0.5
+        
+        tmin = epochs.tmin+0.5
+        tmax = epochs.tmax-0.5
         
         df['HGA'] = epochs.crop(tmin, tmax).get_data().mean(axis=(0,-1))
         
@@ -101,7 +108,8 @@ def main(
         df['subject'] = epoch_path.subject
         df['task'] = epoch_path.task
         df['band'] = band
-        df['description'] = description
+        df['description'] = epoch_path.description
+        df['phase'] = epoch_path.processing
         
         df_merged = df.merge(
             parc[['name', 'label', 'roi', 'hemi']],
@@ -116,14 +124,16 @@ def main(
         # combine PrG and PoG to SM
         df_merged.loc[df_merged['roi'] == 'PrG', 'roi'] = 'SMC'
         df_merged.loc[df_merged['roi'] == 'PoG', 'roi'] = 'SMC'
+        df_merged.loc[df_merged['roi'] == 'Subcentral', 'roi'] = 'SMC'
         
         save_path = BIDSPath(
-            root=f'results/{epoch_path.task}',
-            description=description,
+            root=f'results/{epoch_path.task}({ref})',
+            description=epoch_path.description,
             datatype='HGA',
             suffix='coord',
             task=epoch_path.task,
             subject=epoch_path.subject,
+            processing=epoch_path.processing,
             extension=".csv",
             check=False,
         )
@@ -133,8 +143,9 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    parser.add_argument("--description", type=str, default="perception")
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')
     parser.add_argument("--recon_dir", type=str, default=r'/cwork/ns458/ECoG_Recon/',
