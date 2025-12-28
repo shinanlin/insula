@@ -36,6 +36,19 @@ def main(
     
     for epoch_path in tqdm(epoch_paths.match(), desc='Processing subjects'):
         
+        # load parc file for this subject
+        parc_path = epoch_path.copy().update(
+            root=str(epoch_path.root).replace(f'epoch({ref})', 'parcellation'),
+            datatype=ref,
+            task=None,
+            description=None,
+            processing='3mm',
+            suffix='aparc2009s',
+            extension='.csv',
+        ).match()[0]
+        parc = pd.read_csv(parc_path)
+        
+        
         epochs = mne.read_epochs(epoch_path, preload=True)
         evoked = epochs.average()
         # save epochs to pandas
@@ -100,6 +113,10 @@ def main(
         df.loc[df['roi'] == 'PoG', 'roi'] = 'SMC'
         df.loc[df['roi'] == 'Subcentral', 'roi'] = 'SMC'
         
+        parc.rename(columns={'name': 'channel'}, inplace=True)
+        parc_sub = parc[['channel', 'label']]
+        df = df.merge(parc_sub, on='channel', how='left')
+
         # add channel (x, y, z)
         montage = epochs.get_montage()
         
@@ -136,11 +153,13 @@ def main(
     
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
     parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')
-    parser.add_argument("--ref", type=str, default='car',
+    parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
                         help='reference channel')
     parser.add_argument('--recon_dir', type=str, default=r'/cwork/ns458/ECoG_Recon/',

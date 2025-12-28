@@ -32,7 +32,7 @@ def main(
         root=os.path.join(bids_root,f"derivatives/epoch({ref})"),
         suffix=band,
         datatype='epoch(band)(power)',
-        extension=".h5",
+        extension=".fif",
         check=False,
     )
     
@@ -144,13 +144,14 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')
     parser.add_argument("--recon_dir", type=str, default=r'/cwork/ns458/ECoG_Recon/',
                         help='path to the recon-all directory')
-    parser.add_argument("--radius", type=int, default=10,
+    parser.add_argument("--radius", type=int, default=3,
                         help='radius of the sphere in mm')
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],

@@ -57,7 +57,7 @@ def main(
                 datatype='epoch(band)(power)',
                 suffix=band,
                 description=description,
-                extension='.fif',
+                extension='.h5',
                 check=False,
             )
             
@@ -67,7 +67,7 @@ def main(
                 datatype='epoch(band)(power)',
                 suffix=band,
                 description='baseline',
-                extension='.fif',
+                extension='.h5',
                 check=False,
             )
             
@@ -157,10 +157,12 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    parser.add_argument("--description", type=str, default="production")
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
+    parser.add_argument("--description", type=str, default="passive",
+                        choices=['passive','production','perception'])
     parser.add_argument("--band", type=str, default="highgamma", 
-                        choices=['highgamma','gamma','beta','alpha','theta'],
+                        choices=['highgamma','gamma','beta','alpha','theta',],
                         help='which frequency band to use')
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
