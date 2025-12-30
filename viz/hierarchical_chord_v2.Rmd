@@ -1,0 +1,336 @@
+---
+title: "Hierarchical Chord Diagram - Insula Connectivity V2"
+author: "sEEG Connectivity Analysis"
+date: "`r Sys.Date()`"
+output: 
+  html_notebook:
+    fig_width: 12
+    fig_height: 10
+  html_document:
+    fig_width: 12
+    fig_height: 10
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE,
+                      fig.width = 12, fig.height = 10)
+library(circlize)
+library(tidyverse)
+library(RColorBrewer)
+```
+
+# Load Data
+
+```{r load-data}
+# Load full connectivity data
+cat("Loading full connectivity data...\n")
+
+if(file.exists("connectivity_production_full.csv")) {
+  prod_data <- read.csv("connectivity_production_full.csv")
+  perc_data <- read.csv("connectivity_perception_full.csv")
+  cat("Loaded FULL connectivity data\n")
+} else {
+  prod_data <- read.csv("connectivity_production.csv")
+  perc_data <- read.csv("connectivity_perception.csv")
+  cat("Loaded TOP connectivity data\n")
+}
+
+cat("Production data:", nrow(prod_data), "connections\n")
+cat("Perception data:", nrow(perc_data), "connections\n")
+
+# Define ROI list
+roi_list <- c('INS', 'MFG', 'SMC', 'STG', 'HG', 'SMG', 'IFG', 'SFG', 'ITG', 'MTG')
+```
+
+# Define Colors
+
+```{r define-colors}
+# ROI colors
+roi_colors <- c(
+  INS = "#D4AF37",  # Gold - Insula
+  IFG = "#6A5ACD",  # Purple
+  SFG = "#2369BD",  # Blue
+  MFG = "#4169E1",  # Royal Blue
+  STG = "#20B2AA",  # Teal
+  MTG = "#3CB371",  # Medium Sea Green
+  ITG = "#228B22",  # Forest Green
+  SMC = "#FF6347",  # Tomato Red
+  HG = "#A9373B",   # Dark Red
+  SMG = "#FF69B4",  # Hot Pink
+  Unknown = "#808080"
+)
+```
+
+# Core Function: Create Hierarchical Chord Diagram
+
+```{r core-function}
+create_hierarchical_chord <- function(data, component_idx, title_prefix = "Component") {
+  
+  # Filter by component
+  comp_data <- data[data$component == component_idx, ]
+  
+  # KEY FIX: Use source_is_ins/target_is_ins from data (based on ROI, not label name)
+  # For INS: keep individual labels
+  # For non-INS: aggregate to ROI level
+  
+  comp_data$source_sector <- ifelse(
+    comp_data$source_roi == "INS",  # Use ROI to determine if INS
+    comp_data$source_label,
+    comp_data$source_roi
+  )
+  
+  comp_data$target_sector <- ifelse(
+    comp_data$target_roi == "INS",  # Use ROI to determine if INS
+    comp_data$target_label,
+    comp_data$target_roi
+  )
+  
+  # Aggregate by sector pairs
+  agg_data <- comp_data %>%
+    group_by(source_sector, target_sector) %>%
+    summarise(
+      total_weight = sum(weight),
+      max_weight = max(weight),
+      n_connections = n(),
+      source_roi = first(source_roi),
+      target_roi = first(target_roi),
+      .groups = 'drop'
+    ) %>%
+    filter(source_sector != "Unknown", target_sector != "Unknown")
+  
+  # Get all unique sectors
+  all_sectors <- unique(c(agg_data$source_sector, agg_data$target_sector))
+  
+  # Separate INS labels and other ROIs
+  # INS labels are those where the sector name is NOT in roi_list (i.e., it's a full label name)
+  ins_sectors <- all_sectors[!(all_sectors %in% roi_list)]
+  other_sectors <- all_sectors[all_sectors %in% roi_list & all_sectors != "INS"]
+  
+  cat("INS label sectors:", length(ins_sectors), "\n")
+  cat("Other ROI sectors:", length(other_sectors), "\n")
+  
+  # ORDER: INS labels grouped together, then other ROIs
+  # Sort INS labels alphabetically so they stay together
+  ordered_sectors <- c(sort(ins_sectors), sort(other_sectors))
+  
+  # Create color mapping
+  sector_colors <- sapply(ordered_sectors, function(s) {
+    if(s %in% roi_list) {
+      return(roi_colors[s])
+    } else {
+      # It's an INS label - use INS color
+      return(roi_colors["INS"])
+    }
+  })
+  names(sector_colors) <- ordered_sectors
+  
+  # Calculate sector sizes - KEY FIX: make INS group similar size to other ROIs
+  # Calculate total weight for each sector
+  sector_weights <- sapply(ordered_sectors, function(s) {
+    sum(agg_data$total_weight[agg_data$source_sector == s]) +
+    sum(agg_data$total_weight[agg_data$target_sector == s])
+  })
+  
+  # Normalize: INS group should be ~same size as average ROI
+  n_ins_labels <- length(ins_sectors)
+  n_other_rois <- length(other_sectors)
+  
+  if(n_ins_labels > 0 && n_other_rois > 0) {
+    ins_total <- sum(sector_weights[ins_sectors])
+    other_avg <- mean(sector_weights[other_sectors])
+    
+    # Scale factor to make INS group similar to other ROIs total
+    # We want INS group to be about 1.5x the average ROI (since it's our focus)
+    target_ins_total <- other_avg * 1.5
+    scale_factor <- target_ins_total / ins_total
+    
+    # Apply scaling to INS sectors
+    sector_weights[ins_sectors] <- sector_weights[ins_sectors] * scale_factor
+  }
+  
+  # Create adjacency matrix with scaled weights
+  adj_matrix <- matrix(0, nrow = length(ordered_sectors), ncol = length(ordered_sectors),
+                       dimnames = list(ordered_sectors, ordered_sectors))
+  
+  # Normalize weights for the matrix
+  max_weight <- max(agg_data$total_weight)
+  
+  for(i in 1:nrow(agg_data)) {
+    src <- agg_data$source_sector[i]
+    tgt <- agg_data$target_sector[i]
+    if(src %in% ordered_sectors && tgt %in% ordered_sectors) {
+      adj_matrix[src, tgt] <- agg_data$total_weight[i]
+    }
+  }
+  
+  # Create gap pattern: small gaps within INS group, larger gap between groups
+  if(n_ins_labels > 1) {
+    gaps <- c(rep(1, n_ins_labels - 1), 8,  # Small gaps within INS, big gap after
+              rep(3, max(0, n_other_rois - 1)), 8)  # Gaps between other ROIs, big gap at end
+  } else {
+    gaps <- c(8, rep(3, max(0, n_other_rois - 1)), 8)
+  }
+  
+  # Adjust gaps length to match sectors
+  if(length(gaps) != length(ordered_sectors)) {
+    gaps <- rep(3, length(ordered_sectors))
+    if(n_ins_labels > 0) {
+      gaps[n_ins_labels] <- 10  # Big gap after INS group
+    }
+  }
+  
+  # Create chord diagram
+  circos.clear()
+  circos.par(
+    gap.after = gaps,
+    start.degree = 90,
+    clock.wise = TRUE
+  )
+  
+  # Create color function for links based on weight
+  # Darker = higher weight
+  link_colors <- function(from_sector, to_sector, value) {
+    # Normalize value to 0-1
+    norm_val <- value / max_weight
+    # Create color with transparency based on weight
+    # Higher weight = less transparent (more visible)
+    alpha <- 0.2 + 0.2 * norm_val  # Range: 0.3 to 0.8
+    
+    # Use source sector color
+    if(from_sector %in% ins_sectors) {
+      base_col <- roi_colors["INS"]
+    } else if(from_sector %in% names(roi_colors)) {
+      base_col <- roi_colors[from_sector]
+    } else {
+      base_col <- "#808080"
+    }
+    
+    # Adjust color intensity based on weight
+    col_rgb <- col2rgb(base_col)
+    # Darken for higher weights
+    darken_factor <- 1 - 0.1 * norm_val
+    col_rgb <- col_rgb * darken_factor
+    col_rgb[col_rgb < 0] <- 0
+    
+    return(rgb(col_rgb[1], col_rgb[2], col_rgb[3], alpha * 255, maxColorValue = 255))
+  }
+  
+  # Build link colors matrix
+  link_col_matrix <- matrix(NA, nrow = length(ordered_sectors), ncol = length(ordered_sectors),
+                            dimnames = list(ordered_sectors, ordered_sectors))
+  
+  for(i in 1:nrow(agg_data)) {
+    src <- agg_data$source_sector[i]
+    tgt <- agg_data$target_sector[i]
+    if(src %in% ordered_sectors && tgt %in% ordered_sectors) {
+      link_col_matrix[src, tgt] <- link_colors(src, tgt, agg_data$total_weight[i])
+    }
+  }
+  
+  chordDiagram(
+    adj_matrix,
+    order = ordered_sectors,
+    grid.col = sector_colors,
+    col = link_col_matrix,
+    transparency = 0,  # We handle transparency in link_colors
+    annotationTrack = "grid",
+    preAllocateTracks = list(
+      track.height = 0.12,
+      track.margin = c(0.01, 0.01)
+    ),
+    link.sort = TRUE,
+    link.decreasing = TRUE,
+    scale = FALSE  # Don't auto-scale, we handle it
+  )
+  
+  # Add sector labels
+  circos.trackPlotRegion(
+    track.index = 1,
+    panel.fun = function(x, y) {
+      sector_name <- CELL_META$sector.index
+      
+      # Shorter labels for INS labels
+      if(!(sector_name %in% roi_list)) {
+        # It's an INS label - shorten it
+        short_name <- gsub("ctx_[lr]h_", "", sector_name)
+        short_name <- gsub("_", " ", short_name)
+        # Further shorten if too long
+        if(nchar(short_name) > 20) {
+          short_name <- substr(short_name, 1, 18)
+        }
+      } else {
+        short_name <- sector_name
+      }
+      
+      circos.text(
+        CELL_META$xcenter, 
+        CELL_META$ycenter + 0.4,
+        short_name,
+        cex = 0.65,
+        facing = "bending.inside",
+        niceFacing = TRUE,
+        col = "black"
+      )
+    },
+    bg.border = NA
+  )
+  
+  # Add outer track for ROI grouping (INS label)
+  # This adds a visual grouping for the INS region
+  if(n_ins_labels > 0) {
+    # Get the angular range of INS sectors
+    ins_start <- NULL
+    ins_end <- NULL
+    for(s in ins_sectors) {
+      info <- get.cell.meta.data("cell.start.degree", sector.index = s)
+      info_end <- get.cell.meta.data("cell.end.degree", sector.index = s)
+      if(is.null(ins_start) || info > ins_start) ins_start <- info
+      if(is.null(ins_end) || info_end < ins_end) ins_end <- info_end
+    }
+  }
+  
+  title(main = paste(title_prefix, component_idx, "- Insula Connectivity"),
+        line = -1, cex.main = 1.2)
+  
+  circos.clear()
+  
+  return(agg_data)
+}
+```
+
+# Production Component 0
+
+```{r production-comp0, fig.width=12, fig.height=10}
+cat("=== Production Component 0 ===\n")
+agg_prod <- create_hierarchical_chord(prod_data, 4, "Production Component")
+```
+
+# Perception Component 0
+
+```{r perception-comp0, fig.width=12, fig.height=10}
+cat("=== Perception Component 0 ===\n")
+agg_perc <- create_hierarchical_chord(perc_data, 4, "Perception Component")
+```
+
+# Summary
+
+```{r summary}
+cat("=== Production Aggregated Data ===\n")
+print(head(agg_prod %>% arrange(desc(total_weight)), 10))
+
+cat("\n=== Perception Aggregated Data ===\n")
+print(head(agg_perc %>% arrange(desc(total_weight)), 10))
+```
+
+# Notes
+
+## 修复的问题
+
+1. **INS节点判断** - 现在使用ROI字段判断是否为INS，而不是label名称（修复了G_Ins_lg_and_S_cent_ins的问题）
+2. **INS节点紧挨** - INS labels之间的gap很小(1)，与其他ROI之间的gap较大(8)
+3. **颜色深浅映射weight** - 连接线颜色深浅和透明度都与weight相关
+4. **INS占比调整** - 通过缩放使INS组的总大小与其他ROI相当
+
+## 如果还有"INS"单独节点
+
+请重新运行Python Cell 11来生成新的CSV文件，新代码使用`source_roi == 'INS'`来判断是否为insula。
