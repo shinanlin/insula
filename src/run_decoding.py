@@ -46,6 +46,7 @@ def load_roi_data(
     ref,
     roi, 
     description, 
+    phase,
     band, 
     datatype,
     tmin,
@@ -93,6 +94,7 @@ def load_roi_data(
         datatype=datatype, 
         description=description,
         suffix=band, 
+        processing=phase,
         extension='.h5', 
         check=False
     )
@@ -132,6 +134,7 @@ def main(
     subject,
     ref,
     description,
+    phase,
     band,
     datatype,
     variance,
@@ -148,6 +151,7 @@ def main(
         ref,
         subject,
         description,
+        phase,
         band,
         datatype,
         tmin,
@@ -178,7 +182,7 @@ def main(
         )
         
         save_path = BIDSPath(
-            root = os.path.join('results', f'{path.task}({ref})'),
+            root = os.path.join('results', f'{path.task}(roi)({ref})'),
             datatype='(decode)'+str(datatype),
             subject=subject,
             suffix=band,
@@ -211,20 +215,20 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
 
     parser.add_argument("--bids_root", type=str,
-                        default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/",
+                        default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/",
                         help="Root directory of the BIDS dataset")
-    parser.add_argument("--subject", type=str, default='SMCl',
+    parser.add_argument("--subject", type=str, default='AICl',
                         help="Subject to process")
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['car', 'bipolar'],
                         help="ROI to process")
-    parser.add_argument("--description", type=str, default='LM',
+    parser.add_argument("--description", type=str, default='perception',
                         choices=['perception', 'production',
                                  'JL','LM','LS'],
                         help="perception or production")
     parser.add_argument("--band", type=str, default='highgamma',
                         help="highgamma or other band of neural signal")
-    parser.add_argument("--datatype", type=str, default='word',
+    parser.add_argument("--datatype", type=str, default='phoneme',
                         choices=['phoneme','articulator','syllable',
                                  'phoneme(acoustic)','articulator(acoustic)','syllable(acoustic)',
                                  'word'],

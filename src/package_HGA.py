@@ -42,6 +42,7 @@ def main(
             datatype=ref,
             task=None,
             description=None,
+            recording=None,
             processing='3mm',
             suffix='aparc2009s',
             extension='.csv',
@@ -50,7 +51,7 @@ def main(
         
         
         epochs = mne.read_epochs(epoch_path, preload=True)
-        evoked = epochs.average()
+        evoked = epochs.average(method=lambda x: np.nanmean(x, axis=0))
         # save epochs to pandas
         df = evoked.to_data_frame(
             long_format=True,
@@ -108,6 +109,7 @@ def main(
         df['description'] = epoch_path.description
         df['task'] = epoch_path.task
         df['phase'] = epoch_path.processing
+        df['modality'] = epoch_path.recording if epoch_path.recording is not None else 'sound'
         
         df.loc[df['roi'] == 'PrG', 'roi'] = 'SMC'
         df.loc[df['roi'] == 'PoG', 'roi'] = 'SMC'
@@ -142,6 +144,7 @@ def main(
             description=epoch_path.description,
             datatype='HGA',
             suffix='time',
+            recording=epoch_path.recording,
             task=epoch_path.task,
             subject=epoch_path.subject,
             processing=epoch_path.processing,
@@ -154,8 +157,10 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')

@@ -152,7 +152,7 @@ def main(
     epoch_paths = BIDSPath(
         root=bids_root + f"derivatives/epoch({ref})",
         suffix=band,
-        datatype='epoch(band)(sig)(effective)',
+        datatype='epoch(band)(power)',
         extension=".h5",
         check=False,
     )
@@ -164,7 +164,6 @@ def main(
         subject = epoch_path.subject
         phase = epoch_path.processing
         desc = epoch_path.description
-        phase = 'Response' if desc == 'production' else 'Audio'
         
         # Load parcellation
         parc_path = epoch_path.copy().update(
@@ -172,6 +171,7 @@ def main(
             datatype=ref,
             task=None,
             description=None,
+            recording=None,
             processing='3mm',
             suffix='aparc2009s',
             extension='.csv',
@@ -183,8 +183,11 @@ def main(
         
         parc = pd.read_csv(parc_path[0])
         parc.rename(columns={'name': 'channel'}, inplace=True)
-        
+        if len(parc) == 0:
+            logger.warning(f"No parcellation for {subject}, skipping")
+            continue
         # Find Insula and IFG channels
+        
         insula_channels = parc[parc['label'].apply(is_insula_label)]['channel'].tolist()
         ifg_channels = parc[parc['label'].apply(is_ifg_label)]['channel'].tolist()
         
@@ -196,6 +199,7 @@ def main(
         
         # Load epochs
         epochs = mne.read_epochs(epoch_path, preload=True)
+        epochs.crop(None, 0) if epoch_path.processing.lower()=='baseline' else epochs.crop(None, None)
         evoked = epochs.average()
         times = evoked.times
         dt = times[1] - times[0] if len(times) > 1 else 0.001
@@ -266,8 +270,11 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma', 'gamma', 'beta', 'alpha', 'theta'])
     parser.add_argument("--ref", type=str, default='bipolar', choices=['bipolar', 'car'])
     args = parser.parse_args()

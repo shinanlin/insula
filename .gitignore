@@ -1,0 +1,8 @@
+# Ignore logs and results directories
+logs/
+results/
+img/
+.pytest_cache/
+__pycache__/
+.vscode/
+notebooks/3d_html_all/

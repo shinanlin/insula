@@ -31,8 +31,8 @@ def main(
     epoch_paths = BIDSPath(
         root=os.path.join(bids_root,f"derivatives/epoch({ref})"),
         suffix=band,
-        datatype='epoch(band)(power)',
-        extension=".fif",
+        datatype='epoch(band)(zscore)',
+        extension=".h5",
         check=False,
     )
     
@@ -77,7 +77,7 @@ def main(
         try:
             sig_path = epoch_path.copy().update(
                 datatype='epoch(band)(sig)',
-                extension='.fif',
+                extension='.h5',
             ).match()[0]
             sig_epochs = mne.read_epochs(sig_path, preload=True)
             sig_mask = np.isin(montage.ch_names, sig_epochs.ch_names)
@@ -92,6 +92,7 @@ def main(
             description=None,
             processing=f'{int(radius)}mm',
             suffix='aparc2009s',
+            recording=None,
             extension='.csv',
         ).match()[0]
         parc = pd.read_csv(parc_path)
@@ -143,10 +144,11 @@ def main(
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')
     parser.add_argument("--recon_dir", type=str, default=r'/cwork/ns458/ECoG_Recon/',
