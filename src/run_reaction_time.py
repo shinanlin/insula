@@ -319,12 +319,16 @@ def predict_permutation_scores(
     perm_scores = np.full((n_channels, n_perm), np.nan)
     p_values = np.full(n_channels, np.nan)
 
-    scorer = lambda model, x, y: r2_score(y, model.predict(x))
-    rng = np.random.RandomState(random_state)
+    effective_n_jobs = n_jobs
+    if effective_n_jobs == 0:
+        raise ValueError("n_jobs must be non-zero")
+    if effective_n_jobs is None or effective_n_jobs < 0:
+        effective_n_jobs = -1
+    else:
+        effective_n_jobs = int(min(effective_n_jobs, n_channels))
 
-    for ch_idx in tqdm(range(n_channels), desc="Channels", leave=False):
-        
-        # Use entire time series for this channel as features
+    def _one_channel(ch_idx):
+        rng = np.random.RandomState(random_state + int(ch_idx))
         x_ch = X[:, ch_idx, :]  # (n_trials, n_times)
 
         fold_obs = []
@@ -334,7 +338,6 @@ def predict_permutation_scores(
             x_train, x_test = x_ch[tr], x_ch[te]
             y_train, y_test = rt[tr], rt[te]
 
-            # Basic hygiene: remove NaN rows
             train_ok = ~np.isnan(x_train).any(axis=1) & ~np.isnan(y_train)
             test_ok = ~np.isnan(x_test).any(axis=1) & ~np.isnan(y_test)
             if train_ok.sum() < 2 or test_ok.sum() < 2:
@@ -345,39 +348,37 @@ def predict_permutation_scores(
             x_test = x_test[test_ok]
             y_test = y_test[test_ok]
 
-            # Multi-target approach: stack obs + all perms into one Y matrix
-            # Generate all permuted y_train in advance
             seeds_fold = rng.randint(0, 2**31 - 1, size=n_perm)
             y_train_all = np.empty((len(y_train), 1 + n_perm))
-            y_train_all[:, 0] = y_train  # First column: observed
-            
+            y_train_all[:, 0] = y_train
+
             for i, seed in enumerate(seeds_fold):
                 r = np.random.RandomState(seed)
                 y_perm = y_train.copy()
                 r.shuffle(y_perm)
                 y_train_all[:, i + 1] = y_perm
-            
-            # Single fit for all targets (obs + perms)
+
             dec = clone(pipeline)
             dec.fit(x_train, y_train_all)
-            
-            # Single predict for all targets
-            y_pred_all = dec.predict(x_test)  # (n_test, 1+n_perm)
-            
-            # Compute R² for each target
-            r2_all = np.array([r2_score(y_test, y_pred_all[:, i]) 
-                              for i in range(1 + n_perm)])
-            
-            fold_obs.append(r2_all[0])  # Observed R²
-            fold_perm.append(r2_all[1:])  # Permutation R²s
+
+            y_pred_all = dec.predict(x_test)
+            r2_all = np.array([r2_score(y_test, y_pred_all[:, i]) for i in range(1 + n_perm)])
+
+            fold_obs.append(r2_all[0])
+            fold_perm.append(r2_all[1:])
 
         if len(fold_obs) == 0:
-            continue
+            return ch_idx, np.nan, np.full(n_perm, np.nan), np.nan
 
         obs = float(np.mean(fold_obs))
-        perm = np.mean(np.stack(fold_perm, axis=0), axis=0)  # (n_perm,)
+        perm = np.mean(np.stack(fold_perm, axis=0), axis=0)
         p_val = (np.sum(perm >= obs) + 1.0) / (n_perm + 1.0)
+        return ch_idx, obs, perm, p_val
 
+    results = Parallel(n_jobs=effective_n_jobs, batch_size=1)(
+        delayed(_one_channel)(ch_idx) for ch_idx in range(n_channels)
+    )
+    for ch_idx, obs, perm, p_val in results:
         obs_scores[ch_idx] = obs
         perm_scores[ch_idx, :] = perm
         p_values[ch_idx] = p_val
@@ -534,13 +535,13 @@ if __name__ == "__main__":
                         help='Reference name used in derivatives')
     parser.add_argument("--window", type=float, default=0.5,
                         help="window length in seconds")
-    parser.add_argument("--step", type=float, default=0.2,
+    parser.add_argument("--step", type=float, default=0.1,
                         help="step size in seconds")
-    parser.add_argument("--n_perm", type=int, default=3,
+    parser.add_argument("--n_perm", type=int, default=300,
                         help="number of permutations")
     parser.add_argument("--n_folds", type=int, default=5,
                         help="number of folds")
-    parser.add_argument("--n_jobs", type=int, default=10,
+    parser.add_argument("--n_jobs", type=int, default=20,
                         help="number of jobs")
 
     args = parser.parse_args()

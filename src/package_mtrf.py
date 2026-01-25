@@ -15,7 +15,10 @@ from mne_bids import BIDSPath
 import pandas as pd
 import mne
 import logging
+import re
 from tqdm import tqdm
+from ieeg.viz.mri import force2frame
+
 
 logging.basicConfig(
     level=logging.INFO,
@@ -28,8 +31,8 @@ logger = logging.getLogger(__name__)
 
 def main(
     bids_root: str,
-    task: str,
     ref: str,
+    recon_dir: str,
 ):
     """
     Package TRF results into CSV format with electrode positions and ROI labels.
@@ -40,7 +43,18 @@ def main(
         Root directory of the BIDS dataset
     ref : str
         Reference type ('bipolar' or 'car')
+    recon_dir: str,
     """
+
+    # get task name from a artibutary bids file
+    
+    task_path = BIDSPath(
+        root=bids_root,
+        suffix='highgamma',
+        extension='.h5',
+        check=False,
+    ).match()[0]
+    task = task_path.task
     
     # Get all TRF result files
     trf_paths = BIDSPath(
@@ -54,23 +68,31 @@ def main(
     for trf_path in tqdm(trf_paths, desc='Processing subjects'):
         
         subject = trf_path.subject
+        phase = trf_path.processing
+        description = trf_path.description
         
-        # Load TRF results
-        performance = h5py.File(trf_path, 'r')
-
-        # pearsonr arrays are shape (n_folds, n_channel)
-        fdr_mask = performance['fdr_mask'][:]
-        coef = performance['pearsonr'][:].mean(axis=0)
-        weight = performance['weights'][:].mean(axis=0)
-        mask = performance['mask'][:]
-        chn_names = np.array([chn.decode() for chn in performance['chn_names']])
-        times = performance['times'][:]
-
-        performance.close()
+        # load the any epoch file of this subject to convert the montage
+        epoch_path = BIDSPath(
+            root=bids_root + 'derivatives/epoch(bipolar)',
+            subject=subject,
+            datatype='epoch(band)(sig)(effective)',
+            suffix='highgamma',
+            processing=phase,
+            description=description,
+            extension='.h5',
+            check=False,
+        ).match()
+        try:
+            epoch_path = epoch_path[0]
+            epochs = mne.read_epochs(epoch_path, verbose='error')
+            montage = epochs.get_montage()
+        except IndexError:
+            logger.warning(f'No epoch file found for subject {subject}')
+            continue
         
         # Load parcellation info
         try:
-            parc_path = trf_path.copy().update(
+            parc_path = epoch_path.copy().update(
                 root=bids_root + 'derivatives/parcellation',
                 datatype=ref,
                 task=None,
@@ -85,8 +107,33 @@ def main(
             logger.warning(f"No parcellation file found for subject {subject}")
             continue
         
-        # Get feature type from task name
-        feature_type = trf_path.task.split('(')[0] if '(' in trf_path.task else trf_path.task
+        # Merge with parcellation info
+        parc.rename(columns={'name': 'channel'}, inplace=True)
+        
+        # add channel (x, y, z)
+        sub_id = re.sub(r'^D0+', 'D', subject)
+        to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
+        trans = mne.transforms.Transform(fro='head', to='mri',
+                                        trans=to_fsaverage['trans'])
+        force2frame(montage, trans.from_str)  
+        montage.apply_trans(trans) 
+        pos_m = montage.get_positions()['ch_pos']
+        cord_df = pd.DataFrame(pos_m).T
+        cord_df.columns = ['x', 'y', 'z']
+        cord_df[['x','y','z']] *= 1000
+        cord_df = cord_df.reset_index().rename(columns={'index': 'channel'})
+        
+        # Load TRF results
+        performance = h5py.File(trf_path, 'r')
+        # pearsonr arrays are shape (n_folds, n_channel)
+        fdr_mask = performance['fdr_mask'][:]
+        coef = performance['pearsonr'][:].mean(axis=0)
+        weight = performance['weights'][:].mean(axis=0)
+        mask = performance['mask'][:]
+        chn_names = np.array([chn.decode() for chn in performance['chn_names']])
+        times = performance['times'][:]
+
+        performance.close()
         
         # Create dataframe for this subject
         n_chan, n_feat, n_time = weight.shape
@@ -111,15 +158,15 @@ def main(
 
         df_long = pd.concat(dfs, ignore_index=True)
         
+        parc_sub = parc[['channel', 'label','roi','hemi']]
+        df_long = df_long.merge(parc_sub, on='channel', how='left')
         # Merge with parcellation info
-        parc.rename(columns={'name': 'channel'}, inplace=True)
-        df_long = df_long.merge(parc[['channel', 'roi', 'hemi', 'x', 'y', 'z']], on='channel', how='left')
-        
+        df_long = df_long.merge(cord_df[['channel', 'x', 'y', 'z']], on='channel', how='left')
         # Clean up ROI names (similar to package_HGA.py)
         df_long.loc[df_long['roi'] == 'PrG', 'roi'] = 'SMC'
         df_long.loc[df_long['roi'] == 'PoG', 'roi'] = 'SMC'
         df_long.loc[df_long['roi'] == 'Subcentral', 'roi'] = 'SMC'
-        df_long[['x','y','z']] *= 1000
+        df_long.loc['feature'] = trf_path.suffix 
         # Save each subject's dataframe separately
         save_path = trf_path.copy().update(
             extension='.csv',
@@ -129,7 +176,6 @@ def main(
         
         logger.info(f"Saved TRF results for subject {subject} to {save_path}")
         logger.info(f"Rows: {len(df_long)}, Features: {df_long['feature'].nunique()}")
-        logger.info(f"Significant electrodes: {df_long['significant'].sum()}, Total electrodes: {len(chn_names)}")
     
 
 if __name__ == "__main__":
@@ -138,12 +184,10 @@ if __name__ == "__main__":
     parser.add_argument("--bids_root", type=str,
                         default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/",
                         help="Root directory of the BIDS dataset")
-    parser.add_argument("--task", type=str,
-                        default="PhonemeSequence",
-                        help="Task name")
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
                         help="Reference type")
-    
+    parser.add_argument('--recon_dir', type=str, default=r'/cwork/ns458/ECoG_Recon/',
+                        help='path to the recon-all directory')
     args = parser.parse_args()
     main(**vars(args))

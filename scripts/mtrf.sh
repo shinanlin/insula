@@ -38,7 +38,7 @@ DESCRIPTIONS=('Repeat')
 PHASES=('Stimulus')
 
 TYPE=(
-  'mel'
+  'envelope'
 )
 
 N_FOLDS=10

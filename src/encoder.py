@@ -530,7 +530,7 @@ if __name__ == "__main__":
                         help="Number of permutations")
     parser.add_argument("--regularization", type=float, default=None,
                         help="Regularization parameter")
-    parser.add_argument("--concat", default=False, type=bool,
+    parser.add_argument("--concat", default=True, type=bool,
                         help="Concatenate the epochs")
     
     args = parser.parse_args()
