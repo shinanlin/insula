@@ -1,19 +1,31 @@
 
 import argparse
-import logging
+import sys
 import os
-from typing import Optional
 
 import mne
 import numpy as np
 import pandas as pd
 from mne_bids import BIDSPath
+from sklearn.pipeline import make_pipeline
 from himalaya.ridge import RidgeCV
-from ieeg.calc.stats import time_perm_cluster
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import KFold
 from joblib import Parallel, delayed
 from tqdm import tqdm
 import h5py
+from ieeg.calc.oversample import mixup
+from einops import rearrange
 
+import logging
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+    datefmt='%Y-%m-%d %H:%M:%S',
+    stream=sys.stdout
+)
+logger = logging.getLogger(__name__)
+RANDOM_SEED = 42
 
 def load_subject_data(subject: str, epoch_paths: BIDSPath, ref: str) -> pd.DataFrame:
     """
@@ -197,7 +209,6 @@ def _prepare_data(
     df: pd.DataFrame,
     phase: str,
     description: str,
-    min_trials: int = 10,
 ):
     """Prepare 3D data array and RT vector from long-format DataFrame.
     
@@ -219,236 +230,286 @@ def _prepare_data(
     rt = np.array([trial_to_rt[t] for t in trials])
     
     valid = ~np.isnan(rt)
-
     
     trials = trials[valid]
     rt = rt[valid]
     
     # Build 3D array via pivot
     valid_sub = sub[sub['trial'].isin(trials)]
-    pivot = valid_sub.pivot_table(
-        index='trial', columns=['channel', 'time'], values='value', aggfunc='mean'
+    X_3d = (valid_sub
+        .groupby(['trial','channel','time'])['value']
+        .mean()
+        .to_xarray()
     )
-    # Reshape to (n_trials, n_channels, n_times)
-    X_3d = pivot.values.reshape(len(trials), len(channels), len(times))
+    X_3d = X_3d.values
+    
+    # mixup, in-place
+    mixup(X_3d, obs_axis=0, rng=42)
     
     return X_3d, rt, times, channels
 
 
-def _window_mean(arr: np.ndarray, center_idx: int, half_win: int) -> np.ndarray:
-    """Compute mean over a sliding window centered at center_idx."""
-    start = max(0, center_idx - half_win)
-    end = min(arr.shape[-1], center_idx + half_win + 1)
-    return np.nanmean(arr[..., start:end], axis=-1)
+def cluster_correction(scores, baseline, p_thresh=0.05, tails=1):
 
+    from ieeg.calc.stats import time_cluster, proportion, tail_compare
 
-def _fit_ridge_at_time(
-    X_3d: np.ndarray,
-    rt: np.ndarray,
-    t_idx: int,
-    half_win: int,
-    alphas: np.ndarray,
-    cv: int = 5,
-    min_samples: int = 10,
-):
-    """Fit RidgeCV at a single time point and return CV R² and best alpha.
-    
-    Uses cross_val_score to avoid data leakage (train/test on same data).
-    """
-    from sklearn.model_selection import cross_val_score
-    from sklearn.linear_model import RidgeCV as SklearnRidgeCV
-    
-    X_win = _window_mean(X_3d, t_idx, half_win)
-    valid_mask = ~np.isnan(X_win).any(axis=1)
-    
-    if valid_mask.sum() < min_samples:
-        return np.nan, np.nan
-    
-    X_t = X_win[valid_mask]
-    y_t = rt[valid_mask]
-    
-    # Use sklearn RidgeCV to find best alpha
-    ridge_cv = SklearnRidgeCV(alphas=alphas, cv=cv, scoring='r2')
-    ridge_cv.fit(X_t, y_t)
-    best_alpha = ridge_cv.alpha_
-    
-    # Get unbiased CV score using the best alpha
-    from sklearn.linear_model import Ridge
-    ridge = Ridge(alpha=best_alpha, fit_intercept=True)
-    cv_scores = cross_val_score(ridge, X_t, y_t, cv=cv, scoring='r2')
-    r2 = np.mean(cv_scores)
-    
-    return r2, best_alpha
-
-
-def _permutation_r2_all_times(
-    X_3d: np.ndarray,
-    rt: np.ndarray,
-    half_win: int,
-    alpha: float,
-    seed: int,
-    min_samples: int = 10,
-):
-    """Compute R² for a single permutation across all time points.
-    
-    Returns array of shape (n_times,).
-    """
-    from sklearn.linear_model import Ridge
-    
-    n_times = X_3d.shape[-1]
-    r2_perm = np.full(n_times, np.nan)
-    
-    rng = np.random.default_rng(seed)
-    rt_shuf = rng.permutation(rt)
-    
-    ridge = Ridge(alpha=alpha, fit_intercept=True)
-    
-    for t_idx in range(n_times):
-        X_win = _window_mean(X_3d, t_idx, half_win)
-        valid_mask = ~np.isnan(X_win).any(axis=1)
-        
-        if valid_mask.sum() < min_samples:
-            continue
-        
-        X_t = X_win[valid_mask]
-        y_t = rt_shuf[valid_mask]
-        
-        ridge.fit(X_t, y_t)
-        r2_perm[t_idx] = ridge.score(X_t, y_t)
-    
-    return r2_perm
-
-
-def sliding_window_rt_prediction(
-    df: pd.DataFrame,
-    phase: str,
-    description: str,
-    win_size: float = 0.05,
-    n_perm: int = 1000,
-    alphas: Optional[np.ndarray] = None,
-    n_jobs: int = -1,
-    random_state: int = 42,
-) -> Optional[pd.DataFrame]:
-    """Predict RT using sliding-window HGA with RidgeCV + permutation cluster test.
-    
-    Parameters
-    ----------
-    df : pd.DataFrame
-        Long-format DataFrame from load_subject_data.
-    phase : str
-        Phase to analyze (e.g., 'Stimulus', 'Delay', 'Go', 'Response').
-    description : str
-        Condition to analyze (e.g., 'Decision', 'Repeat').
-    win_size : float
-        Sliding window size in seconds (default 50ms).
-    n_perm : int
-        Number of permutations for null distribution.
-    alphas : ndarray, optional
-        Array of alpha values for RidgeCV. Default: logspace(-3, 3, 10).
-    n_jobs : int
-        Number of parallel jobs (-1 for all cores).
-    random_state : int
-        Random seed for reproducibility.
-    
-    Returns
-    -------
-    pd.DataFrame with columns: time, r2, best_alpha, r2_null_mean, r2_null_std, mask, pval
-    Returns None if insufficient data.
-    """
-    if alphas is None:
-        alphas = np.logspace(-3, 3, 10)
-    
-    X_3d, rt, times, channels = _prepare_data(df, phase, description)
-    
-    dt = np.median(np.diff(times))
-    half_win = int(np.ceil(win_size / 2 / dt))
-    n_times = len(times)
-    
-    # Step 1: Fit RidgeCV at each time point (parallel)
-    results = Parallel(n_jobs=n_jobs)(
-        delayed(_fit_ridge_at_time)(X_3d, rt, t_idx, half_win, alphas)
-        for t_idx in tqdm(range(n_times), desc="Fitting RidgeCV")
-    )
-    r2_true = np.array([r[0] for r in results])
-    best_alphas = np.array([r[1] for r in results])
-    
-    # Use median best alpha for permutations (more stable)
-    median_alpha = np.nanmedian(best_alphas)
-    if np.isnan(median_alpha):
-        median_alpha = 1.0
-    
-    # Step 2: Permutation test (parallel over permutations, serial over time points)
-    rng = np.random.default_rng(random_state)
-    seeds = rng.integers(0, 2**31, size=n_perm)
-    
-    perm_results = Parallel(n_jobs=n_jobs)(
-        delayed(_permutation_r2_all_times)(
-            X_3d, rt, half_win, median_alpha, seeds[p]
+    # scores: (n_times, n_channels)
+    # baseline: (n_times, n_channels, n_perm)
+    if scores.ndim != 2:
+        raise ValueError(f"scores must be 2D (n_times, n_channels), got {scores.shape}")
+    if baseline.ndim != 3:
+        raise ValueError(f"baseline must be 3D (n_times, n_channels, n_perm), got {baseline.shape}")
+    if scores.shape[0] != baseline.shape[0] or scores.shape[1] != baseline.shape[1]:
+        raise ValueError(
+            f"scores and baseline must match in (n_times, n_channels). "
+            f"Got scores={scores.shape}, baseline={baseline.shape}"
         )
-        for p in tqdm(range(n_perm), desc="Permutations")
-    )
-    r2_null = np.array(perm_results)  # (n_perm, n_times)
-    
-    # Step 3: Cluster-based permutation test
-    r2_true_2d = r2_true.reshape(1, -1)
-    mask, pvals = time_perm_cluster(
-        r2_true_2d,
-        r2_null,
-        p_thresh=0.05,
-        n_perm=n_perm,
-        n_jobs=1,
-    )
-    
-    result = pd.DataFrame({
-        'time': times,
-        'r2': r2_true,
-        'best_alpha': best_alphas,
-        'r2_null_mean': np.nanmean(r2_null, axis=0),
-        'r2_null_std': np.nanstd(r2_null, axis=0),
-        'mask': mask.flatten(),
-        'pval': pvals.flatten(),
-    })
-    
-    return result
 
+    n_times, n_channels = scores.shape
+    n_perm = baseline.shape[2]
+
+    mask = np.zeros((n_channels, n_times), dtype=bool)
+    p_act = np.ones((n_channels, n_times), dtype=float)
+
+    for ch in range(n_channels):
+        sc = scores[:, ch]
+        base = baseline[:, ch, :].T  # (n_perm, n_times)
+
+        diff = base - sc[None, :]
+        p_ch = (np.sum(diff >= 0, axis=0) + 1) / (diff.shape[0] + 1)
+        p_perm = proportion(diff, tail=tails, axis=0)
+        b_act = tail_compare(1. - p_ch, 1. - p_thresh, tails)
+        b_perm = tail_compare(p_perm, 1. - p_thresh, tails)
+        mask[ch, :] = time_cluster(b_act, b_perm, 1 - p_thresh, tails)
+        p_act[ch, :] = p_ch
+
+    return mask, p_act
+
+
+
+def predict_permutation_scores(
+    X,
+    rt,
+    pipeline,
+    cv,
+    n_perm=1000,
+    random_state=42,
+    n_jobs=-1,
+):
+    """
+    Univariate channel-wise prediction with permutation test.
+    X: (n_trials, n_channels, n_times)
+    rt: (n_trials,)
+    Returns:
+        obs_scores: (n_channels,) R² for each channel
+        perm_scores: (n_channels, n_perm) permutation R² for each channel
+        p_values: (n_channels,) p-value for each channel
+    """
+    from sklearn.base import clone
+    from sklearn.metrics import r2_score
+
+    n_trials, n_channels, n_times = X.shape
+    # Use entire time window as features (no averaging)
+    logger.info(f"[predict_permutation_scores] Using entire time window ({n_times} time points) as features")
+    
+    if n_trials < 2 or n_channels < 1:
+        raise ValueError("Insufficient data for prediction")
+
+    obs_scores = np.full(n_channels, np.nan)
+    perm_scores = np.full((n_channels, n_perm), np.nan)
+    p_values = np.full(n_channels, np.nan)
+
+    scorer = lambda model, x, y: r2_score(y, model.predict(x))
+    rng = np.random.RandomState(random_state)
+
+    for ch_idx in tqdm(range(n_channels)):
+        
+        # Use entire time series for this channel as features
+        x_ch = X[:, ch_idx, :]  # (n_trials, n_times)
+
+        fold_obs = []
+        fold_perm = []
+
+        for tr, te in cv.split(x_ch, rt):
+            x_train, x_test = x_ch[tr], x_ch[te]
+            y_train, y_test = rt[tr], rt[te]
+
+            # Basic hygiene: remove NaN rows
+            train_ok = ~np.isnan(x_train).any(axis=1) & ~np.isnan(y_train)
+            test_ok = ~np.isnan(x_test).any(axis=1) & ~np.isnan(y_test)
+            if train_ok.sum() < 2 or test_ok.sum() < 2:
+                continue
+
+            x_train = x_train[train_ok]
+            y_train = y_train[train_ok]
+            x_test = x_test[test_ok]
+            y_test = y_test[test_ok]
+
+            dec = clone(pipeline)
+            dec.fit(x_train, y_train)
+            fold_obs.append(scorer(dec, x_test, y_test))
+
+            seeds_fold = rng.randint(0, 2**31 - 1, size=n_perm)
+
+            # NOTE: Use default arguments to force early binding of loop variables
+            def one_perm(seed, x_tr=x_train, y_tr=y_train, x_te=x_test, y_te=y_test):
+                r = np.random.RandomState(seed)
+                y_train_perm = y_tr.copy()
+                r.shuffle(y_train_perm)
+                dec_p = clone(pipeline)
+                dec_p.fit(x_tr, y_train_perm)
+                return scorer(dec_p, x_te, y_te)
+
+            perm_score = np.asarray(
+                Parallel(n_jobs=n_jobs, batch_size=10)(
+                    delayed(one_perm)(s) for s in seeds_fold
+                )
+            )
+            fold_perm.append(perm_score)
+
+        if len(fold_obs) == 0:
+            continue
+
+        obs = float(np.mean(fold_obs))
+        perm = np.mean(np.stack(fold_perm, axis=0), axis=0)  # (n_perm,)
+        p_val = (np.sum(perm >= obs) + 1.0) / (n_perm + 1.0)
+
+        obs_scores[ch_idx] = obs
+        perm_scores[ch_idx, :] = perm
+        p_values[ch_idx] = p_val
+
+    return obs_scores, perm_scores, p_values
 
 def main(bids_root: str, 
          ref: str, 
-         band: str):
+         band: str,
+         subject: str,
+         window: float,
+         step: float,
+         n_folds: int,
+         n_perm: int,
+         n_jobs: int,
+         ):
+    
     """Main entry point: load data for all subjects and predict RT."""
     
     epoch_paths = BIDSPath(
         root=bids_root + f"derivatives/epoch({ref})",
         suffix=band,
+        subject=subject,
         datatype='epoch(band)(zscore)',
         extension=".h5",
         check=False,
     )
     
-    subjects = list(set([pt.subject for pt in epoch_paths.match()]))
+    alphas = np.logspace(-3, 3, 10)
+    cv = KFold(n_splits=n_folds, shuffle=True, random_state=RANDOM_SEED)
     
-    for subject in tqdm(subjects, desc='Processing subjects'):
-        df = load_subject_data(subject, epoch_paths, ref)
-        if df is None:
-            continue
+    pipeline=make_pipeline(
+        StandardScaler(),
+        RidgeCV(alphas=alphas, fit_intercept=True),
+    )
+    
+    df = load_subject_data(subject, epoch_paths, ref)
+    
+    for phase in df.phase.unique():
         
-        for phase in df.phase.unique():
-            for desc in df.description.unique():
-                result = sliding_window_rt_prediction(df, phase, desc)
-                if result is None:
-                    logging.info(f"Skipping {subject}/{phase}/{desc}: insufficient data")
+        for desc in df.description.unique():
+            
+            X, rt, times, channels = _prepare_data(df, phase, desc)
+            
+            tmin, tmax = times.min(), times.max()
+            fs = 128
+            time_points = np.arange(tmin + window,
+                        tmax + step,
+                        step)
+            
+            window_samples = int(window * fs)
+            step_samples = int(step * fs)
+            
+            r2 = np.full((len(time_points), len(channels)), np.nan)
+            perm_r2 = np.full((len(time_points), len(channels), n_perm), np.nan)
+            pvals = np.full((len(time_points), len(channels)), np.nan)
+            
+            for t_idx, time_end in enumerate(
+                tqdm(
+                    time_points,
+                    desc=f"{subject} | {phase} | {desc}",
+                    leave=False,
+                )
+            ):
+                
+                end_sample = int((time_end - tmin) * fs) + 1
+                start_sample = end_sample - window_samples
+                if start_sample < 0 or end_sample > X.shape[-1]:
                     continue
                 
-                result['subject'] = subject
-                result['phase'] = phase
-                result['description'] = desc
+                X_segment = X.copy()[..., start_sample:end_sample]
+                logger.info(f"Processing time window: {time_end:.3f}s, samples {start_sample}:{end_sample}")
                 
-                # Save result
-                out_dir = os.path.join(bids_root, 'derivatives', 'rt_prediction', ref)
-                os.makedirs(out_dir, exist_ok=True)
-                out_path = os.path.join(out_dir, f'sub-{subject}_phase-{phase}_desc-{desc}_rt-pred.csv')
-                result.to_csv(out_path, index=False)
-                logging.info(f"Saved: {out_path}")
+                score, permutation_scores, p_value = predict_permutation_scores(
+                    X_segment,
+                    rt,
+                    pipeline,
+                    cv,
+                    n_perm=n_perm,
+                    random_state=42,
+                    n_jobs=n_jobs,
+                )
+                
+                # actual score shape: (time, channels)
+                r2[t_idx, :] = score
+                # permutation score shape: (time, channels, perm)
+                perm_r2[t_idx, :, :] = permutation_scores
+                # pval shape: (time, channels)
+                pvals[t_idx, :] = p_value
+
+            mask, p_values = cluster_correction(
+                r2,
+                perm_r2,
+                p_thresh=0.05,
+                tails=1,
+            )
+
+            # Save everything in (channels, time) orientation
+            r2 = rearrange(r2, 't c -> c t')
+            pvals = rearrange(pvals, 't c -> c t')
+            perm_r2 = rearrange(perm_r2, 't c p -> c t p')
+
+            pt = epoch_paths.copy().match()[0]
+            save_path = BIDSPath(
+                root = os.path.join('results', f'{pt.task}({ref})'),
+                datatype='RT',
+                subject=subject,
+                suffix=band,
+                processing=phase,
+                description=desc,
+                extension='.h5',
+                check=False
+            )
+            save_path.mkdir(exist_ok=True)
+            logger.info(f"Saving results to: {save_path}")
+
+            with h5py.File(save_path, "w") as f:
+                f.create_dataset(name='r2', data=r2)
+                f.create_dataset(name='perm_r2', data=perm_r2)
+                f.create_dataset(name='pval', data=pvals)
+                f.create_dataset(name='mask', data=mask)
+                f.create_dataset(name='cluster_pval', data=p_values)
+                f.create_dataset(name='time', data=time_points)
+                f.create_dataset(name='channels', data=np.asarray(channels, dtype='S'))
+
+                f.attrs["fs"] = fs
+                f.attrs["tmin"] = tmin
+                f.attrs["tmax"] = tmax
+                f.attrs["window"] = window
+                f.attrs["step"] = step
+                f.attrs["n_perm"] = n_perm
+                f.attrs["n_folds"] = n_folds
+                f.attrs["band"] = band
+                f.attrs["ref"] = ref
+                f.attrs["phase"] = phase
+                f.attrs["description"] = desc
 
 
 if __name__ == "__main__":
@@ -461,9 +522,22 @@ if __name__ == "__main__":
     parser.add_argument('--band', 
                         default='highgamma', 
                         help='Band suffix in epoch files')
+    parser.add_argument('--subject', 
+                        default='D0035', 
+                        help='Subject to process')
     parser.add_argument('--ref', 
                         default='bipolar', 
                         help='Reference name used in derivatives')
+    parser.add_argument("--window", type=float, default=0.5,
+                        help="window length in seconds")
+    parser.add_argument("--step", type=float, default=0.2,
+                        help="step size in seconds")
+    parser.add_argument("--n_perm", type=int, default=3,
+                        help="number of permutations")
+    parser.add_argument("--n_folds", type=int, default=5,
+                        help="number of folds")
+    parser.add_argument("--n_jobs", type=int, default=10,
+                        help="number of jobs")
 
     args = parser.parse_args()
     main(**vars(args))
