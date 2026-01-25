@@ -322,7 +322,7 @@ def predict_permutation_scores(
     scorer = lambda model, x, y: r2_score(y, model.predict(x))
     rng = np.random.RandomState(random_state)
 
-    for ch_idx in tqdm(range(n_channels)):
+    for ch_idx in tqdm(range(n_channels), desc="Channels", leave=False):
         
         # Use entire time series for this channel as features
         x_ch = X[:, ch_idx, :]  # (n_trials, n_times)
@@ -345,27 +345,31 @@ def predict_permutation_scores(
             x_test = x_test[test_ok]
             y_test = y_test[test_ok]
 
-            dec = clone(pipeline)
-            dec.fit(x_train, y_train)
-            fold_obs.append(scorer(dec, x_test, y_test))
-
+            # Multi-target approach: stack obs + all perms into one Y matrix
+            # Generate all permuted y_train in advance
             seeds_fold = rng.randint(0, 2**31 - 1, size=n_perm)
-
-            # NOTE: Use default arguments to force early binding of loop variables
-            def one_perm(seed, x_tr=x_train, y_tr=y_train, x_te=x_test, y_te=y_test):
+            y_train_all = np.empty((len(y_train), 1 + n_perm))
+            y_train_all[:, 0] = y_train  # First column: observed
+            
+            for i, seed in enumerate(seeds_fold):
                 r = np.random.RandomState(seed)
-                y_train_perm = y_tr.copy()
-                r.shuffle(y_train_perm)
-                dec_p = clone(pipeline)
-                dec_p.fit(x_tr, y_train_perm)
-                return scorer(dec_p, x_te, y_te)
-
-            perm_score = np.asarray(
-                Parallel(n_jobs=n_jobs, batch_size=10)(
-                    delayed(one_perm)(s) for s in seeds_fold
-                )
-            )
-            fold_perm.append(perm_score)
+                y_perm = y_train.copy()
+                r.shuffle(y_perm)
+                y_train_all[:, i + 1] = y_perm
+            
+            # Single fit for all targets (obs + perms)
+            dec = clone(pipeline)
+            dec.fit(x_train, y_train_all)
+            
+            # Single predict for all targets
+            y_pred_all = dec.predict(x_test)  # (n_test, 1+n_perm)
+            
+            # Compute R² for each target
+            r2_all = np.array([r2_score(y_test, y_pred_all[:, i]) 
+                              for i in range(1 + n_perm)])
+            
+            fold_obs.append(r2_all[0])  # Observed R²
+            fold_perm.append(r2_all[1:])  # Permutation R²s
 
         if len(fold_obs) == 0:
             continue
