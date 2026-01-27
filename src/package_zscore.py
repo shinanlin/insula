@@ -174,12 +174,12 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
-    parser.add_argument("--band", type=str, default="beta", choices=['highgamma','gamma','beta','alpha','theta'],
+    parser.add_argument("--band", type=str, default="lowband", choices=['highgamma','gamma','beta','alpha','theta','lowband'],
                         help='which frequency band to use')
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
