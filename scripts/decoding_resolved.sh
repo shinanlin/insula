@@ -1,39 +1,57 @@
 #!/bin/bash
 
-#SBATCH --job-name=decoding_resolved
-#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved.out
-#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved.err
+#SBATCH --job-name=decoding_resolved_picture
+#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture.out
+#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture.err
 #SBATCH --time=7-00:00:00
 #SBATCH --mem=36G
 #SBATCH --cpus-per-task=24
 #SBATCH --partition=common
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
-#SBATCH --array=0-11
+#SBATCH --array=0-5
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
 module purge
 module load CUDA/11.4
 
+# SUBJECTS=(
+#   AICl AICr
+#   PICl PICr
+# #   SMCl SMCr
+# #   IFGl IFGr
+# #   STGl STGr
+# #   HGl HGr
+# #   CGl CGr
+# )
+
+
 SUBJECTS=(
-  AICl AICr
-  PICl PICr
-  SMCl SMCr
-  IFGl IFGr
-  STGl STGr
+  AICl
+  PICl
+  SMCl
+  IFGl
+  STGl
+  CGl
 )
 
 # BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
 # DESCRIPTIONS=('Repeat')
 # BANDS=('highgamma')
-# DATATYPES=('phoneme')
+# DATATYPES=('phoneme' 'token' 'articulator')
 # PHASES=('Stimulus' 'Go' 'Response')
 
-
 # BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/"
-# DESCRIPTIONS=('Repeat')
+# DESCRIPTIONS=('Repeat' 'Decision')
 # BANDS=('highgamma')
-# DATATYPES=('word')
+# DATATYPES=('phoneme' 'lexicality')
+# PHASES=('Stimulus' 'Delay' 'Go' 'Response')
+
+# BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/"
+# DESCRIPTIONS=('Repeat' 'Decision' 'Passive')
+# BANDS=('highgamma')
+# DATATYPES=('phoneme' 'lexicality')
+# PHASES=('Stimulus' 'Response')
 
 BIDS_ROOT="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/"
 DESCRIPTIONS=('Repeat' 'Passive')
@@ -78,8 +96,8 @@ for BAND in ${BANDS[@]}; do
                 --n_perm ${N_PERMUTATIONS} \
                 --n_folds ${N_FOLDS} \
                 --n_jobs ${N_JOBS} \
-                > /hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.out \
-                2> /hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.err
+                > /hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.out \
+                2> /hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.err
                 echo "Exit code: $?"
             done
         done

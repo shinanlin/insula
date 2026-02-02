@@ -140,6 +140,7 @@ def load_pair_data(
         root=bids_root + 'derivatives/features',
         subject=subject,
         extension='.h5',
+        description=description,
         datatype='acoustic',
         check=False
     )
@@ -503,9 +504,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Unified mTRF encoding analysis")
     
     parser.add_argument("--bids_root", type=str,
-                        default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/",
+                        default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/",
                         help="Root directory of the BIDS dataset")
-    parser.add_argument("--subject", type=str, default='D0040',
+    parser.add_argument("--subject", type=str, default='D0100',
                         help="Subject to process")
     parser.add_argument("--description", type=str, default='Repeat',
                         help="Description of the neural signal")

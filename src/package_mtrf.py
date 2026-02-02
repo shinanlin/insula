@@ -33,6 +33,7 @@ def main(
     bids_root: str,
     ref: str,
     recon_dir: str,
+    feature: str,
 ):
     """
     Package TRF results into CSV format with electrode positions and ROI labels.
@@ -60,7 +61,7 @@ def main(
     trf_paths = BIDSPath(
         root=f'results/{task}({ref})',
         datatype='mtrf',
-        suffix='e',
+        suffix=feature,
         extension='.h5',
         check=False,
     ).match()
@@ -137,6 +138,7 @@ def main(
         
         # Create dataframe for this subject
         n_chan, n_feat, n_time = weight.shape
+        significant_map = dict(zip(chn_names, fdr_mask.astype(bool)))
         dfs = []
         for fidx in range(n_feat):
             d = (
@@ -153,7 +155,7 @@ def main(
             d['task'] = trf_path.task
             d['description'] = trf_path.description
             d['processing'] = trf_path.processing
-            d['significant'] = d['channel'].map(lambda ch: fdr_mask[chn_names.tolist().index(ch)])
+            d['significant'] = d['channel'].map(significant_map)
             dfs.append(d)
 
         df_long = pd.concat(dfs, ignore_index=True)
@@ -166,7 +168,7 @@ def main(
         df_long.loc[df_long['roi'] == 'PrG', 'roi'] = 'SMC'
         df_long.loc[df_long['roi'] == 'PoG', 'roi'] = 'SMC'
         df_long.loc[df_long['roi'] == 'Subcentral', 'roi'] = 'SMC'
-        df_long.loc['feature'] = trf_path.suffix 
+        df_long['suffix'] = trf_path.suffix
         # Save each subject's dataframe separately
         save_path = trf_path.copy().update(
             extension='.csv',
@@ -181,12 +183,18 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Package TRF results into CSV format")
     
+    # parser.add_argument("--bids_root", type=str,
+    #                     default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/",
+    #                     help="Root directory of the BIDS dataset")
     parser.add_argument("--bids_root", type=str,
-                        default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/",
+                        default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/",
                         help="Root directory of the BIDS dataset")
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
                         help="Reference type")
+    parser.add_argument('--feature', type=str, default='e',
+                        choices=['m', 'e'],
+                        help='feature type')
     parser.add_argument('--recon_dir', type=str, default=r'/cwork/ns458/ECoG_Recon/',
                         help='path to the recon-all directory')
     args = parser.parse_args()

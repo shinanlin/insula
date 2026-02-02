@@ -204,7 +204,7 @@ if __name__ == "__main__":
                         help="highgamma or other band of neural signal")
     parser.add_argument("--datatype", type=str, default='token',
                         choices=['phoneme','articulator','structure',
-                                 'word', 'token'])
+                                 'word', 'token','lexicality'])
     parser.add_argument("--variance", type=float, default=0.8,
                         help="number of variance")
     parser.add_argument("--window", type=float, default=0.6,
