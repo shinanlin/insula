@@ -192,8 +192,8 @@ if __name__ == "__main__":
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
                         help="Reference type")
-    parser.add_argument('--feature', type=str, default='e',
-                        choices=['m', 'e'],
+    parser.add_argument('--feature', type=str, default='em',
+                        choices=['m', 'e', 'em'],
                         help='feature type')
     parser.add_argument('--recon_dir', type=str, default=r'/cwork/ns458/ECoG_Recon/',
                         help='path to the recon-all directory')

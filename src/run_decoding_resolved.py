@@ -27,7 +27,6 @@ from ieeg.decoding.decode import Decoder
 from ieeg.calc.oversample import MinimumNaNSplit
 from run_decoding import load_roi_data, decode_permutation_scores
 
-
 import logging
 logging.basicConfig(
     level=logging.INFO,
