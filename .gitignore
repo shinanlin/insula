@@ -1,6 +1,9 @@
 # Ignore logs and results directories
 logs/
 results/
+
+# Exception: allow specific files in results/
+!results/exlude_insula.csv
 img/
 .pytest_cache/
 __pycache__/

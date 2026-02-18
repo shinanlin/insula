@@ -1,0 +1,40 @@
+Subject,Also have IFG,Exclude,Notes
+D0022,,,safe
+D0023,,,safe
+D0027,,,safe
+D0028,,,safe
+D0032,,,safe
+D0035,,,safe
+D0038,,,safe
+D0040,Yes,"['D0040_L1IF2-3', 'D0040_L1IF3-4']",
+D0042,,,safe
+D0044,,,safe
+D0045,Yes,,"Right hemi, safe"
+D0047,,,safe
+D0049,,,safe
+D0052,Yes,,"No significant electrode, pass"
+D0053,,,safe
+D0055,,,safe
+D0057,Yes,,"Right hemi, safe"
+D0059,,,safe
+D0060,,,safe
+D0063,,,safe
+D0064,,,safe
+D0067,Yes,,"XCorr different, safe"
+D0068,yes,,safe
+D0071,,,safe
+D0075,Yes,,"right hemi, safe"
+D0079,,"['D0079_LFAI1-2', 'D0079_LFAI2-3', 'D0079_LFMI1-2', 'D0079_LPI9-10']",
+D0080,,,safe
+D0084,yes,,"right hemi, safe"
+D0085,,,safe
+D0086,yes,,"This one got STG in the same shank!!!! deal with this later"
+D0088,,,safe
+D0090,,,safe
+D0092,,,safe??
+D0094,yes,,"Maybe safe? Hard to tell"
+D0095,,,safe
+D0096,,,also safe
+D0102,,,safe
+D0103,Yes,"['D0103_LAI7-8', 'D0103_LAI3-4', 'D0103_LAI5-6', 'D0103_LAI6-7']",
+D0115,,,safe
