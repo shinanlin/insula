@@ -3,10 +3,10 @@ D0022,,,safe
 D0023,,,safe
 D0027,,,safe
 D0028,,,safe
-D0032,,,safe
+D0032,Yes,"['D0032_LAI4-5']","Updated exclude list"
 D0035,,,safe
 D0038,,,safe
-D0040,Yes,"['D0040_L1IF2-3', 'D0040_L1IF3-4']",
+D0040,Yes,"['D0040_L1IF3-4']","Updated exclude list"
 D0042,,,safe
 D0044,,,safe
 D0045,Yes,,"Right hemi, safe"
@@ -24,17 +24,21 @@ D0067,Yes,,"XCorr different, safe"
 D0068,yes,,safe
 D0071,,,safe
 D0075,Yes,,"right hemi, safe"
-D0079,,"['D0079_LFAI1-2', 'D0079_LFAI2-3', 'D0079_LFMI1-2', 'D0079_LPI9-10']",
+D0079,,,safe
 D0080,,,safe
-D0084,yes,,"right hemi, safe"
+D0084,Yes,"['D0084_RFAI1-2']","Updated exclude list"
 D0085,,,safe
-D0086,yes,,"This one got STG in the same shank!!!! deal with this later"
+D0086,Yes,"['D0086_LTPI2-3']","Updated exclude list"
 D0088,,,safe
-D0090,,,safe
+D0090,Yes,"['D0090_RIA4-5']","Updated exclude list"
 D0092,,,safe??
 D0094,yes,,"Maybe safe? Hard to tell"
 D0095,,,safe
-D0096,,,also safe
-D0102,,,safe
-D0103,Yes,"['D0103_LAI7-8', 'D0103_LAI3-4', 'D0103_LAI5-6', 'D0103_LAI6-7']",
+D0096,Yes,"['D0096_LFAI2-3', 'D0096_LFAI4-5']","Updated exclude list"
+D0102,Yes,"['D0102_RFAI2-3']","Updated exclude list"
+D0103,,,safe
+D0106,Yes,"['D0106_LTAS2-3']","Updated exclude list"
 D0115,,,safe
+D0121,Yes,"['D0121_LFMI3-4']","Updated exclude list"
+D0122,Yes,"['D0122_LFAI3-4']","Updated exclude list"
+D0125,Yes,"['D0125_LIA4-5', 'D0125_LIA7-8']","Updated exclude list"
