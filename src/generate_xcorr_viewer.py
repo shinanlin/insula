@@ -45,10 +45,21 @@ IFG_PATTERNS = [
     "G_front_inf-Orbital",
     "G_front_inf-Triangul",
 ]
+STG_PATTERNS = [
+    "G_temp_sup-Lateral",
+    "G_temp_sup-Plan_polar",
+    "G_temp_sup-Plan_tempo",
+    "S_temporal_sup",
+]
+HG_PATTERNS = [
+    "G_temp_sup-G_T_transv",  # Heschl's gyrus (A1)
+]
 
 COLORS = {
     "insula": [212, 175, 55],   # gold
     "ifg": [35, 105, 189],      # blue
+    "stg": [50, 168, 82],       # green
+    "hg": [168, 50, 153],       # purple (A1/Heschl's)
     "default": [220, 220, 220],  # light gray
 }
 
@@ -108,32 +119,47 @@ def load_epochs(bids_root: str, subject: str, phase: str, desc: str,
     return mne.read_epochs(matches[0], preload=True, verbose="error")
 
 
-def classify_channels(parc: pd.DataFrame) -> Tuple[List[str], List[str]]:
-    """Return (insula_chns, ifg_chns) from parcellation."""
+def classify_channels(parc: pd.DataFrame) -> Tuple[List[str], List[str], List[str], List[str]]:
+    """Return (insula_chns, ifg_chns, stg_chns, hg_chns) from parcellation."""
     if "roi" not in parc.columns:
-        return [], []
+        return [], [], [], []
     ins_mask = parc["roi"].str.contains("INS", case=False, na=False)
     ifg_mask = parc["roi"].str.match(r"^IFG[s]?$", case=False, na=False)
+    stg_mask = parc["roi"].str.match(r"^STG[s]?$", case=False, na=False)
+    hg_mask = parc["roi"].str.match(r"^HG[s]?$", case=False, na=False)
     ins_chns = parc.loc[ins_mask, "channel"].unique().tolist()
     ifg_chns = parc.loc[ifg_mask, "channel"].unique().tolist()
-    return ins_chns, ifg_chns
+    stg_chns = parc.loc[stg_mask, "channel"].unique().tolist()
+    hg_chns = parc.loc[hg_mask, "channel"].unique().tolist()
+    return ins_chns, ifg_chns, stg_chns, hg_chns
 
 
-def filter_same_hemisphere(ins_chns: List[str], ifg_chns: List[str],
-                           parc: pd.DataFrame) -> Tuple[List[str], List[str]]:
-    """Keep only channels where Insula and IFG share at least one hemisphere."""
+def filter_same_hemisphere(
+    ins_chns: List[str], ifg_chns: List[str],
+    stg_chns: List[str], hg_chns: List[str],
+    parc: pd.DataFrame
+) -> Tuple[List[str], List[str], List[str], List[str]]:
+    """Keep only channels where Insula shares at least one hemisphere with any other ROI."""
     parc_idx = parc.set_index("channel")
     ins_hemis = set(parc_idx.loc[parc_idx.index.isin(ins_chns), "hemi"].unique())
     ifg_hemis = set(parc_idx.loc[parc_idx.index.isin(ifg_chns), "hemi"].unique())
-    shared = ins_hemis & ifg_hemis
+    stg_hemis = set(parc_idx.loc[parc_idx.index.isin(stg_chns), "hemi"].unique())
+    hg_hemis = set(parc_idx.loc[parc_idx.index.isin(hg_chns), "hemi"].unique())
+    # Shared = hemispheres where insula overlaps with at least one other ROI
+    other_hemis = ifg_hemis | stg_hemis | hg_hemis
+    shared = ins_hemis & other_hemis
     if not shared:
-        return [], []
+        return [], [], [], []
     # Keep channels in shared hemispheres
     ins_chns = [ch for ch in ins_chns
                 if parc_idx.loc[ch, "hemi"] in shared] if ins_chns else []
     ifg_chns = [ch for ch in ifg_chns
                 if parc_idx.loc[ch, "hemi"] in shared] if ifg_chns else []
-    return ins_chns, ifg_chns
+    stg_chns = [ch for ch in stg_chns
+                if parc_idx.loc[ch, "hemi"] in shared] if stg_chns else []
+    hg_chns = [ch for ch in hg_chns
+               if parc_idx.loc[ch, "hemi"] in shared] if hg_chns else []
+    return ins_chns, ifg_chns, stg_chns, hg_chns
 
 
 def get_shank_channels(roi_chns: List[str], all_ch_names: List[str]) -> List[str]:
@@ -248,6 +274,8 @@ def build_electrode_list(
     shank_chns: List[str],
     ins_chns: List[str],
     ifg_chns: List[str],
+    stg_chns: List[str],
+    hg_chns: List[str],
     montage_pos: Dict[str, np.ndarray],
     parc: pd.DataFrame,
     pial_coords_lh: np.ndarray,
@@ -255,6 +283,7 @@ def build_electrode_list(
 ) -> List[dict]:
     """Build electrode metadata list with projected coordinates."""
     ins_set, ifg_set = set(ins_chns), set(ifg_chns)
+    stg_set, hg_set = set(stg_chns), set(hg_chns)
     parc_idx = parc.set_index("channel")
     lh_tree = cKDTree(pial_coords_lh)
     rh_tree = cKDTree(pial_coords_rh)
@@ -279,6 +308,10 @@ def build_electrode_list(
             etype = "insula"
         elif ch in ifg_set:
             etype = "ifg"
+        elif ch in stg_set:
+            etype = "stg"
+        elif ch in hg_set:
+            etype = "hg"
         else:
             etype = "other"
 
@@ -378,6 +411,8 @@ h2 { font-size:14px; color:#666; text-transform:uppercase; letter-spacing:1px; }
     <div class="legend">
       <span><span class="dot" style="background:#D4AF37"></span> Insula</span>
       <span><span class="dot" style="background:#2369BD"></span> IFG</span>
+      <span><span class="dot" style="background:#32A852"></span> STG</span>
+      <span><span class="dot" style="background:#A83299"></span> HG</span>
       <span><span class="dot" style="background:#888"></span> Other</span>
     </div>
   </div>
@@ -474,6 +509,8 @@ scene.add(rhMesh);
 const TYPE_COLORS = {
   insula: new THREE.Color(0xD4AF37),
   ifg: new THREE.Color(0x2369BD),
+  stg: new THREE.Color(0x32A852),
+  hg: new THREE.Color(0xA83299),
   other: new THREE.Color(0x888888),
 };
 const SELECTED_COLOR = new THREE.Color(0xff4444);
@@ -634,28 +671,36 @@ def generate_viewer(
 
     # 1. Load parcellation & classify channels
     parc = load_parcellation(bids_root, subject)
-    ins_chns, ifg_chns = classify_channels(parc)
-    logger.info(f"  Insula channels: {len(ins_chns)}, IFG channels: {len(ifg_chns)}")
+    ins_chns, ifg_chns, stg_chns, hg_chns = classify_channels(parc)
+    logger.info(f"  Insula: {len(ins_chns)}, IFG: {len(ifg_chns)}, STG: {len(stg_chns)}, HG: {len(hg_chns)}")
 
-    if not ins_chns or not ifg_chns:
-        raise ValueError(f"Subject {subject} lacks Insula or IFG channels")
+    # Need insula + at least one other ROI
+    other_roi_count = len(ifg_chns) + len(stg_chns) + len(hg_chns)
+    if not ins_chns or other_roi_count == 0:
+        raise ValueError(f"Subject {subject} lacks Insula or any other ROI (IFG/STG/HG)")
 
-    ins_chns, ifg_chns = filter_same_hemisphere(ins_chns, ifg_chns, parc)
-    if not ins_chns or not ifg_chns:
-        raise ValueError(f"Subject {subject}: Insula and IFG not in same hemisphere")
+    ins_chns, ifg_chns, stg_chns, hg_chns = filter_same_hemisphere(
+        ins_chns, ifg_chns, stg_chns, hg_chns, parc
+    )
+    other_roi_count = len(ifg_chns) + len(stg_chns) + len(hg_chns)
+    if not ins_chns or other_roi_count == 0:
+        raise ValueError(f"Subject {subject}: Insula and other ROIs not in same hemisphere")
 
-    logger.info(f"  After hemisphere filter: Insula={len(ins_chns)}, IFG={len(ifg_chns)}")
+    logger.info(f"  After hemi filter: INS={len(ins_chns)}, IFG={len(ifg_chns)}, STG={len(stg_chns)}, HG={len(hg_chns)}")
 
     # 2. Load epochs
     epochs = load_epochs(bids_root, subject, phase, desc, band)
     avail = set(epochs.ch_names)
     ins_chns = [ch for ch in ins_chns if ch in avail]
     ifg_chns = [ch for ch in ifg_chns if ch in avail]
-    if not ins_chns or not ifg_chns:
-        raise ValueError(f"No Insula/IFG channels found in epoch file")
+    stg_chns = [ch for ch in stg_chns if ch in avail]
+    hg_chns = [ch for ch in hg_chns if ch in avail]
+    other_roi_count = len(ifg_chns) + len(stg_chns) + len(hg_chns)
+    if not ins_chns or other_roi_count == 0:
+        raise ValueError(f"No Insula or other ROI channels found in epoch file")
 
     # ROI channels
-    roi_chns = ins_chns + ifg_chns
+    roi_chns = ins_chns + ifg_chns + stg_chns + hg_chns
 
     # Shank channels (for display AND xcorr — includes ROI + other on same shanks)
     shank_chns = get_shank_channels(roi_chns, epochs.ch_names)
@@ -686,7 +731,7 @@ def generate_viewer(
     montage = epochs.get_montage()
     pos = montage.get_positions()["ch_pos"]
     electrodes = build_electrode_list(
-        shank_chns, ins_chns, ifg_chns, pos, parc, lh_verts, rh_verts,
+        shank_chns, ins_chns, ifg_chns, stg_chns, hg_chns, pos, parc, lh_verts, rh_verts,
     )
     logger.info(f"  Electrodes in viewer: {len(electrodes)}")
 

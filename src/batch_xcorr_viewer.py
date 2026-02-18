@@ -62,11 +62,13 @@ def find_qualifying_subjects(phase: str, desc: str, band: str = "highgamma"):
             except FileNotFoundError:
                 continue
 
-            ins, ifg = classify_channels(parc)
-            if not ins or not ifg:
+            ins, ifg, stg, hg = classify_channels(parc)
+            other_roi_count = len(ifg) + len(stg) + len(hg)
+            if not ins or other_roi_count == 0:
                 continue
-            ins, ifg = filter_same_hemisphere(ins, ifg, parc)
-            if not ins or not ifg:
+            ins, ifg, stg, hg = filter_same_hemisphere(ins, ifg, stg, hg, parc)
+            other_roi_count = len(ifg) + len(stg) + len(hg)
+            if not ins or other_roi_count == 0:
                 continue
 
             # Check epoch file exists
@@ -87,7 +89,7 @@ def find_qualifying_subjects(phase: str, desc: str, band: str = "highgamma"):
             results.append((subject, bids_root, task_name))
             logger.info(
                 f"  Qualified: {subject} ({task_name}) "
-                f"INS={len(ins)} IFG={len(ifg)}"
+                f"INS={len(ins)} IFG={len(ifg)} STG={len(stg)} HG={len(hg)}"
             )
 
     return results
