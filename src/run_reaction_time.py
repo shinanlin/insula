@@ -126,7 +126,10 @@ def load_subject_data(subject: str, epoch_paths: BIDSPath, ref: str) -> pd.DataF
         on=['subject', 'description', 'epoch'],
         how='left'
     )
-    df = df[df.remark=='CORRECT']
+    # filter to CORRECT only when available; otherwise keep all rows
+    correct_mask = df['remark'].str.contains('CORRECT', na=False)
+    if correct_mask.any():
+        df = df[correct_mask]
     return df
 
 
@@ -178,19 +181,27 @@ def extract_reaction_time(epos_df):
     #    - Pivot the long table so each trial has one row with go_onset and resp_onset.
     #    - RT = resp_onset - go_onset.
     # ----------------------------------------------------------------------
+    
+    # RT rule: if Go exists, RT = Response - Go; otherwise RT = Response - Stimulus
+    
     go_resp_onset = (
-        epoch_tbl[epoch_tbl['phase'].isin(['Go', 'Response'])]
+        epoch_tbl[epoch_tbl['phase'].isin(['Stimulus', 'Go', 'Response'])]
         .pivot_table(
             index=['subject', 'description', 'trial', 'condition'],
             columns='phase',
             values='onset',
             aggfunc='first'
         )
+        .reindex(columns=['Stimulus', 'Go', 'Response'])
         .reset_index()
-        .rename(columns={'Go': 'go_onset', 'Response': 'resp_onset'})
+        .rename(columns={'Stimulus': 'stim_onset', 'Go': 'go_onset', 'Response': 'resp_onset'})
     )
 
-    go_resp_onset['rt'] = go_resp_onset['resp_onset'] - go_resp_onset['go_onset']
+    go_resp_onset['rt'] = np.where(
+        go_resp_onset['go_onset'].notna(),
+        go_resp_onset['resp_onset'] - go_resp_onset['go_onset'],
+        go_resp_onset['resp_onset'] - go_resp_onset['stim_onset'],
+    )
 
     # ----------------------------------------------------------------------
     # 4) Merge RT back into the epoch-level table.
@@ -417,6 +428,9 @@ def main(bids_root: str,
     
     df = load_subject_data(subject, epoch_paths, ref)
     
+    # remove any passive epochs
+    df = df[df.description != 'Passive']
+    
     for phase in df.phase.unique():
         
         for desc in df.description.unique():
@@ -521,14 +535,20 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     
+    # parser.add_argument('--bids_root', 
+    #                     default='/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/', 
+    #                     help='Path to BIDS root')
+    # parser.add_argument('--bids_root', 
+    #                     default='/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/', 
+    #                     help='Path to BIDS root')
     parser.add_argument('--bids_root', 
-                        default='/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/', 
+                        default='/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/', 
                         help='Path to BIDS root')
     parser.add_argument('--band', 
                         default='highgamma', 
                         help='Band suffix in epoch files')
     parser.add_argument('--subject', 
-                        default='D0035', 
+                        default='D0040', 
                         help='Subject to process')
     parser.add_argument('--ref', 
                         default='bipolar', 
