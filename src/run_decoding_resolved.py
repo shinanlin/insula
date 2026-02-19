@@ -23,10 +23,10 @@ from tqdm import tqdm
 from sklearn.pipeline import make_pipeline
 from mne.decoding import Vectorizer, SlidingEstimator
 from sklearn.model_selection import StratifiedKFold
-from ieeg.decoding.decode import Decoder
 from ieeg.calc.oversample import MinimumNaNSplit
 from run_decoding import load_roi_data, decode_permutation_scores
 
+import gc
 import logging
 logging.basicConfig(
     level=logging.INFO,
@@ -89,9 +89,14 @@ def main(
         tmin,
         tmax,
     )
+    
+    n_files = len(Xs)
+    logger.info(f"Loaded {n_files} files to process")
 
     # process only the first phoneme file position
-    for i, (X, y, path) in enumerate(zip(Xs[:1], ys[:1], paths[:1])):
+    for i in range(n_files):
+        # Pop from lists to allow garbage collection of processed data
+        X, y, path = Xs[i], ys[i], paths[i]
         
         logger.info(f"Processing file: {i}")
         logger.info(f"X shape: {X.shape}, y shape: {y.shape}")
@@ -175,6 +180,13 @@ def main(
             f.attrs["fs"] = fs
             f.attrs["tmin"] = tmin
             f.attrs["tmax"] = tmax
+        
+        # Explicit memory cleanup after each file
+        # Clear references in the original lists to allow GC
+        Xs[i] = None
+        ys[i] = None
+        del X, y, accuracies, baseline_accuracies, X_segment
+        gc.collect()
 
     return
 

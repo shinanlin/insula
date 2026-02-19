@@ -35,11 +35,11 @@ SUBJECTS=(
   CGl
 )
 
-# BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
-# DESCRIPTIONS=('Repeat')
-# BANDS=('highgamma')
-# DATATYPES=('phoneme' 'token' 'articulator')
-# PHASES=('Stimulus' 'Go' 'Response')
+BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
+DESCRIPTIONS=('Repeat')
+BANDS=('highgamma')
+DATATYPES=('phoneme' 'token' 'articulator')
+PHASES=('Stimulus' 'Go' 'Response')
 
 # BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/"
 # DESCRIPTIONS=('Repeat' 'Decision')
@@ -53,11 +53,11 @@ SUBJECTS=(
 # DATATYPES=('phoneme' 'lexicality')
 # PHASES=('Stimulus' 'Response')
 
-BIDS_ROOT="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/"
-DESCRIPTIONS=('Repeat' 'Passive')
-BANDS=('highgamma')
-DATATYPES=('token')
-PHASES=('Stimulus' 'Go' 'Response')
+# BIDS_ROOT="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/"
+# DESCRIPTIONS=('Repeat' 'Passive')
+# BANDS=('highgamma')
+# DATATYPES=('token')
+# PHASES=('Stimulus' 'Go' 'Response')
 
 REF='bipolar'
 WINDOW=0.2

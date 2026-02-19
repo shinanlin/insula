@@ -298,9 +298,11 @@ def sample_fold(
 ):
     from ieeg.calc.oversample import mixup
     """Sample a fold of data for cross-validation."""
-    X_, y_ = X.copy(), y.copy()
-    X_train, X_test = X_[train_idx], X_[test_idx]
-    y_train, y_test = y_[train_idx], y_[test_idx]
+    # Avoid copying the entire X array - only copy the slices we need
+    X_train = X[train_idx].copy()
+    X_test = X[test_idx].copy()
+    y_train = y[train_idx].copy()
+    y_test = y[test_idx].copy()
     
     unique_classes = np.unique(y_train)
     for cls in unique_classes:
