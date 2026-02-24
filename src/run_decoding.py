@@ -30,6 +30,8 @@ from sklearn.decomposition import PCA
 import sys
 import logging
 import os
+import gc
+import time as _time
 
 # Simple logging: everything INFO and above to stdout
 logging.basicConfig(
@@ -143,8 +145,15 @@ def main(
     n_jobs,
 ):
 
-    tmin = -0.5 if description == 'production' else 0
-    tmax = 0.5 if description == 'production' else 1
+    match phase:
+        case 'Stimulus':
+            tmin, tmax = 0, 0.75
+        case 'Go':
+            tmin, tmax = -0.5, 0.5
+        case 'Response':
+            tmin, tmax = -0.5, 0.5
+        case _:
+            raise ValueError(f"Unknown phase: {phase}")
     
     Xs, ys, paths = load_roi_data(
         bids_root,
@@ -159,7 +168,9 @@ def main(
     )
     
     # now just doing the first phoneme
-    for i, (X, y, path) in enumerate(zip(Xs[:], ys[:], paths[:])):
+    for i, (X, y, path) in enumerate(zip(Xs[:2], ys[:2], paths[:2])):
+        _t0 = _time.time()
+        logger.info(f"Processing file {i}/{len(Xs)}: {path}")
         
         cv = MinimumNaNSplit(n_splits=n_folds, n_repeats=1)
         
@@ -188,6 +199,7 @@ def main(
             suffix=band,
             processing=path.processing,
             description=path.description,
+            recording=path.recording,
             extension='.h5',
             check=False
         )
@@ -208,6 +220,13 @@ def main(
             f.attrs["n_folds"] = n_folds
             f.attrs["n_jobs"] = n_jobs
 
+        logger.info(f"File {i} completed in {_time.time() - _t0:.2f}s")
+        # Explicit memory cleanup between files
+        Xs[i] = None
+        ys[i] = None
+        del X, y, decoder, obs_scores, perm_scores, p_value, cv
+        gc.collect()
+
     return
 
 if __name__ == "__main__":
@@ -222,17 +241,17 @@ if __name__ == "__main__":
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['car', 'bipolar'],
                         help="ROI to process")
-    parser.add_argument("--description", type=str, default='perception',
-                        choices=['perception', 'production',
-                                 'JL','LM','LS'],
-                        help="perception or production")
+    parser.add_argument("--description", type=str, default='Repeat',
+                        choices=['Repeat', 'Passive','Decision'],
+                        help="Repeat, Passive, or Decision")
+    parser.add_argument("--phase", type=str, default='Stimulus',
+                        choices=['Stimulus', 'Delay', 'Go', 'Response'],
+                        help="Stimulus, Delay, Go, or Response")
     parser.add_argument("--band", type=str, default='highgamma',
                         help="highgamma or other band of neural signal")
     parser.add_argument("--datatype", type=str, default='phoneme',
-                        choices=['phoneme','articulator','syllable',
-                                 'phoneme(acoustic)','articulator(acoustic)','syllable(acoustic)',
-                                 'word'],
-                        help="what to classify? can be phoneme, articulator, structure, or word")
+                        choices=['phoneme','articulator','token','lexicality'],
+                        help="what to classify? can be phoneme, articulator, token, or lexicality")
     parser.add_argument("--variance", type=float, default=0.85,
                         help="number of variance")
     parser.add_argument("--n_perm", type=int, default=2,

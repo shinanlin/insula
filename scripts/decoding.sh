@@ -5,9 +5,9 @@
 #SBATCH --time=48:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
-#SBATCH --partition=common
+#SBATCH --partition=scavenger
 #SBATCH --chdir=/hpc/home/ns458/coganlab/nanlinshi/insula
-#SBATCH --array=0-10
+#SBATCH --array=0-7
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
@@ -16,22 +16,24 @@ module load CUDA/11.4
 
 
 VARIANCE=0.85
-N_PERM=200
+N_PERM=100
 N_FOLDS=10
 N_JOBS=10
-BANDS=('highgamma')
 REF='bipolar'
-DESCRIPTIONS=('production' 'perception')
+SUBJECTS=(
+  AICl
+  PICl
+  SMCl
+  IFGl
+  STGl
+  CGl
+)
 
 
 BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
-SUBJECTS=(
-  AICl AICr
-  PICl PICr
-  SMCl SMCr
-  IFGl IFGr
-  STGl STGr
-)
+BANDS=('highgamma')
+PHASES=('Stimulus' 'Go' 'Response')
+DESCRIPTIONS=('Repeat')
 DATATYPES=('phoneme')
 
 # BIDS_ROOT="/cwork/ns458/BIDS_1.0_Phoneme_Sequence_uECoG/BIDS/"
@@ -57,19 +59,22 @@ echo "Processing subject $SUBJECT (array task $SLURM_ARRAY_TASK_ID)"
 for BAND in ${BANDS[@]}; do
     for TYPE in ${DESCRIPTIONS[@]}; do
         for DATATYPE in ${DATATYPES[@]}; do
+            for PHASE in ${PHASES[@]}; do
             python src/run_decoding.py \
                 --bids_root "${BIDS_ROOT}" \
                 --subject ${SUBJECT} \
                 --description ${TYPE} \
                 --band ${BAND} \
+                --phase ${PHASE} \
                 --datatype ${DATATYPE} \
                 --variance ${VARIANCE} \
                 --n_perm ${N_PERM} \
                 --n_folds ${N_FOLDS} \
                 --n_jobs ${N_JOBS} \
                 --ref ${REF} \
-            > /hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding_${SUBJECT}_${BAND}_${TYPE}_${DATATYPE}.out \
-            2> /hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding_${SUBJECT}_${BAND}_${TYPE}_${DATATYPE}.err
+            > /hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.out \
+            2> /hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding_${SUBJECT}_${BAND}_${TYPE}_${PHASE}_${DATATYPE}.err
+            done
         done
     done
 done

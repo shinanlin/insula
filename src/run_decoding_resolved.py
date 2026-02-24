@@ -27,6 +27,7 @@ from ieeg.calc.oversample import MinimumNaNSplit
 from run_decoding import load_roi_data, decode_permutation_scores
 
 import gc
+import time as _time
 import logging
 logging.basicConfig(
     level=logging.INFO,
@@ -94,9 +95,10 @@ def main(
     logger.info(f"Loaded {n_files} files to process")
 
     # process only the first phoneme file position
-    for i in range(n_files):
+    for i in range(n_files[:2]):
         # Pop from lists to allow garbage collection of processed data
         X, y, path = Xs[i], ys[i], paths[i]
+        file_t0 = _time.time()
         
         logger.info(f"Processing file: {i}")
         logger.info(f"X shape: {X.shape}, y shape: {y.shape}")
@@ -181,11 +183,12 @@ def main(
             f.attrs["tmin"] = tmin
             f.attrs["tmax"] = tmax
         
+        logger.info(f"File {i} completed in {_time.time() - file_t0:.2f}s")
         # Explicit memory cleanup after each file
         # Clear references in the original lists to allow GC
         Xs[i] = None
         ys[i] = None
-        del X, y, accuracies, baseline_accuracies, X_segment
+        del X, y, accuracies, baseline_accuracies, X_segment, pipeline
         gc.collect()
 
     return

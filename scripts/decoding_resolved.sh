@@ -3,10 +3,10 @@
 #SBATCH --job-name=decoding_resolved_picture
 #SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture.out
 #SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/decoding_resolved_picture.err
-#SBATCH --time=7-00:00:00
+#SBATCH --time=2-00:00:00
 #SBATCH --mem=36G
 #SBATCH --cpus-per-task=24
-#SBATCH --partition=common
+#SBATCH --partition=scavenger
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
 #SBATCH --array=0-5
 
@@ -39,12 +39,13 @@ BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
 DESCRIPTIONS=('Repeat')
 BANDS=('highgamma')
 DATATYPES=('phoneme' 'token' 'articulator')
-PHASES=('Stimulus' 'Go' 'Response')
+# PHASES=('Stimulus' 'Go' 'Response')
+PHASES=('Go' 'Response')
 
 # BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/"
 # DESCRIPTIONS=('Repeat' 'Decision')
 # BANDS=('highgamma')
-# DATATYPES=('phoneme' 'lexicality')
+# DATATYPES=('lexicality' 'phoneme')
 # PHASES=('Stimulus' 'Delay' 'Go' 'Response')
 
 # BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/"
