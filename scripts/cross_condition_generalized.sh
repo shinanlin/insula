@@ -1,0 +1,75 @@
+#!/bin/bash
+
+#SBATCH --job-name=cross_cond_gen
+#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/cross_cond_gen_%a.out
+#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/cross_cond_gen_%a.err
+#SBATCH --time=24:00:00
+#SBATCH --mem=128G
+#SBATCH --cpus-per-task=40
+#SBATCH --partition=common,scavenger
+#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
+#SBATCH --array=0-7
+
+source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
+conda activate ieeg
+
+# =====================================================================
+# 2D Cross-condition generalized decoding (16 jobs)
+# ROIs: AICl, PICl, SMCl, STGl
+# Phases: Delay, Response
+# Directions: Train=Repeat & Test=Decision, Train=Decision & Test=Repeat
+# Params: window=0.2, step=0.02, perm=100, folds=10, jobs=40
+# Note: Maximize CPUs to speed up inner temporal loops
+# =====================================================================
+
+BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS"
+REF=bipolar
+BAND=highgamma
+DATATYPE=lexicality
+VARIANCE=0.80
+
+WINDOW=0.2
+STEP=0.02
+N_PERM=100
+N_FOLDS=10
+N_JOBS=40
+
+# Build explicit parameter list to only run missing jobs (Stimulus Phase Cross-Condition)
+PARAMS=(
+    "AICl Stimulus Decision Repeat"
+    "AICl Stimulus Repeat Decision"
+    "SMCl Stimulus Decision Repeat"
+    "SMCl Stimulus Repeat Decision"
+    "PICl Stimulus Decision Repeat"
+    "PICl Stimulus Repeat Decision"
+    "STGl Stimulus Decision Repeat"
+    "STGl Stimulus Repeat Decision"
+)
+
+# Get current job config
+IDX=$SLURM_ARRAY_TASK_ID
+IFS=' ' read -r ROI PHASE TRAIN TEST <<< "${PARAMS[$IDX]}"
+
+echo "=== 2D Generalized Decoding ==="
+echo "ROI=${ROI}, Phase=${PHASE}, Train=${TRAIN}, Test=${TEST}"
+echo "Window=${WINDOW}s, Step=${STEP}s"
+echo "Jobs=${N_JOBS}, Perm=${N_PERM}, Folds=${N_FOLDS}"
+
+python src/run_cross_condition_generalized.py \
+    --bids_root "${BIDS_ROOT}" \
+    --roi "${ROI}" \
+    --phase "${PHASE}" \
+    --train_on "${TRAIN}" \
+    --test_on "${TEST}" \
+    --ref "${REF}" \
+    --band "${BAND}" \
+    --datatype "${DATATYPE}" \
+    --variance ${VARIANCE} \
+    --window ${WINDOW} \
+    --step ${STEP} \
+    --n_perm ${N_PERM} \
+    --n_folds ${N_FOLDS} \
+    --n_jobs ${N_JOBS}
+
+echo "Exit code: $?"
+echo "=== Done ==="

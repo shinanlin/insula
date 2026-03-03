@@ -94,8 +94,8 @@ def main(
     n_files = len(Xs)
     logger.info(f"Loaded {n_files} files to process")
 
-    # process only the first phoneme file position
-    for i in range(n_files[:2]):
+    # process all files (was n_files-1 which skipped last file / broke single-file datatypes)
+    for i in range(n_files):
         # Pop from lists to allow garbage collection of processed data
         X, y, path = Xs[i], ys[i], paths[i]
         file_t0 = _time.time()

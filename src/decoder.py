@@ -245,6 +245,7 @@ def decode_permutation_scores(
     scoring: str = "accuracy",
     random_state: int = 42,
 ):
+    import time as _time
     
     scorer = get_scorer(scoring)
     splits = list(cv.split(X, y))
@@ -254,7 +255,8 @@ def decode_permutation_scores(
     # Observed
     obs_scores = []
     perm_scores = []
-    for tr, te in tqdm(splits, desc="Cross-validation"):
+    for fold_idx, (tr, te) in enumerate(tqdm(splits, desc="Cross-validation")):
+        fold_t0 = _time.time()
         dec = clone(decoder)
         X_train, X_test, y_train, y_test = sample_fold(
             X,
@@ -270,16 +272,26 @@ def decode_permutation_scores(
         rng_fold = np.random.RandomState(random_state)
         seeds_fold = rng_fold.randint(0, 2**31 - 1, size=n_permutations)
 
+        # Clone the original unfitted decoder template, not the fitted dec.
+        # This avoids serializing fitted model parameters to worker processes.
         def one_perm(seed):
             r = np.random.RandomState(seed)
             y_train_perm = y_train.copy()
             r.shuffle(y_train_perm)
-            dec_p = clone(dec)
+            dec_p = clone(decoder)
             dec_p.fit(X_train, y_train_perm)
             return scorer(dec_p, X_test, y_test)
         
-        perm_score = np.asarray(Parallel(n_jobs=n_jobs)(delayed(one_perm)(s) for s in tqdm(seeds_fold, desc="Permutations")))
+        # Use prefer="threads" to avoid expensive process forking.
+        # SVC/LinearSVC release the GIL in their C/Fortran backends.
+        perm_score = np.asarray(
+            Parallel(n_jobs=n_jobs, prefer="threads")(
+                delayed(one_perm)(s)
+                for s in tqdm(seeds_fold, desc="Permutations")
+            )
+        )
         perm_scores.append(perm_score)
+        logger.info(f"  Fold {fold_idx} done in {_time.time() - fold_t0:.2f}s")
         
     score = np.mean(obs_scores)
     perm_scores = np.stack(perm_scores)
