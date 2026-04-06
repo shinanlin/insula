@@ -148,10 +148,12 @@ def main(
     match phase:
         case 'Stimulus':
             tmin, tmax = 0, 0.75
+        case 'Delay':
+            tmin, tmax = 0, 0.75
         case 'Go':
-            tmin, tmax = -0.5, 0.5
+            tmin, tmax = 0, 0.5
         case 'Response':
-            tmin, tmax = -0.5, 0.5
+            tmin, tmax = -0.5, 0
         case _:
             raise ValueError(f"Unknown phase: {phase}")
     

@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from ieeg.viz.mri import force2frame
 import re
+import xarray as xr
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -229,7 +230,7 @@ def main(
             'OPC', 'sOccG', 'OccS', 'mOccG',
             'WM','LinG','PhG','Cb','iOccGs',
             'GRect','Amyg','Hipp','LinGs',
-            'CG','OFCs','SFGs','CGs',
+            'CG','OFCs','CGs',
             'Thal','Right-Pallidum','Left-Pallidum',
             'Calcarine','CollatAnt','VDC','InfLatV','LatV',
             'CC_Central','BrainStem','CollatPost','Caud'
@@ -275,8 +276,46 @@ def main(
             extension=".csv",
             check=False,
         )
-        save_path.mkdir(exist_ok=True)
         conn_df.to_csv(save_path, index=False)
+        
+        # Save trial-averaged 3D waveform as xarray Dataset to reduce size
+        xcorr_mean = xcorr.mean(axis=0)  # (source, target, lag)
+        chans = raw.ch_names
+        
+        da = xr.DataArray(
+            xcorr_mean,
+            dims=['source', 'target', 'lag'],
+            coords={
+                'source': chans,
+                'target': chans,
+                'lag': lag_times
+            },
+            name='xcorr_wave'
+        )
+        
+        # Attach channel metadata as dataset variables
+        ds = xr.Dataset({'xcorr': da})
+        ds = ds.assign_coords({
+            'roi': ('source', cord_ordered['roi'].values),
+            'hemi': ('source', cord_ordered['hemi'].values),
+            'label': ('source', cord_ordered['label'].values),
+            'x': ('source', cord_ordered['x'].values),
+            'y': ('source', cord_ordered['y'].values),
+            'z': ('source', cord_ordered['z'].values)
+        })
+        
+        # Add global attributes
+        ds.attrs['subject'] = subject
+        ds.attrs['task'] = task
+        ds.attrs['phase'] = phase
+        ds.attrs['band'] = band
+        ds.attrs['description'] = desc
+        ds.attrs['n_trials_averaged'] = int(xcorr.shape[0])
+        
+        # Save to NetCDF
+        nc_save_path = save_path.update(suffix='wave', extension='.nc')
+        ds.to_netcdf(nc_save_path, engine='h5netcdf')
+        logger.info(f"Saved full xarray dataset to {nc_save_path}")
     
     return
 

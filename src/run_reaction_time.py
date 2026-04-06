@@ -312,12 +312,22 @@ def predict_permutation_scores(
     X: (n_trials, n_channels, n_times)
     rt: (n_trials,)
     Returns:
-        obs_scores: (n_channels,) R² for each channel
-        perm_scores: (n_channels, n_perm) permutation R² for each channel
-        p_values: (n_channels,) p-value for each channel
+        obs_scores: (n_channels,) Pearson r for each channel
+        perm_scores: (n_channels, n_perm) permutation Pearson r for each channel
+        p_values: (n_channels,) one-sided p-value (obs > perm) for each channel
     """
     from sklearn.base import clone
-    from sklearn.metrics import r2_score
+
+    def _pearson_r(y_true, y_pred):
+        if y_true.size < 2:
+            return np.nan
+        y_true_std = np.std(y_true)
+        y_pred_std = np.std(y_pred)
+        if y_true_std == 0 or y_pred_std == 0:
+            return np.nan
+        y_true_z = (y_true - np.mean(y_true)) / y_true_std
+        y_pred_z = (y_pred - np.mean(y_pred)) / y_pred_std
+        return float(np.mean(y_true_z * y_pred_z))
 
     n_trials, n_channels, n_times = X.shape
     # Use entire time window as features (no averaging)
@@ -359,6 +369,9 @@ def predict_permutation_scores(
             x_test = x_test[test_ok]
             y_test = y_test[test_ok]
 
+            if np.std(y_test) == 0:
+                continue
+
             seeds_fold = rng.randint(0, 2**31 - 1, size=n_perm)
             y_train_all = np.empty((len(y_train), 1 + n_perm))
             y_train_all[:, 0] = y_train
@@ -373,17 +386,20 @@ def predict_permutation_scores(
             dec.fit(x_train, y_train_all)
 
             y_pred_all = dec.predict(x_test)
-            r2_all = np.array([r2_score(y_test, y_pred_all[:, i]) for i in range(1 + n_perm)])
+            score_all = np.array([_pearson_r(y_test, y_pred_all[:, i]) for i in range(1 + n_perm)])
 
-            fold_obs.append(r2_all[0])
-            fold_perm.append(r2_all[1:])
+            fold_obs.append(score_all[0])
+            fold_perm.append(score_all[1:])
 
         if len(fold_obs) == 0:
             return ch_idx, np.nan, np.full(n_perm, np.nan), np.nan
 
-        obs = float(np.mean(fold_obs))
-        perm = np.mean(np.stack(fold_perm, axis=0), axis=0)
-        p_val = (np.sum(perm >= obs) + 1.0) / (n_perm + 1.0)
+        obs = float(np.nanmean(fold_obs))
+        perm = np.nanmean(np.stack(fold_perm, axis=0), axis=0)
+        valid_perm = np.isfinite(perm)
+        if not np.isfinite(obs) or valid_perm.sum() == 0:
+            return ch_idx, np.nan, perm, np.nan
+        p_val = (np.sum(perm[valid_perm] >= obs) + 1.0) / (valid_perm.sum() + 1.0)
         return ch_idx, obs, perm, p_val
 
     results = Parallel(n_jobs=effective_n_jobs, batch_size=1)(
@@ -446,8 +462,8 @@ def main(bids_root: str,
             window_samples = int(window * fs)
             step_samples = int(step * fs)
             
-            r2 = np.full((len(time_points), len(channels)), np.nan)
-            perm_r2 = np.full((len(time_points), len(channels), n_perm), np.nan)
+            scores = np.full((len(time_points), len(channels)), np.nan)
+            perm_scores = np.full((len(time_points), len(channels), n_perm), np.nan)
             pvals = np.full((len(time_points), len(channels)), np.nan)
             
             for t_idx, time_end in enumerate(
@@ -477,23 +493,23 @@ def main(bids_root: str,
                 )
                 
                 # actual score shape: (time, channels)
-                r2[t_idx, :] = score
+                scores[t_idx, :] = score
                 # permutation score shape: (time, channels, perm)
-                perm_r2[t_idx, :, :] = permutation_scores
+                perm_scores[t_idx, :, :] = permutation_scores
                 # pval shape: (time, channels)
                 pvals[t_idx, :] = p_value
 
             mask, p_values = cluster_correction(
-                r2,
-                perm_r2,
+                scores,
+                perm_scores,
                 p_thresh=0.05,
                 tails=1,
             )
 
             # Save everything in (channels, time) orientation
-            r2 = rearrange(r2, 't c -> c t')
+            scores = rearrange(scores, 't c -> c t')
             pvals = rearrange(pvals, 't c -> c t')
-            perm_r2 = rearrange(perm_r2, 't c p -> c t p')
+            perm_scores = rearrange(perm_scores, 't c p -> c t p')
 
             pt = epoch_paths.copy().match()[0]
             save_path = BIDSPath(
@@ -510,8 +526,12 @@ def main(bids_root: str,
             logger.info(f"Saving results to: {save_path}")
 
             with h5py.File(save_path, "w") as f:
-                f.create_dataset(name='r2', data=r2)
-                f.create_dataset(name='perm_r2', data=perm_r2)
+                # New canonical score fields
+                f.create_dataset(name='score', data=scores)
+                f.create_dataset(name='perm_score', data=perm_scores)
+                # Backward-compatible aliases for existing notebooks
+                f.create_dataset(name='r2', data=scores)
+                f.create_dataset(name='perm_r2', data=perm_scores)
                 f.create_dataset(name='pval', data=pvals)
                 f.create_dataset(name='mask', data=mask)
                 f.create_dataset(name='cluster_pval', data=p_values)
@@ -525,6 +545,7 @@ def main(bids_root: str,
                 f.attrs["step"] = step
                 f.attrs["n_perm"] = n_perm
                 f.attrs["n_folds"] = n_folds
+                f.attrs["score_metric"] = 'pearson_r'
                 f.attrs["band"] = band
                 f.attrs["ref"] = ref
                 f.attrs["phase"] = phase
