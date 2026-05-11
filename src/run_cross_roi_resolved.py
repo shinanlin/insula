@@ -47,7 +47,6 @@ def load_roi_condition(bids_root, ref, roi, phase, description, band, datatype):
         subject=roi,
         description=description,
         processing=phase,
-        task="LexicalDelay",
         extension=".h5",
         check=False,
     )
@@ -105,6 +104,16 @@ def main(
     assert meta1["fs"] == meta2["fs"], "Sampling rate mismatch"
 
     X1, X2, y1, y2 = _balance_datasets(X1, y1, X2, y2)
+
+    # Check for zero channels (missing electrode coverage)
+    n_ch1, n_ch2 = X1.shape[1], X2.shape[1]
+    if n_ch1 == 0:
+        logger.warning(f"Train ROI {train_roi} has 0 channels for phase={phase}, desc={description}. Skipping.")
+        return
+    if n_ch2 == 0:
+        logger.warning(f"Test ROI {test_roi} has 0 channels for phase={phase}, desc={description}. Skipping.")
+        return
+    logger.info(f"  Channels: train={n_ch1}, test={n_ch2}")
 
     fs = meta1["fs"]
     tmin = meta1["tmin"]
@@ -213,10 +222,10 @@ if __name__ == "__main__":
     parser.add_argument("--datatype", type=str, default="lexicality")
     parser.add_argument("--variance", type=float, default=0.80)
     parser.add_argument("--n_components", type=int, default=5)
-    parser.add_argument("--window", type=float, default=0.2)
-    parser.add_argument("--step", type=float, default=0.02)
-    parser.add_argument("--n_perm", type=int, default=100)
-    parser.add_argument("--n_folds", type=int, default=10)
-    parser.add_argument("--n_jobs", type=int, default=40)
+    parser.add_argument("--window", type=float, default=0.5)
+    parser.add_argument("--step", type=float, default=0.2)
+    parser.add_argument("--n_perm", type=int, default=10)
+    parser.add_argument("--n_folds", type=int, default=3)
+    parser.add_argument("--n_jobs", type=int, default=-1)
     args = parser.parse_args()
     main(**vars(args))

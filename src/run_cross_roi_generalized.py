@@ -106,6 +106,16 @@ def main(
 
     X1, X2, y1, y2 = _balance_datasets(X1, y1, X2, y2)
 
+    # Check for zero channels (missing electrode coverage)
+    n_ch1, n_ch2 = X1.shape[1], X2.shape[1]
+    if n_ch1 == 0:
+        logger.warning(f"Train ROI {train_roi} has 0 channels for phase={phase}, desc={description}. Skipping.")
+        return
+    if n_ch2 == 0:
+        logger.warning(f"Test ROI {test_roi} has 0 channels for phase={phase}, desc={description}. Skipping.")
+        return
+    logger.info(f"  Channels: train={n_ch1}, test={n_ch2}")
+
     fs = meta1["fs"]
     tmin = meta1["tmin"]
     n_times = min(X1.shape[-1], X2.shape[-1])
