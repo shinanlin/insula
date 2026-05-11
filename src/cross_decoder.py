@@ -380,6 +380,14 @@ class CrossDecoder(BaseEstimator, ClassifierMixin):
         X2_cca = rearrange(X2_cca, '(epoch time) component -> epoch component time', epoch=n_epochs)
         
         return X1_cca, X2_cca
+
+    def transform_source_cca(self, X1):
+        """Transform source domain data using fitted CCA alignment."""
+        n_epochs, n_channels, n_time = X1.shape
+        X1 = rearrange(X1, 'epoch channel time -> (epoch time) channel')
+        X1_cca = X1 @ self.cca.x_weights_
+        X1_cca = rearrange(X1_cca, '(epoch time) component -> epoch component time', epoch=n_epochs)
+        return X1_cca
     
     def transform_cca(self, X2):
         """Transform target domain data using fitted CCA alignment.
@@ -615,7 +623,7 @@ def cross_domain_permutation_scores(
         obs_scores.append(observed_score)
         
         # permute
-        X1_train_cca, X2_train_cca = dec.fit_and_transform_cca(X1_train, X2_train)
+        X1_train_cca = dec.transform_source_cca(X1_train)
         X2_test_cca = dec.transform_cca(X2_test)
         
         rng_fold = np.random.RandomState(random_state)
@@ -1047,73 +1055,16 @@ def sample_fold(
     return X_train, X_test, y_train, y_test
 
 
-def _balance_datasets(
-    X1,
-    y1,
-    X2,
-    y2,
-):
-    """Balance datasets to have same trials per class."""
-    unique_classes = np.intersect1d(np.unique(y1), np.unique(y2))
-    
-    balanced_data = []
-    for cls in unique_classes:
-        X1_cls, X2_cls = X1[y1 == cls], X2[y2 == cls]
-        y1_cls, y2_cls = y1[y1 == cls], y2[y2 == cls]
-        
-        # Shuffle X1 and X2 independently to break trial correspondence
-        perm1 = np.random.permutation(len(X1_cls))
-        perm2 = np.random.permutation(len(X2_cls))
-
-        X1_cls, y1_cls = X1_cls[perm1], y1_cls[perm1]
-        X2_cls, y2_cls = X2_cls[perm2], y2_cls[perm2]
-        
-        min_trials = min(len(X1_cls), len(X2_cls))
-        balanced_data.append((X1_cls[:min_trials], X2_cls[:min_trials], 
-                           y1_cls[:min_trials], y2_cls[:min_trials]))
-    
-    X1_balanced = np.concatenate([x1 for x1, _, _, _ in balanced_data])
-    X2_balanced = np.concatenate([x2 for _, x2, _, _ in balanced_data])
-    y1_balanced = np.concatenate([y1 for _, _, y1, _ in balanced_data])
-    y2_balanced = np.concatenate([y2 for _, _, _, y2 in balanced_data])
-    
-    assert np.array_equal(y1_balanced, y2_balanced), "Labels must be aligned"
-    
-    return X1_balanced, X2_balanced, y1_balanced, y2_balanced
-
-def sample_fold(
-    X,
-    y,
-    train_idx,
-    test_idx,
-):
-    """Sample a fold of data for cross-validation."""
-    X_, y_ = X.copy(), y.copy()
-    X_train, X_test = X_[train_idx], X_[test_idx]
-    y_train, y_test = y_[train_idx], y_[test_idx]
-    
-    unique_classes = np.unique(y_train)
-    for cls in unique_classes:
-        idx = (y_train == cls)
-        # observer axis is the epoch axis
-        x_cls = X_train[idx]
-        mixup(x_cls, obs_axis=0, rng=42)
-        X_train[idx] = x_cls
-    
-    is_nan_test = np.isnan(X_test)
-    if is_nan_test.any():
-        X_test[is_nan_test] = np.random.normal(0, 1, int(np.sum(is_nan_test)))
-    
-    return X_train, X_test, y_train, y_test
-
-
 def main(
     bids_root,
+    ref,
     train_roi,
     test_roi,
     description,
     band,
     datatype,
+    tmin,
+    tmax,
     variance,
     n_components,
     n_permutations,
@@ -1129,8 +1080,8 @@ def main(
     )
     
     # load X1 and X2
-    X1, y1 = load_roi_data(bids_root, train_roi, 'perception', band, datatype)
-    X2, y2 = load_roi_data(bids_root, test_roi, 'perception', band, datatype)
+    X1, y1 = load_roi_data(bids_root, ref, train_roi, description, band, datatype, tmin, tmax)
+    X2, y2 = load_roi_data(bids_root, ref, test_roi, description, band, datatype, tmin, tmax)
     
     
     # balance datasets
@@ -1184,12 +1135,15 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--bids_root", type=str,
-                        default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/decoding(ROI)")
+                        default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS")
+    parser.add_argument("--ref", type=str, default='ROI')
     parser.add_argument("--train_roi", type=str, default="STGl")
     parser.add_argument("--test_roi", type=str, default="PrGl")
     parser.add_argument("--description", type=str, default='production')
     parser.add_argument("--band", type=str, default='highgamma')
     parser.add_argument("--datatype", type=str, default='phoneme')
+    parser.add_argument("--tmin", type=float, default=0.0)
+    parser.add_argument("--tmax", type=float, default=0.5)
     parser.add_argument("--variance", type=float, default=0.85)
     parser.add_argument("--n_components", type=int, default=5)
     parser.add_argument("--n_permutations", type=int, default=300)
