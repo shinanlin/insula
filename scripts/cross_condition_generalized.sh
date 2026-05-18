@@ -8,13 +8,13 @@
 #SBATCH --cpus-per-task=40
 #SBATCH --partition=common,scavenger
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
-#SBATCH --array=0-7
+#SBATCH --array=0-8
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
 
 # =====================================================================
-# 2D Cross-condition generalized decoding (16 jobs)
+# 2D Cross-condition generalized decoding (8 jobs)
 # ROIs: AICl, PICl, SMCl, STGl
 # Phases: Delay, Response
 # Directions: Train=Repeat & Test=Decision, Train=Decision & Test=Repeat
@@ -34,17 +34,21 @@ N_PERM=100
 N_FOLDS=10
 N_JOBS=40
 
-# Build explicit parameter list to only run missing jobs (Stimulus Phase Cross-Condition)
-PARAMS=(
-    "AICl Stimulus Decision Repeat"
-    "AICl Stimulus Repeat Decision"
-    "SMCl Stimulus Decision Repeat"
-    "SMCl Stimulus Repeat Decision"
-    "PICl Stimulus Decision Repeat"
-    "PICl Stimulus Repeat Decision"
-    "STGl Stimulus Decision Repeat"
-    "STGl Stimulus Repeat Decision"
-)
+# Define arrays
+ROIS=(dACCl)
+PHASES=(Stimulus Delay Go Response)
+# CROSS CONDITION DIRECTIONS
+DIRECTIONS=("Decision Repeat" "Repeat Decision")
+
+# Build job parameters dynamically (1 ROIs x 4 Phases x 2 Directions = 8 combos)
+PARAMS=()
+for roi in "${ROIS[@]}"; do
+    for phase in "${PHASES[@]}"; do
+        for dir in "${DIRECTIONS[@]}"; do
+            PARAMS+=("${roi} ${phase} ${dir}")
+        done
+    done
+done
 
 # Get current job config
 IDX=$SLURM_ARRAY_TASK_ID

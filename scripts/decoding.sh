@@ -2,12 +2,12 @@
 #SBATCH --job-name=decoding
 #SBATCH --output=/hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding.out
 #SBATCH --error=/hpc/home/ns458/coganlab/nanlinshi/insula/logs/decoding.err
-#SBATCH --time=48:00:00
+#SBATCH --time=8:00:00
 #SBATCH --mem=64G
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=scavenger
 #SBATCH --chdir=/hpc/home/ns458/coganlab/nanlinshi/insula
-#SBATCH --array=0-7
+#SBATCH --array=0-10
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
@@ -20,21 +20,25 @@ N_PERM=100
 N_FOLDS=10
 N_JOBS=10
 REF='bipolar'
+
 SUBJECTS=(
   AICl
   PICl
   SMCl
   IFGl
   STGl
-  CGl
+  AICr
+  PICr
+  SMCr
+  IFGr
+  STGr
 )
 
-
-BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
-BANDS=('highgamma')
-PHASES=('Stimulus' 'Go' 'Response')
-DESCRIPTIONS=('Repeat')
-DATATYPES=('phoneme')
+# BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS"
+# BANDS=('highgamma')
+# PHASES=('Stimulus' 'Delay' 'Go' 'Response')
+# DESCRIPTIONS=('Repeat')
+# DATATYPES=('phoneme' 'articulator')
 
 # BIDS_ROOT="/cwork/ns458/BIDS_1.0_Phoneme_Sequence_uECoG/BIDS/"
 # SUBJECTS=(

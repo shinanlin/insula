@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=40
 #SBATCH --partition=common,scavenger
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
-#SBATCH --array=0-7
+#SBATCH --array=0-8
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
@@ -26,12 +26,12 @@ N_FOLDS=10
 N_JOBS=40
 
 # Define arrays
-ROIS=(AICl PICl SMCl STGl)
-PHASES=(Stimulus)
+ROIS=(MFGl)
+PHASES=(Stimulus Delay Go Response)
 # WITHIN CONDITION PAIRS
 COND_PAIRS=("Repeat Repeat" "Decision Decision")
 
-# Build job parameters dynamically (4 x 2 x 2 = 16 combos)
+# Build job parameters dynamically (4 x 2 x 1 = 8 combos)
 PARAMS=()
 for roi in "${ROIS[@]}"; do
     for phase in "${PHASES[@]}"; do

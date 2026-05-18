@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=40
 #SBATCH --partition=common,scavenger
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
-#SBATCH --array=0-7
+#SBATCH --array=0-23
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
@@ -33,7 +33,7 @@ N_FOLDS=10
 N_JOBS=40
 
 # Define arrays
-ROI_PAIRS=("AICl SMCl")
+ROI_PAIRS=("AICl SMCl" "AICl STGl" "AICl IFGl")
 PHASES=(Stimulus Delay Go Response)
 CONDITIONS=(Repeat Decision)
 
