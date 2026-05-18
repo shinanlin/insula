@@ -162,7 +162,7 @@ def main(
     recon_dir: str
 ):
 
-    datatype = 'epoch(raw)' if band=='raw' else 'epoch(band)(raw)'
+    datatype = 'epoch(raw)' if band=='raw' else 'epoch(band)(zscore)'
     raw_pts = BIDSPath(
         root=bids_root + f"derivatives/epoch({reference})",
         datatype=datatype,
@@ -209,6 +209,9 @@ def main(
         parc_sub = parc[['channel', 'label','roi','hemi']]
         
         montage = raw.get_montage()
+        if montage is None:
+            logger.warning(f"No montage found for subject {subject}, skipping.")
+            continue
         sub_id = re.sub(r'^D0+', 'D', subject)
         to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
         trans = mne.transforms.Transform(fro='head', to='mri',
@@ -244,7 +247,23 @@ def main(
             logger.warning(f"No insula channel found for subject {subject}")
             continue
         
-        # crop
+        # crop to phase-specific time window to avoid cross-phase contamination
+        PHASE_WINDOWS = {
+            'Stimulus': (0.0, 1.0),
+            'Delay':    (0.0, 1.0),
+            'Go':       (0.0, 1.0),
+            'Response': (-0.5, 0.5),
+        }
+        if phase not in PHASE_WINDOWS:
+            logger.warning(f"Unknown phase '{phase}' for subject {subject}, skipping.")
+            continue
+        tmin_crop, tmax_crop = PHASE_WINDOWS[phase]
+        try:
+            raw.crop(tmin=tmin_crop, tmax=tmax_crop)
+        except ValueError as e:
+            logger.warning(f"Crop failed for subject {subject} phase {phase}: {e}")
+            continue
+
         xdata = raw.get_data()
         
         xcorr, lag_times = compute_xcorr_matrix(xdata, raw.info['sfreq'])

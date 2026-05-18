@@ -562,9 +562,13 @@ if __name__ == "__main__":
     # parser.add_argument('--bids_root', 
     #                     default='/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/', 
     #                     help='Path to BIDS root')
-    parser.add_argument('--bids_root', 
-                        default='/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/', 
-                        help='Path to BIDS root')
+    # parser.add_argument('--bids_root', 
+    #                     default='/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/', 
+    #                     help='Path to BIDS root')
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", 
+                        type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", 
+                        type=str)
     parser.add_argument('--band', 
                         default='highgamma', 
                         help='Band suffix in epoch files')

@@ -25,6 +25,7 @@ def main(
     ref: str,
     recon_dir: str,
 ):
+
     
     epoch_paths = BIDSPath(
         root=bids_root + f"derivatives/epoch({ref})",
@@ -133,6 +134,15 @@ def main(
         cord_df = pd.DataFrame(pos_m).T
         cord_df.columns = ['x', 'y', 'z']
         cord_df[['x','y','z']] *= 1000
+        
+        # Transform from fsaverage to cvs_avg35_inMNI152 space
+        # Pre-computed translation vector (cvs_avg35 center - fsaverage center)
+        # Pre-compute translation vector from fsaverage to cvs_avg35_inMNI152
+        # fsavg_surf, _ = mne.read_surface(f"{recon_dir}/fsaverage/surf/lh.pial")
+        # cvs_surf, _ = mne.read_surface(f"{recon_dir}/cvs_avg35_inMNI152/surf/lh.pial")
+        # translation = cvs_surf.mean(axis=0) - fsavg_surf.mean(axis=0)
+        # cord_df[['x','y','z']] = cord_df[['x','y','z']].values + translation
+        
         cord_df = cord_df.reset_index().rename(columns={'index': 'channel'})
         cord_df = cord_df[cord_df.channel.isin(df.channel)]
         
@@ -158,9 +168,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
     parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
                         help='which frequency band to use')

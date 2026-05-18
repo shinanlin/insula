@@ -321,8 +321,16 @@ def sample_fold(
         idx = (y_train == cls)
         # observer axis is the epoch axis
         x_cls = X_train[idx]
+        # Fill NaN before mixup to avoid Floating Point Exception in C backend
+        is_nan_cls = np.isnan(x_cls)
+        if is_nan_cls.any():
+            x_cls[is_nan_cls] = 0.0
         mixup(x_cls, obs_axis=0, rng=42)
         X_train[idx] = x_cls
+    
+    is_nan_train = np.isnan(X_train)
+    if is_nan_train.any():
+        X_train[is_nan_train] = np.random.normal(0, 1, int(np.sum(is_nan_train)))
     
     is_nan_test = np.isnan(X_test)
     if is_nan_test.any():

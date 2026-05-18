@@ -146,6 +146,7 @@ def main(
                 pipeline,
                 n_jobs=n_jobs,
                 n_permutations=n_perm,
+                scoring="balanced_accuracy",
                 random_state=42,
             )
             
@@ -203,7 +204,7 @@ if __name__ == "__main__":
     # parser.add_argument("--bids_root", type=str,
                         # default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/",
                         # help="Root directory of the BIDS dataset")
-    parser.add_argument("--subject", type=str, default='HGr',
+    parser.add_argument("--subject", type=str, default='AICl',
                         help="Subject to process")
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['car', 'bipolar'],

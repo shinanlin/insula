@@ -105,7 +105,6 @@ def main(
             df['phase'] = epoch_path.processing
             df['modality'] = epoch_path.recording if epoch_path.recording is not None else 'sound'
             
-            
             # rename column name
             parc.rename(columns={'name': 'channel'}, inplace=True)
             parc_sub = parc[['channel', 'label','roi','hemi']]
@@ -118,8 +117,8 @@ def main(
             df.loc[df['roi'] == 'PoG', 'roi'] = 'SMC'
             df.loc[df['roi'] == 'Subcentral', 'roi'] = 'SMC'
             # add channel (x, y, z)
-            montage = epochs.get_montage()
             
+            montage = epochs.get_montage()
             sub_id = re.sub(r'^D0+', 'D', epoch_path.subject)
             to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
             trans = mne.transforms.Transform(fro='head', to='mri',
@@ -140,7 +139,7 @@ def main(
             save_path = BIDSPath(
                 root=f'results/{epoch_path.task}({ref})',
                 description=epoch_path.description,
-                datatype='LBA',
+                datatype='HGA',
                 suffix='zscore',
                 recording=epoch_path.recording,
                 task=epoch_path.task,
@@ -174,12 +173,12 @@ def main(
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
+    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
+    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
     # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_TIMIT/BIDS/", type=str)
-    parser.add_argument("--band", type=str, default="lowband", choices=['highgamma','gamma','beta','alpha','theta','lowband'],
+    parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta','lowband'],
                         help='which frequency band to use')
     parser.add_argument("--ref", type=str, default='bipolar',
                         choices=['bipolar','car'],
