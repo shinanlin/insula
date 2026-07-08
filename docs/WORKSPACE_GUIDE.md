@@ -51,6 +51,33 @@ Packaging scripts prepare BIDS-derived data products and features:
 
 The main SLURM launcher is `scripts/package.sh`.
 
+### Electrode Parcellation and Insula Subregions
+
+General ROI labels are assigned in subject-native FreeSurfer space. Standard
+MNI and CVS coordinates are derived for analysis/display and do not replace
+native labels. The current coordinate definitions, bipolar consensus rule,
+legacy MATLAB comparison, and MAPER validation status are documented in:
+
+- `docs/PARCELLATION_PIPELINE.md`
+- `docs/D44_MAPER_worklog.md`
+- `pipeline/README.md`
+
+The reusable Faillenot/MAPER workflow is under `pipeline/`. Do not use the
+first D44 MAPER products made from uncorrected atlas geometry or sampled via
+the fused image scanner affine.
+
+The preprocessing source of truth is the separate repository:
+
+```text
+/hpc/group/coganlab/nanlinshi/seeg-preprocessing/
+```
+
+Shared stages live under its `common/` and `lib/` directories. Task-specific
+code is checked out as worktrees under
+`/hpc/group/coganlab/nanlinshi/seeg-preprocessing-worktrees/`. This Insula
+repository consumes preprocessing derivatives; it should not grow another
+copy of the general parcellation implementation.
+
 ### Within-ROI Decoding
 
 Within-ROI decoding uses ROI labels as the `--subject` argument in many scripts. These are group-level ROI codes, not patient IDs.
@@ -212,6 +239,16 @@ Input data are not stored in this repository. Scripts commonly refer to BIDS roo
 MRI reconstruction resources are commonly read from:
 
 - `/cwork/ns458/ECoG_Recon/`
+
+Parcellation and MAPER derivatives are commonly read from:
+
+- `/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/`
+- `/cwork/ns458/atlases/Hammersmith_n30r95/`
+- `/cwork/ns458/maper_run/`
+
+MAPER fusion volumes are subject-level, but extracted bipolar tables are
+task-specific. Cross-task merges must include task and reference in their
+keys; a subject ID alone is insufficient.
 
 ## Path Policy
 
