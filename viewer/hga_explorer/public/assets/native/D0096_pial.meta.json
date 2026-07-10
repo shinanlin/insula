@@ -1,0 +1,28 @@
+{
+  "subject": "D0096",
+  "recon_id": "D96",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D96/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D96/surf/rh.pial"
+  },
+  "n_vertices_original": 244674,
+  "n_faces_original": 489340,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -68.60465240478516,
+    "xmax": 63.80663299560547,
+    "ymin": -91.45719146728516,
+    "ymax": 77.87208557128906,
+    "zmin": -39.15101623535156,
+    "zmax": 71.36339569091797
+  },
+  "center": [
+    -3.0968232858307045,
+    -10.633401981196693,
+    14.958969747859713
+  ]
+}

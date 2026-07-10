@@ -1,0 +1,28 @@
+{
+  "subject": "D0071",
+  "recon_id": "D71",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D71/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D71/surf/rh.pial"
+  },
+  "n_vertices_original": 233681,
+  "n_faces_original": 467354,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -60.479087829589844,
+    "xmax": 70.57215118408203,
+    "ymin": -87.9034194946289,
+    "ymax": 78.5078353881836,
+    "zmin": -50.24424743652344,
+    "zmax": 59.552772521972656
+  },
+  "center": [
+    5.623622601761608,
+    -8.63781120973579,
+    2.386201198620454
+  ]
+}

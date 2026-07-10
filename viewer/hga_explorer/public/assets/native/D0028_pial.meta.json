@@ -1,0 +1,28 @@
+{
+  "subject": "D0028",
+  "recon_id": "D28",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D28/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D28/surf/rh.pial"
+  },
+  "n_vertices_original": 287933,
+  "n_faces_original": 575858,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -68.07696533203125,
+    "xmax": 66.47350311279297,
+    "ymin": -85.55545043945312,
+    "ymax": 86.58395385742188,
+    "zmin": -30.297929763793945,
+    "zmax": 83.0105972290039
+  },
+  "center": [
+    1.3412402072157346,
+    -2.8331664804219607,
+    24.873785107442323
+  ]
+}

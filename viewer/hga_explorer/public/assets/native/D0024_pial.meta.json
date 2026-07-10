@@ -1,0 +1,28 @@
+{
+  "subject": "D0024",
+  "recon_id": "D24",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D24/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D24/surf/rh.pial"
+  },
+  "n_vertices_original": 275882,
+  "n_faces_original": 551756,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -70.53034973144531,
+    "xmax": 59.73593521118164,
+    "ymin": -87.36341857910156,
+    "ymax": 85.56005859375,
+    "zmin": -56.385963439941406,
+    "zmax": 63.478851318359375
+  },
+  "center": [
+    -3.6662586221629203,
+    -4.101220371468525,
+    -0.1594004392155004
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "subject": "D0070",
+  "recon_id": "D70",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D70/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D70/surf/rh.pial"
+  },
+  "n_vertices_original": 260573,
+  "n_faces_original": 521138,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -68.03325653076172,
+    "xmax": 61.65730667114258,
+    "ymin": -85.43883514404297,
+    "ymax": 79.15950775146484,
+    "zmin": -47.023799896240234,
+    "zmax": 70.11280059814453
+  },
+  "center": [
+    -4.013398249247208,
+    -6.18107136958098,
+    9.964562185636767
+  ]
+}

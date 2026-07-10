@@ -1,0 +1,28 @@
+{
+  "subject": "D0035",
+  "recon_id": "D35",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D35/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D35/surf/rh.pial"
+  },
+  "n_vertices_original": 330521,
+  "n_faces_original": 661034,
+  "n_vertices": 81526,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -62.83546447753906,
+    "xmax": 64.99707794189453,
+    "ymin": -101.74856567382812,
+    "ymax": 74.58902740478516,
+    "zmin": -34.80722427368164,
+    "zmax": 78.42576599121094
+  },
+  "center": [
+    2.8676488775223437,
+    -17.724874106147336,
+    23.727232428928232
+  ]
+}

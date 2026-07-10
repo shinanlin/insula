@@ -1,0 +1,28 @@
+{
+  "subject": "D0053",
+  "recon_id": "D53",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D53/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D53/surf/rh.pial"
+  },
+  "n_vertices_original": 292861,
+  "n_faces_original": 585714,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -69.31294250488281,
+    "xmax": 70.0946273803711,
+    "ymin": -87.79438018798828,
+    "ymax": 82.44552612304688,
+    "zmin": -51.131385803222656,
+    "zmax": 59.220970153808594
+  },
+  "center": [
+    1.3109701621901968,
+    -9.261722320139375,
+    -2.297025261076699
+  ]
+}

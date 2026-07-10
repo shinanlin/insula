@@ -1,0 +1,35 @@
+{
+  "subject": "cvs_avg35_inMNI152",
+  "surf": "pial",
+  "coordinate_space": "RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/surf/rh.pial"
+  },
+  "n_vertices_original": 271082,
+  "n_faces_original": 542156,
+  "n_vertices": 50004,
+  "n_faces": 100000,
+  "target_faces": 100000,
+  "bounds": {
+    "xmin": -68.76081085205078,
+    "xmax": 72.60823822021484,
+    "ymin": -89.48509979248047,
+    "ymax": 89.63880157470703,
+    "zmin": -69.61687469482422,
+    "zmax": 62.31275939941406
+  },
+  "center": [
+    0.8029585255478644,
+    -2.1597908277617734,
+    -3.089982159156291
+  ],
+  "camera_hint": {
+    "position": [
+      0,
+      -150,
+      95
+    ],
+    "fov": 45
+  }
+}

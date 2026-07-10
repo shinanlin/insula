@@ -8,6 +8,8 @@ img/
 .pytest_cache/
 __pycache__/
 .vscode/
+viewer/**/node_modules/
+viewer/**/dist/
 notebooks/3d_html_all/
 viz/3d_xcorr/D0007_Response_Repeat.html
 viz/3d_xcorr/D0023_Response_Repeat.html

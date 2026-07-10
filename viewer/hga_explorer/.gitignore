@@ -1,0 +1,9 @@
+node_modules/
+dist/
+export/__pycache__/
+public/data/traces/
+public/data/kde/
+public/data/animation/
+public/data/electrodes.json
+public/data/manifest.json
+public/assets/**/*.glb

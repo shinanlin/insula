@@ -1,0 +1,28 @@
+{
+  "subject": "D0042",
+  "recon_id": "D42",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D42/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D42/surf/rh.pial"
+  },
+  "n_vertices_original": 284317,
+  "n_faces_original": 568626,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -67.23152160644531,
+    "xmax": 58.546165466308594,
+    "ymin": -100.4428939819336,
+    "ymax": 67.96310424804688,
+    "zmin": -38.22833251953125,
+    "zmax": 85.87605285644531
+  },
+  "center": [
+    -6.444775325950814,
+    -18.96119041108025,
+    18.072609094774272
+  ]
+}

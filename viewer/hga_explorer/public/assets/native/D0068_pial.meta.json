@@ -1,0 +1,28 @@
+{
+  "subject": "D0068",
+  "recon_id": "D68",
+  "surf": "pial",
+  "coordinate_space": "native_RAS_mm",
+  "source": {
+    "lh_pial": "/cwork/ns458/ECoG_Recon/D68/surf/lh.pial",
+    "rh_pial": "/cwork/ns458/ECoG_Recon/D68/surf/rh.pial"
+  },
+  "n_vertices_original": 259074,
+  "n_faces_original": 518140,
+  "n_vertices": 40004,
+  "n_faces": 80000,
+  "target_faces": 80000,
+  "bounds": {
+    "xmin": -67.71757507324219,
+    "xmax": 67.31141662597656,
+    "ymin": -93.61705017089844,
+    "ymax": 80.57456970214844,
+    "zmin": -33.90342330932617,
+    "zmax": 71.87081909179688
+  },
+  "center": [
+    -0.4768870168443278,
+    -9.979188754380711,
+    15.728433184034465
+  ]
+}

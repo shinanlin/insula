@@ -1,0 +1,278 @@
+{
+  "metadata": {
+    "source": "mock",
+    "tasks": [
+      "PhonemeSequencing",
+      "LexicalDelay"
+    ],
+    "conditions": {
+      "PhonemeSequencing": [
+        "Repeat"
+      ],
+      "LexicalDelay": [
+        "Repeat",
+        "Decision"
+      ]
+    },
+    "default_condition": "Repeat",
+    "phases": [
+      "stimulus",
+      "delay",
+      "go",
+      "response"
+    ],
+    "significance_windows": {
+      "stimulus": [
+        0.0,
+        0.5
+      ],
+      "delay": [
+        0.0,
+        0.5
+      ],
+      "go": [
+        0.0,
+        0.5
+      ],
+      "response": [
+        -0.5,
+        0.5
+      ]
+    },
+    "display_waveform_range": [
+      -0.5,
+      1.0
+    ],
+    "subjects": [
+      "D0094",
+      "D0071",
+      "D0084"
+    ],
+    "hga_size_scale": 1.2
+  },
+  "electrodes": [
+    {
+      "id": "D0094|D0094_LPAS2-3",
+      "subject": "D0094",
+      "channel": "D0094_LPAS2-3",
+      "roi": "SFG",
+      "label": "Left-Cerebral-White-Matter",
+      "hemi": "L",
+      "active_phases": [
+        "delay",
+        "go"
+      ],
+      "phase_flags": {
+        "stimulus": false,
+        "delay": true,
+        "go": true,
+        "response": false
+      },
+      "hga_by_task": {
+        "PhonemeSequencing": 0.42,
+        "LexicalDelay": 0.38
+      },
+      "region_ids": [
+        "delay",
+        "delay_go",
+        "delay_go_stimulus"
+      ],
+      "x": -5.82782,
+      "y": 2.1441,
+      "z": 38.3752,
+      "x_native": -2.25,
+      "y_native": -19.125,
+      "z_native": 70.75,
+      "x1_native": -0.5,
+      "y1_native": -19.25,
+      "z1_native": 70.5,
+      "x2_native": -4.0,
+      "y2_native": -19.0,
+      "z2_native": 71.0,
+      "x1_template": -3.80663,
+      "y1_template": 1.9998000000000005,
+      "z1_template": 38.1029,
+      "x2_template": -7.727790000000001,
+      "y2_template": 2.1605000000000008,
+      "z2_template": 38.7191,
+      "contact_1": "LPAS2",
+      "contact_2": "LPAS3",
+      "contact_1_label": "ctx_lh_G_front_sup",
+      "contact_2_label": "Left-Cerebral-White-Matter"
+    },
+    {
+      "id": "D0071|D0071_RFO13-14",
+      "subject": "D0071",
+      "channel": "D0071_RFO13-14",
+      "roi": "IFG",
+      "label": "Right-Cerebral-White-Matter",
+      "hemi": "R",
+      "active_phases": [
+        "stimulus",
+        "response"
+      ],
+      "phase_flags": {
+        "stimulus": true,
+        "delay": false,
+        "go": false,
+        "response": true
+      },
+      "hga_by_task": {
+        "PhonemeSequencing": null,
+        "LexicalDelay": 0.55
+      },
+      "region_ids": [
+        "stimulus",
+        "response",
+        "stimulus_response"
+      ],
+      "x": 51.9491,
+      "y": 54.5553,
+      "z": -29.518,
+      "x_native": 48.08335,
+      "y_native": 42.33335,
+      "z_native": -20.5,
+      "x1_native": 46.5,
+      "y1_native": 42.0,
+      "z1_native": -21.0,
+      "x2_native": 49.6667,
+      "y2_native": 42.6667,
+      "z2_native": -20.0,
+      "x1_template": 50.4369,
+      "y1_template": 54.3243,
+      "z1_template": -30.5487,
+      "x2_template": 53.3565,
+      "y2_template": 54.7466,
+      "z2_template": -28.58253,
+      "contact_1": "RFO13",
+      "contact_2": "RFO14",
+      "contact_1_label": "Right-Cerebral-White-Matter",
+      "contact_2_label": "ctx_rh_G_front_inf-Orbital"
+    },
+    {
+      "id": "D0084|D0084_LFAM4-5",
+      "subject": "D0084",
+      "channel": "D0084_LFAM4-5",
+      "roi": "SFGs",
+      "label": "ctx_lh_S_front_sup",
+      "hemi": "L",
+      "active_phases": [
+        "delay"
+      ],
+      "phase_flags": {
+        "stimulus": false,
+        "delay": true,
+        "go": false,
+        "response": false
+      },
+      "hga_by_task": {
+        "PhonemeSequencing": 0.31,
+        "LexicalDelay": 0.29
+      },
+      "region_ids": [
+        "delay"
+      ],
+      "x": -23.3047,
+      "y": 49.3339,
+      "z": 13.969900000000004,
+      "x_native": -18.625,
+      "y_native": 35.72155,
+      "z_native": 25.77835,
+      "x1_native": -17.25,
+      "y1_native": 35.6477,
+      "z1_native": 25.3522,
+      "x2_native": -20.0,
+      "y2_native": 35.7954,
+      "z2_native": 26.2045,
+      "x1_template": -21.6483,
+      "y1_template": 48.9239,
+      "z1_template": 13.2887,
+      "x2_template": -24.9243,
+      "y2_template": 49.6887,
+      "z2_template": 14.628500000000004,
+      "contact_1": "LFAM4",
+      "contact_2": "LFAM5",
+      "contact_1_label": "ctx_lh_S_front_sup",
+      "contact_2_label": "Unknown"
+    }
+  ],
+  "regions": [
+    {
+      "id": "delay",
+      "label": "Delay only",
+      "phases_on": [
+        "delay"
+      ],
+      "phases_off": [
+        "stimulus",
+        "go",
+        "response"
+      ],
+      "electrode_ids": [
+        "D0084|D0084_LFAM4-5"
+      ],
+      "count": 1
+    },
+    {
+      "id": "delay_go",
+      "label": "Delay \u2229 Go",
+      "phases_on": [
+        "delay",
+        "go"
+      ],
+      "phases_off": [
+        "stimulus",
+        "response"
+      ],
+      "electrode_ids": [
+        "D0094|D0094_LPAS2-3"
+      ],
+      "count": 1
+    },
+    {
+      "id": "stimulus",
+      "label": "Stimulus only",
+      "phases_on": [
+        "stimulus"
+      ],
+      "phases_off": [
+        "delay",
+        "go",
+        "response"
+      ],
+      "electrode_ids": [],
+      "count": 0
+    },
+    {
+      "id": "response",
+      "label": "Response only",
+      "phases_on": [
+        "response"
+      ],
+      "phases_off": [
+        "stimulus",
+        "delay",
+        "go"
+      ],
+      "electrode_ids": [],
+      "count": 0
+    },
+    {
+      "id": "stimulus_response",
+      "label": "Stimulus \u2229 Response",
+      "phases_on": [
+        "stimulus",
+        "response"
+      ],
+      "phases_off": [
+        "delay",
+        "go"
+      ],
+      "electrode_ids": [
+        "D0071|D0071_RFO13-14"
+      ],
+      "count": 1
+    }
+  ],
+  "traces": {}
+}
