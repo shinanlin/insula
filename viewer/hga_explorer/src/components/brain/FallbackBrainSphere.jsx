@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { BRAIN_SOLID_OPACITY_THRESHOLD } from '../../constants/brain.js';
 import {
   createBrainMaterial,
   hemisphereClippingPlanes,
@@ -6,7 +7,7 @@ import {
 
 export default function FallbackBrainSphere({ opacity, hemisphereView }) {
   const material = useMemo(() => {
-    const mat = createBrainMaterial(opacity, { forceSolid: opacity >= 0.95 });
+    const mat = createBrainMaterial(opacity, { forceSolid: opacity >= BRAIN_SOLID_OPACITY_THRESHOLD });
     const planes = hemisphereClippingPlanes(hemisphereView);
     if (planes.length) {
       mat.clippingPlanes = planes;

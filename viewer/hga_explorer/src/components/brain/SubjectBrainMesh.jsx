@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 import { useGLTF } from '@react-three/drei';
-import { BRAIN_HEMI_SPLIT_X } from '../../constants/brain.js';
+import { BRAIN_HEMI_SPLIT_X, BRAIN_SOLID_OPACITY_THRESHOLD } from '../../constants/brain.js';
 import {
   applyBrainMaterial,
   applyHemisphereClipping,
@@ -13,6 +13,7 @@ export default function SubjectBrainMesh({
   opacity,
   hemisphereView,
   useLitCortex = false,
+  forceSolid: forceSolidOverride,
 }) {
   const { scene } = useGLTF(meshUrl);
   const brain = useMemo(
@@ -20,12 +21,15 @@ export default function SubjectBrainMesh({
     [scene],
   );
   const lit = useLitCortex;
+  const resolvedForceSolid = forceSolidOverride != null
+    ? forceSolidOverride
+    : (opacity >= BRAIN_SOLID_OPACITY_THRESHOLD);
 
   useEffect(() => {
-    applyBrainMaterial(brain, opacity, { forceSolid: opacity >= 0.95, lit });
+    applyBrainMaterial(brain, opacity, { forceSolid: resolvedForceSolid, lit });
     applyHemisphereClipping(brain, 'both');
     setBrainHemisphereVisibility(brain, hemisphereView);
-  }, [brain, opacity, hemisphereView, lit]);
+  }, [brain, opacity, hemisphereView, lit, resolvedForceSolid]);
 
   return <primitive object={brain} />;
 }

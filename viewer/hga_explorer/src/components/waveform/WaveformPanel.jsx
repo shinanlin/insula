@@ -1,21 +1,20 @@
 import React, { useMemo } from 'react';
 import { PHASES, PHASE_LABELS } from '../../constants/phases.js';
 import {
-  resolvePanelPhaseTrace,
-  clipTraceToPhaseWindow,
+  buildPhaseSeriesList,
+  computeMultiTraceYRange,
+  conditionsPresentInCohort,
 } from '../../utils/traces.js';
-import { resolveWaveformYRange } from '../../constants/waveform.js';
 import { formatWaveformTitle } from '../../utils/selectionSummary.js';
 import PhaseAnimationControls from './PhaseAnimationControls.jsx';
 import PhaseWaveformPlot from './PhaseWaveformPlot.jsx';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
 import TraceLoadProgress from '../ui/TraceLoadProgress.jsx';
-import { formatViewSelectionLabel } from '../../utils/viewSelection.js';
 
 const StaticWaveformBody = React.memo(function StaticWaveformBody({
   phase,
   index,
-  trace,
+  seriesList,
   traceKey,
   yRange,
   hasTrace,
@@ -39,7 +38,7 @@ const StaticWaveformBody = React.memo(function StaticWaveformBody({
       key={`${traceKey}-${phase}`}
       phase={phase}
       index={index}
-      trace={trace}
+      seriesList={seriesList}
       traceKey={traceKey}
       yRange={yRange}
       isSingleElectrode={isSingleElectrode}
@@ -58,6 +57,7 @@ const StaticWaveformBody = React.memo(function StaticWaveformBody({
   && prev.isActivePhase === next.isActivePhase
   && prev.currentTime === next.currentTime
   && prev.selectionEmpty === next.selectionEmpty
+  && prev.seriesList === next.seriesList
 ));
 
 const PhasePlotCard = React.memo(function PhasePlotCard({
@@ -113,7 +113,7 @@ const PhasePlotCard = React.memo(function PhasePlotCard({
       <StaticWaveformBody
         phase={phase}
         index={index}
-        trace={staticTrace.trace}
+        seriesList={staticTrace.seriesList}
         traceKey={traceKey}
         yRange={staticTrace.yRange}
         hasTrace={staticTrace.hasTrace}
@@ -146,8 +146,10 @@ function WaveformPanel({
   electrode,
   summary,
   electrodes,
+  insulaModeActive = false,
   traces,
-  selectedLoad,
+  selectedTask,
+  metadata,
   layout = 'split',
   tracesLoading = false,
   tracesLoadProgress = { completed: 0, total: 0, progress: 0 },
@@ -165,47 +167,64 @@ function WaveformPanel({
   onTogglePlay,
   onSeek,
 }) {
-  const loadLabel = formatViewSelectionLabel(selectedLoad);
   const isSingleElectrode = Boolean(electrode);
   const traceKey = electrode?.id ?? 'aggregate';
+  const allowMock = layout === 'mock';
+  const awaitingTraces = layout === 'split' && tracesLoading && initialLoadComplete;
+
+  const conditionLabels = useMemo(() => (
+    awaitingTraces
+      ? []
+      : conditionsPresentInCohort(traces, electrodes, selectedTask, metadata, null, electrode, allowMock)
+  ), [
+    awaitingTraces,
+    traces,
+    electrodes,
+    selectedTask,
+    metadata,
+    electrode,
+    allowMock,
+  ]);
+
   const { title, fullTitle } = formatWaveformTitle({
     summary,
     isSingleElectrode,
     electrode,
-    loadLabel,
+    conditionLabels,
     electrodeCount: electrodes.length,
+    insulaModeActive,
   });
-
-  const allowMock = layout === 'mock';
-  const awaitingTraces = layout === 'split' && tracesLoading && initialLoadComplete;
-
-  const yRange = useMemo(() => resolveWaveformYRange(), []);
 
   const staticTraces = useMemo(() => (
     Object.fromEntries(PHASES.map((phase, index) => {
-      const resolved = awaitingTraces
-        ? null
-        : resolvePanelPhaseTrace(traces, electrodes, phase, selectedLoad, electrode, allowMock);
-      const rawTrace = resolved
-        ? { x: resolved.time, y: resolved.value, sem: resolved.sem ?? null }
-        : { x: [], y: [], sem: null };
-      const trace = clipTraceToPhaseWindow(rawTrace, phase);
+      const seriesList = awaitingTraces
+        ? []
+        : buildPhaseSeriesList(
+          traces,
+          electrodes,
+          phase,
+          selectedTask,
+          metadata,
+          electrode,
+          allowMock,
+        );
+      const yRange = computeMultiTraceYRange(seriesList);
       return [phase, {
         phase,
         index,
-        trace,
+        seriesList,
         yRange,
-        hasTrace: trace.x.length > 0,
+        hasTrace: seriesList.length > 0,
       }];
     }))
   ), [
     traces,
     electrodes,
-    selectedLoad,
+    selectedTask,
+    metadata,
     electrode,
     allowMock,
     awaitingTraces,
-    yRange,
   ]);
 
   const playbackByPhase = useMemo(() => (

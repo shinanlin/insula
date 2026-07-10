@@ -22,8 +22,10 @@ source ~/.bashrc
 conda activate ieeg
 
 python "${VIEWER_ROOT}/export/export_average_brain_mesh.py"
+python "${VIEWER_ROOT}/export/export_insula_brain_mesh.py"
 python "${VIEWER_ROOT}/export/export_native_brain_mesh.py" \
   --subjects D0094 D0071 D0084 D0023 D0024 D0028 D0029 D0035 D0042 D0053 D0054 D0055 D0057 D0059 \
   D0063 D0066 D0068 D0069 D0070 D0077 D0079 D0086 D0096 D0100 D0102 D0103
+python "${VIEWER_ROOT}/export/export_native_insula_brain_mesh.py" --from-index
 
 echo "Brain mesh export complete."

@@ -6,7 +6,7 @@ import PlaybackVLineOverlay from './PlaybackVLineOverlay.jsx';
 function PhaseWaveformPlot({
   phase,
   index,
-  trace,
+  seriesList,
   traceKey,
   yRange,
   isSingleElectrode,
@@ -49,7 +49,7 @@ function PhaseWaveformPlot({
       <StaticPhasePlot
         phase={phase}
         index={index}
-        trace={trace}
+        seriesList={seriesList}
         traceKey={traceKey}
         yRange={yRange}
         isSingleElectrode={isSingleElectrode}
@@ -74,6 +74,7 @@ export default React.memo(PhaseWaveformPlot, (prev, next) => {
     || prev.isSingleElectrode !== next.isSingleElectrode
     || prev.yRange[0] !== next.yRange[0]
     || prev.yRange[1] !== next.yRange[1]
+    || prev.seriesList !== next.seriesList
   ) {
     return false;
   }

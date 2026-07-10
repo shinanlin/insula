@@ -1,41 +1,89 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { useThree } from '@react-three/fiber';
-import { BRAIN_ORBIT_TARGET, BRAIN_CAMERA, BRAIN_UP } from '../../constants/brain.js';
+import {
+  BRAIN_CAMERA,
+  BRAIN_ORBIT_TARGET,
+  BRAIN_UP,
+  INSULA_CAMERA,
+  INSULA_ORBIT_TARGET,
+  INSULA_ORBIT_DISTANCE,
+  INSULA_ORBIT_AZIMUTH_DEG,
+  INSULA_ORBIT_ELEVATION_DEG,
+  INSULA_CAMERA_Z_OFFSET,
+  brainCameraPosition,
+} from '../../constants/brain.js';
 
-export default function BrainSceneControls({ resetToken = 0 }) {
+function resolveCameraPreset(preset, insulaOrbitTarget) {
+  if (preset === 'insula') {
+    const target = insulaOrbitTarget ?? INSULA_ORBIT_TARGET;
+    return {
+      camera: {
+        position: brainCameraPosition(
+          target,
+          INSULA_ORBIT_DISTANCE,
+          INSULA_ORBIT_AZIMUTH_DEG,
+          INSULA_ORBIT_ELEVATION_DEG,
+          INSULA_CAMERA_Z_OFFSET,
+        ),
+        fov: INSULA_CAMERA.fov,
+        up: BRAIN_UP,
+      },
+      target,
+    };
+  }
+  return {
+    camera: BRAIN_CAMERA,
+    target: BRAIN_ORBIT_TARGET,
+  };
+}
+
+function insulaTargetKey(insulaOrbitTarget) {
+  if (!insulaOrbitTarget?.length) return '';
+  return insulaOrbitTarget.map((value) => Number(value).toFixed(4)).join(',');
+}
+
+export default function BrainSceneControls({
+  resetToken = 0,
+  cameraPreset = 'default',
+  insulaOrbitTarget = null,
+}) {
   const camera = useThree((state) => state.camera);
   const controlsRef = useRef(null);
+  const targetKey = insulaTargetKey(insulaOrbitTarget);
+  const presetConfig = useMemo(
+    () => resolveCameraPreset(cameraPreset, insulaOrbitTarget),
+    [cameraPreset, targetKey, insulaOrbitTarget],
+  );
 
-  useEffect(() => {
+  const applyPreset = () => {
+    const { camera: presetCamera, target } = presetConfig;
     camera.up.set(...BRAIN_UP);
-    camera.position.set(...BRAIN_CAMERA.position);
+    camera.position.set(...presetCamera.position);
     if ('fov' in camera) {
-      camera.fov = BRAIN_CAMERA.fov;
+      camera.fov = presetCamera.fov;
       camera.updateProjectionMatrix();
     }
-    camera.lookAt(...BRAIN_ORBIT_TARGET);
-  }, [camera]);
+    camera.lookAt(...target);
+    if (controlsRef.current) {
+      controlsRef.current.target.set(...target);
+      controlsRef.current.update();
+    }
+  };
+
+  useEffect(() => {
+    applyPreset();
+  }, [camera, cameraPreset, targetKey]);
 
   useEffect(() => {
     if (!resetToken) return;
-    camera.up.set(...BRAIN_UP);
-    camera.position.set(...BRAIN_CAMERA.position);
-    if ('fov' in camera) {
-      camera.fov = BRAIN_CAMERA.fov;
-      camera.updateProjectionMatrix();
-    }
-    if (controlsRef.current) {
-      controlsRef.current.target.set(...BRAIN_ORBIT_TARGET);
-      controlsRef.current.update();
-    }
-    camera.lookAt(...BRAIN_ORBIT_TARGET);
-  }, [resetToken, camera]);
+    applyPreset();
+  }, [resetToken, cameraPreset, targetKey]);
 
   return (
     <OrbitControls
       ref={controlsRef}
-      target={BRAIN_ORBIT_TARGET}
+      target={presetConfig.target}
       enableDamping
       dampingFactor={0.08}
       rotateSpeed={0.85}

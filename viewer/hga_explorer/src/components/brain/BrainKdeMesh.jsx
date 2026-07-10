@@ -7,6 +7,7 @@ import {
   resolveDensityRange,
 } from '../../brainKde.js';
 import { BRAIN_MESH_URL, BRAIN_HEMI_SPLIT_X } from '../../constants/brain.js';
+import { INSULA_GHOST_OPACITY } from '../../constants/insula.js';
 import { buildKdeFrameColorsOffThread } from '../../utils/kdeFrameColorClient.js';
 import {
   applyBrainMaterial,
@@ -28,8 +29,12 @@ function overrideFixedDensityRange(vmaxOverride) {
 }
 
 export default function BrainKdeMesh({
+  meshUrl = BRAIN_MESH_URL,
   opacity,
   hemisphereView,
+  insulaMode = false,
+  insulaMask = null,
+  insulaMaskReady = true,
   influencePoints,
   hgaValues,
   fixedHgaMax = null,
@@ -40,7 +45,7 @@ export default function BrainKdeMesh({
   onDensityRange,
   onFrameCacheStatus,
 }) {
-  const { scene } = useGLTF(BRAIN_MESH_URL);
+  const { scene } = useGLTF(meshUrl);
   const meshData = useMemo(() => extractMeshPositions(scene), [scene]);
   const pointsKey = useMemo(
     () => influencePoints.map((point) => `${point.x},${point.y},${point.z}`).join('|'),
@@ -72,6 +77,32 @@ export default function BrainKdeMesh({
     [densityVmaxOverride],
   );
 
+  const insulaVertexMask = useMemo(() => {
+    if (!insulaMode) return null;
+    if (!insulaMaskReady || !insulaMask?.length) {
+      return meshData.vertexCount > 0
+        ? new Uint8Array(meshData.vertexCount)
+        : null;
+    }
+    if (insulaMask.length !== meshData.vertexCount) {
+      console.warn(
+        `Insula mask length (${insulaMask.length}) does not match mesh vertices (${meshData.vertexCount})`,
+      );
+      return new Uint8Array(meshData.vertexCount);
+    }
+    return insulaMask instanceof Uint8Array
+      ? insulaMask
+      : Uint8Array.from(insulaMask);
+  }, [insulaMode, insulaMask, insulaMaskReady, meshData.vertexCount]);
+
+  const baseOpacity = insulaMode ? INSULA_GHOST_OPACITY : opacity;
+
+  const kdeOptions = useMemo(() => ({
+    statsHemisphere: hemisphereView,
+    maskColorsToHemisphere: false,
+    insulaVertexMask,
+  }), [hemisphereView, insulaVertexMask]);
+
   const { baseBrain, overlayBrain } = useMemo(() => ({
     baseBrain: prepareBrainWithHemispheres(scene.clone(true), BRAIN_HEMI_SPLIT_X),
     overlayBrain: prepareKdeOverlayBrain(scene, BRAIN_HEMI_SPLIT_X),
@@ -84,10 +115,10 @@ export default function BrainKdeMesh({
   }, [frameIndex]);
 
   useEffect(() => {
-    applyBrainMaterial(baseBrain, opacity, { forceSolid: true, lit: true });
+    applyBrainMaterial(baseBrain, baseOpacity, { forceSolid: !insulaMode, lit: true });
     applyHemisphereClipping(baseBrain, 'both');
     setBrainHemisphereVisibility(baseBrain, hemisphereView);
-  }, [baseBrain, opacity, hemisphereView]);
+  }, [baseBrain, baseOpacity, hemisphereView, insulaMode]);
 
   useEffect(() => {
     applyKdeOverlayMaterial(overlayBrain, 'both');
@@ -98,7 +129,7 @@ export default function BrainKdeMesh({
     colorCacheRef.current = null;
     fixedRangeRef.current = null;
     densityRangeReportedRef.current = false;
-  }, [densityVmaxOverride]);
+  }, [densityVmaxOverride, insulaVertexMask, frameHgaKey]);
 
   useEffect(() => {
     if (!frameHgaValues?.length || !fixedHgaMax || !influenceMap.vertexCount) {
@@ -137,6 +168,7 @@ export default function BrainKdeMesh({
         globalHgaMax: fixedHgaMax,
         splitX: BRAIN_HEMI_SPLIT_X,
         statsHemisphere: hemisphereView,
+        insulaVertexMask,
         startIndex: frameIndexRef.current,
         fixedDensityRange,
         onFrameReady: (readyIndex, colors) => {
@@ -194,6 +226,7 @@ export default function BrainKdeMesh({
     fixedDensityRange,
     pointsKey,
     hemisphereView,
+    insulaVertexMask,
     meshData.positions,
     onDensityRange,
     onFrameCacheStatus,
@@ -209,11 +242,6 @@ export default function BrainKdeMesh({
       onDensityRange?.({ vmin: 0, vmax: 1, hasData: false });
       return;
     }
-
-    const kdeOptions = {
-      statsHemisphere: hemisphereView,
-      maskColorsToHemisphere: false,
-    };
 
     const applyColors = (colors) => {
       applyOverlayVertexColors(overlayBrain, colors);
@@ -281,6 +309,7 @@ export default function BrainKdeMesh({
     influencePoints.length,
     onDensityRange,
     densityVmaxOverride,
+    kdeOptions,
   ]);
 
   return (

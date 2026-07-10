@@ -9,7 +9,7 @@ import {
   PLOT_TICK_SIZE,
   PLOT_TITLE_SIZE,
 } from '../../constants/typography.js';
-import { buildWaveformPlotData } from '../../utils/traces.js';
+import { buildMultiConditionWaveformPlotData } from '../../utils/traces.js';
 
 function xAxisTickConfig(min, max) {
   const span = max - min;
@@ -29,7 +29,7 @@ function xAxisTickConfig(min, max) {
 const StaticPhasePlot = React.memo(function StaticPhasePlot({
   phase,
   index,
-  trace,
+  seriesList,
   traceKey = 'aggregate',
   yRange,
   isSingleElectrode,
@@ -49,23 +49,33 @@ const StaticPhasePlot = React.memo(function StaticPhasePlot({
     }
   };
 
+  const showLegend = index === 3 && seriesList.length > 1;
   const plotData = useMemo(
-    () => buildWaveformPlotData(trace, phase, !isSingleElectrode),
-    [trace, phase, isSingleElectrode],
+    () => buildMultiConditionWaveformPlotData(seriesList, !isSingleElectrode, showLegend),
+    [seriesList, isSingleElectrode, showLegend],
   );
   const { min, max } = PHASE_TIME_RANGES[phase];
   const plotFont = { family: PLOT_FONT_FAMILY, color: '#334155', size: PLOT_TICK_SIZE };
   const layout = useMemo(() => ({
     uirevision: `waveform-static-${traceKey}-${phase}`,
-    showlegend: false,
+    showlegend: showLegend,
+    legend: showLegend
+      ? {
+        orientation: 'h',
+        y: 1.12,
+        x: 0.5,
+        xanchor: 'center',
+        font: { family: PLOT_FONT_FAMILY, size: PLOT_TICK_SIZE, color: '#334155' },
+      }
+      : undefined,
     title: {
       text: PHASE_LABELS[phase],
       font: { family: PLOT_FONT_FAMILY, size: PLOT_TITLE_SIZE, color: '#0f172a' },
     },
     margin: {
       l: index === 0 ? 48 : 28,
-      r: 12,
-      t: 30,
+      r: showLegend ? 8 : 12,
+      t: showLegend ? 42 : 30,
       b: 36,
     },
     paper_bgcolor: '#ffffff',
@@ -97,7 +107,7 @@ const StaticPhasePlot = React.memo(function StaticPhasePlot({
       showticklabels: index === 0,
     },
     height: plotHeight,
-  }), [phase, index, traceKey, yRange, min, max, plotHeight]);
+  }), [phase, index, traceKey, yRange, min, max, plotHeight, showLegend]);
 
   useLayoutEffect(() => {
     applyPlotSize(plotRef.current);
@@ -131,6 +141,7 @@ const StaticPhasePlot = React.memo(function StaticPhasePlot({
   && prev.relayoutToken === next.relayoutToken
   && prev.yRange[0] === next.yRange[0]
   && prev.yRange[1] === next.yRange[1]
+  && prev.seriesList === next.seriesList
 ));
 
 export default StaticPhasePlot;

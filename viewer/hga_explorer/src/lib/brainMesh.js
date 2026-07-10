@@ -1,6 +1,8 @@
 import * as THREE from 'three';
 import {
   BRAIN_HEMI_SPLIT_X,
+  BRAIN_MESH_RENDER_ORDER,
+  BRAIN_SOLID_OPACITY_THRESHOLD,
   DEFAULT_BRAIN_COLOR,
   KDE_OVERLAY_HIGHLIGHT_CAP,
   KDE_OVERLAY_LIT_MIX,
@@ -9,7 +11,7 @@ import {
 
 export function createBrainMaterial(opacity, { forceSolid = false, lit = false } = {}) {
   const transparent = opacity < 0.999;
-  const depthWrite = forceSolid || opacity >= 0.95;
+  const depthWrite = forceSolid || opacity >= BRAIN_SOLID_OPACITY_THRESHOLD;
   if (lit) {
     return new THREE.MeshPhongMaterial({
       color: DEFAULT_BRAIN_COLOR,
@@ -99,11 +101,15 @@ export function applyKdeOverlayMaterial(root, hemisphereView) {
   });
 }
 
-export function applyBrainMaterial(root, opacity, { forceSolid = false, lit = false } = {}) {
+export function applyBrainMaterial(
+  root,
+  opacity,
+  { forceSolid = false, lit = false, renderOrder = BRAIN_MESH_RENDER_ORDER } = {},
+) {
   root.traverse((child) => {
     if (child.isMesh && !child.userData.isKdeOverlay) {
       child.material = createBrainMaterial(opacity, { forceSolid, lit });
-      child.renderOrder = 0;
+      child.renderOrder = renderOrder;
     }
   });
 }

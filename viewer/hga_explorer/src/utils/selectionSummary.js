@@ -32,20 +32,31 @@ export function formatWaveformTitle({
   summary,
   isSingleElectrode,
   electrode,
-  loadLabel,
+  conditionLabels = [],
   electrodeCount,
+  insulaModeActive = false,
 }) {
+  const scopeLabel = insulaModeActive ? 'insula electrodes' : 'Selected region';
+  const conditionSuffix = conditionLabels.length > 1
+    ? 'all conditions'
+    : (conditionLabels[0] || 'all conditions');
+
   if (isSingleElectrode) {
+    const title = `${electrode.channel} · single electrode (${conditionSuffix})`;
     return {
-      title: `${electrode.channel} · single electrode (${loadLabel})`,
-      fullTitle: `${electrode.channel} · single electrode (${loadLabel})`,
+      title,
+      fullTitle: title,
     };
   }
 
-  const shortLabel = summary?.shortLabel || 'Selected region';
-  const fullLabel = summary?.fullLabel || shortLabel;
-  const title = `${shortLabel} · mean ± SEM (${loadLabel})`;
-  const fullTitle = `${fullLabel} · mean ± SEM of ${electrodeCount} electrode${electrodeCount === 1 ? '' : 's'} (${loadLabel})`;
+  const shortLabel = insulaModeActive
+    ? `Insula · ${electrodeCount} electrode${electrodeCount === 1 ? '' : 's'}`
+    : (summary?.shortLabel || scopeLabel);
+  const fullLabel = insulaModeActive
+    ? `Insula electrodes (${electrodeCount})`
+    : (summary?.fullLabel || shortLabel);
+  const title = `${shortLabel} · mean ± SEM · ${conditionSuffix}`;
+  const fullTitle = `${fullLabel} · mean ± SEM of ${electrodeCount} electrode${electrodeCount === 1 ? '' : 's'} · ${conditionSuffix}`;
 
   return { title, fullTitle };
 }

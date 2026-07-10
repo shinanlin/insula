@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useMemo, useState } from 'react';
 import { Canvas } from '@react-three/fiber';
+import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 import { Info, RotateCcw } from 'lucide-react';
 import { PHASE_LABELS } from '../../constants/phases.js';
@@ -13,6 +14,13 @@ import {
   DEFAULT_KDE_BRAIN_OPACITY,
 } from '../../constants/brain.js';
 import {
+  electrodeInInsula,
+  INSULA_HIGHLIGHT_OPACITY,
+  INSULA_MESH_URL,
+  resolveInsulaAssets,
+} from '../../constants/insula.js';
+import { BRAIN_SPACES } from '../../utils/electrodeCoords.js';
+import {
   buildKdeSources,
   kdeSourceHgaValues,
   kdeSourcesForInfluenceMap,
@@ -22,8 +30,9 @@ import BrainSceneLighting from './BrainSceneLighting.jsx';
 import BrainSceneControls from './BrainSceneControls.jsx';
 import KdeColorbar from './KdeColorbar.jsx';
 import FallbackBrainSphere from './FallbackBrainSphere.jsx';
-import AverageBrainMesh from './AverageBrainMesh.jsx';
-import SubjectBrainMesh from './SubjectBrainMesh.jsx';
+import TemplateBrainStack from './TemplateBrainStack.jsx';
+import NativeBrainStack from './NativeBrainStack.jsx';
+import InsulaHighlightMesh from './InsulaHighlightMesh.jsx';
 import BipolarEndpoints from './BipolarEndpoints.jsx';
 import BrainKdeMesh from './BrainKdeMesh.jsx';
 import ElectrodePoint from './ElectrodePoint.jsx';
@@ -33,12 +42,17 @@ import { electrodeMatchesHemisphere } from '../../lib/brainMesh.js';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
 import BrainRenderOverlay from './BrainRenderOverlay.jsx';
 
+useGLTF.preload(BRAIN_MESH_URL);
+useGLTF.preload(INSULA_MESH_URL);
+
 export default function BrainViewer({
   electrodes,
   metadata,
   traces = null,
   brainSpace = 'template',
   nativeMeshUrl = null,
+  singleSubject = null,
+  insulaAvailableForSelection = true,
   brainSpaceOptions = [],
   onBrainSpaceChange,
   vennPhases,
@@ -61,6 +75,7 @@ export default function BrainViewer({
   kdePreRenderToken = 0,
   onFrameCacheStatus,
   onBrainViewModeChange,
+  onInsulaModeChange,
   onHover,
   onSelect,
   onSelectEndpoint,
@@ -82,6 +97,9 @@ export default function BrainViewer({
   const [brainHemisphere, setBrainHemisphere] = useState('both');
   const [colorByFunctional, setColorByFunctional] = useState(true);
   const [brainViewMode, setBrainViewMode] = useState(DEFAULT_BRAIN_VIEW_MODE);
+  const [insulaMode, setInsulaMode] = useState(false);
+  const [insulaMask, setInsulaMask] = useState(null);
+  const [insulaOrbitTarget, setInsulaOrbitTarget] = useState(null);
   const [cameraResetToken, setCameraResetToken] = useState(0);
   const [kdeAutoRange, setKdeAutoRange] = useState({ vmin: 0, vmax: 1, hasData: false });
   const [kdeVmaxOverride, setKdeVmaxOverride] = useState(null);
@@ -103,12 +121,72 @@ export default function BrainViewer({
     onBrainViewModeChange?.(brainViewMode);
   }, [brainViewMode, onBrainViewModeChange]);
 
+  const insulaAssets = useMemo(
+    () => resolveInsulaAssets({ brainSpace, subject: singleSubject }),
+    [brainSpace, singleSubject],
+  );
+
+  useEffect(() => {
+    if (!insulaAvailableForSelection && insulaMode) {
+      setInsulaMode(false);
+    }
+  }, [insulaAvailableForSelection, insulaMode]);
+
+  useEffect(() => {
+    let cancelled = false;
+    const { maskUrl, metaUrl } = insulaAssets;
+    setInsulaMask(null);
+    setInsulaOrbitTarget(null);
+
+    const maskPromise = fetch(maskUrl)
+      .then((response) => (response.ok ? response.json() : null))
+      .catch(() => null);
+
+    const metaPromise = brainSpace === BRAIN_SPACES.native && metaUrl
+      ? fetch(metaUrl)
+        .then((response) => (response.ok ? response.json() : null))
+        .catch(() => null)
+      : Promise.resolve(null);
+
+    Promise.all([maskPromise, metaPromise]).then(([maskPayload, metaPayload]) => {
+      if (cancelled) return;
+      if (maskPayload?.mask) {
+        const mask = maskPayload.mask;
+        setInsulaMask(mask instanceof Uint8Array ? mask : Uint8Array.from(mask));
+      }
+      const target = metaPayload?.camera_hint?.target ?? metaPayload?.both_target;
+      if (Array.isArray(target) && target.length === 3) {
+        setInsulaOrbitTarget(target);
+      }
+    });
+
+    return () => {
+      cancelled = true;
+    };
+  }, [insulaAssets, brainSpace]);
+
+  const insulaModeActive = insulaMode && insulaAvailableForSelection;
+
+  useEffect(() => {
+    onInsulaModeChange?.(insulaModeActive);
+  }, [insulaModeActive, onInsulaModeChange]);
+
   const visibleElectrodes = useMemo(() => {
-    const base = showAllElectrodes
+    const base = (showAllElectrodes || insulaModeActive)
       ? resolvedElectrodes
       : resolvedElectrodes.filter((electrode) => selectedIds.has(electrode.id));
-    return base.filter((electrode) => electrodeMatchesHemisphere(electrode, brainHemisphere));
-  }, [resolvedElectrodes, selectedIds, showAllElectrodes, brainHemisphere]);
+    let filtered = base.filter((electrode) => electrodeMatchesHemisphere(electrode, brainHemisphere));
+    if (insulaModeActive) {
+      filtered = filtered.filter(electrodeInInsula);
+    }
+    return filtered;
+  }, [
+    resolvedElectrodes,
+    selectedIds,
+    showAllElectrodes,
+    brainHemisphere,
+    insulaModeActive,
+  ]);
 
   const visibleElectrodesKey = useMemo(
     () => visibleElectrodes.map((electrode) => electrode.id).join('|'),
@@ -117,7 +195,12 @@ export default function BrainViewer({
 
   useEffect(() => {
     setKdeVmaxOverride(null);
-  }, [visibleElectrodesKey, selectedLoad, playingPhase, brainHemisphere, brainViewMode]);
+  }, [visibleElectrodesKey, selectedLoad, playingPhase, brainHemisphere, brainViewMode, insulaModeActive]);
+
+  const handleInsulaModeToggle = useCallback(() => {
+    setInsulaMode((current) => !current);
+    setCameraResetToken((token) => token + 1);
+  }, []);
 
   const kdeHgaValues = useMemo(
     () => visibleElectrodes.map((electrode) => {
@@ -229,16 +312,39 @@ export default function BrainViewer({
           gl.toneMapping = THREE.NoToneMapping;
         }}
       >
+        <Suspense fallback={null}>
         <BrainSceneLighting mneStyle />
         {brainAssetOk === true && brainViewMode === 'electrodes' && (
           nativeMeshUrl
-            ? <SubjectBrainMesh key={nativeMeshUrl} meshUrl={nativeMeshUrl} opacity={brainOpacity} hemisphereView={brainHemisphere} useLitCortex />
-            : <AverageBrainMesh opacity={brainOpacity} hemisphereView={brainHemisphere} useLitCortex />
+            ? (
+              <NativeBrainStack
+                key={nativeMeshUrl}
+                meshUrl={nativeMeshUrl}
+                insulaMeshUrl={insulaAssets.meshUrl}
+                insulaMode={insulaModeActive}
+                opacity={brainOpacity}
+                hemisphereView={brainHemisphere}
+                useLitCortex
+              />
+            )
+            : (
+              <TemplateBrainStack
+                insulaMode={insulaModeActive}
+                opacity={brainOpacity}
+                hemisphereView={brainHemisphere}
+                useLitCortex
+              />
+            )
         )}
         {brainAssetOk === true && brainViewMode === 'kde' && (
           <BrainKdeMesh
+            key={activeMeshUrl}
+            meshUrl={activeMeshUrl}
             opacity={brainOpacity}
             hemisphereView={brainHemisphere}
+            insulaMode={insulaModeActive}
+            insulaMask={insulaMask}
+            insulaMaskReady={!insulaModeActive || insulaMask != null}
             influencePoints={kdeLayout.influencePoints}
             hgaValues={kdeSourceHga}
             fixedHgaMax={playingPhase ? animationScale?.vmax : null}
@@ -301,7 +407,12 @@ export default function BrainViewer({
             onSelectEndpoint={onSelectEndpoint}
           />
         )}
-        <BrainSceneControls resetToken={cameraResetToken} />
+        <BrainSceneControls
+          resetToken={cameraResetToken}
+          cameraPreset={insulaModeActive ? 'insula' : 'default'}
+          insulaOrbitTarget={insulaModeActive ? insulaOrbitTarget : null}
+        />
+        </Suspense>
       </Canvas>
       <div className="brain-toolbar">
         <div className="brain-controls-row" data-tour="brain-controls">
@@ -343,13 +454,30 @@ export default function BrainViewer({
                   type="button"
                   className={`brain-chip${brainViewMode === option.id ? ' active' : ''}`}
                   disabled={disabled}
-                  title={disabled ? 'KDE projection requires the average pial mesh (cvs_avg35_pial.glb)' : undefined}
+                  title={disabled ? 'KDE projection requires a brain mesh for the current subject' : undefined}
                   onClick={() => setBrainViewMode(option.id)}
                 >
                   {option.label}
                 </button>
               );
             })}
+          </div>
+          <div className="brain-control-pill">
+            <button
+              type="button"
+              className={`brain-chip${insulaModeActive ? ' active' : ''}`}
+              disabled={!insulaAvailableForSelection}
+              title={
+                !insulaAvailableForSelection
+                  ? (brainSpace === BRAIN_SPACES.native
+                    ? 'Insula assets not exported for this subject'
+                    : 'Insula mode requires a single selected subject with exported insula assets')
+                  : 'Focus on insula cortex and electrodes'
+              }
+              onClick={handleInsulaModeToggle}
+            >
+              Insula
+            </button>
           </div>
           {brainViewMode === 'electrodes' && (
             <div className="brain-control-pill">
@@ -381,19 +509,21 @@ export default function BrainViewer({
             {showAllElectrodes ? 'Selected only' : 'Show all'}
           </button>
         </div>
-        <label className="brain-opacity-control">
-          <span className="brain-opacity-label">Opacity</span>
-          <input
-            type="range"
-            min={0}
-            max={100}
-            step={1}
-            value={Math.round(brainOpacity * 100)}
-            onChange={(event) => setBrainOpacity(Number(event.target.value) / 100)}
-            aria-valuetext={`${Math.round(brainOpacity * 100)} percent`}
-          />
-          <span className="brain-opacity-value">{Math.round(brainOpacity * 100)}%</span>
-        </label>
+        {!insulaModeActive && (
+          <label className="brain-opacity-control">
+            <span className="brain-opacity-label">Opacity</span>
+            <input
+              type="range"
+              min={0}
+              max={100}
+              step={1}
+              value={Math.round(brainOpacity * 100)}
+              onChange={(event) => setBrainOpacity(Number(event.target.value) / 100)}
+              aria-valuetext={`${Math.round(brainOpacity * 100)} percent`}
+            />
+            <span className="brain-opacity-value">{Math.round(brainOpacity * 100)}%</span>
+          </label>
+        )}
       </div>
       {brainViewMode === 'kde' && (
         <KdeColorbar

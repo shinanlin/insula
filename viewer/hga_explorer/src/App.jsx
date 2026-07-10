@@ -4,6 +4,7 @@ import { PHASES } from './constants/phases.js';
 import { VENN_MAX_PHASES, VENN_MIN_PHASES } from './constants/venn.js';
 import { TASK_LABELS, TASK_OPTIONS } from './constants/tasks.js';
 import { DEFAULT_BRAIN_VIEW_MODE } from './constants/brain.js';
+import { electrodeInInsula } from './constants/insula.js';
 import useHgaExplorerData from './hooks/useHgaExplorerData.js';
 import useViewSelection from './hooks/useViewSelection.js';
 import useBrainSpace from './hooks/useBrainSpace.js';
@@ -17,11 +18,13 @@ import DetailPanel from './components/detail/DetailPanel.jsx';
 import WaveformPanel from './components/waveform/WaveformPanel.jsx';
 import ViewerInitialLoadScreen from './components/layout/ViewerInitialLoadScreen.jsx';
 import { getSelectionEmptyState } from './utils/selectionEmptyState.js';
-import { filterElectrodesForView } from './utils/taskFilter.js';
+import { filterElectrodesForTask, filterElectrodesForView } from './utils/taskFilter.js';
 import { formatViewSelectionLabel } from './utils/viewSelection.js';
+import { resolveElectrodesForBrainSpace } from './utils/electrodeCoords.js';
 
 export default function App() {
   const [brainViewMode, setBrainViewMode] = useState(DEFAULT_BRAIN_VIEW_MODE);
+  const [insulaModeActive, setInsulaModeActive] = useState(false);
   const [kdeFrameCacheStatus, setKdeFrameCacheStatus] = useState({ ready: true, progress: 1 });
   const [kdePreRenderToken, setKdePreRenderToken] = useState(0);
 
@@ -32,6 +35,10 @@ export default function App() {
 
   const handleFrameCacheStatus = useCallback((status) => {
     setKdeFrameCacheStatus(status);
+  }, []);
+
+  const handleInsulaModeChange = useCallback((active) => {
+    setInsulaModeActive(active);
   }, []);
 
   const {
@@ -64,15 +71,30 @@ export default function App() {
     selectCondition,
   } = useViewSelection(data?.metadata);
 
-  const taskFilteredElectrodes = useMemo(
-    () => filterElectrodesForView(
+  const taskScopedElectrodes = useMemo(
+    () => filterElectrodesForTask(
       subjectFilteredElectrodes,
+      selectedTask,
+      data?.traces,
+      data?.metadata,
+    ),
+    [
+      subjectFilteredElectrodes,
+      selectedTask,
+      data?.traces,
+      data?.metadata,
+    ],
+  );
+
+  const brainScopedElectrodes = useMemo(
+    () => filterElectrodesForView(
+      taskScopedElectrodes,
       selectedTask,
       selectedCondition,
       data?.traces,
     ),
     [
-      subjectFilteredElectrodes,
+      taskScopedElectrodes,
       selectedTask,
       selectedCondition,
       data?.traces,
@@ -105,7 +127,7 @@ export default function App() {
     tableElectrodesKey,
     roiBarItems,
   } = useSelectionPipeline({
-    subjectFilteredElectrodes: taskFilteredElectrodes,
+    subjectFilteredElectrodes: taskScopedElectrodes,
     electrodeById,
     selectedTask,
   });
@@ -115,11 +137,45 @@ export default function App() {
     setBrainSpace,
     brainSpaceOptions,
     nativeMeshUrl,
+    singleSubject,
     forcedTemplate,
+    insulaAvailableForSelection,
   } = useBrainSpace({
     selectedSubjects,
     manifest: data?.manifest,
   });
+
+  const waveformElectrodes = useMemo(() => {
+    if (!insulaModeActive) return tableElectrodes;
+    return resolveElectrodesForBrainSpace(taskScopedElectrodes, brainSpace)
+      .filter(electrodeInInsula);
+  }, [
+    insulaModeActive,
+    tableElectrodes,
+    tableElectrodesKey,
+    taskScopedElectrodes,
+    brainSpace,
+  ]);
+
+  const animationElectrodes = useMemo(
+    () => filterElectrodesForView(
+      waveformElectrodes,
+      selectedTask,
+      selectedCondition,
+      data?.traces,
+    ),
+    [
+      waveformElectrodes,
+      selectedTask,
+      selectedCondition,
+      data?.traces,
+    ],
+  );
+
+  const animationElectrodesKey = useMemo(
+    () => animationElectrodes.map((electrode) => electrode.id).join('|'),
+    [animationElectrodes],
+  );
 
   const kdeRenderRequired = brainViewMode === 'kde';
 
@@ -140,8 +196,8 @@ export default function App() {
   } = useAnimationPlayback({
     manifest: data?.manifest,
     layout: data?.layout,
-    tableElectrodes,
-    tableElectrodesKey,
+    tableElectrodes: animationElectrodes,
+    tableElectrodesKey: animationElectrodesKey,
     traces: data?.traces,
     selectedLoad: viewSelection,
     selectedRegionIds,
@@ -154,24 +210,38 @@ export default function App() {
   });
 
   const enabledRoiCount = availableRois.filter((roi) => enabledRois.has(roi)).length;
-  const selectionEmpty = useMemo(
-    () => getSelectionEmptyState({
+  const selectionEmpty = useMemo(() => {
+    const baseEmpty = getSelectionEmptyState({
       selectedSubjectCount: selectedSubjects.size,
       selectedRegionCount: selectedRegions.length,
       availableRoiCount: availableRois.length,
       enabledRoiCount,
-      visibleElectrodeCount: tableElectrodes.length,
-    }),
-    [
-      selectedSubjects.size,
-      selectedRegions.length,
-      availableRois.length,
-      enabledRoiCount,
-      tableElectrodes.length,
-    ],
-  );
+      visibleElectrodeCount: insulaModeActive ? waveformElectrodes.length : tableElectrodes.length,
+    });
+    if (
+      !baseEmpty
+      && insulaModeActive
+      && waveformElectrodes.length === 0
+      && tableElectrodes.length > 0
+    ) {
+      return {
+        code: 'no_insula_electrodes',
+        title: 'No insula electrodes in scope',
+        message: 'Insula mode is on, but no aparc insula electrodes match the current task and subject filters.',
+      };
+    }
+    return baseEmpty;
+  }, [
+    selectedSubjects.size,
+    selectedRegions.length,
+    availableRois.length,
+    enabledRoiCount,
+    tableElectrodes.length,
+    insulaModeActive,
+    waveformElectrodes.length,
+  ]);
 
-  const canPlay = tableElectrodes.length > 0
+  const canPlay = animationElectrodes.length > 0
     && !selectionEmpty
     && (data?.layout === 'split' || !tracesLoading);
 
@@ -244,8 +314,13 @@ export default function App() {
               </button>
             ))}
           </div>
-          <div className="chip-group" data-tour="condition-selector" aria-label="Condition selector">
-            <span className="chip-group-label">Condition</span>
+          <div
+            className="chip-group"
+            data-tour="condition-selector"
+            aria-label="Map condition selector"
+            title="Controls brain map color and animation only"
+          >
+            <span className="chip-group-label">Map condition</span>
             {availableConditions.map((condition) => (
               <button
                 key={condition}
@@ -313,11 +388,13 @@ export default function App() {
         <section className="panel brain-panel">
           <PanelTitle icon={<Brain size={18} />} title="Cortical HGA map" />
           <BrainViewer
-            electrodes={taskFilteredElectrodes}
+            electrodes={brainScopedElectrodes}
             metadata={data.metadata}
             traces={data.traces}
             brainSpace={brainSpace}
             nativeMeshUrl={nativeMeshUrl}
+            singleSubject={singleSubject}
+            insulaAvailableForSelection={insulaAvailableForSelection}
             brainSpaceOptions={brainSpaceOptions}
             onBrainSpaceChange={setBrainSpace}
             vennPhases={vennPhases}
@@ -340,6 +417,7 @@ export default function App() {
             kdePreRenderToken={kdePreRenderToken}
             onFrameCacheStatus={handleFrameCacheStatus}
             onBrainViewModeChange={setBrainViewMode}
+            onInsulaModeChange={handleInsulaModeChange}
             onHover={setHoveredId}
             onSelect={selectElectrode}
             onSelectEndpoint={selectEndpoint}
@@ -373,13 +451,15 @@ export default function App() {
         <WaveformPanel
           electrode={selectedElectrode}
           summary={selectedSummary}
-          electrodes={tableElectrodes}
+          electrodes={waveformElectrodes}
+          insulaModeActive={insulaModeActive}
           traces={data.traces || {}}
           layout={data.layout}
           tracesLoading={tracesLoading}
           tracesLoadProgress={tracesLoadProgress}
           initialLoadComplete={initialLoadComplete}
-          selectedLoad={viewSelection}
+          selectedTask={selectedTask}
+          metadata={data.metadata}
           animationCache={animationCache}
           animationLoadingPhase={animationLoadingPhase}
           animationLoadProgress={animationLoadProgress}

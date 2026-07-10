@@ -28,6 +28,15 @@ export function filterElectrodesForView(electrodes, task, condition, traces = {}
   return (electrodes || []).filter((electrode) => electrodeCoversView(electrode, task, condition, traces));
 }
 
+export function electrodeCoversTask(electrode, task, traces = {}, metadata = null) {
+  const conditions = conditionsForTask(metadata, task);
+  return conditions.some((condition) => electrodeCoversView(electrode, task, condition, traces));
+}
+
+export function filterElectrodesForTask(electrodes, task, traces = {}, metadata = null) {
+  return (electrodes || []).filter((electrode) => electrodeCoversTask(electrode, task, traces, metadata));
+}
+
 export function conditionsForTask(metadata, task) {
   const byTask = metadata?.conditions || {};
   if (task === 'all') {
@@ -37,5 +46,9 @@ export function conditionsForTask(metadata, task) {
     });
     return [...union];
   }
-  return [...(byTask[task] || metadata?.default_condition ? [metadata.default_condition] : ['Repeat'])];
+  const taskConditions = byTask[task];
+  if (taskConditions?.length) {
+    return [...taskConditions];
+  }
+  return metadata?.default_condition ? [metadata.default_condition] : ['Repeat'];
 }

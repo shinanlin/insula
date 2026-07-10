@@ -1,9 +1,11 @@
 import React from 'react';
 import { Line } from '@react-three/drei';
-import { ELECTRODE_BASE_RADIUS } from '../../constants/brain.js';
+import {
+  ELECTRODE_BASE_RADIUS,
+  ENDPOINT_MARKER_RADIUS,
+  ELECTRODE_RENDER_ORDER,
+} from '../../constants/brain.js';
 import { resolveEndpointCoords } from '../../utils/electrodeCoords.js';
-
-const ENDPOINT_RADIUS = 0.55;
 
 function EndpointMarker({
   position,
@@ -16,7 +18,8 @@ function EndpointMarker({
   return (
     <group position={[position.x, position.y, position.z]}>
       <mesh
-        scale={[ENDPOINT_RADIUS, ENDPOINT_RADIUS, ENDPOINT_RADIUS]}
+        renderOrder={ELECTRODE_RENDER_ORDER}
+        scale={[ENDPOINT_MARKER_RADIUS, ENDPOINT_MARKER_RADIUS, ENDPOINT_MARKER_RADIUS]}
         onPointerOver={(event) => {
           event.stopPropagation();
           onHover?.();
@@ -36,6 +39,7 @@ function EndpointMarker({
           color={color}
           transparent
           opacity={active ? 0.95 : 0.72}
+          depthWrite
           emissive={active ? color : '#000000'}
           emissiveIntensity={active ? 0.4 : 0}
         />

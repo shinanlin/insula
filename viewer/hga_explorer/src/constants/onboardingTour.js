@@ -60,7 +60,7 @@ export function buildTourSteps() {
       element: tourSelector('task-selector'),
       popover: {
         title: 'Task selector',
-        description: 'Switch among Phoneme, Lexical, or All tasks. Sphere size, KDE weights, and waveforms follow the active task and condition.',
+        description: 'Switch among Phoneme, Lexical, or All tasks. Waveforms show all conditions for the active task; the brain map uses the Map condition below.',
         side: 'bottom',
         align: 'start',
       },
@@ -68,8 +68,8 @@ export function buildTourSteps() {
     {
       element: tourSelector('condition-selector'),
       popover: {
-        title: 'Condition selector',
-        description: 'Choose Repeat or Decision (Lexical only). PhonemeSequencing currently supports Repeat.',
+        title: 'Map condition',
+        description: 'Choose Repeat or Decision (Lexical only). This controls brain sphere color, KDE, and animation playback. Waveforms always show all available conditions.',
         side: 'bottom',
         align: 'start',
       },
@@ -114,7 +114,7 @@ export function buildTourSteps() {
       element: tourSelector('waveform-panel'),
       popover: {
         title: 'Time courses',
-        description: 'Inspect four-phase HGA traces for the selected electrode or play phase animation synchronized with the brain map.',
+        description: 'Inspect four-phase HGA traces for the selected region or electrode. Each panel shows all available conditions; play animation synchronized with the Map condition on the brain.',
         side: 'top',
         align: 'center',
       },

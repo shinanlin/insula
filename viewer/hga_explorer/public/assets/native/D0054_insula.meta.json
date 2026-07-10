@@ -1,0 +1,48 @@
+{
+  "subject": "D0054",
+  "recon_id": "D54",
+  "parc": "aparc.a2009s",
+  "coordinate_space": "native_RAS_mm",
+  "insula_patterns": [
+    "G_insular_short",
+    "G_Ins_lg_and_S_cent_ins",
+    "S_circular_insula_ant",
+    "S_circular_insula_inf",
+    "S_circular_insula_sup"
+  ],
+  "n_vertices_mask": 79539,
+  "n_vertices_insula_mesh": 208471,
+  "n_faces_insula_mesh": 12146,
+  "n_faces_full_decimated": 80000,
+  "lh_center": [
+    -35.35846668101653,
+    16.34382544337223,
+    3.9963923178370284
+  ],
+  "rh_center": [
+    33.8755130881554,
+    22.428288056653336,
+    5.005654216675243
+  ],
+  "both_target": [
+    -0.7414767964305646,
+    19.386056750012784,
+    4.501023267256135
+  ],
+  "camera_hint": {
+    "target": [
+      -0.7414767964305646,
+      19.386056750012784,
+      4.501023267256135
+    ],
+    "distance": 180,
+    "azimuth_deg": 118,
+    "elevation_deg": 90,
+    "fov": 50
+  },
+  "outputs": {
+    "insula_glb": "/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer/public/assets/native/D0054_insula_pial.glb",
+    "mask_json": "/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer/public/assets/native/D0054_pial_insula_mask.json",
+    "full_meta": "/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer/public/assets/native/D0054_pial.meta.json"
+  }
+}

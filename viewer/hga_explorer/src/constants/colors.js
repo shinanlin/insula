@@ -12,6 +12,26 @@ export const ROI_COLORS = {
 
 export const INTERSECTION_COLOR = '#1e293b';
 
+export const CONDITION_COLORS = {
+  Repeat: '#6366f1',
+  Decision: '#ec4899',
+};
+
+const CONDITION_FALLBACK_PALETTE = [
+  '#6366f1',
+  '#ec4899',
+  '#14b8a6',
+  '#f97316',
+  '#8b5cf6',
+  '#06b6d4',
+];
+
+export function conditionColor(condition) {
+  if (CONDITION_COLORS[condition]) return CONDITION_COLORS[condition];
+  const seed = (condition || '').split('').reduce((acc, ch) => acc + ch.charCodeAt(0), 0);
+  return CONDITION_FALLBACK_PALETTE[seed % CONDITION_FALLBACK_PALETTE.length];
+}
+
 export function phaseColor(phase) {
   return {
     stimulus: '#ef4444',

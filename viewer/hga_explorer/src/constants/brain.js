@@ -40,9 +40,15 @@ export const KDE_OVERLAY_SHADE_FLOOR = 0.74;
 /** Cap channel brightness to reduce gyral blow-out on white/pale colormap */
 export const KDE_OVERLAY_HIGHLIGHT_CAP = 0.90;
 
-export const HGA_RADIUS_MIN = 0.8;
-export const HGA_RADIUS_MAX = 2.4;
+export const HGA_RADIUS_MIN = 0.9;
+export const HGA_RADIUS_MAX = 1.75;
 export const ELECTRODE_BASE_RADIUS = 1;
+/** Bipolar contact-1 / contact-2 markers when a midpoint is selected */
+export const ENDPOINT_MARKER_RADIUS = 0.88;
+/** Below this opacity the cortex mesh must not write depth (keeps embedded electrodes visible). */
+export const BRAIN_SOLID_OPACITY_THRESHOLD = 0.95;
+export const BRAIN_MESH_RENDER_ORDER = 0;
+export const ELECTRODE_RENDER_ORDER = 10;
 
 export const WAVEFORM_PLOT_HEIGHT = 128;
 export const WAVEFORM_PLOT_MIN_HEIGHT = 128;
@@ -66,6 +72,25 @@ export const BRAIN_CAMERA = {
     BRAIN_ORBIT_AZIMUTH_DEG,
     BRAIN_ORBIT_ELEVATION_DEG,
     BRAIN_CAMERA_Z_OFFSET,
+  ),
+  fov: 50,
+  up: BRAIN_UP,
+};
+
+/** Insula-mode camera preset (fig2 top-down on bilateral insula center). */
+export const INSULA_ORBIT_TARGET = [2.009, 19.925, -18.837];
+export const INSULA_ORBIT_DISTANCE = 180;
+export const INSULA_ORBIT_AZIMUTH_DEG = 118;
+export const INSULA_ORBIT_ELEVATION_DEG = 90;
+export const INSULA_CAMERA_Z_OFFSET = 0;
+
+export const INSULA_CAMERA = {
+  position: brainCameraPosition(
+    INSULA_ORBIT_TARGET,
+    INSULA_ORBIT_DISTANCE,
+    INSULA_ORBIT_AZIMUTH_DEG,
+    INSULA_ORBIT_ELEVATION_DEG,
+    INSULA_CAMERA_Z_OFFSET,
   ),
   fov: 50,
   up: BRAIN_UP,

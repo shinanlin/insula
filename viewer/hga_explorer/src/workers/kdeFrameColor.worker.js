@@ -10,6 +10,7 @@ self.onmessage = async (event) => {
     globalHgaMax,
     splitX,
     statsHemisphere,
+    insulaVertexMask = null,
     startIndex,
     fixedDensityRange = null,
   } = event.data;
@@ -28,7 +29,7 @@ self.onmessage = async (event) => {
       globalHgaMax,
       posArray,
       splitX,
-      { statsHemisphere },
+      { statsHemisphere, insulaVertexMask },
       {
         chunkSize: 4,
         startIndex: startIndex ?? 0,

@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useMemo, useRef } from 'react';
 import * as THREE from 'three';
-import { ELECTRODE_BASE_RADIUS } from '../../constants/brain.js';
+import { ELECTRODE_BASE_RADIUS, ELECTRODE_RENDER_ORDER } from '../../constants/brain.js';
 import { resolveHgaMean, hgaToRadius } from '../../utils/hga.js';
 import { resolveBrainElectrodeColor } from '../../utils/electrodeColors.js';
 
@@ -77,6 +77,7 @@ export default function ElectrodeInstances({
   return (
     <instancedMesh
       ref={meshRef}
+      renderOrder={ELECTRODE_RENDER_ORDER}
       args={[undefined, undefined, electrodes.length]}
       onPointerMove={(event) => {
         event.stopPropagation();
@@ -97,7 +98,7 @@ export default function ElectrodeInstances({
       }}
     >
       <sphereGeometry args={[ELECTRODE_BASE_RADIUS, 16, 12]} />
-      <meshStandardMaterial vertexColors transparent opacity={0.85} />
+      <meshStandardMaterial vertexColors transparent opacity={0.85} depthWrite />
     </instancedMesh>
   );
 }

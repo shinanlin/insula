@@ -451,6 +451,7 @@ export function densityToVertexColors(
     statsHemisphere = 'both',
     maskColorsToHemisphere = false,
     fixedRange = null,
+    insulaVertexMask = null,
   } = options;
   const vertexCount = density.length;
   const { vmin, vmax } = fixedRange?.hasData
@@ -459,6 +460,10 @@ export function densityToVertexColors(
 
   const colors = new Float32Array(vertexCount * 4);
   for (let i = 0; i < vertexCount; i += 1) {
+    if (insulaVertexMask && !insulaVertexMask[i]) {
+      colors[i * 4 + 3] = 0;
+      continue;
+    }
     const value = density[i];
     if (value <= 0) {
       colors[i * 4 + 3] = 0;

@@ -1,8 +1,9 @@
 import { PHASES, phaseTimeStart } from '../constants/phases.js';
 import { PHASE_TIME_END, PHASE_TIME_RANGES } from '../constants/loads.js';
-import { hexToRgba, phaseColor } from '../constants/colors.js';
+import { conditionColor, hexToRgba, phaseColor } from '../constants/colors.js';
 import { resolvePhaseFlags } from './electrodeCoords.js';
-import { parseViewSelection } from './viewSelection.js';
+import { buildViewSelection, parseViewSelection } from './viewSelection.js';
+import { conditionsForTask } from './taskFilter.js';
 
 export function interpolateTraceValue(trace, time) {
   if (!trace?.time?.length) return null;
@@ -138,6 +139,98 @@ export function resolvePanelPhaseTrace(traces, electrodes, phase, viewSelection,
   return averageElectrodePhaseTraces(traces, electrodes, phase, viewSelection, allowMock);
 }
 
+function electrodeHasConditionPhaseTrace(traces, electrode, task, phase, condition, allowMock = false) {
+  const viewSelection = buildViewSelection(task, condition);
+  return Boolean(resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock)?.time?.length);
+}
+
+export function conditionsPresentInCohort(
+  traces,
+  electrodes,
+  task,
+  metadata,
+  phase = null,
+  electrode = null,
+  allowMock = false,
+) {
+  const canonical = conditionsForTask(metadata, task);
+  const present = new Set();
+  const scanElectrodes = electrode ? [electrode] : (electrodes || []);
+  const phases = phase ? [phase] : PHASES;
+
+  scanElectrodes.forEach((item) => {
+    canonical.forEach((condition) => {
+      const hasTrace = phases.some((phaseName) => (
+        electrodeHasConditionPhaseTrace(traces, item, task, phaseName, condition, allowMock)
+      ));
+      if (hasTrace) present.add(condition);
+    });
+  });
+
+  return canonical.filter((condition) => present.has(condition));
+}
+
+export function resolvePanelPhaseTracesByCondition(
+  traces,
+  electrodes,
+  phase,
+  task,
+  metadata,
+  electrode = null,
+  allowMock = false,
+) {
+  const conditions = conditionsPresentInCohort(
+    traces,
+    electrodes,
+    task,
+    metadata,
+    phase,
+    electrode,
+    allowMock,
+  );
+
+  return conditions.map((condition) => {
+    const viewSelection = buildViewSelection(task, condition);
+    const resolved = resolvePanelPhaseTrace(
+      traces,
+      electrodes,
+      phase,
+      viewSelection,
+      electrode,
+      allowMock,
+    );
+    return {
+      condition,
+      resolved,
+    };
+  }).filter((entry) => entry.resolved?.time?.length);
+}
+
+export function clipResolvedTraceToPhaseWindow(resolved, phase) {
+  if (!resolved) return { x: [], y: [], upper: [], lower: [], sem: [] };
+  const rawTrace = {
+    x: resolved.time,
+    y: resolved.value,
+    sem: resolved.sem ?? null,
+  };
+  return clipTraceToPhaseWindow(rawTrace, phase);
+}
+
+export function buildPhaseSeriesList(traces, electrodes, phase, task, metadata, electrode, allowMock) {
+  return resolvePanelPhaseTracesByCondition(
+    traces,
+    electrodes,
+    phase,
+    task,
+    metadata,
+    electrode,
+    allowMock,
+  ).map(({ condition, resolved }) => ({
+    condition,
+    trace: clipResolvedTraceToPhaseWindow(resolved, phase),
+  })).filter((entry) => entry.trace.x.length > 0);
+}
+
 export function clipTraceToPhaseWindow(trace, phase) {
   if (!trace?.x?.length) return { x: [], y: [], upper: [], lower: [], sem: [] };
   const { min, max } = PHASE_TIME_RANGES[phase];
@@ -204,6 +297,57 @@ export function buildWaveformPlotData(trace, phase, isAggregate) {
     showlegend: false,
   });
   return traces;
+}
+
+export function computeMultiTraceYRange(seriesList) {
+  if (!seriesList?.length) return [-0.5, 1.5];
+  let ymin = Infinity;
+  let ymax = -Infinity;
+  seriesList.forEach(({ trace }) => {
+    const [lo, hi] = computeTraceYRange(trace);
+    ymin = Math.min(ymin, lo);
+    ymax = Math.max(ymax, hi);
+  });
+  if (!Number.isFinite(ymin)) return [-0.5, 1.5];
+  return [ymin, ymax];
+}
+
+export function buildMultiConditionWaveformPlotData(seriesList, isAggregate, showLegend = false) {
+  const multiCondition = seriesList.length > 1;
+  const plotTraces = [];
+
+  seriesList.forEach(({ condition, trace }) => {
+    const color = conditionColor(condition);
+    if (isAggregate && trace.upper?.length > 0) {
+      plotTraces.push({
+        x: [...trace.x, ...trace.x.slice().reverse()],
+        y: [...trace.upper, ...trace.lower.slice().reverse()],
+        type: 'scatter',
+        mode: 'lines',
+        line: { color: 'rgba(0,0,0,0)', width: 0 },
+        fill: 'toself',
+        fillcolor: hexToRgba(color, 0.18),
+        hoverinfo: 'skip',
+        showlegend: false,
+        legendgroup: condition,
+      });
+    }
+    plotTraces.push({
+      x: trace.x,
+      y: trace.y,
+      type: 'scatter',
+      mode: 'lines',
+      name: condition,
+      line: { color, width: 2 },
+      hovertemplate: isAggregate && trace.sem?.length
+        ? `${condition}<br>t=%{x:.2f}s<br>mean=%{y:.2f}<extra></extra>`
+        : `${condition}<br>t=%{x:.2f}s<br>HGA=%{y:.2f}<extra></extra>`,
+      showlegend: showLegend && multiCondition,
+      legendgroup: condition,
+    });
+  });
+
+  return plotTraces;
 }
 
 export function buildPlaybackVLine(time) {

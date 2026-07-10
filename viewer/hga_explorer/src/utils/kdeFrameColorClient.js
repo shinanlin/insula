@@ -20,13 +20,14 @@ export function buildKdeFrameColorsOffThread({
   globalHgaMax,
   splitX,
   statsHemisphere,
+  insulaVertexMask = null,
   startIndex,
   fixedDensityRange = null,
   onFrameReady,
   onProgress,
 }) {
   const kdeWorker = getWorker();
-  const options = { statsHemisphere };
+  const options = { statsHemisphere, insulaVertexMask };
   const cacheOptions = {
     startIndex,
     onFrameReady,
@@ -92,6 +93,10 @@ export function buildKdeFrameColorsOffThread({
     kdeWorker.addEventListener('message', handleMessage);
     kdeWorker.addEventListener('error', handleError);
 
+    const maskPayload = insulaVertexMask instanceof Uint8Array
+      ? insulaVertexMask
+      : (insulaVertexMask ? Uint8Array.from(insulaVertexMask) : null);
+
     kdeWorker.postMessage({
       type: 'build',
       id,
@@ -101,6 +106,7 @@ export function buildKdeFrameColorsOffThread({
       globalHgaMax,
       splitX,
       statsHemisphere,
+      insulaVertexMask: maskPayload,
       startIndex,
       fixedDensityRange,
     });
