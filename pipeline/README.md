@@ -43,7 +43,7 @@ bash 03_run_maper/prepare_target.sh "$SUBJECT" \
     /cwork/<user>/ECoG_Recon/${SUBJECT#D0}/mri "$RUN/target"
 bash 03_run_maper/generate_launchlist.sh "$SUBJECT" "$RUN" \
     /hpc/group/coganlab/nanlinshi/maper_tool/maper.sif
-sbatch --export=SUBJECT=$SUBJECT,RUN=$RUN scripts/run_maper.sbatch
+sbatch --export=SUBJECT=$SUBJECT,RUN=$RUN pipeline/03_run_maper/run_maper.sbatch
 # output: $RUN/output/f30-seg95-${SUBJECT}.nii.gz
 ```
 

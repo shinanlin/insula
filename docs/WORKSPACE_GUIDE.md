@@ -31,10 +31,9 @@ Use the `ieeg` conda environment for testing and running unless a script explici
 - `viz/`: older and working visualization notebooks.
 - `vizpub/`: publication-oriented visualization notebooks. The user-facing name may be `viz_pub`, but the actual directory in this workspace is `vizpub`.
 - `img/`: exported figures and image outputs.
-- `grant/`: R01 grant notebooks and grant-specific figures.
+- Grant materials live in a separate worktree: `../insula-grant`.
 - `notebooks/`: exploratory or ad hoc analysis notebooks.
 - `tests/`: pytest tests.
-- `tmp/`: one-off exploratory scripts.
 
 ## Main Pipeline Families
 
@@ -49,14 +48,15 @@ Packaging scripts prepare BIDS-derived data products and features:
 - `src/package_sig_channel.py`
 - `src/package_mtrf.py`
 
-The main SLURM launcher is `scripts/package.sh`.
+The main SLURM launchers are `scripts/slurm/package_hga_all_tasks.sh` and
+`scripts/slurm/package_hga_aparc_two_tasks.sh`.
 
 ### Electrode Parcellation and Insula Subregions
 
 General ROI labels are assigned in subject-native FreeSurfer space. Standard
 MNI and CVS coordinates are derived for analysis/display and do not replace
-native labels. The current coordinate definitions, bipolar consensus rule,
-legacy MATLAB comparison, and MAPER validation status are documented in:
+native labels. The project rationale, baseline workflow, and insula inclusion
+rules are documented in `docs/PARCELLATION.md`. Technical deep dives:
 
 - `docs/PARCELLATION_PIPELINE.md`
 - `docs/D44_MAPER_worklog.md`
@@ -270,12 +270,6 @@ The following directories are generated-output locations and are ignored by git:
 - `results/`
 - `img/`
 
-There is a known exception:
-
-- `results/exlude_insula.csv`
-
-The spelling `exlude` is legacy and should be preserved where existing code expects it.
-
 ## Known Non-Standard Patterns
 
 - There is no historical root `README.md`; this documentation set is the first project-level guide.
@@ -283,7 +277,8 @@ The spelling `exlude` is legacy and should be preserved where existing code expe
 - Some scripts import with `from decoder import ...`, while newer code often uses `from src...`.
 - Some notebooks manually edit `sys.path`.
 - `vizpub/` is the actual directory name even if people refer to it as `viz_pub`.
-- Several filenames contain legacy typos, such as `viz/univarite.ipynb`, `notebooks/containmination.ipynb`, and `results/exlude_insula.csv`.
+- Several filenames contain legacy typos, such as `viz/univarite.ipynb` and `notebooks/containmination.ipynb`.
+- Some legacy notebooks still reference `results/exlude_insula.csv`; that exclusion list is retired. See `docs/PARCELLATION.md`.
 - `src/var.py` contains VAR/PDC connectivity code; the filename does not mean it is a generic variable/config file.
 - `tmp/` contains exploratory scripts that should not be treated as stable production entry points.
 

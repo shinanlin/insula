@@ -12,8 +12,6 @@ viewer/hga_explorer/public/data/kde/
 viewer/hga_explorer/public/data/electrodes.json
 viewer/hga_explorer/public/data/manifest.json
 
-# Exception: allow specific files in results/
-!results/exlude_insula.csv
 img/
 .pytest_cache/
 __pycache__/

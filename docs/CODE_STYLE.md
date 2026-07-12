@@ -19,7 +19,7 @@ Full analyses should be run through SLURM scripts in `scripts/`. Avoid launching
 - Put SLURM entry points in `scripts/`.
 - Put tests in `tests/`.
 - Use `notebooks/` for exploratory work.
-- Use `viz/`, `vizpub/`, and `grant/` for figure-oriented notebooks.
+- Use `vizpub/` for publication figure notebooks. Grant figures live in `../insula-grant`.
 - Avoid adding production logic to `tmp/`. If a temporary script becomes important, promote it into `src/` and add a matching SLURM script if needed.
 
 ## Python Entry Points
@@ -232,7 +232,6 @@ Do not require private BIDS data for normal unit tests.
 
 Some names are misspelled but stable. Preserve them when existing code depends on them:
 
-- `results/exlude_insula.csv`
 - `viz/univarite.ipynb`
 - `notebooks/containmination.ipynb`
 - `notebooks/containmination_v2.ipynb`
@@ -243,6 +242,6 @@ Use correct spelling for new files unless compatibility with an existing path re
 
 - Adding new hard-coded personal paths when a script can accept `--bids_root`, `--recon_dir`, or a clearly named variable.
 - Mixing source logic into SLURM scripts.
-- Saving generated analysis outputs outside `results/`, `logs/`, `img/`, or `grant/grantfig/`.
+- Saving generated analysis outputs outside `results/`, `results(nw)/`, `logs/`, or `img/`.
 - Adding production dependencies without documenting them.
 - Refactoring old import/path behavior while making unrelated scientific changes.
