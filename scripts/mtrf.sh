@@ -90,7 +90,7 @@ for DESCRIPTION in ${DESCRIPTIONS[@]}; do
   for PHASE in ${PHASES[@]}; do
     for BAND in ${BANDS[@]}; do
       echo "Processing: ${SUBJECT} (${TYPE}, ${BAND})"
-      python -u src/encoder.py \
+      python -u src/encoding/encoder.py \
         --bids_root "${BIDS_ROOT}" \
         --subject "${SUBJECT}" \
         --band "${BAND}" \

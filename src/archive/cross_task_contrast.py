@@ -4,7 +4,7 @@ Compares response-phase HGA between Delay and NoDelay tasks for common electrode
 Outputs both mean_diff and peak_diff metrics.
 
 Usage:
-    python src/cross_task_contrast.py --subject D0024
+    python src/archive/cross_task_contrast.py --subject D0024
 """
 import numpy as np
 import pandas as pd

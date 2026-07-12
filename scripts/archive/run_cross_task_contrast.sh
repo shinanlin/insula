@@ -43,7 +43,7 @@ fi
 SUBJ=${COMMON_SUBJECTS[$SLURM_ARRAY_TASK_ID]}
 echo "Processing subject: $SUBJ (task $SLURM_ARRAY_TASK_ID / ${#COMMON_SUBJECTS[@]})"
 
-python src/cross_task_contrast.py \
+python src/archive/cross_task_contrast.py \
     --subject "$SUBJ" \
     --band highgamma \
     --n_perm 5000

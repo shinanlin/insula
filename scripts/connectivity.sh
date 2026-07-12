@@ -68,7 +68,7 @@ echo "Processing subject: ${SUBJECT}"
 # Run connectivity analysis for this ROI
 for BAND in $BANDS; do
     echo "Processing: ${SUBJECT} (band=${BAND})"
-    python src/run_connectivity.py \
+    python src/connectivity/run_connectivity.py \
         --bids_root "${BIDS_ROOT}" \
         --subject "${SUBJECT}" \
         --band "${BAND}" \

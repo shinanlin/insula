@@ -47,9 +47,10 @@ Production Python is grouped by analysis family:
 | `src/xcorr/` | Insula–IFG cross-correlation and viewer export | `src/xcorr/run_xcorr.py` |
 | `src/univariate/` | Cluster permutation contrasts on packaged HGA | `src/univariate/contrasts.py` |
 | `src/reaction_time/` | Reaction-time encoding models | `src/reaction_time/run_reaction_time.py` |
+| `src/connectivity/` | VAR/PDC connectivity | `src/connectivity/run_connectivity.py` |
+| `src/encoding/` | mTRF encoding models | `src/encoding/encoder.py` |
+| `src/archive/` | Legacy aparc-era univariate scripts | `src/univariate/contrasts.py` (replacement) |
 | `src/paths.py` | Shared `RESULTS_ROOT`, `hga_results_dir()` | — |
-
-Other modules (`encoder.py`, `package_ave_cord.py`, connectivity, etc.) remain at `src/` root until further cleanup.
 
 ## Main Pipeline Families
 
@@ -59,10 +60,10 @@ Packaging scripts prepare BIDS-derived HGA CSVs under `results/`:
 
 - `src/hga/package_highgamma.py` (production; dual-atlas aparc2009s / hammers)
 - `src/hga/package_zscore.py` (z-scored band packaging)
-- `src/package_ave_cord.py` (legacy)
-- `src/package_roi_mask.py` (legacy)
-- `src/package_sig_channel.py` (legacy)
-- `src/package_mtrf.py` (mTRF features)
+- `src/hga/package_ave_cord.py` (legacy)
+- `src/hga/package_roi_mask.py` (legacy)
+- `src/hga/package_sig_channel.py` (legacy)
+- `src/encoding/package_mtrf.py` (mTRF features)
 
 The main SLURM launchers are `scripts/slurm/package_hga_all_tasks.sh` and
 `scripts/slurm/package_hga_aparc_two_tasks.sh`.
@@ -161,16 +162,15 @@ Connectivity analyses include VAR/PDC and permutation/cluster support.
 
 Important files include:
 
-- `src/run_connectivity.py`
-- `src/var.py`
-- `src/run_perm_cluster.py`
-- `src/cache_cluster_pvalues.py`
+- `src/connectivity/run_connectivity.py`
+- `src/connectivity/var.py`
+- `src/archive/` — legacy univariate cluster scripts (`run_perm_cluster.py`, etc.); use `src/univariate/contrasts.py` instead
 - `scripts/connectivity.sh`
 
 Encoding and mTRF analyses include:
 
-- `src/encoder.py`
-- `src/package_mtrf.py`
+- `src/encoding/encoder.py`
+- `src/encoding/package_mtrf.py`
 - `scripts/mtrf.sh`
 
 ## Task Names
@@ -294,7 +294,7 @@ The following directories are generated-output locations and are ignored by git:
 - `vizpub/` is the actual directory name even if people refer to it as `viz_pub`.
 - Several filenames contain legacy typos, such as `viz/univarite.ipynb` and `notebooks/containmination.ipynb`.
 - Some legacy notebooks still reference `results/exlude_insula.csv`; that exclusion list is retired. See `docs/PARCELLATION.md`.
-- `src/var.py` contains VAR/PDC connectivity code; the filename does not mean it is a generic variable/config file.
+- `src/connectivity/var.py` contains VAR/PDC connectivity code; the filename does not mean it is a generic variable/config file.
 - `tmp/` contains exploratory scripts that should not be treated as stable production entry points.
 
 ## Missing or Fragile References

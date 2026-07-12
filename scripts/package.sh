@@ -39,7 +39,7 @@ for DESCRIPTION in ${DESCRIPTIONS[@]}; do
         > /hpc/group/coganlab/nanlinshi/insula/logs/package_stats_${BAND}_${DESCRIPTION}.out \
         2> /hpc/group/coganlab/nanlinshi/insula/logs/package_stats_${BAND}_${DESCRIPTION}.err
 
-    python "${REPO_ROOT}/src/package_ave_cord.py" \
+    python "${REPO_ROOT}/src/hga/package_ave_cord.py" \
         --bids_root "${BIDS_ROOT}" \
         --band ${BAND} \
         --description ${DESCRIPTION} \

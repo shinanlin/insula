@@ -41,8 +41,9 @@ The codebase is organized around a few recurring pipeline families:
 - **Cross-ROI and cross-condition decoding:** `src/run_cross_*.py`, `src/cross_decoder.py`, `src/direct_cross_decoder.py`.
 - **Univariate statistics:** `src/univariate/contrasts.py`, launched from `scripts/run_univariate*.sh`.
 - **Cross-correlation and insula-IFG coupling:** `src/run_xcorr*.py`, `src/extract_roi_xcorr_waveforms.py`, and viewer-generation scripts.
-- **Connectivity:** `src/run_connectivity.py`, `src/var.py`, `src/run_perm_cluster.py`.
-- **Encoding and mTRF analyses:** `src/encoder.py`, `src/package_mtrf.py`.
+- **Connectivity:** `src/connectivity/run_connectivity.py`, `src/connectivity/var.py`.
+- **Legacy univariate (archived):** `src/archive/` — aparc-era cluster scripts superseded by `src/univariate/contrasts.py`.
+- **Encoding and mTRF analyses:** `src/encoding/encoder.py`, `src/encoding/package_mtrf.py`.
 - **Figures:** notebooks in `viz/` and `vizpub/`, usually exporting SVG files into `img/`.
 
 ## Documentation
