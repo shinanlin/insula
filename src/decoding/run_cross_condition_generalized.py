@@ -35,7 +35,7 @@ from sklearn.base import clone
 from mne.decoding import Vectorizer
 from ieeg.calc.oversample import MinimumNaNSplit
 
-from src.direct_cross_decoder import (
+from src.decoding.direct_cross_decoder import (
     DirectCrossDecoder,
     direct_cross_domain_generalized_permutation_scores,
 )

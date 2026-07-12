@@ -11,7 +11,7 @@ import sys
 
 # Add the directory containing run_xcorr to path so we can import it
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-from run_xcorr import compute_xcorr_matrix
+from src.xcorr.run_xcorr import compute_xcorr_matrix
 from ieeg.viz.mri import force2frame
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

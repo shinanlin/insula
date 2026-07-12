@@ -106,7 +106,7 @@ echo "Current working directory: $(pwd)"
 echo "Python: $(which python) ($(python --version 2>&1))"
 echo "Conda env: $CONDA_DEFAULT_ENV"
 
-python src/run_decoding_resolved.py \
+python src/decoding/run_decoding_resolved.py \
     --bids_root "${BIDS_ROOT}" \
     --subject    "${SUBJECT}" \
     --ref        "${REF}" \

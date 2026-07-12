@@ -51,7 +51,7 @@ echo "Task=${TASK} datatype=${DATATYPE}"
 echo "Train=${TRAIN_ROI} Test=${TEST_ROI} Phase=${PHASE} Desc=${DESCRIPTION}"
 echo "Perm=${N_PERM} Folds=${N_FOLDS} Jobs=${N_JOBS}"
 
-python src/run_cross_roi_window.py \
+python src/decoding/run_cross_roi_window.py \
     --task "${TASK}" \
     --bids_root "${BIDS_ROOT}" \
     --train_roi "${TRAIN_ROI}" \

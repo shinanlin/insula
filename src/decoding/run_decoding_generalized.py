@@ -26,7 +26,7 @@ from sklearn.model_selection import StratifiedKFold
 from ieeg.decoding.decode import Decoder
 from ieeg.calc.oversample import MinimumNaNSplit
 from decoding import load_roi_data, decode_permutation_scores
-from decoder import generalized_permutation_scores
+from src.decoding.decoder import generalized_permutation_scores
 
 
 import logging

@@ -6,7 +6,7 @@
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=common,scavenger
-#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula/src
+#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
 
 set -eo pipefail
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
@@ -16,7 +16,7 @@ PHONEME_BIDS="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/"
 VIEWER_ROOT="/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer"
 
 echo "===== Repackage PhonemeSequencing HGA with stats alias fix ====="
-python package_HGA.py \
+python src/hga/package.py \
   --bids_root "${PHONEME_BIDS}" \
   --band highgamma \
   --ref bipolar

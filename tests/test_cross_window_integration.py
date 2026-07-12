@@ -57,7 +57,7 @@ class TestWindowDecodingIntegration:
         from sklearn.svm import LinearSVC
         from mne.decoding import Vectorizer
         from ieeg.calc.oversample import MinimumNaNSplit
-        from direct_cross_decoder import (
+        from src.decoding.direct_cross_decoder import (
             DirectCrossDecoder,
             direct_cross_domain_permutation_scores,
         )

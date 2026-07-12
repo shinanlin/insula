@@ -59,7 +59,7 @@ echo "ROI=${ROI}, Phase=${PHASE}, Train=${TRAIN}, Test=${TEST}"
 echo "Window=${WINDOW}s, Step=${STEP}s"
 echo "Jobs=${N_JOBS}, Perm=${N_PERM}, Folds=${N_FOLDS}"
 
-python src/run_cross_condition_generalized.py \
+python src/decoding/run_cross_condition_generalized.py \
     --bids_root "${BIDS_ROOT}" \
     --roi "${ROI}" \
     --phase "${PHASE}" \

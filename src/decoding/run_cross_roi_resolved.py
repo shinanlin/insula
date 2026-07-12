@@ -24,7 +24,7 @@ from sklearn.svm import LinearSVC
 from mne.decoding import Vectorizer
 from ieeg.calc.oversample import MinimumNaNSplit
 
-from src.cross_decoder import (
+from src.decoding.cross_decoder import (
     CrossDecoder,
     _balance_datasets,
     cross_domain_resolved_permutation_scores,

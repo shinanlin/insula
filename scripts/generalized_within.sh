@@ -47,7 +47,7 @@ IFS=' ' read -r ROI PHASE TRAIN TEST <<< "${PARAMS[$IDX]}"
 echo "=== Within-Condition 2D Decoding ==="
 echo "ROI=${ROI}, Phase=${PHASE}, Train=${TRAIN}, Test=${TEST}"
 
-python src/run_cross_condition_generalized.py \
+python src/decoding/run_cross_condition_generalized.py \
     --bids_root "${BIDS_ROOT}" \
     --roi "${ROI}" \
     --phase "${PHASE}" \

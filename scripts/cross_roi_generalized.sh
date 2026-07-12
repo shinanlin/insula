@@ -57,7 +57,7 @@ echo "Phase=${PHASE}, Description=${DESCRIPTION}"
 echo "Window=${WINDOW}s, Step=${STEP}s"
 echo "Jobs=${N_JOBS}, Perm=${N_PERM}, Folds=${N_FOLDS}"
 
-python src/run_cross_roi_generalized.py \
+python src/decoding/run_cross_roi_generalized.py \
     --bids_root "${BIDS_ROOT}" \
     --train_roi "${TRAIN_ROI}" \
     --test_roi "${TEST_ROI}" \

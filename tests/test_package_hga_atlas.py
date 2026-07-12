@@ -1,14 +1,9 @@
 from __future__ import annotations
 
-import sys
-from pathlib import Path
-
 import pandas as pd
 import pytest
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
-
-from package_HGA import load_parcellation, parcellation_subset, results_dir
+from src.hga.package import load_parcellation, parcellation_subset, results_dir
 
 
 def test_parcellation_subset_new_schema_maps_template_native_and_endpoints():

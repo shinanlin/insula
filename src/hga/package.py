@@ -13,8 +13,7 @@ from tqdm import tqdm
 ENDPOINT_NATIVE_COLS = ("x1", "y1", "z1", "x2", "y2", "z2")
 ENDPOINT_TEMPLATE_COLS = ("x1_t", "y1_t", "z1_t", "x2_t", "y2_t", "z2_t")
 CONTACT_COLS = ("contact_1", "contact_2", "contact_1_label", "contact_2_label")
-RESULTS_ROOT = Path(__file__).resolve().parent.parent / "results"
-SUPPORTED_ATLASES = ("aparc2009s", "hammers")
+from src.paths import RESULTS_ROOT, SUPPORTED_ATLASES, hga_results_dir as results_dir
 
 # Epoch and statistics exports may use different BIDS task labels for the same study.
 TASK_STATS_ALIASES: dict[str, list[str]] = {
@@ -86,13 +85,6 @@ def load_stats_mask(epoch_path, ref: str, epochs, df: pd.DataFrame) -> pd.DataFr
     )
     df["mask"] = False
     return df
-
-
-def results_dir(task: str, ref: str, atlas: str) -> Path:
-    """Packaged HGA output root for a task/reference/atlas combination."""
-    if atlas not in SUPPORTED_ATLASES:
-        raise ValueError(f"atlas must be one of {SUPPORTED_ATLASES}, got {atlas!r}")
-    return RESULTS_ROOT / f"{task}({ref})({atlas})"
 
 
 def load_parcellation(epoch_path, ref: str, atlas: str = "aparc2009s") -> pd.DataFrame:

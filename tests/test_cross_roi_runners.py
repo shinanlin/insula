@@ -1,5 +1,4 @@
 import numpy as np
-import sys
 from pathlib import Path
 from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
@@ -8,15 +7,13 @@ from sklearn.svm import LinearSVC
 from mne.decoding import Vectorizer
 from sklearn.model_selection import StratifiedKFold
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-
-from src.cross_decoder import (
+from src.decoding.cross_decoder import (
     CrossDecoder,
     cross_domain_resolved_permutation_scores,
     cross_domain_generalized_permutation_scores,
 )
-import src.run_cross_roi_resolved as run_cross_roi_resolved
-import src.run_cross_roi_generalized as run_cross_roi_generalized
+import src.decoding.run_cross_roi_resolved as run_cross_roi_resolved
+import src.decoding.run_cross_roi_generalized as run_cross_roi_generalized
 
 
 def _make_data():

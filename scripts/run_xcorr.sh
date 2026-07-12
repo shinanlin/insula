@@ -23,7 +23,7 @@ BIDS_ROOTS=(
 
 BIDS_ROOT=${BIDS_ROOTS[$SLURM_ARRAY_TASK_ID]}
 
-python src/run_xcorr.py \
+python src/xcorr/run_xcorr.py \
   --bids_root "$BIDS_ROOT" \
   --band highgamma \
   --reference bipolar \

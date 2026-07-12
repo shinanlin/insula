@@ -6,7 +6,7 @@
 #SBATCH --mem=32G
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=common
-#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula/src
+#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
 
 set -eo pipefail
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
@@ -17,8 +17,8 @@ run_one() {
   local name="$2"
   echo "===== ${name} ====="
   echo "bids_root=${bids_root}"
-  python package_HGA.py --bids_root "${bids_root}" --band highgamma --ref bipolar --atlas aparc2009s
-  python package_HGA.py --bids_root "${bids_root}" --band highgamma --ref bipolar --atlas hammers
+  python src/hga/package.py --bids_root "${bids_root}" --band highgamma --ref bipolar --atlas aparc2009s
+  python src/hga/package.py --bids_root "${bids_root}" --band highgamma --ref bipolar --atlas hammers
 }
 
 run_one "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/" "LexicalDelay"

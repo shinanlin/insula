@@ -36,7 +36,7 @@ Grant materials live in a separate worktree: `/hpc/group/coganlab/nanlinshi/insu
 
 The codebase is organized around a few recurring pipeline families:
 
-- **Parcellation and packaging:** MAPER in `pipeline/01–03`, then `package_HGA.py --atlas hammers` via `scripts/slurm/package_hga_*.sh`. See `docs/PARCELLATION.md`.
+- **Parcellation and packaging:** MAPER in `pipeline/01–03`, then `src/hga/package.py --atlas hammers` via `scripts/slurm/package_hga_*.sh`. See `docs/PARCELLATION.md`.
 - **Within-ROI decoding:** `src/run_decoding*.py`, `src/decoder.py`, and related `scripts/decoding*.sh`.
 - **Cross-ROI and cross-condition decoding:** `src/run_cross_*.py`, `src/cross_decoder.py`, `src/direct_cross_decoder.py`.
 - **Univariate statistics:** `src/univariate_contrasts.py`, launched from `scripts/run_univariate*.sh`.

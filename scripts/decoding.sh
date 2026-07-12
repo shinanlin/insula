@@ -64,7 +64,7 @@ for BAND in ${BANDS[@]}; do
     for TYPE in ${DESCRIPTIONS[@]}; do
         for DATATYPE in ${DATATYPES[@]}; do
             for PHASE in ${PHASES[@]}; do
-            python src/run_decoding.py \
+            python src/decoding/run_decoding.py \
                 --bids_root "${BIDS_ROOT}" \
                 --subject ${SUBJECT} \
                 --description ${TYPE} \

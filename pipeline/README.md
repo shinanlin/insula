@@ -63,8 +63,8 @@ This writes `derivatives/parcellation/sub-${SUBJECT}_hammers.csv` (plus the
 existing `*_aparc2009s.csv`). Downstream packaging uses:
 
 ```bash
-python src/package_HGA.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas aparc2009s
-python src/package_HGA.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas hammers
+python src/hga/package.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas aparc2009s
+python src/hga/package.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas hammers
 ```
 
 Outputs land in `results/{task}({ref})(aparc2009s)/` and `results/{task}({ref})(hammers)/`.
@@ -75,7 +75,7 @@ Outputs land in `results/{task}({ref})(aparc2009s)/` and `results/{task}({ref})(
 - Hammers `roi` may include mixed labels (e.g. `PIC–AIC`); fig2 analyses keep
   pure `AIC`/`PIC` only (`mix=False`).
 - Keep aparc and hammers packaged HGA separate; do not merge atlas columns in
-  `package_HGA.py`.
+  `src/hga/package.py`.
 
 ## Two bugs — do not regress
 

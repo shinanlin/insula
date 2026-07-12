@@ -36,18 +36,31 @@ Use the `ieeg` conda environment for testing and running unless a script explici
 - `notebooks/`: exploratory or ad hoc analysis notebooks.
 - `tests/`: pytest tests.
 
+## `src/` Subpackages
+
+Production Python is grouped by analysis family:
+
+| Subpackage | Role | Key entry |
+|------------|------|-----------|
+| `src/hga/` | BIDS epoch + parcellation → `results/{task}(bipolar)({atlas})/` | `src/hga/package.py` |
+| `src/decoding/` | ROI / cross-ROI / cross-condition decoding | `src/decoding/run_decoding.py` |
+| `src/xcorr/` | Insula–IFG cross-correlation and viewer export | `src/xcorr/run_xcorr.py` |
+| `src/paths.py` | Shared `RESULTS_ROOT`, `hga_results_dir()` | — |
+
+Other modules (`univariate_contrasts.py`, `encoder.py`, `package_zscore.py`, connectivity, etc.) remain at `src/` root until further cleanup.
+
 ## Main Pipeline Families
 
-### Packaging
+### HGA packaging
 
-Packaging scripts prepare BIDS-derived data products and features:
+Packaging scripts prepare BIDS-derived HGA CSVs under `results/`:
 
-- `src/package_HGA.py`
-- `src/package_zscore.py`
-- `src/package_ave_cord.py`
-- `src/package_roi_mask.py`
-- `src/package_sig_channel.py`
-- `src/package_mtrf.py`
+- `src/hga/package.py` (production; dual-atlas aparc2009s / hammers)
+- `src/package_zscore.py` (legacy)
+- `src/package_ave_cord.py` (legacy)
+- `src/package_roi_mask.py` (legacy)
+- `src/package_sig_channel.py` (legacy)
+- `src/package_mtrf.py` (mTRF features)
 
 The main SLURM launchers are `scripts/slurm/package_hga_all_tasks.sh` and
 `scripts/slurm/package_hga_aparc_two_tasks.sh`.
@@ -85,11 +98,11 @@ Within-ROI decoding uses ROI labels as the `--subject` argument in many scripts.
 
 Important files include:
 
-- `src/decoder.py`
-- `src/run_decoding.py`
-- `src/run_decoding_resolved.py`
-- `src/run_decoding_generalized.py`
-- `src/condition_decoding.py`
+- `src/decoding/decoder.py`
+- `src/decoding/run_decoding.py`
+- `src/decoding/run_decoding_resolved.py`
+- `src/decoding/run_decoding_generalized.py`
+- `src/decoding/condition_decoding.py`
 - `scripts/decoding.sh`
 - `scripts/decoding_resolved.sh`
 - `scripts/generalized_within.sh`
@@ -101,12 +114,12 @@ These analyses test generalization across regions, conditions, windows, and task
 
 Important files include:
 
-- `src/cross_decoder.py`
-- `src/direct_cross_decoder.py`
-- `src/run_cross_roi_resolved.py`
-- `src/run_cross_roi_generalized.py`
-- `src/run_cross_condition_generalized.py`
-- `src/run_cross_condition_window.py`
+- `src/decoding/cross_decoder.py`
+- `src/decoding/direct_cross_decoder.py`
+- `src/decoding/run_cross_roi_resolved.py`
+- `src/decoding/run_cross_roi_generalized.py`
+- `src/decoding/run_cross_condition_generalized.py`
+- `src/decoding/run_cross_condition_window.py`
 - `scripts/cross_roi_resolved.sh`
 - `scripts/cross_roi_generalized.sh`
 - `scripts/cross_condition_generalized.sh`
@@ -128,14 +141,14 @@ Cross-correlation scripts support insula-IFG and related temporal coupling analy
 
 Important files include:
 
-- `src/run_xcorr.py`
-- `src/run_xcorr_pair_permutation.py`
-- `src/run_xcorr_wave.py`
-- `src/run_xcorr_ortho.py`
-- `src/extract_roi_xcorr_waveforms.py`
-- `src/generate_xcorr_viewer.py`
-- `src/batch_xcorr_viewer.py`
-- `src/cross_correlation_insula_ifg.py`
+- `src/xcorr/run_xcorr.py`
+- `src/xcorr/run_xcorr_pair_permutation.py`
+- `src/xcorr/run_xcorr_wave.py`
+- `src/xcorr/run_xcorr_ortho.py`
+- `src/xcorr/extract_roi_xcorr_waveforms.py`
+- `src/xcorr/generate_xcorr_viewer.py`
+- `src/xcorr/batch_xcorr_viewer.py`
+- `src/xcorr/cross_correlation_insula_ifg.py`
 - `scripts/run_xcorr.sh`
 - `scripts/run_xcorr_pair_permutation.sh`
 - `scripts/submit_all_xcorr_perm.sh`
@@ -275,8 +288,7 @@ The following directories are generated-output locations and are ignored by git:
 
 - There is no historical root `README.md`; this documentation set is the first project-level guide.
 - Several scripts choose the active task by commenting and uncommenting blocks in shell files.
-- Some scripts import with `from decoder import ...`, while newer code often uses `from src...`.
-- Some notebooks manually edit `sys.path`.
+- Some notebooks manually edit `sys.path`; prefer `from src.decoding...` imports.
 - `vizpub/` is the actual directory name even if people refer to it as `viz_pub`.
 - Several filenames contain legacy typos, such as `viz/univarite.ipynb` and `notebooks/containmination.ipynb`.
 - Some legacy notebooks still reference `results/exlude_insula.csv`; that exclusion list is retired. See `docs/PARCELLATION.md`.

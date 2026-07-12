@@ -19,8 +19,8 @@ from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
 from mne.decoding import Vectorizer
 from ieeg.calc.oversample import MinimumNaNSplit
-from run_decoding import load_roi_data
-from decoder import decode_permutation_scores
+from src.decoding.run_decoding import load_roi_data
+from src.decoding.decoder import decode_permutation_scores
 
 import logging
 import sys

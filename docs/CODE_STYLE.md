@@ -15,7 +15,7 @@ Full analyses should be run through SLURM scripts in `scripts/`. Avoid launching
 
 ## Repository Boundaries
 
-- Put reusable analysis logic in `src/`.
+- Put reusable analysis logic in `src/` (see subpackage layout below).
 - Put SLURM entry points in `scripts/`.
 - Put tests in `tests/`.
 - Use `notebooks/` for exploratory work.
@@ -47,14 +47,12 @@ Use `argparse` and an explicit `main(...)` function. Keep the `if __name__ == "_
 Prefer package-style imports for new code:
 
 ```python
-from src.decoder import decode_permutation_scores
+from src.decoding.decoder import decode_permutation_scores
+from src.hga.package import load_parcellation
 ```
 
-Some older files use flat imports such as:
-
-```python
-from decoder import decode_permutation_scores
-```
+Some older files used flat imports such as `from decoder import ...`; do not
+add new flat imports.
 
 Do not rewrite old imports opportunistically unless you are testing the affected script. For new files, prefer `from src...` imports and the `rootutils` setup pattern.
 

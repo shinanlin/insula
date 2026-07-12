@@ -44,7 +44,7 @@ echo "Processing ROI ${ROI} (array task $SLURM_ARRAY_TASK_ID)"
 for HEMI in ${HEMIS[@]}; do
     for BAND in ${BANDS[@]}; do
         for PHASE in ${PHASES[@]}; do
-                python src/condition_decoding.py \
+                python src/decoding/condition_decoding.py \
                 --bids_root "${BIDS_ROOT}" \
                 --roi ${ROI} \
                 --hemi ${HEMI} \

@@ -145,7 +145,7 @@ class TestDirectCrossDecoderIntegration:
             os.path.dirname(os.path.dirname(__file__)), "scripts"
         )
         sys.path.insert(0, scripts_dir)
-        from direct_cross_decoder import DirectCrossDecoder
+        from src.decoding.direct_cross_decoder import DirectCrossDecoder
         
         files, _, n_trials, n_channels, n_times = synthetic_h5_pair
         
@@ -182,7 +182,7 @@ class TestDirectCrossDecoderIntegration:
             os.path.dirname(os.path.dirname(__file__)), "scripts"
         )
         sys.path.insert(0, scripts_dir)
-        from direct_cross_decoder import DirectCrossDecoder
+        from src.decoding.direct_cross_decoder import DirectCrossDecoder
         
         files, _, _, _, _ = synthetic_h5_pair
         

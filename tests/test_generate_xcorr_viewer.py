@@ -8,7 +8,7 @@ import sys
 import os
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
-from src.generate_xcorr_viewer import (
+from src.xcorr.generate_xcorr_viewer import (
     bids_to_recon_id,
     get_shank_prefix,
     classify_channels,

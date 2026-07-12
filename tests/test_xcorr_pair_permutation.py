@@ -5,7 +5,7 @@ import numpy as np
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 
-from src.run_xcorr_pair_permutation import (
+from src.xcorr.run_xcorr_pair_permutation import (
     compute_pair_xcorr_trials,
     build_trial_shuffle_null,
     build_circular_shift_null,

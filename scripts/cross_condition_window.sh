@@ -54,7 +54,7 @@ echo "=== Window decoding ==="
 echo "ROI=${ROI}, Phase=${PHASE}, Train=${TRAIN}, Test=${TEST}"
 echo "Jobs=${N_JOBS}, Perm=${N_PERM}, Folds=${N_FOLDS}"
 
-python src/run_cross_condition_window.py \
+python src/decoding/run_cross_condition_window.py \
     --bids_root "${BIDS_ROOT}" \
     --roi "${ROI}" \
     --phase "${PHASE}" \

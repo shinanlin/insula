@@ -74,7 +74,7 @@ echo "Descriptions:    ${DESCRIPTIONS[*]}"
 for DESCRIPTION in "${DESCRIPTIONS[@]}"; do
   for PHASE in "${PHASES[@]}"; do
     echo "Processing: ${SUBJECT} (${TASK_NAME}, ${BAND}, ${PHASE}, ${DESCRIPTION})"
-    python -u src/run_xcorr_pair_permutation.py \
+    python -u src/xcorr/run_xcorr_pair_permutation.py \
       --bids_root "$BIDS_ROOT" \
       --subject "$SUBJECT" \
       --phase "$PHASE" \

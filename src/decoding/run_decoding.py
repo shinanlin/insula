@@ -22,7 +22,7 @@ from sklearn.metrics import (
 )
 from tqdm import tqdm
 from sklearn.pipeline import make_pipeline
-from decoder import decode_permutation_scores
+from src.decoding.decoder import decode_permutation_scores
 from ieeg.calc.oversample import MinimumNaNSplit
 from mne.decoding import Vectorizer
 from sklearn.svm import SVC

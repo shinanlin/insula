@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Discover the MAPER subject union across project BIDS datasets.
 
-Matches the five BIDS roots used in src/package_HGA.py. A subject is included
+Matches the five BIDS roots used in src/hga/package.py. A subject is included
 if it has a bipolar parcellation CSV in any dataset and FreeSurfer recon
 (orig.mgz + brainmask.mgz) under ECoG_Recon.
 """

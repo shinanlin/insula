@@ -26,7 +26,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import LinearSVC
 from ieeg.calc.oversample import MinimumNaNSplit
 
-from src.cross_decoder import (
+from src.decoding.cross_decoder import (
     CrossDecoder,
     _balance_datasets,
     cross_domain_permutation_scores,

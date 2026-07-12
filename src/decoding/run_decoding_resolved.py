@@ -24,7 +24,7 @@ from sklearn.pipeline import make_pipeline
 from mne.decoding import Vectorizer, SlidingEstimator
 from sklearn.model_selection import StratifiedKFold
 from ieeg.calc.oversample import MinimumNaNSplit
-from run_decoding import load_roi_data, decode_permutation_scores
+from src.decoding.run_decoding import load_roi_data, decode_permutation_scores
 
 import gc
 import time as _time

@@ -16,8 +16,7 @@ from pathlib import Path
 
 import pandas as pd
 
-sys.path.insert(0, os.path.dirname(__file__))
-from generate_xcorr_viewer import (
+from src.xcorr.generate_xcorr_viewer import (
     RECON_DIR,
     classify_channels,
     filter_same_hemisphere,
