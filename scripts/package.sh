@@ -25,7 +25,7 @@ echo "Processing band $BAND (array task $SLURM_ARRAY_TASK_ID)"
 DESCRIPTIONS=('production' 'perception')
 
 for DESCRIPTION in ${DESCRIPTIONS[@]}; do
-    python "${REPO_ROOT}/src/hga/package.py" \
+    python "${REPO_ROOT}/src/hga/package_highgamma.py" \
         --bids_root "${BIDS_ROOT}" \
         --band ${BAND} \
         --description ${DESCRIPTION} \

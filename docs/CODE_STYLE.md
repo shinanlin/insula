@@ -48,7 +48,7 @@ Prefer package-style imports for new code:
 
 ```python
 from src.decoding.decoder import decode_permutation_scores
-from src.hga.package import load_parcellation
+from src.hga.package_highgamma import load_parcellation
 ```
 
 Some older files used flat imports such as `from decoder import ...`; do not

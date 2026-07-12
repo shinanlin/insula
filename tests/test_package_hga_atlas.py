@@ -3,7 +3,7 @@ from __future__ import annotations
 import pandas as pd
 import pytest
 
-from src.hga.package import load_parcellation, parcellation_subset, results_dir
+from src.hga.package_highgamma import load_parcellation, parcellation_subset, results_dir
 
 
 def test_parcellation_subset_new_schema_maps_template_native_and_endpoints():

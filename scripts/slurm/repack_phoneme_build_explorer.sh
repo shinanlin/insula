@@ -16,7 +16,7 @@ PHONEME_BIDS="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/"
 VIEWER_ROOT="/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer"
 
 echo "===== Repackage PhonemeSequencing HGA with stats alias fix ====="
-python src/hga/package.py \
+python src/hga/package_highgamma.py \
   --bids_root "${PHONEME_BIDS}" \
   --band highgamma \
   --ref bipolar

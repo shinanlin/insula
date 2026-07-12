@@ -72,7 +72,7 @@ each subject's `orig.mgz` header).
 ### Relationship in one line
 
 ```text
-MAPER  →  native fused volume  →  parcellation.py  →  sub-*_hammers.csv  →  src/hga/package.py
+MAPER  →  native fused volume  →  parcellation.py  →  sub-*_hammers.csv  →  src/hga/package_highgamma.py
          (insula/pipeline)       (seeg-preprocessing)                      (insula/src)
 ```
 
@@ -144,7 +144,7 @@ sbatch scripts/slurm/run_hammers_parcellation.sbatch
 ### Stage 3 — Package HGA (insula)
 
 ```bash
-python src/hga/package.py \
+python src/hga/package_highgamma.py \
   --bids_root /cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/ \
   --band highgamma \
   --ref bipolar \
@@ -170,7 +170,7 @@ aparc does **not** require MAPER:
 
 ```bash
 python common/parcellation.py --atlas aparc2009s ...
-python src/hga/package.py --atlas aparc2009s ...
+python src/hga/package_highgamma.py --atlas aparc2009s ...
 ```
 
 Use aparc for whole-brain ROI decoding and cross-atlas comparison. Do **not**

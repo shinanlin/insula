@@ -42,12 +42,14 @@ Production Python is grouped by analysis family:
 
 | Subpackage | Role | Key entry |
 |------------|------|-----------|
-| `src/hga/` | BIDS epoch + parcellation → `results/{task}(bipolar)({atlas})/` | `src/hga/package.py` |
+| `src/hga/` | BIDS epoch + parcellation → `results/{task}(bipolar)({atlas})/` | `src/hga/package_highgamma.py` |
 | `src/decoding/` | ROI / cross-ROI / cross-condition decoding | `src/decoding/run_decoding.py` |
 | `src/xcorr/` | Insula–IFG cross-correlation and viewer export | `src/xcorr/run_xcorr.py` |
+| `src/univariate/` | Cluster permutation contrasts on packaged HGA | `src/univariate/contrasts.py` |
+| `src/reaction_time/` | Reaction-time encoding models | `src/reaction_time/run_reaction_time.py` |
 | `src/paths.py` | Shared `RESULTS_ROOT`, `hga_results_dir()` | — |
 
-Other modules (`univariate_contrasts.py`, `encoder.py`, `package_zscore.py`, connectivity, etc.) remain at `src/` root until further cleanup.
+Other modules (`encoder.py`, `package_ave_cord.py`, connectivity, etc.) remain at `src/` root until further cleanup.
 
 ## Main Pipeline Families
 
@@ -55,8 +57,8 @@ Other modules (`univariate_contrasts.py`, `encoder.py`, `package_zscore.py`, con
 
 Packaging scripts prepare BIDS-derived HGA CSVs under `results/`:
 
-- `src/hga/package.py` (production; dual-atlas aparc2009s / hammers)
-- `src/package_zscore.py` (legacy)
+- `src/hga/package_highgamma.py` (production; dual-atlas aparc2009s / hammers)
+- `src/hga/package_zscore.py` (z-scored band packaging)
 - `src/package_ave_cord.py` (legacy)
 - `src/package_roi_mask.py` (legacy)
 - `src/package_sig_channel.py` (legacy)
@@ -131,7 +133,7 @@ Univariate analyses use task and phase-specific contrasts over HGA.
 
 Important files include:
 
-- `src/univariate_contrasts.py`
+- `src/univariate/contrasts.py`
 - `scripts/run_univariate.sh`
 - `scripts/run_univariate_nodelay.sh`
 

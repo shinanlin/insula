@@ -77,7 +77,7 @@ SUBJECT=${SUBJECTS[$SLURM_ARRAY_TASK_ID]}
 for BAND in ${BANDS[@]}; do
     echo "Processing: ${SUBJECT} | ${BAND}"
     
-    python src/run_reaction_time.py \
+    python src/reaction_time/run_reaction_time.py \
         --subject ${SUBJECT} \
         --bids_root "${BIDS_ROOT}" \
         --band ${BAND} \

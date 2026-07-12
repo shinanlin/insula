@@ -4,7 +4,7 @@ Uses time_perm_cluster from ieeg to compute per-channel cluster
 permutation tests on epoch-level HGA data.
 
 Usage:
-    python src/univariate_contrasts.py --bids_root /cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/
+    python src/univariate/contrasts.py --bids_root /cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/
 """
 import numpy as np
 import pandas as pd

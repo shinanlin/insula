@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import pytest
 
-from src.hga.package import stats_path_candidates
+from src.hga.package_highgamma import stats_path_candidates
 
 
 class _FakeBIDSPath:

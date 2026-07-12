@@ -26,7 +26,7 @@ fi
 SUBJ=${SUBJECTS[$SLURM_ARRAY_TASK_ID]}
 echo "Processing subject: $SUBJ (task $SLURM_ARRAY_TASK_ID / ${#SUBJECTS[@]})"
 
-python src/univariate_contrasts.py \
+python src/univariate/contrasts.py \
     --bids_root /cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/ \
     --band highgamma \
     --n_perm 5000 \
