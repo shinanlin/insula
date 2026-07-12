@@ -1,6 +1,16 @@
 # Ignore logs and results directories
 logs/
 results/
+results(nw)/
+
+# HGA Explorer export artifacts (regenerate via build_data.sh)
+viewer/hga_explorer/public/data/atlas/
+viewer/hga_explorer/public/data/shared/
+viewer/hga_explorer/public/data/traces/
+viewer/hga_explorer/public/data/animation/
+viewer/hga_explorer/public/data/kde/
+viewer/hga_explorer/public/data/electrodes.json
+viewer/hga_explorer/public/data/manifest.json
 
 # Exception: allow specific files in results/
 !results/exlude_insula.csv
