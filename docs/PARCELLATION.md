@@ -153,7 +153,7 @@ python src/package_HGA.py \
 
 SLURM: `scripts/slurm/package_hga_all_tasks.sh`
 
-**Output:** `results(nw)/{Task}(bipolar)(hammers)/sub-*/HGA/*_time.csv`
+**Output:** `results/{Task}(bipolar)(hammers)/sub-*/HGA/*_time.csv`
 
 ### Stage 4 — Analysis and figures
 

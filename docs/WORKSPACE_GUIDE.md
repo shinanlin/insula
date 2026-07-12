@@ -32,6 +32,7 @@ Use the `ieeg` conda environment for testing and running unless a script explici
 - `vizpub/`: publication-oriented visualization notebooks. The user-facing name may be `viz_pub`, but the actual directory in this workspace is `vizpub`.
 - `img/`: exported figures and image outputs.
 - Grant materials live in a separate worktree: `../insula-grant`.
+- Legacy aparc-era analysis (frozen): `../insula-analysis-legacy` — see `LEGACY.md` there.
 - `notebooks/`: exploratory or ad hoc analysis notebooks.
 - `tests/`: pytest tests.
 

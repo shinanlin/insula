@@ -259,7 +259,7 @@ export default function App() {
     && !selectionEmpty
     && (usesSplitTraces(data?.layout) || !tracesLoading);
 
-  const usingExport = usesSplitTraces(data?.layout) || data?.dataSource === 'results(nw)';
+  const usingExport = usesSplitTraces(data?.layout) || data?.dataSource === 'results';
 
   if (isInitialLoading) {
     return (

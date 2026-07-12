@@ -80,7 +80,7 @@ flowchart TD
 
 ## Phase 1 — Export pipeline
 
-**Goal:** Turn `results(nw)/` packaged HGA into Sternberg-style split JSON for the validation cohort.
+**Goal:** Turn `results/` packaged HGA into Sternberg-style split JSON for the validation cohort.
 
 ### Module layout
 
@@ -96,7 +96,7 @@ viewer/hga_explorer/export/
 
 ### Phase 1a — `electrodes.json` + `manifest.json` (minimum export)
 
-**Input:** `results(nw)/{PhonemeSequencing,LexicalDelay}(bipolar)/sub-*/HGA/*_time.csv`  
+**Input:** `results/{PhonemeSequencing,LexicalDelay}(bipolar)/sub-*/HGA/*_time.csv`  
 **Subjects:** D0094, D0071, D0084
 
 **Output:**
@@ -110,7 +110,7 @@ viewer/hga_explorer/public/data/
 
 **Must implement:**
 
-- Discover tasks from `results(nw)/{task}(bipolar)({atlas})/`
+- Discover tasks from `results/{task}(bipolar)({atlas})/`
 - `--atlas all` exports both atlases; shared traces under `shared/`
 - Phase flags from packaged `mask` (pipeline significance windows; see `HGA_EXPLORER.md` §4)
 - `hga_by_task`: `{ PhonemeSequencing: float|null, LexicalDelay: float|null }`
@@ -360,7 +360,7 @@ This validates **data path + coordinates + phase masks** before investing in ani
 |--------------|--------|
 | `package_HGA.py` emits endpoint coords + contact labels (no MAPER) | Done |
 | Dual-atlas export (`aparc2009s` + `hammers`) + UI atlas toggle | Done |
-| Output path `insula/results(nw)/` (repo root) | Done |
+| Output path `insula/results/` (repo root) | Done |
 | Full cohort repackage (PhonemeSequencing + LexicalDelay) | Slurm job — verify before Phase 1 full export |
 | `docs/HGA_EXPLORER.md` design spec | Done |
 

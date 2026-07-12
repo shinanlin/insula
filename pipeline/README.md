@@ -67,7 +67,7 @@ python src/package_HGA.py --bids_root <BIDS>/ --band highgamma --ref bipolar --a
 python src/package_HGA.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas hammers
 ```
 
-Outputs land in `results(nw)/{task}({ref})(aparc2009s)/` and `results(nw)/{task}({ref})(hammers)/`.
+Outputs land in `results/{task}({ref})(aparc2009s)/` and `results/{task}({ref})(hammers)/`.
 
 ## Known limitations
 

@@ -197,7 +197,7 @@ Related pipeline epoch defaults (for context, not viewer display):
 
 v1 input root:
 
-- `results(nw)/` packaged HGA
+- `results/` packaged HGA
 
 v1 is **MAPER-agnostic**: use aparc / existing packaged columns only. Do not
 require `maper_*` fields for export or UI.
@@ -213,7 +213,7 @@ Confirmed phase / condition shape:
 - LexicalDelay — same phases; desc Decision / Repeat
 
 **Full export** (`build_data_full.sh` / `--all-subjects`): every subject with
-packaged HGA in **any** v1 task under `results(nw)/` (union across
+packaged HGA in **any** v1 task under `results/` (union across
 PhonemeSequencing and LexicalDelay). Partial-task subjects are included;
 `hga_by_task` may be null for tasks they did not run. Re-run export after
 `package_HGA.py` adds subjects — no manual ID list required.
@@ -228,7 +228,7 @@ Pick **3 subjects that completed both tasks** (not 3 per task):
 
 Later expansion (not v1):
 
-- Other tasks under `results/` or future `results(nw)/` packages
+- Other tasks under `results/` or future `results/` packages
 
 ### Condition / description
 
@@ -347,7 +347,7 @@ Optional detail-panel fields (Phase 4): `contact_1_roi`, `contact_1_hemi`,
   "version": 1,
   "layout": "split",
   "metadata": {
-    "source": "results(nw)",
+    "source": "results",
     "tasks": ["PhonemeSequencing", "LexicalDelay"],
     "conditions": {
       "PhonemeSequencing": ["Repeat"],
@@ -417,7 +417,7 @@ Optional detail-panel fields (Phase 4): `contact_1_roi`, `contact_1_hemi`,
 
 Notes:
 
-- Packaged HGA in `results(nw)/` includes midpoint and endpoint columns from
+- Packaged HGA in `results/` includes midpoint and endpoint columns from
   `src/package_HGA.py` (aparc parcellation + bipolar endpoint fields).
 - No `maper_*` fields in v1 electrode JSON.
 
@@ -463,7 +463,7 @@ multi-task HGA exploration rather than Sternberg’s phase-overlap product name.
 
 Key export changes vs Sternberg:
 
-1. Discover HGA across `results(nw)/{task}(bipolar)` for PhonemeSequencing + LexicalDelay
+1. Discover HGA across `results/{task}(bipolar)` for PhonemeSequencing + LexicalDelay
 2. Replace load aggregation with task aggregation
 3. Remap phase names Stimulus / Delay / Go / Response
 4. Drop encoding-load cutoffs; use pipeline significance windows from
@@ -513,7 +513,7 @@ Must rewrite / adapt:
 
 1. Scaffold `insula/viewer/hga_explorer` from Sternberg structure
 2. Update `src/package_HGA.py` to emit bipolar endpoint coords + contact aparc fields
-3. Export validation subjects **D0094, D0071, D0084** from `results(nw)/`
+3. Export validation subjects **D0094, D0071, D0084** from `results/`
    (both PhonemeSequencing + LexicalDelay)
 4. Task selector wired through size / waveform / animation;
    `all` = partial-task inclusion + aggregate cross-task waveforms;
@@ -535,7 +535,7 @@ Must rewrite / adapt:
 Resolved:
 
 1. First task set: **PhonemeSequencing + LexicalDelay**
-2. Input root: **`results(nw)/` only** for v1
+2. Input root: **`results/` only** for v1
 3. Default Venn phases: **stimulus, delay, go, response**
 4. Display waveform range: **unified −0.5 to 1.0 s**
 5. MAPER: **out of scope for v1**; revisit after future packaging work
@@ -564,7 +564,7 @@ Still open / needs user input:
 ## 12. Correction log
 
 - 2026-07-09: initial draft from background investigation; Fig2/xcorr explicitly out of scope; Load → Task is the main isomorphism change.
-- 2026-07-09: corrections — default Venn = stimulus/delay/go/response; waveform display unified to [−0.5, 1.0]; v1 uses `results(nw)/` with PhonemeSequencing + LexicalDelay; v1 is MAPER-agnostic; electrode schema elevated for native↔template brain toggle and on-click bipolar endpoint reveal; MAPER deferred until later `package_HGA.py` work.
+- 2026-07-09: corrections — default Venn = stimulus/delay/go/response; waveform display unified to [−0.5, 1.0]; v1 uses `results/` with PhonemeSequencing + LexicalDelay; v1 is MAPER-agnostic; electrode schema elevated for native↔template brain toggle and on-click bipolar endpoint reveal; MAPER deferred until later `package_HGA.py` work.
 - 2026-07-12: dual-atlas export + UI — manifest v2, default Hammers, APARC/Hammersmith toggle, shared traces; insula filter aligned with fig2.
 - 2026-07-09: corrections — `all` = aggregate cross-task waveforms; conditions included with v1 single-select and v2 condition Venn; aparc ROI labels only; multi-subject forces template; endpoint coords from upcoming `package_HGA.py`; `*_template` endpoint naming; endpoints clickable with ROI/label detail.
 - 2026-07-09: clarifications — “strict window” renamed/explained as significance window vs display range; module renamed to `viewer/hga_explorer`; `all` allows partial-task electrodes; waveforms always midpoint even when endpoint selected; added follow-up open questions.

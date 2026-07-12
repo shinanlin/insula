@@ -1,7 +1,6 @@
 # Ignore logs and results directories
 logs/
 results/
-results(nw)/
 
 # HGA Explorer export artifacts (regenerate via build_data.sh)
 viewer/hga_explorer/public/data/atlas/

@@ -21,8 +21,8 @@ Use the `ieeg` conda environment for testing and running code. Most long-running
 - `src/`: source files for packaging, decoding, univariate statistics, connectivity, cross-correlation, encoding, behavior, and utility analyses.
 - `scripts/`: SLURM scripts and launchers. Production entry points live in `scripts/slurm/`.
 - `pipeline/`: MAPER fusion for Hammersmith atlas propagation (Stages 0–1).
-- `results(nw)/`: current packaged HGA outputs (`{Task}(bipolar)(hammers)/`, etc.).
-- `results/`: legacy packaged outputs; prefer `results(nw)/` for new work.
+- `results/`: current packaged HGA outputs (`{Task}(bipolar)(hammers)/`, etc.).
+- Legacy aparc-era outputs live in worktree `../insula-analysis-legacy/results/`.
 - `viz/`: previous visualization code, mainly Jupyter notebooks.
 - `vizpub/`: publication-oriented visualization notebooks. This is the workspace directory corresponding to the informal name `viz_pub`.
 - `img/`: exported figures and image outputs.
@@ -64,6 +64,6 @@ Start at [`docs/README.md`](docs/README.md). Key documents:
 
 - Treat SLURM scripts as the authoritative way to run full analyses.
 - Prefer the workspace path `/hpc/group/coganlab/nanlinshi/insula` for new documentation and scripts.
-- Keep generated artifacts in `results(nw)/`, `results/`, `logs/`, and `img/`; these directories are gitignored.
+- Keep generated artifacts in `results/`, `logs/`, and `img/`; these directories are gitignored.
 - Preserve legacy file names that downstream code already references, even when they contain typos.
 - For new Python entry points, follow the `rootutils.setup_root(..., indicator=".project-root")` pattern used by the newer `src/run_*.py` files.

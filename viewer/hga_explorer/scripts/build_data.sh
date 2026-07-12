@@ -16,7 +16,7 @@ else
 fi
 PROJECT_ROOT="$(cd "${VIEWER_ROOT}/../.." && pwd)"
 DATA_DIR="${VIEWER_ROOT}/public/data"
-RESULTS_ROOT="${PROJECT_ROOT}/results(nw)"
+RESULTS_ROOT="${PROJECT_ROOT}/results"
 
 SUBJECT_ARGS=(--subjects D0094 D0071 D0084)
 if [[ "${HGA_EXPLORER_COHORT:-validation}" == "full" ]]; then

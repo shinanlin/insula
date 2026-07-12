@@ -1,4 +1,4 @@
-"""Build HGA Explorer JSON (electrodes + manifest) from packaged results(nw)/ HGA."""
+"""Build HGA Explorer JSON (electrodes + manifest) from packaged results/ HGA."""
 
 from __future__ import annotations
 
@@ -14,7 +14,7 @@ import pandas as pd
 VIEWER_ROOT = Path(__file__).resolve().parent.parent
 PROJECT_ROOT = VIEWER_ROOT.parent.parent
 DEFAULT_DATA_DIR = VIEWER_ROOT / "public" / "data"
-DEFAULT_INPUT_ROOT = PROJECT_ROOT / "results(nw)"
+DEFAULT_INPUT_ROOT = PROJECT_ROOT / "results"
 _EXPORT_DIR = Path(__file__).resolve().parent
 if str(_EXPORT_DIR) not in sys.path:
     sys.path.insert(0, str(_EXPORT_DIR))
@@ -509,7 +509,7 @@ def build_payload(
 
     exported_subjects = sorted({item["subject"] for item in electrodes})
     metadata = {
-        "source": "results(nw)",
+        "source": "results",
         "tasks": list(tasks),
         "conditions": {task: list(CONDITIONS_BY_TASK.get(task, [DEFAULT_CONDITION])) for task in tasks},
         "default_condition": condition,

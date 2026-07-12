@@ -242,6 +242,6 @@ Use correct spelling for new files unless compatibility with an existing path re
 
 - Adding new hard-coded personal paths when a script can accept `--bids_root`, `--recon_dir`, or a clearly named variable.
 - Mixing source logic into SLURM scripts.
-- Saving generated analysis outputs outside `results/`, `results(nw)/`, `logs/`, or `img/`.
+- Saving generated analysis outputs outside `results/`, `logs/`, or `img/`.
 - Adding production dependencies without documenting them.
 - Refactoring old import/path behavior while making unrelated scientific changes.

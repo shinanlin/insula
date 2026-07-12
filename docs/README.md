@@ -39,3 +39,5 @@ docs as needed.
   `/hpc/group/coganlab/nanlinshi/seeg-preprocessing/`
 - Grant materials (separate worktree):
   `/hpc/group/coganlab/nanlinshi/insula-grant`
+- Legacy analysis snapshot (frozen):
+  `/hpc/group/coganlab/nanlinshi/insula-analysis-legacy`

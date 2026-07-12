@@ -13,7 +13,7 @@ from tqdm import tqdm
 ENDPOINT_NATIVE_COLS = ("x1", "y1", "z1", "x2", "y2", "z2")
 ENDPOINT_TEMPLATE_COLS = ("x1_t", "y1_t", "z1_t", "x2_t", "y2_t", "z2_t")
 CONTACT_COLS = ("contact_1", "contact_2", "contact_1_label", "contact_2_label")
-RESULTS_ROOT = Path(__file__).resolve().parent.parent / "results(nw)"
+RESULTS_ROOT = Path(__file__).resolve().parent.parent / "results"
 SUPPORTED_ATLASES = ("aparc2009s", "hammers")
 
 # Epoch and statistics exports may use different BIDS task labels for the same study.
