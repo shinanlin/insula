@@ -25,6 +25,12 @@ npm run build
 npm run qa-data
 ```
 
+Production build via SLURM:
+
+```bash
+sbatch scripts/build_viewer.sh
+```
+
 ## Export data
 
 Validation cohort (3 subjects):
@@ -62,3 +68,9 @@ See [`docs/ACCESS.md`](docs/ACCESS.md) for SSH tunnel instructions (port **18081
 - Bipolar endpoint reveal on midpoint click
 - KDE + electrode brain views, ROI filter, four-phase waveforms, animation
 - Onboarding tour (driver.js)
+
+## Experimental branches
+
+MAPER-core atlas UI experiments live on git branch `codex/viewer-atlas-switch`
+(commit after `80ee707`). Main uses dual-atlas `aparc2009s` / `hammers` packaging
+under `results/{task}(bipolar)({atlas})/`.
