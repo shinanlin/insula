@@ -18,13 +18,13 @@ docs as needed.
 | [`HGA_EXPLORER.md`](HGA_EXPLORER.md) | Interactive HGA Explorer — export schema, UI behavior |
 | [`../viewer/ROADMAP.md`](../viewer/ROADMAP.md) | HGA Explorer implementation roadmap |
 | [`../pipeline/README.md`](../pipeline/README.md) | MAPER fusion (Hammers volume propagation) |
+| [`../pipeline/D44_MAPER_worklog.md`](../pipeline/D44_MAPER_worklog.md) | D0044 MAPER pilot, bugs, validation history |
 
 ## Parcellation deep dives
 
 | Document | When to read |
 |----------|----------------|
 | [`PARCELLATION_PIPELINE.md`](PARCELLATION_PIPELINE.md) | Coordinate spaces, bipolar ROI rules, technical reference |
-| [`D44_MAPER_worklog.md`](D44_MAPER_worklog.md) | D0044 MAPER pilot, bugs, validation history |
 
 ## Style and conventions
 

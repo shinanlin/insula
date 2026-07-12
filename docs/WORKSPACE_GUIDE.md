@@ -76,7 +76,7 @@ native labels. The project rationale, baseline workflow, and insula inclusion
 rules are documented in `docs/PARCELLATION.md`. Technical deep dives:
 
 - `docs/PARCELLATION_PIPELINE.md`
-- `docs/D44_MAPER_worklog.md`
+- `pipeline/D44_MAPER_worklog.md`
 - `pipeline/README.md`
 
 The reusable Faillenot/MAPER workflow is under `pipeline/`. Do not use the

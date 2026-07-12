@@ -1,5 +1,8 @@
 # D44 MAPER 岛叶电极定位 — 完整历程 Work Log
 
+**位置**：与 MAPER 流程同目录（`pipeline/D44_MAPER_worklog.md`）。日常操作见
+`pipeline/README.md`；项目级 parcellation 共识见 `docs/PARCELLATION.md`。
+
 **范围**：为被试 D0044（D44）的 sEEG 双极通道，在 Faillenot 6 区岛叶图谱
 （ASG/MSG/PSG/pole(AIC)/ALG/PLG；标签奇偶约定：偶数=左，奇数=右）上完成解剖定位，
 并比较两条独立方法：
@@ -268,7 +271,7 @@ RI1-2 电极 (29, −3.5, 7.5) 到修复后 PLG-R 质心 (27.4, −4.3, 8.5) 仅
 
 ## 8. 可复用产物索引
 
-- 固化后的流程：`insula/pipeline/`（见 `insula/pipeline/README.md`）。
+- 固化后的流程：本目录 `README.md`（`pipeline/`）。
 - 环境搭建记录：`insula/docs/environment_setup.md`。
 - 最终判定报告（中文，含图）：artifact `D44_MAPER_verdict_report.md`
   (`c285c4c2-73e6-4f6a-8bba-df00c33bb042`)。

@@ -172,7 +172,7 @@ Before using MAPER labels as the manuscript's primary AIC/PIC assignment:
 
 Reusable MAPER code is under `pipeline/`; the operational guide is
 `pipeline/README.md`. The D44 history, including failed attempts, is in
-`docs/D44_MAPER_worklog.md`.
+`pipeline/D44_MAPER_worklog.md`.
 
 Important external roots:
 

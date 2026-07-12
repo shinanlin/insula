@@ -56,7 +56,7 @@ Start at [`docs/README.md`](docs/README.md). Key documents:
 - Code and SLURM style: [`docs/CODE_STYLE.md`](docs/CODE_STYLE.md)
 - Plotting and figure style: [`docs/PLOTTING_STYLE.md`](docs/PLOTTING_STYLE.md)
 - Parcellation technical reference: [`docs/PARCELLATION_PIPELINE.md`](docs/PARCELLATION_PIPELINE.md)
-- D0044 MAPER pilot history: [`docs/D44_MAPER_worklog.md`](docs/D44_MAPER_worklog.md)
+- D0044 MAPER pilot history: [`pipeline/D44_MAPER_worklog.md`](pipeline/D44_MAPER_worklog.md)
 - MAPER operations: [`pipeline/README.md`](pipeline/README.md)
 - Canonical preprocessing repository:
   `/hpc/group/coganlab/nanlinshi/seeg-preprocessing/`

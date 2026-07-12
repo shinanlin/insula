@@ -6,7 +6,7 @@ space. Fused volumes under `maper_run` are used to generate Hammersmith
 parcellation CSVs; analysis reads those CSVs directly.
 
 Validated end-to-end on subject D0044 (see
-`docs/D44_MAPER_worklog.md`). Steps 01–03 produce reusable fused segmentations;
+`D44_MAPER_worklog.md` in this directory). Steps 01–03 produce reusable fused segmentations;
 hammers electrode labels are written to `derivatives/parcellation/sub-*_hammers.csv`
 via `seeg-preprocessing` `parcellation.py --atlas hammers`.
 
@@ -23,6 +23,9 @@ See `ENVIRONMENT.md` in this directory for verified versions and storage paths.
 
 ```
 pipeline/
+  README.md               operational guide (this file)
+  ENVIRONMENT.md          versions, paths, container
+  D44_MAPER_worklog.md    D0044 pilot history, bug fixes, validation narrative
   01_build_container/     one-time: build maper.sif
   02_prepare_atlas/       one-time: fix atlas geometry, build ancillaries
   03_run_maper/           per-subject: target T1, 30-way fusion → seg95 volume
@@ -84,4 +87,4 @@ Outputs land in `results/{task}({ref})(aparc2009s)/` and `results/{task}({ref})(
 2. **Electrode coordinates (parcellation).** Convert tkRAS via subject `orig.mgz`
    `vox2ras_tkr`, not the fused NIfTI affine alone.
 
-Full validation narrative: `docs/D44_MAPER_worklog.md`.
+Full validation narrative: `D44_MAPER_worklog.md`.

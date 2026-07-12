@@ -5,7 +5,7 @@ ONE-TIME step, shared across all subjects. Run once per cluster/atlas
 download; the corrected labels in derivatives/individual_native_pairs/
 are then reused as MAPER ancillaries for every subsequent subject.
 
-Bug fixed by this script (see docs/D44_MAPER_worklog.md section 4):
+Bug fixed by this script (see pipeline/D44_MAPER_worklog.md section 4):
 the distributed ``*_IFHW_r95_zy.nii.gz`` label volumes have the same voxel
 arrays as their paired T1 images but a historical, displaced NIfTI header
 affine (16-30mm pure-translation offset across all 30 atlases, sform_code 2

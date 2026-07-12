@@ -3,7 +3,7 @@
 This note records the exact software environment the D0044 MAPER pipeline was
 built and validated against, so a future run on a new subject (or a new
 cluster) reproduces the same behavior instead of re-discovering the two bugs
-documented in `docs/D44_MAPER_worklog.md`.
+documented in `D44_MAPER_worklog.md`.
 
 ## 1. Conda environment (`ieeg`)
 

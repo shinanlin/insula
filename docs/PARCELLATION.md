@@ -186,7 +186,7 @@ without explicit dual-atlas reporting.
 | [`pipeline/README.md`](../pipeline/README.md) | MAPER steps 01–03, commands |
 | [`pipeline/ENVIRONMENT.md`](../pipeline/ENVIRONMENT.md) | Container, paths, versions |
 | [`PARCELLATION_PIPELINE.md`](PARCELLATION_PIPELINE.md) | Coordinate columns, bipolar consensus, technical rules |
-| [`D44_MAPER_worklog.md`](D44_MAPER_worklog.md) | D0044 pilot history and bug fixes |
+| [`../pipeline/D44_MAPER_worklog.md`](../pipeline/D44_MAPER_worklog.md) | D0044 pilot history and bug fixes |
 | [`HGA_EXPLORER.md`](HGA_EXPLORER.md) | Explorer export schema and insula filters |
 
 ---
@@ -200,7 +200,7 @@ without explicit dual-atlas reporting.
 - Slim `PARCELLATION_PIPELINE.md` §8+ (`maper_*` electrode fields, removed
   `pipeline/04_extract_labels`); mark as deferred unless manuscript requires
   six-region MAPER tables.
-- Historical paths in `D44_MAPER_worklog.md` may cite old `scripts/` MAPER
+- Historical paths in `pipeline/D44_MAPER_worklog.md` may cite old `scripts/` MAPER
   entry points; canonical paths are under `pipeline/`.
 
 ---
