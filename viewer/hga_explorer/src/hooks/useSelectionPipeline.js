@@ -7,6 +7,7 @@ export default function useSelectionPipeline({
   subjectFilteredElectrodes,
   electrodeById,
   selectedTask = 'all',
+  resetAtlasKey = null,
 }) {
   const [vennPhases, setVennPhases] = useState(DEFAULT_VENN_PHASES);
   const [selectedRegionIds, setSelectedRegionIds] = useState(() => [DEFAULT_VENN_PHASES.join('_')]);
@@ -25,6 +26,10 @@ export default function useSelectionPipeline({
     vennRegions.forEach((region) => map.set(region.id, region));
     return map;
   }, [vennRegions]);
+
+  useEffect(() => {
+    setDisabledRois(new Set());
+  }, [resetAtlasKey]);
 
   useEffect(() => {
     const fullId = vennPhases.join('_');

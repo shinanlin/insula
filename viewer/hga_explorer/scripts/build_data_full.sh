@@ -2,8 +2,8 @@
 #SBATCH --job-name=hga_explorer_full
 #SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/hga_explorer_full_%j.out
 #SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/hga_explorer_full_%j.err
-#SBATCH --time=04:00:00
-#SBATCH --mem=24G
+#SBATCH --time=02:00:00
+#SBATCH --mem=32G
 #SBATCH --cpus-per-task=2
 #SBATCH --partition=common,scavenger
 

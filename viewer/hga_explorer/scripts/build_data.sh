@@ -18,16 +18,9 @@ PROJECT_ROOT="$(cd "${VIEWER_ROOT}/../.." && pwd)"
 DATA_DIR="${VIEWER_ROOT}/public/data"
 RESULTS_ROOT="${PROJECT_ROOT}/results(nw)"
 
-FULL_COHORT_SUBJECTS=(
-  D0023 D0024 D0028 D0029 D0035 D0042 D0053 D0054 D0055 D0057 D0059
-  D0063 D0066 D0068 D0069 D0070 D0071 D0077 D0079 D0084 D0086 D0094
-  D0096 D0100 D0102 D0103
-)
-
+SUBJECT_ARGS=(--subjects D0094 D0071 D0084)
 if [[ "${HGA_EXPLORER_COHORT:-validation}" == "full" ]]; then
-  SUBJECTS=("${FULL_COHORT_SUBJECTS[@]}")
-else
-  SUBJECTS=(D0094 D0071 D0084)
+  SUBJECT_ARGS=(--all-subjects)
 fi
 
 mkdir -p "${PROJECT_ROOT}/logs/slurm"
@@ -38,10 +31,13 @@ conda activate ieeg
 python "${VIEWER_ROOT}/export/compute_hga_explorer.py" \
   --input_root "${RESULTS_ROOT}" \
   --reference bipolar \
+  --atlas all \
+  --default_atlas hammers \
   --tasks PhonemeSequencing LexicalDelay \
-  --subjects "${SUBJECTS[@]}" \
+  "${SUBJECT_ARGS[@]}" \
   --output_dir "${DATA_DIR}"
 
 python "${VIEWER_ROOT}/scripts/qa_export.py" "${DATA_DIR}"
 
-echo "Export complete: ${DATA_DIR}/manifest.json (${#SUBJECTS[@]} subjects)"
+SUBJECT_COUNT="$(python -c "import json; print(len(json.load(open('${DATA_DIR}/manifest.json'))['metadata']['subjects']))")"
+echo "Export complete: ${DATA_DIR}/manifest.json (${SUBJECT_COUNT} subjects)"

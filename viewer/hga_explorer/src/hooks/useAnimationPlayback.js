@@ -4,6 +4,7 @@ import { ANIM_STEP_MS } from '../constants/animation.js';
 import { fetchAndMergePhaseAnimation } from '../utils/mergeAnimationClient.js';
 import { bundleHasPlayableFrames } from '../utils/animationBundle.js';
 import { buildAnimationCacheKey } from '../utils/animationCacheKey.js';
+import { usesSplitTraces } from '../utils/viewerLayout.js';
 
 export default function useAnimationPlayback({
   manifest,
@@ -74,7 +75,7 @@ export default function useAnimationPlayback({
       return cached;
     }
 
-    if (layout === 'split' && manifest) {
+    if (usesSplitTraces(layout) && manifest) {
       const subjects = [...selectedSubjects];
       setAnimationLoadingPhase(phase);
       setAnimationLoadProgress({

@@ -103,16 +103,18 @@ viewer/hga_explorer/export/
 
 ```text
 viewer/hga_explorer/public/data/
-  manifest.json
-  electrodes.json
+  manifest.json              # v2 split-multi-atlas
+  shared/traces/...
+  atlas/{aparc2009s,hammers}/electrodes.json
 ```
 
 **Must implement:**
 
-- Discover tasks from `results(nw)/`
+- Discover tasks from `results(nw)/{task}(bipolar)({atlas})/`
+- `--atlas all` exports both atlases; shared traces under `shared/`
 - Phase flags from packaged `mask` (pipeline significance windows; see `HGA_EXPLORER.md` §4)
 - `hga_by_task`: `{ PhonemeSequencing: float|null, LexicalDelay: float|null }`
-- aparc `roi` / `label` as packaged (no AIC/PIC remapping)
+- Atlas-specific `roi` / `label` as packaged; Hammers exports `mix`
 - Midpoint coords: template `x,y,z` + native `x_native,y_native,z_native`
 - Endpoint coords + contact labels for bipolar reveal (from `package_HGA.py` output)
 - Venn `region_id` / overlap membership from phase flags
@@ -333,7 +335,7 @@ This validates **data path + coordinates + phase masks** before investing in ani
 ## v1 non-goals (do not pull into above phases)
 
 - MAPER six-region styling or `maper_*` columns
-- AIC/PIC remapping of aparc ROIs
+- Hammers six-gyrus mesh styling (fig2 parity deferred)
 - Condition Venn (v2)
 - Fig2 notebook parity
 - Xcorr / Insula×IFG coupling viewer
@@ -357,6 +359,7 @@ This validates **data path + coordinates + phase masks** before investing in ani
 | Prerequisite | Status |
 |--------------|--------|
 | `package_HGA.py` emits endpoint coords + contact labels (no MAPER) | Done |
+| Dual-atlas export (`aparc2009s` + `hammers`) + UI atlas toggle | Done |
 | Output path `insula/results(nw)/` (repo root) | Done |
 | Full cohort repackage (PhonemeSequencing + LexicalDelay) | Slurm job — verify before Phase 1 full export |
 | `docs/HGA_EXPLORER.md` design spec | Done |
@@ -366,3 +369,4 @@ This validates **data path + coordinates + phase masks** before investing in ani
 ## Correction log
 
 - **2026-07-09:** Initial roadmap — 6 phases (0–5), validation-first, export-before-UI, Sternberg fork strategy.
+- **2026-07-12:** Dual-atlas viewer — manifest v2 (`split-multi-atlas`), default Hammers, header APARC/Hammersmith toggle, shared traces.

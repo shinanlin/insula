@@ -14,6 +14,7 @@ from viewer.hga_explorer.export.compute_hga_explorer import (
     V1_TASKS,
     build_payload,
     build_traces,
+    discover_subjects,
     validate_payload,
     validate_traces,
     write_split_layout,
@@ -59,6 +60,22 @@ def _sample_row(**overrides):
     }
     base.update(overrides)
     return base
+
+
+def test_discover_subjects_union_across_tasks(tmp_path: Path):
+    ps_root = tmp_path / "PhonemeSequencing(bipolar)(hammers)"
+    ld_root = tmp_path / "LexicalDelay(bipolar)(hammers)"
+    (ps_root / "sub-D0001" / "HGA").mkdir(parents=True)
+    (ps_root / "sub-D0002" / "HGA").mkdir(parents=True)
+    (ld_root / "sub-D0002" / "HGA").mkdir(parents=True)
+    (ld_root / "sub-D0003" / "HGA").mkdir(parents=True)
+    (ps_root / "sub-D0001" / "HGA" / "x_time.csv").write_text("time\n", encoding="utf-8")
+    (ps_root / "sub-D0002" / "HGA" / "x_time.csv").write_text("time\n", encoding="utf-8")
+    (ld_root / "sub-D0002" / "HGA" / "x_time.csv").write_text("time\n", encoding="utf-8")
+    (ld_root / "sub-D0003" / "HGA" / "x_time.csv").write_text("time\n", encoding="utf-8")
+
+    subjects = discover_subjects(tmp_path, list(V1_TASKS), reference="bipolar", atlas="hammers")
+    assert subjects == ["D0001", "D0002", "D0003"]
 
 
 def test_build_payload_phase_flags_and_hga_by_task():

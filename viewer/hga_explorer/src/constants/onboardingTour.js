@@ -102,10 +102,19 @@ export function buildTourSteps() {
       },
     },
     {
+      element: tourSelector('atlas-selector'),
+      popover: {
+        title: 'Parcellation atlas',
+        description: 'Switch between APARC and Hammersmith parcellation. ROI labels and insula filtering update immediately; HGA traces are shared.',
+        side: 'bottom',
+        align: 'end',
+      },
+    },
+    {
       element: tourSelector('roi-filter'),
       popover: {
         title: 'ROI filter',
-        description: 'Click a bar to show or hide that aparc ROI on the brain map.',
+        description: 'Click a bar to show or hide that ROI on the brain map.',
         side: 'left',
         align: 'start',
       },

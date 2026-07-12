@@ -18,7 +18,7 @@ Validation cohort (3 subjects):
 sbatch scripts/build_data.sh
 ```
 
-Full dual-task cohort (26 subjects):
+Full cohort (all packaged subjects, union across tasks):
 
 ```bash
 sbatch scripts/build_data_full.sh

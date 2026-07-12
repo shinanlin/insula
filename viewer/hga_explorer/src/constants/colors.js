@@ -6,6 +6,7 @@ export const ROI_COLORS = {
   OFC: '#f2994a',
   AIC: '#eb5757',
   PIC: '#2d9cdb',
+  INS: '#e67e22',
   Hipp: '#27ae60',
   SMC: '#f2c94c',
 };
@@ -42,7 +43,12 @@ export function phaseColor(phase) {
 }
 
 export function electrodeColor(electrode) {
-  return ROI_COLORS[electrode.roi] || '#8b9bb4';
+  if (ROI_COLORS[electrode.roi]) return ROI_COLORS[electrode.roi];
+  const roi = electrode.roi || '';
+  if (roi.startsWith('AIC')) return ROI_COLORS.AIC;
+  if (roi.startsWith('PIC')) return ROI_COLORS.PIC;
+  if (roi.startsWith('INS')) return ROI_COLORS.INS || '#e67e22';
+  return '#8b9bb4';
 }
 
 export function regionPhasesOn(regionId) {

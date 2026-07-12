@@ -1,4 +1,4 @@
-/** Insula parcel patterns (aparc.a2009s) — keep in sync with export/insula_constants.py */
+/** Insula parcel patterns — keep in sync with export/insula_constants.py */
 
 import { BRAIN_SPACES } from '../utils/electrodeCoords.js';
 
@@ -15,6 +15,10 @@ export const INSULA_META_URL = TEMPLATE_INSULA_META_URL;
 export const INSULA_GHOST_OPACITY = 0.05;
 /** fig2: add_label(..., alpha=0.6) */
 export const INSULA_HIGHLIGHT_OPACITY = 0.6;
+
+export const APARC_INSULA_ROIS = new Set(['INS', 'Insula']);
+
+export const HAMMERS_INSULA_ROIS = new Set(['AIC', 'PIC']);
 
 export const INSULA_PATTERNS = [
   'G_insular_short',
@@ -60,6 +64,13 @@ export function isInsulaLabel(label) {
   return INSULA_PATTERNS.some((pattern) => value.includes(pattern));
 }
 
-export function electrodeInInsula(electrode) {
-  return isInsulaLabel(electrode?.label);
+export function electrodeInInsula(electrode, atlas = 'hammers') {
+  if (!electrode) return false;
+  if (atlas === 'hammers') {
+    if (!HAMMERS_INSULA_ROIS.has(electrode.roi)) return false;
+    if (electrode.mix) return false;
+    return true;
+  }
+  if (APARC_INSULA_ROIS.has(electrode.roi)) return true;
+  return isInsulaLabel(electrode.label);
 }

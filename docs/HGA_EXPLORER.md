@@ -37,7 +37,7 @@ Implementation roadmap: [`viewer/ROADMAP.md`](../viewer/ROADMAP.md)
 | Phases: Encoding, Maintenance, Probe, Response | Phases: Stimulus, Delay, Go, Response | Names differ; Venn logic same |
 | `hga_by_load` | `hga_by_task` (proposed) | Mean masked in-window HGA per task |
 | `description=load3/5/7/9` | `task=...` (+ optional `description`) | Filtering key changes |
-| ROI bar (Destrieux / AIC-PIC style) | **aparc ROI labels as packaged** | No AIC/PIC split in v1; MAPER deferred |
+| ROI bar (Destrieux / AIC-PIC style) | **atlas-specific packaged ROI** | UI toggle: APARC vs Hammersmith (default Hammers) |
 | Average / template brain only | **Native brain + template brain toggle** | Multi-subject → force template |
 | Midpoint electrodes only | Midpoint + **clickable bipolar endpoints** | Endpoints show ROI / label detail |
 | Condition fixed or ignored | **Single-select condition** in v1 | v2: condition Venn in addition to phase Venn |
@@ -56,11 +56,12 @@ Preserve Sternberg layout, with Insula additions:
    - Hemisphere filter
    - **Brain space toggle: native ↔ template**
    - **Insula mode**: low-opacity full pial + opaque insula parcels;
-     filters electrodes to aparc insula labels; auto camera preset toward insula center
+     filters electrodes by atlas-specific insula definition (Hammers: pure AIC/PIC;
+     APARC: INS/Insula); auto camera preset toward insula center
      (template always; native when per-subject insula assets are exported)
    - **Selected electrode:** show bipolar contact-1 / contact-2 markers
      (and optional connecting segment); clear selection → hide endpoints
-4. Right: ROI filter (aparc labels) + electrode / endpoint detail panel
+4. Right: ROI filter (atlas-specific labels) + electrode / endpoint detail panel
 5. Bottom: per-phase HGA waveforms + Play animation
 
 ### Task selector
@@ -106,7 +107,9 @@ Matches the static fig2 insula panel logic (`vizpub/fig2.ipynb`):
 
 - Full pial at **opacity 0.05** (anatomical ghost)
 - Insula aparc parcels (`aparc.a2009s`) as a separate mesh at **opacity 0.6**
-- Electrodes filtered by aparc `label` (insula parcel name patterns only)
+- Electrodes filtered by atlas:
+  - **hammers:** `roi ∈ {AIC, PIC}` and `mix=false`
+  - **aparc2009s:** `roi ∈ {INS, Insula}` (label-pattern fallback retained)
 - Camera preset: top-down toward bilateral insula centroid
 - KDE mode: vertex colors masked to insula vertices on the decimated pial mesh
 
@@ -209,10 +212,11 @@ Confirmed phase / condition shape:
 - PhonemeSequencing — Stimulus / Delay / Go / Response; desc Repeat
 - LexicalDelay — same phases; desc Decision / Repeat
 
-Subjects present in **both** tasks under `results(nw)/` (n=26):  
-D0023, D0024, D0028, D0029, D0035, D0042, D0053, D0054, D0055, D0057, D0059,
-D0063, D0066, D0068, D0069, D0070, D0071, D0077, D0079, D0084, D0086, D0094,
-D0096, D0100, D0102, D0103.
+**Full export** (`build_data_full.sh` / `--all-subjects`): every subject with
+packaged HGA in **any** v1 task under `results(nw)/` (union across
+PhonemeSequencing and LexicalDelay). Partial-task subjects are included;
+`hga_by_task` may be null for tasks they did not run. Re-run export after
+`package_HGA.py` adds subjects — no manual ID list required.
 
 ### Validation cohort (v1 first export)
 
@@ -237,15 +241,24 @@ Later expansion (not v1):
 
 ```text
 viewer/hga_explorer/public/data/
-  manifest.json
-  electrodes.json
-  traces/{subject}.json          # lazy
-  animation/{subject}/{phase}.json
-  kde/roi/{subject}/mean.json
+  manifest.json                  # v2: split-multi-atlas
+  shared/
+    traces/{subject}.json        # lazy; atlas-independent
+    animation/{subject}/{phase}.json
+  atlas/
+    aparc2009s/
+      electrodes.json
+      kde/roi/{subject}/mean.json
+    hammers/
+      electrodes.json            # default atlas in UI
+      kde/roi/{subject}/mean.json
   assets/
     template brain mesh (e.g. cvs_avg35_pial.glb)
     native brain meshes from /cwork/ns458/ECoG_Recon (per subject, both hemispheres)
 ```
+
+Legacy **v1 split** layout (`electrodes.json` + `traces/` at repo root) remains
+supported by the loader for backward compatibility.
 
 ### Electrode record (v1-critical schema)
 
@@ -264,8 +277,9 @@ Electrode records in `electrodes.json` (split layout) or the `electrodes` array
 | `id` | string | `{subject}\|{channel}` (Sternberg convention) |
 | `subject` | string | e.g. `D0094` |
 | `channel` | string | bipolar midpoint name |
-| `roi` | string | packaged aparc ROI (no AIC/PIC remapping) |
-| `label` | string | aparc center label |
+| `roi` | string | packaged ROI for active atlas (`INS`, `AIC`, `PIC`, …) |
+| `label` | string | parcellation center label (aparc Destrieux or Hammers gyrus name) |
+| `mix` | bool | optional; Hammers mixed bipolar contact flag |
 | `hemi` | string | `L` or `R` |
 
 **Phase / task metrics**
@@ -358,6 +372,34 @@ Optional detail-panel fields (Phase 4): `contact_1_roi`, `contact_1_hemi`,
     "kde": "kde/roi/{subject}/mean.json",
     "template_mesh": "../assets/cvs_avg35_pial.glb",
     "native_mesh": "../assets/native/{subject}_pial.glb"
+  }
+}
+```
+
+**Minimal manifest example** (v2 multi-atlas; current export default)
+
+```json
+{
+  "version": 2,
+  "layout": "split-multi-atlas",
+  "default_atlas": "hammers",
+  "atlases": ["aparc2009s", "hammers"],
+  "metadata": { "...": "shared task/phase/subject metadata" },
+  "shared": {
+    "files": {
+      "traces": { "D0094": "shared/traces/D0094.json" },
+      "animation": { "D0094": { "stimulus": "shared/animation/D0094/stimulus.json" } }
+    }
+  },
+  "atlas": {
+    "hammers": {
+      "label": "Hammersmith",
+      "files": {
+        "electrodes": "atlas/hammers/electrodes.json",
+        "kde_roi_mean": { "D0094": "atlas/hammers/kde/roi/D0094/mean.json" }
+      }
+    },
+    "aparc2009s": { "...": "same shape" }
   }
 }
 ```
@@ -523,6 +565,7 @@ Still open / needs user input:
 
 - 2026-07-09: initial draft from background investigation; Fig2/xcorr explicitly out of scope; Load → Task is the main isomorphism change.
 - 2026-07-09: corrections — default Venn = stimulus/delay/go/response; waveform display unified to [−0.5, 1.0]; v1 uses `results(nw)/` with PhonemeSequencing + LexicalDelay; v1 is MAPER-agnostic; electrode schema elevated for native↔template brain toggle and on-click bipolar endpoint reveal; MAPER deferred until later `package_HGA.py` work.
+- 2026-07-12: dual-atlas export + UI — manifest v2, default Hammers, APARC/Hammersmith toggle, shared traces; insula filter aligned with fig2.
 - 2026-07-09: corrections — `all` = aggregate cross-task waveforms; conditions included with v1 single-select and v2 condition Venn; aparc ROI labels only; multi-subject forces template; endpoint coords from upcoming `package_HGA.py`; `*_template` endpoint naming; endpoints clickable with ROI/label detail.
 - 2026-07-09: clarifications — “strict window” renamed/explained as significance window vs display range; module renamed to `viewer/hga_explorer`; `all` allows partial-task electrodes; waveforms always midpoint even when endpoint selected; added follow-up open questions.
 - 2026-07-09: corrections — significance windows locked to seeg-preprocessing PIPELINE (`0–0.5` / Response `-0.5–0.5`); default condition Repeat; task=`all` condition union; native mesh from ECoG_Recon; doc renamed to `HGA_EXPLORER.md`; validation subjects D0094, D0071, D0084 (both tasks).

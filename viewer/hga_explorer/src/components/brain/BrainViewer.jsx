@@ -62,6 +62,7 @@ export default function BrainViewer({
   selectedElectrodeId,
   selectedEndpoint = null,
   hoveredId,
+  selectedAtlas = 'hammers',
   playingPhase,
   isPlaying,
   animationFrameIdx,
@@ -177,7 +178,7 @@ export default function BrainViewer({
       : resolvedElectrodes.filter((electrode) => selectedIds.has(electrode.id));
     let filtered = base.filter((electrode) => electrodeMatchesHemisphere(electrode, brainHemisphere));
     if (insulaModeActive) {
-      filtered = filtered.filter(electrodeInInsula);
+      filtered = filtered.filter((electrode) => electrodeInInsula(electrode, selectedAtlas));
     }
     return filtered;
   }, [
@@ -186,6 +187,7 @@ export default function BrainViewer({
     showAllElectrodes,
     brainHemisphere,
     insulaModeActive,
+    selectedAtlas,
   ]);
 
   const visibleElectrodesKey = useMemo(

@@ -21,6 +21,8 @@ import { getSelectionEmptyState } from './utils/selectionEmptyState.js';
 import { filterElectrodesForTask, filterElectrodesForView } from './utils/taskFilter.js';
 import { formatViewSelectionLabel } from './utils/viewSelection.js';
 import { resolveElectrodesForBrainSpace } from './utils/electrodeCoords.js';
+import AtlasToggle from './components/layout/AtlasToggle.jsx';
+import { usesSplitTraces } from './utils/viewerLayout.js';
 
 export default function App() {
   const [brainViewMode, setBrainViewMode] = useState(DEFAULT_BRAIN_VIEW_MODE);
@@ -60,6 +62,10 @@ export default function App() {
     toggleSubject,
     selectAllSubjects,
     deselectAllSubjects,
+    selectedAtlas,
+    switchAtlas,
+    atlasOptions,
+    atlasSwitching,
   } = useHgaExplorerData();
 
   const {
@@ -130,6 +136,7 @@ export default function App() {
     subjectFilteredElectrodes: taskScopedElectrodes,
     electrodeById,
     selectedTask,
+    resetAtlasKey: selectedAtlas,
   });
 
   const {
@@ -145,16 +152,22 @@ export default function App() {
     manifest: data?.manifest,
   });
 
+  const insulaFilter = useCallback(
+    (electrode) => electrodeInInsula(electrode, selectedAtlas),
+    [selectedAtlas],
+  );
+
   const waveformElectrodes = useMemo(() => {
     if (!insulaModeActive) return tableElectrodes;
     return resolveElectrodesForBrainSpace(taskScopedElectrodes, brainSpace)
-      .filter(electrodeInInsula);
+      .filter(insulaFilter);
   }, [
     insulaModeActive,
     tableElectrodes,
     tableElectrodesKey,
     taskScopedElectrodes,
     brainSpace,
+    insulaFilter,
   ]);
 
   const animationElectrodes = useMemo(
@@ -227,7 +240,7 @@ export default function App() {
       return {
         code: 'no_insula_electrodes',
         title: 'No insula electrodes in scope',
-        message: 'Insula mode is on, but no aparc insula electrodes match the current task and subject filters.',
+        message: `Insula mode is on, but no insula electrodes match the current ${selectedAtlas} atlas, task, and subject filters.`,
       };
     }
     return baseEmpty;
@@ -239,13 +252,14 @@ export default function App() {
     tableElectrodes.length,
     insulaModeActive,
     waveformElectrodes.length,
+    selectedAtlas,
   ]);
 
   const canPlay = animationElectrodes.length > 0
     && !selectionEmpty
-    && (data?.layout === 'split' || !tracesLoading);
+    && (usesSplitTraces(data?.layout) || !tracesLoading);
 
-  const usingExport = data?.layout === 'split' || data?.dataSource === 'results(nw)';
+  const usingExport = usesSplitTraces(data?.layout) || data?.dataSource === 'results(nw)';
 
   if (isInitialLoading) {
     return (
@@ -293,6 +307,8 @@ export default function App() {
             {' · '}
             {data.metadata?.n_electrodes ?? data.electrodes.length} electrodes
             {' · '}
+            {data.atlasOptions?.find((option) => option.id === selectedAtlas)?.label || selectedAtlas}
+            {' · '}
             {formatViewSelectionLabel(viewSelection)}
             {forcedTemplate ? ' · template brain' : ` · ${brainSpace} brain`}
           </p>
@@ -335,6 +351,12 @@ export default function App() {
               </button>
             ))}
           </div>
+          <AtlasToggle
+            options={atlasOptions}
+            selectedAtlas={selectedAtlas}
+            onSelectAtlas={switchAtlas}
+            disabled={atlasSwitching}
+          />
           <button
             type="button"
             className="tour-replay-btn"
@@ -404,6 +426,7 @@ export default function App() {
             selectedElectrodeId={selectedElectrodeId}
             selectedEndpoint={selectedEndpoint}
             hoveredId={hoveredId}
+            selectedAtlas={selectedAtlas}
             playingPhase={playingPhase}
             isPlaying={isPlaying}
             animationFrameIdx={animationFrameIdx}

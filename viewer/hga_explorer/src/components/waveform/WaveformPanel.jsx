@@ -8,6 +8,7 @@ import {
 import { formatWaveformTitle } from '../../utils/selectionSummary.js';
 import PhaseAnimationControls from './PhaseAnimationControls.jsx';
 import PhaseWaveformPlot from './PhaseWaveformPlot.jsx';
+import { usesSplitTraces } from '../../utils/viewerLayout.js';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
 import TraceLoadProgress from '../ui/TraceLoadProgress.jsx';
 
@@ -170,7 +171,7 @@ function WaveformPanel({
   const isSingleElectrode = Boolean(electrode);
   const traceKey = electrode?.id ?? 'aggregate';
   const allowMock = layout === 'mock';
-  const awaitingTraces = layout === 'split' && tracesLoading && initialLoadComplete;
+  const awaitingTraces = usesSplitTraces(layout) && tracesLoading && initialLoadComplete;
 
   const conditionLabels = useMemo(() => (
     awaitingTraces
