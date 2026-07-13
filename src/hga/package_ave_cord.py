@@ -1,137 +1,163 @@
-# project coord to average space
+"""Export per-epoch electrode coordinates for all zscore channels (Fig 1 coverage)."""
+
+from __future__ import annotations
 
 import argparse
-from pathlib import Path
-from typing import List, Tuple, Optional
-import h5py
-import numpy as np
-import sys
-import copy
-from mne_bids import BIDSPath
-import pandas as pd
-import torch
-import mne
 import logging
+
+import numpy as np
+import pandas as pd
 from tqdm import tqdm
-from ieeg.viz.mri import gen_labels
-from ieeg.io import get_elec_volume_labels
-import re
-import json
-from ieeg.viz.mri import force2frame
-import os
+
+from src.hga.package_highgamma import (
+    _filter_epoch_paths,
+    load_parcellation,
+    parcellation_subset,
+)
+from src.paths import SUPPORTED_ATLASES, hga_results_dir
+
+APARC_ROI_MERGE = {
+    "PrG": "SMC",
+    "PoG": "SMC",
+    "Subcentral": "SMC",
+}
+
+
+def _is_baseline(epoch_path) -> bool:
+    return epoch_path.description == "baseline" or epoch_path.processing == "baseline"
+
+
+def _apply_aparc_roi_merge(df: pd.DataFrame) -> pd.DataFrame:
+    out = df.copy()
+    for src, dst in APARC_ROI_MERGE.items():
+        out.loc[out["roi"] == src, "roi"] = dst
+    return out
+
+
+def _mean_hga_by_channel(epochs) -> dict[str, float]:
+    tmin = epochs.tmin + 0.5
+    tmax = epochs.tmax - 0.5
+    if tmax <= tmin:
+        return {ch: np.nan for ch in epochs.ch_names}
+    cropped = epochs.crop(tmin, tmax)
+    means = cropped.get_data().mean(axis=(0, -1))
+    return dict(zip(epochs.ch_names, means))
+
+
+def _load_sig_channels(epoch_path):
+    sig_matches = epoch_path.copy().update(
+        datatype="epoch(band)(sig)",
+        extension=".h5",
+    ).match()
+    if not sig_matches:
+        return set()
+    import mne
+
+    sig_epochs = mne.read_epochs(sig_matches[0], preload=True, verbose=False)
+    return set(sig_epochs.ch_names)
+
+
+def build_coord_dataframe(
+    epochs,
+    parc_sub: pd.DataFrame,
+    sig_channels: set[str],
+    *,
+    band: str,
+    subject: str,
+    task: str,
+    description: str,
+    phase: str,
+    modality: str,
+    atlas: str,
+) -> pd.DataFrame:
+    """One row per channel in ``epochs`` with parcellation geometry merged."""
+    df = pd.DataFrame({"channel": list(epochs.ch_names)})
+    df = df.merge(parc_sub, on="channel", how="left")
+
+    hga_by_channel = _mean_hga_by_channel(epochs)
+    df["HGA"] = df["channel"].map(hga_by_channel)
+    df["significant"] = df["channel"].isin(sig_channels)
+    df["subject"] = subject
+    df["task"] = task
+    df["band"] = band
+    df["description"] = description
+    df["phase"] = phase
+    df["modality"] = modality
+
+    if atlas == "aparc2009s":
+        df = _apply_aparc_roi_merge(df)
+    return df
+
 
 def main(
     bids_root: str,
     band: str,
-    recon_dir: str,
-    radius: float,
     ref: str,
+    atlas: str = "hammers",
+    subjects: list[str] | None = None,
 ):
-    
+    import mne
+    from mne_bids import BIDSPath
+
+    if atlas not in SUPPORTED_ATLASES:
+        raise ValueError(f"atlas must be one of {SUPPORTED_ATLASES}, got {atlas!r}")
+
     epoch_paths = BIDSPath(
-        root=os.path.join(bids_root,f"derivatives/epoch({ref})"),
+        root=bids_root + f"derivatives/epoch({ref})",
         suffix=band,
-        datatype='epoch(band)(zscore)',
+        datatype="epoch(band)(zscore)",
         extension=".h5",
         check=False,
     )
-    
-    # what this need is [subject, electrode name, significant or not, ]
-    
-    for epoch_path in tqdm(epoch_paths.match(), desc='Processing subjects'):
-        
-        if epoch_path.description == 'baseline' or epoch_path.processing == 'baseline':
+
+    matched_paths = _filter_epoch_paths(epoch_paths.match(), subjects)
+    if subjects:
+        logging.info(
+            "Subject filter %s -> %d epoch files",
+            ", ".join(subjects),
+            len(matched_paths),
+        )
+
+    for epoch_path in tqdm(matched_paths, desc="Processing epochs"):
+        if _is_baseline(epoch_path):
             continue
-        
-        epochs = mne.read_epochs(epoch_path, preload=True)
-        
-        logging.info(f'Processing {epoch_path.subject}')
-        # get the ROI label
+
         try:
-            montage = epochs.get_montage()
-            sub_id = re.sub(r'^D0+', 'D', epoch_path.subject)
-            to_fsaverage = mne.read_talxfm(sub_id, recon_dir)
-            trans = mne.transforms.Transform(fro='head', to='mri',
-                                            trans=to_fsaverage['trans'])
-            force2frame(montage, trans.from_str)  
-            montage.apply_trans(trans) 
-            pos_m = montage.get_positions()['ch_pos']
-        except FileNotFoundError:
-            logging.warning(f"Talxfm file not found for {epoch_path.subject}, skipping")
-            continue
-        
-        df = pd.DataFrame(pos_m).T
-        df.columns = ['x', 'y', 'z']
-        df[['x','y','z']] *= 1000
-        df = df.reset_index().rename(columns={'index': 'channel'})
-        
-        # perception: 0-1s, production: -0.5-0.5s
-        # tmin = 0 if description == 'perception' else -0.5
-        # tmax = 1 if description == 'perception' else 0.5
-        
-        tmin = epochs.tmin+0.5
-        tmax = epochs.tmax-0.5
-        
-        df['HGA'] = epochs.crop(tmin, tmax).get_data().mean(axis=(0,-1))
-        
-        try:
-            sig_path = epoch_path.copy().update(
-                datatype='epoch(band)(sig)',
-                extension='.h5',
-            ).match()[0]
-            sig_epochs = mne.read_epochs(sig_path, preload=True)
-            sig_mask = np.isin(montage.ch_names, sig_epochs.ch_names)
-        except IndexError:
-            sig_mask = np.zeros(len(montage.ch_names), dtype=bool)
-        
-        # read parcellation result
-        parc_path = epoch_path.copy().update(
-            root=str(epoch_path.root).replace(f'epoch({ref})', 'parcellation'),
-            datatype=ref,
-            task=None,
-            description=None,
-            processing=f'{int(radius)}mm',
-            suffix='aparc2009s',
-            recording=None,
-            extension='.csv',
-        ).match()[0]
-        parc = pd.read_csv(parc_path)
-        
-        cols_need = ['name', 'label', 'roi', 'hemi']
-        if not all(c in parc.columns for c in cols_need):
+            parc = load_parcellation(epoch_path, ref, atlas=atlas)
+        except (IndexError, FileNotFoundError) as exc:
             logging.warning(
-                f"Skip {epoch_path.subject}: parc file {parc_path} "
-                f"missing columns {set(cols_need) - set(parc.columns)}"
+                "No %s parcellation for subject %s: %s, skipping",
+                atlas,
+                epoch_path.subject,
+                exc,
             )
             continue
-        
-        df['significant'] = sig_mask
-        df['subject'] = epoch_path.subject
-        df['task'] = epoch_path.task
-        df['band'] = band
-        df['description'] = epoch_path.description
-        df['phase'] = epoch_path.processing
-        
-        df_merged = df.merge(
-            parc[['name', 'label', 'roi', 'hemi']],
-            left_on='channel',
-            right_on='name',
-            how='left'
-        )
-        
-        # remove name column
-        df_merged = df_merged.drop(columns=['name'])
 
-        # combine PrG and PoG to SM
-        df_merged.loc[df_merged['roi'] == 'PrG', 'roi'] = 'SMC'
-        df_merged.loc[df_merged['roi'] == 'PoG', 'roi'] = 'SMC'
-        df_merged.loc[df_merged['roi'] == 'Subcentral', 'roi'] = 'SMC'
-        
-        save_path = BIDSPath(
-            root=f'results/{epoch_path.task}({ref})',
+        epochs = mne.read_epochs(epoch_path, preload=True, verbose=False)
+        parc_sub = parcellation_subset(parc)
+        sig_channels = _load_sig_channels(epoch_path)
+
+        df = build_coord_dataframe(
+            epochs,
+            parc_sub,
+            sig_channels,
+            band=band,
+            subject=epoch_path.subject,
+            task=epoch_path.task,
             description=epoch_path.description,
-            datatype='HGA',
-            suffix='coord',
+            phase=epoch_path.processing,
+            modality=(
+                epoch_path.recording if epoch_path.recording is not None else "sound"
+            ),
+            atlas=atlas,
+        )
+
+        save_path = BIDSPath(
+            root=str(hga_results_dir(epoch_path.task, ref, atlas)),
+            description=epoch_path.description,
+            datatype="HGA",
+            suffix="coord",
+            recording=epoch_path.recording,
             task=epoch_path.task,
             subject=epoch_path.subject,
             processing=epoch_path.processing,
@@ -139,25 +165,45 @@ def main(
             check=False,
         )
         save_path.mkdir(exist_ok=True)
-        df_merged.to_csv(save_path, index=False)
-    
+        df.to_csv(save_path, index=False)
+
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/", type=str)
-    # parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", type=str)
-    parser.add_argument("--band", type=str, default="highgamma", choices=['highgamma','gamma','beta','alpha','theta'],
-                        help='which frequency band to use')
-    parser.add_argument("--recon_dir", type=str, default=r'/cwork/ns458/ECoG_Recon/',
-                        help='path to the recon-all directory')
-    parser.add_argument("--radius", type=int, default=3,
-                        help='radius of the sphere in mm')
-    parser.add_argument("--ref", type=str, default='bipolar',
-                        choices=['bipolar','car'],
-                        help='reference channel')
-
+    parser = argparse.ArgumentParser(
+        description="Package all zscore-channel electrode coords for Fig 1 coverage maps."
+    )
+    parser.add_argument(
+        "--bids_root",
+        default="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/",
+        type=str,
+    )
+    parser.add_argument(
+        "--band",
+        type=str,
+        default="highgamma",
+        choices=["highgamma", "gamma", "beta", "alpha", "theta"],
+        help="which frequency band to use",
+    )
+    parser.add_argument(
+        "--ref",
+        type=str,
+        default="bipolar",
+        choices=["bipolar", "car"],
+        help="reference channel",
+    )
+    parser.add_argument(
+        "--atlas",
+        type=str,
+        default="hammers",
+        choices=list(SUPPORTED_ATLASES),
+        help="parcellation atlas suffix under derivatives/parcellation/",
+    )
+    parser.add_argument(
+        "--subjects",
+        nargs="*",
+        default=None,
+        help="optional subject ids to package (e.g. D0094 D0071)",
+    )
     args = parser.parse_args()
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s: %(message)s")
     main(**vars(args))
