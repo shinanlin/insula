@@ -72,8 +72,8 @@ each subject's `orig.mgz` header).
 ### Relationship in one line
 
 ```text
-MAPER  →  native fused volume  →  parcellation.py  →  sub-*_hammers.csv  →  src/hga/package_highgamma.py
-         (insula/pipeline)       (seeg-preprocessing)                      (insula/src)
+MAPER  →  native fused volume  →  parcellation.py  →  plot_parcellation_slices.py  →  package_highgamma.py
+         (insula/pipeline)       (seeg-preprocessing)  (insula Stage 3 QC)           (insula Stage 4)
 ```
 
 ---
@@ -141,7 +141,27 @@ sbatch scripts/slurm/run_hammers_parcellation.sbatch
 **Output:**
 `BIDS/derivatives/parcellation/sub-<SUBJECT>/<ref>/sub-<SUBJECT>_hammers.csv`
 
-### Stage 3 — Package HGA (insula)
+### Stage 3 — Visual QC (insula)
+
+After parcellation CSV exists, render native MRI slice PNGs for all pure insula
+electrodes (`mix=False`):
+
+```bash
+python pipeline/05_visual_qc/plot_parcellation_slices.py \
+  --parcellation-csv /cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0094/bipolar/sub-D0094_hammers.csv \
+  --atlas hammers \
+  --recon-dir /cwork/ns458/ECoG_Recon \
+  --fused /cwork/ns458/maper_run/D0094/output/f30-seg95-D0094.nii.gz
+```
+
+This runs automatically after Hammers parcellation when using
+`scripts/slurm/run_hammers_parcellation.sbatch`.
+
+**Output:** `results/qc/{atlas}/sub-<SUBJECT>/` (`index.csv`, `png/*.png`, and one subject PDF)
+
+See `pipeline/05_visual_qc/README.md` for filter rules.
+
+### Stage 4 — Package HGA (insula)
 
 ```bash
 python src/hga/package_highgamma.py \
@@ -155,7 +175,7 @@ SLURM: `scripts/slurm/package_hga_all_tasks.sh`
 
 **Output:** `results/{Task}(bipolar)(hammers)/sub-*/HGA/*_time.csv`
 
-### Stage 4 — Analysis and figures
+### Stage 5 — Analysis and figures
 
 - Publication insula panels: `vizpub/fig2v1.ipynb` (dual-atlas capable)
 - Interactive explorer: `viewer/hga_explorer/` with default atlas **hammers**

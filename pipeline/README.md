@@ -29,6 +29,8 @@ pipeline/
   01_build_container/     one-time: build maper.sif
   02_prepare_atlas/       one-time: fix atlas geometry, build ancillaries
   03_run_maper/           per-subject: target T1, 30-way fusion → seg95 volume
+  04_extract_labels/      coordinate helpers (legacy; QC reads parcellation CSV)
+  05_visual_qc/           Stage 3 native MRI slice QC after parcellation
 ```
 
 Steps 01–02 run once per cluster/atlas download. Step 03 runs per subject when
@@ -63,7 +65,21 @@ python path/to/seeg-preprocessing/common/parcellation.py \
 ```
 
 This writes `derivatives/parcellation/sub-${SUBJECT}_hammers.csv` (plus the
-existing `*_aparc2009s.csv`). Downstream packaging uses:
+existing `*_aparc2009s.csv`).
+
+### Stage 3 — Visual QC
+
+```bash
+python pipeline/05_visual_qc/plot_parcellation_slices.py \
+  --parcellation-csv <BIDS>/derivatives/parcellation/sub-${SUBJECT}/bipolar/sub-${SUBJECT}_hammers.csv \
+  --atlas hammers
+```
+
+Output: `results/qc/hammers/sub-${SUBJECT}/`. See `05_visual_qc/README.md`.
+
+### Stage 4 — Package HGA
+
+Downstream packaging uses:
 
 ```bash
 python src/hga/package_highgamma.py --bids_root <BIDS>/ --band highgamma --ref bipolar --atlas aparc2009s

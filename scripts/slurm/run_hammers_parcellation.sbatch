@@ -36,5 +36,23 @@ python common/parcellation.py \
   --atlas hammers \
   --ref bipolar
 rc=$?
-echo "task=${SLURM_ARRAY_TASK_ID} subj=${SUBJ} exit=$rc end=$(date -u)"
+echo "task=${SLURM_ARRAY_TASK_ID} subj=${SUBJ} parc_exit=$rc end_parc=$(date -u)"
+if [[ $rc -ne 0 ]]; then
+  exit $rc
+fi
+
+INSULA=/hpc/group/coganlab/nanlinshi/insula
+CSV="${BIDS}/derivatives/parcellation/sub-${SUBJ}/bipolar/sub-${SUBJ}_hammers.csv"
+FUSED="/cwork/ns458/maper_run/${SUBJ}/output/f30-seg95-${SUBJ}.nii.gz"
+export MPLCONFIGDIR="${TMPDIR:-/tmp}/matplotlib-${SLURM_ARRAY_TASK_ID:-ham_parc}"
+mkdir -p "$MPLCONFIGDIR"
+
+cd "$INSULA"
+python pipeline/05_visual_qc/plot_parcellation_slices.py \
+  --parcellation-csv "$CSV" \
+  --atlas hammers \
+  --recon-dir /cwork/ns458/ECoG_Recon \
+  --fused "$FUSED"
+rc=$?
+echo "task=${SLURM_ARRAY_TASK_ID} subj=${SUBJ} qc_exit=$rc end=$(date -u)"
 exit $rc
