@@ -30,8 +30,8 @@ BANDS=('highgamma')
 PHASES=('Stimulus' 'Go' 'Response')
 
 REF='bipolar'
-WINDOW=0.2
-STEP=0.02
+WINDOW=0.3
+STEP=0.03
 VARIANCE=0.8
 N_PERMUTATIONS=200
 N_FOLDS=10

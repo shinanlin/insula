@@ -222,9 +222,9 @@ if __name__ == "__main__":
                                  'word', 'token','lexicality'])
     parser.add_argument("--variance", type=float, default=0.8,
                         help="number of variance")
-    parser.add_argument("--window", type=float, default=0.6,
+    parser.add_argument("--window", type=float, default=0.3,
                         help="window length in seconds")
-    parser.add_argument("--step", type=float, default=0.5,
+    parser.add_argument("--step", type=float, default=0.03,
                         help="step size in seconds")
     parser.add_argument("--n_perm", type=int, default=3,
                         help="number of permutations")

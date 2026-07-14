@@ -18,7 +18,7 @@ conda activate ieeg
 # ROIs: AICl, PICl, SMCl, STGl
 # Phases: Delay, Response
 # Directions: Train=Repeat & Test=Decision, Train=Decision & Test=Repeat
-# Params: window=0.2, step=0.02, perm=100, folds=10, jobs=40
+# Params: window=0.3, step=0.03, perm=100, folds=10, jobs=40
 # Note: Maximize CPUs to speed up inner temporal loops
 # =====================================================================
 
@@ -28,8 +28,8 @@ BAND=highgamma
 DATATYPE=lexicality
 VARIANCE=0.80
 
-WINDOW=0.2
-STEP=0.02
+WINDOW=0.3
+STEP=0.03
 N_PERM=100
 N_FOLDS=10
 N_JOBS=40

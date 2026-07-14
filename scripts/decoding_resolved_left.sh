@@ -1,10 +1,9 @@
 #!/bin/bash
-# Time-resolved ROI decoding for hammers pseudo-subjects (no cross-ROI).
-#
-# Invoked by scripts/slurm/decoding_resolved_*.sh (preferred) or locally:
-#   TASK=LexicalDelay bash scripts/decoding_resolved.sh
-#
+# Time-resolved decoding for left-hemisphere pseudo-subjects only.
 # Array index maps to: subject × description × datatype × phase (band fixed).
+#
+# Invoked by scripts/slurm/decoding_resolved_*_left.sh (preferred) or locally:
+#   TASK=LexicalDelay bash scripts/decoding_resolved_left.sh
 
 set -eo pipefail
 
@@ -14,11 +13,11 @@ conda activate ieeg
 TASK="${TASK:-LexicalDelay}"
 
 SUBJECTS=(
-  AICl AICr
-  PICl PICr
-  STGl STGr
-  SMCl SMCr
-  MFGl MFGr
+  AICl
+  PICl
+  STGl
+  SMCl
+  MFGl
 )
 
 BANDS=(highgamma)
@@ -44,14 +43,14 @@ case "${TASK}" in
     DESCRIPTIONS=(Repeat Decision)
     DATATYPES=(phoneme articulator lexicality)
     PHASES=(Stimulus Delay Go Response)
-    EXPECTED_JOBS=240
+    EXPECTED_JOBS=120
     ;;
   PhonemeSequence)
     BIDS_ROOT="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/"
     DESCRIPTIONS=(Repeat)
     DATATYPES=(phoneme articulator)
     PHASES=(Stimulus Delay Go Response)
-    EXPECTED_JOBS=80
+    EXPECTED_JOBS=40
     ;;
   *)
     echo "Unknown TASK=${TASK}. Use LexicalDelay or PhonemeSequence."

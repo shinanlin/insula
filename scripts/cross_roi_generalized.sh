@@ -16,7 +16,7 @@ conda activate ieeg
 # =====================================================================
 # Cross-ROI generalized decoding with CCA alignment
 # Train ROI -> Test ROI within the same phase and same condition
-# Params: window=0.2, step=0.02, perm=100, folds=10, jobs=40
+# Params: window=0.3, step=0.03, perm=100, folds=10, jobs=40
 # =====================================================================
 
 BIDS_ROOT="/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS"
@@ -26,8 +26,8 @@ DATATYPE=lexicality
 VARIANCE=0.80
 N_COMPONENTS=5
 
-WINDOW=0.2
-STEP=0.02
+WINDOW=0.3
+STEP=0.03
 N_PERM=100
 N_FOLDS=10
 N_JOBS=40

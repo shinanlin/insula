@@ -285,9 +285,9 @@ if __name__ == "__main__":
     parser.add_argument("--datatype", type=str, default="lexicality")
     parser.add_argument("--variance", type=float, default=0.85,
                         help="PCA variance retained")
-    parser.add_argument("--window", type=float, default=0.2,
+    parser.add_argument("--window", type=float, default=0.3,
                         help="Sliding window length (seconds)")
-    parser.add_argument("--step", type=float, default=0.1,
+    parser.add_argument("--step", type=float, default=0.03,
                         help="Sliding window step (seconds)")
     parser.add_argument("--n_perm", type=int, default=200,
                         help="Number of permutations")
