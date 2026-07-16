@@ -10,6 +10,7 @@ docs as needed.
 | [`PARCELLATION.md`](PARCELLATION.md) | **Electrode labeling** — why Hammersmith, MAPER, insula inclusion rules, baseline workflow |
 | [`PROJECT_BACKGROUND.md`](PROJECT_BACKGROUND.md) | Scientific framing, task battery, aims |
 | [`WORKSPACE_GUIDE.md`](WORKSPACE_GUIDE.md) | Directory layout, naming conventions, pipeline families |
+| [`../src/semantic/README.md`](../src/semantic/README.md) | Lexical-semantic RSA plan (Lexical Delay); design in `design.md` |
 
 ## Analysis and tools
 

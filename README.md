@@ -18,7 +18,8 @@ Use the `ieeg` conda environment for testing and running code. Most long-running
 
 ## Directory Map
 
-- `src/`: source files for packaging, decoding, univariate statistics, connectivity, cross-correlation, encoding, behavior, and utility analyses.
+- `src/`: source files for packaging, decoding, univariate statistics, connectivity, cross-correlation, encoding, semantic RSA, behavior, and utility analyses.
+- Semantic Lexical Delay work: `src/semantic/` (branch/worktree `semantic` → `/hpc/group/coganlab/nanlinshi/insula-semantic`).
 - `scripts/`: SLURM scripts and launchers. Production entry points live in `scripts/slurm/`.
 - `pipeline/`: MAPER fusion for Hammersmith atlas propagation (Stages 0–1).
 - `results/`: current packaged HGA outputs (`{Task}(bipolar)(hammers)/`, etc.).
@@ -44,6 +45,7 @@ The codebase is organized around a few recurring pipeline families:
 - **Connectivity:** `src/connectivity/run_connectivity.py`, `src/connectivity/var.py`.
 - **Legacy univariate (archived):** `src/archive/` — aparc-era cluster scripts superseded by `src/univariate/contrasts.py`.
 - **Encoding and mTRF analyses:** `src/encoding/encoder.py`, `src/encoding/package_mtrf.py`.
+- **Semantic RSA (Lexical Delay):** `src/semantic/` — stimulus features + RSA scaffold; see `src/semantic/design.md`.
 - **Figures:** notebooks in `viz/` and `vizpub/`, usually exporting SVG files into `img/`.
 
 ## Documentation

@@ -49,8 +49,13 @@ Production Python is grouped by analysis family:
 | `src/reaction_time/` | Reaction-time encoding models | `src/reaction_time/run_reaction_time.py` |
 | `src/connectivity/` | VAR/PDC connectivity | `src/connectivity/run_connectivity.py` |
 | `src/encoding/` | mTRF encoding models | `src/encoding/encoder.py` |
+| `src/semantic/` | Lexical-semantic RSA / encoding (Lexical Delay) | `src/semantic/run_rsa.py` |
 | `src/archive/` | Legacy aparc-era univariate scripts | `src/univariate/contrasts.py` (replacement) |
 | `src/paths.py` | Shared `RESULTS_ROOT`, `hga_results_dir()` | — |
+
+Semantic work is developed on branch `semantic` in worktree
+`/hpc/group/coganlab/nanlinshi/insula-semantic`. See
+`src/semantic/README.md` and `src/semantic/design.md`.
 
 ## Main Pipeline Families
 
