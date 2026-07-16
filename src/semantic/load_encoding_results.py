@@ -48,21 +48,67 @@ def load_parcellation(subject: str, parc_root: Path = DEFAULT_PARC_ROOT) -> pd.D
     return pd.read_csv(path)
 
 
-def iter_encoding_h5(results_dir: Path = DEFAULT_RESULTS_DIR):
-    """Yield (subject, path) for true-label ridge_glove H5 files."""
+MULTI_MODELS = (
+    "semantic",
+    "phon",
+    "acoustic",
+    "full_perm_semantic",
+)
+
+
+def _model_from_h5_name(path: Path) -> str:
+    """Parse model tag from ``..._ridge_{model}.h5`` filename."""
+    stem = path.stem
+    marker = "_ridge_"
+    if marker not in stem:
+        return "unknown"
+    return stem.split(marker, 1)[1]
+
+
+def iter_encoding_h5(
+    results_dir: Path = DEFAULT_RESULTS_DIR,
+    model: str = "glove",
+):
+    """Yield (subject, path) for ridge H5 files of one model.
+
+    Parameters
+    ----------
+    model
+        ``glove`` (legacy) or a multi-block tag such as ``full_perm_semantic``.
+    """
     results_dir = Path(results_dir)
-    for path in sorted(results_dir.glob("sub-*/sub-*_ridge_glove.h5")):
-        if "_perm" in path.name:
+    pattern = f"sub-*/sub-*_ridge_{model}.h5"
+    for path in sorted(results_dir.glob(pattern)):
+        if path.stat().st_size == 0:
+            continue
+        if model == "glove" and "_perm" in path.name:
             continue
         subject = path.parent.name.replace("sub-", "")
         yield subject, path
 
 
+def iter_encoding_h5_multi(
+    results_dir: Path = DEFAULT_RESULTS_DIR,
+    models: tuple[str, ...] | list[str] = MULTI_MODELS,
+):
+    """Yield (subject, path, model) for multi-block ridge H5 files."""
+    for model in models:
+        for subject, path in iter_encoding_h5(results_dir, model=model):
+            yield subject, path, model
+
+
 def load_encoding_long(
     results_dir: Path = DEFAULT_RESULTS_DIR,
     parc_root: Path = DEFAULT_PARC_ROOT,
+    model: str = "glove",
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Return channel-level summary and long channel×time table.
+
+    Parameters
+    ----------
+    model
+        Encoding model tag in the H5 filename (``glove``, ``semantic``,
+        ``phon``, ``acoustic``, ``full_perm_semantic``, ...).
 
     Returns
     -------
@@ -73,7 +119,7 @@ def load_encoding_long(
     long_rows: list[dict] = []
     skipped: list[str] = []
 
-    for subject, h5path in iter_encoding_h5(results_dir):
+    for subject, h5path in iter_encoding_h5(results_dir, model=model):
         parc = load_parcellation(subject, parc_root=parc_root)
         parc = parc.rename(columns={"name": "channel"})
         parc_lookup = parc.set_index("channel")
@@ -92,6 +138,7 @@ def load_encoding_long(
             times = f["times"][()]
             channels = _decode_str_array(f["channel"][:])
             attrs = dict(f.attrs)
+            model_tag = str(attrs.get("model", model) or model)
             has_mask = "mask" in f
             if has_mask:
                 mask = f["mask"][()].astype(bool)
@@ -126,6 +173,7 @@ def load_encoding_long(
                 "subject": subject,
                 "phase": str(attrs.get("phase", "")),
                 "description": str(attrs.get("description", "")),
+                "model": model_tag,
                 "channel": ch,
                 "ch_mean_abs_r": ch_mean,
                 "ch_max_abs_r": ch_max,
@@ -178,6 +226,7 @@ def load_encoding_long(
                         "subject": subject,
                         "phase": base["phase"],
                         "description": base["description"],
+                        "model": model_tag,
                         "channel": ch,
                         "time": float(t),
                         "r": float(r[i, t_idx]),
@@ -203,6 +252,28 @@ def load_encoding_long(
     channels = pd.DataFrame(ch_rows)
     long = pd.DataFrame(long_rows)
     return channels, long
+
+
+def load_encoding_long_multi(
+    results_dir: Path = DEFAULT_RESULTS_DIR,
+    parc_root: Path = DEFAULT_PARC_ROOT,
+    models: tuple[str, ...] | list[str] = MULTI_MODELS,
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    """Load and concatenate channel/long tables for several encoding models."""
+    ch_parts: list[pd.DataFrame] = []
+    long_parts: list[pd.DataFrame] = []
+    for model in models:
+        ch, long = load_encoding_long(
+            results_dir=results_dir,
+            parc_root=parc_root,
+            model=model,
+        )
+        if not ch.empty:
+            ch_parts.append(ch)
+            long_parts.append(long)
+    if not ch_parts:
+        return pd.DataFrame(), pd.DataFrame()
+    return pd.concat(ch_parts, ignore_index=True), pd.concat(long_parts, ignore_index=True)
 
 
 def roi_group_label(roi: str, mix: bool) -> str | float:

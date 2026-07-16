@@ -93,6 +93,12 @@ sbatch scripts/slurm/run_semantic_ridge_multi_full.sh   # 4 models × 8 cond × 
 Outputs: `..._ridge_{model}.h5` (does not overwrite `*_ridge_glove.h5`).
 Time-perm compares each model to **its own** shuffle null only.
 
+Visualization (works with partial results while jobs finish):
+
+```text
+notebooks/semantic_encoding_multi_viz.ipynb
+```
+
 ## Semantic ridge encoding (v1, GloVe-only)
 
 Per-subject GloVe → HGA ridge with token-group CV. Train-fold NaNs are
