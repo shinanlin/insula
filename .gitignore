@@ -5,6 +5,9 @@ results/
 # Local GloVe subset (regenerate via src/semantic/build_embeddings.py)
 src/semantic/embedding/
 
+# Token-level acoustic / phonology cache (regenerate via build_stimulus_features.py)
+src/semantic/features/
+
 # HGA Explorer export artifacts (regenerate via build_data.sh)
 viewer/hga_explorer/public/data/atlas/
 viewer/hga_explorer/public/data/shared/

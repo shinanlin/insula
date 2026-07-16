@@ -54,7 +54,46 @@ sbatch scripts/slurm/build_glove_embeddings.sh
 
 Full GloVe cache: `/hpc/group/coganlab/nanlinshi/cache/embeddings/glove/`.
 
-## Semantic ridge encoding (v1)
+## Stimulus features (acoustic + phonology)
+
+Token-level control features (gitignored) live under `src/semantic/features/`:
+
+- `stimulus_features.h5` — mel log-mean, position×phone one-hot, PCA blocks
+
+Regenerate from BIDS stimuli wav:
+
+```bash
+sbatch scripts/slurm/build_stimulus_features.sh
+# or: python src/semantic/build_stimulus_features.py
+```
+
+QC notebook (visual verification before controlled encoding):
+
+```text
+notebooks/semantic_features_qc.ipynb
+```
+
+Load in Python: `src/semantic/load_stimulus_features.py`.
+
+## Multi-block ridge encoding (controls)
+
+Per-subject models with semantic / phonology / acoustic feature blocks:
+
+| Model | X | Null shuffles |
+|-------|---|----------------|
+| `semantic` / `phon` / `acoustic` | single block | that block |
+| `full_perm_semantic` | sem+phon+acous | **semantic only** |
+
+```bash
+python src/semantic/run_encoding_multi.py --subject D0092 --model full_perm_semantic
+sbatch scripts/slurm/run_semantic_ridge_multi_smoke.sh
+sbatch scripts/slurm/run_semantic_ridge_multi_full.sh   # 4 models × 8 cond × 52
+```
+
+Outputs: `..._ridge_{model}.h5` (does not overwrite `*_ridge_glove.h5`).
+Time-perm compares each model to **its own** shuffle null only.
+
+## Semantic ridge encoding (v1, GloVe-only)
 
 Per-subject GloVe → HGA ridge with token-group CV. Train-fold NaNs are
 handled via per-token `mixup` (same pattern as `src/decoding/decoder.py`).
