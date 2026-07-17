@@ -1,7 +1,6 @@
 
 import argparse
 import sys
-import os
 
 import mne
 import numpy as np
@@ -17,6 +16,8 @@ import h5py
 from ieeg.calc.oversample import mixup
 from einops import rearrange
 
+from src.paths import SUPPORTED_ATLASES, hga_results_dir
+
 import logging
 logging.basicConfig(
     level=logging.INFO,
@@ -27,7 +28,12 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 RANDOM_SEED = 42
 
-def load_subject_data(subject: str, epoch_paths: BIDSPath, ref: str) -> pd.DataFrame:
+def load_subject_data(
+    subject: str,
+    epoch_paths: BIDSPath,
+    ref: str,
+    atlas: str = "hammers",
+) -> pd.DataFrame:
     """
     Load and preprocess epoch data for a single subject.
     
@@ -37,21 +43,29 @@ def load_subject_data(subject: str, epoch_paths: BIDSPath, ref: str) -> pd.DataF
     
     Returns None if data cannot be loaded.
     """
+    if atlas not in SUPPORTED_ATLASES:
+        raise ValueError(f"atlas must be one of {SUPPORTED_ATLASES}, got {atlas!r}")
+
     subj_pts = epoch_paths.copy().update(subject=subject).match()
+    if not subj_pts:
+        logging.warning(f"No epoch files for {subject}")
+        return None
     
-    # Load parcellation
+    # Load parcellation (same pattern as src/hga/package_highgamma.py)
     try:
-        parc_path = subj_pts[0].copy().update(
+        parc_matches = subj_pts[0].copy().update(
             root=str(subj_pts[0].root).replace(f'epoch({ref})', 'parcellation'),
             datatype=ref,
             task=None,
             description=None,
             recording=None,
-            processing='3mm',
-            suffix='aparc2009s',
+            processing=None,
+            suffix=atlas,
             extension='.csv',
-        ).match()[0]
-        parc = pd.read_csv(parc_path)
+        ).match()
+        if not parc_matches:
+            raise IndexError(f"no {atlas} parcellation file matched")
+        parc = pd.read_csv(parc_matches[0])
         parc = parc[~parc['roi'].str.contains('white|intersection|unknown|WM', case=False, na=False)]
         parc = parc.dropna(subset=['roi'])
     except Exception as e:
@@ -79,7 +93,13 @@ def load_subject_data(subject: str, epoch_paths: BIDSPath, ref: str) -> pd.DataF
             {'onset': epochs.events[:, 0] / 2048}, 
             index=epochs.events[:, -1]
         )
-        epochs.pick([ch for ch in picks if ch in epochs.ch_names])
+        epoch_picks = [ch for ch in picks if ch in epochs.ch_names]
+        if not epoch_picks:
+            logging.warning(
+                f"No {atlas} channels found in {pt}; skipping epoch file"
+            )
+            continue
+        epochs.pick(epoch_picks)
         
         df = epochs.to_data_frame(long_format=True, scalings={'seeg': 1}, verbose=False)
         meta = epochs.metadata.reset_index(names='epoch')
@@ -232,31 +252,53 @@ def _prepare_data(
     Returns (None, None, None, None) if insufficient data.
     """
     sub = df[(df['phase'] == phase) & (df['description'] == description)]
-    
+    if sub.empty:
+        return None, None, None, None
+
     times = np.sort(sub['time'].unique())
     trials = sub['trial'].dropna().unique()
     channels = sub['channel'].unique()
-    
+    if len(trials) == 0 or len(channels) == 0 or len(times) == 0:
+        return None, None, None, None
+
     trial_to_rt = sub.groupby('trial')['rt'].first().to_dict()
     rt = np.array([trial_to_rt[t] for t in trials])
-    
+
     valid = ~np.isnan(rt)
-    
+
     trials = trials[valid]
     rt = rt[valid]
-    
-    # Build 3D array via pivot
+    if len(trials) < 2:
+        return None, None, None, None
+
+    # Build 3D array via pivot. Pandas groupby sorts its coordinates, so select
+    # them back into the explicit trial/channel order before dropping xarray's
+    # coordinate labels. This keeps X, RT, and saved channel names aligned.
     valid_sub = sub[sub['trial'].isin(trials)]
-    X_3d = (valid_sub
+    X_da = (valid_sub
         .groupby(['trial','channel','time'])['value']
         .mean()
         .to_xarray()
+        .transpose('trial', 'channel', 'time')
+        .sel(trial=trials, channel=channels, time=times)
     )
-    X_3d = X_3d.values
-    
+
+    trials = X_da.coords['trial'].values
+    channels = X_da.coords['channel'].values
+    times = X_da.coords['time'].values
+    rt = np.array([trial_to_rt[t] for t in trials])
+    X_3d = X_da.values
+
+    expected_shape = (len(rt), len(channels), len(times))
+    if X_3d.shape != expected_shape:
+        raise RuntimeError(
+            "Reaction-time data axes are misaligned: "
+            f"X.shape={X_3d.shape}, expected={expected_shape}"
+        )
+
     # mixup, in-place
     mixup(X_3d, obs_axis=0, rng=42)
-    
+
     return X_3d, rt, times, channels
 
 
@@ -421,6 +463,7 @@ def main(bids_root: str,
          n_folds: int,
          n_perm: int,
          n_jobs: int,
+         atlas: str = "hammers",
          ):
     
     """Main entry point: load data for all subjects and predict RT."""
@@ -442,16 +485,27 @@ def main(bids_root: str,
         RidgeCV(alphas=alphas, fit_intercept=True),
     )
     
-    df = load_subject_data(subject, epoch_paths, ref)
+    df = load_subject_data(subject, epoch_paths, ref, atlas=atlas)
+    if df is None or df.empty:
+        logger.warning(f"No usable data for {subject}; skipping")
+        return
     
     # remove any passive epochs
     df = df[df.description != 'Passive']
+    if df.empty:
+        logger.warning(f"No non-Passive data for {subject}; skipping")
+        return
     
     for phase in df.phase.unique():
         
         for desc in df.description.unique():
             
             X, rt, times, channels = _prepare_data(df, phase, desc)
+            if X is None or len(rt) < 2:
+                logger.warning(
+                    f"Insufficient trials for {subject} | {phase} | {desc}; skipping"
+                )
+                continue
             
             tmin, tmax = times.min(), times.max()
             fs = 128
@@ -512,8 +566,10 @@ def main(bids_root: str,
             perm_scores = rearrange(perm_scores, 't c p -> c t p')
 
             pt = epoch_paths.copy().match()[0]
+            task = pt.task
+            # Match current packaging: results/{Task}(bipolar)(hammers)/RT/...
             save_path = BIDSPath(
-                root = os.path.join('results', f'{pt.task}({ref})'),
+                root=str(hga_results_dir(task, ref, atlas)),
                 datatype='RT',
                 subject=subject,
                 suffix=band,
@@ -548,43 +604,44 @@ def main(bids_root: str,
                 f.attrs["score_metric"] = 'pearson_r'
                 f.attrs["band"] = band
                 f.attrs["ref"] = ref
+                f.attrs["atlas"] = atlas
                 f.attrs["phase"] = phase
                 f.attrs["description"] = desc
 
 
 if __name__ == "__main__":
 
-    parser = argparse.ArgumentParser()
-    
-    # parser.add_argument('--bids_root', 
-    #                     default='/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/', 
-    #                     help='Path to BIDS root')
-    # parser.add_argument('--bids_root', 
-    #                     default='/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/', 
-    #                     help='Path to BIDS root')
-    # parser.add_argument('--bids_root', 
-    #                     default='/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/', 
-    #                     help='Path to BIDS root')
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/", 
-                        type=str)
-    parser.add_argument("--bids_root", default="/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/", 
-                        type=str)
+    parser = argparse.ArgumentParser(
+        description="Channel-wise reaction-time prediction from high-gamma epochs."
+    )
+    parser.add_argument(
+        "--bids_root",
+        required=True,
+        type=str,
+        help="Path to BIDS root (must be set explicitly; no silent SentenceRep default)",
+    )
     parser.add_argument('--band', 
                         default='highgamma', 
                         help='Band suffix in epoch files')
     parser.add_argument('--subject', 
-                        default='D0040', 
+                        required=True,
                         help='Subject to process')
     parser.add_argument('--ref', 
                         default='bipolar', 
                         help='Reference name used in derivatives')
-    parser.add_argument("--window", type=float, default=0.5,
+    parser.add_argument(
+        "--atlas",
+        default="hammers",
+        choices=list(SUPPORTED_ATLASES),
+        help="Parcellation atlas suffix under derivatives/parcellation/",
+    )
+    parser.add_argument("--window", type=float, default=0.2,
                         help="window length in seconds")
-    parser.add_argument("--step", type=float, default=0.1,
+    parser.add_argument("--step", type=float, default=0.02,
                         help="step size in seconds")
-    parser.add_argument("--n_perm", type=int, default=300,
+    parser.add_argument("--n_perm", type=int, default=500,
                         help="number of permutations")
-    parser.add_argument("--n_folds", type=int, default=5,
+    parser.add_argument("--n_folds", type=int, default=10,
                         help="number of folds")
     parser.add_argument("--n_jobs", type=int, default=20,
                         help="number of jobs")
