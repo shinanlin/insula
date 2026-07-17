@@ -24,9 +24,10 @@ BANDS=(highgamma)
 REF='bipolar'
 WINDOW="${WINDOW:-0.3}"
 STEP="${STEP:-0.03}"
-VARIANCE=0.9
+VARIANCE=0.95
 N_PERMUTATIONS=200
 N_FOLDS=5
+N_REPEATS=30
 
 CPUS="${SLURM_CPUS_PER_TASK:-16}"
 N_JOBS="${N_JOBS:-${CPUS}}"
@@ -117,6 +118,7 @@ python -u src/decoding/run_decoding_resolved.py \
   --step "${STEP}" \
   --n_perm "${N_PERMUTATIONS}" \
   --n_folds "${N_FOLDS}" \
+  --n_repeats "${N_REPEATS}" \
   --n_jobs "${N_JOBS}"
 
 echo "Exit code: $?"
