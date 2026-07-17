@@ -22,7 +22,7 @@ from sklearn.metrics import (
 )
 from tqdm import tqdm
 from sklearn.pipeline import make_pipeline
-from src.decoding.decoder import decode_permutation_scores
+from src.decoding.decoder import decode_permutation_scores, decode_cv_scores
 from ieeg.calc.oversample import MinimumNaNSplit
 from mne.decoding import Vectorizer
 from sklearn.svm import SVC
@@ -44,6 +44,8 @@ logging.basicConfig(
     stream=sys.stdout,
 )
 logger = logging.getLogger(__name__)
+
+RANDOM_SEED = 42
 
 
 EXCLUDE_CHANNELS = [
@@ -214,6 +216,7 @@ def main(
     step,
     n_perm,
     n_folds,
+    n_repeats,
     n_jobs,
     tmin=-0.5,
     tmax=1.5,
@@ -228,7 +231,6 @@ def main(
         band=band,
     )
 
-    cv = MinimumNaNSplit(n_splits=n_folds, n_repeats=1)
     logger.info('Making pipeline with variance %f', variance)
 
     decoder = make_pipeline(
@@ -245,6 +247,7 @@ def main(
 
     accuracies = np.zeros((len(time_points), n_folds))
     baseline_accuracies = np.zeros((len(time_points), n_folds, n_perm))
+    accuracy_repeats = np.zeros((len(time_points), n_repeats, n_folds))
 
     X_np = np.asarray(X)
 
@@ -267,18 +270,38 @@ def main(
             end_sample,
         )
 
-        score, permutation_scores, _ = decode_permutation_scores(
-            X_segment,
-            y,
-            cv,
-            decoder,
-            n_jobs=n_jobs,
-            n_permutations=n_perm,
-            random_state=42,
-        )
+        for r in range(n_repeats):
+            cv_seed = RANDOM_SEED + r
+            cv_r = MinimumNaNSplit(
+                n_splits=n_folds,
+                n_repeats=1,
+                random_state=cv_seed,
+            )
+            if r == 0:
+                score, permutation_scores, _ = decode_permutation_scores(
+                    X_segment,
+                    y,
+                    cv_r,
+                    decoder,
+                    n_jobs=n_jobs,
+                    n_permutations=n_perm,
+                    random_state=RANDOM_SEED,
+                )
+                accuracies[t_idx] = score
+                baseline_accuracies[t_idx] = permutation_scores
+                accuracy_repeats[t_idx, r] = score
+            else:
+                accuracy_repeats[t_idx, r] = decode_cv_scores(
+                    X_segment,
+                    y,
+                    cv_r,
+                    decoder,
+                    n_jobs=n_jobs,
+                    scoring="accuracy",
+                    random_state=cv_seed,
+                )
 
-        accuracies[t_idx] = score
-        baseline_accuracies[t_idx] = permutation_scores
+    accuracy_stable = accuracy_repeats.mean(axis=(1, 2))
 
     mask, p_values = cluster_correction(
         accuracies.mean(axis=-1),
@@ -308,6 +331,8 @@ def main(
     with h5py.File(save_path, "w") as f:
         f.create_dataset(name='accuracy', data=accuracies)
         f.create_dataset(name='baseline', data=baseline_accuracies)
+        f.create_dataset(name='accuracy_repeats', data=accuracy_repeats)
+        f.create_dataset(name='accuracy_stable', data=accuracy_stable)
         f.create_dataset(name='time', data=time_points)
         f.create_dataset(name='mask', data=mask)
         f.create_dataset(name='p_values', data=p_values)
@@ -315,6 +340,10 @@ def main(
         f.attrs["fs"] = fs
         f.attrs["tmin"] = tmin
         f.attrs["tmax"] = tmax
+        f.attrs["n_repeats"] = n_repeats
+        f.attrs["n_folds"] = n_folds
+        f.attrs["n_perm"] = n_perm
+        f.attrs["cv_random_state"] = RANDOM_SEED
 
     return
 
@@ -348,6 +377,8 @@ if __name__ == "__main__":
                         help="number of permutations")
     parser.add_argument("--n_folds", type=int, default=10,
                         help="number of folds")
+    parser.add_argument("--n_repeats", type=int, default=1,
+                        help="number of CV-seed repeats (only r=0 runs permutations)")
     parser.add_argument("--n_jobs", type=int, default=1,
                         help="number of jobs")
 

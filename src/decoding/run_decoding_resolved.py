@@ -24,7 +24,8 @@ from sklearn.pipeline import make_pipeline
 from mne.decoding import Vectorizer, SlidingEstimator
 from sklearn.model_selection import StratifiedKFold
 from ieeg.calc.oversample import MinimumNaNSplit
-from src.decoding.run_decoding import load_roi_data, decode_permutation_scores
+from src.decoding.run_decoding import load_roi_data
+from src.decoding.decoder import decode_permutation_scores, decode_cv_scores
 
 import gc
 import time as _time
@@ -74,6 +75,7 @@ def main(
     step,
     n_perm,
     n_folds,
+    n_repeats,
     n_jobs,
     tmin=-0.5,
     tmax=1.5,
@@ -124,6 +126,7 @@ def main(
         
         accuracies = np.zeros((len(time_points), n_folds))
         baseline_accuracies = np.zeros((len(time_points), n_folds, n_perm))
+        accuracy_repeats = np.zeros((len(time_points), n_repeats, n_folds))
         
         for t_idx, time_end in enumerate(time_points):
             
@@ -139,19 +142,39 @@ def main(
             X_segment = X.copy()[..., start_sample:end_sample]
             logger.info(f"Processing time window: {time_end:.3f}s, samples {start_sample}:{end_sample}")
             
-            score, permutation_scores, _ = decode_permutation_scores(
-                X_segment,
-                y,
-                cv,
-                pipeline,
-                n_jobs=n_jobs,
-                n_permutations=n_perm,
-                scoring="balanced_accuracy",
-                random_state=42,
-            )
-            
-            accuracies[t_idx] = score
-            baseline_accuracies[t_idx] = permutation_scores
+            for r in range(n_repeats):
+                cv_seed = RANDOM_SEED + r
+                cv_r = MinimumNaNSplit(
+                    n_splits=n_folds,
+                    n_repeats=1,
+                    random_state=cv_seed,
+                )
+                if r == 0:
+                    score, permutation_scores, _ = decode_permutation_scores(
+                        X_segment,
+                        y,
+                        cv_r,
+                        pipeline,
+                        n_jobs=n_jobs,
+                        n_permutations=n_perm,
+                        scoring="balanced_accuracy",
+                        random_state=RANDOM_SEED,
+                    )
+                    accuracies[t_idx] = score
+                    baseline_accuracies[t_idx] = permutation_scores
+                    accuracy_repeats[t_idx, r] = score
+                else:
+                    accuracy_repeats[t_idx, r] = decode_cv_scores(
+                        X_segment,
+                        y,
+                        cv_r,
+                        pipeline,
+                        n_jobs=n_jobs,
+                        scoring="balanced_accuracy",
+                        random_state=cv_seed,
+                    )
+        
+        accuracy_stable = accuracy_repeats.mean(axis=(1, 2))
         
         # cluster correction for pval
         # accuracies: (n_time, n_folds) -> mean over folds -> (n_time,)
@@ -176,6 +199,8 @@ def main(
             # Create a group for each feature type
             f.create_dataset(name='accuracy', data=accuracies)
             f.create_dataset(name='baseline', data=baseline_accuracies)
+            f.create_dataset(name='accuracy_repeats', data=accuracy_repeats)
+            f.create_dataset(name='accuracy_stable', data=accuracy_stable)
             f.create_dataset(name='time', data=time_points)
             f.create_dataset(name='mask', data=mask)
             f.create_dataset(name='p_values', data=p_values)
@@ -183,13 +208,17 @@ def main(
             f.attrs["fs"] = fs
             f.attrs["tmin"] = tmin
             f.attrs["tmax"] = tmax
+            f.attrs["n_repeats"] = n_repeats
+            f.attrs["n_folds"] = n_folds
+            f.attrs["n_perm"] = n_perm
+            f.attrs["cv_random_state"] = RANDOM_SEED
         
         logger.info(f"File {i} completed in {_time.time() - file_t0:.2f}s")
         # Explicit memory cleanup after each file
         # Clear references in the original lists to allow GC
         Xs[i] = None
         ys[i] = None
-        del X, y, accuracies, baseline_accuracies, X_segment, pipeline
+        del X, y, accuracies, baseline_accuracies, accuracy_repeats, accuracy_stable, X_segment, pipeline
         gc.collect()
 
     return
@@ -230,6 +259,8 @@ if __name__ == "__main__":
                         help="number of permutations")
     parser.add_argument("--n_folds", type=int, default=10,
                         help="number of folds")
+    parser.add_argument("--n_repeats", type=int, default=1,
+                        help="number of CV-seed repeats (only r=0 runs permutations)")
     parser.add_argument("--n_jobs", type=int, default=2,
                         help="number of jobs")
     parser.add_argument("--tmin", type=float, default=-0.5,

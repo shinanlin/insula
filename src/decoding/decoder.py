@@ -184,7 +184,7 @@ def get_cv_predict(
     # Pre-allocate output (labels)
     y_pred = np.empty_like(y)
 
-    def one_fold(train_idx, test_idx):
+    def one_fold(fold_idx, train_idx, test_idx):
         # Create a fresh CrossDecoder per fold to avoid shared state
         dec = clone(decoder)
         X_train, X_test, y_train, y_test = sample_fold(
@@ -192,6 +192,7 @@ def get_cv_predict(
             y,
             train_idx,
             test_idx,
+            seed=fold_idx,
         )
         
         dec.fit(
@@ -203,7 +204,8 @@ def get_cv_predict(
 
     # Run cross-validation with progress bar
     results = Parallel(n_jobs=n_jobs)(
-        delayed(one_fold)(tr, te) for tr, te in tqdm(splits, desc="CV folds")
+        delayed(one_fold)(i, tr, te)
+        for i, (tr, te) in enumerate(tqdm(splits, desc="CV folds"))
     )
 
     for te, pred in results:
@@ -235,6 +237,45 @@ def get_cv_score(
     return accuracy_score(y, y_pred)
 
 
+def decode_cv_scores(
+    X,
+    y,
+    cv,
+    decoder,
+    n_jobs: int = -1,
+    scoring: str = "accuracy",
+    random_state: int = 42,
+):
+    """Cross-validated observed scores without permutation testing.
+
+    Returns per-fold scores for use in cheap outer-loop CV-seed repeats.
+    """
+    scorer = get_scorer(scoring)
+    splits = list(cv.split(X, y))
+    if len(splits) == 0:
+        raise ValueError("CV splitter produced no splits")
+
+    def one_fold(fold_idx, train_idx, test_idx):
+        dec = clone(decoder)
+        X_train, X_test, y_train, y_test = sample_fold(
+            X,
+            y,
+            train_idx,
+            test_idx,
+            seed=random_state + fold_idx,
+        )
+        dec.fit(X_train, y_train)
+        return scorer(dec, X_test, y_test)
+
+    obs_scores = np.asarray(
+        Parallel(n_jobs=n_jobs, prefer="threads")(
+            delayed(one_fold)(i, tr, te)
+            for i, (tr, te) in enumerate(splits)
+        )
+    )
+    return obs_scores
+
+
 def decode_permutation_scores(
     X,
     y,
@@ -263,6 +304,7 @@ def decode_permutation_scores(
             y,
             tr,
             te,
+            seed=random_state + fold_idx,
         )
         
         dec.fit(X_train, y_train)
@@ -307,14 +349,20 @@ def sample_fold(
     y,
     train_idx,
     test_idx,
+    seed: int = 0,
 ):
     from ieeg.calc.oversample import mixup
-    """Sample a fold of data for cross-validation."""
+    """Sample a fold of data for cross-validation.
+
+    NaN fill uses a local RandomState so results are reproducible under
+    multithreaded joblib and do not depend on the global np.random state.
+    """
     # Avoid copying the entire X array - only copy the slices we need
     X_train = X[train_idx].copy()
     X_test = X[test_idx].copy()
     y_train = y[train_idx].copy()
     y_test = y[test_idx].copy()
+    _fill_rng = np.random.RandomState(seed)
     
     unique_classes = np.unique(y_train)
     for cls in unique_classes:
@@ -330,11 +378,11 @@ def sample_fold(
     
     is_nan_train = np.isnan(X_train)
     if is_nan_train.any():
-        X_train[is_nan_train] = np.random.normal(0, 1, int(np.sum(is_nan_train)))
+        X_train[is_nan_train] = _fill_rng.normal(0, 1, int(np.sum(is_nan_train)))
     
     is_nan_test = np.isnan(X_test)
     if is_nan_test.any():
-        X_test[is_nan_test] = np.random.normal(0, 1, int(np.sum(is_nan_test)))
+        X_test[is_nan_test] = _fill_rng.normal(0, 1, int(np.sum(is_nan_test)))
     
     return X_train, X_test, y_train, y_test
 
@@ -443,6 +491,7 @@ def generalized_permutation_scores(
             y,
             tr,
             te,
+            seed=random_state + fold_idx,
         )
 
         # time resolved decoding
