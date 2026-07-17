@@ -12,6 +12,7 @@ viewer/hga_explorer/public/data/electrodes.json
 viewer/hga_explorer/public/data/manifest.json
 
 img/
+tmp/
 .pytest_cache/
 __pycache__/
 .vscode/
