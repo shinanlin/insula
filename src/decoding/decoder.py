@@ -161,6 +161,7 @@ def get_cv_predict(
     decoder,
     n_jobs: int = -1,
     predict_method: str = "predict",
+    random_state: int = 42,
 ):
     """
     Cross-domain OOF-style predictions on XB: fit on A_train, predict on B_test.
@@ -192,7 +193,7 @@ def get_cv_predict(
             y,
             train_idx,
             test_idx,
-            seed=fold_idx,
+            seed=random_state + fold_idx,
         )
         
         dec.fit(
@@ -220,6 +221,7 @@ def get_cv_score(
     decoder,
     n_jobs: int = -1,
     predict_method: str = "predict",
+    random_state: int = 42,
 ):
     """Cross-domain OOF-style predictions on XB: fit on A_train, predict on B_test."""
     
@@ -232,6 +234,7 @@ def get_cv_score(
         decoder,
         n_jobs=n_jobs,
         predict_method=predict_method,
+        random_state=random_state,
     )
     
     return accuracy_score(y, y_pred)

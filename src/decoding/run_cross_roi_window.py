@@ -54,17 +54,12 @@ TASK_DEFAULTS = {
 
 def get_phase_window(phase):
     """Phase windows aligned with run_decoding.py / grant aim2 window figures."""
-    match phase:
-        case "Stimulus":
-            return 0.0, 0.75
-        case "Delay":
-            return 0.0, 0.75
-        case "Go":
-            return 0.0, 0.5
-        case "Response":
-            return -0.5, 0.0
-        case _:
-            raise ValueError(f"Unknown phase: {phase}")
+    from src.decoding.run_decoding import PHASE_WINDOWS
+
+    try:
+        return PHASE_WINDOWS[phase]
+    except KeyError as exc:
+        raise ValueError(f"Unknown phase: {phase}") from exc
 
 
 def load_roi_condition(
