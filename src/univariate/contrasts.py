@@ -17,6 +17,10 @@ from mne_bids import BIDSPath
 from ieeg.calc.stats import time_perm_cluster
 from tqdm import tqdm
 
+from src.paths import hga_results_dir
+
+ATLAS = "hammers"
+
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s: %(message)s")
 logger = logging.getLogger(__name__)
 
@@ -98,13 +102,17 @@ def main(bids_root, band, reference='bipolar', n_perm=2000, subject=None):
     
     this_sub_pts = pt.copy().update(subject=subject).match()
     
-    # Load parcellation
-    parc_path = this_sub_pts[0].copy().update(
+    # Load Hammers parcellation (same pattern as package_highgamma / RT)
+    parc_matches = this_sub_pts[0].copy().update(
         root=str(this_sub_pts[0].root).replace(f'epoch({reference})', 'parcellation'),
         datatype=reference,
         task=None, description=None, recording=None,
-        processing='3mm', suffix='aparc2009s', extension='.csv',
-    ).match()[0]
+        processing=None, suffix=ATLAS, extension='.csv',
+    ).match()
+    if not parc_matches:
+        logger.warning(f"No {ATLAS} parcellation for {subject}, skipping")
+        return
+    parc_path = parc_matches[0]
     parc = pd.read_csv(parc_path)
     parc = parc[~parc['roi'].str.contains('white|intersection|unknown|WM', case=False, na=False)]
     this_sub_channel = parc.name.unique().tolist()
@@ -233,7 +241,7 @@ def main(bids_root, band, reference='bipolar', n_perm=2000, subject=None):
             continue
         df_out = pd.concat(dfs, ignore_index=True)
         save_path = BIDSPath(
-            root=f'results/{task_name}({reference})',
+            root=str(hga_results_dir(task_name, reference, ATLAS)),
             datatype='univariate',
             suffix=band,
             task=task_name,
@@ -256,6 +264,6 @@ if __name__ == "__main__":
                         choices=['highgamma', 'gamma', 'beta', 'alpha', 'theta', 'lowband'])
     parser.add_argument("--n_perm", type=int, default=2000)
     parser.add_argument("--subject", type=str, default='D0024',
-                        help="Process a single subject (e.g. D0023). If not set, processes all.")
+                        help="Process a single subject (e.g. D0023).")
     args = parser.parse_args()
     main(**vars(args))
