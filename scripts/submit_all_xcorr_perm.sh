@@ -6,6 +6,7 @@ set -euo pipefail
 
 BAND=${BAND:-highgamma}
 REFERENCE=${REFERENCE:-bipolar}
+MAX_LAG_S=${MAX_LAG_S:-0.5}
 CONCURRENCY=${CONCURRENCY:-10}
 
 # Must match the DATASETS array in run_xcorr_pair_permutation.sh (same order).
@@ -37,6 +38,6 @@ for i in "${!BIDS_ROOTS[@]}"; do
   LAST=$((N - 1))
   echo "[$NAME] idx=$i N=$N  submitting array 0-${LAST}%${CONCURRENCY}"
   sbatch --array=0-${LAST}%${CONCURRENCY} \
-    --export=ALL,DATASET_IDX=$i,BAND=$BAND,REFERENCE=$REFERENCE \
+    --export=ALL,DATASET_IDX=$i,BAND=$BAND,REFERENCE=$REFERENCE,MAX_LAG_S=$MAX_LAG_S \
     "${SCRIPT_DIR}/run_xcorr_pair_permutation.sh"
 done

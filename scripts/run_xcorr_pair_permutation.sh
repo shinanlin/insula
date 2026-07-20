@@ -1,16 +1,19 @@
 #!/bin/bash
 #SBATCH --job-name=xcorr_perm
-#SBATCH --cpus-per-task=8
-#SBATCH --mem=48G
-#SBATCH --time=24:00:00
+#SBATCH --cpus-per-task=4
+#SBATCH --mem=16G
+#SBATCH --time=12:00:00
 #SBATCH --partition=common,scavenger
-#SBATCH --chdir=/hpc/home/ns458/coganlab/nanlinshi/insula
-#SBATCH --output=/hpc/home/ns458/coganlab/nanlinshi/insula/logs/xcorr_perm_%A_%a.out
-#SBATCH --error=/hpc/home/ns458/coganlab/nanlinshi/insula/logs/xcorr_perm_%A_%a.err
+#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
+#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/xcorr_perm_%A_%a.out
+#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/xcorr_perm_%A_%a.err
+
+REPO_ROOT=/hpc/group/coganlab/nanlinshi/insula
+LOG_DIR="${REPO_ROOT}/logs/slurm"
 
 source ~/.bashrc
 conda activate ieeg
-mkdir -p /hpc/home/ns458/coganlab/nanlinshi/insula/logs
+mkdir -p "${LOG_DIR}"
 
 # --------------------------------------------------------------------
 # Parameterized xcorr permutation runner.
@@ -41,7 +44,7 @@ BAND=${BAND:-highgamma}
 REFERENCE=${REFERENCE:-bipolar}
 N_PERM=${N_PERM:-1000}
 ALPHA=${ALPHA:-0.05}
-MAX_LAG_S=${MAX_LAG_S:-1.0}
+MAX_LAG_S=${MAX_LAG_S:-0.5}
 
 # Auto-enumerate subjects from sig(effective) directory for this dataset
 SIG_DIR_PATTERN="${BIDS_ROOT}derivatives/epoch(${REFERENCE})"
@@ -84,8 +87,8 @@ for DESCRIPTION in "${DESCRIPTIONS[@]}"; do
       --max_lag_s "$MAX_LAG_S" \
       --n_perm "$N_PERM" \
       --alpha "$ALPHA" \
-      > /hpc/home/ns458/coganlab/nanlinshi/insula/logs/xcorr_perm_${TASK_NAME}_${SUBJECT}_${BAND}_${PHASE}_${DESCRIPTION}.out \
-      2> /hpc/home/ns458/coganlab/nanlinshi/insula/logs/xcorr_perm_${TASK_NAME}_${SUBJECT}_${BAND}_${PHASE}_${DESCRIPTION}.err
+      > "${LOG_DIR}/xcorr_perm_${TASK_NAME}_${SUBJECT}_${BAND}_${PHASE}_${DESCRIPTION}.out" \
+      2> "${LOG_DIR}/xcorr_perm_${TASK_NAME}_${SUBJECT}_${BAND}_${PHASE}_${DESCRIPTION}.err"
     echo "Exit code: $?"
   done
 done
