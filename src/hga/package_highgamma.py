@@ -15,32 +15,22 @@ ENDPOINT_TEMPLATE_COLS = ("x1_t", "y1_t", "z1_t", "x2_t", "y2_t", "z2_t")
 CONTACT_COLS = ("contact_1", "contact_2", "contact_1_label", "contact_2_label")
 from src.paths import RESULTS_ROOT, SUPPORTED_ATLASES, hga_results_dir as results_dir
 
-# Epoch and statistics exports may use different BIDS task labels for the same study.
-TASK_STATS_ALIASES: dict[str, list[str]] = {
-    "PhonemeSequencing": ["PhonemeSequence"],
-    "PhonemeSequence": ["PhonemeSequencing"],
-}
+
+def canonical_task_name(task: str) -> str:
+    """Map legacy misspelled BIDS task labels to the canonical name."""
+    if task == "PhonemeSequencing":
+        return "PhonemeSequence"
+    return task
 
 
 def stats_path_candidates(epoch_path, ref: str):
-    """Yield statistics h5 paths for an epoch, including known task aliases."""
-    base = epoch_path.copy().update(
+    """Yield the statistics h5 path for an epoch (canonical BIDS task label)."""
+    yield epoch_path.copy().update(
         root=str(epoch_path.root).replace(f"epoch({ref})", "statistics"),
         datatype=ref,
+        task=canonical_task_name(epoch_path.task),
         extension=".h5",
     )
-    seen: set[str] = set()
-
-    def _yield_unique(path):
-        key = str(path)
-        if key in seen:
-            return
-        seen.add(key)
-        yield path
-
-    yield from _yield_unique(base)
-    for alt_task in TASK_STATS_ALIASES.get(epoch_path.task, []):
-        yield from _yield_unique(base.copy().update(task=alt_task))
 
 
 def load_stats_mask(epoch_path, ref: str, epochs, df: pd.DataFrame) -> pd.DataFrame:
@@ -68,12 +58,6 @@ def load_stats_mask(epoch_path, ref: str, epochs, df: pd.DataFrame) -> pd.DataFr
             mask_long = mask_long[mask_long["channel"].isin(df["channel"])]
             df = df.merge(mask_long, on=["channel", "time"], how="left")
             df["mask"] = df["mask"].fillna(False).astype(bool)
-            if candidates and str(stats_path) != str(candidates[0]):
-                logging.info(
-                    "Using stats alias %s for epoch task %s",
-                    stats_path,
-                    epoch_path.task,
-                )
             return df
         except FileNotFoundError:
             continue
@@ -243,9 +227,10 @@ def main(
         df = load_stats_mask(epoch_path, ref, epochs, df)
 
         df.drop(columns=["ch_type"], inplace=True)
+        task = canonical_task_name(epoch_path.task)
         df["subject"] = epoch_path.subject
         df["description"] = epoch_path.description
-        df["task"] = epoch_path.task
+        df["task"] = task
         df["phase"] = epoch_path.processing
         df["modality"] = (
             epoch_path.recording if epoch_path.recording is not None else "sound"
@@ -255,12 +240,12 @@ def main(
         df = df.merge(parc_sub, on="channel", how="left")
 
         save_path = BIDSPath(
-            root=str(results_dir(epoch_path.task, ref, atlas)),
+            root=str(results_dir(task, ref, atlas)),
             description=epoch_path.description,
             datatype="HGA",
             suffix="time",
             recording=epoch_path.recording,
-            task=epoch_path.task,
+            task=task,
             subject=epoch_path.subject,
             processing=epoch_path.processing,
             extension=".csv",

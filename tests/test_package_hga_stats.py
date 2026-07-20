@@ -37,16 +37,16 @@ class _FakeBIDSPath:
         )
 
 
-def test_stats_path_candidates_include_phoneme_alias():
+def test_stats_path_candidates_phoneme_sequence_legacy_epoch():
+    """sig/effective epochs may still carry the legacy PhonemeSequencing label."""
     epoch_root = "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/epoch(bipolar)"
     epoch_path = _FakeBIDSPath(root=epoch_root, task="PhonemeSequencing")
     candidates = [str(path) for path in stats_path_candidates(epoch_path, "bipolar")]
 
-    assert len(candidates) == 2
-    assert "task-PhonemeSequencing_" in candidates[0]
-    assert "task-PhonemeSequence_" in candidates[1]
-    assert candidates[0].replace("epoch(bipolar)", "statistics") == candidates[0]
-    assert "/statistics/" in candidates[1]
+    assert len(candidates) == 1
+    assert "task-PhonemeSequence_" in candidates[0]
+    assert "task-PhonemeSequencing_" not in candidates[0]
+    assert "/statistics/" in candidates[0]
 
 
 def test_stats_path_candidates_keep_lexical_single_path():

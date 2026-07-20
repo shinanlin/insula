@@ -23,7 +23,7 @@ run_one() {
 
 run_one "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/" "LexicalDelay"
 run_one "/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay/BIDS/" "LexicalNoDelay"
-run_one "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/" "PhonemeSequencing"
+run_one "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/" "PhonemeSequence"
 run_one "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/" "PictureNaming"
 run_one "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/" "SentenceRep"
 

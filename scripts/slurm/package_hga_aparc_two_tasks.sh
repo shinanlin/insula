@@ -21,7 +21,7 @@ run_one() {
   python src/hga/package_highgamma.py --bids_root "${bids_root}" --band highgamma --ref bipolar --atlas hammers
 }
 
-run_one "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/" "PhonemeSequencing"
+run_one "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/" "PhonemeSequence"
 run_one "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/" "LexicalDelay"
 
 echo "All done."
