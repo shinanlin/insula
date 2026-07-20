@@ -99,7 +99,13 @@ def orient_two_components(
     early = (times >= 0.0) & (times <= 0.30)
     late = (times >= 0.50) & (times <= 0.90)
     if not early.any() or not late.any():
-        raise ValueError("Stimulus time vector does not cover naming windows")
+        # Fallback for non-stimulus epochs: first vs last third of the time axis.
+        n = len(times)
+        early_idx = np.zeros(n, dtype=bool)
+        late_idx = np.zeros(n, dtype=bool)
+        early_idx[: max(1, n // 3)] = True
+        late_idx[2 * n // 3 :] = True
+        early, late = early_idx, late_idx
     transient_score = H[:, early].mean(axis=1) - H[:, late].mean(axis=1)
     sensory = int(np.argmax(transient_score))
     return {
@@ -192,12 +198,19 @@ def channel_metadata(frame: pd.DataFrame) -> pd.DataFrame:
     )
 
 
-def stimulus_matrix(
-    frame: pd.DataFrame, *, min_coverage: float = 0.95
+def phase_matrix(
+    frame: pd.DataFrame,
+    phase: str,
+    *,
+    min_coverage: float = 0.95,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
-    stimulus = frame.loc[frame["phase"].eq("stimulus")]
+    """Build channel × time matrix for a single discovery phase."""
+
+    phase_frame = frame.loc[frame["phase"].eq(phase)]
+    if phase_frame.empty:
+        raise ValueError(f"No rows for phase={phase!r}")
     matrix = (
-        stimulus.groupby(["channel", "time"], sort=True)["value"]
+        phase_frame.groupby(["channel", "time"], sort=True)["value"]
         .mean()
         .unstack("time")
         .sort_index(axis=1)
@@ -205,8 +218,14 @@ def stimulus_matrix(
     matrix = matrix.loc[matrix.notna().mean(axis=1) >= min_coverage]
     # A rare missing sample is interpolated within an otherwise complete epoch.
     matrix = matrix.interpolate(axis=1, limit_direction="both")
-    metadata = channel_metadata(stimulus).loc[matrix.index]
+    metadata = channel_metadata(phase_frame).loc[matrix.index]
     return matrix, metadata
+
+
+def stimulus_matrix(
+    frame: pd.DataFrame, *, min_coverage: float = 0.95
+) -> tuple[pd.DataFrame, pd.DataFrame]:
+    return phase_matrix(frame, "stimulus", min_coverage=min_coverage)
 
 
 def prepare_shape_matrix(raw: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
