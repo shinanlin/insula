@@ -66,7 +66,7 @@ export function buildSlidingWindowFrames(
   traces,
   phase,
   selectedLoad,
-  { windowSec = ANIM_WINDOW_SEC, stepSec = ANIM_STEP_SEC, allowMock = false } = {},
+  { windowSec = ANIM_WINDOW_SEC, stepSec = ANIM_STEP_SEC, allowMock = false, metadata = null } = {},
 ) {
   const { min, max } = PHASE_TIME_RANGES[phase];
   const tEnd = max - windowSec;
@@ -83,6 +83,7 @@ export function buildSlidingWindowFrames(
         t,
         windowSec,
         allowMock,
+        metadata,
       );
       if (mean != null && Number.isFinite(mean)) {
         hgaByElectrodeId[electrode.id] = mean;

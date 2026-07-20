@@ -38,3 +38,12 @@ export function electrodeExclusiveRegionId(electrode, vennPhases, selectedTask =
   const active = vennPhases.filter((phase) => phaseFlags[phase]);
   return active.length ? active.join('_') : null;
 }
+
+/** Default Venn selection: region with the most electrodes (not full intersection). */
+export function pickDefaultVennRegionId(vennRegions) {
+  if (!vennRegions?.length) return null;
+  const best = [...vennRegions].sort((a, b) => (
+    b.count - a.count || a.id.localeCompare(b.id)
+  ))[0];
+  return best?.count > 0 ? best.id : null;
+}

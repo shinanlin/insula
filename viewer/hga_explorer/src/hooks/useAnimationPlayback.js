@@ -13,6 +13,7 @@ export default function useAnimationPlayback({
   tableElectrodesKey,
   traces,
   selectedLoad,
+  metadata = null,
   selectedRegionIds,
   vennPhases,
   availableSubjectsKey,
@@ -69,6 +70,21 @@ export default function useAnimationPlayback({
     return byPhase;
   }, [getCacheKey, cacheVersion]);
 
+  const buildClientBundle = useCallback(async (phase) => {
+    const { buildSlidingWindowFrames } = await import('../utils/animationFrames.js');
+    await new Promise((resolve) => window.setTimeout(resolve, 0));
+    return buildSlidingWindowFrames(tableElectrodes, traces, phase, selectedLoad, {
+      allowMock: layout === 'mock',
+      metadata,
+    });
+  }, [
+    layout,
+    tableElectrodes,
+    traces,
+    selectedLoad,
+    metadata,
+  ]);
+
   const loadPhaseAnimation = useCallback(async (phase) => {
     const cached = getCachedBundle(phase);
     if (bundleHasPlayableFrames(cached)) {
@@ -90,6 +106,7 @@ export default function useAnimationPlayback({
           subjects,
           phase,
           selectedLoad,
+          metadata,
           electrodeFilterSet,
           onProgress: (status) => {
             setAnimationLoadProgress({
@@ -100,10 +117,13 @@ export default function useAnimationPlayback({
             });
           },
         });
-        if (merged && bundleHasPlayableFrames(merged)) {
-          setCachedBundle(phase, merged);
+        const bundle = bundleHasPlayableFrames(merged)
+          ? merged
+          : await buildClientBundle(phase);
+        if (bundleHasPlayableFrames(bundle)) {
+          setCachedBundle(phase, bundle);
         }
-        return merged;
+        return bundle;
       } finally {
         setAnimationLoadingPhase((current) => (current === phase ? null : current));
         setAnimationLoadProgress((current) => (
@@ -114,11 +134,7 @@ export default function useAnimationPlayback({
       }
     }
 
-    const { buildSlidingWindowFrames } = await import('../utils/animationFrames.js');
-    await new Promise((resolve) => window.setTimeout(resolve, 0));
-    const bundle = buildSlidingWindowFrames(tableElectrodes, traces, phase, selectedLoad, {
-      allowMock: layout === 'mock',
-    });
+    const bundle = await buildClientBundle(phase);
     if (bundleHasPlayableFrames(bundle)) {
       setCachedBundle(phase, bundle);
     }
@@ -128,9 +144,11 @@ export default function useAnimationPlayback({
     manifest,
     selectedSubjects,
     selectedLoad,
+    metadata,
     electrodeFilterSet,
     tableElectrodes,
     traces,
+    buildClientBundle,
     getCachedBundle,
     setCachedBundle,
   ]);

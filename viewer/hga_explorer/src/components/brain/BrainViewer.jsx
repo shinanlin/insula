@@ -209,9 +209,9 @@ export default function BrainViewer({
       if (playingPhase && liveHgaByElectrodeId?.[electrode.id] != null) {
         return liveHgaByElectrodeId[electrode.id];
       }
-      return resolveHgaMean(electrode, selectedLoad, traces, significanceWindows);
+      return resolveHgaMean(electrode, selectedLoad, traces, significanceWindows, metadata);
     }),
-    [visibleElectrodesKey, playingPhase, liveHgaByElectrodeId, selectedLoad, animationTime, traces, significanceWindows],
+    [visibleElectrodesKey, playingPhase, liveHgaByElectrodeId, selectedLoad, animationTime, traces, significanceWindows, metadata],
   );
 
   const kdeSources = useMemo(
@@ -368,6 +368,7 @@ export default function BrainViewer({
             selectedLoad={selectedLoad}
             traces={traces}
             significanceWindows={significanceWindows}
+            metadata={metadata}
             hgaScale={hgaScale}
             animationScale={animationScale}
             liveHgaByElectrodeId={liveHgaByElectrodeId}
@@ -388,6 +389,7 @@ export default function BrainViewer({
             selectedLoad={selectedLoad}
             traces={traces}
             significanceWindows={significanceWindows}
+            metadata={metadata}
             hgaScale={hgaScale}
             animationScale={animationScale}
             liveHga={liveHgaByElectrodeId?.[electrode.id]}

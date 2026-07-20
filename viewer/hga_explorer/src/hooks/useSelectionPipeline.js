@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
-import { DEFAULT_VENN_PHASES } from '../constants/phases.js';
-import { computeVennRegions } from '../utils/vennRegions.js';
+import { DEFAULT_VENN_PHASES, vennPhasesForTask } from '../constants/phases.js';
+import { computeVennRegions, pickDefaultVennRegionId } from '../utils/vennRegions.js';
 import { buildSelectionSummary } from '../utils/selectionSummary.js';
 
 export default function useSelectionPipeline({
@@ -32,15 +32,25 @@ export default function useSelectionPipeline({
   }, [resetAtlasKey]);
 
   useEffect(() => {
-    const fullId = vennPhases.join('_');
-    setSelectedRegionIds([fullId]);
+    setVennPhases(vennPhasesForTask(selectedTask));
+  }, [selectedTask]);
+
+  useEffect(() => {
+    setSelectedRegionIds([]);
     setSelectedElectrodeId(null);
     setSelectedEndpoint(null);
   }, [vennPhases, selectedTask]);
 
+  const effectiveRegionIds = useMemo(() => {
+    const valid = selectedRegionIds.filter((id) => regionsById.has(id));
+    if (valid.length) return valid;
+    const fallback = pickDefaultVennRegionId(vennRegions);
+    return fallback ? [fallback] : [];
+  }, [selectedRegionIds, regionsById, vennRegions]);
+
   const selectedRegions = useMemo(
-    () => selectedRegionIds.map((id) => regionsById.get(id)).filter(Boolean),
-    [regionsById, selectedRegionIds],
+    () => effectiveRegionIds.map((id) => regionsById.get(id)).filter(Boolean),
+    [regionsById, effectiveRegionIds],
   );
 
   const selectedIds = useMemo(() => {

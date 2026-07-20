@@ -1,9 +1,9 @@
 import { HGA_RADIUS_MIN, HGA_RADIUS_MAX } from '../constants/brain.js';
 import { PHASES } from '../constants/phases.js';
-import { TASKS } from '../constants/tasks.js';
+import { resolveTaskList } from '../constants/tasks.js';
 import { resolvePhaseFlags } from './electrodeCoords.js';
 import { interpolateTraceValue } from './traces.js';
-import { parseViewSelection } from './viewSelection.js';
+import { effectiveModalityForTask, parseViewSelection } from './viewSelection.js';
 
 const DEFAULT_SIGNIFICANCE_WINDOWS = {
   stimulus: [0.0, 0.5],
@@ -31,8 +31,24 @@ function meanAbsInWindow(trace, t0, t1) {
   return samples.reduce((sum, value) => sum + value, 0) / samples.length;
 }
 
-function resolveHgaFromTraces(traces, electrode, task, condition, significanceWindows = DEFAULT_SIGNIFICANCE_WINDOWS) {
-  const taskKeys = task === 'all' ? TASKS : [task];
+function resolveConditionTrace(phaseMap, condition, taskName, modality, metadata) {
+  const conditionMap = phaseMap?.[condition];
+  if (!conditionMap) return null;
+  if (conditionMap.time) return conditionMap;
+  const mod = effectiveModalityForTask(taskName, modality, metadata);
+  return conditionMap[mod] ?? null;
+}
+
+function resolveHgaFromTraces(
+  traces,
+  electrode,
+  task,
+  condition,
+  modality,
+  metadata,
+  significanceWindows = DEFAULT_SIGNIFICANCE_WINDOWS,
+) {
+  const taskKeys = task === 'all' ? resolveTaskList(metadata) : [task];
   const values = [];
   taskKeys.forEach((taskName) => {
     const phaseMap = traces?.[electrode?.id]?.[taskName];
@@ -40,7 +56,7 @@ function resolveHgaFromTraces(traces, electrode, task, condition, significanceWi
     PHASES.forEach((phase) => {
       const phaseFlags = resolvePhaseFlags(electrode, task);
       if (phaseFlags && !phaseFlags[phase]) return;
-      const trace = phaseMap[phase]?.[condition];
+      const trace = resolveConditionTrace(phaseMap[phase], condition, taskName, modality, metadata);
       const [t0, t1] = significanceWindows[phase] || DEFAULT_SIGNIFICANCE_WINDOWS[phase];
       const value = meanAbsInWindow(trace, t0, t1);
       if (value != null) values.push(value);
@@ -50,11 +66,30 @@ function resolveHgaFromTraces(traces, electrode, task, condition, significanceWi
   return values.reduce((sum, value) => sum + value, 0) / values.length;
 }
 
-function resolveHgaFromPrecomputed(electrode, task, condition) {
+function resolveHgaFromPrecomputed(electrode, task, condition, modality, metadata) {
+  const nestedModality = electrode?.hga_by_task_condition_modality;
+  if (nestedModality) {
+    if (task === 'all') {
+      const values = resolveTaskList(metadata)
+        .map((taskName) => {
+          const mod = effectiveModalityForTask(taskName, modality, metadata);
+          return nestedModality[taskName]?.[condition]?.[mod];
+        })
+        .filter((value) => value != null && Number.isFinite(value));
+      if (values.length) {
+        return values.reduce((sum, value) => sum + value, 0) / values.length;
+      }
+    } else {
+      const mod = effectiveModalityForTask(task, modality, metadata);
+      const value = nestedModality[task]?.[condition]?.[mod];
+      if (value != null) return value;
+    }
+  }
+
   const nested = electrode?.hga_by_task_condition;
   if (nested) {
     if (task === 'all') {
-      const values = TASKS
+      const values = resolveTaskList(metadata)
         .map((taskName) => nested[taskName]?.[condition])
         .filter((value) => value != null && Number.isFinite(value));
       if (values.length) {
@@ -74,14 +109,28 @@ function resolveHgaFromPrecomputed(electrode, task, condition) {
   return null;
 }
 
-export function resolveHgaMean(electrode, viewSelection, traces = null, significanceWindows = DEFAULT_SIGNIFICANCE_WINDOWS) {
-  const { task, condition } = parseViewSelection(viewSelection);
+export function resolveHgaMean(
+  electrode,
+  viewSelection,
+  traces = null,
+  significanceWindows = DEFAULT_SIGNIFICANCE_WINDOWS,
+  metadata = null,
+) {
+  const { task, condition, modality } = parseViewSelection(viewSelection, metadata);
 
-  const fromPrecomputed = resolveHgaFromPrecomputed(electrode, task, condition);
+  const fromPrecomputed = resolveHgaFromPrecomputed(electrode, task, condition, modality, metadata);
   if (fromPrecomputed != null) return fromPrecomputed;
 
   if (traces) {
-    const fromTraces = resolveHgaFromTraces(traces, electrode, task, condition, significanceWindows);
+    const fromTraces = resolveHgaFromTraces(
+      traces,
+      electrode,
+      task,
+      condition,
+      modality,
+      metadata,
+      significanceWindows,
+    );
     if (fromTraces != null) return fromTraces;
   }
 
@@ -100,7 +149,6 @@ export function hgaToRadius(hga, scale, { active, selected, hovered }) {
   const normalized = vmax > vmin
     ? Math.max(0, Math.min(1, (Math.abs(hga) - vmin) / (vmax - vmin)))
     : 0;
-  // Compress the top end so peak HGA does not dominate sphere size.
   const compressed = Math.pow(normalized, 1.35);
   const base = HGA_RADIUS_MIN + compressed * (HGA_RADIUS_MAX - HGA_RADIUS_MIN);
   if (active) return base + 0.3;

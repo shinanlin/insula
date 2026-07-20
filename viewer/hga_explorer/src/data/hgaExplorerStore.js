@@ -206,6 +206,8 @@ export async function loadTracesForSubjects(manifest, subjects, existingTraces =
     try {
       const subjectTraces = await loadSubjectTraces(manifest, subject);
       Object.assign(merged, subjectTraces);
+    } catch (error) {
+      console.error(`Failed to load traces for subject ${subject}`, error);
     } finally {
       completed += 1;
       report();

@@ -48,6 +48,7 @@ export async function fetchAndMergePhaseAnimation({
   subjects,
   phase,
   selectedLoad,
+  metadata = null,
   electrodeFilterSet,
   onProgress,
 }) {
@@ -70,7 +71,7 @@ export async function fetchAndMergePhaseAnimation({
   await Promise.all(subjects.map(async (subject) => {
     try {
       const payload = await loadSubjectPhaseAnimation(manifest, subject, phase);
-      const compact = extractBundleForLoad(payload, selectedLoad);
+      const compact = extractBundleForLoad(payload, selectedLoad, metadata);
       if (compact) compacts.push(compact);
     } finally {
       completed += 1;

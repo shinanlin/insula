@@ -1,17 +1,27 @@
 import { useEffect, useMemo, useState } from 'react';
 import {
   DEFAULT_VIEW_CONDITION,
+  DEFAULT_VIEW_MODALITY,
   DEFAULT_VIEW_TASK,
 } from '../constants/selection.js';
-import { conditionsForTask } from '../utils/taskFilter.js';
-import { buildViewSelection } from '../utils/viewSelection.js';
+import { conditionsForTask, modalitiesForTask } from '../utils/taskFilter.js';
+import {
+  buildViewSelection,
+  defaultModalityForTask,
+} from '../utils/viewSelection.js';
 
 export default function useViewSelection(metadata) {
   const [selectedTask, setSelectedTask] = useState(DEFAULT_VIEW_TASK);
   const [selectedCondition, setSelectedCondition] = useState(DEFAULT_VIEW_CONDITION);
+  const [selectedModality, setSelectedModality] = useState(DEFAULT_VIEW_MODALITY);
 
   const availableConditions = useMemo(
     () => conditionsForTask(metadata, selectedTask),
+    [metadata, selectedTask],
+  );
+
+  const availableModalities = useMemo(
+    () => modalitiesForTask(metadata, selectedTask),
     [metadata, selectedTask],
   );
 
@@ -25,9 +35,19 @@ export default function useViewSelection(metadata) {
     }
   }, [availableConditions, selectedCondition, metadata?.default_condition]);
 
+  useEffect(() => {
+    if (availableModalities.length <= 1) return;
+    if (!availableModalities.includes(selectedModality)) {
+      const fallback = defaultModalityForTask(selectedTask, metadata);
+      setSelectedModality(
+        availableModalities.includes(fallback) ? fallback : availableModalities[0],
+      );
+    }
+  }, [availableModalities, selectedModality, selectedTask, metadata]);
+
   const viewSelection = useMemo(
-    () => buildViewSelection(selectedTask, selectedCondition),
-    [selectedTask, selectedCondition],
+    () => buildViewSelection(selectedTask, selectedCondition, selectedModality, metadata),
+    [selectedTask, selectedCondition, selectedModality, metadata],
   );
 
   const selectTask = (task) => {
@@ -40,6 +60,13 @@ export default function useViewSelection(metadata) {
           ? metadata.default_condition
           : nextConditions[0] || DEFAULT_VIEW_CONDITION)
     ));
+    const nextModalities = modalitiesForTask(metadata, task);
+    if (nextModalities.length > 1) {
+      const fallback = defaultModalityForTask(task, metadata);
+      setSelectedModality(
+        nextModalities.includes(fallback) ? fallback : nextModalities[0],
+      );
+    }
   };
 
   const selectCondition = (condition) => {
@@ -48,12 +75,21 @@ export default function useViewSelection(metadata) {
     }
   };
 
+  const selectModality = (modality) => {
+    if (availableModalities.includes(modality)) {
+      setSelectedModality(modality);
+    }
+  };
+
   return {
     selectedTask,
     selectedCondition,
+    selectedModality,
     availableConditions,
+    availableModalities,
     viewSelection,
     selectTask,
     selectCondition,
+    selectModality,
   };
 }

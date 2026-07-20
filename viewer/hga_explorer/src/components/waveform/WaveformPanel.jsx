@@ -12,6 +12,19 @@ import { usesSplitTraces } from '../../utils/viewerLayout.js';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
 import TraceLoadProgress from '../ui/TraceLoadProgress.jsx';
 
+const HIDDEN_WAVEFORM_CONDITIONS = new Set(['Passive']);
+
+function hideWaveformConditions(metadata) {
+  if (!metadata?.conditions) return metadata;
+  const conditions = Object.fromEntries(
+    Object.entries(metadata.conditions).map(([task, taskConditions]) => [
+      task,
+      (taskConditions || []).filter((condition) => !HIDDEN_WAVEFORM_CONDITIONS.has(condition)),
+    ]),
+  );
+  return { ...metadata, conditions };
+}
+
 const StaticWaveformBody = React.memo(function StaticWaveformBody({
   phase,
   index,
@@ -150,6 +163,7 @@ function WaveformPanel({
   insulaModeActive = false,
   traces,
   selectedTask,
+  selectedModality = null,
   metadata,
   layout = 'split',
   tracesLoading = false,
@@ -159,6 +173,7 @@ function WaveformPanel({
   animationLoadingPhase,
   animationLoadProgress = { completed: 0, total: 0, progress: 0, phase: null },
   canPlay,
+  canPlayByPhase = {},
   selectionEmpty = null,
   playingPhase,
   isPlaying,
@@ -172,17 +187,30 @@ function WaveformPanel({
   const traceKey = electrode?.id ?? 'aggregate';
   const allowMock = layout === 'mock';
   const awaitingTraces = usesSplitTraces(layout) && tracesLoading && initialLoadComplete;
+  const waveformMetadata = useMemo(
+    () => hideWaveformConditions(metadata),
+    [metadata],
+  );
 
-  const conditionLabels = useMemo(() => (
-    awaitingTraces
-      ? []
-      : conditionsPresentInCohort(traces, electrodes, selectedTask, metadata, null, electrode, allowMock)
-  ), [
+  const conditionLabels = useMemo(() => {
+    if (awaitingTraces) return [];
+    return conditionsPresentInCohort(
+      traces,
+      electrodes,
+      selectedTask,
+      waveformMetadata,
+      null,
+      electrode,
+      allowMock,
+      selectedModality,
+    );
+  }, [
     awaitingTraces,
     traces,
     electrodes,
     selectedTask,
-    metadata,
+    selectedModality,
+    waveformMetadata,
     electrode,
     allowMock,
   ]);
@@ -205,9 +233,10 @@ function WaveformPanel({
           electrodes,
           phase,
           selectedTask,
-          metadata,
+          waveformMetadata,
           electrode,
           allowMock,
+          selectedModality,
         );
       const yRange = computeMultiTraceYRange(seriesList);
       return [phase, {
@@ -222,7 +251,8 @@ function WaveformPanel({
     traces,
     electrodes,
     selectedTask,
-    metadata,
+    selectedModality,
+    waveformMetadata,
     electrode,
     allowMock,
     awaitingTraces,
@@ -275,7 +305,7 @@ function WaveformPanel({
               traceKey={traceKey}
               playback={playbackByPhase[phase]}
               isSingleElectrode={isSingleElectrode}
-              canPlay={canPlay}
+              canPlay={canPlay && (canPlayByPhase[phase] ?? true)}
               animationLoadingPhase={animationLoadingPhase}
               animationLoadProgress={animationLoadProgress}
               playingPhase={playingPhase}

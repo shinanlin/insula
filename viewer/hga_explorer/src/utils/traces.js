@@ -1,14 +1,16 @@
-import { PHASES, phaseTimeStart } from '../constants/phases.js';
+import { PHASES, phaseTimeStart, phasesForTask } from '../constants/phases.js';
 import { PHASE_TIME_END, PHASE_TIME_RANGES } from '../constants/loads.js';
 import { conditionColor, hexToRgba, phaseColor } from '../constants/colors.js';
 import { resolvePhaseFlags } from './electrodeCoords.js';
-import { buildViewSelection, parseViewSelection } from './viewSelection.js';
+import { buildViewSelection, effectiveModalityForTask, parseViewSelection } from './viewSelection.js';
 import { conditionsForTask } from './taskFilter.js';
+import { resolveTaskList } from '../constants/tasks.js';
 
 export function interpolateTraceValue(trace, time) {
   if (!trace?.time?.length) return null;
   const times = trace.time;
   const values = trace.value ?? trace.y;
+  if (!values?.length) return null;
   if (time <= times[0]) return values[0];
   if (time >= times[times.length - 1]) return values[times.length - 1];
   for (let i = 0; i < times.length - 1; i += 1) {
@@ -22,6 +24,37 @@ export function interpolateTraceValue(trace, time) {
   return null;
 }
 
+function sameTimeGrid(sourceTimes, targetTimes) {
+  if (sourceTimes.length !== targetTimes.length) return false;
+  return sourceTimes.every((time, index) => time === targetTimes[index]);
+}
+
+function interpolateTraceValues(trace, targetTimes) {
+  const times = trace?.time;
+  const values = trace?.value ?? trace?.y;
+  if (!times?.length || !values?.length || !targetTimes?.length) return [];
+  if (sameTimeGrid(times, targetTimes)) return [...values];
+
+  const lastIndex = times.length - 1;
+  let sourceIndex = 0;
+  return targetTimes.map((time) => {
+    if (time <= times[0]) return values[0];
+    if (time >= times[lastIndex]) return values[lastIndex];
+
+    while (sourceIndex < lastIndex - 1 && time > times[sourceIndex + 1]) {
+      sourceIndex += 1;
+    }
+
+    const t0 = times[sourceIndex];
+    const t1 = times[sourceIndex + 1];
+    const y0 = values[sourceIndex];
+    const y1 = values[sourceIndex + 1];
+    const span = t1 - t0;
+    if (span === 0) return y0;
+    return y0 + ((time - t0) / span) * (y1 - y0);
+  });
+}
+
 function averageTraces(traceList) {
   const traces = (traceList || []).filter((trace) => trace?.time?.length);
   if (!traces.length) return null;
@@ -31,13 +64,19 @@ function averageTraces(traceList) {
   const timeSet = new Set();
   traces.forEach((trace) => trace.time.forEach((time) => timeSet.add(time)));
   const times = Array.from(timeSet).sort((a, b) => a - b);
-  const values = times.map((time) => {
-    const samples = traces
-      .map((trace) => interpolateTraceValue(trace, time))
-      .filter((value) => value != null);
-    if (!samples.length) return null;
-    return samples.reduce((sum, value) => sum + value, 0) / samples.length;
+  const sums = Array(times.length).fill(0);
+  const counts = Array(times.length).fill(0);
+  traces.forEach((trace) => {
+    interpolateTraceValues(trace, times).forEach((value, index) => {
+      if (value != null && Number.isFinite(value)) {
+        sums[index] += value;
+        counts[index] += 1;
+      }
+    });
   });
+  const values = sums.map((sum, index) => (
+    counts[index] > 0 ? sum / counts[index] : null
+  ));
   return { time: times, value: values };
 }
 
@@ -62,54 +101,72 @@ function shouldUseMockTraces(allowMock) {
   return allowMock === true;
 }
 
-function resolveElectrodeTaskTrace(electrodeTraces, task, phase, condition) {
+function resolveConditionTrace(conditionMap, taskName, modality, metadata) {
+  if (!conditionMap) return null;
+  if (conditionMap.time) return conditionMap;
+  const mod = effectiveModalityForTask(taskName, modality, metadata);
+  if (conditionMap[mod]?.time?.length) return conditionMap[mod];
+  const nested = Object.values(conditionMap).find((value) => value?.time?.length);
+  return nested ?? null;
+}
+
+function resolveElectrodeTaskTrace(electrodeTraces, task, phase, condition, modality, metadata) {
   if (!electrodeTraces) return null;
   if (task === 'all') {
-    const taskTraces = Object.values(electrodeTraces)
-      .map((taskData) => taskData?.[phase]?.[condition])
+    const taskTraces = resolveTaskList(metadata)
+      .map((taskName) => resolveConditionTrace(
+        electrodeTraces[taskName]?.[phase]?.[condition],
+        taskName,
+        modality,
+        metadata,
+      ))
       .filter((trace) => trace?.time?.length);
     return averageTraces(taskTraces);
   }
-  return electrodeTraces[task]?.[phase]?.[condition] ?? null;
+  return resolveConditionTrace(
+    electrodeTraces[task]?.[phase]?.[condition],
+    task,
+    modality,
+    metadata,
+  );
 }
 
-export function resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock = false) {
-  const { task, condition } = parseViewSelection(viewSelection);
+export function resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock = false, metadata = null) {
+  const { task, condition, modality } = parseViewSelection(viewSelection, metadata);
   const electrodeTraces = traces?.[electrode?.id];
-  const resolved = resolveElectrodeTaskTrace(electrodeTraces, task, phase, condition);
+  const resolved = resolveElectrodeTaskTrace(
+    electrodeTraces,
+    task,
+    phase,
+    condition,
+    modality,
+    metadata,
+  );
   if (resolved) return resolved;
   if (!electrode || !shouldUseMockTraces(allowMock)) return null;
   const trace = makeTrace(electrode, phase);
   return { time: trace.x, value: trace.y };
 }
 
-function meanAndSem(samples) {
-  if (samples.length === 0) return { mean: null, sem: null };
-  if (samples.length === 1) return { mean: samples[0], sem: 0 };
-  const mean = samples.reduce((sum, value) => sum + value, 0) / samples.length;
-  const variance = samples.reduce((sum, value) => sum + (value - mean) ** 2, 0) / (samples.length - 1);
-  return { mean, sem: Math.sqrt(variance) / Math.sqrt(samples.length) };
-}
-
-function electrodeHasPhaseTrace(traces, electrode, phase, viewSelection, allowMock = false) {
-  const trace = resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock);
+function electrodeHasPhaseTrace(traces, electrode, phase, viewSelection, allowMock = false, metadata = null) {
+  const trace = resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock, metadata);
   return Boolean(trace?.time?.length);
 }
 
-export function electrodesActiveInPhase(electrodes, phase, traces = null, viewSelection = 'all|Repeat') {
-  const { task } = parseViewSelection(viewSelection);
+export function electrodesActiveInPhase(electrodes, phase, traces = null, viewSelection = 'all|Repeat', metadata = null) {
+  const { task } = parseViewSelection(viewSelection, metadata);
   return (electrodes || []).filter((electrode) => {
-    if (traces && electrodeHasPhaseTrace(traces, electrode, phase, viewSelection)) {
+    if (traces && electrodeHasPhaseTrace(traces, electrode, phase, viewSelection, false, metadata)) {
       return true;
     }
     return resolvePhaseFlags(electrode, task)?.[phase];
   });
 }
 
-export function averageElectrodePhaseTraces(traces, electrodes, phase, viewSelection, allowMock = false) {
-  const activeElectrodes = electrodesActiveInPhase(electrodes, phase, traces, viewSelection);
+export function averageElectrodePhaseTraces(traces, electrodes, phase, viewSelection, allowMock = false, metadata = null) {
+  const activeElectrodes = electrodesActiveInPhase(electrodes, phase, traces, viewSelection, metadata);
   const electrodeTraces = activeElectrodes
-    .map((electrode) => resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock))
+    .map((electrode) => resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock, metadata))
     .filter((trace) => trace?.time?.length);
   if (electrodeTraces.length === 0) return null;
   if (electrodeTraces.length === 1) {
@@ -119,29 +176,52 @@ export function averageElectrodePhaseTraces(traces, electrodes, phase, viewSelec
   const timeSet = new Set();
   electrodeTraces.forEach((trace) => trace.time.forEach((time) => timeSet.add(time)));
   const times = Array.from(timeSet).sort((a, b) => a - b);
-  const values = [];
-  const sems = [];
-  times.forEach((time) => {
-    const samples = electrodeTraces
-      .map((trace) => interpolateTraceValue(trace, time))
-      .filter((value) => value != null);
-    const stats = meanAndSem(samples);
-    values.push(stats.mean);
-    sems.push(stats.sem);
+  const sums = Array(times.length).fill(0);
+  const sumSquares = Array(times.length).fill(0);
+  const counts = Array(times.length).fill(0);
+
+  electrodeTraces.forEach((trace) => {
+    interpolateTraceValues(trace, times).forEach((value, index) => {
+      if (value != null && Number.isFinite(value)) {
+        sums[index] += value;
+        sumSquares[index] += value ** 2;
+        counts[index] += 1;
+      }
+    });
+  });
+
+  const values = sums.map((sum, index) => (
+    counts[index] > 0 ? sum / counts[index] : null
+  ));
+  const sems = counts.map((count, index) => {
+    if (count === 0) return null;
+    if (count === 1) return 0;
+    const mean = sums[index] / count;
+    const variance = (sumSquares[index] - count * mean ** 2) / (count - 1);
+    return Math.sqrt(Math.max(variance, 0)) / Math.sqrt(count);
   });
   return { time: times, value: values, sem: sems };
 }
 
-export function resolvePanelPhaseTrace(traces, electrodes, phase, viewSelection, electrode, allowMock = false) {
+export function resolvePanelPhaseTrace(traces, electrodes, phase, viewSelection, electrode, allowMock = false, metadata = null) {
   if (electrode) {
-    return resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock);
+    return resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock, metadata);
   }
-  return averageElectrodePhaseTraces(traces, electrodes, phase, viewSelection, allowMock);
+  return averageElectrodePhaseTraces(traces, electrodes, phase, viewSelection, allowMock, metadata);
 }
 
-function electrodeHasConditionPhaseTrace(traces, electrode, task, phase, condition, allowMock = false) {
-  const viewSelection = buildViewSelection(task, condition);
-  return Boolean(resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock)?.time?.length);
+function electrodeHasConditionPhaseTrace(
+  traces,
+  electrode,
+  task,
+  phase,
+  condition,
+  modality = null,
+  allowMock = false,
+  metadata = null,
+) {
+  const viewSelection = buildViewSelection(task, condition, modality, metadata);
+  return Boolean(resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock, metadata)?.time?.length);
 }
 
 export function conditionsPresentInCohort(
@@ -152,16 +232,26 @@ export function conditionsPresentInCohort(
   phase = null,
   electrode = null,
   allowMock = false,
+  modality = null,
 ) {
   const canonical = conditionsForTask(metadata, task);
   const present = new Set();
   const scanElectrodes = electrode ? [electrode] : (electrodes || []);
-  const phases = phase ? [phase] : PHASES;
+  const phases = phase ? [phase] : phasesForTask(task, metadata);
 
   scanElectrodes.forEach((item) => {
     canonical.forEach((condition) => {
       const hasTrace = phases.some((phaseName) => (
-        electrodeHasConditionPhaseTrace(traces, item, task, phaseName, condition, allowMock)
+        electrodeHasConditionPhaseTrace(
+          traces,
+          item,
+          task,
+          phaseName,
+          condition,
+          modality,
+          allowMock,
+          metadata,
+        )
       ));
       if (hasTrace) present.add(condition);
     });
@@ -178,6 +268,7 @@ export function resolvePanelPhaseTracesByCondition(
   metadata,
   electrode = null,
   allowMock = false,
+  modality = null,
 ) {
   const conditions = conditionsPresentInCohort(
     traces,
@@ -187,10 +278,11 @@ export function resolvePanelPhaseTracesByCondition(
     phase,
     electrode,
     allowMock,
+    modality,
   );
 
   return conditions.map((condition) => {
-    const viewSelection = buildViewSelection(task, condition);
+    const viewSelection = buildViewSelection(task, condition, modality, metadata);
     const resolved = resolvePanelPhaseTrace(
       traces,
       electrodes,
@@ -198,6 +290,7 @@ export function resolvePanelPhaseTracesByCondition(
       viewSelection,
       electrode,
       allowMock,
+      metadata,
     );
     return {
       condition,
@@ -216,7 +309,16 @@ export function clipResolvedTraceToPhaseWindow(resolved, phase) {
   return clipTraceToPhaseWindow(rawTrace, phase);
 }
 
-export function buildPhaseSeriesList(traces, electrodes, phase, task, metadata, electrode, allowMock) {
+export function buildPhaseSeriesList(
+  traces,
+  electrodes,
+  phase,
+  task,
+  metadata,
+  electrode,
+  allowMock,
+  modality = null,
+) {
   return resolvePanelPhaseTracesByCondition(
     traces,
     electrodes,
@@ -225,6 +327,7 @@ export function buildPhaseSeriesList(traces, electrodes, phase, task, metadata, 
     metadata,
     electrode,
     allowMock,
+    modality,
   ).map(({ condition, resolved }) => ({
     condition,
     trace: clipResolvedTraceToPhaseWindow(resolved, phase),
@@ -382,8 +485,17 @@ export function windowMean(trace, t0, t1) {
   return samples.reduce((sum, value) => sum + value, 0) / samples.length;
 }
 
-export function causalWindowMeanForElectrode(traces, electrode, phase, viewSelection, time, windowSec, allowMock = false) {
-  const trace = resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock);
+export function causalWindowMeanForElectrode(
+  traces,
+  electrode,
+  phase,
+  viewSelection,
+  time,
+  windowSec,
+  allowMock = false,
+  metadata = null,
+) {
+  const trace = resolvePhaseTrace(traces, electrode, phase, viewSelection, allowMock, metadata);
   if (!trace) return null;
   return windowMean(trace, time, time + windowSec);
 }

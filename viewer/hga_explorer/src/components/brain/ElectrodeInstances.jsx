@@ -10,6 +10,7 @@ export default function ElectrodeInstances({
   selectedLoad,
   traces = null,
   significanceWindows = null,
+  metadata = null,
   hgaScale,
   animationScale,
   liveHgaByElectrodeId,
@@ -37,7 +38,7 @@ export default function ElectrodeInstances({
       const liveHga = liveHgaByElectrodeId?.[electrode.id];
       const hgaMean = isAnimating
         ? (liveHga ?? null)
-        : resolveHgaMean(electrode, selectedLoad, traces, significanceWindows);
+        : resolveHgaMean(electrode, selectedLoad, traces, significanceWindows, metadata);
       const radius = hgaToRadius(hgaMean, scale, { active, selected, hovered });
 
       tempObject.position.set(electrode.x, electrode.y, electrode.z);
@@ -62,6 +63,7 @@ export default function ElectrodeInstances({
     selectedLoad,
     traces,
     significanceWindows,
+    metadata,
     scale,
     liveHgaByElectrodeId,
     isAnimating,

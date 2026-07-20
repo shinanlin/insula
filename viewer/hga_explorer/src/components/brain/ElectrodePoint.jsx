@@ -10,6 +10,7 @@ export default function ElectrodePoint({
   selectedLoad,
   traces = null,
   significanceWindows = null,
+  metadata = null,
   hgaScale,
   animationScale,
   liveHga,
@@ -31,7 +32,7 @@ export default function ElectrodePoint({
   const scale = isAnimating && animationScale ? animationScale : hgaScale;
   const hgaMean = isAnimating
     ? (liveHga ?? null)
-    : resolveHgaMean(electrode, selectedLoad, traces, significanceWindows);
+    : resolveHgaMean(electrode, selectedLoad, traces, significanceWindows, metadata);
   const radius = hgaToRadius(hgaMean, scale, { active, selected, hovered });
   const opacity = active || selected ? 0.9 : hovered ? 0.65 : dimmed ? 0.04 : 0.42;
   return (

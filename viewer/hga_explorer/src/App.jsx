@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react';
 import { Activity, Brain, Filter, HelpCircle, Info } from 'lucide-react';
 import { PHASES } from './constants/phases.js';
 import { VENN_MAX_PHASES, VENN_MIN_PHASES } from './constants/venn.js';
-import { TASK_LABELS, TASK_OPTIONS } from './constants/tasks.js';
+import { TASK_LABELS, resolveTaskOptions } from './constants/tasks.js';
 import { DEFAULT_BRAIN_VIEW_MODE } from './constants/brain.js';
 import { electrodeInInsula } from './constants/insula.js';
 import useHgaExplorerData from './hooks/useHgaExplorerData.js';
@@ -23,6 +23,15 @@ import { formatViewSelectionLabel } from './utils/viewSelection.js';
 import { resolveElectrodesForBrainSpace } from './utils/electrodeCoords.js';
 import AtlasToggle from './components/layout/AtlasToggle.jsx';
 import { usesSplitTraces } from './utils/viewerLayout.js';
+import { resolvePhaseTrace } from './utils/traces.js';
+
+function traceHasFiniteValue(trace) {
+  const values = trace?.value ?? trace?.y;
+  return Boolean(
+    trace?.time?.length
+    && values?.some((value) => value != null && Number.isFinite(value)),
+  );
+}
 
 export default function App() {
   const [brainViewMode, setBrainViewMode] = useState(DEFAULT_BRAIN_VIEW_MODE);
@@ -71,11 +80,19 @@ export default function App() {
   const {
     selectedTask,
     selectedCondition,
+    selectedModality,
     availableConditions,
+    availableModalities,
     viewSelection,
     selectTask,
     selectCondition,
+    selectModality,
   } = useViewSelection(data?.metadata);
+
+  const taskOptions = useMemo(
+    () => resolveTaskOptions(data?.metadata),
+    [data?.metadata],
+  );
 
   const taskScopedElectrodes = useMemo(
     () => filterElectrodesForTask(
@@ -98,12 +115,16 @@ export default function App() {
       selectedTask,
       selectedCondition,
       data?.traces,
+      selectedModality,
+      data?.metadata,
     ),
     [
       taskScopedElectrodes,
       selectedTask,
       selectedCondition,
+      selectedModality,
       data?.traces,
+      data?.metadata,
     ],
   );
 
@@ -158,8 +179,9 @@ export default function App() {
   );
 
   const waveformElectrodes = useMemo(() => {
-    if (!insulaModeActive) return tableElectrodes;
-    return resolveElectrodesForBrainSpace(taskScopedElectrodes, brainSpace)
+    const scoped = tableElectrodes.length > 0 ? tableElectrodes : taskScopedElectrodes;
+    if (!insulaModeActive) return scoped;
+    return resolveElectrodesForBrainSpace(scoped, brainSpace)
       .filter(insulaFilter);
   }, [
     insulaModeActive,
@@ -176,12 +198,16 @@ export default function App() {
       selectedTask,
       selectedCondition,
       data?.traces,
+      selectedModality,
+      data?.metadata,
     ),
     [
       waveformElectrodes,
       selectedTask,
       selectedCondition,
+      selectedModality,
       data?.traces,
+      data?.metadata,
     ],
   );
 
@@ -189,6 +215,29 @@ export default function App() {
     () => animationElectrodes.map((electrode) => electrode.id).join('|'),
     [animationElectrodes],
   );
+
+  const animationPlayableByPhase = useMemo(() => (
+    Object.fromEntries(PHASES.map((phase) => [
+      phase,
+      animationElectrodes.some((electrode) => traceHasFiniteValue(
+        resolvePhaseTrace(
+          data?.traces,
+          electrode,
+          phase,
+          viewSelection,
+          data?.layout === 'mock',
+          data?.metadata,
+        ),
+      )),
+    ]))
+  ), [
+    animationElectrodes,
+    animationElectrodesKey,
+    data?.traces,
+    data?.layout,
+    viewSelection,
+    data?.metadata,
+  ]);
 
   const kdeRenderRequired = brainViewMode === 'kde';
 
@@ -213,6 +262,7 @@ export default function App() {
     tableElectrodesKey: animationElectrodesKey,
     traces: data?.traces,
     selectedLoad: viewSelection,
+    metadata: data?.metadata,
     selectedRegionIds,
     vennPhases,
     availableSubjectsKey,
@@ -229,7 +279,7 @@ export default function App() {
       selectedRegionCount: selectedRegions.length,
       availableRoiCount: availableRois.length,
       enabledRoiCount,
-      visibleElectrodeCount: insulaModeActive ? waveformElectrodes.length : tableElectrodes.length,
+      visibleElectrodeCount: tableElectrodes.length,
     });
     if (
       !baseEmpty
@@ -255,8 +305,44 @@ export default function App() {
     selectedAtlas,
   ]);
 
+  const waveformSelectionEmpty = useMemo(() => {
+    if (selectionEmpty?.code === 'no_subjects' || selectionEmpty?.code === 'no_venn_region') {
+      return selectionEmpty;
+    }
+    const baseEmpty = getSelectionEmptyState({
+      selectedSubjectCount: selectedSubjects.size,
+      selectedRegionCount: selectedRegions.length,
+      availableRoiCount: availableRois.length,
+      enabledRoiCount,
+      visibleElectrodeCount: waveformElectrodes.length,
+    });
+    if (
+      !baseEmpty
+      && insulaModeActive
+      && waveformElectrodes.length === 0
+      && tableElectrodes.length > 0
+    ) {
+      return {
+        code: 'no_insula_electrodes',
+        title: 'No insula electrodes in scope',
+        message: `Insula mode is on, but no insula electrodes match the current ${selectedAtlas} atlas, task, and subject filters.`,
+      };
+    }
+    return baseEmpty;
+  }, [
+    selectionEmpty,
+    selectedSubjects.size,
+    selectedRegions.length,
+    availableRois.length,
+    enabledRoiCount,
+    waveformElectrodes.length,
+    tableElectrodes.length,
+    insulaModeActive,
+    selectedAtlas,
+  ]);
+
   const canPlay = animationElectrodes.length > 0
-    && !selectionEmpty
+    && !waveformSelectionEmpty
     && (usesSplitTraces(data?.layout) || !tracesLoading);
 
   const usingExport = usesSplitTraces(data?.layout) || data?.dataSource === 'results';
@@ -309,14 +395,14 @@ export default function App() {
             {' · '}
             {data.atlasOptions?.find((option) => option.id === selectedAtlas)?.label || selectedAtlas}
             {' · '}
-            {formatViewSelectionLabel(viewSelection)}
+            {formatViewSelectionLabel(viewSelection, data?.metadata)}
             {forcedTemplate ? ' · template brain' : ` · ${brainSpace} brain`}
           </p>
         </div>
         <div className="topbar-controls">
           <div className="chip-group" data-tour="task-selector" aria-label="Task selector">
             <span className="chip-group-label"><Filter size={14} /> Task</span>
-            {TASK_OPTIONS.map((task) => (
+            {taskOptions.map((task) => (
               <button
                 key={task}
                 type="button"
@@ -351,6 +437,29 @@ export default function App() {
               </button>
             ))}
           </div>
+          {availableModalities.length > 1 && (
+            <div
+              className="chip-group"
+              data-tour="modality-selector"
+              aria-label="Modality selector"
+              title="Picture naming recording modality"
+            >
+              <span className="chip-group-label">Modality</span>
+              {availableModalities.map((modality) => (
+                <button
+                  key={modality}
+                  type="button"
+                  className={`chip${selectedModality === modality ? ' active' : ''}`}
+                  onClick={() => {
+                    selectModality(modality);
+                    clearSelectedElectrode();
+                  }}
+                >
+                  {modality}
+                </button>
+              ))}
+            </div>
+          )}
           <AtlasToggle
             options={atlasOptions}
             selectedAtlas={selectedAtlas}
@@ -482,12 +591,14 @@ export default function App() {
           tracesLoadProgress={tracesLoadProgress}
           initialLoadComplete={initialLoadComplete}
           selectedTask={selectedTask}
+          selectedModality={selectedModality}
           metadata={data.metadata}
           animationCache={animationCache}
           animationLoadingPhase={animationLoadingPhase}
           animationLoadProgress={animationLoadProgress}
           canPlay={canPlay}
-          selectionEmpty={selectionEmpty}
+          canPlayByPhase={animationPlayableByPhase}
+          selectionEmpty={waveformSelectionEmpty}
           playingPhase={playingPhase}
           isPlaying={isPlaying}
           awaitingKdeRender={awaitingKdeRender}
