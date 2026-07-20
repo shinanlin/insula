@@ -9,17 +9,25 @@
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
 
 set -eo pipefail
-source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
+source ~/.bashrc
 conda activate ieeg
 
 PHONEME_BIDS="/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/"
 VIEWER_ROOT="/hpc/group/coganlab/nanlinshi/insula/viewer/hga_explorer"
+INSULA_ROOT="/hpc/group/coganlab/nanlinshi/insula"
+cd "${INSULA_ROOT}"
 
-echo "===== Repackage PhonemeSequencing HGA with stats alias fix ====="
-python src/hga/package_highgamma.py \
+echo "===== Repackage PhonemeSequence HGA (aparc2009s + hammers) ====="
+python -m src.hga.package_highgamma \
   --bids_root "${PHONEME_BIDS}" \
   --band highgamma \
-  --ref bipolar
+  --ref bipolar \
+  --atlas aparc2009s
+python -m src.hga.package_highgamma \
+  --bids_root "${PHONEME_BIDS}" \
+  --band highgamma \
+  --ref bipolar \
+  --atlas hammers
 
 echo "===== Rebuild HGA Explorer (full cohort) ====="
 export HGA_EXPLORER_COHORT=full

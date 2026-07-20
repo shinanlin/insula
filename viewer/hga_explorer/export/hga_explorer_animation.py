@@ -6,11 +6,25 @@ import math
 from typing import Any
 
 PHASES = ("stimulus", "delay", "go", "response")
-V1_TASKS = ("PhonemeSequencing", "LexicalDelay")
+V1_TASKS = (
+    "PhonemeSequence",
+    "LexicalDelay",
+    "LexicalNoDelay",
+    "PictureNaming",
+)
 DEFAULT_CONDITION = "Repeat"
+DEFAULT_MODALITY = "sound"
 CONDITIONS_BY_TASK = {
-    "PhonemeSequencing": ["Repeat"],
+    "PhonemeSequence": ["Repeat"],
     "LexicalDelay": ["Repeat", "Decision"],
+    "LexicalNoDelay": ["Repeat", "Decision", "Passive"],
+    "PictureNaming": ["Repeat", "Passive"],
+}
+MODALITIES_BY_TASK: dict[str, list[str]] = {
+    "PictureNaming": ["image", "sound", "text"],
+}
+DEFAULT_MODALITY_BY_TASK: dict[str, str] = {
+    "PictureNaming": "sound",
 }
 DISPLAY_WAVEFORM_RANGE = (-0.5, 1.0)
 
@@ -19,16 +33,38 @@ ANIM_STEP_SEC = 0.02
 ANIM_GAUSSIAN_SIGMA_SEC = 0.04
 
 
-def selection_key(task: str, condition: str) -> str:
+def task_modalities(task: str) -> list[str]:
+    return list(MODALITIES_BY_TASK.get(task, []))
+
+
+def default_modality_for_task(task: str) -> str:
+    return DEFAULT_MODALITY_BY_TASK.get(task, DEFAULT_MODALITY)
+
+
+def selection_key(task: str, condition: str, modality: str | None = None) -> str:
+    if task in MODALITIES_BY_TASK:
+        mod = modality or default_modality_for_task(task)
+        return f"{task}|{condition}|{mod}"
+    if task == "all" and MODALITIES_BY_TASK:
+        mod = modality or DEFAULT_MODALITY
+        return f"all|{condition}|{mod}"
     return f"{task}|{condition}"
 
 
 def animation_bundle_keys(tasks: list[str] | None = None) -> tuple[str, ...]:
     task_list = list(tasks or V1_TASKS)
-    keys = [selection_key("all", DEFAULT_CONDITION)]
+    keys: list[str] = []
+    if any(task in MODALITIES_BY_TASK for task in task_list):
+        keys.append(selection_key("all", DEFAULT_CONDITION, DEFAULT_MODALITY))
+    else:
+        keys.append(selection_key("all", DEFAULT_CONDITION))
     for task in task_list:
         for condition in CONDITIONS_BY_TASK.get(task, [DEFAULT_CONDITION]):
-            keys.append(selection_key(task, condition))
+            if task in MODALITIES_BY_TASK:
+                for modality in MODALITIES_BY_TASK[task]:
+                    keys.append(selection_key(task, condition, modality))
+            else:
+                keys.append(selection_key(task, condition))
     return tuple(dict.fromkeys(keys))
 
 
@@ -76,30 +112,49 @@ def average_traces(traces: list[dict[str, list]]) -> dict[str, list] | None:
     return {"time": times, "value": values}
 
 
+def _condition_trace(
+    condition_traces: dict,
+    task: str,
+    condition: str,
+    modality: str,
+) -> dict[str, list] | None:
+    if not condition_traces:
+        return None
+    if isinstance(condition_traces, dict) and "time" in condition_traces:
+        return condition_traces
+    mod = default_modality_for_task(task) if task not in MODALITIES_BY_TASK else modality
+    return condition_traces.get(mod)
+
+
 def resolve_phase_trace(
     traces: dict,
     electrode_id: str,
     task: str,
     phase: str,
     condition: str,
+    modality: str = DEFAULT_MODALITY,
     tasks: list[str] | None = None,
 ) -> dict[str, list] | None:
     electrode_traces = traces.get(electrode_id, {})
     if task == "all":
         candidates = []
         for task_name in tasks or V1_TASKS:
-            trace = electrode_traces.get(task_name, {}).get(phase, {}).get(condition)
+            phase_map = electrode_traces.get(task_name, {}).get(phase, {})
+            trace = _condition_trace(phase_map.get(condition, {}), task_name, condition, modality)
             if trace:
                 candidates.append(trace)
         return average_traces(candidates)
-    return electrode_traces.get(task, {}).get(phase, {}).get(condition)
+    phase_map = electrode_traces.get(task, {}).get(phase, {})
+    return _condition_trace(phase_map.get(condition, {}), task, condition, modality)
 
 
-def parse_selection_key(selected_key: str) -> tuple[str, str]:
+def parse_selection_key(selected_key: str) -> tuple[str, str, str]:
     if "|" not in selected_key:
-        return selected_key, DEFAULT_CONDITION
-    task, condition = selected_key.split("|", 1)
-    return task, condition
+        return selected_key, DEFAULT_CONDITION, DEFAULT_MODALITY
+    parts = selected_key.split("|")
+    if len(parts) == 2:
+        return parts[0], parts[1], DEFAULT_MODALITY
+    return parts[0], parts[1], parts[2]
 
 
 def window_mean(trace: dict[str, list], t0: float, t1: float) -> float | None:
@@ -126,8 +181,16 @@ def causal_window_mean_for_electrode(
     window_sec: float,
     tasks: list[str] | None = None,
 ) -> float | None:
-    task, condition = parse_selection_key(selected_key)
-    trace = resolve_phase_trace(traces, electrode_id, task, phase, condition, tasks=tasks)
+    task, condition, modality = parse_selection_key(selected_key)
+    trace = resolve_phase_trace(
+        traces,
+        electrode_id,
+        task,
+        phase,
+        condition,
+        modality=modality,
+        tasks=tasks,
+    )
     if not trace:
         return None
     return window_mean(trace, time, time + window_sec)
@@ -205,7 +268,7 @@ def build_sliding_window_frames(
     step_sec: float = ANIM_STEP_SEC,
     display_range: tuple[float, float] = DISPLAY_WAVEFORM_RANGE,
 ) -> dict[str, Any]:
-    task, condition = parse_selection_key(selected_key)
+    task, condition, modality = parse_selection_key(selected_key)
     phase_min, phase_max = display_range
     t_end = phase_max - window_sec
     frames = []
@@ -246,6 +309,7 @@ def build_sliding_window_frames(
         "phase": phase,
         "selected_task": task,
         "selected_condition": condition,
+        "selected_modality": modality,
         "selection_key": selected_key,
         "times": [frame["time"] for frame in smoothed_frames],
         "electrode_ids": active_ids,

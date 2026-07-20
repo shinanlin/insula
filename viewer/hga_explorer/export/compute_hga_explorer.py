@@ -20,12 +20,40 @@ if str(_EXPORT_DIR) not in sys.path:
     sys.path.insert(0, str(_EXPORT_DIR))
 
 PHASES = ("stimulus", "delay", "go", "response")
-V1_TASKS = ("PhonemeSequencing", "LexicalDelay")
+V1_TASKS = (
+    "PhonemeSequence",
+    "LexicalDelay",
+    "LexicalNoDelay",
+    "PictureNaming",
+)
 DEFAULT_CONDITION = "Repeat"
+DEFAULT_MODALITY = "sound"
 CONDITIONS_BY_TASK = {
-    "PhonemeSequencing": ["Repeat"],
+    "PhonemeSequence": ["Repeat"],
     "LexicalDelay": ["Repeat", "Decision"],
+    "LexicalNoDelay": ["Repeat", "Decision", "Passive"],
+    "PictureNaming": ["Repeat", "Passive"],
 }
+MODALITIES_BY_TASK: dict[str, list[str]] = {
+    "PictureNaming": ["image", "sound", "text"],
+}
+DEFAULT_MODALITY_BY_TASK: dict[str, str] = {
+    "PictureNaming": "sound",
+}
+
+
+def task_modalities(task: str) -> list[str]:
+    return list(MODALITIES_BY_TASK.get(task, []))
+
+
+def default_modality_for_task(task: str) -> str:
+    return DEFAULT_MODALITY_BY_TASK.get(task, DEFAULT_MODALITY)
+
+
+def filter_task_modality(df: pd.DataFrame, task: str, modality: str) -> pd.DataFrame:
+    if not task_modalities(task):
+        return df
+    return df[df["modality"].astype(str).eq(modality)]
 SIGNIFICANCE_WINDOWS = {
     "stimulus": (0.0, 0.5),
     "delay": (0.0, 0.5),
@@ -280,15 +308,49 @@ def compute_hga_by_task_condition(
     return by_task
 
 
+def compute_hga_by_task_condition_modality(
+    df: pd.DataFrame,
+    tasks: list[str],
+) -> dict[str, dict[str, dict[str, pd.DataFrame]]]:
+    by_task: dict[str, dict[str, dict[str, pd.DataFrame]]] = {}
+    electrode_ids = pd.Index(df["electrode_id"].unique(), name="electrode_id")
+    for task in tasks:
+        task_df = metrics_source_for_task(df, task=task)
+        modalities = task_modalities(task) or [DEFAULT_MODALITY]
+        by_task[task] = {}
+        for condition in CONDITIONS_BY_TASK.get(task, [DEFAULT_CONDITION]):
+            by_task[task][condition] = {}
+            for modality in modalities:
+                scoped = filter_task_modality(
+                    task_df[task_df["description"].astype(str).eq(condition)],
+                    task,
+                    modality,
+                )
+                if scoped.empty:
+                    by_task[task][condition][modality] = pd.DataFrame(
+                        index=electrode_ids, columns=[task], dtype=float
+                    )
+                    continue
+                grouped = (
+                    scoped.groupby(["electrode_id", "task"], observed=True)["value"]
+                    .mean()
+                    .unstack(fill_value=np.nan)
+                )
+                by_task[task][condition][modality] = grouped.reindex(columns=[task])
+    return by_task
+
+
 def compute_hga_by_task(
     df: pd.DataFrame,
     tasks: list[str],
     condition: str = DEFAULT_CONDITION,
+    modality: str = DEFAULT_MODALITY,
 ) -> pd.DataFrame:
     pieces: list[pd.DataFrame] = []
     for task in tasks:
         task_df = metrics_source_for_task(df, task=task)
         task_df = task_df[task_df["description"].astype(str).eq(condition)]
+        task_df = filter_task_modality(task_df, task, modality)
         if task_df.empty:
             continue
         grouped = (
@@ -331,6 +393,10 @@ def normalize_hga_frame(df: pd.DataFrame) -> pd.DataFrame:
     df["electrode_id"] = df["subject"].astype(str) + "|" + df["channel"].astype(str)
     df["mask"] = df["mask"].astype(bool)
     df["time"] = pd.to_numeric(df["time"], errors="coerce")
+    if "modality" not in df.columns:
+        df["modality"] = DEFAULT_MODALITY
+    else:
+        df["modality"] = df["modality"].fillna(DEFAULT_MODALITY).astype(str)
     return df
 
 
@@ -352,12 +418,12 @@ def build_traces(
     tasks: list[str],
     max_trace_points: int = DEFAULT_MAX_TRACE_POINTS,
 ) -> dict:
-    """Build trace bundles keyed by electrode -> task -> phase -> condition."""
+    """Build trace bundles keyed by electrode -> task -> phase -> condition -> modality."""
     traces: dict = {}
     trace_df = clip_display_window(df[df["electrode_id"].isin(electrode_ids)].copy())
     grouped = (
         trace_df.groupby(
-            ["electrode_id", "task", "phase", "description", "time"],
+            ["electrode_id", "task", "phase", "description", "modality", "time"],
             observed=True,
         )["value"]
         .mean()
@@ -374,14 +440,17 @@ def build_traces(
         traces[electrode_id].setdefault(task, {})
         traces[electrode_id][task].setdefault(phase, {})
         for condition, condition_df in task_phase_df.groupby("description", observed=True):
-            condition_df = condition_df.sort_values("time")
-            condition_df = downsample_trace(condition_df, max_points=max_trace_points)
-            traces[electrode_id][task][phase][str(condition)] = {
-                "time": [float(x) for x in condition_df["time"].to_numpy()],
-                "value": [
-                    None if pd.isna(x) else float(x) for x in condition_df["value"].to_numpy()
-                ],
-            }
+            traces[electrode_id][task][phase].setdefault(str(condition), {})
+            for modality, modality_df in condition_df.groupby("modality", observed=True):
+                modality_df = modality_df.sort_values("time")
+                modality_df = downsample_trace(modality_df, max_points=max_trace_points)
+                traces[electrode_id][task][phase][str(condition)][str(modality)] = {
+                    "time": [float(x) for x in modality_df["time"].to_numpy()],
+                    "value": [
+                        None if pd.isna(x) else float(x)
+                        for x in modality_df["value"].to_numpy()
+                    ],
+                }
     return traces
 
 
@@ -412,6 +481,7 @@ def build_payload(
     tasks: list[str],
     subjects: list[str] | None,
     condition: str = DEFAULT_CONDITION,
+    modality: str = DEFAULT_MODALITY,
     max_trace_points: int = DEFAULT_MAX_TRACE_POINTS,
     include_traces: bool = True,
 ) -> dict:
@@ -419,8 +489,9 @@ def build_payload(
 
     phase_flags_df = compute_phase_flags(df)
     phase_flags_by_task = compute_phase_flags_by_task(df, tasks)
-    hga_by_task = compute_hga_by_task(df, tasks, condition=condition)
+    hga_by_task = compute_hga_by_task(df, tasks, condition=condition, modality=modality)
     hga_by_task_condition = compute_hga_by_task_condition(df, tasks)
+    hga_by_task_condition_modality = compute_hga_by_task_condition_modality(df, tasks)
     meta = build_electrode_metadata(df)
 
     electrodes: list[dict] = []
@@ -473,6 +544,30 @@ def build_payload(
                 }
                 for task in tasks
             },
+            "hga_by_task_condition_modality": {
+                task: {
+                    cond: {
+                        mod: None
+                        if row.electrode_id
+                        not in hga_by_task_condition_modality[task][cond][mod].index
+                        or pd.isna(
+                            hga_by_task_condition_modality[task][cond][mod]
+                            .loc[row.electrode_id]
+                            .get(task)
+                        )
+                        else float(
+                            hga_by_task_condition_modality[task][cond][mod]
+                            .loc[row.electrode_id]
+                            .get(task)
+                        )
+                        for mod in (
+                            task_modalities(task) or [DEFAULT_MODALITY]
+                        )
+                    }
+                    for cond in CONDITIONS_BY_TASK.get(task, [DEFAULT_CONDITION])
+                }
+                for task in tasks
+            },
             "region_ids": [],
         }
 
@@ -512,7 +607,13 @@ def build_payload(
         "source": "results",
         "tasks": list(tasks),
         "conditions": {task: list(CONDITIONS_BY_TASK.get(task, [DEFAULT_CONDITION])) for task in tasks},
+        "modalities": {
+            task: list(task_modalities(task))
+            for task in tasks
+            if task_modalities(task)
+        },
         "default_condition": condition,
+        "default_modality": modality,
         "phases": list(PHASES),
         "significance_windows": {phase: list(SIGNIFICANCE_WINDOWS[phase]) for phase in PHASES},
         "display_waveform_range": list(DISPLAY_WAVEFORM_RANGE),
@@ -908,16 +1009,24 @@ def validate_traces(
             for phase, condition_traces in phase_traces.items():
                 if phase not in PHASES:
                     issues.append(f"{electrode_id}/{task}: unexpected phase {phase}")
-                for condition, payload in condition_traces.items():
-                    times = payload.get("time") or []
-                    values = payload.get("value") or []
-                    if len(times) != len(values):
-                        issues.append(f"{electrode_id}/{task}/{phase}/{condition}: time/value length mismatch")
-                    if times and (min(times) < tmin - 1e-6 or max(times) > tmax + 1e-6):
-                        issues.append(
-                            f"{electrode_id}/{task}/{phase}/{condition}: "
-                            f"time out of display range [{tmin}, {tmax}]"
-                        )
+                for condition, modality_traces in condition_traces.items():
+                    if isinstance(modality_traces, dict) and "time" in modality_traces:
+                        modality_items = {default_modality_for_task(task): modality_traces}
+                    else:
+                        modality_items = modality_traces
+                    for modality, payload in modality_items.items():
+                        times = payload.get("time") or []
+                        values = payload.get("value") or []
+                        if len(times) != len(values):
+                            issues.append(
+                                f"{electrode_id}/{task}/{phase}/{condition}/{modality}: "
+                                "time/value length mismatch"
+                            )
+                        if times and (min(times) < tmin - 1e-6 or max(times) > tmax + 1e-6):
+                            issues.append(
+                                f"{electrode_id}/{task}/{phase}/{condition}/{modality}: "
+                                f"time out of display range [{tmin}, {tmax}]"
+                            )
     return issues
 
 
@@ -1006,7 +1115,7 @@ def main() -> None:
         "--tasks",
         nargs="*",
         default=list(V1_TASKS),
-        help="Task names without reference suffix, e.g. PhonemeSequencing LexicalDelay",
+        help="Task names without reference suffix, e.g. PhonemeSequence LexicalDelay",
     )
     parser.add_argument(
         "--subjects",
@@ -1020,6 +1129,7 @@ def main() -> None:
         help="Export every subject present in any configured task (union across tasks)",
     )
     parser.add_argument("--condition", default=DEFAULT_CONDITION)
+    parser.add_argument("--modality", default=DEFAULT_MODALITY)
     parser.add_argument("--max_trace_points", type=int, default=DEFAULT_MAX_TRACE_POINTS)
     parser.add_argument("--skip_traces", action="store_true")
     parser.add_argument("--skip_animation", action="store_true")
@@ -1063,6 +1173,7 @@ def main() -> None:
             tasks=tasks,
             subjects=args.subjects,
             condition=args.condition,
+            modality=args.modality,
             max_trace_points=args.max_trace_points,
             include_traces=write_traces and len(atlas_list) == 1,
         )
@@ -1093,6 +1204,7 @@ def main() -> None:
             tasks=tasks,
             subjects=args.subjects,
             condition=args.condition,
+            modality=args.modality,
             max_trace_points=args.max_trace_points,
             include_traces=write_traces,
         )

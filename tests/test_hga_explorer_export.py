@@ -9,7 +9,9 @@ import pandas as pd
 import pytest
 
 from viewer.hga_explorer.export.compute_hga_explorer import (
+    CONDITIONS_BY_TASK,
     DISPLAY_WAVEFORM_RANGE,
+    MODALITIES_BY_TASK,
     PHASES,
     V1_TASKS,
     build_payload,
@@ -29,7 +31,7 @@ def _sample_row(**overrides):
         "mask": True,
         "subject": "D0094",
         "description": "Repeat",
-        "task": "PhonemeSequencing",
+        "task": "PhonemeSequence",
         "phase": "Delay",
         "modality": "sound",
         "label": "ctx_lh_G_front_sup",
@@ -62,8 +64,20 @@ def _sample_row(**overrides):
     return base
 
 
+def test_v1_tasks_and_conditions():
+    assert V1_TASKS == (
+        "PhonemeSequence",
+        "LexicalDelay",
+        "LexicalNoDelay",
+        "PictureNaming",
+    )
+    assert CONDITIONS_BY_TASK["LexicalNoDelay"] == ["Repeat", "Decision", "Passive"]
+    assert CONDITIONS_BY_TASK["PictureNaming"] == ["Repeat", "Passive"]
+    assert MODALITIES_BY_TASK["PictureNaming"] == ["image", "sound", "text"]
+
+
 def test_discover_subjects_union_across_tasks(tmp_path: Path):
-    ps_root = tmp_path / "PhonemeSequencing(bipolar)(hammers)"
+    ps_root = tmp_path / "PhonemeSequence(bipolar)(hammers)"
     ld_root = tmp_path / "LexicalDelay(bipolar)(hammers)"
     (ps_root / "sub-D0001" / "HGA").mkdir(parents=True)
     (ps_root / "sub-D0002" / "HGA").mkdir(parents=True)
@@ -80,8 +94,8 @@ def test_discover_subjects_union_across_tasks(tmp_path: Path):
 
 def test_build_payload_phase_flags_and_hga_by_task():
     rows = [
-        _sample_row(task="PhonemeSequencing", phase="Delay", value=0.4),
-        _sample_row(task="PhonemeSequencing", phase="Go", value=0.6),
+        _sample_row(task="PhonemeSequence", phase="Delay", value=0.4),
+        _sample_row(task="PhonemeSequence", phase="Go", value=0.6),
         _sample_row(task="LexicalDelay", phase="Delay", value=0.5),
         _sample_row(task="LexicalDelay", phase="Delay", value=0.7, description="Decision"),
     ]
@@ -91,9 +105,25 @@ def test_build_payload_phase_flags_and_hga_by_task():
     assert electrode["phase_flags"]["delay"] is True
     assert electrode["phase_flags"]["go"] is True
     assert set(electrode["hga_by_task"]) == set(V1_TASKS)
-    assert electrode["hga_by_task"]["PhonemeSequencing"] == pytest.approx(0.5)
+    assert electrode["hga_by_task"]["PhonemeSequence"] == pytest.approx(0.5)
     assert electrode["hga_by_task"]["LexicalDelay"] == pytest.approx(0.5)
     assert not any(key.startswith("maper_") for key in electrode)
+
+
+def test_build_payload_manifest_modalities():
+    rows = [
+        _sample_row(task="PictureNaming", phase="Go", value=0.3, modality="image"),
+        _sample_row(task="PictureNaming", phase="Go", value=0.9, modality="sound"),
+    ]
+    payload = build_payload(
+        pd.DataFrame(rows),
+        tasks=["PictureNaming"],
+        subjects=["D0094"],
+    )
+    metadata = payload["metadata"]
+    assert metadata["tasks"] == ["PictureNaming"]
+    assert metadata["modalities"] == {"PictureNaming": ["image", "sound", "text"]}
+    assert metadata["default_modality"] == "sound"
 
 
 def test_write_split_layout_creates_manifest_and_electrodes(tmp_path: Path):
@@ -109,6 +139,7 @@ def test_write_split_layout_creates_manifest_and_electrodes(tmp_path: Path):
 
     assert manifest["layout"] == "split"
     assert manifest["metadata"]["tasks"] == list(V1_TASKS)
+    assert manifest["metadata"]["default_modality"] == "sound"
     assert manifest["files"]["traces"]["D0094"] == "traces/D0094.json"
     assert len(electrodes_doc["electrodes"]) == 1
     assert set(electrodes_doc["electrodes"][0]["phase_flags"]) == set(PHASES)
@@ -119,7 +150,7 @@ def test_write_split_layout_creates_manifest_and_electrodes(tmp_path: Path):
 def test_build_traces_clip_and_keying():
     rows = []
     for t in [-1.0, -0.5, 0.0, 0.5, 1.0, 1.5]:
-        rows.append(_sample_row(time=t, value=float(t), task="PhonemeSequencing", phase="Delay"))
+        rows.append(_sample_row(time=t, value=float(t), task="PhonemeSequence", phase="Delay"))
         rows.append(
             _sample_row(
                 time=t,
@@ -134,13 +165,36 @@ def test_build_traces_clip_and_keying():
     df["electrode_id"] = df["subject"].astype(str) + "|" + df["channel"].astype(str)
     traces = build_traces(df, {"D0094|D0094_LPAS2-3"}, list(V1_TASKS), max_trace_points=100)
 
-    ps_trace = traces["D0094|D0094_LPAS2-3"]["PhonemeSequencing"]["delay"]["Repeat"]
-    ld_trace = traces["D0094|D0094_LPAS2-3"]["LexicalDelay"]["delay"]["Decision"]
+    ps_trace = traces["D0094|D0094_LPAS2-3"]["PhonemeSequence"]["delay"]["Repeat"]["sound"]
+    ld_trace = traces["D0094|D0094_LPAS2-3"]["LexicalDelay"]["delay"]["Decision"]["sound"]
     assert min(ps_trace["time"]) >= DISPLAY_WAVEFORM_RANGE[0]
     assert max(ps_trace["time"]) <= DISPLAY_WAVEFORM_RANGE[1]
     assert -1.0 not in ps_trace["time"]
     assert 1.5 not in ld_trace["time"]
     assert validate_traces(traces, tasks=list(V1_TASKS)) == []
+
+
+def test_picture_naming_modalities_not_mixed():
+    rows = []
+    for modality, value in (("image", 0.2), ("sound", 0.8), ("text", 0.5)):
+        rows.append(
+            _sample_row(
+                task="PictureNaming",
+                phase="Go",
+                modality=modality,
+                value=value,
+                time=0.1,
+            )
+        )
+    df = pd.DataFrame(rows)
+    df["phase"] = df["phase"].str.lower()
+    df["electrode_id"] = df["subject"].astype(str) + "|" + df["channel"].astype(str)
+    traces = build_traces(df, {"D0094|D0094_LPAS2-3"}, ["PictureNaming"], max_trace_points=100)
+    pn = traces["D0094|D0094_LPAS2-3"]["PictureNaming"]["go"]["Repeat"]
+    assert set(pn) == {"image", "sound", "text"}
+    assert pn["image"]["value"][0] == pytest.approx(0.2)
+    assert pn["sound"]["value"][0] == pytest.approx(0.8)
+    assert pn["text"]["value"][0] == pytest.approx(0.5)
 
 
 def test_build_roi_mean_sources_from_hga_by_task():
@@ -152,14 +206,14 @@ def test_build_roi_mean_sources_from_hga_by_task():
             "x": 1.0,
             "y": 2.0,
             "z": 3.0,
-            "hga_by_task": {"PhonemeSequencing": 0.4, "LexicalDelay": 0.2},
+            "hga_by_task": {"PhonemeSequence": 0.4, "LexicalDelay": 0.2},
         },
         {
             "roi": "SFG",
             "x": 2.0,
             "y": 3.0,
             "z": 4.0,
-            "hga_by_task": {"PhonemeSequencing": 0.6, "LexicalDelay": None},
+            "hga_by_task": {"PhonemeSequence": 0.6, "LexicalDelay": None},
         },
     ]
     payload = build_roi_mean_sources(electrodes)
@@ -177,7 +231,7 @@ def test_build_subject_phase_animation_bundle_keys():
 
     rows = []
     for t in [-0.5, 0.0, 0.5, 1.0]:
-        rows.append(_sample_row(time=t, value=float(t), task="PhonemeSequencing", phase="Delay"))
+        rows.append(_sample_row(time=t, value=float(t), task="PhonemeSequence", phase="Delay"))
     df = pd.DataFrame(rows)
     df["phase"] = df["phase"].str.lower()
     df["electrode_id"] = df["subject"].astype(str) + "|" + df["channel"].astype(str)
@@ -189,7 +243,8 @@ def test_build_subject_phase_animation_bundle_keys():
         tasks=list(V1_TASKS),
     )
     assert set(bundle["bundles"]) == set(animation_bundle_keys(list(V1_TASKS)))
-    default_bundle = bundle["bundles"]["all|Repeat"]
+    default_bundle = bundle["bundles"]["all|Repeat|sound"]
     assert default_bundle["selected_task"] == "all"
+    assert default_bundle["selected_modality"] == "sound"
     assert default_bundle["times"][0] >= DISPLAY_WAVEFORM_RANGE[0]
     assert default_bundle["times"][-1] <= DISPLAY_WAVEFORM_RANGE[1]

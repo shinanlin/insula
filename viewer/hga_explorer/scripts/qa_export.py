@@ -119,6 +119,12 @@ def qa_shared_assets(data_dir: Path, manifest: dict, meta: dict) -> list[str]:
     issues: list[str] = []
     subjects = meta.get("subjects") or []
     shared_files = manifest.get("shared", {}).get("files") or manifest.get("files") or {}
+    default_modality = meta.get("default_modality") or "sound"
+    default_condition = meta.get("default_condition") or "Repeat"
+    default_bundle_keys = [
+        f"all|{default_condition}|{default_modality}",
+        f"all|{default_condition}",
+    ]
 
     for subject in subjects:
         trace_rel = shared_files["traces"][subject]
@@ -131,7 +137,15 @@ def qa_shared_assets(data_dir: Path, manifest: dict, meta: dict) -> list[str]:
             anim_rel = shared_files["animation"][subject][phase]
             anim_path = data_dir / anim_rel
             anim_payload = json.loads(anim_path.read_text(encoding="utf-8"))
-            bundle = anim_payload["bundles"]["all|Repeat"]
+            bundles = anim_payload.get("bundles") or {}
+            bundle_key = next((key for key in default_bundle_keys if key in bundles), None)
+            if bundle_key is None:
+                issues.append(
+                    f"{anim_rel}: missing default animation bundle "
+                    f"({' or '.join(default_bundle_keys)})"
+                )
+                continue
+            bundle = bundles[bundle_key]
             print(
                 f"  {anim_rel}: "
                 f"{len(bundle.get('times') or [])} frames, "
@@ -211,6 +225,12 @@ def qa_split_layout(data_dir: Path) -> int:
         print(f"Template mesh: {template_mesh} ({template_mesh.stat().st_size / 1e6:.2f} MB)")
 
     subjects = meta.get("subjects") or []
+    default_modality = meta.get("default_modality") or "sound"
+    default_condition = meta.get("default_condition") or "Repeat"
+    default_bundle_keys = [
+        f"all|{default_condition}|{default_modality}",
+        f"all|{default_condition}",
+    ]
     print(f"Manifest version: {manifest.get('version')} | layout: {manifest.get('layout')}")
     for subject in subjects:
         trace_path = data_dir / manifest["files"]["traces"][subject]
@@ -221,7 +241,15 @@ def qa_split_layout(data_dir: Path) -> int:
         for phase in meta.get("phases") or []:
             anim_path = data_dir / manifest["files"]["animation"][subject][phase]
             anim_payload = json.loads(anim_path.read_text(encoding="utf-8"))
-            bundle = anim_payload["bundles"]["all|Repeat"]
+            bundles = anim_payload.get("bundles") or {}
+            bundle_key = next((key for key in default_bundle_keys if key in bundles), None)
+            if bundle_key is None:
+                issues.append(
+                    f"{manifest['files']['animation'][subject][phase]}: missing default animation bundle "
+                    f"({' or '.join(default_bundle_keys)})"
+                )
+                continue
+            bundle = bundles[bundle_key]
             print(
                 f"  animation/{subject}/{phase}.json: "
                 f"{len(bundle.get('times') or [])} frames, "

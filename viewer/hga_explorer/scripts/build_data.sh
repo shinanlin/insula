@@ -33,7 +33,7 @@ python "${VIEWER_ROOT}/export/compute_hga_explorer.py" \
   --reference bipolar \
   --atlas all \
   --default_atlas hammers \
-  --tasks PhonemeSequencing LexicalDelay \
+  --tasks PhonemeSequence LexicalDelay LexicalNoDelay PictureNaming \
   "${SUBJECT_ARGS[@]}" \
   --output_dir "${DATA_DIR}"
 

@@ -80,7 +80,7 @@ v1 decision (closest to Load semantics):
 ### Condition selector
 
 - v1 includes **multiple conditions** where available (e.g. LexicalDelay `Decision` /
-  `Repeat`; PhonemeSequencing `Repeat`).
+  `Repeat`; PhonemeSequence `Repeat`).
 - v1: **single-select only** — one active condition at a time.
 - **Default condition: `Repeat`** whenever it exists for the active task / condition set.
 - When task=`all` and available conditions differ across tasks: expose the
@@ -204,17 +204,17 @@ require `maper_*` fields for export or UI.
 
 v1 task set:
 
-- `PhonemeSequencing(bipolar)`
+- `PhonemeSequence(bipolar)`
 - `LexicalDelay(bipolar)`
 
 Confirmed phase / condition shape:
 
-- PhonemeSequencing — Stimulus / Delay / Go / Response; desc Repeat
+- PhonemeSequence — Stimulus / Delay / Go / Response; desc Repeat
 - LexicalDelay — same phases; desc Decision / Repeat
 
 **Full export** (`build_data_full.sh` / `--all-subjects`): every subject with
 packaged HGA in **any** v1 task under `results/` (union across
-PhonemeSequencing and LexicalDelay). Partial-task subjects are included;
+PhonemeSequence and LexicalDelay). Partial-task subjects are included;
 `hga_by_task` may be null for tasks they did not run. Re-run export after
 `package_HGA.py` adds subjects — no manual ID list required.
 
@@ -288,7 +288,7 @@ Electrode records in `electrodes.json` (split layout) or the `electrodes` array
 |-------|------|-------|
 | `active_phases` | string[] | phases with `mask=true` under pipeline significance windows |
 | `phase_flags` | object | `{ stimulus, delay, go, response }` booleans |
-| `hga_by_task` | object | `{ PhonemeSequencing: float\|null, LexicalDelay: float\|null }` |
+| `hga_by_task` | object | `{ PhonemeSequence: float\|null, LexicalDelay: float\|null }` |
 | `region_ids` | string[] | Venn region membership (export-derived) |
 
 Condition-aware traces keyed by task + `description` (Repeat / Decision); trace
@@ -327,7 +327,7 @@ Optional detail-panel fields (Phase 4): `contact_1_roi`, `contact_1_hemi`,
   "hemi": "L",
   "active_phases": ["delay", "go"],
   "phase_flags": { "stimulus": false, "delay": true, "go": true, "response": false },
-  "hga_by_task": { "PhonemeSequencing": 0.42, "LexicalDelay": 0.38 },
+  "hga_by_task": { "PhonemeSequence": 0.42, "LexicalDelay": 0.38 },
   "x": -5.83, "y": 2.14, "z": 38.38,
   "x_native": -2.25, "y_native": -19.13, "z_native": 70.75,
   "x1_native": -0.5, "y1_native": -19.25, "z1_native": 70.5,
@@ -348,9 +348,9 @@ Optional detail-panel fields (Phase 4): `contact_1_roi`, `contact_1_hemi`,
   "layout": "split",
   "metadata": {
     "source": "results",
-    "tasks": ["PhonemeSequencing", "LexicalDelay"],
+    "tasks": ["PhonemeSequence", "LexicalDelay"],
     "conditions": {
-      "PhonemeSequencing": ["Repeat"],
+      "PhonemeSequence": ["Repeat"],
       "LexicalDelay": ["Repeat", "Decision"]
     },
     "default_condition": "Repeat",
@@ -423,7 +423,7 @@ Notes:
 
 ### Manifest (proposed)
 
-- task list (`PhonemeSequencing`, `LexicalDelay`)
+- task list (`PhonemeSequence`, `LexicalDelay`)
 - condition list per task + union list for task=`all`; default `Repeat`
 - phase list + pipeline significance windows + unified waveform display range `[-0.5, 1.0]`
 - subject list (validation first: D0094, D0071, D0084)
@@ -463,7 +463,7 @@ multi-task HGA exploration rather than Sternberg’s phase-overlap product name.
 
 Key export changes vs Sternberg:
 
-1. Discover HGA across `results/{task}(bipolar)` for PhonemeSequencing + LexicalDelay
+1. Discover HGA across `results/{task}(bipolar)` for PhonemeSequence + LexicalDelay
 2. Replace load aggregation with task aggregation
 3. Remap phase names Stimulus / Delay / Go / Response
 4. Drop encoding-load cutoffs; use pipeline significance windows from
@@ -514,7 +514,7 @@ Must rewrite / adapt:
 1. Scaffold `insula/viewer/hga_explorer` from Sternberg structure
 2. Update `src/package_HGA.py` to emit bipolar endpoint coords + contact aparc fields
 3. Export validation subjects **D0094, D0071, D0084** from `results/`
-   (both PhonemeSequencing + LexicalDelay)
+   (both PhonemeSequence + LexicalDelay)
 4. Task selector wired through size / waveform / animation;
    `all` = partial-task inclusion + aggregate cross-task waveforms;
    size/KDE = mean of available task HGAs
@@ -534,7 +534,7 @@ Must rewrite / adapt:
 
 Resolved:
 
-1. First task set: **PhonemeSequencing + LexicalDelay**
+1. First task set: **PhonemeSequence + LexicalDelay**
 2. Input root: **`results/` only** for v1
 3. Default Venn phases: **stimulus, delay, go, response**
 4. Display waveform range: **unified −0.5 to 1.0 s**
@@ -564,7 +564,7 @@ Still open / needs user input:
 ## 12. Correction log
 
 - 2026-07-09: initial draft from background investigation; Fig2/xcorr explicitly out of scope; Load → Task is the main isomorphism change.
-- 2026-07-09: corrections — default Venn = stimulus/delay/go/response; waveform display unified to [−0.5, 1.0]; v1 uses `results/` with PhonemeSequencing + LexicalDelay; v1 is MAPER-agnostic; electrode schema elevated for native↔template brain toggle and on-click bipolar endpoint reveal; MAPER deferred until later `package_HGA.py` work.
+- 2026-07-09: corrections — default Venn = stimulus/delay/go/response; waveform display unified to [−0.5, 1.0]; v1 uses `results/` with PhonemeSequence + LexicalDelay; v1 is MAPER-agnostic; electrode schema elevated for native↔template brain toggle and on-click bipolar endpoint reveal; MAPER deferred until later `package_HGA.py` work.
 - 2026-07-12: dual-atlas export + UI — manifest v2, default Hammers, APARC/Hammersmith toggle, shared traces; insula filter aligned with fig2.
 - 2026-07-09: corrections — `all` = aggregate cross-task waveforms; conditions included with v1 single-select and v2 condition Venn; aparc ROI labels only; multi-subject forces template; endpoint coords from upcoming `package_HGA.py`; `*_template` endpoint naming; endpoints clickable with ROI/label detail.
 - 2026-07-09: clarifications — “strict window” renamed/explained as significance window vs display range; module renamed to `viewer/hga_explorer`; `all` allows partial-task electrodes; waveforms always midpoint even when endpoint selected; added follow-up open questions.

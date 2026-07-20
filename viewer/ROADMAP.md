@@ -15,7 +15,7 @@ This document is the **execution plan** for building the Insula HGA Explorer.
 
 1. **Data contract first** — lock export JSON schema before wiring complex UI.
 2. **Validation cohort before full cohort** — prove the pipeline on **D0094, D0071,
-   D0084** (both PhonemeSequencing + LexicalDelay) before expanding to all 26
+   D0084** (both PhonemeSequence + LexicalDelay) before expanding to all 26
    dual-task subjects.
 3. **Export owns business logic** — task=`all` aggregation, phase masks, HGA metrics,
    and trace bundles are computed in Python; the React app consumes precomputed JSON.
@@ -96,7 +96,7 @@ viewer/hga_explorer/export/
 
 ### Phase 1a — `electrodes.json` + `manifest.json` (minimum export)
 
-**Input:** `results/{PhonemeSequencing,LexicalDelay}(bipolar)/sub-*/HGA/*_time.csv`  
+**Input:** `results/{PhonemeSequence,LexicalDelay}(bipolar)/sub-*/HGA/*_time.csv`  
 **Subjects:** D0094, D0071, D0084
 
 **Output:**
@@ -113,7 +113,7 @@ viewer/hga_explorer/public/data/
 - Discover tasks from `results/{task}(bipolar)({atlas})/`
 - `--atlas all` exports both atlases; shared traces under `shared/`
 - Phase flags from packaged `mask` (pipeline significance windows; see `HGA_EXPLORER.md` §4)
-- `hga_by_task`: `{ PhonemeSequencing: float|null, LexicalDelay: float|null }`
+- `hga_by_task`: `{ PhonemeSequence: float|null, LexicalDelay: float|null }`
 - Atlas-specific `roi` / `label` as packaged; Hammers exports `mix`
 - Midpoint coords: template `x,y,z` + native `x_native,y_native,z_native`
 - Endpoint coords + contact labels for bipolar reveal (from `package_HGA.py` output)
@@ -204,7 +204,7 @@ viewer/hga_explorer/scripts/
 
 ### Configuration for Phase 2 dev
 
-- Single task (e.g. PhonemeSequencing)
+- Single task (e.g. PhonemeSequence)
 - Single condition (Repeat)
 - Template brain only
 - Default Venn: all four phases selected (adapt Sternberg Venn if it caps at 3 — see risk note below)
@@ -361,7 +361,7 @@ This validates **data path + coordinates + phase masks** before investing in ani
 | `package_HGA.py` emits endpoint coords + contact labels (no MAPER) | Done |
 | Dual-atlas export (`aparc2009s` + `hammers`) + UI atlas toggle | Done |
 | Output path `insula/results/` (repo root) | Done |
-| Full cohort repackage (PhonemeSequencing + LexicalDelay) | Slurm job — verify before Phase 1 full export |
+| Full cohort repackage (PhonemeSequence + LexicalDelay) | Slurm job — verify before Phase 1 full export |
 | `docs/HGA_EXPLORER.md` design spec | Done |
 
 ---
