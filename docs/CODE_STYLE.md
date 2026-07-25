@@ -171,6 +171,35 @@ results/PhonemeSequence(roi)(bipolar)
 
 Do not change this grammar in only one script. Notebooks and downstream analysis code often assume it.
 
+Analysis-specific result roots sit beside the packaged-HGA grammar. Use a single
+word with no underscores, for example `results/connectivity`.
+
+### BIDSPath for reads and writes
+
+Read and write all analysis artifacts with `mne_bids.BIDSPath`. Follow the
+patterns in `src/xcorr/run_xcorr_pair_permutation.py` and
+`src/hga/package_highgamma.py`. Do not hand-concatenate BIDS stems or filenames.
+
+BIDS filenames are `key-value` tokens joined by `_`. Each entity value must be a
+single token with no `_` inside the value (for example `LexicalDelay`,
+`Response`, `xcorr`). Underscores only separate entities.
+
+Use `BIDSPath.mkdir(exist_ok=True)` before writing. Set `check=False` for
+project-local derivative layouts that are not full BIDS datasets.
+
+Top-level folders under `results/` and `logs/` for new pipelines must be single
+words (for example `connectivity`, `logs/connectivity`), not `snake_case`.
+
+Example connectivity layout:
+
+```text
+results/connectivity/<Task>/sub-<ID>/<metric>/
+  sub-<ID>_task-<Task>_proc-<Phase>_desc-<Cond>_<suffix>.<ext>
+```
+
+Where `<metric>` is the BIDS `datatype` (`xcorr`, `oaec`, `wpli`) and
+`<suffix>` is a single token (`pairs`, `detail`, `clusters`, `provenance`).
+
 ## ROI-as-Subject Convention
 
 Several scripts use ROI labels as the `--subject` argument. This is intentional for group-level ROI decoding.
