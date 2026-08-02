@@ -15,6 +15,16 @@ def hga_results_dir(task: str, ref: str, atlas: str) -> Path:
     return RESULTS_ROOT / f"{task}({ref})({atlas})"
 
 
+def decoding_results_dir() -> Path:
+    """Canonical decoding output root: ``results/decoding/``."""
+    return RESULTS_ROOT / "decoding"
+
+
+def decoding_task_dir(task: str) -> Path:
+    """Task-specific decoding output root: ``results/decoding/{task}/``."""
+    return decoding_results_dir() / task
+
+
 def parcellation_qc_dir(atlas: str, subject: str) -> Path:
     """Native MRI slice QC for parcellation (Stage 3), keyed by atlas and subject."""
     if atlas not in SUPPORTED_ATLASES:
