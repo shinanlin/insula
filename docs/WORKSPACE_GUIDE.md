@@ -46,7 +46,7 @@ Production Python is grouped by analysis family:
 | `src/decoding/` | ROI / cross-ROI / cross-condition decoding | `src/decoding/run_decoding.py` |
 | `src/xcorr/` | Insula–IFG cross-correlation and viewer export | `src/xcorr/run_xcorr.py` |
 | `src/univariate/` | Cluster permutation contrasts on packaged HGA | `src/univariate/contrasts.py` |
-| `src/reaction_time/` | Reaction-time encoding models | `src/reaction_time/run_reaction_time.py` |
+| `src/reaction_time/` | Strict-insula time-resolved RT ridge | `run_insula_rt_ridge.py`, `summarize_insula_rt_ridge.py` |
 | `src/connectivity/` | VAR/PDC connectivity | `src/connectivity/run_connectivity.py` |
 | `src/encoding/` | mTRF encoding models | `src/encoding/encoder.py` |
 | `src/archive/` | Legacy aparc-era univariate scripts | `src/univariate/contrasts.py` (replacement) |
