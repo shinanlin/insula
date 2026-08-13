@@ -334,7 +334,13 @@ def joint_cluster_correction(
                 length = stop - start
                 p_value = (1.0 + np.sum(null_max >= length)) / (n_perm + 1.0)
                 cluster_p[channel, start:stop] = p_value
-                significant[channel, start:stop] = p_value <= float(cluster_alpha)
+                # A negative OOF correlation means the model reverses the RT
+                # rank order on held-out items.  It is not useful prediction
+                # and must not be reinterpreted as a negative HGA/RT effect.
+                significant[channel, start:stop] = (
+                    (p_value <= float(cluster_alpha))
+                    & (observed[channel, start:stop] > 0)
+                )
         output[phase] = ClusterResult(
             point_p=point_p[phase],
             cluster_p_fwer=cluster_p,

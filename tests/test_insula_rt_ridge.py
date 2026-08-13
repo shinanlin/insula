@@ -24,6 +24,7 @@ from src.reaction_time.insula_rt_io import (
     PhaseModelResult,
     write_phase_result,
 )
+from src.reaction_time.summarize_insula_rt_direction import mean_hga_rt_direction
 from src.reaction_time.run_insula_rt_ridge import sliding_windows
 from src.reaction_time.summarize_insula_rt_ridge import summarize_results
 
@@ -159,6 +160,23 @@ def test_oof_ridge_outputs_one_prediction_per_trial():
     assert result.score_r[0] > result.score_r[1]
 
 
+def test_mean_hga_direction_negative_means_higher_hga_shorter_rt():
+    amplitude = np.linspace(-1, 1, 20)
+    X = np.stack([amplitude, amplitude], axis=1)[:, None, :]
+    log_rt = -0.5 * amplitude
+    correlation, _, raw_slope, n_trials = mean_hga_rt_direction(
+        X,
+        np.array([0.0, 0.1]),
+        log_rt,
+        channel_index=0,
+        window_start=0.0,
+        window_end=0.1,
+    )
+    assert n_trials == 20
+    assert correlation < -0.99
+    assert raw_slope < 0
+
+
 def test_joint_cluster_correction_detects_run_not_isolated_point():
     rng = np.random.RandomState(4)
     permutations = rng.normal(0, 0.05, size=(1, 14, 199))
@@ -173,6 +191,22 @@ def test_joint_cluster_correction_detects_run_not_isolated_point():
     )["Delay"]
     assert not corrected.sig_mask_fwer[0, 0]
     assert corrected.sig_mask_fwer[0, 3:12].all()
+
+
+def test_joint_cluster_correction_never_marks_negative_prediction():
+    rng = np.random.RandomState(8)
+    permutations = rng.normal(-0.5, 0.03, size=(1, 14, 199))
+    observed = np.full((1, 14), -0.5)
+    # This run exceeds its deliberately negative permutation null and would
+    # pass the cluster test without an explicit positive-OOF-r requirement.
+    observed[0, 3:12] = -0.2
+    corrected = joint_cluster_correction(
+        {
+            "Delay": (observed, permutations),
+            "Go": (np.full_like(observed, -0.5), permutations.copy()),
+        }
+    )["Delay"]
+    assert not corrected.sig_mask_fwer.any()
 
 
 def _dummy_phase_data() -> PhaseData:
@@ -237,7 +271,7 @@ def test_h5_round_trip_and_summary_schema(tmp_path: Path):
         sig_mask_fwer=np.array([[True, True]]),
     )
     result = PhaseModelResult(
-        score_r=np.array([[0.2, 0.3]]),
+        score_r=np.array([[-0.2, 0.3]]),
         score_r2=np.array([[-0.1, 0.02]]),
         score_mae=np.array([[0.2, 0.1]]),
         perm_score_r=np.zeros((1, 2, 5)),
@@ -265,5 +299,6 @@ def test_h5_round_trip_and_summary_schema(tmp_path: Path):
     )
     assert coverage.loc[0, "n_electrodes"] == 1
     assert bool(electrodes.loc[0, "significant"])
+    assert electrodes.loc[0, "n_significant_windows"] == 1
     assert len(clusters) == 1
     assert (tmp_path / "summaries" / "significant_clusters.csv").is_file()

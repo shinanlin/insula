@@ -19,6 +19,9 @@ in Delay- and Go-aligned high-gamma epochs.
   or condition restrictions.
 - Inference: one-sided temporal clusters, with the permutation maximum taken
   jointly across Delay/Go, all strict-insula electrodes, and time.
+- A valid predictive window must be FWER-significant **and** have positive OOF
+  Pearson `r`. Negative prediction `r` means reversed held-out RT ranking; it
+  is not evidence that higher HGA amplitude predicts shorter RT.
 
 ## Output
 
@@ -49,6 +52,19 @@ This writes `coverage.csv`, `electrodes.csv`, and
 `significant_clusters.csv` under `results/rt/summaries/`. Existing hard NMF
 cluster assignments are merged by channel when available; they are not used
 as model features.
+
+Describe amplitude direction within strict Delay-to-Go positive-prediction
+windows:
+
+```bash
+python -m src.reaction_time.summarize_insula_rt_direction
+```
+
+This selects one peak window per task × electrode and relates trial-wise mean
+HGA to log RT. A negative slope means higher HGA is associated with shorter
+RT. Because the peak window and direction are estimated from the same trials,
+this is explicitly a post-selection descriptive analysis, not an independent
+confirmatory test.
 
 ## Test and submit
 

@@ -57,7 +57,14 @@ def summarize_results(
             score_r = h5["scores/r"][:]
             score_r2 = h5["scores/r2"][:]
             score_mae = h5["scores/mae"][:]
-            significant = h5["inference/sig_mask_fwer"][:].astype(bool)
+            # Production HDF5 files created before the positive-r rule retain
+            # their raw inference mask.  Apply the prediction-valid direction
+            # defensively here so old and new files summarize identically.
+            significant = (
+                h5["inference/sig_mask_fwer"][:].astype(bool)
+                & np.isfinite(score_r)
+                & (score_r > 0)
+            )
             cluster_p = h5["inference/cluster_p_fwer"][:]
             center = h5["windows/center"][:]
             start = h5["windows/start"][:]
