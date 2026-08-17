@@ -119,4 +119,5 @@ def test_apply_aparc_roi_merge():
 
 def test_coord_results_dir_has_atlas_suffix():
     path = hga_results_dir("LexicalDelay", "bipolar", "hammers")
-    assert path.name == "LexicalDelay(bipolar)(hammers)"
+    assert path.name == "LexicalDelay"
+    assert path.parent.name == "hga"

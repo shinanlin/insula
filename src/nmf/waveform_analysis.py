@@ -15,7 +15,7 @@ large constant offset dominate NMF.  This analysis instead:
 5. uses Hammers AIC/PIC labels only after clustering, as spatial validation.
 
 Defaults intentionally match the task, condition, and subject exclusion used by
-``vizpub/fig2.ipynb``.  Outputs are written to ``tmp/nmf_corrected``.
+``vizpub/fig2.ipynb``.  Outputs are written to ``results/nmf``.
 """
 
 from __future__ import annotations
@@ -33,18 +33,27 @@ from sklearn.decomposition import NMF
 from sklearn.exceptions import ConvergenceWarning
 from sklearn.metrics import adjusted_rand_score, silhouette_score
 
+from src.paths import RESULTS_ROOT, hga_results_dir
+
 
 TASKS = (
     "PhonemeSequence",
     "LexicalDelay",
     "PictureNaming",
-    "LexicalNoDelay",
+    "SentenceRep",
 )
 PHASE_WINDOWS = {
     "stimulus": (-0.5, 1.0),
     "delay": (0.0, 1.0),
     "go": (-0.5, 1.0),
     "response": (-0.5, 0.5),
+}
+# Post-onset crop for concat-NMF sensitivity checks (no pre-event baseline).
+PHASE_WINDOWS_POSTONSET = {
+    "stimulus": (0.0, 1.0),
+    "delay": (0.0, 1.0),
+    "go": (0.0, 1.0),
+    "response": (0.0, 0.5),
 }
 PHASE_ALIASES = {"audio": "stimulus", "resp": "response"}
 USECOLS = (
@@ -64,9 +73,24 @@ USECOLS = (
     "mix",
 )
 FUNCTION_COLORS = {
-    "sustained_ramping": "#A9373B",
-    "sensory_transient": "#2369BD",
+    "sustain": "#A9373B",
+    "motor": "#C4A35A",
+    "sensory": "#2369BD",
 }
+CLUSTER_ORDER = (
+    "sustain",
+    "motor",
+    "sensory",
+)
+
+
+def ordered_clusters(labels) -> list[str]:
+    """Stable display order for functional cluster names present in ``labels``."""
+
+    present = {str(value) for value in np.asarray(labels)}
+    ordered = [name for name in CLUSTER_ORDER if name in present]
+    ordered.extend(sorted(present - set(ordered)))
+    return ordered
 
 
 def normalize_nmf_factors(
@@ -85,39 +109,177 @@ def normalize_nmf_factors(
     return W * scales[None, :], H / scales[:, None]
 
 
+def _early_late_masks(times: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
+    early = (times >= 0.0) & (times <= 0.30)
+    late = (times >= 0.50) & (times <= 0.90)
+    if early.any() and late.any():
+        return early, late
+    # Fallback for non-stimulus epochs: first vs last third of the time axis.
+    n = len(times)
+    early_idx = np.zeros(n, dtype=bool)
+    late_idx = np.zeros(n, dtype=bool)
+    early_idx[: max(1, n // 3)] = True
+    late_idx[2 * n // 3 :] = True
+    return early_idx, late_idx
+
+
+def _transient_scores(H: np.ndarray, times: np.ndarray) -> np.ndarray:
+    early, late = _early_late_masks(times)
+    return H[:, early].mean(axis=1) - H[:, late].mean(axis=1)
+
+
 def orient_two_components(
     H: np.ndarray, times: np.ndarray
 ) -> dict[int, str]:
     """Name k=2 components from stimulus shape, without anatomy.
 
-    The component with the larger early-minus-late response is called sensory
-    transient.  The other component is called sustained/ramping.
+    The component with the larger early-minus-late response is called sensory.
+    The other component is called sustain.
     """
 
     if H.shape[0] != 2:
         raise ValueError("Functional orientation is defined only for k=2")
-    early = (times >= 0.0) & (times <= 0.30)
-    late = (times >= 0.50) & (times <= 0.90)
-    if not early.any() or not late.any():
-        # Fallback for non-stimulus epochs: first vs last third of the time axis.
-        n = len(times)
-        early_idx = np.zeros(n, dtype=bool)
-        late_idx = np.zeros(n, dtype=bool)
-        early_idx[: max(1, n // 3)] = True
-        late_idx[2 * n // 3 :] = True
-        early, late = early_idx, late_idx
-    transient_score = H[:, early].mean(axis=1) - H[:, late].mean(axis=1)
+    transient_score = _transient_scores(H, times)
     sensory = int(np.argmax(transient_score))
     return {
-        sensory: "sensory_transient",
-        1 - sensory: "sustained_ramping",
+        sensory: "sensory",
+        1 - sensory: "sustain",
     }
+
+
+def orient_three_components(
+    H: np.ndarray, times: np.ndarray
+) -> dict[int, str]:
+    """Name k=3 components from stimulus early-minus-late shape, without anatomy.
+
+    Highest score → sensory, lowest → sustain, middle →
+    motor.
+    """
+
+    if H.shape[0] != 3:
+        raise ValueError("Three-component orientation requires H with 3 rows")
+    order = np.argsort(_transient_scores(H, times))
+    return {
+        int(order[0]): "sustain",
+        int(order[1]): "motor",
+        int(order[2]): "sensory",
+    }
+
+
+def orient_components(
+    H: np.ndarray, times: np.ndarray
+) -> dict[int, str]:
+    """Name NMF components from waveform shape (early−late transient score).
+
+    k=2/3 use the canonical sustain / motor / sensory labels.
+    For k>3, extremes keep those names; middle ranks become motor_1…
+    """
+
+    k = int(H.shape[0])
+    if k == 2:
+        return orient_two_components(H, times)
+    if k == 3:
+        return orient_three_components(H, times)
+    if k < 2:
+        raise ValueError(f"Need k>=2, got k={k}")
+    order = np.argsort(_transient_scores(H, times))
+    names: dict[int, str] = {
+        int(order[0]): "sustain",
+        int(order[-1]): "sensory",
+    }
+    middle = [int(c) for c in order[1:-1]]
+    if len(middle) == 1:
+        names[middle[0]] = "motor"
+    else:
+        for rank, comp in enumerate(middle, start=1):
+            names[comp] = f"motor_{rank}"
+    return names
+
+
+def _interp_components_to_times(
+    H: np.ndarray, times: np.ndarray, target_times: np.ndarray
+) -> np.ndarray:
+    """Resample each H row onto ``target_times`` (linear interpolation)."""
+
+    if H.shape[1] == len(target_times) and np.allclose(times, target_times):
+        return np.asarray(H, dtype=float)
+    return np.vstack(
+        [np.interp(target_times, times, H[i]) for i in range(H.shape[0])]
+    )
+
+
+def component_correlation_matrix(
+    H: np.ndarray,
+    times: np.ndarray,
+    H_ref: np.ndarray,
+    times_ref: np.ndarray,
+) -> np.ndarray:
+    """Pearson r matrix (n_comp × n_ref) after interpolating ``H`` onto ``times_ref``."""
+
+    if H.shape[0] != H_ref.shape[0]:
+        raise ValueError(
+            f"Component count mismatch: H has {H.shape[0]}, H_ref has {H_ref.shape[0]}"
+        )
+    H_aligned = _interp_components_to_times(H, times, times_ref)
+    corr = np.zeros((H.shape[0], H_ref.shape[0]), dtype=float)
+    for i in range(H.shape[0]):
+        for j in range(H_ref.shape[0]):
+            a = H_aligned[i]
+            b = H_ref[j]
+            if np.std(a) < 1e-12 or np.std(b) < 1e-12:
+                corr[i, j] = 0.0
+            else:
+                corr[i, j] = float(np.corrcoef(a, b)[0, 1])
+    return corr
+
+
+def align_components_to_reference(
+    H: np.ndarray,
+    times: np.ndarray,
+    H_ref: np.ndarray,
+    times_ref: np.ndarray,
+) -> tuple[dict[int, int], np.ndarray]:
+    """Match components to a reference H via Hungarian max-correlation.
+
+    Returns
+    -------
+    mapping
+        ``phase_component_index → reference_component_index``
+    corr
+        Full correlation matrix used for the match.
+    """
+
+    from scipy.optimize import linear_sum_assignment
+
+    corr = component_correlation_matrix(H, times, H_ref, times_ref)
+    # Maximize correlation ≡ minimize negative correlation
+    row_ind, col_ind = linear_sum_assignment(-corr)
+    mapping = {int(i): int(j) for i, j in zip(row_ind, col_ind)}
+    return mapping, corr
+
+
+def names_aligned_to_reference(
+    H: np.ndarray,
+    times: np.ndarray,
+    H_ref: np.ndarray,
+    times_ref: np.ndarray,
+    ref_names: dict[int, str],
+) -> tuple[dict[int, str], dict[int, int], np.ndarray]:
+    """Name phase components by matching H shapes to a named reference fit."""
+
+    mapping, corr = align_components_to_reference(H, times, H_ref, times_ref)
+    names = {phase_idx: ref_names[ref_idx] for phase_idx, ref_idx in mapping.items()}
+    return names, mapping, corr
 
 
 def discover_paths(results_root: Path, tasks: tuple[str, ...]) -> list[Path]:
     paths: list[Path] = []
     for task in tasks:
-        task_root = results_root / f"{task}(bipolar)(hammers)"
+        task_root = (
+            hga_results_dir(task)
+            if results_root == RESULTS_ROOT
+            else results_root / "hga" / task
+        )
         paths.extend(sorted(task_root.glob("sub-*/HGA/*desc-Repeat_time.csv")))
     if not paths:
         raise FileNotFoundError(
@@ -173,9 +335,15 @@ def load_hga_rows(
     return pd.concat(frames, ignore_index=True)
 
 
-def restrict_windows(frame: pd.DataFrame) -> pd.DataFrame:
+def restrict_windows(
+    frame: pd.DataFrame,
+    windows: dict[str, tuple[float, float]] | None = None,
+) -> pd.DataFrame:
+    """Keep rows inside per-phase time windows (exclusive endpoints)."""
+
+    windows = PHASE_WINDOWS if windows is None else windows
     keep = np.zeros(len(frame), dtype=bool)
-    for phase, (start, stop) in PHASE_WINDOWS.items():
+    for phase, (start, stop) in windows.items():
         keep |= (
             frame["phase"].eq(phase)
             & frame["time"].gt(start)
@@ -226,6 +394,87 @@ def stimulus_matrix(
     frame: pd.DataFrame, *, min_coverage: float = 0.95
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     return phase_matrix(frame, "stimulus", min_coverage=min_coverage)
+
+
+def concatenated_phase_matrix(
+    frame: pd.DataFrame,
+    phases: tuple[str, ...] = tuple(PHASE_WINDOWS),
+    *,
+    min_coverage: float = 0.95,
+) -> tuple[pd.DataFrame, pd.DataFrame, dict[str, slice]]:
+    """Build channel × concatenated-time matrix across event-aligned epochs.
+
+    Unlike the old exploratory notebook, this does **not** demean epochs or
+    shift by a global minimum.  Missing phases are not zero-filled: only
+    channels that meet ``min_coverage`` in *every* requested phase are kept.
+
+    Columns are a ``(phase, time)`` MultiIndex.  ``phase_slices`` maps each
+    phase name to a column slice into the flat feature axis (and into H).
+    """
+
+    if not phases:
+        raise ValueError("Need at least one phase to concatenate")
+
+    per_phase: list[pd.DataFrame] = []
+    for phase in phases:
+        mat, _meta = phase_matrix(frame, phase, min_coverage=min_coverage)
+        mat = mat.copy()
+        mat.columns = pd.MultiIndex.from_arrays(
+            [
+                np.full(mat.shape[1], phase, dtype=object),
+                mat.columns.to_numpy(dtype=float),
+            ],
+            names=["phase", "time"],
+        )
+        per_phase.append(mat)
+
+    common = per_phase[0].index
+    for mat in per_phase[1:]:
+        common = common.intersection(mat.index)
+    if len(common) == 0:
+        raise ValueError(
+            f"No channels meet min_coverage={min_coverage} in all phases {phases}"
+        )
+
+    concat = pd.concat([mat.loc[common] for mat in per_phase], axis=1)
+    metadata = channel_metadata(frame).loc[common]
+
+    phase_slices: dict[str, slice] = {}
+    offset = 0
+    for phase, mat in zip(phases, per_phase):
+        n_t = mat.shape[1]
+        phase_slices[phase] = slice(offset, offset + n_t)
+        offset += n_t
+    return concat, metadata, phase_slices
+
+
+def split_concat_components(
+    H: np.ndarray,
+    columns: pd.MultiIndex,
+    phase_slices: dict[str, slice],
+) -> dict[str, tuple[np.ndarray, np.ndarray]]:
+    """Split concatenated H rows into per-phase ``(H_phase, times)``."""
+
+    out: dict[str, tuple[np.ndarray, np.ndarray]] = {}
+    for phase, sl in phase_slices.items():
+        times = columns.get_level_values("time")[sl].to_numpy(dtype=float)
+        out[phase] = (np.asarray(H[:, sl], dtype=float), times)
+    return out
+
+
+def orient_components_on_phase_segment(
+    H: np.ndarray,
+    columns: pd.MultiIndex,
+    phase_slices: dict[str, slice],
+    *,
+    name_phase: str = "stimulus",
+) -> dict[int, str]:
+    """Name concat-NMF components from early−late shape on one phase segment."""
+
+    if name_phase not in phase_slices:
+        raise KeyError(f"name_phase={name_phase!r} not in {sorted(phase_slices)}")
+    H_seg, times_seg = split_concat_components(H, columns, phase_slices)[name_phase]
+    return orient_components(H_seg, times_seg)
 
 
 def prepare_shape_matrix(raw: np.ndarray) -> tuple[np.ndarray, np.ndarray]:
@@ -337,7 +586,7 @@ def within_subject_permutation_p(
     subjects = np.asarray(subjects)
 
     def agreement(labels: np.ndarray) -> float:
-        predicted_roi = np.where(labels == "sustained_ramping", "AIC", "PIC")
+        predicted_roi = np.where(labels == "sustain", "AIC", "PIC")
         return float(np.mean(predicted_roi == rois))
 
     observed = agreement(functional_labels)
@@ -354,12 +603,15 @@ def within_subject_permutation_p(
 
 
 def summarize_held_out(
-    frame: pd.DataFrame, assignments: pd.DataFrame
+    frame: pd.DataFrame,
+    assignments: pd.DataFrame,
+    *,
+    windows: dict[str, tuple[float, float]] | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame]:
     """Return subject-balanced waveforms and channel/subject sample sizes."""
 
     values = (
-        restrict_windows(frame)
+        restrict_windows(frame, windows=windows)
         .groupby(["channel", "phase", "time"], as_index=False)["value"]
         .mean()
         .merge(
@@ -401,8 +653,8 @@ def held_out_contrasts(
     """
 
     tests = (
-        ("delay_plateau", "delay", 0.20, 0.80, "sustained_ramping"),
-        ("response_peak", "response", 0.00, 0.30, "sensory_transient"),
+        ("delay_plateau", "delay", 0.20, 0.80, "sustain"),
+        ("response_peak", "response", 0.00, 0.30, "sensory"),
     )
     windowed = restrict_windows(frame)
     assignment_columns = ["channel", "functional_cluster"]
@@ -425,17 +677,17 @@ def held_out_contrasts(
             window.groupby(["subject", "functional_cluster"])["value"]
             .mean()
             .unstack("functional_cluster")
-            .dropna(subset=["sustained_ramping", "sensory_transient"])
+            .dropna(subset=["sustain", "sensory"])
         )
-        if predicted_higher == "sustained_ramping":
+        if predicted_higher == "sustain":
             difference = (
-                subject_values["sustained_ramping"]
-                - subject_values["sensory_transient"]
+                subject_values["sustain"]
+                - subject_values["sensory"]
             )
         else:
             difference = (
-                subject_values["sensory_transient"]
-                - subject_values["sustained_ramping"]
+                subject_values["sensory"]
+                - subject_values["sustain"]
             )
         if len(difference) and np.any(difference.to_numpy() != 0):
             statistic, p_value = wilcoxon(
@@ -452,11 +704,11 @@ def held_out_contrasts(
                 "window_stop": stop,
                 "predicted_higher": predicted_higher,
                 "n_subjects": len(subject_values),
-                "mean_sustained_ramping": subject_values[
-                    "sustained_ramping"
+                "mean_sustain": subject_values[
+                    "sustain"
                 ].mean(),
-                "mean_sensory_transient": subject_values[
-                    "sensory_transient"
+                "mean_sensory": subject_values[
+                    "sensory"
                 ].mean(),
                 "mean_predicted_difference": difference.mean(),
                 "wilcoxon_statistic": statistic,
@@ -468,7 +720,7 @@ def held_out_contrasts(
     # with the relevant functional class, not only the small paired subset.
     delay_sustained = values.loc[
         values["phase"].eq("delay")
-        & values["functional_cluster"].eq("sustained_ramping")
+        & values["functional_cluster"].eq("sustain")
         & values["time"].between(0.20, 0.80, inclusive="both")
     ].groupby("subject")["value"].mean()
     if len(delay_sustained) and np.any(delay_sustained.to_numpy() != 0):
@@ -484,10 +736,10 @@ def held_out_contrasts(
             "phase": "delay",
             "window_start": 0.20,
             "window_stop": 0.80,
-            "predicted_higher": "sustained_ramping > 0",
+            "predicted_higher": "sustain > 0",
             "n_subjects": len(delay_sustained),
-            "mean_sustained_ramping": delay_sustained.mean(),
-            "mean_sensory_transient": np.nan,
+            "mean_sustain": delay_sustained.mean(),
+            "mean_sensory": np.nan,
             "mean_predicted_difference": delay_sustained.mean(),
             "wilcoxon_statistic": statistic,
             "wilcoxon_one_sided_p": p_value,
@@ -496,7 +748,7 @@ def held_out_contrasts(
 
     response_sensory = values.loc[
         values["phase"].eq("response")
-        & values["functional_cluster"].eq("sensory_transient")
+        & values["functional_cluster"].eq("sensory")
         & values["time"].between(-0.40, 0.30, inclusive="both")
     ].copy()
     response_sensory["response_window"] = np.select(
@@ -531,8 +783,8 @@ def held_out_contrasts(
             "window_stop": 0.30,
             "predicted_higher": "sensory post > pre",
             "n_subjects": len(response_subject),
-            "mean_sustained_ramping": np.nan,
-            "mean_sensory_transient": response_subject["post"].mean(),
+            "mean_sustain": np.nan,
+            "mean_sensory": response_subject["post"].mean(),
             "mean_predicted_difference": response_difference.mean(),
             "wilcoxon_statistic": statistic,
             "wilcoxon_one_sided_p": p_value,
@@ -541,37 +793,17 @@ def held_out_contrasts(
     return pd.DataFrame(rows)
 
 
-def plot_model_selection(
-    metrics: pd.DataFrame, path: Path | None = None
-) -> plt.Figure:
-    fig, axes = plt.subplots(1, 3, figsize=(10.5, 3.0))
-    axes[0].plot(metrics["k"], metrics["reconstruction_error"], "o-")
-    axes[0].set_ylabel("Reconstruction error")
-    axes[1].plot(metrics["k"], metrics["silhouette_cosine"], "o-")
-    axes[1].set_ylabel("Cosine silhouette")
-    axes[2].plot(metrics["k"], metrics["stability_ari"], "o-")
-    axes[2].set_ylabel("Mean stability (ARI)")
-    for axis in axes:
-        axis.axvline(2, color="0.35", linestyle="--", linewidth=0.8)
-        axis.set_xlabel("k")
-        axis.spines[["top", "right"]].set_visible(False)
-    fig.tight_layout()
-    if path is not None:
-        fig.savefig(path, dpi=240, bbox_inches="tight")
-        plt.close(fig)
-    return fig
-
-
 def plot_waveforms(
     summary: pd.DataFrame,
     coverage: pd.DataFrame,
     path: Path | None = None,
 ) -> plt.Figure:
     phases = list(PHASE_WINDOWS)
+    clusters = ordered_clusters(summary["functional_cluster"])
     fig, axes = plt.subplots(1, len(phases), figsize=(12.0, 3.0), sharey=True)
     for axis, phase in zip(axes, phases):
         phase_summary = summary.loc[summary["phase"].eq(phase)]
-        for functional_cluster in ("sustained_ramping", "sensory_transient"):
+        for functional_cluster in clusters:
             line = phase_summary.loc[
                 phase_summary["functional_cluster"].eq(functional_cluster)
             ].sort_values("time")
@@ -592,7 +824,7 @@ def plot_waveforms(
                     f"{functional_cluster.replace('_', ' ')} "
                     f"(E={int(row.n_channels)}, S={int(row.n_subjects)})"
                 )
-            color = FUNCTION_COLORS[functional_cluster]
+            color = FUNCTION_COLORS.get(functional_cluster, "0.35")
             axis.plot(x, mean, color=color, linewidth=1.5, label=label)
             axis.fill_between(
                 x, mean - 1.96 * sem, mean + 1.96 * sem,
@@ -607,24 +839,26 @@ def plot_waveforms(
     axes[-1].legend(frameon=False, fontsize=7, loc="best")
     fig.tight_layout()
     if path is not None:
-        fig.savefig(path, dpi=240, bbox_inches="tight")
-        plt.close(fig)
+        from src.paths import save_svg
+
+        save_svg(fig, Path(path), close=True)
     return fig
 
 
 def plot_spatial(
     assignments: pd.DataFrame, path: Path | None = None
 ) -> plt.Figure:
+    clusters = ordered_clusters(assignments["functional_cluster"])
     fig, axes = plt.subplots(1, 2, figsize=(7.0, 3.2), sharex=True, sharey=True)
     for axis, (hemi, title) in zip(axes, (("L", "Left"), ("R", "Right"))):
         side = assignments.loc[assignments["hemi"].eq(hemi)]
-        for functional_cluster in ("sustained_ramping", "sensory_transient"):
+        for functional_cluster in clusters:
             points = side.loc[
                 side["functional_cluster"].eq(functional_cluster)
             ]
             axis.scatter(
                 points["y"], points["z"], s=25,
-                color=FUNCTION_COLORS[functional_cluster],
+                color=FUNCTION_COLORS.get(functional_cluster, "0.35"),
                 edgecolor="0.2", linewidth=0.35, alpha=0.85,
                 label=functional_cluster.replace("_", " "),
             )
@@ -635,15 +869,16 @@ def plot_spatial(
     axes[0].legend(frameon=False, fontsize=7)
     fig.tight_layout()
     if path is not None:
-        fig.savefig(path, dpi=240, bbox_inches="tight")
-        plt.close(fig)
+        from src.paths import save_svg
+
+        save_svg(fig, Path(path), close=True)
     return fig
 
 
 def write_component_table(H: np.ndarray, times: np.ndarray, path: Path) -> None:
-    mapping = orient_two_components(H, times)
+    mapping = orient_components(H, times)
     rows = []
-    for component in range(2):
+    for component in range(H.shape[0]):
         rows.extend(
             {
                 "component": component,
@@ -679,22 +914,23 @@ def run(args: argparse.Namespace) -> None:
         flush=True,
     )
 
+    k = int(getattr(args, "k", 2))
     print("Fitting NMF grid...", flush=True)
     metrics, fits = fit_nmf_grid(
         X,
-        k_max=args.k_max,
+        k_max=max(args.k_max, k),
         n_init=args.n_init,
         random_state=args.random_state,
         max_iter=args.max_iter,
     )
-    if 2 not in fits:
-        raise ValueError("At least two electrodes are required for k=2")
-    fit = fits[2]
+    if k not in fits:
+        raise ValueError(f"Need at least {k} electrodes for k={k}")
+    fit = fits[k]
     W = np.asarray(fit["W"])
     H = np.asarray(fit["H"])
     component = np.asarray(fit["labels"], dtype=int)
     times = raw_matrix.columns.to_numpy(float)
-    component_names = orient_two_components(H, times)
+    component_names = orient_components(H, times)
     functional_cluster = np.array([component_names[value] for value in component])
 
     assignments = metadata.reset_index().copy()
@@ -707,34 +943,51 @@ def run(args: argparse.Namespace) -> None:
     metrics.to_csv(output_dir / "model_selection_metrics.csv", index=False)
     write_component_table(H, times, output_dir / "stimulus_components.csv")
 
+    cluster_index = ordered_clusters(functional_cluster)
     crosstab = pd.crosstab(
         assignments["functional_cluster"], assignments["roi"]
     ).reindex(
-        index=["sustained_ramping", "sensory_transient"],
+        index=cluster_index,
         columns=["AIC", "PIC"],
         fill_value=0,
     )
     crosstab.to_csv(output_dir / "functional_by_hammers.csv")
-    odds_ratio, fisher_p = fisher_exact(crosstab.to_numpy())
-    agreement, permutation_p = within_subject_permutation_p(
-        assignments["functional_cluster"].to_numpy(),
-        assignments["roi"].to_numpy(),
-        assignments["subject"].to_numpy(),
-        n_permutations=args.n_permutations,
-        random_state=args.random_state,
-    )
-    spatial_stats = pd.DataFrame(
-        [
+
+    spatial_row: dict[str, object] = {
+        "k": k,
+        "n_electrodes": len(assignments),
+        "n_subjects": assignments["subject"].nunique(),
+    }
+    for name in cluster_index:
+        spatial_row[f"n_{name}"] = int(
+            (assignments["functional_cluster"] == name).sum()
+        )
+    if k == 2 and set(cluster_index) == {"sustain", "sensory"}:
+        odds_ratio, fisher_p = fisher_exact(
+            crosstab.reindex(
+                index=["sustain", "sensory"],
+                columns=["AIC", "PIC"],
+                fill_value=0,
+            ).to_numpy()
+        )
+        agreement, permutation_p = within_subject_permutation_p(
+            assignments["functional_cluster"].to_numpy(),
+            assignments["roi"].to_numpy(),
+            assignments["subject"].to_numpy(),
+            n_permutations=args.n_permutations,
+            random_state=args.random_state,
+        )
+        spatial_row.update(
             {
-                "n_electrodes": len(assignments),
-                "n_subjects": assignments["subject"].nunique(),
                 "anatomy_function_agreement": agreement,
                 "within_subject_permutation_p": permutation_p,
                 "fisher_odds_ratio": odds_ratio,
                 "fisher_p_electrode_level": fisher_p,
             }
-        ]
-    )
+        )
+    else:
+        agreement = permutation_p = odds_ratio = fisher_p = np.nan
+    spatial_stats = pd.DataFrame([spatial_row])
     spatial_stats.to_csv(output_dir / "spatial_validation.csv", index=False)
 
     print("Loading held-out delay/go/response data...", flush=True)
@@ -750,17 +1003,19 @@ def run(args: argparse.Namespace) -> None:
     contrasts = held_out_contrasts(held_out_rows, assignments)
     contrasts.to_csv(output_dir / "held_out_contrasts.csv", index=False)
 
-    plot_model_selection(metrics, output_dir / "model_selection.png")
-    plot_waveforms(waveform_summary, coverage, output_dir / "cluster_waveforms.png")
-    plot_spatial(assignments, output_dir / "spatial_yz.png")
+    # Legacy stimulus-only entry: SVG only (canonical figures come from
+    # scripts/plot_nmf_concat_phases.py → img/nmf/).
+    plot_waveforms(waveform_summary, coverage, output_dir / "waveforms.svg")
+    plot_spatial(assignments, output_dir / "spatial_yz.svg")
 
     print("\nFunctional cluster x Hammers atlas:")
     print(crosstab)
-    print(
-        f"Anatomy/function agreement={agreement:.1%}; "
-        f"within-subject permutation p={permutation_p:.4g}; "
-        f"electrode-level OR={odds_ratio:.2f} (Fisher p={fisher_p:.4g})"
-    )
+    if k == 2 and np.isfinite(agreement):
+        print(
+            f"Anatomy/function agreement={agreement:.1%}; "
+            f"within-subject permutation p={permutation_p:.4g}; "
+            f"electrode-level OR={odds_ratio:.2f} (Fisher p={fisher_p:.4g})"
+        )
     print("\nHeld-out subject-level contrasts:")
     print(
         contrasts[

@@ -1,4 +1,4 @@
-"""Insula functional NMF (stimulus-only discovery, held-out validation)."""
+"""Insula functional NMF (concat multi-phase discovery)."""
 
 from src.nmf.waveform_analysis import (
     FUNCTION_COLORS,
@@ -10,7 +10,6 @@ from src.nmf.waveform_analysis import (
     load_hga_rows,
     normalize_nmf_factors,
     orient_two_components,
-    plot_model_selection,
     plot_spatial,
     plot_waveforms,
     phase_matrix,
@@ -33,7 +32,6 @@ __all__ = [
     "load_hga_rows",
     "normalize_nmf_factors",
     "orient_two_components",
-    "plot_model_selection",
     "plot_spatial",
     "plot_waveforms",
     "phase_matrix",

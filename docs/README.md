@@ -15,6 +15,7 @@ docs as needed.
 
 | Document | When to read |
 |----------|----------------|
+| [`NMF.md`](NMF.md) | **Canonical NMF** — concat postonset, bootstrap rank selection, flat publish paths |
 | [`HGA_EXPLORER.md`](HGA_EXPLORER.md) | Interactive HGA Explorer — export schema, UI behavior |
 | [`../viewer/ROADMAP.md`](../viewer/ROADMAP.md) | HGA Explorer implementation roadmap |
 | [`../pipeline/README.md`](../pipeline/README.md) | MAPER fusion (Hammers volume propagation) |

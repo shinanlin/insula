@@ -92,8 +92,9 @@ def test_parcellation_subset_preserves_mix_when_present():
 def test_results_dir_atlas_suffix():
     aparc = results_dir("LexicalDelay", "bipolar", "aparc2009s")
     hammers = results_dir("LexicalDelay", "bipolar", "hammers")
-    assert aparc.name == "LexicalDelay(bipolar)(aparc2009s)"
-    assert hammers.name == "LexicalDelay(bipolar)(hammers)"
+    assert aparc == hammers
+    assert hammers.name == "LexicalDelay"
+    assert hammers.parent.name == "hga"
 
 
 def test_load_parcellation_uses_atlas_suffix(tmp_path):
