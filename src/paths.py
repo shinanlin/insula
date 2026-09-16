@@ -134,3 +134,18 @@ def nmf_run_dir() -> Path:
 def nmf_nnls_dir() -> Path:
     """Fixed-W NNLS projection cache: ``results/nmf/nnls_projection/``."""
     return nmf_results_dir() / "nnls_projection"
+
+
+def nmf_wholebrain_dir() -> Path:
+    """Fixed-H whole-brain projection: ``results/nmf/whole_brain_projection/``."""
+    return nmf_results_dir() / "whole_brain_projection"
+
+
+def tfr_results_dir(task: str) -> Path:
+    """Insula TFR products: ``results/tfr/{task}/``."""
+    return RESULTS_ROOT / "tfr" / task
+
+
+def tfr_fig_dir(task: str) -> Path:
+    """Per-electrode TFR SVGs: ``img/tfr/{task}/``."""
+    return IMG_ROOT / "tfr" / task
