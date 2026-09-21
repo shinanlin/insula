@@ -72,9 +72,11 @@ USECOLS = (
     "z",
     "mix",
 )
+# Canonical k=3 display colors. Documented in docs/PLOTTING_STYLE.md.
+# Plots must import this dict; do not re-bind cluster names to hex.
 FUNCTION_COLORS = {
-    "sustain": "#A9373B",
-    "motor": "#C4A35A",
+    "sustain": "#C4A35A",
+    "motor": "#A9373B",
     "sensory": "#2369BD",
 }
 CLUSTER_ORDER = (
@@ -82,6 +84,11 @@ CLUSTER_ORDER = (
     "motor",
     "sensory",
 )
+CLUSTER_LABELS = {
+    "sustain": "sustained",
+    "motor": "motor",
+    "sensory": "sensory",
+}
 
 
 def ordered_clusters(labels) -> list[str]:

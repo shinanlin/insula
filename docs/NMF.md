@@ -6,11 +6,15 @@ post-onset crop windows**, after dropping channels listed in
 
 Cluster names (stimulus-segment early−late orientation):
 
-| label | role |
-|---|---|
-| `sustain` | holds / ramps (lowest transient score) |
-| `motor` | middle profile |
-| `sensory` | brief / sensory-weighted (highest transient score) |
+| label | display | role | color |
+|---|---|---|---|
+| `sustain` | sustained | holds / ramps (lowest transient score) | gold `#C4A35A` |
+| `motor` | motor | middle profile | red `#A9373B` |
+| `sensory` | sensory | brief / sensory-weighted (highest transient score) | blue `#2369BD` |
+
+Display colors live in ``FUNCTION_COLORS``
+(``src/nmf/waveform_analysis.py``). See ``docs/PLOTTING_STYLE.md`` (k=3
+functional cluster colors). Do not re-bind these hex values in notebooks.
 
 ## Pipeline entry points
 
@@ -21,6 +25,9 @@ Cluster names (stimulus-segment early−late orientation):
 | Waveform PCA scatter | `scripts/plot_nmf_waveform_pca.py` / `sbatch scripts/slurm/nmf_waveform_pca.sh` |
 | PC scree + PC-space clustering (tables) | `scripts/run_nmf_pc_clustering.py` / `sbatch scripts/slurm/nmf_pc_clustering.sh` |
 | PC clustering figures | `notebooks/nmf_pc_clustering.ipynb` (reads tables, writes SVGs) |
+| Whole-brain projection (freeze \(H\)) | `scripts/run_nmf_whole_brain_projection.py` / `sbatch scripts/slurm/nmf_whole_brain_projection.sh` |
+| Whole-brain focused map | `notebooks/wholebrain_projection_explore.ipynb` |
+| Insula HGA spatial (specificity) | `notebooks/functional_hga_specificity.ipynb` |
 | Helpers | `src/nmf/waveform_analysis.py`, `src/nmf/rank_selection.py`, `src/nmf/waveform_pca.py`, `src/nmf/pc_clustering.py`, `src.paths.nmf_assignments_path()` |
 
 Canonical figures under ``img/nmf/``: ``waveforms.svg``, ``H_overview.svg``,
@@ -153,3 +160,81 @@ sbatch scripts/slurm/nmf_pc_clustering.sh
 
 Read only ``results/nmf/channel_assignments.csv`` via
 `src.paths.nmf_assignments_path()`.
+
+---
+
+## 6. NNLS projection (trial-level component activity)
+
+Freeze canonical spatial loadings ``W`` and project single-trial z-scored HGA
+epochs with **NNLS only** (no soft/hard modes):
+
+\[
+h(t)=\arg\min_{h\ge 0}\|x(t)-W_{\mathrm{subj}} h\|^2
+\]
+
+Output shape per task×phase file: ``H`` as
+``(n_trials, k=3, n_times)`` with components ``sustain`` / ``motor`` /
+``sensory``.
+
+| Step | Command |
+|---|---|
+| Project + QC SVGs | `scripts/run_nmf_nnls_projection.py` / `sbatch scripts/slurm/nmf_nnls_projection.sh` |
+| Library | `src/nmf/nnls_projection.py` |
+
+Pilot defaults: task ``LexicalDelay``, description ``Repeat``, phases
+Stimulus / Delay / Go / Response.
+
+```text
+results/nmf/nnls_projection/
+  manifest.json
+  W_group.npz
+  traces/task-{Task}_proc-{Phase}_desc-Repeat_nnls.h5
+img/nmf/
+  nnls_H_overview_{Task}.svg   # one figure: four phase panels (H_overview style)
+```
+
+Visual QC of the combined overview SVG is required before component-level decoding.
+
+### Component decoding (PhonemeSequence)
+
+Prepare three single-channel pseudo-subjects from NNLS ``H``
+(``Sustain`` / ``Motor`` / ``Sensory``), then reuse the existing resolved
+decoder unchanged:
+
+| Step | Command |
+|---|---|
+| Prepare decode H5s | `python -m src.decoding.prepare_nnls_decoding_dataset` / `sbatch scripts/slurm/prepare_decoding_nnls_phoneme_sequence.sh` |
+| Resolved decode (24 jobs) | `sbatch scripts/slurm/decoding_nnls_resolved_phoneme_sequence.sh` (`scripts/nnls_decoding_worker.sh`) |
+
+Write location: PhonemeSequence BIDS
+``derivatives/decoding(bipolar)/sub-{Sustain,Motor,Sensory}/{phoneme,articulator}/…``.
+Scores land under ``results/PhonemeSequence(roi)(bipolar)/sub-{Sustain,Motor,Sensory}/``.
+
+---
+
+## 7. Whole-brain projection (freeze temporal \(H\))
+
+This is **not** the trial-level NNLS in §6.  Here the insula concat-NMF
+temporal templates \(H\) are frozen, and each extra-insula electrode waveform
+is mixed onto those three rows.  The product is a spatial map of waveform
+similarity, not connectivity.
+
+Week of 31 Aug–4 Sep 2026: the only locked figure from this work is the
+focused three-motif pial map.
+
+| Role | Path |
+|---|---|
+| Fit (all Repeat HGA subjects) | `src/nmf/whole_brain_projection.py` / `sbatch scripts/slurm/nmf_whole_brain_projection.sh` |
+| Surface helpers | `src/nmf/whole_brain_projection_viz.py` |
+| Library plot (writes the npz cache) | `scripts/plot_nmf_whole_brain_projection.py` / `sbatch scripts/slurm/nmf_whole_brain_projection_plot.sh` |
+| Locked figure notebook | `notebooks/wholebrain_projection_explore.ipynb` |
+| Tests | `tests/test_nmf_whole_brain_projection.py`, `tests/test_nmf_whole_brain_projection_viz.py` |
+
+Core call: `project_fixed_temporal_basis` (NNLS of \(x \approx a H\), \(a\ge 0\)).
+Templates come from `results/nmf/H_by_phase.csv`.  Electrode table:
+`results/nmf/whole_brain_projection/electrode_projection.csv`.  Focused
+surface cache:
+`results/nmf/whole_brain_projection/visualization/surface_motif_maps_focused.npz`.
+
+**Locked SVG:**
+`img/nmf/whole_brain_projection/wholebrain_surface_motifs_focused_combined_pial_top50.svg`
