@@ -12,5 +12,6 @@ Interactive web viewers for Insula iEEG / HGA exploration.
 | Path | Status |
 |------|--------|
 | `viewer/hga_explorer/` | Phase 0 scaffold — multi-task HGA explorer (in progress) |
+| `viewer/nmf_inspector/` | NMF cluster QC — insula-only 3D + waveforms + manual reassignment |
 
 Architectural reference: `/hpc/group/coganlab/nanlinshi/sternberg/viewer/phase_overlap`.

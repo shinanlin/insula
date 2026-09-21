@@ -1,0 +1,5763 @@
+[
+  {
+    "id": "D0022_LMIF3-4",
+    "channel": "D0022_LMIF3-4",
+    "subject": "D0022",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -36.826,
+    "y": 3.4288000000000007,
+    "z": -28.51879,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.3562572659325553,
+      "motor": 0.3063038360266903,
+      "sensory": 0.3159764823876074
+    },
+    "dominance": 0.3640711114538817,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0022_LPIF3-4",
+    "channel": "D0022_LPIF3-4",
+    "subject": "D0022",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -33.9695,
+    "y": -3.025400000000001,
+    "z": -19.234312,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1227507096171528,
+      "motor": 0.7334062116570784,
+      "sensory": 0.4070898423501982
+    },
+    "dominance": 0.5805724049930154,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0023_R2IF1-2",
+    "channel": "D0023_R2IF1-2",
+    "subject": "D0023",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 35.7033,
+    "y": 7.35276,
+    "z": -0.9473999999999982,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7344841822857475,
+      "sensory": 0.5315960201853233
+    },
+    "dominance": 0.5801245299090996,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0027_LAI1-2",
+    "channel": "D0027_LAI1-2",
+    "subject": "D0027",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -33.4346,
+    "y": 25.11575,
+    "z": -21.90589,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4774815355423387,
+      "motor": 0.6327463552524032,
+      "sensory": 0.0962215146153981
+    },
+    "dominance": 0.5244698637298404,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0028_LAI1-2",
+    "channel": "D0028_LAI1-2",
+    "subject": "D0028",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.7839,
+    "y": 29.0927,
+    "z": -30.7715,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6327999300506235,
+      "motor": 0.1583701585225794,
+      "sensory": 0.0728208941280973
+    },
+    "dominance": 0.7324149704342409,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0028_LPI1-2",
+    "channel": "D0028_LPI1-2",
+    "subject": "D0028",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -36.8397,
+    "y": 13.34581,
+    "z": -25.12464,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2175331926112869,
+      "motor": 0.5580143616577291,
+      "sensory": 0.1475223469097661
+    },
+    "dominance": 0.6045201570814208,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0032_LAI1-2",
+    "channel": "D0032_LAI1-2",
+    "subject": "D0032",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -35.3716,
+    "y": 26.60554,
+    "z": -27.82717,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3329219675366072,
+      "motor": 0.5237217740631332,
+      "sensory": 0.0356864351939153
+    },
+    "dominance": 0.5869147852255586,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0032_LAI2-3",
+    "channel": "D0032_LAI2-3",
+    "subject": "D0032",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -35.621,
+    "y": 26.88848,
+    "z": -24.63955,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2406003036735593,
+      "motor": 0.7900250356627767,
+      "sensory": 0.0272500324672499
+    },
+    "dominance": 0.7468035051386557,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0032_LAI3-4",
+    "channel": "D0032_LAI3-4",
+    "subject": "D0032",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -35.6311,
+    "y": 27.6644,
+    "z": -21.58193,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3364364289150744,
+      "motor": 0.8007868551070815,
+      "sensory": 0.0
+    },
+    "dominance": 0.7041597427330553,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0032_LPI6-7",
+    "channel": "D0032_LPI6-7",
+    "subject": "D0032",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.2655,
+    "y": 9.08763,
+    "z": -7.7197,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2577094629933298,
+      "motor": 0.6217248028293634,
+      "sensory": 0.0197677235759484
+    },
+    "dominance": 0.6914184022715003,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0035_LAI2-3",
+    "channel": "D0035_LAI2-3",
+    "subject": "D0035",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -38.9591,
+    "y": 26.81643,
+    "z": -21.44476,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4365212738635224,
+      "motor": 0.4802676481926482,
+      "sensory": 0.0
+    },
+    "dominance": 0.5238584767314878,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0035_LPI1-2",
+    "channel": "D0035_LPI1-2",
+    "subject": "D0035",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -34.2676,
+    "y": 5.060499999999999,
+    "z": -25.17764,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.4761502522013201,
+      "motor": 0.178405632521782,
+      "sensory": 0.3325546830018429
+    },
+    "dominance": 0.4823676979760567,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0035_LPI2-3",
+    "channel": "D0035_LPI2-3",
+    "subject": "D0035",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -34.5056,
+    "y": 5.7844,
+    "z": -21.1425,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0901673315510892,
+      "motor": 0.6953418221941975,
+      "sensory": 0.4273387550215379
+    },
+    "dominance": 0.5733132878146224,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0035_LPI3-4",
+    "channel": "D0035_LPI3-4",
+    "subject": "D0035",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.7331,
+    "y": 6.336499999999999,
+    "z": -16.87796,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1033209031974584,
+      "motor": 0.8075757656614084,
+      "sensory": 0.3624465608831695
+    },
+    "dominance": 0.634216876328791,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0035_LPI4-5",
+    "channel": "D0035_LPI4-5",
+    "subject": "D0035",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.6143,
+    "y": 7.23334,
+    "z": -12.80319,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0939706014348752,
+      "motor": 0.928873503399228,
+      "sensory": 0.0215721904796853
+    },
+    "dominance": 0.8893709410385575,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0038_LI4-5",
+    "channel": "D0038_LI4-5",
+    "subject": "D0038",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.21,
+    "y": 17.443948,
+    "z": -19.534207,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4062927919401026,
+      "motor": 0.7828421621992525,
+      "sensory": 0.0729461400793444
+    },
+    "dominance": 0.6202788123404039,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0038_LI5-6",
+    "channel": "D0038_LI5-6",
+    "subject": "D0038",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.3162,
+    "y": 17.91391,
+    "z": -15.29914,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.936624128071846,
+      "sensory": 0.0382086582707337
+    },
+    "dominance": 0.960804910538466,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0038_LI6-7",
+    "channel": "D0038_LI6-7",
+    "subject": "D0038",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -34.1179,
+    "y": 18.41589,
+    "z": -10.95406,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0232017963350443,
+      "motor": 0.9292034342862407,
+      "sensory": 0.006717704024058
+    },
+    "dominance": 0.9688053540600968,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0038_RI1-2",
+    "channel": "D0038_RI1-2",
+    "subject": "D0038",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 37.4057,
+    "y": 20.20053,
+    "z": -17.73337,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0254576165610501,
+      "motor": 0.9522088415588276,
+      "sensory": 0.0226261341934844
+    },
+    "dominance": 0.9519303140660752,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0038_RI2-3",
+    "channel": "D0038_RI2-3",
+    "subject": "D0038",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 36.8639,
+    "y": 20.80382,
+    "z": -13.38474,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9768219403433192,
+      "sensory": 0.0
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0040_L3ST1-2",
+    "channel": "D0040_L3ST1-2",
+    "subject": "D0040",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -29.7313,
+    "y": -4.741,
+    "z": -16.13331,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1176902683915018,
+      "motor": 0.6351759908427342,
+      "sensory": 0.6161573691253212
+    },
+    "dominance": 0.4639627671027407,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0042_RPI1-2",
+    "channel": "D0042_RPI1-2",
+    "subject": "D0042",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 34.568,
+    "y": -3.599499999999999,
+    "z": -19.37378,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.3809810410294062,
+      "motor": 0.2331159216647143,
+      "sensory": 0.6191416812677799
+    },
+    "dominance": 0.5020453132077716,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0042_RPI2-3",
+    "channel": "D0042_RPI2-3",
+    "subject": "D0042",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 34.2672,
+    "y": -1.7014999999999991,
+    "z": -15.12849,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.1118067833391199,
+      "motor": 0.1691046658309266,
+      "sensory": 0.8005999336163774
+    },
+    "dominance": 0.7402602934734708,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0042_RPI5-6",
+    "channel": "D0042_RPI5-6",
+    "subject": "D0042",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 34.5156,
+    "y": 4.1069,
+    "z": -2.2155999999999985,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1634763366980194,
+      "motor": 0.8204613451217119,
+      "sensory": 0.2949484460178256
+    },
+    "dominance": 0.6415437053094114,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0044_LI5-6",
+    "channel": "D0044_LI5-6",
+    "subject": "D0044",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -35.5749,
+    "y": 6.8293,
+    "z": -22.87198,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7569880674179464,
+      "motor": 0.1913844879569713,
+      "sensory": 0.2087947876111952
+    },
+    "dominance": 0.6541733760516528,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0044_LI6-7",
+    "channel": "D0044_LI6-7",
+    "subject": "D0044",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.8747,
+    "y": 7.91188,
+    "z": -17.27998,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6589565995015296,
+      "motor": 0.2960959787466967,
+      "sensory": 0.3559650494043433
+    },
+    "dominance": 0.5026298545515503,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0044_LI8-9",
+    "channel": "D0044_LI8-9",
+    "subject": "D0044",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.8834,
+    "y": 11.00043,
+    "z": -6.3507,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4969560080494159,
+      "motor": 0.5459854885154994,
+      "sensory": 0.2334797025230271
+    },
+    "dominance": 0.4277471174136166,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0044_RI1-2",
+    "channel": "D0044_RI1-2",
+    "subject": "D0044",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 39.0631,
+    "y": 6.9926,
+    "z": -24.73111,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7950273267224355,
+      "sensory": 0.1397968628474778
+    },
+    "dominance": 0.8504565196245141,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0044_RI4-5",
+    "channel": "D0044_RI4-5",
+    "subject": "D0044",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 38.9613,
+    "y": 9.0282,
+    "z": -14.53494,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9154982671065218,
+      "sensory": 0.060450905891283
+    },
+    "dominance": 0.9380593707502234,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0045_RAI1-2",
+    "channel": "D0045_RAI1-2",
+    "subject": "D0045",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 41.0018,
+    "y": 30.1842,
+    "z": -32.7949,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5186547864576107,
+      "motor": 0.4893899315181308,
+      "sensory": 0.2046892547086936
+    },
+    "dominance": 0.4276739978756821,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0045_RAI3-4",
+    "channel": "D0045_RAI3-4",
+    "subject": "D0045",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 42.0771,
+    "y": 31.8881,
+    "z": -24.35707,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6161528400890268,
+      "motor": 0.1754352794168564,
+      "sensory": 0.0233631207915989
+    },
+    "dominance": 0.7560609882182794,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0045_RMST1-2",
+    "channel": "D0045_RMST1-2",
+    "subject": "D0045",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 40.5056,
+    "y": 1.9896999999999991,
+    "z": -22.08277,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1257588638047934,
+      "motor": 0.7683718004983398,
+      "sensory": 0.300431304769957
+    },
+    "dominance": 0.6432247303959886,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0045_RPI1-2",
+    "channel": "D0045_RPI1-2",
+    "subject": "D0045",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 40.0178,
+    "y": 14.57127,
+    "z": -28.23587,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5178501636621904,
+      "motor": 0.2647739424215696,
+      "sensory": 0.0
+    },
+    "dominance": 0.6616844020477536,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0045_RPI3-4",
+    "channel": "D0045_RPI3-4",
+    "subject": "D0045",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 39.3312,
+    "y": 16.250715,
+    "z": -17.61527,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6623888220532613,
+      "motor": 0.3273021791402745,
+      "sensory": 0.2710247795702361
+    },
+    "dominance": 0.5254069411679533,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0047_LI2-3",
+    "channel": "D0047_LI2-3",
+    "subject": "D0047",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -35.5109,
+    "y": 22.76459,
+    "z": -27.0626,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0532952067673527,
+      "motor": 0.7358594734151762,
+      "sensory": 0.2070602941634118
+    },
+    "dominance": 0.7386553026853471,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0047_LI3-4",
+    "channel": "D0047_LI3-4",
+    "subject": "D0047",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -35.4561,
+    "y": 22.98152,
+    "z": -23.3366,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5492445745777049,
+      "motor": 0.6134090082172216,
+      "sensory": 0.1718036550605649
+    },
+    "dominance": 0.4596692878694159,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0047_LI4-5",
+    "channel": "D0047_LI4-5",
+    "subject": "D0047",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -35.452,
+    "y": 23.14228,
+    "z": -19.320535,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3342580171280479,
+      "motor": 0.7168175824063611,
+      "sensory": 0.27124569503248
+    },
+    "dominance": 0.5420903265731241,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0047_RI5-6",
+    "channel": "D0047_RI5-6",
+    "subject": "D0047",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 42.4818,
+    "y": 21.98413,
+    "z": -22.14982,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2704251663238592,
+      "motor": 0.8684696363926614,
+      "sensory": 0.004555274160394
+    },
+    "dominance": 0.7595168813707175,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0047_RI6-7",
+    "channel": "D0047_RI6-7",
+    "subject": "D0047",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 42.0929,
+    "y": 22.60493,
+    "z": -17.68959,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1393649848812653,
+      "motor": 0.9297948190118231,
+      "sensory": 0.0171472479442309
+    },
+    "dominance": 0.855922657815044,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0049_LAI1-2",
+    "channel": "D0049_LAI1-2",
+    "subject": "D0049",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -39.9923,
+    "y": 18.60509,
+    "z": -27.32104,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.4958970803054919,
+      "motor": 0.0,
+      "sensory": 0.6766021610420571
+    },
+    "dominance": 0.5770597857824119,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0049_LAI3-4",
+    "channel": "D0049_LAI3-4",
+    "subject": "D0049",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -40.8659,
+    "y": 19.17244,
+    "z": -18.9172959,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.1897498298000702,
+      "motor": 0.3157523482250078,
+      "sensory": 0.7341332970611868
+    },
+    "dominance": 0.5922170765644629,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0049_LPI1-2",
+    "channel": "D0049_LPI1-2",
+    "subject": "D0049",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -39.0452,
+    "y": 10.67802,
+    "z": -20.77228,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.441909839796267,
+      "motor": 0.0,
+      "sensory": 0.7021267802037789
+    },
+    "dominance": 0.6137275397738149,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0049_LPI2-3",
+    "channel": "D0049_LPI2-3",
+    "subject": "D0049",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -38.7761,
+    "y": 10.00105,
+    "z": -16.16391,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.2940390253549084,
+      "motor": 0.1396489567797152,
+      "sensory": 0.723596849948673
+    },
+    "dominance": 0.625253895919541,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0049_LPI3-4",
+    "channel": "D0049_LPI3-4",
+    "subject": "D0049",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -38.4445,
+    "y": 9.40613,
+    "z": -11.57533,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3273717592778515,
+      "motor": 0.5576444320371959,
+      "sensory": 0.4142843427736449
+    },
+    "dominance": 0.4291881804145631,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0049_LPI4-5",
+    "channel": "D0049_LPI4-5",
+    "subject": "D0049",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -38.0561,
+    "y": 8.8351,
+    "z": -6.9597,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2500936549752062,
+      "motor": 0.6171819719612562,
+      "sensory": 0.0339741595865279
+    },
+    "dominance": 0.6848067885179047,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0052_LI3-4",
+    "channel": "D0052_LI3-4",
+    "subject": "D0052",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -34.6723,
+    "y": 21.80863,
+    "z": -17.59196,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.01237342898183,
+      "motor": 0.9317673432369832,
+      "sensory": 0.0
+    },
+    "dominance": 0.9868945083763818,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0052_RI3-4",
+    "channel": "D0052_RI3-4",
+    "subject": "D0052",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 36.9775,
+    "y": 21.08833,
+    "z": -15.93861,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0269647355136029,
+      "motor": 0.9544984338716248,
+      "sensory": 0.0079407125934809
+    },
+    "dominance": 0.9647207285691296,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0052_RI4-5",
+    "channel": "D0052_RI4-5",
+    "subject": "D0052",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 36.2458,
+    "y": 22.22088,
+    "z": -10.56953,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.8892003842687621,
+      "sensory": 0.0
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0053_LPI2-3",
+    "channel": "D0053_LPI2-3",
+    "subject": "D0053",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -31.9832,
+    "y": 17.842641,
+    "z": -19.978166,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3139194919224971,
+      "motor": 0.7710138663312693,
+      "sensory": 0.1391732456602615
+    },
+    "dominance": 0.6298584321545083,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0053_RPI1-2",
+    "channel": "D0053_RPI1-2",
+    "subject": "D0053",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 38.5043,
+    "y": 22.81013,
+    "z": -28.62495,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7596395771821941,
+      "motor": 0.0037074968915382,
+      "sensory": 0.3690742534579983
+    },
+    "dominance": 0.6708100233664213,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0053_RPI2-3",
+    "channel": "D0053_RPI2-3",
+    "subject": "D0053",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 38.5342,
+    "y": 21.86173,
+    "z": -23.85854,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7709557023355755,
+      "motor": 0.0,
+      "sensory": 0.3582601687279581
+    },
+    "dominance": 0.6827354468631968,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0053_RPI4-5",
+    "channel": "D0053_RPI4-5",
+    "subject": "D0053",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 38.213,
+    "y": 20.46246,
+    "z": -14.42014,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6916713095871267,
+      "motor": 0.2716361609717182,
+      "sensory": 0.1892691000398533
+    },
+    "dominance": 0.6001087712791547,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0054_RPI1-2",
+    "channel": "D0054_RPI1-2",
+    "subject": "D0054",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 35.3997,
+    "y": 4.949299999999999,
+    "z": -19.53644,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0769592951807005,
+      "motor": 0.8729712496218394,
+      "sensory": 0.0320479452230697
+    },
+    "dominance": 0.8889922319979459,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0054_RPI2-3",
+    "channel": "D0054_RPI2-3",
+    "subject": "D0054",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 35.5989,
+    "y": 4.859299999999999,
+    "z": -15.74815,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0654695248499378,
+      "motor": 0.8652964474943502,
+      "sensory": 0.0
+    },
+    "dominance": 0.9296605948270305,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0054_RPI3-4",
+    "channel": "D0054_RPI3-4",
+    "subject": "D0054",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 36.1395,
+    "y": 4.9144000000000005,
+    "z": -11.67502,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0209630561143475,
+      "motor": 0.6172496771129448,
+      "sensory": 0.0
+    },
+    "dominance": 0.9671534975362488,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0055_RAI4-5",
+    "channel": "D0055_RAI4-5",
+    "subject": "D0055",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 37.1702,
+    "y": 32.6943,
+    "z": -25.80066,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1876338574919835,
+      "motor": 0.6774577106418965,
+      "sensory": 0.1379343567996264
+    },
+    "dominance": 0.6754139587038163,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0055_RAI5-6",
+    "channel": "D0055_RAI5-6",
+    "subject": "D0055",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 36.6666,
+    "y": 33.856,
+    "z": -21.47504,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6666812319883955,
+      "motor": 0.5465830437678976,
+      "sensory": 0.1099251114834933
+    },
+    "dominance": 0.5038441499135002,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0055_RAI6-7",
+    "channel": "D0055_RAI6-7",
+    "subject": "D0055",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 35.8947,
+    "y": 35.2795,
+    "z": -17.56266,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7324725895965027,
+      "motor": 0.424592234702814,
+      "sensory": 0.1647949892030834
+    },
+    "dominance": 0.5541227459330524,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0055_RPI3-4",
+    "channel": "D0055_RPI3-4",
+    "subject": "D0055",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 37.7303,
+    "y": 15.3809,
+    "z": -33.7618,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1609356185235254,
+      "motor": 0.7308011700326076,
+      "sensory": 0.3393022930394968
+    },
+    "dominance": 0.5936457915579485,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0055_RPI6-7",
+    "channel": "D0055_RPI6-7",
+    "subject": "D0055",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 38.5318,
+    "y": 12.11196,
+    "z": -18.525465,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4325286997249045,
+      "motor": 0.6873461589871331,
+      "sensory": 0.0
+    },
+    "dominance": 0.6137705062667863,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0055_RPI8-9",
+    "channel": "D0055_RPI8-9",
+    "subject": "D0055",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 38.6679,
+    "y": 10.73327,
+    "z": -8.576,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.176258262642526,
+      "motor": 0.8570473537772699,
+      "sensory": 0.0
+    },
+    "dominance": 0.8294229124068571,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0057_RAI3-4",
+    "channel": "D0057_RAI3-4",
+    "subject": "D0057",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 34.4705,
+    "y": 29.9543,
+    "z": -20.7107,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2072327607399439,
+      "motor": 0.8610579246144281,
+      "sensory": 0.0
+    },
+    "dominance": 0.8060146329262423,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0057_RAI4-5",
+    "channel": "D0057_RAI4-5",
+    "subject": "D0057",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 33.2449,
+    "y": 30.9841,
+    "z": -16.29374,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1103916718919547,
+      "motor": 0.8713165156485448,
+      "sensory": 0.0
+    },
+    "dominance": 0.8875514401397405,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0057_RAI5-6",
+    "channel": "D0057_RAI5-6",
+    "subject": "D0057",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 32.2074,
+    "y": 32.33,
+    "z": -12.09998,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0560257169270815,
+      "motor": 0.9300904457991644,
+      "sensory": 0.0
+    },
+    "dominance": 0.9431854795157284,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0057_RPI2-3",
+    "channel": "D0057_RPI2-3",
+    "subject": "D0057",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 35.7682,
+    "y": 10.20814,
+    "z": -20.14288,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2793833713987171,
+      "motor": 0.7341125319380922,
+      "sensory": 0.0889893627854275
+    },
+    "dominance": 0.6658706057090275,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0057_RPI5-6",
+    "channel": "D0057_RPI5-6",
+    "subject": "D0057",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 35.3442,
+    "y": 12.38171,
+    "z": -5.457800000000001,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1630273132504393,
+      "motor": 0.8755798879459669,
+      "sensory": 0.0
+    },
+    "dominance": 0.8430327528418416,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0058_LPI5-6",
+    "channel": "D0058_LPI5-6",
+    "subject": "D0058",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -35.1749,
+    "y": 12.63301,
+    "z": -6.7727,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.4037478576112754,
+      "motor": 0.4281208336938004,
+      "sensory": 0.4434159782232214
+    },
+    "dominance": 0.3476996068550186,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0060_RI3-4",
+    "channel": "D0060_RI3-4",
+    "subject": "D0060",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.6042,
+    "y": 11.51263,
+    "z": -23.55222,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5686795956392453,
+      "motor": 0.1020229835278685,
+      "sensory": 0.2939688679942043
+    },
+    "dominance": 0.5895059891247587,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0060_RI6-7",
+    "channel": "D0060_RI6-7",
+    "subject": "D0060",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 39.6781,
+    "y": 12.65414,
+    "z": -8.3097,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2223020354259501,
+      "motor": 0.8256418345139878,
+      "sensory": 0.2397493259394898
+    },
+    "dominance": 0.6411789991249562,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0061_LAI3-4",
+    "channel": "D0061_LAI3-4",
+    "subject": "D0061",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -33.1045,
+    "y": 21.40907,
+    "z": -19.647531,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4007018661985812,
+      "motor": 0.6169475151937499,
+      "sensory": 0.0
+    },
+    "dominance": 0.6062476197348565,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0061_LAI4-5",
+    "channel": "D0061_LAI4-5",
+    "subject": "D0061",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -32.4795,
+    "y": 22.07169,
+    "z": -15.372,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3496645677456768,
+      "motor": 0.7639323186253703,
+      "sensory": 0.0
+    },
+    "dominance": 0.6860043593645883,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0061_LPI5-6",
+    "channel": "D0061_LPI5-6",
+    "subject": "D0061",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.2542,
+    "y": 13.45833,
+    "z": -14.44415,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1429248669599684,
+      "motor": 0.9137775986950556,
+      "sensory": 0.0261736442198824
+    },
+    "dominance": 0.8438431602305962,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0061_LPI6-7",
+    "channel": "D0061_LPI6-7",
+    "subject": "D0061",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -32.723,
+    "y": 13.15778,
+    "z": -10.71778,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0742764474352073,
+      "motor": 0.890168746913433,
+      "sensory": 0.1236062446708769
+    },
+    "dominance": 0.8181311241273633,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0063_RAI4-5",
+    "channel": "D0063_RAI4-5",
+    "subject": "D0063",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 37.1819,
+    "y": 25.24715,
+    "z": -14.24681,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9413288917025846,
+      "sensory": 0.0
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0064_LAI3-4",
+    "channel": "D0064_LAI3-4",
+    "subject": "D0064",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -30.8896,
+    "y": 27.3233,
+    "z": -20.06354,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.920991044885565,
+      "sensory": 0.0
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0064_LAI4-5",
+    "channel": "D0064_LAI4-5",
+    "subject": "D0064",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -30.0138,
+    "y": 30.1736,
+    "z": -17.22808,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2096389167708396,
+      "motor": 0.8185391979480192,
+      "sensory": 0.074683080640045
+    },
+    "dominance": 0.7421960273809816,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0064_LAI5-6",
+    "channel": "D0064_LAI5-6",
+    "subject": "D0064",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -29.0569,
+    "y": 32.904,
+    "z": -14.35502,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7460153879924338,
+      "motor": 0.3367915877313243,
+      "sensory": 0.16763659881571
+    },
+    "dominance": 0.5966006009245058,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0064_LAI6-7",
+    "channel": "D0064_LAI6-7",
+    "subject": "D0064",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -27.9066,
+    "y": 35.486999999999995,
+    "z": -11.28872,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7281877000283399,
+      "motor": 0.3093677572787509,
+      "sensory": 0.2022744357163885
+    },
+    "dominance": 0.5873287167262629,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0065_RI5-6",
+    "channel": "D0065_RI5-6",
+    "subject": "D0065",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 36.3632,
+    "y": 18.69534,
+    "z": -13.41727,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.60225876803378,
+      "sensory": 0.340354464249019
+    },
+    "dominance": 0.6389245847687111,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0067_LAI2-3",
+    "channel": "D0067_LAI2-3",
+    "subject": "D0067",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -31.0169,
+    "y": 17.567331,
+    "z": -7.508100000000001,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2524834082895201,
+      "motor": 0.4386004107116284,
+      "sensory": 0.1167862005556909
+    },
+    "dominance": 0.5429096266652209,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0068_LAI3-4",
+    "channel": "D0068_LAI3-4",
+    "subject": "D0068",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -32.076,
+    "y": 18.90239,
+    "z": -13.07021,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0313068260947674,
+      "motor": 0.9661325013304368,
+      "sensory": 0.0
+    },
+    "dominance": 0.9686128015670056,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0070_LIA1-2",
+    "channel": "D0070_LIA1-2",
+    "subject": "D0070",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -32.0287,
+    "y": 21.43636,
+    "z": -20.64898,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.123661225540498,
+      "motor": 0.5137922790863352,
+      "sensory": 0.0280282379350682
+    },
+    "dominance": 0.772060668574305,
+    "tasks": [
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0070_LIA2-3",
+    "channel": "D0070_LIA2-3",
+    "subject": "D0070",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -31.0513,
+    "y": 21.59719,
+    "z": -14.56309,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.8390898301549254,
+      "sensory": 0.0201468176696114
+    },
+    "dominance": 0.976552655522061,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIA2-3",
+    "channel": "D0071_RIA2-3",
+    "subject": "D0071",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 38.345,
+    "y": 25.462020000000003,
+    "z": -21.70099,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0701290656240607,
+      "motor": 0.8704050611588643,
+      "sensory": 0.0198957493095276
+    },
+    "dominance": 0.9062661239778818,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIP1-2",
+    "channel": "D0071_RIP1-2",
+    "subject": "D0071",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.3994,
+    "y": 10.12422,
+    "z": -28.28763,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.2012005193975175,
+      "motor": 0.0612546883726582,
+      "sensory": 0.6241899452252839
+    },
+    "dominance": 0.703990703740395,
+    "tasks": [
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIP2-3",
+    "channel": "D0071_RIP2-3",
+    "subject": "D0071",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 40.978,
+    "y": 10.57638,
+    "z": -22.78132,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.1699017924315053,
+      "motor": 0.3385718178955948,
+      "sensory": 0.720588581235842
+    },
+    "dominance": 0.5862913904458344,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIP4-5",
+    "channel": "D0071_RIP4-5",
+    "subject": "D0071",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 39.3244,
+    "y": 12.22279,
+    "z": -12.39087,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.179088529053041,
+      "motor": 0.7303377827324751,
+      "sensory": 0.0069785445120139
+    },
+    "dominance": 0.7969597473361223,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIP5-6",
+    "channel": "D0071_RIP5-6",
+    "subject": "D0071",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 38.7729,
+    "y": 13.04927,
+    "z": -7.427799999999999,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5229776868379142,
+      "motor": 0.3135612277848691,
+      "sensory": 0.034068171579653
+    },
+    "dominance": 0.6007046061606599,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0071_RIP6-7",
+    "channel": "D0071_RIP6-7",
+    "subject": "D0071",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 38.7559,
+    "y": 13.65686,
+    "z": -2.735800000000001,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4173394439869239,
+      "motor": 0.5538074959872107,
+      "sensory": 0.0
+    },
+    "dominance": 0.570261278897672,
+    "tasks": [
+      "LexicalDelay",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0075_RAI4-5",
+    "channel": "D0075_RAI4-5",
+    "subject": "D0075",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 38.1301,
+    "y": 34.8536,
+    "z": -19.923815,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.924729848316398,
+      "sensory": 0.0212971312927239
+    },
+    "dominance": 0.9774878182633612,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0075_RAI5-6",
+    "channel": "D0075_RAI5-6",
+    "subject": "D0075",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 36.8813,
+    "y": 36.531400000000005,
+    "z": -16.279139999999998,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1604659453913306,
+      "motor": 0.9196656384015828,
+      "sensory": 0.0
+    },
+    "dominance": 0.8514385211958623,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0075_RAI6-7",
+    "channel": "D0075_RAI6-7",
+    "subject": "D0075",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 35.7283,
+    "y": 38.0903,
+    "z": -12.69861,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3317512664731831,
+      "motor": 0.8199582964554774,
+      "sensory": 0.0644817058773743
+    },
+    "dominance": 0.6742017620801133,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0079_LAI1-2",
+    "channel": "D0079_LAI1-2",
+    "subject": "D0079",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -30.6433,
+    "y": 26.04074,
+    "z": -34.8076,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6679481078686965,
+      "motor": 0.1337279336433174,
+      "sensory": 0.2019604805017136
+    },
+    "dominance": 0.6655279010059385,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0079_LAI2-3",
+    "channel": "D0079_LAI2-3",
+    "subject": "D0079",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -30.5512,
+    "y": 27.0007,
+    "z": -31.7225,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5310349418444424,
+      "motor": 0.3919960809361408,
+      "sensory": 0.0686334240116235
+    },
+    "dominance": 0.5354986190764539,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LAI3-4",
+    "channel": "D0079_LAI3-4",
+    "subject": "D0079",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -30.5181,
+    "y": 27.976,
+    "z": -28.6812,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.18598318586138,
+      "motor": 0.8688323696462223,
+      "sensory": 0.0
+    },
+    "dominance": 0.823681794518208,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LAI7-8",
+    "channel": "D0079_LAI7-8",
+    "subject": "D0079",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -30.9222,
+    "y": 30.5207,
+    "z": -15.72969,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2145039889295717,
+      "motor": 0.8774886085145748,
+      "sensory": 0.0882577439551497
+    },
+    "dominance": 0.7434766826453366,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LPI3-4",
+    "channel": "D0079_LPI3-4",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -34.8166,
+    "y": 9.71489,
+    "z": -22.47031,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0038877840316783,
+      "motor": 0.8476918387254913,
+      "sensory": 0.0675849817307462
+    },
+    "dominance": 0.9222416035022982,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LPI4-5",
+    "channel": "D0079_LPI4-5",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -34.396,
+    "y": 10.37638,
+    "z": -19.0399151,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.8590702779500081,
+      "sensory": 0.0534117008716271
+    },
+    "dominance": 0.9414654731695608,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LPI5-6",
+    "channel": "D0079_LPI5-6",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.0289,
+    "y": 10.5601,
+    "z": -15.6722,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4061144998089941,
+      "motor": 0.4874984834632939,
+      "sensory": 0.3749373321843871
+    },
+    "dominance": 0.3842957409913974,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0079_LPI6-7",
+    "channel": "D0079_LPI6-7",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -33.782,
+    "y": 10.2673,
+    "z": -12.35828,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2144529153456562,
+      "motor": 0.7586121908537231,
+      "sensory": 0.0
+    },
+    "dominance": 0.7796109284164228,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0079_LPI7-8",
+    "channel": "D0079_LPI7-8",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -33.6723,
+    "y": 9.98386,
+    "z": -9.09004,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3487625703038539,
+      "motor": 0.7793872677581377,
+      "sensory": 0.1066401892953502
+    },
+    "dominance": 0.6311901217943567,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0079_LPI8-9",
+    "channel": "D0079_LPI8-9",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -33.8716,
+    "y": 9.71915,
+    "z": -6.2012,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1241002907267846,
+      "motor": 0.8955736379262159,
+      "sensory": 0.1069943376216274
+    },
+    "dominance": 0.7948867157565951,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0079_LPI9-10",
+    "channel": "D0079_LPI9-10",
+    "subject": "D0079",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -33.83,
+    "y": 9.56461,
+    "z": -3.0921000000000003,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0121245553959612,
+      "motor": 0.9695836438142676,
+      "sensory": 0.0
+    },
+    "dominance": 0.9876495323093816,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0080_LAI1-2",
+    "channel": "D0080_LAI1-2",
+    "subject": "D0080",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.4277,
+    "y": 28.3399,
+    "z": -27.188090000000003,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1774943434396133,
+      "motor": 0.3043814166021036,
+      "sensory": 0.0340297793770756
+    },
+    "dominance": 0.5899944725249757,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0080_LAI3-4",
+    "channel": "D0080_LAI3-4",
+    "subject": "D0080",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.7008,
+    "y": 31.6694,
+    "z": -20.92599,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3184663309842461,
+      "motor": 0.3453294180255208,
+      "sensory": 0.3310117819075322
+    },
+    "dominance": 0.3471318896300443,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0080_LAI4-5",
+    "channel": "D0080_LAI4-5",
+    "subject": "D0080",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.8866,
+    "y": 33.1327,
+    "z": -18.032854,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7132285513371909,
+      "motor": 0.3760307482379487,
+      "sensory": 0.1925954333171171
+    },
+    "dominance": 0.5564035713531509,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0080_LPI1-2",
+    "channel": "D0080_LPI1-2",
+    "subject": "D0080",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.741,
+    "y": 9.38358,
+    "z": -19.102047,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0375239279612502,
+      "motor": 0.1300982293658938,
+      "sensory": 0.6144026107869281
+    },
+    "dominance": 0.7856562040466045,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0081_LTAS3-4",
+    "channel": "D0081_LTAS3-4",
+    "subject": "D0081",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -40.6824,
+    "y": 16.553584999999998,
+    "z": -29.0221,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.099653544417947,
+      "motor": 0.2603678746738742,
+      "sensory": 0.6866527382112542
+    },
+    "dominance": 0.6560329529684058,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0084_RAI1-2",
+    "channel": "D0084_RAI1-2",
+    "subject": "D0084",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 40.736,
+    "y": 30.6067,
+    "z": -27.18536,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6222331313582584,
+      "motor": 0.3427782580764109,
+      "sensory": 0.0527646632707255
+    },
+    "dominance": 0.6113654666016884,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0084_RAI2-3",
+    "channel": "D0084_RAI2-3",
+    "subject": "D0084",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 40.3478,
+    "y": 32.9551,
+    "z": -23.30965,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.6042214655754256,
+      "motor": 0.6515920487055545,
+      "sensory": 0.0
+    },
+    "dominance": 0.5188605165462211,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0084_RAI3-4",
+    "channel": "D0084_RAI3-4",
+    "subject": "D0084",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 39.827,
+    "y": 35.3126,
+    "z": -19.534187,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5315497015253015,
+      "motor": 0.7151099781756387,
+      "sensory": 0.0
+    },
+    "dominance": 0.5736208444209776,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0084_RAI4-5",
+    "channel": "D0084_RAI4-5",
+    "subject": "D0084",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 39.1538,
+    "y": 37.7016,
+    "z": -15.80427,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5656008537372058,
+      "motor": 0.6785075028236371,
+      "sensory": 0.002231520785978
+    },
+    "dominance": 0.5444000590497257,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0084_RPI1-2",
+    "channel": "D0084_RPI1-2",
+    "subject": "D0084",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 42.3639,
+    "y": 17.705774,
+    "z": -16.83256,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2626290535307866,
+      "motor": 0.5175936140156212,
+      "sensory": 0.2183743664898469
+    },
+    "dominance": 0.5183208004569635,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0085_RAI1-2",
+    "channel": "D0085_RAI1-2",
+    "subject": "D0085",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 43.9391,
+    "y": 15.28928,
+    "z": -16.25807,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0751595824642086,
+      "motor": 0.1010706312542858,
+      "sensory": 0.4234375973203987
+    },
+    "dominance": 0.7061202711328045,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0085_RAI2-3",
+    "channel": "D0085_RAI2-3",
+    "subject": "D0085",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 43.2746,
+    "y": 16.9174293,
+    "z": -11.76944,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0752123882922325,
+      "motor": 0.0696291058524563,
+      "sensory": 0.3898187864359081
+    },
+    "dominance": 0.7290962141653706,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0086_LTMM5-6",
+    "channel": "D0086_LTMM5-6",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "TL parahippocampal and ambient gyrus L",
+    "hemi": "R",
+    "x": 40.6108,
+    "y": 9.00512,
+    "z": -21.03691,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5324278210797669,
+      "motor": 0.2511448320022482,
+      "sensory": 0.0782347823111204
+    },
+    "dominance": 0.617803698614977,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0086_RPI2-3",
+    "channel": "D0086_RPI2-3",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 40.6285,
+    "y": 9.39948,
+    "z": -20.38765,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7177106632435811,
+      "motor": 0.1291851603671162,
+      "sensory": 0.2966443642366482
+    },
+    "dominance": 0.627621723198582,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0086_RPI3-4",
+    "channel": "D0086_RPI3-4",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 39.5281,
+    "y": 9.67512,
+    "z": -15.35044,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6293163821802662,
+      "motor": 0.4539268858753814,
+      "sensory": 0.0608363655494619
+    },
+    "dominance": 0.5500634428717407,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0086_RTAM6-7",
+    "channel": "D0086_RTAM6-7",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 35.446,
+    "y": 15.04583,
+    "z": -37.4561,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.4840508258328973,
+      "motor": 0.1627265917369015,
+      "sensory": 0.0985816011940914
+    },
+    "dominance": 0.6494196939290429,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0086_RTMM6-7",
+    "channel": "D0086_RTMM6-7",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -39.1782,
+    "y": 7.99156,
+    "z": -23.76545,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.481198415820639,
+      "motor": 0.2829301383623371,
+      "sensory": 0.4545110334367357
+    },
+    "dominance": 0.3948652421184938,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0086_RTPS4-9",
+    "channel": "D0086_RTPS4-9",
+    "subject": "D0086",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -30.1658,
+    "y": -8.593800000000002,
+    "z": -11.05029,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.2419383959111614,
+      "motor": 0.4828899379930008,
+      "sensory": 0.6686347061571916
+    },
+    "dominance": 0.4798366995996906,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0088_LAI1-2",
+    "channel": "D0088_LAI1-2",
+    "subject": "D0088",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.6157,
+    "y": 28.3157,
+    "z": -30.4748,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8060829051101663,
+      "motor": 0.2462227898239521,
+      "sensory": 0.0161258470098701
+    },
+    "dominance": 0.7544544254501467,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0088_LAI2-3",
+    "channel": "D0088_LAI2-3",
+    "subject": "D0088",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -33.2937,
+    "y": 29.8699,
+    "z": -26.63525,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5051613105618603,
+      "motor": 0.3551213360908595,
+      "sensory": 0.3299932958158112
+    },
+    "dominance": 0.4244068896445968,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0088_LAI4-5",
+    "channel": "D0088_LAI4-5",
+    "subject": "D0088",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.2988,
+    "y": 33.3903,
+    "z": -17.9756,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5944800128779775,
+      "motor": 0.6537958407059566,
+      "sensory": 0.0770939044748538
+    },
+    "dominance": 0.4932931634591868,
+    "tasks": [
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0088_LPI2-3",
+    "channel": "D0088_LPI2-3",
+    "subject": "D0088",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -35.3703,
+    "y": 9.58453,
+    "z": -16.12413,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0359581080246915,
+      "motor": 0.9533234817697416,
+      "sensory": 0.0251400037304909
+    },
+    "dominance": 0.939770493702842,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0088_LTAS1-2",
+    "channel": "D0088_LTAS1-2",
+    "subject": "D0088",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -39.0084,
+    "y": 14.80039,
+    "z": -36.618300000000005,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6706382194077323,
+      "motor": 0.0,
+      "sensory": 0.4507840316844353
+    },
+    "dominance": 0.598024712595625,
+    "tasks": [
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0090_RIA4-5",
+    "channel": "D0090_RIA4-5",
+    "subject": "D0090",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 38.333,
+    "y": 35.4837,
+    "z": -18.9384129,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4983781410023816,
+      "motor": 0.7334009334426289,
+      "sensory": 0.0
+    },
+    "dominance": 0.5953997341390699,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0090_RIP1-2",
+    "channel": "D0090_RIP1-2",
+    "subject": "D0090",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.6773,
+    "y": 14.51199,
+    "z": -29.381,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.0,
+      "sensory": 0.7887350436520363
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0090_RIP2-3",
+    "channel": "D0090_RIP2-3",
+    "subject": "D0090",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.6786,
+    "y": 13.89265,
+    "z": -24.55174,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.3094714202488459,
+      "motor": 0.1656658832200388,
+      "sensory": 0.4115671685105201
+    },
+    "dominance": 0.4641537079335712,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0090_RIP5-6",
+    "channel": "D0090_RIP5-6",
+    "subject": "D0090",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 40.6423,
+    "y": 12.34513,
+    "z": -10.45856,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0646069689896362,
+      "motor": 0.901133893196292,
+      "sensory": 0.2593441524886513
+    },
+    "dominance": 0.7355684563945638,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0090_RIP6-7",
+    "channel": "D0090_RIP6-7",
+    "subject": "D0090",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 40.4283,
+    "y": 11.76924,
+    "z": -5.973699999999999,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0613649642124754,
+      "motor": 0.8828806186191247,
+      "sensory": 0.3028186632038471
+    },
+    "dominance": 0.7079672289746884,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0091_LPI3-5",
+    "channel": "D0091_LPI3-5",
+    "subject": "D0091",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -31.4306,
+    "y": 4.3858,
+    "z": -11.14735,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0639290678634881,
+      "motor": 0.843486282300689,
+      "sensory": 0.0908092997258614
+    },
+    "dominance": 0.8449864290504195,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0091_LPI5-7",
+    "channel": "D0091_LPI5-7",
+    "subject": "D0091",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -31.8193,
+    "y": -0.1645000000000003,
+    "z": -3.7857,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1321104177515262,
+      "motor": 0.7091981407349304,
+      "sensory": 0.3640182148394846
+    },
+    "dominance": 0.5883866155050975,
+    "tasks": [
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_LIA2-3",
+    "channel": "D0092_LIA2-3",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.0405,
+    "y": 32.774100000000004,
+    "z": -21.89669,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2486907701144111,
+      "motor": 0.6465822545533664,
+      "sensory": 0.0659549961281293
+    },
+    "dominance": 0.6726627195262052,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_LIA3-4",
+    "channel": "D0092_LIA3-4",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.9552,
+    "y": 34.690200000000004,
+    "z": -18.707011,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7240654372394167,
+      "motor": 0.5064336175480869,
+      "sensory": 0.0127656076715095
+    },
+    "dominance": 0.5823904266749697,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_LIA4-5",
+    "channel": "D0092_LIA4-5",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -30.6754,
+    "y": 36.7144,
+    "z": -15.34716,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8122413566253566,
+      "motor": 0.3746955737676863,
+      "sensory": 0.0753610822165227
+    },
+    "dominance": 0.6434624379596378,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_RIA2-3",
+    "channel": "D0092_RIA2-3",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 40.77,
+    "y": 26.46359,
+    "z": -22.62223,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3401547061765133,
+      "motor": 0.451349880273111,
+      "sensory": 0.2695826760279826
+    },
+    "dominance": 0.4253654682643373,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_RIA3-4",
+    "channel": "D0092_RIA3-4",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 39.1966,
+    "y": 27.976,
+    "z": -19.363444,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.3996883547537919,
+      "motor": 0.2643216855906894,
+      "sensory": 0.3130997893443419
+    },
+    "dominance": 0.4090516159079878,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0092_RIA4-5",
+    "channel": "D0092_RIA4-5",
+    "subject": "D0092",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 37.6692,
+    "y": 29.7366,
+    "z": -15.85573,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0928386956312129,
+      "motor": 0.9103809312927924,
+      "sensory": 0.0203465389270607
+    },
+    "dominance": 0.8894206956673255,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0093_LIA2-3",
+    "channel": "D0093_LIA2-3",
+    "subject": "D0093",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.2174,
+    "y": 27.5361,
+    "z": -24.70691,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5430162530991799,
+      "motor": 0.2299547116325377,
+      "sensory": 0.148370327807644
+    },
+    "dominance": 0.5893757910302073,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0093_LIA4-5",
+    "channel": "D0093_LIA4-5",
+    "subject": "D0093",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -29.5429,
+    "y": 30.3736,
+    "z": -16.43053,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.275524118820874,
+      "motor": 0.7276041514084808,
+      "sensory": 0.0
+    },
+    "dominance": 0.7253351071863638,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0093_LIA5-6",
+    "channel": "D0093_LIA5-6",
+    "subject": "D0093",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -27.9896,
+    "y": 31.9396,
+    "z": -12.30166,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3893662017981157,
+      "motor": 0.7653550454967493,
+      "sensory": 0.0310483644501813
+    },
+    "dominance": 0.6454500418259236,
+    "tasks": [
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0094_LFAI2-3",
+    "channel": "D0094_LFAI2-3",
+    "subject": "D0094",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -33.3742,
+    "y": 19.8315,
+    "z": -15.55617,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0657641619255094,
+      "motor": 0.9485424704638504,
+      "sensory": 0.0
+    },
+    "dominance": 0.9351634310321018,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0094_LIA1-2",
+    "channel": "D0094_LIA1-2",
+    "subject": "D0094",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -34.3459,
+    "y": 35.9822,
+    "z": -25.91194,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6131236423451044,
+      "motor": 0.5749612977831344,
+      "sensory": 0.0
+    },
+    "dominance": 0.516060444532632,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0094_LIA2-3",
+    "channel": "D0094_LIA2-3",
+    "subject": "D0094",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.5776,
+    "y": 38.3835,
+    "z": -22.39871,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7956459991263625,
+      "motor": 0.443790100060078,
+      "sensory": 0.0
+    },
+    "dominance": 0.6419419279853318,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0094_LIA3-4",
+    "channel": "D0094_LIA3-4",
+    "subject": "D0094",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.982,
+    "y": 40.3868,
+    "z": -18.631132,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6660740425823063,
+      "motor": 0.2536890510340392,
+      "sensory": 0.3752297441559153
+    },
+    "dominance": 0.5143457347054787,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0095_RIA1-2",
+    "channel": "D0095_RIA1-2",
+    "subject": "D0095",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 43.851,
+    "y": 31.2383,
+    "z": -27.63387,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4107681763440494,
+      "motor": 0.63959714784373,
+      "sensory": 0.1436683413083263
+    },
+    "dominance": 0.5356608999612967,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0095_RIA2-3",
+    "channel": "D0095_RIA2-3",
+    "subject": "D0095",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 42.3384,
+    "y": 32.2798,
+    "z": -23.17269,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5266834121738071,
+      "motor": 0.6339039705999263,
+      "sensory": 0.1218155648435543
+    },
+    "dominance": 0.4943095083941624,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0095_RPI1-2",
+    "channel": "D0095_RPI1-2",
+    "subject": "D0095",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 41.7109,
+    "y": 8.16521,
+    "z": -18.736555,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3054671619449515,
+      "motor": 0.5738451634179457,
+      "sensory": 0.1137568750937359
+    },
+    "dominance": 0.5778501268129956,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0096_LFAI1-2",
+    "channel": "D0096_LFAI1-2",
+    "subject": "D0096",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -31.3789,
+    "y": 25.09168,
+    "z": -11.90803,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2891206143586239,
+      "motor": 0.8899694102951273,
+      "sensory": 0.0364105971987277
+    },
+    "dominance": 0.7321834265611258,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0096_LFMI2-3",
+    "channel": "D0096_LFMI2-3",
+    "subject": "D0096",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -38.5706,
+    "y": 1.8437,
+    "z": -7.649699999999999,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9054181611474208,
+      "sensory": 0.2584406902608307
+    },
+    "dominance": 0.7779449888204902,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0096_LIA1-2",
+    "channel": "D0096_LIA1-2",
+    "subject": "D0096",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -37.1758,
+    "y": 32.1983,
+    "z": -30.6619,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1493031204646437,
+      "motor": 0.4277436130155118,
+      "sensory": 0.0400658978981257
+    },
+    "dominance": 0.6931370243713436,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0096_LIP5-6",
+    "channel": "D0096_LIP5-6",
+    "subject": "D0096",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -36.1858,
+    "y": 15.86442,
+    "z": -8.4856,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9317718799486128,
+      "sensory": 0.0249954312676752
+    },
+    "dominance": 0.9738751199224188,
+    "tasks": [
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0096_LTAS2-3",
+    "channel": "D0096_LTAS2-3",
+    "subject": "D0096",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -38.3009,
+    "y": 10.36293,
+    "z": -32.0576,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.395866339362677,
+      "motor": 0.0,
+      "sensory": 0.6956881375878613
+    },
+    "dominance": 0.6373370750412717,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0102_RFAI1-2",
+    "channel": "D0102_RFAI1-2",
+    "subject": "D0102",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 36.1088,
+    "y": 28.4069,
+    "z": -15.73643,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0173827926117149,
+      "motor": 0.9745037085038184,
+      "sensory": 0.0
+    },
+    "dominance": 0.9824750184701928,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0102_RFPI1-2",
+    "channel": "D0102_RFPI1-2",
+    "subject": "D0102",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 35.4101,
+    "y": 7.46857,
+    "z": -11.12907,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2848707086064755,
+      "motor": 0.6986073822823221,
+      "sensory": 0.2448448010413105
+    },
+    "dominance": 0.568748972173412,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0102_RTAS1-2",
+    "channel": "D0102_RTAS1-2",
+    "subject": "D0102",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 37.3207,
+    "y": 12.03265,
+    "z": -24.47297,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1142681551250095,
+      "motor": 0.862386693636029,
+      "sensory": 0.1752184420525608
+    },
+    "dominance": 0.7486819084301382,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0102_RTAS2-3",
+    "channel": "D0102_RTAS2-3",
+    "subject": "D0102",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.6948,
+    "y": 12.46853,
+    "z": -24.11007,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1647264252746938,
+      "motor": 0.7320505359579144,
+      "sensory": 0.3219297209826175
+    },
+    "dominance": 0.6006781998005267,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence",
+      "PictureNaming",
+      "SentenceRep"
+    ]
+  },
+  {
+    "id": "D0103_LAI1-2",
+    "channel": "D0103_LAI1-2",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.0117,
+    "y": 29.2307,
+    "z": -30.7296,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.2075197911047014,
+      "motor": 0.0165497287389418,
+      "sensory": 0.3744904445653364
+    },
+    "dominance": 0.625652343679734,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0103_LAI3-4",
+    "channel": "D0103_LAI3-4",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.0127,
+    "y": 33.165800000000004,
+    "z": -25.49884,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7537355197472618,
+      "motor": 0.3135043065245594,
+      "sensory": 0.1979330992642534
+    },
+    "dominance": 0.5957569155440879,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LAI4-5",
+    "channel": "D0103_LAI4-5",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -32.947,
+    "y": 35.3128,
+    "z": -22.67436,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7198123617865312,
+      "motor": 0.4537589571767572,
+      "sensory": 0.122601321181578
+    },
+    "dominance": 0.5553367965752476,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LAI5-6",
+    "channel": "D0103_LAI5-6",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -32.7608,
+    "y": 37.1779,
+    "z": -19.596628,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.9147151736635756,
+      "motor": 0.0,
+      "sensory": 0.0
+    },
+    "dominance": 1.0,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LPI1-2",
+    "channel": "D0103_LPI1-2",
+    "subject": "D0103",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.3414,
+    "y": 11.74947,
+    "z": -21.01723,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.4935450043427116,
+      "motor": 0.4642370044115567,
+      "sensory": 0.238227245401902
+    },
+    "dominance": 0.4126598541170371,
+    "tasks": [
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LPI3-4",
+    "channel": "D0103_LPI3-4",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.3321,
+    "y": 13.77814,
+    "z": -14.68904,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1253897291293061,
+      "motor": 0.8535843444709492,
+      "sensory": 0.0292989949292214
+    },
+    "dominance": 0.8465805257655702,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LPI6-7",
+    "channel": "D0103_LPI6-7",
+    "subject": "D0103",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -31.4324,
+    "y": 15.58995,
+    "z": -5.6486,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2801849753629413,
+      "motor": 0.8284166480199547,
+      "sensory": 0.102812398667698
+    },
+    "dominance": 0.6838427102054431,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0103_LTMS1-2",
+    "channel": "D0103_LTMS1-2",
+    "subject": "D0103",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -37.2971,
+    "y": 1.8588000000000005,
+    "z": -20.04329,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.2243917138315912,
+      "sensory": 0.8258558286456028
+    },
+    "dominance": 0.7863439762950325,
+    "tasks": [
+      "LexicalDelay",
+      "PhonemeSequence"
+    ]
+  },
+  {
+    "id": "D0105_LIA2-3",
+    "channel": "D0105_LIA2-3",
+    "subject": "D0105",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -35.581,
+    "y": 31.2876,
+    "z": -24.18148,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.323857845829178,
+      "motor": 0.6088744591128784,
+      "sensory": 0.041192913764788
+    },
+    "dominance": 0.6251757808688104,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0105_LIA3-4",
+    "channel": "D0105_LIA3-4",
+    "subject": "D0105",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -35.2538,
+    "y": 32.1159,
+    "z": -20.44621,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3580698853554148,
+      "motor": 0.4924479841676358,
+      "sensory": 0.1083434158461655
+    },
+    "dominance": 0.5135758338371283,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0105_LIA4-5",
+    "channel": "D0105_LIA4-5",
+    "subject": "D0105",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -34.9096,
+    "y": 32.8903,
+    "z": -16.43152,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7763276219579852,
+      "motor": 0.19795601487019,
+      "sensory": 0.1421922626349435
+    },
+    "dominance": 0.6953375548288135,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0107_RFAI1-2",
+    "channel": "D0107_RFAI1-2",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 42.3545,
+    "y": 17.702045,
+    "z": -13.20863,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5567349114246621,
+      "motor": 0.2730098202285853,
+      "sensory": 0.3091837441989167
+    },
+    "dominance": 0.4888234188789636,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0107_RIA1-2",
+    "channel": "D0107_RIA1-2",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 40.7406,
+    "y": 25.81543,
+    "z": -31.032400000000003,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1700444688255117,
+      "motor": 0.2645087698617884,
+      "sensory": 0.0305632553040134
+    },
+    "dominance": 0.5686935924201569,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0107_RIA2-3",
+    "channel": "D0107_RIA2-3",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 40.7427,
+    "y": 27.2144,
+    "z": -26.7287,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7047241237104593,
+      "sensory": 0.1624476517328519
+    },
+    "dominance": 0.8126695813527761,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0107_RIA3-4",
+    "channel": "D0107_RIA3-4",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 40.0277,
+    "y": 28.4382,
+    "z": -21.23567,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.6510144800357988,
+      "sensory": 0.1060127978714191
+    },
+    "dominance": 0.8599617200525606,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0107_RIA4-5",
+    "channel": "D0107_RIA4-5",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 39.5491,
+    "y": 29.3358,
+    "z": -18.471182,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.8000486931338535,
+      "sensory": 0.0301093016322932
+    },
+    "dominance": 0.9637306370328036,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0107_RIA5-6",
+    "channel": "D0107_RIA5-6",
+    "subject": "D0107",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 38.9203,
+    "y": 30.1822,
+    "z": -15.70947,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7097437729365074,
+      "sensory": 0.0327260474559359
+    },
+    "dominance": 0.9559227236487025,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0107_RTAS1-2",
+    "channel": "D0107_RTAS1-2",
+    "subject": "D0107",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 39.4586,
+    "y": 0.2286999999999999,
+    "z": -16.52134,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.4579795374353588,
+      "sensory": 0.820359076910064
+    },
+    "dominance": 0.6417384781340829,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0108_LFAI1-2",
+    "channel": "D0108_LFAI1-2",
+    "subject": "D0108",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -36.0895,
+    "y": 17.536875,
+    "z": -12.82916,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.6475352778853263,
+      "sensory": 0.0766738015560474
+    },
+    "dominance": 0.8941275334255813,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0115_LIA2-3",
+    "channel": "D0115_LIA2-3",
+    "subject": "D0115",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.3777,
+    "y": 32.808,
+    "z": -25.91794,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5965261140868204,
+      "motor": 0.1927992265229473,
+      "sensory": 0.0251057977705689
+    },
+    "dominance": 0.7324451214784529,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0115_LIA4-5",
+    "channel": "D0115_LIA4-5",
+    "subject": "D0115",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.4849,
+    "y": 34.161500000000004,
+    "z": -17.75773,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7258661879181659,
+      "motor": 0.0876894256753169,
+      "sensory": 0.4257754949298307
+    },
+    "dominance": 0.5856918969645241,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0115_LTAS2-3",
+    "channel": "D0115_LTAS2-3",
+    "subject": "D0115",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -40.4797,
+    "y": 15.96027,
+    "z": -29.5153,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.3642444732577766,
+      "motor": 0.0,
+      "sensory": 0.7686406880358907
+    },
+    "dominance": 0.6784806742089926,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0115_LTMS1-2",
+    "channel": "D0115_LTMS1-2",
+    "subject": "D0115",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -37.0323,
+    "y": 0.4054999999999999,
+    "z": -20.90855,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.0104503999675372,
+      "sensory": 0.9153308802313772
+    },
+    "dominance": 0.9887118046226946,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0118_LFMI1-2",
+    "channel": "D0118_LFMI1-2",
+    "subject": "D0118",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -28.3608,
+    "y": 33.0854,
+    "z": -15.13078,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2635344124252623,
+      "motor": 0.2915916126087516,
+      "sensory": 0.1963902543570358
+    },
+    "dominance": 0.3880043860726835,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0118_LFMI2-3",
+    "channel": "D0118_LFMI2-3",
+    "subject": "D0118",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -31.9551,
+    "y": 33.3754,
+    "z": -15.06229,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4421548755491985,
+      "motor": 0.6823216765762204,
+      "sensory": 0.0007341102679957
+    },
+    "dominance": 0.6063946062552115,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0118_LIA4-5",
+    "channel": "D0118_LIA4-5",
+    "subject": "D0118",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -28.688,
+    "y": 33.548,
+    "z": -24.17857,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6504724614507784,
+      "motor": 0.3824157552810538,
+      "sensory": 0.2581387472912866
+    },
+    "dominance": 0.5038411122133079,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0118_LIA5-6",
+    "channel": "D0118_LIA5-6",
+    "subject": "D0118",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -28.6062,
+    "y": 37.4235,
+    "z": -17.63681,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.3969474301569105,
+      "motor": 0.6680343534735556,
+      "sensory": 0.1505725586674758
+    },
+    "dominance": 0.5495717716829275,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0118_LPAI1-2",
+    "channel": "D0118_LPAI1-2",
+    "subject": "D0118",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -30.1839,
+    "y": 6.2729,
+    "z": -4.135,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0613833185727787,
+      "motor": 0.8187795233907248,
+      "sensory": 0.1010914602457698
+    },
+    "dominance": 0.8344213335393892,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0118_RTAS2-3",
+    "channel": "D0118_RTAS2-3",
+    "subject": "D0118",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.8504,
+    "y": 5.4011,
+    "z": -19.244579,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.26281434271531,
+      "motor": 0.0239976408560196,
+      "sensory": 0.681860412458485
+    },
+    "dominance": 0.7039122981651458,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0119_RIA3-4",
+    "channel": "D0119_RIA3-4",
+    "subject": "D0119",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 37.5074,
+    "y": 32.458600000000004,
+    "z": -20.30339,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5541051981061091,
+      "motor": 0.4980383626214069,
+      "sensory": 0.1475112752211042
+    },
+    "dominance": 0.461887187465846,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0119_RIA4-5",
+    "channel": "D0119_RIA4-5",
+    "subject": "D0119",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 36.6819,
+    "y": 34.096900000000005,
+    "z": -16.80186,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.5786053283895858,
+      "motor": 0.590241779575959,
+      "sensory": 0.0712804374994163
+    },
+    "dominance": 0.4759524790288079,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0119_RIP1-2",
+    "channel": "D0119_RIP1-2",
+    "subject": "D0119",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 40.2653,
+    "y": 3.3566000000000003,
+    "z": -8.1265,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.089173792622963,
+      "motor": 0.3703078005158797,
+      "sensory": 0.5104745954493832
+    },
+    "dominance": 0.5262862399923243,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0119_RIP2-3",
+    "channel": "D0119_RIP2-3",
+    "subject": "D0119",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 39.9717,
+    "y": 3.0502,
+    "z": -4.6935,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0280371892982133,
+      "motor": 0.7547189037670045,
+      "sensory": 0.4472006322382753
+    },
+    "dominance": 0.6136141932804805,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0119_RIP3-4",
+    "channel": "D0119_RIP3-4",
+    "subject": "D0119",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 39.728,
+    "y": 2.2880000000000003,
+    "z": -1.5274,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9324400455081284,
+      "sensory": 0.1634874199232163
+    },
+    "dominance": 0.8508227733311989,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0123_LAI1-2",
+    "channel": "D0123_LAI1-2",
+    "subject": "D0123",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.1214,
+    "y": 28.0952,
+    "z": -31.5297,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.3438032188463419,
+      "motor": 0.208725776009897,
+      "sensory": 0.283314673751064
+    },
+    "dominance": 0.4113247868697656,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0123_LAI6-7",
+    "channel": "D0123_LAI6-7",
+    "subject": "D0123",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -26.9622,
+    "y": 38.4991,
+    "z": -10.7734,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.4663381301940119,
+      "motor": 0.352967174917989,
+      "sensory": 0.4061331931097552
+    },
+    "dominance": 0.3805479678259814,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0123_LTAS1-2",
+    "channel": "D0123_LTAS1-2",
+    "subject": "D0123",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -36.9822,
+    "y": 18.12062,
+    "z": -28.25126,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5596731290863638,
+      "motor": 0.0,
+      "sensory": 0.3537173427379883
+    },
+    "dominance": 0.6127424648611735,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LIA1-2",
+    "channel": "D0125_LIA1-2",
+    "subject": "D0125",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.167,
+    "y": 27.3555,
+    "z": -30.2069,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5434731630079209,
+      "motor": 0.0408954825828897,
+      "sensory": 0.3610253874403792
+    },
+    "dominance": 0.5748641772842572,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LIA3-4",
+    "channel": "D0125_LIA3-4",
+    "subject": "D0125",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -35.3807,
+    "y": 31.0007,
+    "z": -23.68405,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2376659695468004,
+      "motor": 0.617102699359636,
+      "sensory": 0.0022088314304858
+    },
+    "dominance": 0.7200920667310646,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LIA5-6",
+    "channel": "D0125_LIA5-6",
+    "subject": "D0125",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -36.0095,
+    "y": 33.9215,
+    "z": -17.23237,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.23837120651391,
+      "motor": 0.5668728161424195,
+      "sensory": 0.0428081810920881
+    },
+    "dominance": 0.6684409445984854,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LTAS1-2",
+    "channel": "D0125_LTAS1-2",
+    "subject": "D0125",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -38.2572,
+    "y": 23.89795,
+    "z": -23.10198,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1541690707001468,
+      "motor": 0.7567002392581571,
+      "sensory": 0.0909760453759808
+    },
+    "dominance": 0.7553064305076003,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LTAS2-3",
+    "channel": "D0125_LTAS2-3",
+    "subject": "D0125",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -41.2634,
+    "y": 23.86165,
+    "z": -23.34811,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2908977149656019,
+      "motor": 0.4985680434360832,
+      "sensory": 0.2708200172527624
+    },
+    "dominance": 0.470220439511554,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LTMS1-2",
+    "channel": "D0125_LTMS1-2",
+    "subject": "D0125",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -31.939,
+    "y": -1.1550000000000011,
+    "z": -12.90859,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0383049178885852,
+      "motor": 0.422813672946326,
+      "sensory": 0.7881156212820233
+    },
+    "dominance": 0.6308789926161994,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LTMS2-3",
+    "channel": "D0125_LTMS2-3",
+    "subject": "D0125",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -35.4938,
+    "y": -0.9426999999999984,
+    "z": -13.47316,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.4129560784379415,
+      "sensory": 0.7993124503553586
+    },
+    "dominance": 0.659352636293379,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0125_LTMS3-4",
+    "channel": "D0125_LTMS3-4",
+    "subject": "D0125",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -38.8777,
+    "y": -0.4873000000000012,
+    "z": -14.0807,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0393435595115097,
+      "motor": 0.428452717175207,
+      "sensory": 0.799885819063325
+    },
+    "dominance": 0.6309829741580923,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0128_RFAI1-2",
+    "channel": "D0128_RFAI1-2",
+    "subject": "D0128",
+    "roi": "AIC",
+    "label": "insula middle short gyrus R",
+    "hemi": "R",
+    "x": 37.2227,
+    "y": 28.5863,
+    "z": -18.043173,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0904563634629015,
+      "motor": 0.8000931026495229,
+      "sensory": 0.1534997486512309
+    },
+    "dominance": 0.7663365781378825,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0128_RTMS1-2",
+    "channel": "D0128_RTMS1-2",
+    "subject": "D0128",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 36.4731,
+    "y": 9.26741,
+    "z": -26.2595,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6362305882881611,
+      "motor": 0.1075170900229672,
+      "sensory": 0.3602181020585781
+    },
+    "dominance": 0.5763136861679664,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0128_RTMS2-3",
+    "channel": "D0128_RTMS2-3",
+    "subject": "D0128",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 41.2192,
+    "y": 9.64939,
+    "z": -25.75779,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.5604788863290652,
+      "motor": 0.0360127236945697,
+      "sensory": 0.5691008915374638
+    },
+    "dominance": 0.488250302550211,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0129_LAI1-2",
+    "channel": "D0129_LAI1-2",
+    "subject": "D0129",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.4002,
+    "y": 24.24272,
+    "z": -25.42748,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5878577694015624,
+      "motor": 0.0,
+      "sensory": 0.2512037170062743
+    },
+    "dominance": 0.7006134579222321,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0129_LAI4-5",
+    "channel": "D0129_LAI4-5",
+    "subject": "D0129",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.0863,
+    "y": 24.11765,
+    "z": -12.82081,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0916062651532724,
+      "motor": 0.8439697182468283,
+      "sensory": 0.0
+    },
+    "dominance": 0.9020857025205437,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0129_LFAI1-2",
+    "channel": "D0129_LFAI1-2",
+    "subject": "D0129",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -29.3509,
+    "y": 38.0613,
+    "z": -18.740949,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7766273413889636,
+      "motor": 0.0470883465900908,
+      "sensory": 0.4013226442634046
+    },
+    "dominance": 0.6339616654830144,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0129_LFAI2-3",
+    "channel": "D0129_LFAI2-3",
+    "subject": "D0129",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.3169,
+    "y": 38.0973,
+    "z": -18.658951,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.5910032968418174,
+      "motor": 0.0,
+      "sensory": 0.6012838911870279
+    },
+    "dominance": 0.5043112911253399,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0129_LTAS2-3",
+    "channel": "D0129_LTAS2-3",
+    "subject": "D0129",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -37.1775,
+    "y": 28.3354,
+    "z": -30.6638,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5346128990611939,
+      "motor": 0.0,
+      "sensory": 0.0541608633222146
+    },
+    "dominance": 0.9080107389586,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0129_LTMS2-3",
+    "channel": "D0129_LTMS2-3",
+    "subject": "D0129",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -40.5504,
+    "y": 16.794822,
+    "z": -21.62945,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2057295476400669,
+      "motor": 0.5682610987472968,
+      "sensory": 0.3930047545682282
+    },
+    "dominance": 0.4869437345528331,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_LIA1-2",
+    "channel": "D0131_LIA1-2",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -35.3696,
+    "y": 24.42101,
+    "z": -27.53766,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.4899244748034844,
+      "motor": 0.3052264081542056,
+      "sensory": 0.2910996505032699
+    },
+    "dominance": 0.4510234607135338,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_LIA2-3",
+    "channel": "D0131_LIA2-3",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -34.5102,
+    "y": 25.05525,
+    "z": -22.82062,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.574110950455012,
+      "motor": 0.3312767427135887,
+      "sensory": 0.3312575021930024
+    },
+    "dominance": 0.4642487211436084,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_LIA3-4",
+    "channel": "D0131_LIA3-4",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -33.5108,
+    "y": 25.695970000000003,
+    "z": -18.357728,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2702348521107337,
+      "motor": 0.4954007529929444,
+      "sensory": 0.4463965760195972
+    },
+    "dominance": 0.4087356430864911,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_LIA4-5",
+    "channel": "D0131_LIA4-5",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -32.3683,
+    "y": 26.50404,
+    "z": -13.73885,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.246244880956417,
+      "motor": 0.7245912081376071,
+      "sensory": 0.282063583580617
+    },
+    "dominance": 0.5783313891293291,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_RFAI3-4",
+    "channel": "D0131_RFAI3-4",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus R",
+    "hemi": "R",
+    "x": 41.7439,
+    "y": 35.2033,
+    "z": -20.15564,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.570195379329029,
+      "motor": 0.5086069703628616,
+      "sensory": 0.1024166050084483
+    },
+    "dominance": 0.4827177696904472,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_RIA1-2",
+    "channel": "D0131_RIA1-2",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 42.1191,
+    "y": 24.03771,
+    "z": -24.5082,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5885756509002442,
+      "motor": 0.1529016320472579,
+      "sensory": 0.1276702753462336
+    },
+    "dominance": 0.6771872569667049,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0131_RTAS2-3",
+    "channel": "D0131_RTAS2-3",
+    "subject": "D0131",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 41.0662,
+    "y": 32.4704,
+    "z": -32.9147,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8246880769924132,
+      "motor": 0.2365844044975569,
+      "sensory": 0.0543630773395889
+    },
+    "dominance": 0.7392092072232028,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0132_LFPI1-2",
+    "channel": "D0132_LFPI1-2",
+    "subject": "D0132",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -35.97,
+    "y": 3.4237,
+    "z": -4.616099999999999,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7572997379792938,
+      "sensory": 0.3619498096938732
+    },
+    "dominance": 0.6766138432252765,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0132_LPPI8-9",
+    "channel": "D0132_LPPI8-9",
+    "subject": "D0132",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus L",
+    "hemi": "L",
+    "x": -33.5556,
+    "y": -7.645299999999999,
+    "z": -16.23009,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.642300501494827,
+      "sensory": 0.6123254053680881
+    },
+    "dominance": 0.5119458302123256,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0132_LTAS2-3",
+    "channel": "D0132_LTAS2-3",
+    "subject": "D0132",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -37.2617,
+    "y": 21.61968,
+    "z": -26.52212,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.4134870962043582,
+      "sensory": 0.7996755436962332
+    },
+    "dominance": 0.6591659826927739,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0132_LTAS3-4",
+    "channel": "D0132_LTAS3-4",
+    "subject": "D0132",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -41.4993,
+    "y": 21.78268,
+    "z": -26.4627,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.4237939015482829,
+      "motor": 0.3213508201671697,
+      "sensory": 0.5420767028845712
+    },
+    "dominance": 0.4211215665968345,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0132_LTMS3-4",
+    "channel": "D0132_LTMS3-4",
+    "subject": "D0132",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -42.3425,
+    "y": 8.6678,
+    "z": -18.128446,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.3523113625281334,
+      "sensory": 0.8590547798568231
+    },
+    "dominance": 0.7091619534334208,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0134_LINS1-3",
+    "channel": "D0134_LINS1-3",
+    "subject": "D0134",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -37.5916,
+    "y": 21.87712,
+    "z": -20.98706,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.2740719913318412,
+      "motor": 0.7162688674838112,
+      "sensory": 0.3432497817544045
+    },
+    "dominance": 0.5370980012109524,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0134_LINS3-6",
+    "channel": "D0134_LINS3-6",
+    "subject": "D0134",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -36.7043,
+    "y": 22.49923,
+    "z": -11.93574,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4015405245910642,
+      "motor": 0.7087965758693753,
+      "sensory": 0.0
+    },
+    "dominance": 0.6383616070970234,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0134_RINS1-6",
+    "channel": "D0134_RINS1-6",
+    "subject": "D0134",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 43.056,
+    "y": 21.5211,
+    "z": -14.12119,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5370808635992108,
+      "motor": 0.4263863015492692,
+      "sensory": 0.088308158062867
+    },
+    "dominance": 0.5106421987153696,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LAI1-2",
+    "channel": "D0137_LAI1-2",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.83,
+    "y": 27.8781,
+    "z": -30.5931,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7361870389469098,
+      "motor": 0.015822446812498,
+      "sensory": 0.1289036636168163
+    },
+    "dominance": 0.8357089906856365,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0137_LAI2-3",
+    "channel": "D0137_LAI2-3",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -32.9103,
+    "y": 29.5693,
+    "z": -27.36501,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.7184474420808106,
+      "motor": 0.0918007575164007,
+      "sensory": 0.2228511641777734
+    },
+    "dominance": 0.6954291787147908,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LAI3-4",
+    "channel": "D0137_LAI3-4",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.0831,
+    "y": 31.3525,
+    "z": -24.13193,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6589796710944745,
+      "motor": 0.2374885791104213,
+      "sensory": 0.2931031469774083
+    },
+    "dominance": 0.5539639509283565,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LAI4-5",
+    "channel": "D0137_LAI4-5",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.2477,
+    "y": 33.1235,
+    "z": -20.87801,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6096215665987259,
+      "motor": 0.1729935908688011,
+      "sensory": 0.101417996536246
+    },
+    "dominance": 0.6895912939890986,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LAI5-6",
+    "channel": "D0137_LAI5-6",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.2632,
+    "y": 34.6393,
+    "z": -17.44638,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8231766206043243,
+      "motor": 0.1887574082719458,
+      "sensory": 0.1411272130819612
+    },
+    "dominance": 0.7139053769653487,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LAI6-7",
+    "channel": "D0137_LAI6-7",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -33.2698,
+    "y": 35.9376,
+    "z": -13.6959,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6838511977829753,
+      "motor": 0.2788732940700835,
+      "sensory": 0.3562452405568743
+    },
+    "dominance": 0.518473760981223,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LPAI1-2",
+    "channel": "D0137_LPAI1-2",
+    "subject": "D0137",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -34.2357,
+    "y": 2.286199999999999,
+    "z": -7.3421,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7675473607369168,
+      "sensory": 0.333218482654054
+    },
+    "dominance": 0.69728486339333,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LPAI2-3",
+    "channel": "D0137_LPAI2-3",
+    "subject": "D0137",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -38.1894,
+    "y": 2.8690999999999995,
+    "z": -7.3506,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.9565418385173567,
+      "sensory": 0.0320152407904003
+    },
+    "dominance": 0.9676141707337536,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LPI1-2",
+    "channel": "D0137_LPI1-2",
+    "subject": "D0137",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -32.5214,
+    "y": 11.69799,
+    "z": -24.04182,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.447971016066803,
+      "motor": 0.1641556604092537,
+      "sensory": 0.5612576047219217
+    },
+    "dominance": 0.4783237799545943,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LPI2-3",
+    "channel": "D0137_LPI2-3",
+    "subject": "D0137",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -32.211,
+    "y": 11.09272,
+    "z": -19.685787,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.2311150698420388,
+      "motor": 0.4146944638896663,
+      "sensory": 0.5288761822636923
+    },
+    "dominance": 0.4502278141822272,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LTMS1-2",
+    "channel": "D0137_LTMS1-2",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -37.2343,
+    "y": 19.61047,
+    "z": -24.2505,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5755721987086505,
+      "motor": 0.2986565932292342,
+      "sensory": 0.1399028129764167
+    },
+    "dominance": 0.5675517811687655,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0137_LTMS2-3",
+    "channel": "D0137_LTMS2-3",
+    "subject": "D0137",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -40.5796,
+    "y": 19.97765,
+    "z": -24.66938,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.6079184806926253,
+      "motor": 0.1474874043720817,
+      "sensory": 0.0925345270617427
+    },
+    "dominance": 0.7169353789473228,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0138_LAI2-3",
+    "channel": "D0138_LAI2-3",
+    "subject": "D0138",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -30.6943,
+    "y": 30.2202,
+    "z": -18.752987,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1762549322995127,
+      "motor": 0.8212012468792601,
+      "sensory": 0.0
+    },
+    "dominance": 0.8232955632751434,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0138_LAI3-4",
+    "channel": "D0138_LAI3-4",
+    "subject": "D0138",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -29.7679,
+    "y": 33.147,
+    "z": -14.73358,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8285182785214092,
+      "motor": 0.2502721361422018,
+      "sensory": 0.0767695790584227
+    },
+    "dominance": 0.7169842180610368,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0138_LAI4-5",
+    "channel": "D0138_LAI4-5",
+    "subject": "D0138",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -28.8217,
+    "y": 35.8301,
+    "z": -10.81006,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.879692492078469,
+      "motor": 0.2328505459732069,
+      "sensory": 0.0652841000298614
+    },
+    "dominance": 0.7468774182868001,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0138_LTAS2-3",
+    "channel": "D0138_LTAS2-3",
+    "subject": "D0138",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -34.3495,
+    "y": 30.1791,
+    "z": -30.2132,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.214800773449609,
+      "motor": 0.5196000467035266,
+      "sensory": 0.1567193872909555
+    },
+    "dominance": 0.5830863696760308,
+    "tasks": [
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0139_LFAI1-2",
+    "channel": "D0139_LFAI1-2",
+    "subject": "D0139",
+    "roi": "AIC",
+    "label": "insula middle short gyrus L",
+    "hemi": "L",
+    "x": -31.6108,
+    "y": 24.40478,
+    "z": -16.81526,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.1770408996631323,
+      "motor": 0.9169408355516664,
+      "sensory": 0.0991855073782689
+    },
+    "dominance": 0.768493135596743,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0139_LIA1-2",
+    "channel": "D0139_LIA1-2",
+    "subject": "D0139",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus L",
+    "hemi": "L",
+    "x": -35.4054,
+    "y": 16.728652,
+    "z": -28.54747,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.4455176456130452,
+      "motor": 0.5081098909570962,
+      "sensory": 0.3270106832288907
+    },
+    "dominance": 0.3967630226097991,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0139_LIA4-5",
+    "channel": "D0139_LIA4-5",
+    "subject": "D0139",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -33.8461,
+    "y": 17.72965,
+    "z": -10.63781,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0826490615957119,
+      "motor": 0.8267984650058625,
+      "sensory": 0.0457116854328313
+    },
+    "dominance": 0.8656132449844187,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0139_LTAS1-2",
+    "channel": "D0139_LTAS1-2",
+    "subject": "D0139",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -31.855400000000003,
+    "y": 29.3573,
+    "z": -28.58371,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.4487236595522701,
+      "motor": 0.0,
+      "sensory": 0.5194707892882927
+    },
+    "dominance": 0.536535599755165,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0139_LTAS3-4",
+    "channel": "D0139_LTAS3-4",
+    "subject": "D0139",
+    "roi": "AIC",
+    "label": "insula anterior pole L",
+    "hemi": "L",
+    "x": -39.8579,
+    "y": 28.717,
+    "z": -29.0809,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.1564668002226627,
+      "motor": 0.1716325167740754,
+      "sensory": 0.6267965219257694
+    },
+    "dominance": 0.6564030299189896,
+    "tasks": [
+      "LexicalDelay",
+      "PictureNaming"
+    ]
+  },
+  {
+    "id": "D0140_LAI2-3",
+    "channel": "D0140_LAI2-3",
+    "subject": "D0140",
+    "roi": "AIC",
+    "label": "insula anterior short gyrus L",
+    "hemi": "L",
+    "x": -34.0232,
+    "y": 33.0058,
+    "z": -23.66511,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.8287586974265398,
+      "motor": 0.0,
+      "sensory": 0.0200953635243931
+    },
+    "dominance": 0.9763264800761144,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0140_LFAI1-2",
+    "channel": "D0140_LFAI1-2",
+    "subject": "D0140",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus L",
+    "hemi": "L",
+    "x": -34.3324,
+    "y": 12.79645,
+    "z": -6.461399999999999,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.90201952352849,
+      "motor": 0.0,
+      "sensory": 0.0188291607683616
+    },
+    "dominance": 0.9795523834811802,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0143_RFAI1-2",
+    "channel": "D0143_RFAI1-2",
+    "subject": "D0143",
+    "roi": "AIC",
+    "label": "insula posterior short gyrus R",
+    "hemi": "R",
+    "x": 37.5223,
+    "y": 21.07635,
+    "z": -11.56286,
+    "component": 1,
+    "functional_cluster": "sustain",
+    "loadings": {
+      "sustain": 0.5658389446576869,
+      "motor": 0.1695010609979491,
+      "sensory": 0.5497971942854903
+    },
+    "dominance": 0.4402945807526298,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0143_RPAI1-2",
+    "channel": "D0143_RPAI1-2",
+    "subject": "D0143",
+    "roi": "PIC",
+    "label": "insula anterior long gyrus R",
+    "hemi": "R",
+    "x": 38.9121,
+    "y": 1.9464000000000008,
+    "z": -3.3485,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.5275278073057292,
+      "motor": 0.1000267612751853,
+      "sensory": 0.6373898315383115
+    },
+    "dominance": 0.5038876265851961,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0143_RTAS1-2",
+    "channel": "D0143_RTAS1-2",
+    "subject": "D0143",
+    "roi": "AIC",
+    "label": "insula anterior pole R",
+    "hemi": "R",
+    "x": 38.8832,
+    "y": 25.49188,
+    "z": -31.4797,
+    "component": 0,
+    "functional_cluster": "motor",
+    "loadings": {
+      "sustain": 0.0,
+      "motor": 0.7658890025038472,
+      "sensory": 0.0145286025464804
+    },
+    "dominance": 0.9813835535584268,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0143_RTMS1-2",
+    "channel": "D0143_RTMS1-2",
+    "subject": "D0143",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 39.8843,
+    "y": 8.64232,
+    "z": -19.235823,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.1243872678398944,
+      "motor": 0.3688218005615187,
+      "sensory": 0.5659533132411837
+    },
+    "dominance": 0.5343404590743468,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  },
+  {
+    "id": "D0143_RTMS2-3",
+    "channel": "D0143_RTMS2-3",
+    "subject": "D0143",
+    "roi": "PIC",
+    "label": "insula posterior long gyrus R",
+    "hemi": "R",
+    "x": 44.6598,
+    "y": 9.84415,
+    "z": -20.52414,
+    "component": 2,
+    "functional_cluster": "sensory",
+    "loadings": {
+      "sustain": 0.0277891702686127,
+      "motor": 0.0384302869382228,
+      "sensory": 0.917526787725151
+    },
+    "dominance": 0.9326864447534297,
+    "tasks": [
+      "LexicalDelay"
+    ]
+  }
+]
