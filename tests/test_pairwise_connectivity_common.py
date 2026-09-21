@@ -274,6 +274,9 @@ def test_connectivity_paths_use_bidspath_layout():
     assert entity_output_dir(output_root, entities) == (
         output_root / "LexicalDelay" / "sub-D0092"
     )
+    assert metric_output_dir(output_root, entities, "xcorr_resid") == (
+        output_root / "LexicalDelay" / "sub-D0092" / "xcorrresid"
+    )
 
     pairs = connectivity_bids_path(
         output_root,
@@ -318,4 +321,3 @@ def test_connectivity_paths_use_bidspath_layout():
         for token in entity_tokens:
             _, value = token.split("-", 1)
             assert "_" not in value
-

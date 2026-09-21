@@ -105,13 +105,17 @@ def connectivity_bids_path(
 ) -> BIDSPath:
     """Build a BIDSPath for one connectivity artifact."""
 
+    # BIDS datatype names cannot contain underscores.  Keep the public metric
+    # name (for example ``xcorr_resid``) in tables/provenance while using a
+    # reversible filesystem-safe datatype directory.
+    metric_datatype = metric.replace("_", "")
     kwargs: dict[str, object] = {
         "root": str(_connectivity_dataset_root(output_root, entities)),
         "subject": str(entities.get("subject", "unknown")),
         "task": str(entities.get("task", "unknown")),
         "processing": str(entities.get("phase", "unknown")),
         "description": str(entities.get("description", "unknown")),
-        "datatype": metric,
+        "datatype": metric_datatype,
         "suffix": suffix,
         "extension": extension,
         "check": False,

@@ -10,7 +10,7 @@ from typing import Mapping
 import numpy as np
 
 
-SCHEMA_VERSION = "1.1.0"
+SCHEMA_VERSION = "1.2.0"
 
 # Half-open intervals are enforced with explicit time masks, not Epochs.crop.
 PHASE_WINDOWS: Mapping[str, tuple[float, float]] = {
@@ -26,6 +26,8 @@ WPLI_BANDS: Mapping[str, tuple[float, float]] = {
     "beta": (13.0, 30.0),
     "broadband": (4.0, 30.0),
 }
+WPLI_PRIMARY_BAND = "broadband"
+WPLI_SECONDARY_BANDS: tuple[str, ...] = ("theta", "alpha", "beta")
 
 DEFAULT_DATASETS: Mapping[str, str] = {
     "LexicalDelay": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS",

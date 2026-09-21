@@ -224,6 +224,44 @@ def orthogonalized_log_power_envelopes(
     )
 
 
+def _hipp_log_power_envelopes(
+    source: np.ndarray, target: np.ndarray
+) -> tuple[np.ndarray, np.ndarray, np.ndarray, np.ndarray]:
+    """Contemporaneous Hipp log-power envelopes; time is the last axis."""
+
+    epsilon = np.finfo(np.float32).eps
+    source_abs = np.maximum(np.abs(source), epsilon)
+    target_abs = np.maximum(np.abs(target), epsilon)
+    target_orth_source = np.abs(
+        np.imag(target * np.conj(source) / source_abs)
+    )
+    source_orth_target = np.abs(
+        np.imag(source * np.conj(target) / target_abs)
+    )
+    return (
+        np.log(source_abs**2 + epsilon),
+        np.log(target_orth_source**2 + epsilon),
+        np.log(target_abs**2 + epsilon),
+        np.log(source_orth_target**2 + epsilon),
+    )
+
+
+def _pearson_z_time_last(first: np.ndarray, second: np.ndarray) -> np.ndarray:
+    first_centered = first - np.mean(first, axis=-1, keepdims=True)
+    second_centered = second - np.mean(second, axis=-1, keepdims=True)
+    denominator = np.linalg.norm(first_centered, axis=-1) * np.linalg.norm(
+        second_centered, axis=-1
+    )
+    numerator = np.sum(first_centered * second_centered, axis=-1)
+    correlation = np.divide(
+        numerator,
+        denominator,
+        out=np.full(denominator.shape, np.nan, dtype=float),
+        where=denominator > np.finfo(float).eps,
+    )
+    return np.arctanh(np.clip(correlation, -1.0 + 1e-7, 1.0 - 1e-7))
+
+
 def directional_orthogonalized_correlation_z(
     source: np.ndarray,
     target: np.ndarray,
@@ -242,45 +280,190 @@ def directional_orthogonalized_correlation_z(
             source, target = np.broadcast_arrays(source, target)
         except ValueError as error:
             raise ValueError("source and target are not broadcastable") from error
-    epsilon = np.finfo(np.float32).eps
-    source_abs = np.maximum(np.abs(source), epsilon)
-    target_abs = np.maximum(np.abs(target), epsilon)
-    target_orth_source = np.abs(
-        np.imag(target * np.conj(source) / source_abs)
-    )
-    source_orth_target = np.abs(
-        np.imag(source * np.conj(target) / target_abs)
-    )
-    envelopes = (
-        np.log(source_abs**2 + epsilon),
-        np.log(target_orth_source**2 + epsilon),
-        np.log(target_abs**2 + epsilon),
-        np.log(source_orth_target**2 + epsilon),
-    )
-
-    def correlation_z(first: np.ndarray, second: np.ndarray) -> np.ndarray:
-        first_centered = first - np.mean(first, axis=-1, keepdims=True)
-        second_centered = second - np.mean(second, axis=-1, keepdims=True)
-        denominator = np.linalg.norm(first_centered, axis=-1) * np.linalg.norm(
-            second_centered, axis=-1
-        )
-        numerator = np.sum(first_centered * second_centered, axis=-1)
-        correlation = np.divide(
-            numerator,
-            denominator,
-            out=np.full(denominator.shape, np.nan, dtype=float),
-            where=denominator > np.finfo(float).eps,
-        )
-        return np.arctanh(
-            np.clip(correlation, -1.0 + 1e-7, 1.0 - 1e-7)
-        )
-
+    envelopes = _hipp_log_power_envelopes(source, target)
     return np.stack(
         (
-            correlation_z(envelopes[0], envelopes[1]),
-            correlation_z(envelopes[2], envelopes[3]),
+            _pearson_z_time_last(envelopes[0], envelopes[1]),
+            _pearson_z_time_last(envelopes[2], envelopes[3]),
         ),
         axis=-1,
+    )
+
+
+def lagged_directional_orthogonalized_correlation_z(
+    source: np.ndarray,
+    target: np.ndarray,
+    lags: Iterable[int],
+) -> tuple[np.ndarray, np.ndarray]:
+    """Trial-mean OAEC vs lag; orthogonalize contemporaneously, then lag envelopes.
+
+    ``source`` and ``target`` are complex arrays with shape ``(trial, time)``.
+    The returned array has shape ``(n_lags, 2)`` (source→target, target→source).
+    Negative lag means the source envelope leads, matching HGA xcorr.
+    """
+
+    source = np.asarray(source)
+    target = np.asarray(target)
+    if source.ndim != 2 or source.shape != target.shape:
+        raise ValueError("source and target must have shape (trial, time)")
+    envelopes = _hipp_log_power_envelopes(source, target)
+    lag_values = np.asarray(list(lags), dtype=int)
+    n_time = source.shape[-1]
+    output = np.full((lag_values.size, 2), np.nan, dtype=np.float64)
+    n_used = np.zeros(lag_values.size, dtype=int)
+    for lag_index, lag in enumerate(lag_values):
+        lag = int(lag)
+        if abs(lag) >= n_time - 2:
+            continue
+        if lag < 0:
+            first_slice, second_slice = slice(None, n_time + lag), slice(-lag, None)
+        elif lag > 0:
+            first_slice, second_slice = slice(lag, None), slice(None, n_time - lag)
+        else:
+            first_slice = second_slice = slice(None)
+        n_used[lag_index] = envelopes[0][:, first_slice].shape[-1]
+        output[lag_index, 0] = np.nanmean(
+            _pearson_z_time_last(
+                envelopes[0][:, first_slice], envelopes[1][:, second_slice]
+            )
+        )
+        output[lag_index, 1] = np.nanmean(
+            _pearson_z_time_last(
+                envelopes[2][:, first_slice], envelopes[3][:, second_slice]
+            )
+        )
+    return output, n_used
+
+
+def compute_observed_lagged_oaec(
+    raw_data: np.ndarray,
+    raw_times: np.ndarray,
+    sfreq: float,
+    phase: str,
+    pair_frame: pd.DataFrame,
+    config: ConnectivityConfig,
+) -> MetricResult:
+    """Compute observed bidirectional lagged OAEC for preselected pairs.
+
+    This estimator deliberately performs no second permutation test.  It is a
+    descriptive consistency check for pairs selected independently by both
+    original and evoked-mean-residualized xcorr.
+    """
+
+    if pair_frame.empty:
+        raise ValueError("lagged OAEC requires at least one candidate pair")
+    phase_mask = phase_time_mask(raw_times, phase)
+    centers = hga_filterbank_centers()
+    pair_channel_indices = sorted(
+        set(pair_frame["source_index"].astype(int))
+        | set(pair_frame["target_index"].astype(int))
+    )
+    compact_index = {
+        original: compact
+        for compact, original in enumerate(pair_channel_indices)
+    }
+    coefficients = gaussian_analytic_filterbank(
+        np.asarray(raw_data)[:, pair_channel_indices, :],
+        sfreq,
+        centers,
+        time_mask=phase_mask,
+        target_sfreq=config.oaec_sfreq,
+    )
+    max_lag = int(round(config.max_lag_s * config.oaec_sfreq))
+    if max_lag * 2 > coefficients.shape[-1]:
+        raise ValueError("max_lag_s must not exceed half of the OAEC window")
+    lag_samples = np.arange(-max_lag, max_lag + 1, dtype=int)
+    lag_times = lag_samples.astype(float) / float(config.oaec_sfreq)
+    curves = np.full(
+        (len(pair_frame), len(lag_samples), 2), np.nan, dtype=np.float32
+    )
+    overlap = np.zeros(len(lag_samples), dtype=np.int32)
+    for pair_position, (_, pair) in enumerate(pair_frame.iterrows()):
+        source_index = compact_index[int(pair["source_index"])]
+        target_index = compact_index[int(pair["target_index"])]
+        frequency_curves = np.full(
+            (len(centers), len(lag_samples), 2), np.nan, dtype=np.float32
+        )
+        for frequency_index in range(len(centers)):
+            frequency_curves[frequency_index], overlap = (
+                lagged_directional_orthogonalized_correlation_z(
+                    coefficients[:, source_index, frequency_index],
+                    coefficients[:, target_index, frequency_index],
+                    lag_samples,
+                )
+            )
+        curves[pair_position] = np.nanmean(frequency_curves, axis=0)
+
+    # Source is always the Insula seed in this analysis.  Use the
+    # source-to-target orthogonalization for the signed-lag summary; averaging
+    # the two directional curves can create equal peaks at +/-lag by symmetry.
+    source_curve = curves[:, :, 0]
+    mean_curve = np.nanmean(curves, axis=2)
+    finite = np.where(np.isfinite(source_curve), np.abs(source_curve), -np.inf)
+    peak_index = np.argmax(finite, axis=1)
+    no_peak = np.all(~np.isfinite(mean_curve), axis=1)
+    output = pair_frame.copy().reset_index(drop=True)
+    output["metric"] = "lagged_oaec_candidate"
+    output["stat"] = np.abs(source_curve[np.arange(len(output)), peak_index])
+    output["peak_lag_s"] = lag_times[peak_index]
+    output["peak_fisher_z"] = source_curve[
+        np.arange(len(output)), peak_index
+    ]
+    bidirectional_peak_index = np.argmax(np.abs(mean_curve), axis=1)
+    output["bidirectional_mean_peak_lag_s"] = lag_times[
+        bidirectional_peak_index
+    ]
+    output["source_to_target_peak_lag_s"] = lag_times[
+        np.argmax(np.abs(curves[:, :, 0]), axis=1)
+    ]
+    output["target_to_source_peak_lag_s"] = lag_times[
+        np.argmax(np.abs(curves[:, :, 1]), axis=1)
+    ]
+    output.loc[
+        no_peak,
+        [
+            "stat", "peak_lag_s", "peak_fisher_z",
+            "source_to_target_peak_lag_s", "target_to_source_peak_lag_s",
+        ],
+    ] = np.nan
+    output["qc_pass"] = ~no_peak
+    output["lag_convention"] = "negative_lag_source_leads"
+    detail = xr.Dataset(
+        data_vars={
+            "observed_fisher_z": (
+                ("pair", "lag", "direction"), curves
+            ),
+            "n_overlap_samples": (("lag",), overlap.astype(np.int32)),
+        },
+        coords={
+            "pair": np.arange(len(output), dtype=np.int32),
+            "lag": lag_times.astype(np.float32),
+            "direction": np.asarray(
+                ["source_to_target", "target_to_source"], dtype=str
+            ),
+            "pair_id": ("pair", output["pair_id"].astype(str).to_numpy()),
+            "source": ("pair", output["source"].astype(str).to_numpy()),
+            "target": ("pair", output["target"].astype(str).to_numpy()),
+        },
+        attrs={
+            "metric": "lagged_oaec_candidate",
+            "lag_convention": "negative_lag_source_leads",
+            "selection": "xcorr_and_xcorr_resid_fdr_strict_same_direction",
+            "inference": "observed_only_no_additional_permutation_test",
+            "orthogonalization": "Hipp_pairwise_bidirectional_at_zero_lag",
+            "n_hga_frequencies": int(len(centers)),
+        },
+    )
+    return MetricResult(
+        metric="lagged_oaec_candidate",
+        pair_table=output,
+        detail=detail,
+        runtime_metadata={
+            "n_pairs": int(len(output)),
+            "n_lags": int(len(lag_samples)),
+            "n_hga_frequencies": int(len(centers)),
+            "n_trials": int(coefficients.shape[0]),
+        },
     )
 
 

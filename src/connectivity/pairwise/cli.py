@@ -42,7 +42,8 @@ from .xcorr import compute_xcorr
 REPOSITORY = Path(
     "/hpc/group/coganlab/nanlinshi/insula-functional"
 )
-METRICS = ("xcorr", "oaec", "wpli")
+METRICS = ("xcorr", "xcorr_resid", "oaec", "wpli")
+DEFAULT_METRICS = ("xcorr", "oaec", "wpli")
 
 
 def _manifest_entities(row: pd.Series) -> dict[str, str]:
@@ -140,6 +141,16 @@ def _compute_metric(
             permutations,
             config,
             scratch_dir=scratch_dir,
+        )
+    if metric == "xcorr_resid":
+        return compute_xcorr(
+            data.hga_data,
+            data.hga_sfreq,
+            data.pair_frame,
+            permutations,
+            config,
+            scratch_dir=scratch_dir,
+            residualize_evoked=True,
         )
     if metric == "oaec":
         return compute_oaec(
@@ -430,7 +441,7 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--manifest", type=Path, required=True)
     run_parser.add_argument("--row-index", type=int, required=True)
     run_parser.add_argument(
-        "--metrics", nargs="+", choices=METRICS, default=list(METRICS)
+        "--metrics", nargs="+", choices=METRICS, default=list(DEFAULT_METRICS)
     )
     run_parser.add_argument(
         "--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT
@@ -445,7 +456,7 @@ def build_parser() -> argparse.ArgumentParser:
     audit_parser = subparsers.add_parser("audit")
     audit_parser.add_argument("--manifest", type=Path, required=True)
     audit_parser.add_argument(
-        "--metrics", nargs="+", choices=METRICS, default=list(METRICS)
+        "--metrics", nargs="+", choices=METRICS, default=list(DEFAULT_METRICS)
     )
     audit_parser.add_argument(
         "--output-root", type=Path, default=DEFAULT_OUTPUT_ROOT

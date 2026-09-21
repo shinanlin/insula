@@ -59,8 +59,8 @@ channel selection.
 
 For an entity, a stable SHA-256-derived seed generates target-trial
 derangements with no fixed points. The same permutation matrix is shared by
-all pairs and all three metrics. Prototype runs use 1,000 permutations; formal
-runs use 10,000.
+all pairs and all three metrics. Formal and prototype runs use 1,000
+permutations by default.
 
 ## HGA amplitude xcorr
 
@@ -78,6 +78,12 @@ The target-trial shuffle recomputes the mean lag curve. A two-sided,
 studentized contiguous-lag cluster statistic controls lags within a pair.
 Pair-level BH-FDR and a global maximum cluster-mass distribution control the
 family of all eligible Insula-to-all pairs.
+
+The additive ``xcorr_resid`` sensitivity metric first subtracts, for every
+channel and time point, the mean HGA amplitude across the retained trials.  It
+then runs the identical lagged-correlation and permutation pipeline.  This
+removes the condition-average evoked waveform while retaining trial-specific
+deviations.  Its outputs are stored separately and never replace ``xcorr``.
 
 ## HGA orthogonalized AEC
 
@@ -126,11 +132,15 @@ For trialwise imaginary cross-spectrum values \(I_k\), the estimator is
 \]
 
 The estimator is not clipped: finite-sample values below zero are retained.
-The band statistic uses the trial dimension after averaging the
-band-frequency/time cross-spectrum within each trial. Target-trial shuffle
-preserves each channel's spectrum while breaking paired phase consistency.
-Inference is one-sided (`observed > shuffled null`) over the combined
-pair-by-four-band family.
+Band summaries average debiased wPLI computed independently at each
+frequency-time bin (across trials), then take the mean within the band.
+Target-trial shuffle re-pairs each source trial with a deranged target trial
+before forming the imaginary cross-spectrum, preserving each channel's
+spectrum while breaking paired phase consistency. Inference is one-sided
+(`observed > shuffled null`) in two families: `broadband` is corrected across
+pairs as the primary endpoint; `theta`, `alpha`, and `beta` form a secondary
+decomposition family corrected separately. Sub-bands are flagged
+`exploratory_flag=True` in the pair table.
 
 Outputs include the Morlet full 10-sigma support
 `5*n_cycles/(pi*frequency)`, source/target band power, valid-bin fraction, and
@@ -197,7 +207,21 @@ After prototype resource review, submit five formal arrays:
 bash scripts/slurm/submit_pairwise_connectivity.sh
 ```
 
+Run the frozen four-task, `Repeat`-only HGA amplitude motif decision analysis
+(511 entities) and generate its tables, figures, QC, provenance, candidate
+lagged-OAEC results, and Chinese decision report:
+
+```bash
+bash scripts/slurm/submit_hga_motif_decision.sh
+```
+
+This workflow writes only below
+`results/connectivity/hga_amplitude_motif_decision/`. It reuses the completed
+original xcorr and OAEC outputs, computes `xcorr_resid` in a separate
+`xcorrresid` BIDS datatype directory, and never overwrites the baseline
+connectivity results.
+
 The submission wrapper uses `common,scavenger`, account `coganlab`, 8 CPUs,
-32 GB, 24 hours, four concurrent tasks per dataset (about 20 total), and one
-entity per task. Each task loads/aligned inputs once, runs xcorr, OAEC, and
-wPLI sequentially, and shares its trial-shuffle schedule.
+32 GB, 24 hours, ten concurrent tasks per dataset (about 50 total), 1,000
+permutations, and one entity per task. Each task loads/aligned inputs once,
+runs xcorr, OAEC, and wPLI sequentially, and shares its trial-shuffle schedule.

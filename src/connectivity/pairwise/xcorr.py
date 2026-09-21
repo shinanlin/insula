@@ -16,6 +16,25 @@ from .permutation import benjamini_hochberg
 from .result import MetricResult
 
 
+def residualize_evoked_mean(hga_data: np.ndarray) -> np.ndarray:
+    """Remove the channel- and time-specific across-trial HGA mean.
+
+    Input data have shape ``(trial, channel, time)``.  The operation is
+    intentionally performed only after the shared connectivity loader has
+    completed finite-data and channel QC, so an ordinary mean is sufficient
+    and every retained trial contributes to the evoked waveform.
+    """
+
+    data = np.asarray(hga_data, dtype=np.float32)
+    if data.ndim != 3:
+        raise ValueError("hga_data must have shape (trial, channel, time)")
+    if not np.isfinite(data).all():
+        raise ValueError("hga_data must be finite before residualization")
+    return data - data.mean(axis=0, keepdims=True, dtype=np.float64).astype(
+        np.float32
+    )
+
+
 def lagged_cross_trial_pearson_z(
     source_trials: np.ndarray,
     target_trials: np.ndarray,
@@ -140,12 +159,16 @@ def compute_xcorr(
     config: ConnectivityConfig,
     *,
     scratch_dir: str | Path | None = None,
+    residualize_evoked: bool = False,
 ) -> MetricResult:
     """Compute signed HGA xcorr for one aligned analysis entity."""
 
     data = np.asarray(hga_data, dtype=np.float32)
     if data.ndim != 3:
         raise ValueError("hga_data must have shape (trial, channel, time)")
+    if residualize_evoked:
+        data = residualize_evoked_mean(data)
+    metric_name = "xcorr_resid" if residualize_evoked else "xcorr"
     n_trials, _, n_time = data.shape
     if permutations.shape[1] != n_trials:
         raise ValueError("permutations do not match trial count")
@@ -261,7 +284,8 @@ def compute_xcorr(
     peak_index = np.argmax(finite_score, axis=1)
     no_peak = np.all(~np.isfinite(observed_score), axis=1)
     output = pair_frame.copy()
-    output["metric"] = "xcorr"
+    output["metric"] = metric_name
+    output["residualize_evoked"] = bool(residualize_evoked)
     output["stat"] = observed_pair_mass
     output["peak_lag_s"] = lag_times[peak_index]
     output["peak_r"] = np.tanh(
@@ -339,8 +363,13 @@ def compute_xcorr(
             "target": ("pair", pair_frame["target"].astype(str).to_numpy()),
         },
         attrs={
-            "metric": "xcorr",
+            "metric": metric_name,
             "lag_convention": "negative_lag_source_leads",
+            "residualization": (
+                "across_trial_mean_per_channel_time"
+                if residualize_evoked
+                else "none"
+            ),
             "tail": "two-sided",
             "n_perm": int(n_perm),
         },
@@ -349,7 +378,7 @@ def compute_xcorr(
     if null_path.exists():
         null_path.unlink()
     return MetricResult(
-        metric="xcorr",
+        metric=metric_name,
         pair_table=output,
         detail=detail,
         auxiliary_tables={"clusters": cluster_table},

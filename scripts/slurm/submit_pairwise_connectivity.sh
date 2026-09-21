@@ -11,8 +11,8 @@ MANIFEST_ROOT="$REPOSITORY/results/connectivity/manifests"
 OUTPUT_ROOT="$REPOSITORY/results/connectivity"
 LOG_ROOT="$REPOSITORY/logs/connectivity"
 SBATCH_SCRIPT="$REPOSITORY/scripts/slurm/run_pairwise_connectivity.sbatch"
-MAX_CONCURRENT=${CONNECTIVITY_MAX_CONCURRENT_PER_DATASET:-4}
-N_PERM=${CONNECTIVITY_N_PERM:-10000}
+MAX_CONCURRENT=${CONNECTIVITY_MAX_CONCURRENT_PER_DATASET:-10}
+N_PERM=${CONNECTIVITY_N_PERM:-1000}
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg

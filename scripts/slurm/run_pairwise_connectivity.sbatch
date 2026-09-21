@@ -15,7 +15,7 @@ set -eo pipefail
 
 REPOSITORY=/hpc/group/coganlab/nanlinshi/insula-functional
 ROW_INDEX=$((SLURM_ARRAY_TASK_ID - 1))
-N_PERM=${CONNECTIVITY_N_PERM:-10000}
+N_PERM=${CONNECTIVITY_N_PERM:-1000}
 
 source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
@@ -31,16 +31,24 @@ mkdir -p "$MPLCONFIGDIR" "$NUMBA_CACHE_DIR"
 
 echo "start=$(date -u +%FT%TZ) host=$(hostname) job=${SLURM_JOB_ID} array=${SLURM_ARRAY_TASK_ID} row=${ROW_INDEX} manifest=${CONNECTIVITY_MANIFEST}"
 
+METRICS=(${CONNECTIVITY_METRICS:-xcorr oaec})
+EXTRA_ARGS=()
+if [[ -n "${CONNECTIVITY_OVERWRITE:-}" ]]; then
+  EXTRA_ARGS+=(--overwrite)
+fi
+
 python -m src.connectivity.pairwise.cli run-row \
   --manifest "$CONNECTIVITY_MANIFEST" \
   --row-index "$ROW_INDEX" \
-  --metrics xcorr oaec wpli \
+  --metrics "${METRICS[@]}" \
   --output-root "$CONNECTIVITY_OUTPUT_ROOT" \
   --scratch-dir "${SLURM_TMPDIR:-/tmp}" \
   --n-perm "$N_PERM" \
   --n-jobs "${SLURM_CPUS_PER_TASK:-8}" \
   --pair-block-size 32 \
   --permutation-chunk-size 100 \
-  --require-parquet
+  --require-parquet \
+  "${EXTRA_ARGS[@]}"
+
 
 echo "finish=$(date -u +%FT%TZ) job=${SLURM_JOB_ID} array=${SLURM_ARRAY_TASK_ID}"
