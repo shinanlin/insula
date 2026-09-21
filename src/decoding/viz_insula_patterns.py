@@ -15,9 +15,11 @@ import matplotlib.colors as mcolors
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+from matplotlib.lines import Line2D
 from mne_bids import BIDSPath
 
 from src.decoding.run_decoding_patterns import pattern_datatype
+from src.nmf.waveform_analysis import FUNCTION_COLORS
 from src.paths import PROJECT_ROOT, RESULTS_ROOT, decoding_task_dir
 from src.univariate.viz_mean import (
     BrainSurfaceContext,
@@ -31,11 +33,11 @@ PHASES = ("Stimulus", "Delay", "Go", "Response")
 PSEUDO_SUBJECTS = ("INSl", "INSr")
 BAND = "highgamma"
 REF = "bipolar"
-CLUSTERS = ("sustained_ramping", "intermediate", "sensory_transient")
+CLUSTERS = ("sustain", "motor", "sensory")
 CLUSTER_ORDER = {
-    "sustained_ramping": 0,
-    "intermediate": 1,
-    "sensory_transient": 2,
+    "sustain": 0,
+    "motor": 1,
+    "sensory": 2,
 }
 # Drop a channel if this fraction of its significant samples falls before onset (t < 0).
 PRESTIM_FRAC_THRESHOLD = 0.95
@@ -56,14 +58,14 @@ GREEN = "#009944"
 GOLD = "#C4A35A"
 
 CLUSTER_COLORS = {
-    "sustained_ramping": RED,
-    "intermediate": GOLD,
-    "sensory_transient": BLUE,
+    "sustain": RED,
+    "motor": GOLD,
+    "sensory": BLUE,
 }
 CLUSTER_LABELS = {
-    "sustained_ramping": "sustained / ramping",
-    "intermediate": "intermediate",
-    "sensory_transient": "sensory / transient",
+    "sustain": "sustained / ramping",
+    "motor": "motor",
+    "sensory": "sensory / transient",
 }
 
 FEATURE_COLORS = {
@@ -564,25 +566,30 @@ def _add_points_to_brain(
     *,
     colors: list,
     sizes: list[float],
+    opacities: list[float] | None = None,
 ) -> None:
-    """Add electrodes as few PolyData meshes (grouped by color/size) to limit FD use."""
+    """Add electrodes as few PolyData meshes (grouped by color/size/opacity) to limit FD use."""
     import pyvista as pv
 
     if side.empty:
         return
     coords = side[["x", "y", "z"]].to_numpy(float)
     projected = project_to_pial(coords, hemi, ctx)
-    groups: dict[tuple[tuple[float, float, float], float], list[np.ndarray]] = defaultdict(list)
-    for pt, color, size in zip(projected, colors, sizes):
-        groups[(_rgb(color), float(size))].append(pt)
-    for (rgb, size), pts in groups.items():
+    if opacities is None:
+        opacities = [0.95] * len(projected)
+    groups: dict[tuple[tuple[float, float, float], float, float], list[np.ndarray]] = defaultdict(
+        list
+    )
+    for pt, color, size, opacity in zip(projected, colors, sizes, opacities):
+        groups[(_rgb(color), float(size), float(opacity))].append(pt)
+    for (rgb, size, opacity), pts in groups.items():
         cloud = pv.PolyData(np.vstack(pts))
         brain._renderer.plotter.add_mesh(
             cloud,
             render_points_as_spheres=True,
             point_size=size,
             color=rgb,
-            opacity=0.95,
+            opacity=opacity,
             lighting=False,
         )
 
@@ -633,6 +640,7 @@ def render_insula_hemisphere_cluster(
     size_by_pattern: bool = False,
     size_range: tuple[float, float] = (8.0, 48.0),
     size_gamma: float = 2.0,
+    cluster_colors: dict[str, str] | None = None,
 ) -> np.ndarray:
     """Screenshot one hemisphere: gray ns + cluster colors (sustained=red, intermediate=gold, sensory=blue).
 
@@ -640,6 +648,7 @@ def render_insula_hemisphere_cluster(
     ``|pattern|`` (95th-percentile of the full frame as the upper reference;
     ``size_gamma``>1 keeps small effects closer to ``size_range[0]``).
     """
+    palette = CLUSTER_COLORS if cluster_colors is None else cluster_colors
     brain = None
     try:
         brain = _make_insula_brain(hemi, ctx)
@@ -650,7 +659,7 @@ def render_insula_hemisphere_cluster(
             for _, row in side.iterrows():
                 if bool(row["significant"]) and np.isfinite(row["pattern"]):
                     cluster = row.get("functional_cluster", "")
-                    colors.append(CLUSTER_COLORS.get(cluster, NSIG_COLOR))
+                    colors.append(palette.get(cluster, NSIG_COLOR))
                 else:
                     colors.append(NSIG_COLOR)
             sizes = _electrode_point_sizes(
@@ -680,6 +689,11 @@ def render_insula_hemisphere_categorical(
     spatial: pd.DataFrame,
     hemi: str,
     ctx: BrainSurfaceContext,
+    *,
+    sig_size: float = SIG_SIZE,
+    nsig_size: float = NSIG_SIZE,
+    sig_opacity: float = 0.95,
+    nsig_opacity: float = 0.95,
 ) -> np.ndarray:
     """Screenshot one hemisphere: gray ns base + categorical significant colors."""
     brain = None
@@ -690,14 +704,19 @@ def render_insula_hemisphere_categorical(
         if len(side):
             colors = []
             sizes = []
+            opacities = []
             for _, row in side.iterrows():
                 if bool(row["significant"]):
                     colors.append(row["color"])
-                    sizes.append(SIG_SIZE)
+                    sizes.append(float(sig_size))
+                    opacities.append(float(sig_opacity))
                 else:
                     colors.append(NSIG_COLOR)
-                    sizes.append(NSIG_SIZE)
-            _add_points_to_brain(brain, side, hemi, ctx, colors=colors, sizes=sizes)
+                    sizes.append(float(nsig_size))
+                    opacities.append(float(nsig_opacity))
+            _add_points_to_brain(
+                brain, side, hemi, ctx, colors=colors, sizes=sizes, opacities=opacities
+            )
         brain.show_view(
             azimuth=180 if hemi == "lh" else 0,
             elevation=90,
@@ -1240,6 +1259,132 @@ def plot_feature_overlay_brain(
     out_path = out_dir / fname
     save_figure(fig, out_path)
     return out_path.with_suffix(".svg")
+
+
+FIG4_PATTERN_ROWS = (
+    ("PhonemeSequence", "Repeat", "articulator", "Articulator"),
+    ("LexicalDelay", "Repeat", "lexicality", "Lexicality"),
+)
+FIG4_PATTERN_PHASES = ("Stimulus", "Delay", "Response")
+FIG4_PATTERN_HEMIS = (
+    ("lh", "L", "INSl"),
+    ("rh", "R", "INSr"),
+)
+
+
+def plot_fig4_articulator_lexicality_brains(
+    project_root: Path,
+    assignments: pd.DataFrame,
+    *,
+    phases: tuple[str, ...] = FIG4_PATTERN_PHASES,
+    ctx: BrainSurfaceContext | None = None,
+    fontsize: int = 7,
+) -> tuple[plt.Figure, list[str]]:
+    """Two features × two hemispheres × Stimulus/Delay/Response (no Go).
+
+    Top block is PhonemeSequence Repeat articulator; bottom is LexicalDelay
+    Repeat lexicality. Color is NMF cluster; gray is not significant.
+    """
+    surface_ctx = ctx or BrainSurfaceContext()
+    n_row = len(FIG4_PATTERN_ROWS) * len(FIG4_PATTERN_HEMIS)
+    n_col = len(phases)
+    fig, axes = plt.subplots(
+        nrows=n_row,
+        ncols=n_col,
+        figsize=(2.15 * n_col, 1.45 * n_row),
+        squeeze=False,
+    )
+    counts: list[str] = []
+    for feat_i, (task, description, feature, feat_label) in enumerate(FIG4_PATTERN_ROWS):
+        for hemi_i, (hemi, hemi_label, subject) in enumerate(FIG4_PATTERN_HEMIS):
+            row = feat_i * len(FIG4_PATTERN_HEMIS) + hemi_i
+            for col, phase in enumerate(phases):
+                ax = axes[row, col]
+                frame = _load_phase_spatial(
+                    project_root,
+                    assignments,
+                    task=task,
+                    subject=subject,
+                    feature=feature,
+                    phase=phase,
+                    description=description,
+                )
+                if frame is None or frame.empty:
+                    ax.text(
+                        0.5,
+                        0.5,
+                        "missing" if frame is None else "no channels",
+                        ha="center",
+                        va="center",
+                        fontsize=fontsize,
+                    )
+                    status = "missing" if frame is None else "no channels"
+                    counts.append(f"{feat_label} {hemi_label} {phase}: {status}")
+                else:
+                    img = render_insula_hemisphere_cluster(
+                        frame,
+                        hemi,
+                        surface_ctx,
+                        cluster_colors=FUNCTION_COLORS,
+                    )
+                    ax.imshow(img)
+                    n_sig = int(frame["significant"].astype(bool).sum())
+                    n_all = int(len(frame))
+                    counts.append(
+                        f"{feat_label} {hemi_label} {phase}: {n_sig}/{n_all} sig"
+                    )
+                ax.set_xticks([])
+                ax.set_yticks([])
+                for spine in ax.spines.values():
+                    spine.set_visible(False)
+                if row == 0:
+                    ax.set_title(phase, fontsize=fontsize)
+                if col == 0:
+                    ax.set_ylabel(
+                        f"{feat_label} · {hemi_label}",
+                        fontsize=fontsize,
+                    )
+    handles = [
+        Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="none",
+            markerfacecolor=FUNCTION_COLORS[name],
+            markeredgecolor="none",
+            markersize=4,
+            label=label,
+        )
+        for name, label in (
+            ("sensory", "Sensory"),
+            ("sustain", "Sustain"),
+            ("motor", "Motor"),
+        )
+    ]
+    handles.append(
+        Line2D(
+            [0],
+            [0],
+            marker="o",
+            color="none",
+            markerfacecolor=NSIG_COLOR,
+            markeredgecolor="none",
+            markersize=4,
+            label="n.s.",
+        )
+    )
+    fig.legend(
+        handles=handles,
+        loc="lower center",
+        ncol=4,
+        frameon=False,
+        fontsize=fontsize,
+        bbox_to_anchor=(0.5, -0.02),
+        handletextpad=0.3,
+        columnspacing=1.0,
+    )
+    fig.tight_layout(rect=(0, 0.06, 1, 1))
+    return fig, counts
 
 
 def run_all_figures(

@@ -28,6 +28,7 @@ from src.decoding.decoder import (
     decode_permutation_scores,
     get_cv_predict,
 )
+from src.paths import decoding_task_dir
 
 logging.basicConfig(
     level=logging.INFO,
@@ -44,7 +45,17 @@ PHASE_WINDOWS = {
     'Stimulus': (0.0, 0.5),
     'Delay': (0.0, 0.7),
     'Go': (0.0, 0.5),
-    'Response': (-0.5, 0.5),
+    # Locked after PhonemeSequence Response sweep (SHI-12): post-onset [0, 1].
+    'Response': (0.0, 1.0),
+}
+
+# Feature-specific overrides (LexicalDelay lexicality Response sweep):
+# peri-onset [-0.5, 0.5] recovers Sensory/Sustain Repeat significance that
+# the PS phoneme/articulator lock [0, 1] removes.
+FEATURE_PHASE_WINDOWS = {
+    'lexicality': {
+        'Response': (-0.5, 0.5),
+    },
 }
 
 
@@ -147,13 +158,27 @@ def main(
     n_folds,
     n_repeats,
     n_jobs,
+    C=1.0,
+    tmin=None,
+    tmax=None,
+    results_root=None,
 ):
-    try:
-        tmin, tmax = PHASE_WINDOWS[phase]
-    except KeyError as exc:
-        raise ValueError(f"Unknown phase: {phase}") from exc
+    if tmin is None or tmax is None:
+        try:
+            default_tmin, default_tmax = FEATURE_PHASE_WINDOWS.get(datatype, {}).get(
+                phase, PHASE_WINDOWS[phase]
+            )
+        except KeyError as exc:
+            raise ValueError(f"Unknown phase: {phase}") from exc
+        tmin = default_tmin if tmin is None else tmin
+        tmax = default_tmax if tmax is None else tmax
+    if float(tmin) >= float(tmax):
+        raise ValueError(f"Require tmin < tmax; got [{tmin}, {tmax}]")
 
-    logger.info('Phase window: %s [%.2f, %.2f] s', phase, tmin, tmax)
+    logger.info(
+        'Phase window: %s [%.2f, %.2f] s (C=%g, variance=%g, datatype=%s)',
+        phase, tmin, tmax, C, variance, datatype,
+    )
 
     Xs, ys, paths = load_roi_data(
         bids_root,
@@ -175,12 +200,12 @@ def main(
         _t0 = _time.time()
         logger.info(f"Processing file {i}/{n_files - 1}: {path}")
 
-        logger.info('Making pipeline with variance %f', variance)
+        logger.info('Making pipeline with variance %f C=%g', variance, C)
         decoder = make_pipeline(
             Vectorizer(),
             StandardScaler(),
             PCA(n_components=variance, random_state=42),
-            LinearSVC(random_state=42),
+            LinearSVC(C=float(C), random_state=42, max_iter=5000),
         )
 
         accuracy_repeats = np.zeros((n_repeats, n_folds))
@@ -237,9 +262,25 @@ def main(
 
         accuracy_stable = accuracy_repeats.mean()
 
+        # Sweep runs nest hyperparameters in the results root. BIDSPath
+        # datatype cannot contain ``-`` or ``_``.
+        if results_root is not None:
+            tmin_tag = f'{float(tmin):g}'.replace('-', 'm').replace('.', 'p')
+            tmax_tag = f'{float(tmax):g}'.replace('-', 'm').replace('.', 'p')
+            var_tag = f'{float(variance):g}'.replace('.', 'p')
+            c_tag = f'{float(C):g}'.replace('.', 'p')
+            out_root = os.path.join(
+                results_root,
+                f'var{var_tag}C{c_tag}t{tmin_tag}to{tmax_tag}',
+                str(path.task),
+            )
+        else:
+            out_root = str(decoding_task_dir(str(path.task)))
+        datatype_out = '(decode)' + str(datatype)
+
         save_path = BIDSPath(
-            root=os.path.join('results', f'{path.task}(roi)({ref})'),
-            datatype='(decode)' + str(datatype),
+            root=out_root,
+            datatype=datatype_out,
             subject=subject,
             suffix=band,
             processing=path.processing,
@@ -262,9 +303,10 @@ def main(
             f.create_dataset(name='classes', data=classes)
 
             f.attrs["fs"] = 128
-            f.attrs["tmin"] = tmin
-            f.attrs["tmax"] = tmax
-            f.attrs["variance"] = variance
+            f.attrs["tmin"] = float(tmin)
+            f.attrs["tmax"] = float(tmax)
+            f.attrs["variance"] = float(variance)
+            f.attrs["C"] = float(C)
             f.attrs["n_perm"] = n_perm
             f.attrs["n_folds"] = n_folds
             f.attrs["n_repeats"] = n_repeats
@@ -307,7 +349,15 @@ if __name__ == "__main__":
                         choices=['phoneme', 'articulator', 'token', 'lexicality'],
                         help="what to classify? can be phoneme, articulator, token, or lexicality")
     parser.add_argument("--variance", type=float, default=0.85,
-                        help="number of variance")
+                        help="PCA variance explained (0-1)")
+    parser.add_argument("--C", type=float, default=1.0,
+                        help="LinearSVC regularization strength C")
+    parser.add_argument("--tmin", type=float, default=None,
+                        help="Override phase crop start (seconds); default from PHASE_WINDOWS")
+    parser.add_argument("--tmax", type=float, default=None,
+                        help="Override phase crop end (seconds); default from PHASE_WINDOWS")
+    parser.add_argument("--results_root", type=str, default=None,
+                        help="Optional alternate results root (e.g. sweep directory)")
     parser.add_argument("--n_perm", type=int, default=2,
                         help="number of permutations")
     parser.add_argument("--n_folds", type=int, default=10,

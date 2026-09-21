@@ -26,6 +26,7 @@ from sklearn.model_selection import StratifiedKFold
 from ieeg.calc.oversample import MinimumNaNSplit
 from src.decoding.run_decoding import load_roi_data
 from src.decoding.decoder import decode_permutation_scores, decode_cv_scores
+from src.paths import decoding_task_dir
 
 import gc
 import time as _time
@@ -182,7 +183,7 @@ def main(
         mask, p_values = cluster_correction(accuracies.mean(axis=-1), baseline_accuracies.mean(axis=1).T)
         
         save_path = BIDSPath(
-            root = f'results/{path.task}(roi)({ref})',
+            root=str(decoding_task_dir(str(path.task))),
             datatype='(decode)(resolved)'+str(datatype),
             subject=subject,
             suffix=band,

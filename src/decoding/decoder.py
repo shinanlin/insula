@@ -62,10 +62,10 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.decomposition import PCA
 from sklearn.pipeline import make_pipeline
-from sklearn.metrics import get_scorer
+from sklearn.metrics import get_scorer, roc_auc_score
 from sklearn.base import clone
 from mne.decoding import Vectorizer
-from joblib import Parallel, delayed
+from joblib import Parallel, delayed, effective_n_jobs
 import logging
 import sys
 from sklearn.base import BaseEstimator, ClassifierMixin
@@ -388,6 +388,404 @@ def sample_fold(
         X_test[is_nan_test] = _fill_rng.normal(0, 1, int(np.sum(is_nan_test)))
     
     return X_train, X_test, y_train, y_test
+
+
+def _decision_values(estimator, X):
+    """Per-class continuous scores, shape ``(n_samples, n_classes)``.
+
+    A binary ``decision_function`` yields a single column; it is mirrored into
+    ``[-v, v]`` so callers can treat every case as one-vs-rest. AUC is unchanged
+    when both the label and the sign of the score are flipped, so the two
+    columns score identically and a macro average over them reproduces the
+    plain binary AUC exactly.
+    """
+    if hasattr(estimator, "decision_function"):
+        values = estimator.decision_function(X)
+    else:
+        values = estimator.predict_proba(X)
+    values = np.asarray(values, dtype=float)
+    if values.ndim == 1:
+        values = np.column_stack([-values, values])
+    return values
+
+
+def _group_label_table(y, groups):
+    """Map each group to its single label, for group-level permutation."""
+    uniq, inverse = np.unique(groups, return_inverse=True)
+    group_label = np.empty(uniq.shape[0], dtype=y.dtype)
+    for gi in range(uniq.shape[0]):
+        members = np.unique(y[inverse == gi])
+        if members.size != 1:
+            raise ValueError(
+                f"Group {uniq[gi]!r} carries {members.size} labels; group-level "
+                "permutation is only defined when the label is a function of the group"
+            )
+        group_label[gi] = members[0]
+    return inverse, group_label
+
+
+def decode_permutation_auc_pooled(
+    X,
+    y,
+    cv,
+    classifier,
+    transformer=None,
+    groups=None,
+    permute_groups: bool = True,
+    n_jobs: int = -1,
+    n_permutations: int = 5000,
+    random_state: int = 42,
+    batch_size: int = None,
+):
+    """Pooled out-of-fold AUC with a group-level permutation null.
+
+    Differs from :func:`decode_permutation_scores` in three ways that matter for
+    low-channel-count pools, where per-fold accuracy is too noisy to interpret:
+
+    - The metric is AUC over the *pooled* out-of-fold decision values rather
+      than a mean of per-fold scores, so every trial contributes to a single
+      ranking instead of to one small, separately-thresholded estimate. With
+      more than two classes this becomes a macro one-vs-rest average, which
+      keeps chance at 0.5 whatever the class proportions are.
+    - ``groups`` is forwarded to ``cv.split``, so a group-aware splitter such as
+      ``StratifiedGroupKFold`` can keep a stimulus out of both train and test.
+    - With ``permute_groups=True`` the null permutes labels at the group level,
+      which is the right exchangeability unit when a label is a deterministic
+      function of the stimulus. Trial-level shuffling breaks the tie between a
+      stimulus's repeats and yields an over-narrow null.
+
+    Decision values are standardised column-wise within each fold before
+    pooling. That is monotone within a fold and within a class, so it cannot
+    manufacture or destroy within-fold ranking, but it stops a fold with an
+    offset decision function from dominating the pooled ordering.
+
+    Parameters
+    ----------
+    X : ndarray, shape (n_epochs, n_channels, n_times)
+    y : ndarray, shape (n_epochs,)
+        Target with two or more classes.
+    cv : CV splitter
+        If ``groups`` is given, must accept ``split(X, y, groups)``.
+    classifier : sklearn estimator
+        Refit on every permutation. Must expose ``decision_function`` or
+        ``predict_proba``.
+    transformer : sklearn transformer, optional
+        Unsupervised feature preparation, fit on each training split *once*
+        with ``fit(X_train)`` and reused across permutations. This is exact
+        rather than an approximation only because the transformer never sees
+        the labels, so permuting them cannot change what it would have learnt.
+        Passing supervised preprocessing here would leak.
+    groups : array-like, shape (n_epochs,), optional
+        Grouping vector, e.g. the stimulus word.
+    permute_groups : bool, default=True
+        Permute labels group-wise. Requires ``groups``.
+    n_jobs : int, default=-1
+    n_permutations : int, default=5000
+    random_state : int, default=42
+    batch_size : int, optional
+        Permutations evaluated per parallel task. Individual permutations are
+        far too short to amortise handing the fold arrays to a worker, so they
+        are dispatched in batches. Defaults to roughly four batches per worker.
+
+    Returns
+    -------
+    obs_auc : float
+    perm_aucs : ndarray, shape (n_permutations,)
+        Null AUCs. Degenerate permutations (a training split that is missing a
+        class) are returned as NaN and excluded from the p-value.
+    p_value : float
+        One-sided, ``(#{null >= observed} + 1) / (n_valid + 1)``.
+    """
+    y = np.asarray(y)
+    classes = np.unique(y)
+    if classes.size < 2:
+        raise ValueError(f"Pooled AUC needs at least two classes, got {classes.size}")
+    n_classes = classes.size
+
+    groups_arr = None if groups is None else np.asarray(groups)
+    if permute_groups and groups_arr is None:
+        raise ValueError("permute_groups=True requires a groups vector")
+
+    if groups_arr is None:
+        splits = list(cv.split(X, y))
+    else:
+        splits = list(cv.split(X, y, groups_arr))
+    if len(splits) == 0:
+        raise ValueError("CV splitter produced no splits")
+
+    # sample_fold's NaN handling is label-independent: every training trial
+    # belongs to some class, so the per-class loop zero-fills all training NaNs
+    # before the global fill can see them, and the test fill is driven by a
+    # seeded RNG alone. The imputed fold arrays are therefore identical under
+    # any relabelling and are built once here instead of per permutation.
+    # tests/test_decoding_lda_resolved.py pins that invariant.
+    folds = []
+    for fold_idx, (train_idx, test_idx) in enumerate(splits):
+        X_train, X_test, _, _ = sample_fold(
+            X, y, train_idx, test_idx, seed=random_state + fold_idx
+        )
+        if transformer is not None:
+            prep = clone(transformer)
+            X_train = prep.fit_transform(X_train)
+            X_test = prep.transform(X_test)
+        folds.append((train_idx, test_idx, X_train, X_test))
+
+    def pooled_auc(labels):
+        oof = np.empty((labels.shape[0], n_classes), dtype=float)
+        for train_idx, test_idx, X_train, X_test in folds:
+            y_train = labels[train_idx]
+            # A class absent from a training split leaves the estimator with
+            # fewer score columns than `classes`, so pooling them would mix up
+            # which column belongs to which class. Drop the whole permutation.
+            if np.unique(y_train).size < n_classes:
+                return np.nan
+            dec = clone(classifier)
+            dec.fit(X_train, y_train)
+            values = _decision_values(dec, X_test)
+            spread = values.std(axis=0)
+            usable = spread > 0
+            oof[test_idx] = np.where(
+                usable, (values - values.mean(axis=0)) / np.where(usable, spread, 1.0), 0.0
+            )
+        return float(np.mean([
+            roc_auc_score(labels == cls, oof[:, index])
+            for index, cls in enumerate(classes)
+        ]))
+
+    obs_auc = pooled_auc(y)
+    if not np.isfinite(obs_auc):
+        raise ValueError("Observed fit degenerated; check the CV splits")
+
+    if permute_groups:
+        inverse, group_label = _group_label_table(y, groups_arr)
+
+        def draw(rng):
+            permuted = group_label.copy()
+            rng.shuffle(permuted)
+            return permuted[inverse]
+    else:
+        def draw(rng):
+            permuted = y.copy()
+            rng.shuffle(permuted)
+            return permuted
+
+    seeds = np.random.RandomState(random_state).randint(
+        0, 2**31 - 1, size=n_permutations
+    )
+
+    if batch_size is None:
+        n_workers = effective_n_jobs(n_jobs)
+        batch_size = max(1, int(np.ceil(n_permutations / (n_workers * 4))))
+    batches = [
+        seeds[i:i + batch_size] for i in range(0, n_permutations, batch_size)
+    ]
+
+    def one_batch(batch):
+        return [pooled_auc(draw(np.random.RandomState(s))) for s in batch]
+
+    results = Parallel(n_jobs=n_jobs)(
+        delayed(one_batch)(b) for b in tqdm(batches, desc="Permutations", leave=False)
+    )
+    perm_aucs = np.asarray([auc for batch in results for auc in batch])
+
+    valid = np.isfinite(perm_aucs)
+    n_valid = int(valid.sum())
+    if n_valid < n_permutations:
+        logger.warning(
+            "%d/%d permutations degenerated and were dropped",
+            n_permutations - n_valid,
+            n_permutations,
+        )
+    if n_valid == 0:
+        raise ValueError("All permutations degenerated; check the CV splits")
+    p_value = (np.sum(perm_aucs[valid] >= obs_auc) + 1.0) / (n_valid + 1.0)
+
+    return obs_auc, perm_aucs, float(p_value)
+
+
+def decode_cross_permutation_auc_pooled(
+    X_src,
+    X_tgt,
+    y,
+    cv,
+    classifier,
+    transformer=None,
+    groups=None,
+    permute_groups: bool = True,
+    tgt_slices=None,
+    n_jobs: int = -1,
+    n_permutations: int = 5000,
+    random_state: int = 42,
+    batch_size: int = None,
+):
+    """Cross-condition pooled OOF AUC, scoring one source window on many targets.
+
+    Same metric, grouping, and word-level null as
+    :func:`decode_permutation_auc_pooled`, but the classifier is fit on
+    ``X_src`` (already cropped to one train window) and scored on slices of
+    ``X_tgt``. Fold indices are shared, so a held-out word is held out of both
+    domains.
+
+    The transformer is fit once per training split on the source window and
+    reused across target times and permutations. That is exact only because
+    the transformer is unsupervised.
+
+    Parameters
+    ----------
+    X_src : ndarray, shape (n_epochs, n_channels, n_times_window)
+        Source-domain train window.
+    X_tgt : ndarray, shape (n_epochs, n_channels, n_times)
+        Target-domain series. When ``tgt_slices`` is omitted the whole array
+        is one test window and must have the same duration as ``X_src``.
+    y : ndarray, shape (n_epochs,)
+        Shared labels after trial pairing.
+    cv, classifier, transformer, groups, permute_groups, n_jobs,
+    n_permutations, random_state, batch_size
+        As in :func:`decode_permutation_auc_pooled`.
+    tgt_slices : sequence of (start, end), optional
+        Half-open sample slices into the last axis of ``X_tgt``.
+
+    Returns
+    -------
+    obs_aucs : ndarray, shape (n_test,)
+    perm_aucs : ndarray, shape (n_permutations, n_test)
+    p_values : ndarray, shape (n_test,)
+        Uncorrected one-sided permutation p-values. Degenerate null draws
+        are excluded per cell.
+    """
+    y = np.asarray(y)
+    X_src = np.asarray(X_src)
+    X_tgt = np.asarray(X_tgt)
+    if X_src.shape[0] != X_tgt.shape[0] or y.shape[0] != X_src.shape[0]:
+        raise ValueError(
+            f"X_src, X_tgt, and y must share n_epochs; got "
+            f"{X_src.shape[0]}, {X_tgt.shape[0]}, {y.shape[0]}"
+        )
+    classes = np.unique(y)
+    if classes.size < 2:
+        raise ValueError(f"Pooled AUC needs at least two classes, got {classes.size}")
+    n_classes = classes.size
+
+    if tgt_slices is None:
+        tgt_slices = ((0, X_tgt.shape[-1]),)
+    tgt_slices = tuple((int(start), int(end)) for start, end in tgt_slices)
+    n_test = len(tgt_slices)
+
+    groups_arr = None if groups is None else np.asarray(groups)
+    if permute_groups and groups_arr is None:
+        raise ValueError("permute_groups=True requires a groups vector")
+
+    if groups_arr is None:
+        splits = list(cv.split(X_src, y))
+    else:
+        splits = list(cv.split(X_src, y, groups_arr))
+    if len(splits) == 0:
+        raise ValueError("CV splitter produced no splits")
+
+    folds = []
+    for fold_idx, (train_idx, test_idx) in enumerate(splits):
+        X_src_train, _, _, _ = sample_fold(
+            X_src, y, train_idx, test_idx, seed=random_state + fold_idx
+        )
+        _, X_tgt_test, _, _ = sample_fold(
+            X_tgt, y, train_idx, test_idx, seed=random_state + fold_idx
+        )
+        if transformer is not None:
+            prep = clone(transformer)
+            X_src_train = prep.fit_transform(X_src_train)
+            tgt_tests = [
+                prep.transform(X_tgt_test[..., start:end])
+                for start, end in tgt_slices
+            ]
+        else:
+            tgt_tests = [
+                X_tgt_test[..., start:end] for start, end in tgt_slices
+            ]
+        folds.append((train_idx, test_idx, X_src_train, tgt_tests))
+
+    def pooled_auc_map(labels):
+        oof = np.empty((n_test, labels.shape[0], n_classes), dtype=float)
+        for train_idx, test_idx, X_src_train, tgt_tests in folds:
+            y_train = labels[train_idx]
+            if np.unique(y_train).size < n_classes:
+                return np.full(n_test, np.nan)
+            dec = clone(classifier)
+            dec.fit(X_src_train, y_train)
+            for test_i, X_tgt_fold in enumerate(tgt_tests):
+                values = _decision_values(dec, X_tgt_fold)
+                spread = values.std(axis=0)
+                usable = spread > 0
+                oof[test_i, test_idx] = np.where(
+                    usable,
+                    (values - values.mean(axis=0)) / np.where(usable, spread, 1.0),
+                    0.0,
+                )
+        return np.asarray([
+            float(np.mean([
+                roc_auc_score(labels == cls, oof[test_i, :, index])
+                for index, cls in enumerate(classes)
+            ]))
+            for test_i in range(n_test)
+        ])
+
+    obs_aucs = pooled_auc_map(y)
+    if not np.isfinite(obs_aucs).all():
+        raise ValueError("Observed fit degenerated; check the CV splits")
+
+    if permute_groups:
+        inverse, group_label = _group_label_table(y, groups_arr)
+
+        def draw(rng):
+            permuted = group_label.copy()
+            rng.shuffle(permuted)
+            return permuted[inverse]
+    else:
+        def draw(rng):
+            permuted = y.copy()
+            rng.shuffle(permuted)
+            return permuted
+
+    seeds = np.random.RandomState(random_state).randint(
+        0, 2**31 - 1, size=n_permutations
+    )
+
+    if batch_size is None:
+        n_workers = effective_n_jobs(n_jobs)
+        batch_size = max(1, int(np.ceil(n_permutations / (n_workers * 4))))
+    batches = [
+        seeds[i:i + batch_size] for i in range(0, n_permutations, batch_size)
+    ]
+
+    def one_batch(batch):
+        return [pooled_auc_map(draw(np.random.RandomState(s))) for s in batch]
+
+    results = Parallel(n_jobs=n_jobs)(
+        delayed(one_batch)(b) for b in tqdm(batches, desc="Permutations", leave=False)
+    )
+    perm_aucs = np.asarray([auc for batch in results for auc in batch])
+    if perm_aucs.ndim == 1:
+        perm_aucs = perm_aucs.reshape(n_permutations, n_test)
+
+    p_values = np.empty(n_test, dtype=float)
+    for test_i in range(n_test):
+        column = perm_aucs[:, test_i]
+        valid = np.isfinite(column)
+        n_valid = int(valid.sum())
+        if n_valid < n_permutations:
+            logger.warning(
+                "test window %d: %d/%d permutations degenerated and were dropped",
+                test_i,
+                n_permutations - n_valid,
+                n_permutations,
+            )
+        if n_valid == 0:
+            raise ValueError("All permutations degenerated; check the CV splits")
+        p_values[test_i] = (
+            np.sum(column[valid] >= obs_aucs[test_i]) + 1.0
+        ) / (n_valid + 1.0)
+
+    return obs_aucs, perm_aucs, p_values
+
 
 def generalized_permutation_scores(
     X,
