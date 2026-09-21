@@ -16,10 +16,55 @@ def test_phase_processing_roundtrip():
         vm._phase_processing("unknown")
 
 
-def test_task_results_dir_name():
+def test_task_results_dir_sibling_hammers_layout():
     root = Path("/tmp/results")
     path = vm.task_results_dir(root, "LexicalDelay")
-    assert path.name == "LexicalDelay(bipolar)(hammers)"
+    assert path == root / "LexicalDelay(bipolar)(hammers)"
+
+
+def test_task_results_dir_packaged_local():
+    from src.paths import RESULTS_ROOT, hga_results_dir
+
+    assert vm.task_results_dir(RESULTS_ROOT, "LexicalDelay") == hga_results_dir(
+        "LexicalDelay"
+    )
+
+
+def test_has_mean_contrasts_false_for_empty_tree(tmp_path: Path):
+    assert not vm.has_mean_contrasts(tmp_path)
+
+
+def test_resolve_mean_results_root_falls_back_to_sibling():
+    root = vm.resolve_mean_results_root(vm.RESULTS_ROOT)
+    assert root == vm.FALLBACK_MEAN_RESULTS
+    assert vm.has_mean_contrasts(root)
+
+
+def test_electrode_point_sizes_scale_with_pattern():
+    from src.decoding.viz_insula_patterns import SIG_SIZE, _electrode_point_sizes
+
+    spatial = pd.DataFrame(
+        {
+            "significant": [True, True, True],
+            "pattern": [0.1, 0.5, 1.0],
+        }
+    )
+    side = spatial.copy()
+    fixed = _electrode_point_sizes(
+        side, spatial, size_by_pattern=False, size_range=(8.0, 64.0)
+    )
+    assert fixed == [SIG_SIZE, SIG_SIZE, SIG_SIZE]
+    linear = _electrode_point_sizes(
+        side, spatial, size_by_pattern=True, size_range=(8.0, 64.0), size_gamma=1.0
+    )
+    scaled = _electrode_point_sizes(
+        side, spatial, size_by_pattern=True, size_range=(8.0, 64.0), size_gamma=2.0
+    )
+    assert scaled[0] < scaled[1] < scaled[2]
+    assert scaled[0] >= 8.0
+    assert scaled[2] <= 64.0
+    # gamma>1 pulls small effects closer to vmin than linear
+    assert scaled[0] < linear[0]
 
 
 def test_attach_metadata_and_filter_qc():
@@ -64,6 +109,21 @@ def test_select_significant_direction_labels():
     sig = vm.select_significant(df, phase="delay", contrast="DecisionVsRepeatMean")
     assert len(sig) == 2
     assert set(sig["direction"]) == {"Decision", "Repeat"}
+
+
+def test_select_significant_repeat_vs_passive_direction():
+    df = pd.DataFrame(
+        {
+            "significant": [True, True],
+            "phase": ["stimulus", "stimulus"],
+            "contrast": ["RepeatVsPassiveMean", "RepeatVsPassiveMean"],
+            "task": ["LexicalNoDelay"] * 2,
+            "mean_diff": [0.4, -0.2],
+            "channel": ["a", "b"],
+        }
+    )
+    sig = vm.select_significant(df, contrast="RepeatVsPassiveMean")
+    assert list(sig["direction"]) == ["Repeat", "Passive"]
 
 
 def test_select_significant_word_nonword_direction():

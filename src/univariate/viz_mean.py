@@ -10,7 +10,7 @@ import numpy as np
 import pandas as pd
 from mne_bids import BIDSPath
 
-from src.paths import RESULTS_ROOT
+from src.paths import RESULTS_ROOT, hga_results_dir
 
 ATLAS = "hammers"
 REFERENCE = "bipolar"
@@ -28,6 +28,7 @@ CONTRAST_DESCRIPTIONS = {
     "DecisionVsRepeat": "DecisionVsRepeatMean",
     "WordVsNonwordDecision": "WordVsNonwordDecisionMean",
     "WordVsNonwordRepeat": "WordVsNonwordRepeatMean",
+    "RepeatVsPassive": "RepeatVsPassiveMean",
 }
 
 EXCLUDE_ROIS = {
@@ -63,6 +64,8 @@ INSULA_LABEL_PATTERNS = (
 
 DEFAULT_RECON_DIR = Path("/cwork/ns458/ECoG_Recon")
 DEFAULT_FS_SUBJECT = "cvs_avg35_inMNI152"
+# Sibling project holds window-mean univariate CSVs when local results/ lacks them.
+FALLBACK_MEAN_RESULTS = Path("/hpc/group/coganlab/nanlinshi/insula/results")
 
 ViewMode = Literal["insula", "wholebrain"]
 
@@ -76,7 +79,51 @@ def _phase_processing(phase: str) -> str:
 
 
 def task_results_dir(results_root: Path, task: str) -> Path:
-    return results_root / f"{task}({REFERENCE})({ATLAS})"
+    """Resolve per-task results root for mean/coord loaders.
+
+    - Packaged checkout (``RESULTS_ROOT``): ``results/hga/{task}/``
+    - Sibling / legacy layout: ``{results_root}/{task}(bipolar)(hammers)/``
+    """
+    root = Path(results_root)
+    if root.resolve() == RESULTS_ROOT.resolve():
+        return hga_results_dir(task)
+    return root / f"{task}({REFERENCE})({ATLAS})"
+
+
+def has_mean_contrasts(
+    results_root: Path,
+    task: str = "LexicalDelay",
+    contrast_desc: str = "DecisionVsRepeatMean",
+) -> bool:
+    """True if at least one window-mean univariate CSV exists under ``results_root``."""
+    probe = task_results_dir(results_root, task)
+    if not probe.is_dir():
+        return False
+    return next(probe.glob(f"**/univariate/*{contrast_desc}*.csv"), None) is not None
+
+
+def resolve_mean_results_root(
+    preferred: Path | None = None,
+    *,
+    task: str = "LexicalDelay",
+    contrast_desc: str = "DecisionVsRepeatMean",
+) -> Path:
+    """Prefer local results/; fall back to sibling ``insula/results`` when empty."""
+    candidates: list[Path] = []
+    if preferred is not None:
+        candidates.append(Path(preferred))
+    candidates.extend([RESULTS_ROOT, FALLBACK_MEAN_RESULTS])
+    seen: set[Path] = set()
+    for root in candidates:
+        key = root.resolve()
+        if key in seen:
+            continue
+        seen.add(key)
+        if has_mean_contrasts(root, task=task, contrast_desc=contrast_desc):
+            return root
+    raise FileNotFoundError(
+        f"No {task} {contrast_desc} CSVs found under candidates: {candidates}"
+    )
 
 
 def discover_mean_paths(
@@ -155,8 +202,15 @@ def load_coord_metadata(
         for path in paths:
             frames.append(pd.read_csv(path))
     if not frames:
-        return pd.DataFrame()
+        return pd.DataFrame(
+            columns=["channel", "roi", "hemi", "label", "x", "y", "z", "mix"]
+        )
     coords = pd.concat(frames, ignore_index=True)
+    if "channel" not in coords.columns:
+        raise ValueError(
+            "Coord CSVs missing required 'channel' column "
+            f"(columns={list(coords.columns)})"
+        )
     return coords.drop_duplicates(subset=["channel"], keep="first")
 
 
@@ -188,6 +242,8 @@ def _direction_labels(contrast: str, mean_diff: pd.Series) -> pd.Series:
         pos, neg = "Decision", "Repeat"
     elif "WordVsNonword" in contrast:
         pos, neg = "Word", "Nonword"
+    elif "RepeatVsPassive" in contrast:
+        pos, neg = "Repeat", "Passive"
     else:
         pos, neg = "positive", "negative"
     return np.where(mean_diff >= 0, pos, neg)
