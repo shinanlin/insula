@@ -1,33 +1,34 @@
 #!/bin/bash
-#SBATCH --job-name=pkg_picture_naming
-#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/package_picture_naming_%j.out
-#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula/logs/slurm/package_picture_naming_%j.err
+#SBATCH --job-name=pkg_hga_pn
+#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula-functional/logs/slurm/package_hga_picture_naming_%j.out
+#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula-functional/logs/slurm/package_hga_picture_naming_%j.err
 #SBATCH --time=02:00:00
 #SBATCH --mem=16G
-#SBATCH --cpus-per-task=4
-#SBATCH --partition=scavenger,common
-#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula
+#SBATCH --cpus-per-task=8
+#SBATCH --partition=common,scavenger
+#SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula-functional
 
 set -eo pipefail
-source ~/.bashrc
+source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
 conda activate ieeg
 
-PICTURE_BIDS="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/"
+export PYTHONPATH="/hpc/group/coganlab/nanlinshi/insula-functional${PYTHONPATH:+:${PYTHONPATH}}"
+mkdir -p logs/slurm
 
-echo "===== Package PictureNaming HGA (hammers) ====="
-python -m src.hga.package_highgamma \
+PICTURE_BIDS="/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/"
+ROOT="results/hga/PictureNaming"
+
+echo "===== PictureNaming (hammers, sig-union) ====="
+echo "bids_root=${PICTURE_BIDS} start=$(date -u)"
+python src/hga/package_highgamma.py \
   --bids_root "${PICTURE_BIDS}" \
   --band highgamma \
   --ref bipolar \
   --atlas hammers
+echo "===== PictureNaming done exit=$? end=$(date -u) ====="
 
-echo "===== Package PictureNaming HGA (aparc2009s) ====="
-python -m src.hga.package_highgamma \
-  --bids_root "${PICTURE_BIDS}" \
-  --band highgamma \
-  --ref bipolar \
-  --atlas aparc2009s
-
-echo "===== Done ====="
-find results/PictureNaming\(bipolar\)\(hammers\) -name '*_time.csv' | wc -l
-find results/PictureNaming\(bipolar\)\(aparc2009s\) -name '*_time.csv' | wc -l
+echo "===== Verification ====="
+echo "subjects=$(find "${ROOT}" -maxdepth 1 -type d -name 'sub-*' 2>/dev/null | wc -l)"
+echo "Passive_Response_csv=$(find "${ROOT}" -name '*proc-Response*desc-Passive_time.csv' 2>/dev/null | wc -l)"
+echo "Passive_sound_Response_csv=$(find "${ROOT}" -name '*proc-Response_recording-sound_desc-Passive_time.csv' 2>/dev/null | wc -l)"
+echo "Repeat_Response_csv=$(find "${ROOT}" -name '*proc-Response*desc-Repeat_time.csv' 2>/dev/null | wc -l)"

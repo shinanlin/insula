@@ -60,3 +60,21 @@ def test_stats_path_candidates_keep_lexical_single_path():
             "sub-D0019_task-LexicalDelay_proc-Stimulus_desc-Repeat_highgamma.h5"
         )
     ]
+
+
+def test_stats_path_candidates_sentence_family():
+    epoch_root = (
+        "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(sentence)(bipolar)"
+    )
+    epoch_path = _FakeBIDSPath(root=epoch_root, task="SentenceRep")
+    candidates = [str(path) for path in stats_path_candidates(epoch_path, "bipolar")]
+
+    assert candidates == [
+        (
+            f"{epoch_root.replace('epoch(sentence)(bipolar)', 'statistics(sentence)')}"
+            "/sub-D0019/bipolar/"
+            "sub-D0019_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5"
+        )
+    ]
+    assert "/statistics(sentence)/" in candidates[0]
+    assert "/epoch(sentence)" not in candidates[0]

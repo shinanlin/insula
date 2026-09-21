@@ -1,19 +1,32 @@
-# take HGA signal and save it to pandas
+"""Package trial-averaged HGA waveforms to long-format CSV under results/.
+
+Electrode membership is the **subject × modality union** of significant
+channels across all packaged conditions and phases (``epoch(band)(sig)``).
+Waveforms are read from ``epoch(band)(zscore)`` and trial-averaged with
+``nanmean``.  Presence in a phase CSV does **not** mean the electrode was
+significant in that phase; use the ``mask`` column (from statistics) for
+within-phase significance.
+"""
+
+from __future__ import annotations
 
 import argparse
 import h5py
 import logging
-from pathlib import Path
+from collections import defaultdict
 
 import numpy as np
 import pandas as pd
 from tqdm import tqdm
 
+from src.paths import SUPPORTED_ATLASES, hga_results_dir as results_dir
 
 ENDPOINT_NATIVE_COLS = ("x1", "y1", "z1", "x2", "y2", "z2")
 ENDPOINT_TEMPLATE_COLS = ("x1_t", "y1_t", "z1_t", "x2_t", "y2_t", "z2_t")
 CONTACT_COLS = ("contact_1", "contact_2", "contact_1_label", "contact_2_label")
-from src.paths import RESULTS_ROOT, SUPPORTED_ATLASES, hga_results_dir as results_dir
+
+
+SUPPORTED_FAMILIES = ("default", "sentence")
 
 
 def canonical_task_name(task: str) -> str:
@@ -23,10 +36,77 @@ def canonical_task_name(task: str) -> str:
     return task
 
 
+def epoch_derivative_root(bids_root: str, ref: str, family: str = "default") -> str:
+    """Return BIDS derivatives root for the requested epoch family."""
+    if family not in SUPPORTED_FAMILIES:
+        raise ValueError(f"family must be one of {SUPPORTED_FAMILIES}, got {family!r}")
+    if family == "sentence":
+        return bids_root + f"derivatives/epoch(sentence)({ref})"
+    return bids_root + f"derivatives/epoch({ref})"
+
+
+def results_task_key(task: str, family: str = "default") -> str:
+    """Return results/hga task directory name for the requested family."""
+    if family not in SUPPORTED_FAMILIES:
+        raise ValueError(f"family must be one of {SUPPORTED_FAMILIES}, got {family!r}")
+    if family == "sentence":
+        return f"{task}(sentence)"
+    return task
+
+
+def _swap_epoch_derivative(epoch_root: str, ref: str, target: str) -> str:
+    """Map an epoch derivative root to statistics or shared parcellation.
+
+    Sentence-family roots use ``epoch(sentence)({ref})`` and map statistics to
+    ``statistics(sentence)``; both families share ``parcellation/``.
+    """
+    sentence_token = f"epoch(sentence)({ref})"
+    if sentence_token in epoch_root:
+        if target == "statistics":
+            return epoch_root.replace(sentence_token, "statistics(sentence)")
+        return epoch_root.replace(sentence_token, target)
+    return epoch_root.replace(f"epoch({ref})", target)
+
+
+def modality_of(epoch_path) -> str:
+    return epoch_path.recording if epoch_path.recording is not None else "sound"
+
+
+def is_baseline(epoch_path) -> bool:
+    return epoch_path.description == "baseline" or epoch_path.processing == "baseline"
+
+
+def sig_union_by_subject_modality(sig_paths) -> dict[tuple[str, str], set[str]]:
+    """Union significant channel names per (subject, modality) over all sig files."""
+    import mne
+
+    unions: dict[tuple[str, str], set[str]] = defaultdict(set)
+    for epoch_path in sig_paths:
+        if is_baseline(epoch_path):
+            continue
+        epochs = mne.read_epochs(epoch_path, preload=False, verbose=False)
+        key = (_normalize_subject_id(epoch_path.subject), modality_of(epoch_path))
+        unions[key].update(epochs.ch_names)
+    return dict(unions)
+
+
+def pick_union_channels(
+    union: dict[tuple[str, str], set[str]],
+    subject: str,
+    modality: str,
+    available: set[str] | list[str],
+) -> list[str]:
+    """Return sorted intersection of subject×modality union and available channels."""
+    key = (_normalize_subject_id(subject), modality)
+    allowed = union.get(key, set())
+    available_set = set(available)
+    return sorted(allowed & available_set)
+
+
 def stats_path_candidates(epoch_path, ref: str):
     """Yield the statistics h5 path for an epoch (canonical BIDS task label)."""
     yield epoch_path.copy().update(
-        root=str(epoch_path.root).replace(f"epoch({ref})", "statistics"),
+        root=_swap_epoch_derivative(str(epoch_path.root), ref, "statistics"),
         datatype=ref,
         task=canonical_task_name(epoch_path.task),
         extension=".h5",
@@ -75,7 +155,7 @@ def load_parcellation(epoch_path, ref: str, atlas: str = "aparc2009s") -> pd.Dat
     if atlas not in SUPPORTED_ATLASES:
         raise ValueError(f"atlas must be one of {SUPPORTED_ATLASES}, got {atlas!r}")
     parc_matches = epoch_path.copy().update(
-        root=str(epoch_path.root).replace(f"epoch({ref})", "parcellation"),
+        root=_swap_epoch_derivative(str(epoch_path.root), ref, "parcellation"),
         datatype=ref,
         task=None,
         description=None,
@@ -185,27 +265,55 @@ def main(
     ref: str,
     atlas: str = "aparc2009s",
     subjects: list[str] | None = None,
+    family: str = "default",
 ):
     import mne
     from mne_bids import BIDSPath
 
-    epoch_paths = BIDSPath(
-        root=bids_root + f"derivatives/epoch({ref})",
+    epoch_root = epoch_derivative_root(bids_root, ref, family=family)
+    logging.info("Packaging family=%s from %s", family, epoch_root)
+
+    sig_paths = BIDSPath(
+        root=epoch_root,
         suffix=band,
-        datatype="epoch(band)(sig)(effective)",
+        datatype="epoch(band)(sig)",
         extension=".h5",
         check=False,
+    ).match()
+    sig_paths = _filter_epoch_paths(sig_paths, subjects)
+    if not sig_paths:
+        raise FileNotFoundError(
+            f"No epoch(band)(sig) files under {epoch_root} for band={band!r}"
+        )
+
+    logging.info("Building subject×modality sig unions from %d sig files", len(sig_paths))
+    union = sig_union_by_subject_modality(sig_paths)
+    logging.info(
+        "Sig unions: %d subject×modality keys, %d total channel slots",
+        len(union),
+        sum(len(chs) for chs in union.values()),
     )
 
-    matched_paths = _filter_epoch_paths(epoch_paths.match(), subjects)
+    zscore_paths = BIDSPath(
+        root=epoch_root,
+        suffix=band,
+        datatype="epoch(band)(zscore)",
+        extension=".h5",
+        check=False,
+    ).match()
+    matched_paths = _filter_epoch_paths(zscore_paths, subjects)
     if subjects:
         logging.info(
-            "Subject filter %s -> %d epoch files",
+            "Subject filter %s -> %d zscore epoch files",
             ", ".join(subjects),
             len(matched_paths),
         )
 
-    for epoch_path in tqdm(matched_paths, desc="Processing subjects"):
+    for epoch_path in tqdm(matched_paths, desc="Processing epochs"):
+        if is_baseline(epoch_path):
+            continue
+
+        modality = modality_of(epoch_path)
         try:
             parc = load_parcellation(epoch_path, ref, atlas=atlas)
         except (IndexError, FileNotFoundError) as exc:
@@ -217,7 +325,17 @@ def main(
             )
             continue
 
-        epochs = mne.read_epochs(epoch_path, preload=True)
+        epochs = mne.read_epochs(epoch_path, preload=True, verbose=False)
+        picks = pick_union_channels(
+            union,
+            epoch_path.subject,
+            modality,
+            epochs.ch_names,
+        )
+        if not picks:
+            continue
+
+        epochs = epochs.copy().pick(picks, verbose=False)
         evoked = epochs.average(method=lambda x: np.nanmean(x, axis=0))
         df = evoked.to_data_frame(
             long_format=True,
@@ -232,15 +350,13 @@ def main(
         df["description"] = epoch_path.description
         df["task"] = task
         df["phase"] = epoch_path.processing
-        df["modality"] = (
-            epoch_path.recording if epoch_path.recording is not None else "sound"
-        )
+        df["modality"] = modality
 
         parc_sub = parcellation_subset(parc)
         df = df.merge(parc_sub, on="channel", how="left")
 
         save_path = BIDSPath(
-            root=str(results_dir(task, ref, atlas)),
+            root=str(results_dir(results_task_key(task, family), ref, atlas)),
             description=epoch_path.description,
             datatype="HGA",
             suffix="time",
@@ -282,6 +398,17 @@ if __name__ == "__main__":
         default="aparc2009s",
         choices=list(SUPPORTED_ATLASES),
         help="parcellation atlas suffix under derivatives/parcellation/",
+    )
+    parser.add_argument(
+        "--family",
+        type=str,
+        default="default",
+        choices=list(SUPPORTED_FAMILIES),
+        help=(
+            "epoch family: default uses epoch({ref})/statistics; "
+            "sentence uses epoch(sentence)({ref})/statistics(sentence) "
+            "and writes results/hga/{task}(sentence)/"
+        ),
     )
     parser.add_argument(
         "--subjects",

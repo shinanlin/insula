@@ -171,9 +171,16 @@ python src/hga/package_highgamma.py \
   --atlas hammers
 ```
 
-SLURM: `scripts/slurm/package_hga_all_tasks.sh`
+SLURM: `scripts/slurm/package_hga_all_tasks.sh` (or `package_hga_hammers_four_tasks.sh` for the four-task Hammers cohort)
 
 **Output:** `results/{Task}(bipolar)(hammers)/sub-*/HGA/*_time.csv`
+
+**Electrode set:** For each subject and modality (`sound`, `image`, …), packaging
+unions significant channels across all conditions and phases from
+`epoch(band)(sig)`, then writes trial-averaged waveforms from
+`epoch(band)(zscore)` for that fixed set. A channel appearing in a phase CSV
+does not mean it was significant in that phase; use the `mask` column for
+within-phase significance.
 
 ### Stage 5 — Analysis and figures
 

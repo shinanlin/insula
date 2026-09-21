@@ -77,8 +77,8 @@ def test_v1_tasks_and_conditions():
 
 
 def test_discover_subjects_union_across_tasks(tmp_path: Path):
-    ps_root = tmp_path / "PhonemeSequence(bipolar)(hammers)"
-    ld_root = tmp_path / "LexicalDelay(bipolar)(hammers)"
+    ps_root = tmp_path / "hga" / "PhonemeSequence"
+    ld_root = tmp_path / "hga" / "LexicalDelay"
     (ps_root / "sub-D0001" / "HGA").mkdir(parents=True)
     (ps_root / "sub-D0002" / "HGA").mkdir(parents=True)
     (ld_root / "sub-D0002" / "HGA").mkdir(parents=True)

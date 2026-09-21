@@ -126,8 +126,13 @@ ENDPOINT_FLOAT_COLS = [
 TASK_DIR_RE = re.compile(r"^(.+)\(([^)]+)\)$")
 
 
-def task_dir_name(task: str, reference: str, atlas: str) -> str:
-    return f"{task}({reference})({atlas})"
+def task_dir_name(task: str, reference: str = "bipolar", atlas: str = "hammers") -> str:
+    del reference, atlas
+    return task
+
+
+def hga_task_root(input_root: Path, task: str) -> Path:
+    return input_root / "hga" / task
 
 
 def discover_subjects(
@@ -139,7 +144,7 @@ def discover_subjects(
     """Union of subjects with packaged HGA in any configured task (not intersection)."""
     subjects: set[str] = set()
     for task in tasks:
-        root = input_root / task_dir_name(task, reference, atlas)
+        root = hga_task_root(input_root, task)
         if not root.is_dir():
             continue
         for sub_dir in sorted(root.glob("sub-*")):
@@ -155,18 +160,18 @@ def discover_tasks(
     reference: str = "bipolar",
     atlas: str = DEFAULT_ATLAS,
 ) -> list[str]:
-    atlases = SUPPORTED_ATLASES if atlas == "all" else (atlas,)
     tasks: set[str] = set()
     if not input_root.is_dir():
         return []
-    for atlas_name in atlases:
-        suffix = f"({reference})({atlas_name})"
-        for path in sorted(input_root.iterdir()):
-            if not path.is_dir() or not path.name.endswith(suffix):
-                continue
-            if not any(path.glob("sub-*/HGA/*_time.csv")):
-                continue
-            tasks.add(path.name[: -len(suffix)])
+    hga_root = input_root / "hga"
+    if not hga_root.is_dir():
+        return []
+    for path in sorted(hga_root.iterdir()):
+        if not path.is_dir():
+            continue
+        if not any(path.glob("sub-*/HGA/*_time.csv")):
+            continue
+        tasks.add(path.name)
     return sorted(tasks)
 
 
@@ -181,7 +186,7 @@ def load_hga(
     subject_set = set(subjects) if subjects else None
 
     for task in tasks:
-        root = input_root / task_dir_name(task, reference, atlas)
+        root = hga_task_root(input_root, task)
         paths = sorted(root.glob("sub-*/HGA/*_time.csv"))
         if subject_set is not None:
             paths = [
