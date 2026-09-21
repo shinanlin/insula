@@ -7,6 +7,8 @@ import mne
 from mne_bids import BIDSPath
 from scipy.spatial import cKDTree
 
+from src.paths import hga_results_dir
+
 recon_dir = "/cwork/ns458/ECoG_Recon/"
 FS_SUBJECT = "cvs_avg35_inMNI152"
 HAMMERS_MNI152_PATH = (
@@ -230,7 +232,7 @@ def deep_dive():
     paths = []
     for t in ["PhonemeSequence", "LexicalDelay", "LexicalNoDelay", "PictureNaming"]:
         paths += BIDSPath(
-            root=f"results/{t}(bipolar)(hammers)",
+            root=str(hga_results_dir(t)),
             datatype="HGA",
             suffix="coord",
             check=False,

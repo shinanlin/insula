@@ -18,6 +18,9 @@ export PYTHONPATH="/hpc/group/coganlab/nanlinshi/insula-functional${PYTHONPATH:+
 export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1
 export PYTHONDONTWRITEBYTECODE=1 MPLBACKEND=Agg
 export MPLCONFIGDIR="${TMPDIR:-/tmp}/insula_tfr_fig_mpl_${SLURM_JOB_ID}"
+export NUMBA_CACHE_DIR=/work/ns458/numba_cache
+export MNE_CONFIG_PATH=/work/ns458/mne_config
+mkdir -p /work/ns458/numba_cache /work/ns458/mne_config
 
 python -m pytest -q tests/test_tfr.py
 python -m src.tfr.run figures
