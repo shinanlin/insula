@@ -32,7 +32,7 @@ from src.reaction_time.insula_rt_io import (
 
 LOGGER = logging.getLogger(__name__)
 SUPPORTED_TASKS = ("LexicalDelay", "PhonemeSequence", "PictureNaming")
-SUPPORTED_PHASES = ("Delay", "Go")
+SUPPORTED_PHASES = ("Delay", "Go", "Response")
 
 
 @dataclass(frozen=True)
@@ -150,6 +150,28 @@ def fit_phase(
 def _write_status(output_root: Path, task: str, subject: str, payload: dict) -> Path:
     path = output_root / f"task-{task}" / f"sub-{subject}" / "run_status.json"
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.is_file() and payload.get("status") == "complete":
+        try:
+            previous = json.loads(path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError:
+            previous = {}
+        if previous.get("status") == "complete":
+            payload = {
+                **previous,
+                **payload,
+                "outputs": list(
+                    dict.fromkeys(
+                        list(previous.get("outputs", []))
+                        + list(payload.get("outputs", []))
+                    )
+                ),
+                "phases": list(
+                    dict.fromkeys(
+                        list(previous.get("phases", []))
+                        + list(payload.get("phases", []))
+                    )
+                ),
+            }
     temporary = path.with_suffix(".json.tmp")
     temporary.write_text(json.dumps(payload, indent=2, sort_keys=True), encoding="utf-8")
     temporary.replace(path)
@@ -179,7 +201,11 @@ def run_subject(
     max_windows: int | None = None,
     overwrite: bool = False,
 ) -> list[Path]:
-    """Fit both phases, correct them jointly, then atomically write results."""
+    """Fit requested phases, correct them jointly, then atomically write results.
+
+    Delay/Go were locked as a joint family.  Running ``Response`` alone writes
+    only Response files and corrects FWER within Response × electrodes × time.
+    """
 
     if task not in SUPPORTED_TASKS:
         raise ValueError(f"task must be one of {SUPPORTED_TASKS}")
@@ -187,6 +213,7 @@ def run_subject(
     if invalid_phases:
         raise ValueError(f"Unsupported phases: {sorted(invalid_phases)}")
     subject = subject[4:] if str(subject).startswith("sub-") else str(subject)
+    phases = tuple(phases)
     output_root = Path(output_root)
     fitted: dict[str, UncorrectedPhaseResult] = {}
     try:
@@ -302,7 +329,7 @@ def build_arg_parser() -> argparse.ArgumentParser:
     parser.add_argument("--output-root", type=Path, default=DEFAULT_RT_OUTPUT_ROOT)
     parser.add_argument("--task", required=True, choices=SUPPORTED_TASKS)
     parser.add_argument("--subject", required=True)
-    parser.add_argument("--phases", nargs="+", choices=SUPPORTED_PHASES, default=list(SUPPORTED_PHASES))
+    parser.add_argument("--phases", nargs="+", choices=SUPPORTED_PHASES, default=["Delay", "Go"])
     parser.add_argument("--description", default="Repeat")
     parser.add_argument("--band", default="highgamma")
     parser.add_argument("--ref", default="bipolar")

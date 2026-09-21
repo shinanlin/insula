@@ -130,6 +130,37 @@ def test_event_sample_alignment_does_not_use_next_trials_response():
     assert matched["response_onset"].tolist() == [4.5]
 
 
+def test_event_sample_alignment_response_uses_preceding_go():
+    target = pd.DataFrame(
+        {
+            "trial_index": [0, 1],
+            "target_event_sample": [250.0, 450.0],
+            "item_id": ["a", "b"],
+            "source_row": [0, 1],
+        }
+    )
+    go = pd.DataFrame(
+        {
+            "event_sample": [200.0, 400.0],
+            "onset": [2.0, 4.0],
+            "event_name": ["go/a", "go/b"],
+            "item_id": ["a", "b"],
+        }
+    )
+    response = pd.DataFrame(
+        {
+            "event_sample": [250.0, 450.0],
+            "onset": [2.5, 4.5],
+            "event_name": ["resp/a", "resp/b"],
+            "item_id": ["a", "b"],
+        }
+    )
+    matched = match_target_go_response(target, go, response, phase="Response")
+    assert matched["trial_index"].tolist() == [0, 1]
+    assert matched["go_onset"].tolist() == [2.0, 4.0]
+    assert matched["response_onset"].tolist() == [2.5, 4.5]
+
+
 def test_oof_ridge_outputs_one_prediction_per_trial():
     rng = np.random.RandomState(2)
     groups = np.repeat(["a", "b", "c", "d"], 3)

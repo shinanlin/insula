@@ -80,7 +80,7 @@ ARGS=(
   --output-root "${OUTPUT_ROOT}"
   --task "${TASK}"
   --subject "${SUBJECT}"
-  --phases Delay Go
+  --phases ${PHASES:-Delay Go}
   --description Repeat
   --band highgamma
   --ref bipolar
@@ -100,6 +100,6 @@ if [[ "${OVERWRITE:-0}" == "1" ]]; then
   ARGS+=(--overwrite)
 fi
 
-echo "task=${TASK} subject=${SUBJECT} output=${OUTPUT_ROOT}"
+echo "task=${TASK} subject=${SUBJECT} phases=${PHASES:-Delay Go} output=${OUTPUT_ROOT}"
 echo "window=${WINDOW_S} step=${STEP_S} outer=${N_FOLDS} inner=${INNER_FOLDS} permutations=${N_PERM}"
 python -u src/reaction_time/run_insula_rt_ridge.py "${ARGS[@]}"

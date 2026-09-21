@@ -117,8 +117,13 @@ def match_target_go_response(
     matched_rows: list[dict[str, object]] = []
     for _, row in target.iterrows():
         target_sample = float(row["target_event_sample"])
-        go_position = int(np.searchsorted(go_samples, target_sample, side="left"))
-        if go_position >= len(go_samples):
+        if phase == "Response":
+            go_position = (
+                int(np.searchsorted(go_samples, target_sample, side="right")) - 1
+            )
+        else:
+            go_position = int(np.searchsorted(go_samples, target_sample, side="left"))
+        if go_position < 0 or go_position >= len(go_samples):
             continue
         if phase == "Go" and go_samples[go_position] != target_sample:
             continue
@@ -142,6 +147,8 @@ def match_target_go_response(
         if response_sample >= next_go_sample:
             continue
         if str(response_row["item_id"]) != str(row["item_id"]):
+            continue
+        if phase == "Response" and response_sample != target_sample:
             continue
 
         matched = row.to_dict()

@@ -7,7 +7,9 @@ in Delay- and Go-aligned high-gamma epochs.
 
 - Tasks: LexicalDelay, PhonemeSequence, PictureNaming.
 - Condition: Repeat.
-- Phases: full Delay and Go epochs.
+- Phases: full Delay and Go epochs. Response can be fit afterwards with
+  `--phases Response`; that write does not reopen Delay/Go files. Response
+  FWER is within Response × electrodes × time for that subject.
 - Electrodes: strict Hammers `AIC` or `PIC`; mixed contacts are excluded.
 - Electrode inclusion does not depend on a task-HGA significance mask.
 - Target: `log(Response onset - Go onset)`; raw RT is retained in output.
@@ -74,6 +76,9 @@ sbatch scripts/slurm/insula_rt_ridge_smoke.sh
 sbatch scripts/slurm/insula_rt_ridge_lexical_delay.sh
 sbatch scripts/slurm/insula_rt_ridge_phoneme_sequence.sh
 sbatch scripts/slurm/insula_rt_ridge_picture_naming.sh
+sbatch scripts/slurm/insula_rt_ridge_response_lexical_delay.sh
+sbatch scripts/slurm/insula_rt_ridge_response_phoneme_sequence.sh
+sbatch scripts/slurm/insula_rt_ridge_response_picture_naming.sh
 ```
 
 The smoke job defaults to D0096, 20 permutations, and three time windows per
