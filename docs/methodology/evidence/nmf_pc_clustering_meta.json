@@ -1,0 +1,64 @@
+{
+  "construction": "concat_phases_postonset",
+  "assignments_path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/channel_assignments.csv",
+  "n_electrodes": 255,
+  "n_features": 444,
+  "n_scree": 20,
+  "n_embedding_pcs": 3,
+  "variance_threshold": 0.05,
+  "k_min": 2,
+  "k_max": 10,
+  "n_iter": 500,
+  "random_state": 42,
+  "methods": [
+    "kmeans",
+    "kmedoids",
+    "gmm",
+    "ward"
+  ],
+  "exclude_subjects": [
+    "D0121"
+  ],
+  "exclude_channels_file": "results/nmf/exclude_channels.txt",
+  "n_exclude_channels": 26,
+  "tasks": [
+    "PhonemeSequence",
+    "LexicalDelay",
+    "PictureNaming",
+    "SentenceRep"
+  ],
+  "explained_variance_ratio": [
+    0.27357816324381257,
+    0.11468802865643808,
+    0.055573826539998594,
+    0.03934399549207799,
+    0.033919549784545144,
+    0.029655826298753248,
+    0.025799298599075416,
+    0.02540300382840787,
+    0.022214669796396407,
+    0.020026386232673953,
+    0.019539808909276823,
+    0.01655971205644013,
+    0.01552355646162448,
+    0.01472948268115237,
+    0.014099604091134144,
+    0.01360496488410813,
+    0.013016253869195422,
+    0.011670437142549164,
+    0.010936706767023574,
+    0.010178077307263667
+  ],
+  "k_silhouette": {
+    "k": 2,
+    "method": "kmeans",
+    "metric": "silhouette_median",
+    "value": 0.4131035117286793
+  },
+  "k_calinski": {
+    "k": 2,
+    "method": "kmeans",
+    "metric": "calinski_median",
+    "value": 228.30862307389538
+  }
+}

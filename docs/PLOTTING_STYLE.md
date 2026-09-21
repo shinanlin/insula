@@ -117,6 +117,23 @@ Common ROI color roles:
 - `stg_color`: superior temporal gyrus.
 - `smc_color`: sensorimotor cortex.
 
+### k=3 functional cluster colors
+
+Cluster colors are **not** the generic `red` / `gold` variables above. The
+single source of truth is `FUNCTION_COLORS` in
+`src/nmf/waveform_analysis.py` (display names in `CLUSTER_LABELS`):
+
+| key | display | hex | role |
+|---|---|---|---|
+| `sustain` | sustained | `#C4A35A` (gold) | holds / ramps |
+| `motor` | motor | `#A9373B` (red) | middle profile |
+| `sensory` | sensory | `#2369BD` (blue) | brief / sensory-weighted |
+
+Import `FUNCTION_COLORS` and `CLUSTER_LABELS` for every NMF / projection /
+insula-cluster panel. Do not assign `#A9373B` to sustain or `#C4A35A` to motor.
+Anatomical ROI family colors (for example SMC vs temporal in coverage plots)
+are a separate map and are not swapped with these cluster colors.
+
 When making heatmaps, prefer palette-derived colormaps over ad hoc colors:
 
 ```python

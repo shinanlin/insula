@@ -1,0 +1,93 @@
+notebook,cell_index_zero_based,cell_id,cell_type,execution_count,source_sha256,source_first_nonempty_line,source_n_lines,n_outputs,has_cached_stream_output
+vizpub/fig1.ipynb,0,6109ec5f,code,23,fd591b0f56c75889dfc3a247e79781be8651be01f0f060319a0ce3b7441502e1,import numpy as np,11,0,False
+vizpub/fig1.ipynb,1,71a8e447,code,24,c1be8bb01dc72028fa531cc5c4f23f9e6da38f0d270c73831cfbd64401b79a31,cm = 1/2.54,22,1,False
+vizpub/fig1.ipynb,2,7c652ed0,markdown,,d07e8f957adee62978200041eaeebda3b9d6b3b51955135329fec60f09a296f6,# Fig 1: Whole brain electrodes map to the pial surface,1,0,False
+vizpub/fig1.ipynb,3,43c0bb99,code,25,98c3ff369cd3bff6cd1c53c288dd067ad8cbfe46f225a57b327d420d599f9b05,"def insula_mask(df, atlas):",49,3,True
+vizpub/fig1.ipynb,4,00031585,code,26,b613cef4881255da9ec97774369f8e1f15d8bce43164ea91ab1a3374cbb56aa8,# Hammers MNI152 insula highlight on cvs_avg35_inMNI152 pial surface.,163,1,True
+vizpub/fig1.ipynb,5,5aa07d41,code,27,ea7222748d32586f8a50ad0586b467b5cfd089f4606754414bea771e2f40307a,# cvs_avg35_inMNI152 visualization — template coords from package_ave_cord.py,113,3,True
+vizpub/fig1.ipynb,6,4760db8b,markdown,,e07031d795d5d88584fe21f6dfca48331370c963a566f1b5e325e6c96e59eea7,# Panel B: Insula electrode zoom (L/R top-down),3,0,False
+vizpub/fig1.ipynb,7,7731cdbd,code,28,3449dad02262f88511fde82ccb72b537b3b74bcad87d93da161bf0138b1252f1,# Panel B helpers — insula zoom on cvs_avg35_inMNI152 pial surface,150,1,True
+vizpub/fig1.ipynb,8,f7d17c1e,code,29,c4aa2b8ea55e3240ad39bf9803282cc67af7171cbd8c968125efa00bc548af9e,# Fig B1 — monochrome insula electrodes on pial surface,9,3,True
+vizpub/fig1.ipynb,9,b25028fd,code,30,35e53e0ffdf60285bd11af69adf48ce45179473c6eee01b35885d981ea048509,# Fig B2 — Hammers six insular gyri (electrode color by gyrus label),23,4,True
+vizpub/fig1.ipynb,10,ad2e92dd,markdown,,51cbc32b76682f8a9c5de1ebf752cd251fa397576a606c90264abd30fce7431b,## Significant HGA electrodes by phase,3,0,False
+vizpub/fig1.ipynb,11,hga-phase-load,code,31,53959493095b63c7727566d2e05e7cac6084d5323d65516212658a192d128650,# Load per-timepoint HGA stats (mask column lives in *_time.csv),275,2,True
+vizpub/fig1.ipynb,12,hga-phase-v1-md,markdown,,98b8c19140b33d726ea5e8d2fc136d5b8655f37f0ca0eed5edeb428a8280185a,### Version 1 — Insula vs Other ROIs,1,0,False
+vizpub/fig1.ipynb,13,dc4ae79f,code,32,1dd0c8563471616f0264b4642c868edc6163bc1d67e43eff069e4b5217036392,phase_data = phase_insula_vs_other(),37,1,False
+vizpub/fig1.ipynb,14,hga-phase-v2-md,markdown,,ef68616bc410c6e714202bf170d8f03a22431ce60f9e2508719f2598a506c231,### Version 2 — Insula + STG + SMC + IFG + Other,1,0,False
+vizpub/fig1.ipynb,15,b332bccf,code,33,2650bce98df796ab41d7ea7e978847ea300adbf8d4e4e369d89de660e333484c,breakdown_data = phase_roi_breakdown(),45,1,False
+vizpub/fig1.ipynb,16,hga-phase-union-md,markdown,,57d6b8cdbde9a2eb63236eb30d44806a4b8eed306712421fb0e8728842d3e43d,### Union across phases — significant in any phase,3,0,False
+vizpub/fig1.ipynb,17,hga-phase-union-code,code,34,d0761a478dda981dafc986fa94037f35b9b5bab3c4d576af15badc9557d52ad2,union_breakdown = phase_roi_breakdown_union(),36,2,True
+vizpub/fig1.ipynb,18,a4472696,markdown,,49c0f756bb7aafbd7281383aeeaadbf0d10da8c841a71cbc536ee31b1a8e9eef,### Sampled electrode coverage by ROI,3,0,False
+vizpub/fig1.ipynb,19,da48f83f,code,35,6925bf2af4fc3b495e22a0a493916faa8e7eb3dbc504cd5b09e276f050080904,sampling_breakdown = sampling_roi_breakdown(),34,2,True
+vizpub/fig1.ipynb,20,roi-significant-yield-md,markdown,,56a20c28af812a1c9691d02c7d676fbe101180f74b0cfa9e60211adb63f7ff3d,### Significant yield by ROI,3,0,False
+vizpub/fig1.ipynb,21,d744f974,code,36,e96a70ad09ffa665d400c49654b1138ed3a1a3319975d440056fd762cbd7780d,yield_breakdown = roi_significant_yield(),53,2,True
+vizpub/fig1.ipynb,22,f7a5f1af,markdown,,c939cf4d1230ce42e282adaa5e563de92737d931dfd24d1dd1294df83f1afc0c,## TFR — example electrode (placeholder),3,0,False
+vizpub/fig2.ipynb,0,fig2-title,markdown,,c3dc4134617e39379587d1305bb902f11c7cb08bf786b4d7d45530326323f977,"# Fig 2: average insula HGA, NMF traces, hard-label HGA, rank, PCA, and insula map",15,0,False
+vizpub/fig2.ipynb,1,fig2-imports,code,1,6a77ab7f69e6d542de550fcce8aa0a09c9c82ea951a27e2737a8f89c42ef09f0,import sys,24,0,False
+vizpub/fig2.ipynb,2,fig2-style,code,2,db55e62a9e8f037c1ca70bf4a8ae9087d96db209e23cf47c58fc3434b6362ba2,from matplotlib import font_manager,49,0,False
+vizpub/fig2.ipynb,3,fig2-load-md,markdown,,2f0b6307c2132fa33dd2b2b7b78f68e695d2e16c5971222ca7f3a7041dbfdc76,## Load assignments and packaged HGA,1,0,False
+vizpub/fig2.ipynb,4,fig2-load,code,3,ab987cf5f9b2ebb2073051dee390226ff440d408281d84d5fc38d26a4d3f975c,assignments = pd.read_csv(NMF_ASSIGNMENTS),52,2,True
+vizpub/fig2.ipynb,5,fig2-avg-md,markdown,,ca4399cddd3091ca6bae5b8ba82481d2bd61ceceee23b1e1d52d2be66f1adb24,## 1. Average insula HGA,7,0,False
+vizpub/fig2.ipynb,6,fig2-avg-plot,code,4,d4f8f32ca594645b54f2a26b2617b89e96754a22f388958268b979c1e57ad331,# Pooled insula mean. Same crop / column widths as hard-label traces and heatmap.,76,1,False
+vizpub/fig2.ipynb,7,fig2-nmf-md,markdown,,d1b02ba87d677b5ffab065e510ff3dfe6c1e49c23540d0cca7549972a1d2df6d,## 2. NMF traces (normalized H),3,0,False
+vizpub/fig2.ipynb,8,fig2-nmf-plot,code,5,3aa691fbbf70840c488842a9d4daab7472ca79ab5d3472ef96a84044c0247d31,"H_by_phase = pd.read_csv(NMF_DIR / ""H_by_phase.csv"")",81,1,False
+vizpub/fig2.ipynb,9,fig2-hga-md,markdown,,cb046c77f1c3ee08932c7231e53fbfc71e42dce32f40a8fe9b834d2a802ec92c,## 3. Hard-label HGA traces,7,0,False
+vizpub/fig2.ipynb,10,fig2-hga-plot,code,6,e544888d465d4fdeb78fd4ec37503dcc9c017efaf0afafcf5aebe472f4e571c2,# Same crop as heatmap: delay t<0 / go t>0; column widths scale with remaining time.,78,1,False
+vizpub/fig2.ipynb,11,5cb142d5,markdown,,bf990275ec0746be329d2eab4acbee3a1041dbc8be600761d25f1e49f134a5d3,## 4. Hard-label HGA heatmap,7,0,False
+vizpub/fig2.ipynb,12,6c3ec19c,code,7,90544f67bbdffb6fb69254d859f8cab0927bd6d07c949b37e44c1f76f8ed87f7,agg = (,156,1,False
+vizpub/fig2.ipynb,13,fig2-rank-md,markdown,,3960c6b60e1f38c913f8b25c38e6624cc42f7209a52bd666a127cc313364786d,## 5. Rank selection (justify *k*=3),5,0,False
+vizpub/fig2.ipynb,14,fig2-rank-plot,code,8,e988bcbfa5d2cd2d19df4e9f9219d736fa537b254157940b7e35956dc0096c1b,import json,25,2,True
+vizpub/fig2.ipynb,15,fig2-pca-kmeans-md,markdown,,b89247e3da35c2a41c7fad8439a8b9a50a8a3a762bb5f96f603a1c0747eb2347,"## 6. Waveform PCA, k-means *k*=3",8,0,False
+vizpub/fig2.ipynb,16,fig2-pca-kmeans-plot,code,9,7ea33bf2cbbe678cfdf491c397024a1a92a072e7bf084114df2d6cddd2ca52df,import json,117,3,True
+vizpub/fig2.ipynb,17,fig2-spatial-md,markdown,,e58b05e4805b7c070a5bfd9ee9de859f8a0d86add849419ce074f7dc794dcf06,## 7. Insula spatial map (static),11,0,False
+vizpub/fig2.ipynb,18,fig2-spatial-plot,code,10,713708f82bff4cd9bb05ae391913b190c5c4b39509b02f6120510c6d98c8bc6d,import os,347,4,True
+vizpub/fig2.ipynb,19,ed73efea,markdown,,6215627e895d312a65092529f47a024f785854ac1d811dd0625fca584c83435b,## 8. Cluster × Hammers pies,5,0,False
+vizpub/fig2.ipynb,20,fig2-callout-plot,code,11,a20681a1853050311de316938b8ca0decdc86589c0bc83199f4242b4d7643358,from matplotlib.patches import Patch,147,3,True
+vizpub/fig2.ipynb,21,895f289e,markdown,,cc42fa4200d4a87e382dccb8df9a6dccc1704ce28218538c4dc2653c616f0deb,## 8b. Six Hammers gyri pies (comparison),7,0,False
+vizpub/fig2.ipynb,22,4fcf51ab,code,12,eaa4b62dbf1d74b42e2ef08e9aa8c96924f7826f2f30782645e9464f3b723e33,from matplotlib.patches import Patch,101,3,True
+vizpub/fig2.ipynb,23,fig2-laterality-md,markdown,,8d10d250e1ff9ddced7ea5828d53c1163355e0b579a6c3f883b2f3117fc9c56b,## 9. Laterality: implant-corrected cluster rate,10,0,False
+vizpub/fig2.ipynb,24,fig2-laterality-plot,code,15,02e5ba4f51f79e50d4bffead38b0efe872a3d87723a18aa46ef768eb6a3e6049,import pathlib,160,3,True
+vizpub/fig3.ipynb,0,fig3-title,markdown,,761d6ba711e8cc58bd1d03933bef0e207ce8825e505000630e7db3b2e9567ece,# Fig 3: behavioral context (Passive / Repeat / Decision),17,0,False
+vizpub/fig3.ipynb,1,fig3-imports,code,9,2f0200b6f4a14426be8b3dfb6cf99e486d4a4fe1e667ffdd25077fab742d5d4f,%matplotlib inline,22,0,False
+vizpub/fig3.ipynb,2,fig3-style,code,10,20f12b75612baba8a4e7dc6f68129794730d0f5f1942bbecd3bbb2b833b5d697,from matplotlib import font_manager,51,0,False
+vizpub/fig3.ipynb,3,fig3-helpers-md,markdown,,17329a242b3f047709b3ff6762dfa25b5f0c4634a2cb8296db81c7309306074e,## Helpers,5,0,False
+vizpub/fig3.ipynb,4,fig3-helpers,code,11,8a1d094c7b5c97c37f7e07b54d016b0e1a1b6a317ed4fe2ba78357b7e8c6c6f3,def _norm_phase(phase: str) -> str:,229,0,False
+vizpub/fig3.ipynb,5,fig3-load-md,markdown,,22d17efa5f5d4e302fdcc37a3956bc667f072022e3a984a69cef4bd25b9cdf3e,## Load waveforms,6,0,False
+vizpub/fig3.ipynb,6,fig3-load,code,12,8834d3a8d4cc9ad02751c9f2c151c466b48a9194af51356db25a4af3ef4e3372,assignments = load_assignments(),80,24,True
+vizpub/fig3.ipynb,7,fig3-wave-md,markdown,,96a6a9d6dfbac5bf35ee0022c131d58f5d5fbe834fe56e1b35b1e2e7293a311e,## 1. Pooled waveforms,11,0,False
+vizpub/fig3.ipynb,8,fig3-wave-plot,code,32,1cf39e914a39d5197be9c1fac562973733289fb2df5aa4eec937cc401c06afe1,"from matplotlib.colors import to_hex, to_rgb",168,2,True
+vizpub/fig3.ipynb,9,fig3-spatial-md,markdown,,9490318c7afe99ad1cf0d6591a64449876c7a41bf3d03c087a713b9b2d760032,## 2. Spatial: Decision > Repeat (Delay),5,0,False
+vizpub/fig3.ipynb,10,fig3-spatial-load,code,14,2cba6a47796d28ce7781462de1f8c3d7689c827daf1c71e3ebb39a73737e1e4e,from src.univariate.viz_cluster_direction import load_decision_vs_repeat_table,28,1,True
+vizpub/fig3.ipynb,11,fig3-spatial-plot,code,15,6b7c2093ca9164a6473856f824d2c87c6154613bff7b347dd705d2ccbd49bcf5,import os,366,3,True
+vizpub/fig3.ipynb,12,fig3-paired-md,markdown,,61f0dded34cd6c790d5d5086e6d3065557b4856695599bd50fce054c681ba383,## 3. Paired Delay P75 (2 × 3),9,0,False
+vizpub/fig3.ipynb,13,fig3-paired-plot,code,34,7de74346ff76a93094531198801546c88e073cb6f48129a0ffce631bc74e714e,"from matplotlib.colors import to_hex, to_rgb",337,3,True
+vizpub/fig4.ipynb,0,fig4-title,markdown,,dcf23c634cba491470474853f8f14b74d3cd25f38c1f2edb20bbc597c461c9b1,# Fig 4: decoding and representation,11,0,False
+vizpub/fig4.ipynb,1,fig4-imports,code,3,cf6d62affdcb54bdc63d927d1ddb17586db04595c144466bb5d4ad52b01a9737,%matplotlib inline,20,0,False
+vizpub/fig4.ipynb,2,fig4-style,code,4,b51c32384f54ba2fc8372a88197c0c51c81b9986049ec8ca3bbebaaf6d0c6fcd,from matplotlib import font_manager,42,0,False
+vizpub/fig4.ipynb,3,fig4-load-md,markdown,,b1f3a8e159b8a79a1d1f551011e8aba4f45624005367c5e24dafc94eb186501b,## Load windowed articulator scores,5,0,False
+vizpub/fig4.ipynb,4,fig4-load,code,5,b754b16a3444c66780b8de8f300e99450fb9e3da20d1a604e1bf1715fb882eff,rows = [],64,1,True
+vizpub/fig4.ipynb,5,fig4-plot-md,markdown,,d2ba3f231d43dcfe105d1c5e4fa03408691a785f3e97193b7d78df9d46f7b45a,## Articulator window accuracy,4,0,False
+vizpub/fig4.ipynb,6,fig4-plot,code,6,4b85d44e5b89c3fc98815e577f4d86644aece86aea838b15cdfd751afc6d0337,"present = [roi for roi in HUE_ORDER if roi in set(scores[""roi""])]",74,2,True
+vizpub/fig4.ipynb,7,3b329b89,markdown,,4bd85a8910cc6fde6289e079e68044c9bdabe42ef71494ba60199e947f02dad1,## Articulator confusion (phase-matched clusters),6,0,False
+vizpub/fig4.ipynb,8,6d90cfcc,code,7,85343ced66716ba65901ebd4434a2a630da5413a296dfe30cfbf04b73f6d8e9f,"CLASS_LABELS = [""dorsal"", ""high"", ""labial"", ""low""]",64,2,True
+vizpub/fig4.ipynb,9,021a7025,code,8,ba37aee8703906e0308222abb93855fb3a822a55cd2da48ad92d84e8606d817e,assignments = pd.read_csv(nmf_assignments_path()),129,1,True
+vizpub/fig4.ipynb,10,e9e9b66c,code,9,3c703aaef76aa6b21544200127f87c9d69b3ff20fb5fc0727c38950516a82495,import os,271,4,True
+vizpub/fig4.ipynb,11,dbbee7d0,markdown,,51daeb80cda7a80c73e5fe9a36cdd423414a7f0e2282842c25b6e0421265ad2e,## Anatomical control electrodes,6,0,False
+vizpub/fig4.ipynb,12,1150bcec,code,10,be07e47a01add2b558dbba65c13400565a7f92758036dd33465b44743542d5d3,"spatial_anat = anatomical.loc[anatomical[[""x"", ""y"", ""z""]].notna().all(axis=1)].copy()",88,4,True
+vizpub/fig4.ipynb,13,22bda8a8,markdown,,abe1988d7a516b4542a1f8841ad13b6b0f181937e48f066b8beb22f2e42f524a,## Lexicality time-resolved (shrinkage-LDA),6,0,False
+vizpub/fig4.ipynb,14,fa9672cb,code,27,c5f308e1895a5cc7af78142efd51ce80e0a9e8286d68b3fd55b1814246dfebb8,from matplotlib.ticker import MaxNLocator,148,2,True
+vizpub/fig4.ipynb,15,8e411c9d,markdown,,c72c5692a5ec5585baba64a34a20e8edb4e6f45a6f2eb33e1d6d3422a992f9d8,## Cross-condition lexicality (shrinkage-LDA),10,0,False
+vizpub/fig4.ipynb,16,75488adc,code,12,aec24b993dab09fda31299c4a1e6c239a345f75e58cd1979f533791b2d175e11,from matplotlib.colors import TwoSlopeNorm,130,2,True
+vizpub/fig4.ipynb,17,ee4d6238,markdown,,3683e9aee805ef35c05277d9d844bef26d3c120d538ee56a7bef1ee7a6c5fb18,Overlay: Sensory / Sustain / Motor on one axis. Only significant cells are,4,0,False
+vizpub/fig4.ipynb,18,7131fbad,code,20,e3a585fceef6acfab6f68d767ba808e2ec1c571681718428ae5d33ea6935c712,"OVERLAY_ROIS = [""Sensory"", ""Sustain"", ""Motor""]",181,2,True
+vizpub/fig5.ipynb,0,fig5-title,markdown,,0936075c9fb810668816568f9de9a7397a7f6b1de3ffc21a027a755cadb539de,# Fig 5: reaction-time prediction,15,0,False
+vizpub/fig5.ipynb,1,fig5-imports,code,1,0b7b3afe735d0d9e5fd6efa2e896c467f3e8eacb3a2917a3db31d5b91982c5ca,%matplotlib inline,22,0,False
+vizpub/fig5.ipynb,2,fig5-style,code,2,6cf56ed952260ea9952d168c8fb1c88d33b926da6d146984a45b52a0a1f3a62b,from matplotlib import font_manager,58,0,False
+vizpub/fig5.ipynb,3,fig5-load-md,markdown,,7e202fe22f4e35d267389208daa99be3cb705d153d25b28a5e0b52a49a09a9ae,## Load summaries,7,0,False
+vizpub/fig5.ipynb,4,fig5-load,code,3,c333c5c1c5f39f6a54b02beb3a1a1b5bee9449f77d44df0f99ebf0f32bbc27c2,def _cluster_label(value):,55,1,True
+vizpub/fig5.ipynb,5,fig5-raster-md,markdown,,7f18d0c019398b1bf851a7438354de0f3c43824e19d6a1796d140266be7d4b00,## Time-resolved prediction,6,0,False
+vizpub/fig5.ipynb,6,fig5-raster,code,6,6444252241203415a4ee8d427213163bcbbea76b644920eff86170619cc7ff72,"def _smooth_segments(values, sigma):",291,2,True
+vizpub/fig5.ipynb,7,fig5-encoding-md,markdown,,d0906f2519a97def0495c44a52fde75c1f6b96e39294d30c621c4ac5e79da7d1,## HGA–RT encoding (assigned pre-Go hits),3,0,False
+vizpub/fig5.ipynb,8,fig5-encoding,code,11,98527e85f12dbe1f4f759f4e24923f8f5287221b023372632960050d86316cc4,def _style_panel(ax):,234,4,True
+vizpub/fig5.ipynb,9,fig5-spatial-md,markdown,,6ddc62cccb127211936d7921ed5477a67a9b6429127198705238bb1c0b719232,## Hit electrodes (insula),3,0,False
+vizpub/fig5.ipynb,10,fig5-spatial,code,10,8e6259d688b132674930d8d8222ef2df141679fba4e3571c651634a3acf1fcd8,import os,284,4,True

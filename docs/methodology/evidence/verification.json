@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "verification_kind": "documentation, source fingerprints and saved metadata consistency; no model rerun",
+  "json_files_parsed": 10,
+  "local_markdown_links_checked": 77,
+  "source_fingerprints_verified": 94,
+  "notebook_cell_fingerprints_verified": 92,
+  "decoding_results_checked": 68,
+  "decoding_input_counts_checked": 72,
+  "rt_results_checked": 300,
+  "label_differences_verified": {
+    "nmf_electrodes": 6,
+    "decoding_file_channel_rows": 34,
+    "rt_summary_rows": 53
+  }
+}

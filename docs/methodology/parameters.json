@@ -1,0 +1,867 @@
+{
+  "schema": "figure1_to_5_method_spec_v1",
+  "audit_date": "2026-09-13",
+  "purpose": "方法参数清单；不是现有脚本可直接读取的运行配置",
+  "evidence_legend": {
+    "saved_result": "已保存结果属性/维度/小型表",
+    "current_source": "当前源码及启动参数",
+    "installed_default": "本次检查安装依赖的生效默认；不是完整历史环境证明",
+    "notebook": "Notebook 源码/缓存",
+    "recommendation": "新项目建议，现有分析未必实施"
+  },
+  "common": {
+    "values": {
+      "reference": "bipolar",
+      "anatomical_atlas": "hammers_maper_native_volume",
+      "hga_hz": [
+        70,
+        200
+      ],
+      "hga_quantity": "sum_of_filterbank_Hilbert_amplitudes",
+      "filterbank_spacing_octave": 0.14285714285714285,
+      "sfreq_hz": 128,
+      "typical_epoch_s": [
+        -1,
+        1.5
+      ],
+      "epoch_samples_observed": 320,
+      "epoch_last_sample_s": 1.4921875,
+      "extraction_padding_each_side_s": 0.5,
+      "notch_frequencies_current_source_hz": [
+        60,
+        120,
+        240
+      ],
+      "baseline_extract_s": [
+        -1,
+        0.5
+      ],
+      "baseline_normalization_s": [
+        -0.5,
+        0
+      ],
+      "baseline_event_by_task": {
+        "LexicalDelay": "condition-specific Cue",
+        "PhonemeSequence": "Start",
+        "PictureNaming": "condition-specific StartCue"
+      },
+      "zscore_axes": [
+        0,
+        2
+      ],
+      "zscore_sd_ddof": 1,
+      "zscore_log_transform": false,
+      "outlier_threshold_sd": 15,
+      "outlier_action": "replace entire trial-channel timecourse by NaN",
+      "bipolar_geometry_defaults": {
+        "max_distance_mm": 20,
+        "max_turn_degrees": 60
+      }
+    },
+    "evidence": [
+      "current_source: external lib/ieeg_epochs.py, lib/time_perm_stats.py, common/save_clean_derivatives.py, lib/shaft_bipolar.py",
+      "installed_default: ieeg/timefreq/gamma.py, ieeg/calc/scaling.py",
+      "saved_result: evidence/decoding_inputs_metadata.json, evidence/rt_results_metadata.json"
+    ]
+  },
+  "hga_significance": {
+    "values": {
+      "n_permutations": 5000,
+      "tails": 1,
+      "point_forming_alpha": 0.1,
+      "cluster_alpha_effective_default": 0.1,
+      "ignore_adjacency_axis": 1,
+      "cluster_statistic": "temporal_length",
+      "correction_family": "time within each channel, condition, phase",
+      "random_seed": null,
+      "electrode_selection": "any(mask & point_p<0.05) inside eligible window",
+      "eligible_windows_s": {
+        "Stimulus": [
+          0,
+          0.5
+        ],
+        "Delay": [
+          0,
+          0.5
+        ],
+        "Go": [
+          0,
+          0.5
+        ],
+        "Response": [
+          -0.5,
+          0.5
+        ]
+      },
+      "eligible_window_boundary": "sample-index slice, upper excluded"
+    },
+    "evidence": [
+      "current_source: external lib/time_perm_stats.py",
+      "installed_default: ieeg.calc.stats.time_perm_cluster/time_cluster"
+    ],
+    "notes": [
+      "Historical stats H5 does not store all these settings."
+    ]
+  },
+  "figure1": {
+    "values": {
+      "tasks": [
+        "PhonemeSequence",
+        "LexicalDelay",
+        "LexicalNoDelay",
+        "PictureNaming"
+      ],
+      "condition": "Repeat",
+      "sound_only": false,
+      "deduplication_key": "channel (subject-prefixed)",
+      "response_windows_s": {
+        "Stimulus": [
+          0,
+          1
+        ],
+        "Delay": [
+          0,
+          1
+        ],
+        "Response": [
+          -0.5,
+          0.5
+        ]
+      },
+      "response_window_boundary": "strict inequalities at both endpoints",
+      "response_rule": "mask=True in window; unique union across task and phase",
+      "roi_exclusions": [
+        "Unknown",
+        "BrainStem",
+        "Thal",
+        "CC",
+        "Caud",
+        "Put",
+        "Amyg",
+        "Hipp",
+        "LinG",
+        "Cun",
+        "mOccG",
+        "PhG",
+        "FuG",
+        "GRect",
+        "LatV",
+        "GSubcallosal",
+        "Intersection",
+        "BrainStem–Thal"
+      ],
+      "pie_radius": "sqrt(total/max_total)",
+      "cached_sampled_roi_n": 4496,
+      "cached_responsive_roi_n": 2250,
+      "cached_insula_responsive_sampled": [
+        201,
+        360
+      ],
+      "tfr_implemented": false
+    },
+    "evidence": [
+      "notebook: vizpub/fig1.ipynb cells 3,11"
+    ],
+    "notes": [
+      "Legacy local result roots are missing in current checkout; counts are cached output."
+    ]
+  },
+  "nmf": {
+    "values": {
+      "tasks": [
+        "PhonemeSequence",
+        "LexicalDelay",
+        "PictureNaming",
+        "SentenceRep"
+      ],
+      "condition": "Repeat",
+      "modality": "sound",
+      "rois": [
+        "AIC",
+        "PIC"
+      ],
+      "mix": false,
+      "exclude_label": 0,
+      "exclude_subjects": [
+        "D0121"
+      ],
+      "exclude_channels_file": "evidence/nmf_exclude_channels.txt",
+      "n_exclude_channels": 26,
+      "input_unit": "electrode; trial-averaged HGA; equal averaging of duplicate task rows at channel/time",
+      "phase_order": [
+        "stimulus",
+        "delay",
+        "go",
+        "response"
+      ],
+      "windows_s": {
+        "stimulus": [
+          0,
+          1
+        ],
+        "delay": [
+          0,
+          1
+        ],
+        "go": [
+          0,
+          1
+        ],
+        "response": [
+          0,
+          0.5
+        ]
+      },
+      "window_boundary": "open both endpoints",
+      "n_features_by_phase": [
+        127,
+        127,
+        127,
+        63
+      ],
+      "n_electrodes": 255,
+      "n_subjects": 63,
+      "coverage_min": 0.95,
+      "interpolation": "linear along time, both directions",
+      "across_phase_electrodes": "intersection",
+      "apply_significance_mask_to_waveform": false,
+      "nonnegative_transform": "clip below zero",
+      "normalization": "L2 per complete concatenated electrode row",
+      "drop_norm_le_float_epsilon": true,
+      "final_k": 3,
+      "objective": "0.5*Frobenius(X-WH)^2",
+      "init": "nndsvdar",
+      "solver": "cd",
+      "beta_loss": "frobenius",
+      "tol": 0.0001,
+      "max_iter": 5000,
+      "alpha_W": 0,
+      "alpha_H": "same",
+      "l1_ratio": 0,
+      "shuffle": false,
+      "root_seed": 42,
+      "final_fits_per_k": 20,
+      "final_fit_k_grid": [
+        1,
+        2,
+        3
+      ],
+      "fit_selection": "minimum reconstruction_err_",
+      "factor_normalization": "unit L2 H rows, transfer scale to W columns",
+      "assignment": "argmax scaled W; no dominance threshold",
+      "dominance": "max(W_scaled)/sum(W_scaled)",
+      "name_score": "Stimulus H mean early minus mean late",
+      "name_early_s": [
+        0,
+        0.3
+      ],
+      "name_late_s": [
+        0.5,
+        0.9
+      ],
+      "name_order_low_to_high": [
+        "sustain",
+        "motor",
+        "sensory"
+      ],
+      "label_override_unexplained_n": 6,
+      "current_counts": {
+        "sensory": 39,
+        "sustain": 80,
+        "motor": 136
+      },
+      "argmax_counts": {
+        "sensory": 39,
+        "sustain": 74,
+        "motor": 142
+      },
+      "current_assignment_sha256": "d5ef9cb1cb9a135e76e1b19caa679a900ec3871adbbb82176b6405a1aecb7ac7",
+      "decoding_prepared_assignment_sha256": "0b28f2105a7b08d0c91cfdb94686e6c6f266c9e7e5acc1e32971936695b00b97"
+    },
+    "evidence": [
+      "saved_result: evidence/nmf_*",
+      "current_source: src/nmf/waveform_analysis.py, scripts/plot_nmf_concat_phases.py",
+      "installed_default: sklearn 1.7.1 NMF"
+    ]
+  },
+  "nmf_rank": {
+    "values": {
+      "k_grid": [
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "n_subsamples": 200,
+      "row_fraction": 0.8,
+      "replace": false,
+      "rows_per_subsample": 204,
+      "per_k_seed": "42+1000*k",
+      "consensus": "same-cluster count / co-observed count",
+      "unobserved_pair_value": 0,
+      "diagonal": 1,
+      "distance": "1-consensus",
+      "linkage": "average",
+      "criterion": "maximum cophenetic correlation",
+      "exact_tie": "lower k",
+      "near_tie_abs_delta": 0.02,
+      "near_tie_changes_choice": false,
+      "selected_k": 3,
+      "near_tie_k": [
+        2,
+        3,
+        4
+      ],
+      "ari_max_pairs": 500,
+      "ari_pair_seed": "42+k",
+      "ari_min_shared": "max(k+1,3)",
+      "auxiliary_full_fit_seed": 42,
+      "silhouette_metric": "cosine",
+      "explained_energy": "1-residual_ss/sum(X^2)"
+    },
+    "evidence": [
+      "saved_result: evidence/nmf_rank_selection_meta.json, evidence/nmf_rank_selection_metrics.csv, evidence/nmf_chosen_k.json",
+      "current_source: src/nmf/rank_selection.py"
+    ]
+  },
+  "figure2_validation_and_display": {
+    "values": {
+      "pca_solver": "full",
+      "pca_whiten": false,
+      "n_scree": 20,
+      "embedding_pc_rule": "each explained_variance_ratio > 0.05",
+      "n_embedding_pcs": 3,
+      "kmeans": {
+        "n_clusters": 3,
+        "n_init": 50,
+        "random_state": 42,
+        "init": "k-means++",
+        "algorithm": "lloyd",
+        "max_iter": 300,
+        "tol": 0.0001
+      },
+      "hga_error": "seaborn 95% bootstrap CI, n_boot=1000, no subject aggregation, seed=None",
+      "heatmap_mask": "non-significant cells NaN",
+      "heatmap_order": "independent per phase by first significant time",
+      "heatmap_vlim": [
+        0,
+        1
+      ],
+      "display_windows_s": {
+        "stimulus": [
+          -0.5,
+          0.6
+        ],
+        "delay": [
+          0,
+          1
+        ],
+        "go": [
+          -1,
+          0
+        ],
+        "response": [
+          -0.5,
+          1.5
+        ]
+      },
+      "kde_sigma_pixels": 25,
+      "kde_contour_fraction_of_own_peak": 0.18,
+      "kde_fill_alpha": 0.12,
+      "laterality_tests": [
+        "two-sided Fisher per functional cluster",
+        "3x2 chi-square on assigned electrodes"
+      ],
+      "fisher_across_clusters_correction": null
+    },
+    "evidence": [
+      "notebook: vizpub/fig2.ipynb",
+      "saved_result: evidence/nmf_pc_clustering_meta.json"
+    ]
+  },
+  "context_univariate": {
+    "values": {
+      "windows_s": {
+        "Stimulus": [
+          0,
+          0.5
+        ],
+        "Delay": [
+          0,
+          0.5
+        ],
+        "Go": [
+          0,
+          0.5
+        ],
+        "Response": [
+          -0.5,
+          0.5
+        ]
+      },
+      "window_boundary": "MNE crop including matching endpoint samples",
+      "summaries": [
+        "within-trial time mean",
+        "within-trial time 75th percentile, then across-trial mean"
+      ],
+      "percentile_method": "linear",
+      "min_trials_each_condition": 3,
+      "n_perm": 5000,
+      "tail": "two-sided abs(mean_a-mean_b)",
+      "seed": "first 4 SHA256 bytes little-endian of subject|channel|phase|contrast",
+      "shuffle_unit": "individual pooled trials, preserve condition sizes",
+      "p_formula": "(1+count(abs(null)>=abs(observed)))/5001",
+      "fdr_method": "Benjamini-Hochberg",
+      "fdr_alpha": 0.05,
+      "fdr_family": "all tested channels within subject x phase x contrast, before NMF filter",
+      "spatial_figure3": "LD Delay DecisionVsRepeatMean; FDR<.05 and positive difference",
+      "paired_top_coloring": "PN RepeatVsPassiveP75; raw p<.05 and positive difference",
+      "paired_bottom_coloring": "LD DecisionVsRepeatP75; FDR<.05 and positive difference",
+      "paired_wilcoxon": {
+        "alternative": "greater",
+        "zero_method": "wilcox",
+        "min_electrodes": 8,
+        "across_six_tests_correction": null
+      },
+      "waveform_task_pools": {
+        "Passive": [
+          "LexicalNoDelay",
+          "PictureNaming"
+        ],
+        "Repeat": [
+          "LexicalDelay",
+          "LexicalNoDelay",
+          "PictureNaming",
+          "PhonemeSequence"
+        ],
+        "Decision": [
+          "LexicalDelay",
+          "LexicalNoDelay"
+        ]
+      },
+      "waveform_exceptions": [
+        "Passive Response only PN",
+        "sustain Stimulus Passive only LND",
+        "Delay Repeat/Decision only LD, Passive only PN, t>=0"
+      ],
+      "waveform_excluded_channels": [
+        "D0125_LTMS1-2",
+        "D0125_LTMS2-3",
+        "D0125_LTMS3-4",
+        "D0129_LFAI2-3"
+      ],
+      "paired_figure_phase": "Delay"
+    },
+    "evidence": [
+      "current_source: src/univariate/contrasts_mean.py",
+      "notebook: vizpub/fig3.ipynb"
+    ]
+  },
+  "decoding_preparation": {
+    "values": {
+      "tensor_order": [
+        "trial",
+        "channel",
+        "time"
+      ],
+      "pseudo_population": true,
+      "functional_hemisphere": "bilateral",
+      "anatomical_hemisphere": "left",
+      "trial_alignment": "word_occurrence, occurrence assigned before correctness filter",
+      "item_group": "bare word",
+      "functional_channel_selection_PS": "assignment intersect same-phase Repeat sig",
+      "functional_channel_selection_LD": "assignment intersect same-phase Decision/Repeat sig union",
+      "PS_anatomical_input": "epoch(band)(zscore)",
+      "LD_anatomical_selection": "same-phase Decision/Repeat sig union",
+      "nan_cell": "any time sample NaN",
+      "max_nan_trial_fraction_per_channel": 0.5,
+      "max_nan_channel_fraction_per_trial": 0.5,
+      "functional_qc": "iterate to stable; LD symmetric channels across conditions",
+      "PS_anatomical_qc": "one channel pass then one trial pass",
+      "PS_min_rt_s": 0.05,
+      "PS_classes": {
+        "dorsal": 0,
+        "high_vowel": 1,
+        "labial": 2,
+        "low_vowel": 3
+      },
+      "LD_classes": {
+        "Word": 0,
+        "Nonword": 1
+      },
+      "PS_first_phone_mapping": {
+        "a": "low_vowel",
+        "ae": "low_vowel",
+        "i": "high_vowel",
+        "u": "high_vowel",
+        "b": "labial",
+        "p": "labial",
+        "v": "labial",
+        "g": "dorsal",
+        "k": "dorsal",
+        "fallback": "other"
+      },
+      "PS_excluded_channels": [
+        "D0040_L1IF3-4",
+        "D0084_RFAI1-2",
+        "D0086_LTPI2-3",
+        "D0032_LAI4-5",
+        "D0090_RIA4-5",
+        "D0096_LFAI2-3",
+        "D0096_LFAI4-5",
+        "D0102_RFAI2-3",
+        "D0106_LTAS2-3",
+        "D0121_LFMI3-4",
+        "D0122_LFAI3-4",
+        "D0125_LIA4-5",
+        "D0125_LIA7-8"
+      ]
+    },
+    "evidence": [
+      "saved_result: evidence/decoding_inputs_metadata.json",
+      "current_source: src/decoding/prepare_functional_decoding_dataset.py, external task prepare_decoding_dataset.py"
+    ]
+  },
+  "decoding_PS_window": {
+    "values": {
+      "functional_windows_s": {
+        "Stimulus": [
+          0,
+          0.5
+        ],
+        "Delay": [
+          0,
+          0.7
+        ],
+        "Go": [
+          0,
+          0.5
+        ],
+        "Response": [
+          0,
+          1
+        ]
+      },
+      "anatomical_response_window_s": [
+        -0.5,
+        0.5
+      ],
+      "window_boundary": "upper excluded via integer sample slice",
+      "pipeline": [
+        "Vectorizer",
+        "StandardScaler",
+        "PCA",
+        "LinearSVC"
+      ],
+      "pca_variance_functional": 0.8,
+      "pca_variance_anatomical": 0.95,
+      "svc_current_functional": {
+        "C": 1,
+        "max_iter": 5000,
+        "random_state": 42,
+        "penalty": "l2",
+        "loss": "squared_hinge",
+        "dual": "auto",
+        "tol": 0.0001,
+        "class_weight": null
+      },
+      "svc_historical_anatomical_parameters_complete": false,
+      "cv": "MinimumNaNSplit based on stratified K-fold",
+      "n_folds": 5,
+      "n_repeats_observed": 30,
+      "cv_seed": "42+repeat_index",
+      "min_non_nan": 2,
+      "grouped_by_item": false,
+      "grouped_by_subject": false,
+      "scoring": "balanced_accuracy",
+      "chance": 0.25,
+      "n_perm": 200,
+      "permutation_repeat_index": 0,
+      "shuffle": "training trial labels within fold; test labels unchanged",
+      "p_formula": "(1+count(mean_fold_null>=mean_fold_observed))/201",
+      "across_panels_correction": null,
+      "nan_train": "fill zero before mixup; mixup normally does not augment with no remaining NaNs",
+      "mixup_rng": 42,
+      "nan_test": "seeded N(0,1)",
+      "figure_score_dataset": "accuracy (first repeat)",
+      "figure_error": "SEM across 5 folds",
+      "confusion": "first repeat OOF, row-normalized",
+      "pca_other_parameters": {
+        "random_state": 42,
+        "svd_solver": "auto",
+        "whiten": false
+      },
+      "permutation_seeds": "RandomState(42).randint(0, 2**31-1, size=200), restarted per fold"
+    },
+    "evidence": [
+      "saved_result: evidence/decoding_results_metadata.json",
+      "current_source: src/decoding/run_decoding.py, decoder.py, scripts/functional_decoding_worker.sh",
+      "notebook: vizpub/fig4.ipynb"
+    ]
+  },
+  "decoding_LD_resolved": {
+    "values": {
+      "tmin_s": -0.5,
+      "tmax_s": 1.5,
+      "window_requested_s": 0.3,
+      "window_samples": 38,
+      "step_requested_s": 0.03,
+      "actual_step_samples": [
+        3,
+        4
+      ],
+      "window_label": "end",
+      "first_time_label_s": -0.2,
+      "last_time_label_s": 1.48,
+      "n_windows": 57,
+      "n_bins": 5,
+      "bin_sizes_samples": [
+        8,
+        8,
+        8,
+        7,
+        7
+      ],
+      "pipeline": [
+        "TimeBin mean",
+        "Vectorizer",
+        "StandardScaler",
+        "LinearDiscriminantAnalysis"
+      ],
+      "lda": {
+        "solver": "lsqr",
+        "shrinkage": "auto",
+        "priors": null
+      },
+      "pca": null,
+      "cv": {
+        "type": "StratifiedGroupKFold",
+        "n_splits": 5,
+        "shuffle": true,
+        "random_state": 42,
+        "group": "bare word"
+      },
+      "decision_score_normalization": "per class using held-out fold decision-value mean/std",
+      "scoring": "macro OVR AUC over pooled OOF trials",
+      "chance": 0.5,
+      "n_perm": 5000,
+      "shuffle": "global word-label mapping; expand to all trials; score against permuted test labels",
+      "cv_splits_fixed_under_permutation": true,
+      "permutation_seed": 42,
+      "permutation_schedule_shared_across_time": true,
+      "invalid_null_point_p": "exclude NaN null and use n_valid denominator",
+      "invalid_null_cluster": "replace by chance",
+      "point_p_formula": "(1+count(null>=observed))/(1+n_valid)",
+      "cluster_forming_alpha": 0.05,
+      "cluster_alpha": 0.05,
+      "cluster_statistic": "length",
+      "cluster_routine": "ieeg time_cluster via run_decoding_resolved.cluster_correction",
+      "correction_family": "one ROI x phase x condition curve",
+      "p_values_dataset": "uncorrected point p; use mask for corrected significance",
+      "display_smoothing_sigma_bins": 2,
+      "display_smoothing_mode": "nearest"
+    },
+    "evidence": [
+      "saved_result: evidence/decoding_results_metadata.json",
+      "current_source: src/decoding/run_decoding_resolved_lda.py, run_decoding_resolved.py, decoder.py"
+    ]
+  },
+  "decoding_LD_cross": {
+    "values": {
+      "inherit_feature_cv_score_settings_from": "decoding_LD_resolved",
+      "phase": "Delay",
+      "rois": [
+        "Sensory",
+        "Sustain",
+        "Motor",
+        "STGl"
+      ],
+      "stored_directions": [
+        "Repeat2Decision",
+        "Decision2Repeat"
+      ],
+      "figure_direction": "Repeat2Decision",
+      "pairing": "common word_occurrence trials, matching label strings, common channels in source order",
+      "cv_training": "source condition training words",
+      "cv_testing": "target condition held-out words",
+      "transformer_fit": "source training fold at each train time",
+      "matrix_shape": [
+        57,
+        57
+      ],
+      "storage_axes": [
+        "train_time",
+        "test_time"
+      ],
+      "permutation": "same global word-label mapping in both conditions and all train/test windows",
+      "n_perm": 5000,
+      "point_alpha": 0.05,
+      "adjacency": "8-connected 3x3 ones",
+      "cluster_statistic": "sum(AUC-0.5)",
+      "null_threshold": "(B-rank_max+1)/B < .05 at each cell",
+      "cluster_p": "(1+count(null_max_mass>=mass))/(B+1)",
+      "cluster_alpha": 0.05,
+      "correction_family": "one ROI x direction map"
+    },
+    "evidence": [
+      "saved_result: evidence/decoding_results_metadata.json",
+      "current_source: src/decoding/pooled_io.py, run_cross_condition_resolved_lda.py, decoder.py"
+    ]
+  },
+  "rt_ridge": {
+    "values": {
+      "tasks": [
+        "LexicalDelay",
+        "PhonemeSequence",
+        "PictureNaming"
+      ],
+      "condition": "Repeat",
+      "phases": [
+        "Delay",
+        "Go",
+        "Response"
+      ],
+      "n_result_files": 300,
+      "n_subject_task_units": 100,
+      "n_unique_subjects": 63,
+      "unit": "independent subject x task x channel x time window",
+      "selection": "strict AIC/PIC, no NMF or significance preselection",
+      "raw_event_sfreq_default_hz": 2048,
+      "rt": "response_onset-go_onset",
+      "rt_min_s": 0.05,
+      "rt_max_s": null,
+      "target": "natural log RT seconds",
+      "epoch_s": [
+        -1,
+        1.5
+      ],
+      "epoch_samples": 320,
+      "sfreq_hz": 128,
+      "window_requested_s": 0.2,
+      "step_requested_s": 0.02,
+      "window_samples": 26,
+      "step_samples": 3,
+      "step_actual_s": 0.0234375,
+      "window_sample_extent_s": 0.1953125,
+      "window_n_over_fs_s": 0.203125,
+      "n_windows": 99,
+      "time_label": "center",
+      "features": "raw within-window samples of one channel",
+      "outer_cv": "shuffled GroupKFold by item",
+      "outer_folds_requested": 10,
+      "outer_folds_actual": "min(10,n_items)",
+      "outer_seed": 42,
+      "inner_cv": "group folds on outer training data passed as PredefinedSplit",
+      "inner_folds_requested": 5,
+      "inner_seed": "42+outer_fold_index+1",
+      "PN_outer_inner_folds": [
+        4,
+        3
+      ],
+      "pipeline": [
+        "median SimpleImputer keep_empty_features=True",
+        "StandardScaler",
+        "Himalaya RidgeCV"
+      ],
+      "preprocessor_fit": "outer training fold, before RidgeCV inner splits",
+      "strict_inner_preprocessing_refit": false,
+      "alphas": [
+        0.001,
+        0.004641588833612777,
+        0.021544346900318832,
+        0.1,
+        0.46415888336127775,
+        2.1544346900318843,
+        10.0,
+        46.41588833612782,
+        215.44346900318823,
+        1000.0
+      ],
+      "fit_intercept": true,
+      "ridge_solver": "svd (default route)",
+      "inner_score": "negative L2 loss",
+      "local_alpha": true,
+      "conservative": false,
+      "scores": [
+        "pooled OOF Pearson r",
+        "unclipped R2",
+        "MAE in log seconds"
+      ],
+      "n_perm": 1000,
+      "permutation": "unrestricted trial RT shuffle within each outer training fold; true test RT unchanged",
+      "retune_alpha_under_permutation": true,
+      "permutation_schedule_shared_across_channels_windows_phases": true,
+      "point_alpha": 0.05,
+      "point_comparison": "<=",
+      "null_threshold": "strictly greater than cell-wise 95th percentile",
+      "cluster_statistic": "contiguous temporal length",
+      "cluster_p_formula": "(1+count(null_max_length>=length))/1001",
+      "cluster_alpha": 0.05,
+      "cluster_comparison": "<=",
+      "positive_r_required": true,
+      "correction_family": "subject x task, max over all channels/time and phases supplied in one run",
+      "phase_families_in_launchers": [
+        [
+          "Delay",
+          "Go"
+        ],
+        [
+          "Response"
+        ]
+      ]
+    },
+    "evidence": [
+      "saved_result: evidence/rt_results_metadata.json",
+      "current_source: src/reaction_time/insula_rt_data.py, insula_ridge.py, run_insula_rt_ridge.py, scripts/slurm/insula_rt_ridge*.sh",
+      "installed_default: Himalaya 0.4.8"
+    ]
+  },
+  "figure5_display_and_encoding": {
+    "values": {
+      "hit_window": "Delay cluster end>0 OR Go/Response cluster start<0",
+      "hit_key": [
+        "task",
+        "subject",
+        "channel"
+      ],
+      "prediction_curve_selection": "positive significant r windows of selected hit electrodes",
+      "prediction_error": "SEM",
+      "smoothing_sigma_bins": 2,
+      "raster_display_dt_s": 0.02,
+      "encoding_phase": "Go",
+      "encoding_window_selection": "max OOF prediction r among positive FWER-significant windows with start<0",
+      "encoding_window_may_cross_go_onset": true,
+      "encoding_hga_summary": "within-window np.mean per trial",
+      "encoding_min_trials": 16,
+      "encoding_electrode_score": "Pearson(mean HGA, log RT), descriptive OLS slope",
+      "encoding_subject_task_score": "median electrode r",
+      "fast_slow_split": "within task x subject x cluster median log RT; fast<median, slow>=median",
+      "scatter_amplitude": "per electrode across-trial zscore ddof=0, then nanmean across selected electrodes",
+      "group_direction_test": "subject median over tasks, one-sided Wilcoxon less than 0",
+      "min_subjects_for_direction_test": 2,
+      "across_clusters_correction": null,
+      "example_selection": "minimum correlation task x subject, not closest to median",
+      "independent_validation": false
+    },
+    "evidence": [
+      "current_source: src/reaction_time/summarize_insula_rt_encoding.py",
+      "notebook: vizpub/fig5.ipynb"
+    ]
+  },
+  "migration_recommendations": {
+    "values": [
+      "Freeze input, source, environment, actual time indices, cohorts, component maps, and assignment overrides.",
+      "Choose the CV grouping to match new-trial/new-item/new-subject generalization.",
+      "If evaluating the full discovery-to-prediction pipeline, perform data-driven NMF/response selection within training or use independent discovery data.",
+      "Match feature count, window and preprocessing before interpreting ROI performance differences.",
+      "Pre-register permutation exchangeability and correction families across phases/ROIs/conditions.",
+      "Use exact CORRECT token matching; use window_end<=0 for strictly pre-Go claims.",
+      "Use independent or nested validation for selected-window amplitude-RT associations.",
+      "Use subject-level aggregation or hierarchical inference when the target is a population of subjects."
+    ],
+    "evidence": [
+      "recommendation"
+    ]
+  }
+}

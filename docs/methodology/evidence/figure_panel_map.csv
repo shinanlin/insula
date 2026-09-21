@@ -1,0 +1,23 @@
+figure,panel,cell_indices_zero_based,inputs,producer,method_module
+1,覆盖与解剖空间图,"[3, 4, 5, 7, 8, 9]",坐标 CSV; Hammers parcellation,src/hga/package_ave_cord.py,01_data_hga_anatomy.md
+1,逐阶段响应饼图,"[11, 13, 15]",HGA *_time.csv; mask,src/hga/package_highgamma.py; external lib/time_perm_stats.py,01_data_hga_anatomy.md
+1,跨阶段并集、采样分母与响应比例,"[17, 19, 21]",HGA time/coord CSV,Notebook channel union and QC,01_data_hga_anatomy.md
+1,TFR 占位,[22],无已实现输入,未实现,01_data_hga_anatomy.md
+2,整体及功能群平均 HGA,"[4, 6, 10]",packaged HGA; channel_assignments.csv,src/hga/package_highgamma.py,02_nmf.md
+2,NMF H 模板,[8],results/nmf/H_by_phase.csv,scripts/plot_nmf_concat_phases.py; src/nmf/waveform_analysis.py,02_nmf.md
+2,功能群显著性热图,[12],packaged HGA value/mask; assignments,Notebook mean/any aggregation and phase-wise row ordering,02_nmf.md
+2,选秩,[14],rank_selection_metrics.csv; chosen_k.json,src/nmf/rank_selection.py,02_nmf.md
+2,PCA/KMeans 对照,[16],pc_scores.csv; pc_clustering_meta.json,src/nmf/pc_clustering.py; Notebook KMeans,02_nmf.md
+2,空间 KDE,[18],assignments + template coordinates,Notebook pixel-projection KDE,02_nmf.md
+2,解剖饼图与侧化,"[20, 22, 24]",assignments; Hammers parcellation,Notebook ROI mapping; Fisher and chi-square,02_nmf.md
+3,情境平均波形,"[4, 6, 8]",epoch(band)(sig) union; epoch(band)(zscore); assignments,Notebook task/condition pooling,03_context.md
+3,Delay 条件差异空间图,"[10, 11]",LD DecisionVsRepeatMean univariate CSV,src/univariate/contrasts_mean.py; viz_cluster_direction.py,03_context.md
+3,Delay P75 配对图,[13],PN RepeatVsPassiveP75 and LD DecisionVsRepeatP75 CSV,src/univariate/contrasts_mean.py; Notebook Wilcoxon,03_context.md
+4,固定窗准确率,"[4, 6]","(decode)articulator H5 accuracy,p_value",src/decoding/run_decoding.py; decoder.py,04_decoding.md
+4,固定窗混淆矩阵,[8],first-repeat OOF confusion_norm,src/decoding/run_decoding.py,04_decoding.md
+4,实际特征电极空间图,"[9, 10, 12]",prepared decoding H5 channels; assignments/coords,prepare_functional_decoding_dataset.py; external anatomical preparer,04_decoding.md
+4,词汇性滑窗 AUC,[14],(decode)(resolved)(lda)lexicality H5,src/decoding/run_decoding_resolved_lda.py; decoder.py,04_decoding.md
+4,跨条件时间泛化及显著叠图,"[16, 18]",(cross)(resolved)(lda)lexicality H5 Repeat2Decision,src/decoding/run_cross_condition_resolved_lda.py; pooled_io.py,04_decoding.md
+5,RT 预测曲线与 raster,"[4, 6]",RT H5; coverage/electrodes/significant_clusters summaries,src/reaction_time/insula_ridge.py; summarize_insula_rt_ridge.py,05_rt.md
+5,振幅–RT 关联与 fast/slow,[8],hga_rt_encoding_*; hga_rt_trials; hga_rt_go_traces,src/reaction_time/summarize_insula_rt_encoding.py,05_rt.md
+5,RT hit 空间图,[10],hit keys; NMF-assigned electrodes; coordinates,Notebook hit rule and surface projection,05_rt.md

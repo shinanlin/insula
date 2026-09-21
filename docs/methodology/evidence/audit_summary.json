@@ -1,0 +1,22 @@
+{
+  "audit_date": "2026-09-13",
+  "repository_head": "33659ba50e2ddce2159e182de2e2d650331ee12f",
+  "working_tree_clean": false,
+  "historical_runs_reexecuted": false,
+  "notebook_cells": 92,
+  "decoding_result_files": 68,
+  "decoding_input_files": 72,
+  "rt_result_files": 300,
+  "rt_unique_subjects": 63,
+  "nmf_current_counts": {
+    "sustain": 80,
+    "motor": 136,
+    "sensory": 39
+  },
+  "nmf_label_mismatches": 6,
+  "decoding_input_channel_mismatch_rows": 34,
+  "rt_summary_label_mismatch_rows": 53,
+  "missing_expected_external_sources": [],
+  "source_files_hashed": 94,
+  "note": "Hashes describe audit-time source content; large H5 files were inspected by metadata, not fully hashed or recomputed."
+}

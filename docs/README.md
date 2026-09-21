@@ -15,6 +15,7 @@ docs as needed.
 
 | Document | When to read |
 |----------|----------------|
+| [`methodology/README.md`](methodology/README.md) | **Figure 1–5 方法规范（中文）** — 按图追溯 HGA、NMF、条件对比、decoding、RT，含参数与结果证据 |
 | [`NMF.md`](NMF.md) | **Canonical NMF** — concat postonset, bootstrap rank selection, flat publish paths |
 | [`HGA_EXPLORER.md`](HGA_EXPLORER.md) | Interactive HGA Explorer — export schema, UI behavior |
 | [`../viewer/ROADMAP.md`](../viewer/ROADMAP.md) | HGA Explorer implementation roadmap |

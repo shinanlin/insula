@@ -153,32 +153,44 @@ Use existing condition and phase names:
 - Conditions: `Repeat`, `Decision`, `Passive`.
 - Phases: `Stimulus`, `Delay`, `Go`, `Response`.
 
-Use existing result path grammar:
+### Two I/O rules (required for new code)
+
+1. **Read with `BIDSPath`.** Discover and open BIDS derivatives and packaged
+   results via `mne_bids.BIDSPath(...).match()` / `.fpath`. Prefer
+   `src.paths` helpers for the method root (for example `hga_results_dir(task)`),
+   then build a `BIDSPath` on that root. Do not hand-`glob` result trees or
+   concatenate BIDS stems / filenames as strings.
+2. **Write method-first.** Save analysis outputs under
+   `results/{method}/...`, not under a task-first folder. Method is a single
+   lowercase word with no underscores (`hga`, `nmf`, `connectivity`, `qc`).
 
 ```text
-results/<Task>(<ref>)
-results/<Task>(roi)(<ref>)
-results/<Task>(cross_roi)(<ref>)
+results/{method}/{Task}/sub-<ID>/{datatype}/
+  sub-<ID>_task-<Task>_proc-<Phase>_desc-<Cond>_<suffix>.<ext>
 ```
 
-Examples:
+Canonical examples:
 
 ```text
-results/LexicalDelay(bipolar)
-results/LexicalDelay(roi)(bipolar)
-results/PhonemeSequence(roi)(bipolar)
+results/hga/<Task>/sub-<ID>/HGA/...
+results/connectivity/<Task>/sub-<ID>/<metric>/...
+results/decoding/<Task>/sub-<ID>/(decode)(pattern)<feature>/...
+results/nmf/channel_assignments.csv
+results/qc/<atlas>/sub-<ID>/...
 ```
 
-Do not change this grammar in only one script. Notebooks and downstream analysis code often assume it.
+Where `<metric>` is the BIDS `datatype` (`xcorr`, `oaec`, `wpli`) and
+`<suffix>` is a single token (`time`, `coord`, `pairs`, `detail`, `clusters`).
 
-Analysis-specific result roots sit beside the packaged-HGA grammar. Use a single
-word with no underscores, for example `results/connectivity`.
+Study defaults for packaged HGA are bipolar reference and Hammers atlas; they
+do **not** appear in the output path. Keep `--atlas hammers` (and similar) as
+CLI/API arguments for parcellation lookup, but do not encode them in folder names
+for new pipelines.
 
-### BIDSPath for reads and writes
+### BIDSPath details
 
-Read and write all analysis artifacts with `mne_bids.BIDSPath`. Follow the
-patterns in `src/xcorr/run_xcorr_pair_permutation.py` and
-`src/hga/package_highgamma.py`. Do not hand-concatenate BIDS stems or filenames.
+Follow the patterns in `src/hga/package_highgamma.py` and
+`src/xcorr/run_xcorr_pair_permutation.py`.
 
 BIDS filenames are `key-value` tokens joined by `_`. Each entity value must be a
 single token with no `_` inside the value (for example `LexicalDelay`,
@@ -190,16 +202,21 @@ project-local derivative layouts that are not full BIDS datasets.
 Top-level folders under `results/` and `logs/` for new pipelines must be single
 words (for example `connectivity`, `logs/connectivity`), not `snake_case`.
 
-Example connectivity layout:
+### Legacy task-first paths (do not extend)
+
+Older decoding trees still use parenthesized task-first grammar:
 
 ```text
-results/connectivity/<Task>/sub-<ID>/<metric>/
-  sub-<ID>_task-<Task>_proc-<Phase>_desc-<Cond>_<suffix>.<ext>
+results/<Task>(roi)(<ref>)
+results/<Task>(cross_roi)(<ref>)
 ```
 
-Where `<metric>` is the BIDS `datatype` (`xcorr`, `oaec`, `wpli`) and
-`<suffix>` is a single token (`pairs`, `detail`, `clusters`, `provenance`).
+Examples: `results/LexicalDelay(roi)(bipolar)`,
+`results/PhonemeSequence(roi)(bipolar)`.
 
+Do not invent new folders of this form. New pipelines must use method-first
+roots. If you touch a legacy reader/writer, migrate it to method-first rather
+than copying the old grammar.
 ## ROI-as-Subject Convention
 
 Several scripts use ROI labels as the `--subject` argument. This is intentional for group-level ROI decoding.

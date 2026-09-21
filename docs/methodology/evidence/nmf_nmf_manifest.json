@@ -1,0 +1,20 @@
+{
+  "published_at": "2026-08-09T16:27:21.417115+00:00",
+  "assignments": "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/channel_assignments.csv",
+  "construction": "concat_phases",
+  "windows": "stimulus=(0,1); delay=(0,1); go=(0,1); response=(0,0.5)",
+  "k": 3,
+  "tasks": [
+    "PhonemeSequence",
+    "LexicalDelay",
+    "PictureNaming",
+    "SentenceRep"
+  ],
+  "condition": "Repeat",
+  "n_electrodes": 255,
+  "cluster_names": [
+    "sustain",
+    "motor",
+    "sensory"
+  ]
+}
