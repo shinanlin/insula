@@ -1,0 +1,22 @@
+Manuscript version history
+
+Versioning convention
+Each saved revision has a matching manuscript_vNNN.docx and manuscript_vNNN.txt.
+The Word document is the editable manuscript; the UTF-8 text companion makes
+wording changes reviewable in Git. Paired ** markers in the text preserve bold
+formatting. Blank lines separate manuscript paragraphs.
+
+For subsequent revisions, retain earlier snapshots, increment the version
+number (v002, v003, ...), synchronize the Word document and text companion,
+and add a dated entry describing the changes. Commit the paired files and
+this history together. Direct edits in Word are not automatically synchronized
+to the text companion.
+
+v001 | 2026-10-14 | Initial manuscript baseline
+Scope: Introduction, three paragraphs.
+Source: Text supplied by the author in this conversation.
+Changes: Created Word document and matching text companion; preserved the
+supplied wording, punctuation, paragraph order, and bold emphasis without
+editorial revision. Added an Introduction heading, version/date header,
+and page-number footer to the Word document.
+Files: manuscript_v001.docx; manuscript_v001.txt.
