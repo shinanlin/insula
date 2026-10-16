@@ -28,3 +28,13 @@ Changes: Preserved supplied wording, numerical values and placeholders without
 editorial revision. Speech task remains a heading without body text. Added
 Methods heading and subsection formatting; updated Word version/date header.
 Files: manuscript_v002.docx; manuscript_v002.txt.
+
+v003 | 2026-10-15 | Add author-provided Results snapshot
+Scope: Results inserted between unchanged Introduction and Methods.
+Source: Results text supplied by the author in this conversation.
+Changes: Added recruitment, decomposition/spatial organization, decoding, and
+whole-brain projection passages. Removed the exact duplicate three-paragraph
+decoding passage, retaining one copy. Otherwise preserved supplied wording,
+numerical values, figure references and placeholders without editorial revision.
+No additional Results sections were drafted. Updated Word version header.
+Files: manuscript_v003.docx; manuscript_v003.txt.
