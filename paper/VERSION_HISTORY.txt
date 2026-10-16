@@ -20,3 +20,11 @@ supplied wording, punctuation, paragraph order, and bold emphasis without
 editorial revision. Added an Introduction heading, version/date header,
 and page-number footer to the Word document.
 Files: manuscript_v001.docx; manuscript_v001.txt.
+
+v002 | 2026-10-15 | Add author-provided Methods snapshot
+Scope: Introduction retained from v001; Methods sections 1–8 added.
+Source: Methods text supplied by the author in this conversation.
+Changes: Preserved supplied wording, numerical values and placeholders without
+editorial revision. Speech task remains a heading without body text. Added
+Methods heading and subsection formatting; updated Word version/date header.
+Files: manuscript_v002.docx; manuscript_v002.txt.
