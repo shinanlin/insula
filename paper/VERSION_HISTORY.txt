@@ -38,3 +38,16 @@ decoding passage, retaining one copy. Otherwise preserved supplied wording,
 numerical values, figure references and placeholders without editorial revision.
 No additional Results sections were drafted. Updated Word version header.
 Files: manuscript_v003.docx; manuscript_v003.txt.
+
+v004 | 2026-10-16 | Import author-maintained Google Docs manuscript
+Scope: Full manuscript snapshot, including title, Introduction, Results,
+Discussion outline, Methods and six embedded images.
+Source: https://docs.google.com/document/d/1dZGhk1ID4weFt_eGvOKpWGZnmoHEq43pRB_2kttJKA0/edit
+Changes: Adopted the Google document as the source of truth. Saved its DOCX
+and UTF-8 text exports verbatim without editorial revision. The DOCX retains
+source formatting and images; the text export retains source wording and
+automatic list numbers but does not encode bold emphasis with ** markers.
+Validation: Word body and text export match after ignoring automatic list
+numbering, a separator line and whitespace. DOCX package/XML validated.
+DOCX SHA-256: 8e31489c93cf2e9b9392f93636952fb85e4b115cd7cad0c73e5cca2895493230
+Files: manuscript_v004.docx; manuscript_v004.txt.
