@@ -1,0 +1,2421 @@
+[
+  {
+    "root": "/hpc/group/coganlab/ECoG_Recon",
+    "status": "complete",
+    "dirs": 209,
+    "found": [
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D83/mri/aparc+aseg.mgz",
+        "size": 423804,
+        "mtime_ns": 1701891319624792000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D83/mri/orig.mgz",
+        "size": 6937669,
+        "mtime_ns": 1701891296297338000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D83/mri/aparc.a2009s+aseg.mgz",
+        "size": 457197,
+        "mtime_ns": 1701891318189948000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D133/mri/aparc+aseg.mgz",
+        "size": 378057,
+        "mtime_ns": 1770748237237263000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D133/mri/orig.mgz",
+        "size": 6417044,
+        "mtime_ns": 1770747900550777000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D133/mri/aparc.a2009s+aseg.mgz",
+        "size": 409102,
+        "mtime_ns": 1770748233427368000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77_NL/mri/aparc+aseg.mgz",
+        "size": 372972,
+        "mtime_ns": 1701891321104757000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77_NL/mri/orig.mgz",
+        "size": 7672170,
+        "mtime_ns": 1701891290868367000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77_NL/mri/aparc.a2009s+aseg.mgz",
+        "size": 404721,
+        "mtime_ns": 1701891320184833000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D82/mri/aparc+aseg.mgz",
+        "size": 426679,
+        "mtime_ns": 1701891319405133000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D82/mri/orig.mgz",
+        "size": 5849925,
+        "mtime_ns": 1701891297569630000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D82/mri/aparc.a2009s+aseg.mgz",
+        "size": 464762,
+        "mtime_ns": 1701891317640720000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S23/mri/aparc+aseg.mgz",
+        "size": 500508,
+        "mtime_ns": 1701891394306801000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S23/mri/orig.mgz",
+        "size": 40279663,
+        "mtime_ns": 1701891385310590000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S23/mri/aparc.a2009s+aseg.mgz",
+        "size": 529268,
+        "mtime_ns": 1701891390905581000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D79/mri/aparc+aseg.mgz",
+        "size": 458910,
+        "mtime_ns": 1701891318084248000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D79/mri/orig.mgz",
+        "size": 7343462,
+        "mtime_ns": 1701891293600419000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D79/mri/aparc.a2009s+aseg.mgz",
+        "size": 498110,
+        "mtime_ns": 1701891317384194000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL/mri/aparc+aseg.mgz",
+        "size": 384245,
+        "mtime_ns": 1701891266393633000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL/mri/orig.mgz",
+        "size": 6812311,
+        "mtime_ns": 1701891270756130000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL/mri/aparc.a2009s+aseg.mgz",
+        "size": 418929,
+        "mtime_ns": 1701891266140947000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D131/mri/aparc+aseg.mgz",
+        "size": 384370,
+        "mtime_ns": 1770748237747074000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D131/mri/orig.mgz",
+        "size": 6084369,
+        "mtime_ns": 1770747922991842000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D131/mri/aparc.a2009s+aseg.mgz",
+        "size": 417771,
+        "mtime_ns": 1770748231633925000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D139B/mri/aparc+aseg.mgz",
+        "size": 414126,
+        "mtime_ns": 1770748233052805000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D139B/mri/orig.mgz",
+        "size": 5984389,
+        "mtime_ns": 1770748206958197000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D139B/mri/aparc.a2009s+aseg.mgz",
+        "size": 450405,
+        "mtime_ns": 1770748213783173000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S14/mri/aparc+aseg.mgz",
+        "size": 491371,
+        "mtime_ns": 1701891390954502000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S14/mri/orig.mgz",
+        "size": 46880577,
+        "mtime_ns": 1701891383506431000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S14/mri/aparc.a2009s+aseg.mgz",
+        "size": 518977,
+        "mtime_ns": 1701891390449042000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D86/mri/aparc+aseg.mgz",
+        "size": 396736,
+        "mtime_ns": 1701891320402670000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D86/mri/orig.mgz",
+        "size": 2819519,
+        "mtime_ns": 1701891311472867000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D86/mri/aparc.a2009s+aseg.mgz",
+        "size": 427429,
+        "mtime_ns": 1701891319303794000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D72/mri/aparc+aseg.mgz",
+        "size": 410512,
+        "mtime_ns": 1701891320006194000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D72/mri/orig.mgz",
+        "size": 5544750,
+        "mtime_ns": 1701891296232990000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D72/mri/aparc.a2009s+aseg.mgz",
+        "size": 448243,
+        "mtime_ns": 1701891318321312000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/aparc+aseg.mgz",
+        "size": 390046,
+        "mtime_ns": 1770748236200135000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/orig.mgz",
+        "size": 5868751,
+        "mtime_ns": 1770747935880160000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/aparc.a2009s+aseg.mgz",
+        "size": 421176,
+        "mtime_ns": 1770748229504152000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/aseg.mgz",
+        "size": 336442,
+        "mtime_ns": 1770748238083850000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/ribbon.mgz",
+        "size": 208148,
+        "mtime_ns": 1770748247851592000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/wm.mgz",
+        "size": 394972,
+        "mtime_ns": 1770748235781939000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D88/mri/aparc+aseg.mgz",
+        "size": 376116,
+        "mtime_ns": 1701891319905532000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D88/mri/orig.mgz",
+        "size": 5694011,
+        "mtime_ns": 1701891292319934000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D88/mri/aparc.a2009s+aseg.mgz",
+        "size": 406540,
+        "mtime_ns": 1701891320129787000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D80/mri/aparc+aseg.mgz",
+        "size": 403420,
+        "mtime_ns": 1701891320431939000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D80/mri/orig.mgz",
+        "size": 7059938,
+        "mtime_ns": 1701891295318877000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D80/mri/aparc.a2009s+aseg.mgz",
+        "size": 437524,
+        "mtime_ns": 1701891319250802000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D135/mri/aparc+aseg.mgz",
+        "size": 412357,
+        "mtime_ns": 1770748232527702000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D135/mri/orig.mgz",
+        "size": 6666233,
+        "mtime_ns": 1770747894605521000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D135/mri/aparc.a2009s+aseg.mgz",
+        "size": 444045,
+        "mtime_ns": 1770748219846269000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D129/mri/aparc+aseg.mgz",
+        "size": 399988,
+        "mtime_ns": 1770748234224069000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D129/mri/orig.mgz",
+        "size": 5895736,
+        "mtime_ns": 1770747934255816000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D129/mri/aparc.a2009s+aseg.mgz",
+        "size": 433489,
+        "mtime_ns": 1770748225586872000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D85/mri/aparc+aseg.mgz",
+        "size": 392053,
+        "mtime_ns": 1701891320495600000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D85/mri/orig.mgz",
+        "size": 6981889,
+        "mtime_ns": 1701891295932986000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D85/mri/aparc.a2009s+aseg.mgz",
+        "size": 423848,
+        "mtime_ns": 1701891319588691000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77/mri/aparc+aseg.mgz",
+        "size": 372804,
+        "mtime_ns": 1701891320684459000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77/mri/orig.mgz",
+        "size": 7709765,
+        "mtime_ns": 1701891290256162000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D77/mri/aparc.a2009s+aseg.mgz",
+        "size": 405109,
+        "mtime_ns": 1701891320171422000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D130/mri/aparc+aseg.mgz",
+        "size": 454243,
+        "mtime_ns": 1770748209939698000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D130/mri/orig.mgz",
+        "size": 6764397,
+        "mtime_ns": 1770747892506590000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D130/mri/aparc.a2009s+aseg.mgz",
+        "size": 495883,
+        "mtime_ns": 1770748212675736000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S26/mri/aparc+aseg.mgz",
+        "size": 502886,
+        "mtime_ns": 1701891392624875000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S26/mri/orig.mgz",
+        "size": 40588435,
+        "mtime_ns": 1701891385951082000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S26/mri/aparc.a2009s+aseg.mgz",
+        "size": 530375,
+        "mtime_ns": 1701891390875951000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D81/mri/aparc+aseg.mgz",
+        "size": 383784,
+        "mtime_ns": 1701891320624675000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D81/mri/orig.mgz",
+        "size": 6246550,
+        "mtime_ns": 1701891291204630000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D81/mri/aparc.a2009s+aseg.mgz",
+        "size": 414691,
+        "mtime_ns": 1701891319887079000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D134/mri/aparc+aseg.mgz",
+        "size": 423710,
+        "mtime_ns": 1770748228396143000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D134/mri/orig.mgz",
+        "size": 8062934,
+        "mtime_ns": 1770747887045525000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D134/mri/aparc.a2009s+aseg.mgz",
+        "size": 459467,
+        "mtime_ns": 1770748206876017000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D84/mri/aparc+aseg.mgz",
+        "size": 379175,
+        "mtime_ns": 1701891320555522000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D84/mri/orig.mgz",
+        "size": 6487263,
+        "mtime_ns": 1701891299073924000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D84/mri/aparc.a2009s+aseg.mgz",
+        "size": 409969,
+        "mtime_ns": 1701891319988056000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D126/mri/aparc+aseg.mgz",
+        "size": 373918,
+        "mtime_ns": 1770748237997889000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D126/mri/orig.mgz",
+        "size": 5273690,
+        "mtime_ns": 1770747914644648000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D126/mri/aparc.a2009s+aseg.mgz",
+        "size": 405610,
+        "mtime_ns": 1770748233183206000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D75/mri/aparc+aseg.mgz",
+        "size": 409927,
+        "mtime_ns": 1701891320033193000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D75/mri/orig.mgz",
+        "size": 6077648,
+        "mtime_ns": 1701891294521198000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D75/mri/aparc.a2009s+aseg.mgz",
+        "size": 445467,
+        "mtime_ns": 1701891319140143000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S33/mri/aparc+aseg.mgz",
+        "size": 428404,
+        "mtime_ns": 1701891392742227000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S33/mri/orig.mgz",
+        "size": 26400399,
+        "mtime_ns": 1701891385114577000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/S33/mri/aparc.a2009s+aseg.mgz",
+        "size": 454798,
+        "mtime_ns": 1701891392709306000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/aparc+aseg.mgz",
+        "size": 384245,
+        "mtime_ns": 1701891266417484000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/orig.mgz",
+        "size": 6812311,
+        "mtime_ns": 1701891271144676000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/aparc.a2009s+aseg.mgz",
+        "size": 418929,
+        "mtime_ns": 1701891266170788000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/aseg.mgz",
+        "size": 329794,
+        "mtime_ns": 1701891266520322000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/ribbon.mgz",
+        "size": 201488,
+        "mtime_ns": 1701891266859161000
+      },
+      {
+        "path": "/hpc/group/coganlab/ECoG_Recon/D68_NL_old/mri/wm.mgz",
+        "size": 374081,
+        "mtime_ns": 1701891267291832000
+      }
+    ]
+  },
+  {
+    "root": "/hpc/group/coganlab/akm87",
+    "status": "complete",
+    "dirs": 13206,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/ht203",
+    "status": "complete",
+    "dirs": 1980,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/ln154",
+    "status": "complete",
+    "dirs": 2867,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/ae166",
+    "status": "missing",
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/jz421",
+    "status": "complete",
+    "dirs": 3374,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/jq81",
+    "status": "complete",
+    "dirs": 8471,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/cache",
+    "status": "complete",
+    "dirs": 35,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/pycortex_store",
+    "status": "complete",
+    "dirs": 13,
+    "found": [
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/pycortex_store/fsaverage/anatomicals/raw.nii.gz",
+        "size": 4927833,
+        "mtime_ns": 1569620835000000000
+      }
+    ]
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/pycortex_cache",
+    "status": "complete",
+    "dirs": 3,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/tmp",
+    "status": "complete",
+    "dirs": 40758,
+    "found": [
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/tmpd9zn7l40/Dtest/mri/aseg.mgz",
+        "size": 78,
+        "mtime_ns": 1791572574324092000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_geometry_mismatch_rejecte0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 116,
+        "mtime_ns": 1792261452422950000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_geometry_mismatch_rejecte0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 113,
+        "mtime_ns": 1792261452429875000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_geometry_mismatch_rejecte0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1792261452399352000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_outside_atlas_cannot_supp0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 111,
+        "mtime_ns": 1792261452363346000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_outside_atlas_cannot_supp0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 111,
+        "mtime_ns": 1792261452359722000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_outside_atlas_cannot_supp0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1792261452338997000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_native_lookup_gray_matter0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 125,
+        "mtime_ns": 1792261452251134000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_native_lookup_gray_matter0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 117,
+        "mtime_ns": 1792261452248006000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_native_lookup_gray_matter0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1792261452227000000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_negative_screen_still_req0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 116,
+        "mtime_ns": 1792261452489810000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_negative_screen_still_req0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 115,
+        "mtime_ns": 1792261452486470000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_negative_screen_still_req0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1792261452466056000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_missing_tissue_cannot_be_0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 115,
+        "mtime_ns": 1792261452309940000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-450/test_missing_tissue_cannot_be_0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1792261452290251000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_geometry_mismatch_rejecte0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 116,
+        "mtime_ns": 1791225611234629000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_geometry_mismatch_rejecte0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 113,
+        "mtime_ns": 1791225611244213000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_geometry_mismatch_rejecte0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1791225611204290000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_outside_atlas_cannot_supp0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 111,
+        "mtime_ns": 1791225611154959000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_outside_atlas_cannot_supp0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 111,
+        "mtime_ns": 1791225611151334000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_outside_atlas_cannot_supp0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1791225611127151000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_native_lookup_gray_matter0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 125,
+        "mtime_ns": 1791225611020390000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_native_lookup_gray_matter0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 117,
+        "mtime_ns": 1791225611016899000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_native_lookup_gray_matter0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1791225610993423000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_negative_screen_still_req0/maper/D0152B/output/f30-seg95-D0152B-tc3crisp.nii.gz",
+        "size": 116,
+        "mtime_ns": 1791225611344437000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_negative_screen_still_req0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 115,
+        "mtime_ns": 1791225611341071000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_negative_screen_still_req0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1791225611318823000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_missing_tissue_cannot_be_0/maper/D0152B/output/f30-seg95-D0152B.nii.gz",
+        "size": 115,
+        "mtime_ns": 1791225611095449000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/pytest-of-ns458/pytest-449/test_missing_tissue_cannot_be_0/recon/D152B/mri/orig.mgz",
+        "size": 91,
+        "mtime_ns": 1791225611070304000
+      },
+      {
+        "path": "/hpc/group/coganlab/nanlinshi/tmp/tmpmd9geu46/Dtest/mri/aseg.mgz",
+        "size": 78,
+        "mtime_ns": 1791572667249725000
+      }
+    ]
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/af",
+    "status": "complete",
+    "dirs": 2262,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/insula",
+    "status": "complete",
+    "dirs": 2308,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/insula-functional",
+    "status": "complete",
+    "dirs": 3315,
+    "found": []
+  },
+  {
+    "root": "/hpc/group/coganlab/nanlinshi/seeg-preprocessing",
+    "status": "complete",
+    "dirs": 11,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/ecog_recon",
+    "status": "complete",
+    "dirs": 155,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/ECoG_Recon",
+    "status": "complete",
+    "dirs": 923,
+    "found": [
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/aparc+aseg.mgz",
+        "size": 413253,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/aparc.a2009s+aseg.mgz",
+        "size": 451244,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/aseg.mgz",
+        "size": 350477,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/orig.mgz",
+        "size": 5997790,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/wm.mgz",
+        "size": 393783,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152B/mri/ribbon.mgz",
+        "size": 220242,
+        "mtime_ns": 1789400508000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/aparc+aseg.mgz",
+        "size": 370447,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/aparc.a2009s+aseg.mgz",
+        "size": 394341,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/aseg.mgz",
+        "size": 320503,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/orig.mgz",
+        "size": 6892158,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/wm.mgz",
+        "size": 502271,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D154/mri/ribbon.mgz",
+        "size": 193122,
+        "mtime_ns": 1790788345000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/aparc+aseg.mgz",
+        "size": 413468,
+        "mtime_ns": 1790096385152332673
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/aparc.a2009s+aseg.mgz",
+        "size": 448930,
+        "mtime_ns": 1790096382807425426
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/aseg.mgz",
+        "size": 354407,
+        "mtime_ns": 1790096403930786414
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/orig.mgz",
+        "size": 5883664,
+        "mtime_ns": 1790096309942522312
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/wm.mgz",
+        "size": 401671,
+        "mtime_ns": 1790096386090295572
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D148/mri/ribbon.mgz",
+        "size": 223900,
+        "mtime_ns": 1790096413892920401
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/aparc+aseg.mgz",
+        "size": 425436,
+        "mtime_ns": 1790901769431124741
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/aparc.a2009s+aseg.mgz",
+        "size": 458911,
+        "mtime_ns": 1790901779237259651
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/aseg.mgz",
+        "size": 243113,
+        "mtime_ns": 1790901783129313196
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/orig.mgz",
+        "size": 1656396,
+        "mtime_ns": 1790901757751964063
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/wm.mgz",
+        "size": 441855,
+        "mtime_ns": 1790901768281264846
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri/ribbon.mgz",
+        "size": 231719,
+        "mtime_ns": 1790901773104175274
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri.2mm/aseg.mgz",
+        "size": 62754,
+        "mtime_ns": 1790901778447248782
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/cvs_avg35_inMNI152/mri.2mm/orig.mgz",
+        "size": 344280,
+        "mtime_ns": 1790901775031461078
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/aparc+aseg.mgz",
+        "size": 405140,
+        "mtime_ns": 1790096385620540149
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/aparc.a2009s+aseg.mgz",
+        "size": 438142,
+        "mtime_ns": 1790096382819502477
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/aseg.mgz",
+        "size": 349308,
+        "mtime_ns": 1790096404454793462
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/orig.mgz",
+        "size": 6118983,
+        "mtime_ns": 1790096298444367667
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/wm.mgz",
+        "size": 434851,
+        "mtime_ns": 1790096383243408180
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D153/mri/ribbon.mgz",
+        "size": 213201,
+        "mtime_ns": 1790096414807932707
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/aparc+aseg.mgz",
+        "size": 384248,
+        "mtime_ns": 1791308436674132425
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/aparc.a2009s+aseg.mgz",
+        "size": 416716,
+        "mtime_ns": 1791308435398115481
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/aseg.mgz",
+        "size": 330453,
+        "mtime_ns": 1791308438535157137
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/orig.mgz",
+        "size": 5933177,
+        "mtime_ns": 1791308380648388469
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/wm.mgz",
+        "size": 388744,
+        "mtime_ns": 1791308437363808944
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D157/mri/ribbon.mgz",
+        "size": 203671,
+        "mtime_ns": 1791308444124003562
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/aparc+aseg.mgz",
+        "size": 413253,
+        "mtime_ns": 1790879082000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/aparc.a2009s+aseg.mgz",
+        "size": 451244,
+        "mtime_ns": 1790879082000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/aseg.mgz",
+        "size": 350477,
+        "mtime_ns": 1790879082000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/orig.mgz",
+        "size": 5997790,
+        "mtime_ns": 1790879081000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/wm.mgz",
+        "size": 393783,
+        "mtime_ns": 1790879082000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D152A/mri/ribbon.mgz",
+        "size": 220242,
+        "mtime_ns": 1790879082000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/aparc+aseg.mgz",
+        "size": 371280,
+        "mtime_ns": 1791308437722146341
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/aparc.a2009s+aseg.mgz",
+        "size": 402120,
+        "mtime_ns": 1791308436049124125
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/aseg.mgz",
+        "size": 316953,
+        "mtime_ns": 1791308439466169500
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/orig.mgz",
+        "size": 5295139,
+        "mtime_ns": 1791308388540493267
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/wm.mgz",
+        "size": 337380,
+        "mtime_ns": 1791308438523842340
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D158/mri/ribbon.mgz",
+        "size": 195354,
+        "mtime_ns": 1791308444929242043
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/aparc+aseg.mgz",
+        "size": 402125,
+        "mtime_ns": 1790279823661301811
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/aparc.a2009s+aseg.mgz",
+        "size": 438888,
+        "mtime_ns": 1790279824214279551
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/aseg.mgz",
+        "size": 342710,
+        "mtime_ns": 1790279824754047201
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/orig.mgz",
+        "size": 5712374,
+        "mtime_ns": 1790279788572714320
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/wm.mgz",
+        "size": 392254,
+        "mtime_ns": 1790279823862035457
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D147/mri/ribbon.mgz",
+        "size": 213541,
+        "mtime_ns": 1790279830347032674
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/aparc+aseg.mgz",
+        "size": 407929,
+        "mtime_ns": 1788976229000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/aparc.a2009s+aseg.mgz",
+        "size": 441246,
+        "mtime_ns": 1788976229000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/aseg.mgz",
+        "size": 348326,
+        "mtime_ns": 1788976230000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/orig.mgz",
+        "size": 5466744,
+        "mtime_ns": 1788976229000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/wm.mgz",
+        "size": 397672,
+        "mtime_ns": 1788976229000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D150/mri/ribbon.mgz",
+        "size": 213382,
+        "mtime_ns": 1788976229000000000
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/aparc+aseg.mgz",
+        "size": 319239,
+        "mtime_ns": 1790096405481528551
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/aparc.a2009s+aseg.mgz",
+        "size": 344829,
+        "mtime_ns": 1790096403497607025
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/aseg.mgz",
+        "size": 276388,
+        "mtime_ns": 1790096408255844585
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/orig.mgz",
+        "size": 5791498,
+        "mtime_ns": 1790096315933602890
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/wm.mgz",
+        "size": 300534,
+        "mtime_ns": 1790096407930431684
+      },
+      {
+        "path": "/cwork/ns458/ECoG_Recon/D149/mri/ribbon.mgz",
+        "size": 165082,
+        "mtime_ns": 1790096420048003184
+      }
+    ]
+  },
+  {
+    "root": "/cwork/ns458/maper_run",
+    "status": "complete",
+    "dirs": 618,
+    "found": [
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/f30-seg95-D0158-tcsep-at96.nii.gz",
+        "size": 559293,
+        "mtime_ns": 1791310323680518185
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/f30-seg95-D0158.nii.gz",
+        "size": 269125,
+        "mtime_ns": 1791310322706417045
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/f30-seg95-D0158-tc3crisp.nii.gz",
+        "size": 382603,
+        "mtime_ns": 1791310323685518704
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a28-D0158/seg/seg95.nii.gz",
+        "size": 233768,
+        "mtime_ns": 1791310176134976812
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a16-D0158/seg/seg95.nii.gz",
+        "size": 246364,
+        "mtime_ns": 1791310226590433231
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a2-D0158/seg/seg95.nii.gz",
+        "size": 242745,
+        "mtime_ns": 1791310288328608828
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a21-D0158/seg/seg95.nii.gz",
+        "size": 238001,
+        "mtime_ns": 1791310231669961232
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a19-D0158/seg/seg95.nii.gz",
+        "size": 239788,
+        "mtime_ns": 1791310139351365008
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a24-D0158/seg/seg95.nii.gz",
+        "size": 247476,
+        "mtime_ns": 1791310244051248227
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a9-D0158/seg/seg95.nii.gz",
+        "size": 244092,
+        "mtime_ns": 1791310257542748110
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a8-D0158/seg/seg95.nii.gz",
+        "size": 251622,
+        "mtime_ns": 1791310292988042587
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a14-D0158/seg/seg95.nii.gz",
+        "size": 243497,
+        "mtime_ns": 1791310285460549864
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a20-D0158/seg/seg95.nii.gz",
+        "size": 235886,
+        "mtime_ns": 1791310146980157997
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a26-D0158/seg/seg95.nii.gz",
+        "size": 244895,
+        "mtime_ns": 1791310259557860090
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a29-D0158/seg/seg95.nii.gz",
+        "size": 242658,
+        "mtime_ns": 1791310184704764995
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a4-D0158/seg/seg95.nii.gz",
+        "size": 240568,
+        "mtime_ns": 1791310297870497109
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a13-D0158/seg/seg95.nii.gz",
+        "size": 253740,
+        "mtime_ns": 1791310254734358703
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a7-D0158/seg/seg95.nii.gz",
+        "size": 246702,
+        "mtime_ns": 1791310208659233520
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a10-D0158/seg/seg95.nii.gz",
+        "size": 249076,
+        "mtime_ns": 1791310219242669454
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a11-D0158/seg/seg95.nii.gz",
+        "size": 244895,
+        "mtime_ns": 1791310242580095306
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a18-D0158/seg/seg95.nii.gz",
+        "size": 257002,
+        "mtime_ns": 1791310269240865799
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a27-D0158/seg/seg95.nii.gz",
+        "size": 241619,
+        "mtime_ns": 1791310252297981694
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a30-D0158/seg/seg95.nii.gz",
+        "size": 243241,
+        "mtime_ns": 1791310169410358334
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a15-D0158/seg/seg95.nii.gz",
+        "size": 248223,
+        "mtime_ns": 1791310148615327968
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a5-D0158/seg/seg95.nii.gz",
+        "size": 234395,
+        "mtime_ns": 1791310254377455782
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a23-D0158/seg/seg95.nii.gz",
+        "size": 237039,
+        "mtime_ns": 1791310142735716801
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a22-D0158/seg/seg95.nii.gz",
+        "size": 242875,
+        "mtime_ns": 1791310250569925823
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a1-D0158/seg/seg95.nii.gz",
+        "size": 236817,
+        "mtime_ns": 1791310167596414856
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a3-D0158/seg/seg95.nii.gz",
+        "size": 245054,
+        "mtime_ns": 1791310273597237443
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a12-D0158/seg/seg95.nii.gz",
+        "size": 241421,
+        "mtime_ns": 1791310182097808365
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a25-D0158/seg/seg95.nii.gz",
+        "size": 242102,
+        "mtime_ns": 1791310168176361274
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a17-D0158/seg/seg95.nii.gz",
+        "size": 255353,
+        "mtime_ns": 1791310307693858315
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0158/output/D0158/a6-D0158/seg/seg95.nii.gz",
+        "size": 236828,
+        "mtime_ns": 1791310201650586243
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/f30-seg95-D0150.nii.gz",
+        "size": 287887,
+        "mtime_ns": 1791227688769834723
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/f30-seg95-D0150-tcsep-at96.nii.gz",
+        "size": 592100,
+        "mtime_ns": 1791227690204968079
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/f30-seg95-D0150-tc3crisp.nii.gz",
+        "size": 402275,
+        "mtime_ns": 1791227690210968637
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a29-D0150/seg/seg95.nii.gz",
+        "size": 248827,
+        "mtime_ns": 1791227524375827107
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a20-D0150/seg/seg95.nii.gz",
+        "size": 256857,
+        "mtime_ns": 1791227529077158981
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a9-D0150/seg/seg95.nii.gz",
+        "size": 264819,
+        "mtime_ns": 1791227214711115963
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a19-D0150/seg/seg95.nii.gz",
+        "size": 267173,
+        "mtime_ns": 1791227505949622092
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a12-D0150/seg/seg95.nii.gz",
+        "size": 265007,
+        "mtime_ns": 1791227241305716773
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a2-D0150/seg/seg95.nii.gz",
+        "size": 257964,
+        "mtime_ns": 1791227271064414874
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a25-D0150/seg/seg95.nii.gz",
+        "size": 256517,
+        "mtime_ns": 1791227572944072795
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a14-D0150/seg/seg95.nii.gz",
+        "size": 258844,
+        "mtime_ns": 1791227365672862615
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a11-D0150/seg/seg95.nii.gz",
+        "size": 269699,
+        "mtime_ns": 1791227314424743401
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a8-D0150/seg/seg95.nii.gz",
+        "size": 271197,
+        "mtime_ns": 1791227371918506699
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a10-D0150/seg/seg95.nii.gz",
+        "size": 263640,
+        "mtime_ns": 1791227262023740040
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a30-D0150/seg/seg95.nii.gz",
+        "size": 252596,
+        "mtime_ns": 1791227459122465817
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a18-D0150/seg/seg95.nii.gz",
+        "size": 279439,
+        "mtime_ns": 1791227620384442548
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a13-D0150/seg/seg95.nii.gz",
+        "size": 266795,
+        "mtime_ns": 1791227339711327124
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a28-D0150/seg/seg95.nii.gz",
+        "size": 259684,
+        "mtime_ns": 1791227586817964358
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a6-D0150/seg/seg95.nii.gz",
+        "size": 262158,
+        "mtime_ns": 1791227336917646158
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a3-D0150/seg/seg95.nii.gz",
+        "size": 254107,
+        "mtime_ns": 1791227175737735685
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a22-D0150/seg/seg95.nii.gz",
+        "size": 255684,
+        "mtime_ns": 1791227549150574463
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a24-D0150/seg/seg95.nii.gz",
+        "size": 255711,
+        "mtime_ns": 1791227430592565933
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a4-D0150/seg/seg95.nii.gz",
+        "size": 260437,
+        "mtime_ns": 1791227118613715126
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a23-D0150/seg/seg95.nii.gz",
+        "size": 251662,
+        "mtime_ns": 1791227461008136235
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a7-D0150/seg/seg95.nii.gz",
+        "size": 265266,
+        "mtime_ns": 1791227391622088321
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a17-D0150/seg/seg95.nii.gz",
+        "size": 283394,
+        "mtime_ns": 1791227501646958895
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a16-D0150/seg/seg95.nii.gz",
+        "size": 260572,
+        "mtime_ns": 1791227418368009001
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a26-D0150/seg/seg95.nii.gz",
+        "size": 263719,
+        "mtime_ns": 1791227667473855847
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a21-D0150/seg/seg95.nii.gz",
+        "size": 250375,
+        "mtime_ns": 1791227357095316831
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a15-D0150/seg/seg95.nii.gz",
+        "size": 259325,
+        "mtime_ns": 1791227231031712544
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a1-D0150/seg/seg95.nii.gz",
+        "size": 260596,
+        "mtime_ns": 1791227306839282741
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a27-D0150/seg/seg95.nii.gz",
+        "size": 261800,
+        "mtime_ns": 1791227483444102709
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0150/output/D0150/a5-D0150/seg/seg95.nii.gz",
+        "size": 256201,
+        "mtime_ns": 1791227274311940072
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/f30-seg95-D0157.nii.gz",
+        "size": 289397,
+        "mtime_ns": 1791310342240627647
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/f30-seg95-D0157-tcsep-at96.nii.gz",
+        "size": 594004,
+        "mtime_ns": 1791310343223719166
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/f30-seg95-D0157-tc3crisp.nii.gz",
+        "size": 401628,
+        "mtime_ns": 1791310343229719724
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a21-D0157/seg/seg95.nii.gz",
+        "size": 252625,
+        "mtime_ns": 1791310299328102554
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a4-D0157/seg/seg95.nii.gz",
+        "size": 259310,
+        "mtime_ns": 1791310082031927340
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a29-D0157/seg/seg95.nii.gz",
+        "size": 255025,
+        "mtime_ns": 1791310176735270299
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a14-D0157/seg/seg95.nii.gz",
+        "size": 260899,
+        "mtime_ns": 1791310190776694784
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a5-D0157/seg/seg95.nii.gz",
+        "size": 250858,
+        "mtime_ns": 1791309954634015568
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a2-D0157/seg/seg95.nii.gz",
+        "size": 255307,
+        "mtime_ns": 1791310286476209651
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a7-D0157/seg/seg95.nii.gz",
+        "size": 243545,
+        "mtime_ns": 1791309862528449585
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a28-D0157/seg/seg95.nii.gz",
+        "size": 254370,
+        "mtime_ns": 1791310182948851921
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a24-D0157/seg/seg95.nii.gz",
+        "size": 264134,
+        "mtime_ns": 1791310244598972003
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a13-D0157/seg/seg95.nii.gz",
+        "size": 268364,
+        "mtime_ns": 1791310185013104660
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a10-D0157/seg/seg95.nii.gz",
+        "size": 264145,
+        "mtime_ns": 1791310098497246457
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a19-D0157/seg/seg95.nii.gz",
+        "size": 263078,
+        "mtime_ns": 1791310068010131257
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a3-D0157/seg/seg95.nii.gz",
+        "size": 245347,
+        "mtime_ns": 1791310041783703749
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a18-D0157/seg/seg95.nii.gz",
+        "size": 275100,
+        "mtime_ns": 1791310129869458601
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a11-D0157/seg/seg95.nii.gz",
+        "size": 265673,
+        "mtime_ns": 1791310156145148922
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a17-D0157/seg/seg95.nii.gz",
+        "size": 269838,
+        "mtime_ns": 1791310203928041326
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a22-D0157/seg/seg95.nii.gz",
+        "size": 254867,
+        "mtime_ns": 1791310224422857224
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a20-D0157/seg/seg95.nii.gz",
+        "size": 256369,
+        "mtime_ns": 1791310278432687589
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a8-D0157/seg/seg95.nii.gz",
+        "size": 241666,
+        "mtime_ns": 1791309845475900063
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a30-D0157/seg/seg95.nii.gz",
+        "size": 262019,
+        "mtime_ns": 1791310279271765701
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a26-D0157/seg/seg95.nii.gz",
+        "size": 252293,
+        "mtime_ns": 1791310216591966140
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a27-D0157/seg/seg95.nii.gz",
+        "size": 258081,
+        "mtime_ns": 1791310329608451683
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a9-D0157/seg/seg95.nii.gz",
+        "size": 265130,
+        "mtime_ns": 1791309923887828168
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a12-D0157/seg/seg95.nii.gz",
+        "size": 258733,
+        "mtime_ns": 1791310006105839790
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a1-D0157/seg/seg95.nii.gz",
+        "size": 260124,
+        "mtime_ns": 1791310227977773855
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a16-D0157/seg/seg95.nii.gz",
+        "size": 261403,
+        "mtime_ns": 1791310091332512873
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a23-D0157/seg/seg95.nii.gz",
+        "size": 247348,
+        "mtime_ns": 1791310101340953602
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a6-D0157/seg/seg95.nii.gz",
+        "size": 254005,
+        "mtime_ns": 1791309878019040370
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a25-D0157/seg/seg95.nii.gz",
+        "size": 257778,
+        "mtime_ns": 1791310249909043106
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0157/output/D0157/a15-D0157/seg/seg95.nii.gz",
+        "size": 260787,
+        "mtime_ns": 1791310197686402256
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/f30-seg95-D0154-tcsep-at96.nii.gz",
+        "size": 558133,
+        "mtime_ns": 1791228045905448352
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/f30-seg95-D0154-tc3crisp.nii.gz",
+        "size": 374653,
+        "mtime_ns": 1791228045910448627
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/f30-seg95-D0154.nii.gz",
+        "size": 270691,
+        "mtime_ns": 1791228044575375024
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a1-D0154/seg/seg95.nii.gz",
+        "size": 247586,
+        "mtime_ns": 1791227459111698759
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a12-D0154/seg/seg95.nii.gz",
+        "size": 250560,
+        "mtime_ns": 1791227609378475340
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a30-D0154/seg/seg95.nii.gz",
+        "size": 248501,
+        "mtime_ns": 1791227985438574842
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a26-D0154/seg/seg95.nii.gz",
+        "size": 249251,
+        "mtime_ns": 1791227899473794631
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a13-D0154/seg/seg95.nii.gz",
+        "size": 255288,
+        "mtime_ns": 1791227876664770933
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a20-D0154/seg/seg95.nii.gz",
+        "size": 248149,
+        "mtime_ns": 1791227916675323824
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a2-D0154/seg/seg95.nii.gz",
+        "size": 243117,
+        "mtime_ns": 1791227868851007983
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a18-D0154/seg/seg95.nii.gz",
+        "size": 260172,
+        "mtime_ns": 1791228007437293596
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a11-D0154/seg/seg95.nii.gz",
+        "size": 239078,
+        "mtime_ns": 1791227550656137727
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a6-D0154/seg/seg95.nii.gz",
+        "size": 232855,
+        "mtime_ns": 1791227687613243498
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a19-D0154/seg/seg95.nii.gz",
+        "size": 252153,
+        "mtime_ns": 1791228022806174875
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a25-D0154/seg/seg95.nii.gz",
+        "size": 248755,
+        "mtime_ns": 1791227880722550349
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a17-D0154/seg/seg95.nii.gz",
+        "size": 241392,
+        "mtime_ns": 1791227797306518758
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a28-D0154/seg/seg95.nii.gz",
+        "size": 244602,
+        "mtime_ns": 1791227965608241060
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a24-D0154/seg/seg95.nii.gz",
+        "size": 246115,
+        "mtime_ns": 1791227867191429376
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a9-D0154/seg/seg95.nii.gz",
+        "size": 256242,
+        "mtime_ns": 1791227912048224428
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a23-D0154/seg/seg95.nii.gz",
+        "size": 245675,
+        "mtime_ns": 1791228014260870685
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a10-D0154/seg/seg95.nii.gz",
+        "size": 247240,
+        "mtime_ns": 1791227847339907601
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a4-D0154/seg/seg95.nii.gz",
+        "size": 240677,
+        "mtime_ns": 1791227809332011157
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a7-D0154/seg/seg95.nii.gz",
+        "size": 242701,
+        "mtime_ns": 1791227526111826933
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a22-D0154/seg/seg95.nii.gz",
+        "size": 245652,
+        "mtime_ns": 1791228018773252310
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a29-D0154/seg/seg95.nii.gz",
+        "size": 248915,
+        "mtime_ns": 1791228007697071941
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a16-D0154/seg/seg95.nii.gz",
+        "size": 242314,
+        "mtime_ns": 1791227863027439360
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a15-D0154/seg/seg95.nii.gz",
+        "size": 246172,
+        "mtime_ns": 1791227947164785680
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a8-D0154/seg/seg95.nii.gz",
+        "size": 242135,
+        "mtime_ns": 1791227795103636552
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a27-D0154/seg/seg95.nii.gz",
+        "size": 248383,
+        "mtime_ns": 1791228002010009870
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a21-D0154/seg/seg95.nii.gz",
+        "size": 249117,
+        "mtime_ns": 1791227741049912028
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a3-D0154/seg/seg95.nii.gz",
+        "size": 240149,
+        "mtime_ns": 1791227721854651738
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a5-D0154/seg/seg95.nii.gz",
+        "size": 229303,
+        "mtime_ns": 1791227686289604254
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0154/output/D0154/a14-D0154/seg/seg95.nii.gz",
+        "size": 249961,
+        "mtime_ns": 1791227692574207269
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/f30-seg95-D0149.nii.gz",
+        "size": 245268,
+        "mtime_ns": 1791227498224147620
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/f30-seg95-D0149-tc3crisp.nii.gz",
+        "size": 313734,
+        "mtime_ns": 1791227499905303432
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/f30-seg95-D0149-tcsep-at96.nii.gz",
+        "size": 479147,
+        "mtime_ns": 1791227499878300930
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a2-D0149/seg/seg95.nii.gz",
+        "size": 211832,
+        "mtime_ns": 1791227156410401921
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a3-D0149/seg/seg95.nii.gz",
+        "size": 217042,
+        "mtime_ns": 1791227072001520850
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a28-D0149/seg/seg95.nii.gz",
+        "size": 223389,
+        "mtime_ns": 1791227323586627063
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a4-D0149/seg/seg95.nii.gz",
+        "size": 214003,
+        "mtime_ns": 1791227172173908087
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a16-D0149/seg/seg95.nii.gz",
+        "size": 210828,
+        "mtime_ns": 1791227113401462140
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a8-D0149/seg/seg95.nii.gz",
+        "size": 218950,
+        "mtime_ns": 1791227119661042163
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a20-D0149/seg/seg95.nii.gz",
+        "size": 212514,
+        "mtime_ns": 1791227474523951044
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a12-D0149/seg/seg95.nii.gz",
+        "size": 218331,
+        "mtime_ns": 1791227106577829851
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a1-D0149/seg/seg95.nii.gz",
+        "size": 218897,
+        "mtime_ns": 1791227331088229223
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a15-D0149/seg/seg95.nii.gz",
+        "size": 214463,
+        "mtime_ns": 1791227085872911302
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a5-D0149/seg/seg95.nii.gz",
+        "size": 207655,
+        "mtime_ns": 1791227141801093695
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a17-D0149/seg/seg95.nii.gz",
+        "size": 223547,
+        "mtime_ns": 1791227159415725894
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a26-D0149/seg/seg95.nii.gz",
+        "size": 217967,
+        "mtime_ns": 1791227162267650624
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a6-D0149/seg/seg95.nii.gz",
+        "size": 212711,
+        "mtime_ns": 1791227160371814486
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a24-D0149/seg/seg95.nii.gz",
+        "size": 205039,
+        "mtime_ns": 1791226954326989036
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a7-D0149/seg/seg95.nii.gz",
+        "size": 218096,
+        "mtime_ns": 1791227164296178124
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a29-D0149/seg/seg95.nii.gz",
+        "size": 216584,
+        "mtime_ns": 1791227195642339625
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a18-D0149/seg/seg95.nii.gz",
+        "size": 217740,
+        "mtime_ns": 1791227010937945766
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a30-D0149/seg/seg95.nii.gz",
+        "size": 218964,
+        "mtime_ns": 1791227182113249432
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a22-D0149/seg/seg95.nii.gz",
+        "size": 214739,
+        "mtime_ns": 1791227155814133036
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a21-D0149/seg/seg95.nii.gz",
+        "size": 214258,
+        "mtime_ns": 1791227187841711040
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a23-D0149/seg/seg95.nii.gz",
+        "size": 217886,
+        "mtime_ns": 1791227197373479122
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a13-D0149/seg/seg95.nii.gz",
+        "size": 225412,
+        "mtime_ns": 1791227239343131385
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a11-D0149/seg/seg95.nii.gz",
+        "size": 208116,
+        "mtime_ns": 1791227030317751622
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a14-D0149/seg/seg95.nii.gz",
+        "size": 212466,
+        "mtime_ns": 1791227048654460279
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a19-D0149/seg/seg95.nii.gz",
+        "size": 223911,
+        "mtime_ns": 1791227199056398910
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a27-D0149/seg/seg95.nii.gz",
+        "size": 216502,
+        "mtime_ns": 1791227215959976847
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a10-D0149/seg/seg95.nii.gz",
+        "size": 218656,
+        "mtime_ns": 1791227185712162562
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a25-D0149/seg/seg95.nii.gz",
+        "size": 220135,
+        "mtime_ns": 1791227290223949489
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0149/output/D0149/a9-D0149/seg/seg95.nii.gz",
+        "size": 220112,
+        "mtime_ns": 1791227113134437397
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/f30-seg95-D0152A.nii.gz",
+        "size": 297573,
+        "mtime_ns": 1791227923246568827
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/f30-seg95-D0152A-tc3crisp.nii.gz",
+        "size": 401033,
+        "mtime_ns": 1791227924634697485
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/f30-seg95-D0152A-tcsep-at96.nii.gz",
+        "size": 598612,
+        "mtime_ns": 1791227924629697022
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a15-D0152A/seg/seg95.nii.gz",
+        "size": 272575,
+        "mtime_ns": 1791227485938270571
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a4-D0152A/seg/seg95.nii.gz",
+        "size": 261882,
+        "mtime_ns": 1791227591196254452
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a30-D0152A/seg/seg95.nii.gz",
+        "size": 277702,
+        "mtime_ns": 1791227792672467388
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a5-D0152A/seg/seg95.nii.gz",
+        "size": 261064,
+        "mtime_ns": 1791227490767595594
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a17-D0152A/seg/seg95.nii.gz",
+        "size": 287155,
+        "mtime_ns": 1791227588163053480
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a18-D0152A/seg/seg95.nii.gz",
+        "size": 277144,
+        "mtime_ns": 1791227434269793185
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a21-D0152A/seg/seg95.nii.gz",
+        "size": 275741,
+        "mtime_ns": 1791227694609113496
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a9-D0152A/seg/seg95.nii.gz",
+        "size": 280554,
+        "mtime_ns": 1791227573057052596
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a7-D0152A/seg/seg95.nii.gz",
+        "size": 272583,
+        "mtime_ns": 1791227658152690902
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a28-D0152A/seg/seg95.nii.gz",
+        "size": 272004,
+        "mtime_ns": 1791227905236899605
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a16-D0152A/seg/seg95.nii.gz",
+        "size": 280137,
+        "mtime_ns": 1791227725071195548
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a8-D0152A/seg/seg95.nii.gz",
+        "size": 271932,
+        "mtime_ns": 1791227686622607366
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a27-D0152A/seg/seg95.nii.gz",
+        "size": 270794,
+        "mtime_ns": 1791227641214178975
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a26-D0152A/seg/seg95.nii.gz",
+        "size": 273697,
+        "mtime_ns": 1791227628002452875
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a23-D0152A/seg/seg95.nii.gz",
+        "size": 268499,
+        "mtime_ns": 1791227558650642371
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a3-D0152A/seg/seg95.nii.gz",
+        "size": 263288,
+        "mtime_ns": 1791227578698426379
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a24-D0152A/seg/seg95.nii.gz",
+        "size": 275698,
+        "mtime_ns": 1791227730622092725
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a25-D0152A/seg/seg95.nii.gz",
+        "size": 270415,
+        "mtime_ns": 1791227575044543117
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a13-D0152A/seg/seg95.nii.gz",
+        "size": 290005,
+        "mtime_ns": 1791227692076974528
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a1-D0152A/seg/seg95.nii.gz",
+        "size": 267910,
+        "mtime_ns": 1791227640059492002
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a20-D0152A/seg/seg95.nii.gz",
+        "size": 279462,
+        "mtime_ns": 1791227803202081633
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a22-D0152A/seg/seg95.nii.gz",
+        "size": 265154,
+        "mtime_ns": 1791227534372308424
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a14-D0152A/seg/seg95.nii.gz",
+        "size": 265112,
+        "mtime_ns": 1791227443455411394
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a11-D0152A/seg/seg95.nii.gz",
+        "size": 282962,
+        "mtime_ns": 1791227603347059533
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a10-D0152A/seg/seg95.nii.gz",
+        "size": 269119,
+        "mtime_ns": 1791227530305219972
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a19-D0152A/seg/seg95.nii.gz",
+        "size": 284213,
+        "mtime_ns": 1791227644394779246
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a12-D0152A/seg/seg95.nii.gz",
+        "size": 275632,
+        "mtime_ns": 1791227532086337985
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a6-D0152A/seg/seg95.nii.gz",
+        "size": 266817,
+        "mtime_ns": 1791227458581429404
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a29-D0152A/seg/seg95.nii.gz",
+        "size": 274351,
+        "mtime_ns": 1791227760483404897
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0152A/output/D0152A/a2-D0152A/seg/seg95.nii.gz",
+        "size": 257067,
+        "mtime_ns": 1791227446009583295
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/f30-seg95-D0153-tc3crisp.nii.gz",
+        "size": 431317,
+        "mtime_ns": 1791227938845491578
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/f30-seg95-D0153-tcsep-at96.nii.gz",
+        "size": 644741,
+        "mtime_ns": 1791227938840491155
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/f30-seg95-D0153.nii.gz",
+        "size": 308246,
+        "mtime_ns": 1791227937445373122
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a27-D0153/seg/seg95.nii.gz",
+        "size": 269007,
+        "mtime_ns": 1791227434702392059
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a10-D0153/seg/seg95.nii.gz",
+        "size": 281971,
+        "mtime_ns": 1791227823079641435
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a23-D0153/seg/seg95.nii.gz",
+        "size": 276111,
+        "mtime_ns": 1791227812880542926
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a30-D0153/seg/seg95.nii.gz",
+        "size": 274780,
+        "mtime_ns": 1791227797175009157
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a8-D0153/seg/seg95.nii.gz",
+        "size": 276023,
+        "mtime_ns": 1791227831054279110
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a16-D0153/seg/seg95.nii.gz",
+        "size": 272866,
+        "mtime_ns": 1791227855206415399
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a25-D0153/seg/seg95.nii.gz",
+        "size": 282386,
+        "mtime_ns": 1791227589793026105
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a29-D0153/seg/seg95.nii.gz",
+        "size": 271683,
+        "mtime_ns": 1791227638772536136
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a6-D0153/seg/seg95.nii.gz",
+        "size": 270079,
+        "mtime_ns": 1791227728263498885
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a22-D0153/seg/seg95.nii.gz",
+        "size": 259307,
+        "mtime_ns": 1791227493815377446
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a26-D0153/seg/seg95.nii.gz",
+        "size": 276794,
+        "mtime_ns": 1791227547827218078
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a13-D0153/seg/seg95.nii.gz",
+        "size": 265789,
+        "mtime_ns": 1791227643032584702
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a1-D0153/seg/seg95.nii.gz",
+        "size": 278930,
+        "mtime_ns": 1791227848880676242
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a15-D0153/seg/seg95.nii.gz",
+        "size": 277087,
+        "mtime_ns": 1791227716715703784
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a12-D0153/seg/seg95.nii.gz",
+        "size": 274459,
+        "mtime_ns": 1791227791237334401
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a5-D0153/seg/seg95.nii.gz",
+        "size": 262549,
+        "mtime_ns": 1791227755648036492
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a24-D0153/seg/seg95.nii.gz",
+        "size": 275734,
+        "mtime_ns": 1791227524250878663
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a9-D0153/seg/seg95.nii.gz",
+        "size": 280894,
+        "mtime_ns": 1791227612335829744
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a14-D0153/seg/seg95.nii.gz",
+        "size": 269815,
+        "mtime_ns": 1791227808890970287
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a3-D0153/seg/seg95.nii.gz",
+        "size": 267532,
+        "mtime_ns": 1791227552228834234
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a28-D0153/seg/seg95.nii.gz",
+        "size": 264985,
+        "mtime_ns": 1791227417862870354
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a7-D0153/seg/seg95.nii.gz",
+        "size": 269367,
+        "mtime_ns": 1791227700098887447
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a2-D0153/seg/seg95.nii.gz",
+        "size": 265235,
+        "mtime_ns": 1791227567612132411
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a18-D0153/seg/seg95.nii.gz",
+        "size": 280078,
+        "mtime_ns": 1791227921632035255
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a17-D0153/seg/seg95.nii.gz",
+        "size": 278351,
+        "mtime_ns": 1791227651065163315
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a20-D0153/seg/seg95.nii.gz",
+        "size": 271695,
+        "mtime_ns": 1791227706599433688
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a21-D0153/seg/seg95.nii.gz",
+        "size": 274366,
+        "mtime_ns": 1791227838003996026
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a19-D0153/seg/seg95.nii.gz",
+        "size": 273909,
+        "mtime_ns": 1791227669787740093
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a4-D0153/seg/seg95.nii.gz",
+        "size": 273273,
+        "mtime_ns": 1791227787275967317
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0153/output/D0153/a11-D0153/seg/seg95.nii.gz",
+        "size": 277466,
+        "mtime_ns": 1791227795937769970
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/f30-seg95-D0148-tcsep-at96.nii.gz",
+        "size": 593330,
+        "mtime_ns": 1791227407334349556
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/f30-seg95-D0148-tc3crisp.nii.gz",
+        "size": 400858,
+        "mtime_ns": 1791227407354351162
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/f30-seg95-D0148.nii.gz",
+        "size": 278444,
+        "mtime_ns": 1791227405960239255
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a3-D0148/seg/seg95.nii.gz",
+        "size": 246412,
+        "mtime_ns": 1791227076696619673
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a8-D0148/seg/seg95.nii.gz",
+        "size": 247611,
+        "mtime_ns": 1791226919416326105
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a13-D0148/seg/seg95.nii.gz",
+        "size": 250107,
+        "mtime_ns": 1791226788605458395
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a24-D0148/seg/seg95.nii.gz",
+        "size": 131260,
+        "mtime_ns": 1791227348850463430
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a18-D0148/seg/seg95.nii.gz",
+        "size": 250978,
+        "mtime_ns": 1791226677267596706
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a15-D0148/seg/seg95.nii.gz",
+        "size": 244214,
+        "mtime_ns": 1791226680135876411
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a10-D0148/seg/seg95.nii.gz",
+        "size": 250924,
+        "mtime_ns": 1791226950862987300
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a29-D0148/seg/seg95.nii.gz",
+        "size": 244572,
+        "mtime_ns": 1791227219537295940
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a5-D0148/seg/seg95.nii.gz",
+        "size": 241154,
+        "mtime_ns": 1791226943967404769
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a2-D0148/seg/seg95.nii.gz",
+        "size": 243170,
+        "mtime_ns": 1791226922668601808
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a12-D0148/seg/seg95.nii.gz",
+        "size": 255700,
+        "mtime_ns": 1791226801203689415
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a11-D0148/seg/seg95.nii.gz",
+        "size": 260784,
+        "mtime_ns": 1791226845266995000
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a19-D0148/seg/seg95.nii.gz",
+        "size": 252000,
+        "mtime_ns": 1791226809037454880
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a27-D0148/seg/seg95.nii.gz",
+        "size": 245644,
+        "mtime_ns": 1791227163064023156
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a26-D0148/seg/seg95.nii.gz",
+        "size": 249210,
+        "mtime_ns": 1791227126257586617
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a30-D0148/seg/seg95.nii.gz",
+        "size": 244771,
+        "mtime_ns": 1791227146575483654
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a4-D0148/seg/seg95.nii.gz",
+        "size": 249627,
+        "mtime_ns": 1791227021709972375
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a17-D0148/seg/seg95.nii.gz",
+        "size": 255784,
+        "mtime_ns": 1791226832419739648
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a6-D0148/seg/seg95.nii.gz",
+        "size": 246411,
+        "mtime_ns": 1791226926820953812
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a14-D0148/seg/seg95.nii.gz",
+        "size": 229238,
+        "mtime_ns": 1791226615646562311
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a7-D0148/seg/seg95.nii.gz",
+        "size": 249748,
+        "mtime_ns": 1791226910978610821
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a21-D0148/seg/seg95.nii.gz",
+        "size": 242027,
+        "mtime_ns": 1791226603992638812
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a9-D0148/seg/seg95.nii.gz",
+        "size": 253272,
+        "mtime_ns": 1791226805580766452
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a22-D0148/seg/seg95.nii.gz",
+        "size": 246398,
+        "mtime_ns": 1791226882527449166
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a20-D0148/seg/seg95.nii.gz",
+        "size": 241707,
+        "mtime_ns": 1791226735221248142
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a25-D0148/seg/seg95.nii.gz",
+        "size": 240652,
+        "mtime_ns": 1791227109611834507
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a1-D0148/seg/seg95.nii.gz",
+        "size": 239370,
+        "mtime_ns": 1791226707353435118
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a23-D0148/seg/seg95.nii.gz",
+        "size": 247822,
+        "mtime_ns": 1791227094932680644
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a16-D0148/seg/seg95.nii.gz",
+        "size": 244116,
+        "mtime_ns": 1791226844864955716
+      },
+      {
+        "path": "/cwork/ns458/maper_run/D0148/output/D0148/a28-D0148/seg/seg95.nii.gz",
+        "size": 242674,
+        "mtime_ns": 1791227388191812970
+      }
+    ]
+  },
+  {
+    "root": "/cwork/ns458/maper_run_qc_rerun",
+    "status": "complete",
+    "dirs": 21,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/CoganLab",
+    "status": "complete",
+    "dirs": 198,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay",
+    "status": "complete",
+    "dirs": 323,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/BIDS-1.3_PictureNaming",
+    "status": "complete",
+    "dirs": 287,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing",
+    "status": "complete",
+    "dirs": 157,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/BIDS-1.4_SentenceRep",
+    "status": "complete",
+    "dirs": 428,
+    "found": []
+  },
+  {
+    "root": "/cwork/ns458/insula_rebuttal",
+    "status": "complete",
+    "dirs": 11,
+    "found": []
+  }
+]

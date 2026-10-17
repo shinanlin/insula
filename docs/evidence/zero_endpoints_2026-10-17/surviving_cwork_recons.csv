@@ -1,0 +1,12 @@
+recon_subject,is_standard_template,orig,brainmask,aparc,aseg,wm,ribbon,ready_as_MAPER_input
+D147,False,True,True,True,True,True,True,True
+D148,False,True,True,True,True,True,True,True
+D149,False,True,True,True,True,True,True,True
+D150,False,True,True,True,True,True,True,True
+D152A,False,True,True,True,True,True,True,True
+D152B,False,True,True,True,True,True,True,True
+D153,False,True,True,True,True,True,True,True
+D154,False,True,True,True,True,True,True,True
+D157,False,True,True,True,True,True,True,True
+D158,False,True,True,True,True,True,True,True
+cvs_avg35_inMNI152,True,True,True,True,True,True,True,True

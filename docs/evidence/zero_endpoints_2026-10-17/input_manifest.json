@@ -1,0 +1,812 @@
+[
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0022/bipolar/sub-D0022_xtractaf.csv",
+    "bytes": 88848,
+    "mtime_ns": 1788565438671058652,
+    "sha256": "9448d36cd941e319976784f96dfd254f1f38420ce1ce8a110683fa939cb06b44"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0022/bipolar/sub-D0022_aparc2009s.csv",
+    "bytes": 33286,
+    "mtime_ns": 1784943963957259956,
+    "sha256": "3e49b1960b887c04ed8a64d284a5ce74fce8ba39081dc32f04adee4ec6e626c4"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0022/bipolar/sub-D0022_xtractaf.csv",
+    "bytes": 88849,
+    "mtime_ns": 1788565495568627620,
+    "sha256": "77c9e92673666c52b1723bee234ca7e788d29f39d858d9532088f2c9605d0243"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0023/bipolar/sub-D0023_xtractaf.csv",
+    "bytes": 108136,
+    "mtime_ns": 1788565439352113342,
+    "sha256": "78be0070cbf0800e290c0314515f1b42709e7cf106398dbf00d7189bd05708d9"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0023/bipolar/sub-D0023_xtractaf.csv",
+    "bytes": 108135,
+    "mtime_ns": 1788565384369698165,
+    "sha256": "1d9bc6823e0102fa43f0fb890c7d8c223e5c3ce27888d47a35400f23134a37de"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0023/bipolar/sub-D0023_aparc2009s.csv",
+    "bytes": 39083,
+    "mtime_ns": 1784944028912776641,
+    "sha256": "f168d52562ced0e5fa7bb8876bdf44a87a2c8db630f25708a3db4d7bbf9e1f0a"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0023/bipolar/sub-D0023_xtractaf.csv",
+    "bytes": 108144,
+    "mtime_ns": 1788565496118671789,
+    "sha256": "351ea4a322c5fba2443c41718d43cf7f0e9eb1285cd392ad465ee6c237b2c367"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0032/bipolar/sub-D0032_xtractaf.csv",
+    "bytes": 102827,
+    "mtime_ns": 1788565389150082038,
+    "sha256": "18ad72f0f10045f78917e1e07ae6deb309b43505f2cf03a9c8cbaea7e9656c49"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0032/bipolar/sub-D0032_aparc2009s.csv",
+    "bytes": 52880,
+    "mtime_ns": 1784944077294555536,
+    "sha256": "37268330ffc43b698b8fcc26157c370fa0835be8a2d4552420e0aa45d5aed643"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0032/bipolar/sub-D0032_xtractaf.csv",
+    "bytes": 145399,
+    "mtime_ns": 1788565500522025386,
+    "sha256": "3bbfae93812abf963de8f9c113712d1c558858b3f9412cc81c6fbaa17c243013"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0035/bipolar/sub-D0035_xtractaf.csv",
+    "bytes": 146303,
+    "mtime_ns": 1788565443364435538,
+    "sha256": "5743cd10bbeab898335f9bf3edac9ea5ae7a04ede84c0431fe2c7504cb05813d"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0035/bipolar/sub-D0035_xtractaf.csv",
+    "bytes": 146302,
+    "mtime_ns": 1788565389991149577,
+    "sha256": "419109ea36ad6b62d5ccc44a896119bb011c4f654952768b38e943bdc76fc431"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0038/bipolar/sub-D0038_xtractaf.csv",
+    "bytes": 190191,
+    "mtime_ns": 1788565390792213904,
+    "sha256": "2231c1a61933f3226291d9cb78c77f2fd6f1b1579415b42edd998353b89b289b"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0040/bipolar/sub-D0040_xtractaf.csv",
+    "bytes": 172934,
+    "mtime_ns": 1788565443987485570,
+    "sha256": "9e347646ced17b58cc67473704b238610a0ac20959ee301f2ab57c7aee009dee"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0042/bipolar/sub-D0042_xtractaf.csv",
+    "bytes": 161147,
+    "mtime_ns": 1788565445282589569,
+    "sha256": "23af66f1e37a73f43c4558e25694c6370b50d133156dfef5c6f440889d2e56d3"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0042/bipolar/sub-D0042_xtractaf.csv",
+    "bytes": 50738,
+    "mtime_ns": 1788565391533273412,
+    "sha256": "bd7bc532d78565c74cd8fd2737b89872f7b90fcd724fe0b3ce6598dc6e39194e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0044/bipolar/sub-D0044_xtractaf.csv",
+    "bytes": 172876,
+    "mtime_ns": 1788565392336337898,
+    "sha256": "1600bcc39f1a482d3135fda45041185116f8fa968943a2a4e7fd5666306224c2"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0049/bipolar/sub-D0049_xtractaf.csv",
+    "bytes": 194203,
+    "mtime_ns": 1788565446856715974,
+    "sha256": "82683d9b6fa1dfbbefd039eb743b74e9a52876f298990ae91beccfb03a42d8cd"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0052/bipolar/sub-D0052_xtractaf.csv",
+    "bytes": 178093,
+    "mtime_ns": 1788565447476765765,
+    "sha256": "38b91c3de46b6a6c286f8a9decbbdfd2b775a5b58636cb3343b0966b46ab4f0c"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0053/bipolar/sub-D0053_xtractaf.csv",
+    "bytes": 145477,
+    "mtime_ns": 1788565448255828325,
+    "sha256": "96973247954a155d4e924bf4efcc11e710a44e5f9b380189e55cb4322cf2919e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0053/bipolar/sub-D0053_xtractaf.csv",
+    "bytes": 145479,
+    "mtime_ns": 1788565393962468479,
+    "sha256": "453d5be0fee13f3d8a03537bbd3a5c4d68f3a6e3084735456e08638e13fdb2fe"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0053/bipolar/sub-D0053_aparc2009s.csv",
+    "bytes": 56212,
+    "mtime_ns": 1784944079285548886,
+    "sha256": "db3cad8d8c214f71526bcd335375d4a8d051a48fa701073aba3c2f6bf4907165"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0053/bipolar/sub-D0053_xtractaf.csv",
+    "bytes": 145481,
+    "mtime_ns": 1788565501067069154,
+    "sha256": "fd73361bbc662e6497d626d9f25e1bce0ded85a8b03ec8843e4b2c2a51aae046"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0054/bipolar/sub-D0054_xtractaf.csv",
+    "bytes": 180865,
+    "mtime_ns": 1788565448867877473,
+    "sha256": "09ee9e21ec96a6618117556d1dbc748eb9838ababf10bacf36fc387fccb150c9"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0054/bipolar/sub-D0054_xtractaf.csv",
+    "bytes": 180864,
+    "mtime_ns": 1788565394786534653,
+    "sha256": "438efe33917840a6bf05a0a5bcb31fa188cf56a2f5c71b1f49d0389ca79e6264"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0055/bipolar/sub-D0055_xtractaf.csv",
+    "bytes": 174497,
+    "mtime_ns": 1788565449421921964,
+    "sha256": "47a47325b68d23883a4ed456b7e845f44a90ec3decfedb350e45f431e50257c5"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0055/bipolar/sub-D0055_xtractaf.csv",
+    "bytes": 174498,
+    "mtime_ns": 1788565395579598338,
+    "sha256": "3bfaea7fd783cb987722d5a3b283af8f1b122d0e38d7c4d8d0823aa33ba6be58"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0057/bipolar/sub-D0057_xtractaf.csv",
+    "bytes": 161750,
+    "mtime_ns": 1788565450581015041,
+    "sha256": "6ddf206bca0b26401e762d14b66a5a0d8ed0d68618163b17099d92ab4fd94a89"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0057/bipolar/sub-D0057_xtractaf.csv",
+    "bytes": 161753,
+    "mtime_ns": 1788565396363661299,
+    "sha256": "2975cffd2906bf7f2e224210ef25053545d066efe5cb3ade21ff211d6487c37e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0057/bipolar/sub-D0057_aparc2009s.csv",
+    "bytes": 61390,
+    "mtime_ns": 1784944073721516721,
+    "sha256": "f549d55257ef4477f5dde2e4e251e8fd2b4e05e0635665722c70b382e38a0fef"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0057/bipolar/sub-D0057_xtractaf.csv",
+    "bytes": 161754,
+    "mtime_ns": 1788565501634114689,
+    "sha256": "ec643f29a0cd4e49f666c05549553acc5aad8425c9dce5f94c8206470138ad76"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0059/bipolar/sub-D0059_xtractaf.csv",
+    "bytes": 169136,
+    "mtime_ns": 1788565451752109082,
+    "sha256": "eb7151b17e90d8159482bd7a5e40f9184dd52e41beb83ce7a4142df7a7e585d5"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0059/bipolar/sub-D0059_xtractaf.csv",
+    "bytes": 169113,
+    "mtime_ns": 1788565397169726027,
+    "sha256": "79a423cbfbce0d6f7c946179f1dc6630d33093428f25d10d638bce689ad6a1bd"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0059/bipolar/sub-D0059_aparc2009s.csv",
+    "bytes": 67938,
+    "mtime_ns": 1784944076868525745,
+    "sha256": "539839403f894c3ea9213aa07f2380c4300362c769765bf46455190f81aded8a"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0059/bipolar/sub-D0059_xtractaf.csv",
+    "bytes": 169165,
+    "mtime_ns": 1788565502191159420,
+    "sha256": "ae98b243ef4731e3a769cbbdcbaca0bdfbcf1599de0fbfe51076d944b7832ff7"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0060/bipolar/sub-D0060_xtractaf.csv",
+    "bytes": 215529,
+    "mtime_ns": 1788565452359157829,
+    "sha256": "524e39b569d90bb4d157ed135e49d047fde1bc7c0bf7402a63c35b1bb798558e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0060/bipolar/sub-D0060_aparc2009s.csv",
+    "bytes": 84914,
+    "mtime_ns": 1784944074353748888,
+    "sha256": "4ef45526aab877c47bce5c980a7e47a2d577d832d88d3f79045bac866410ab68"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0060/bipolar/sub-D0060_xtractaf.csv",
+    "bytes": 215512,
+    "mtime_ns": 1788565502768205758,
+    "sha256": "737e0d23503b81088b0b51fb5a614f3c65756e018379a78972866d5bc91fe3db"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0061/bipolar/sub-D0061_xtractaf.csv",
+    "bytes": 213911,
+    "mtime_ns": 1788565453084216052,
+    "sha256": "3219dcd70b7c224cc0fd1b12c908e2866ddaf6521a4bb4d1b079a446843da7f1"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0061/bipolar/sub-D0061_aparc2009s.csv",
+    "bytes": 81725,
+    "mtime_ns": 1784944104836422887,
+    "sha256": "08acebbcce36e0a0f2063f7d4c8f85812ea922bcb6bcc4801145a3009ab24d7e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0061/bipolar/sub-D0061_xtractaf.csv",
+    "bytes": 213910,
+    "mtime_ns": 1788565503367253863,
+    "sha256": "ce5fdb9b953c28e6634d9701604fcb84e155d6fe0d006def285d4fa9ee5e9e44"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0064/bipolar/sub-D0064_xtractaf.csv",
+    "bytes": 162648,
+    "mtime_ns": 1788565454479328083,
+    "sha256": "01a2ee36c4faab7857e35e2648b6fe344e23494ef638ca768f77a6c3c37016cc"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0064/bipolar/sub-D0064_aparc2009s.csv",
+    "bytes": 63175,
+    "mtime_ns": 1784944103498731186,
+    "sha256": "81ef2db633e03922063e036dc0352608897fe783f2bf15c3f31a05d165c13fa8"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0064/bipolar/sub-D0064_xtractaf.csv",
+    "bytes": 162648,
+    "mtime_ns": 1788565504582351437,
+    "sha256": "4cf62097c37c8287472887799807ec6b46af99758968fd765fd8fb88b50598d5"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0065/bipolar/sub-D0065_xtractaf.csv",
+    "bytes": 202398,
+    "mtime_ns": 1788565398830859419,
+    "sha256": "088560ae6d5714e3e78df487372843ba515100fce06c3beaa3f86065ab4f22f8"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0067/bipolar/sub-D0067_xtractaf.csv",
+    "bytes": 46724,
+    "mtime_ns": 1788565455962447179,
+    "sha256": "a122be9bddd5495dc3244f55260c1adda07fbb71c5d78ed2c0e2b27ef01c96c2"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0068/bipolar/sub-D0068_xtractaf.csv",
+    "bytes": 134856,
+    "mtime_ns": 1788565456706506929,
+    "sha256": "a166fb8a9e93c25d2076aa9848c0135f71d52a1893951f153b39b8a4a31d718a"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0068/bipolar/sub-D0068_xtractaf.csv",
+    "bytes": 134856,
+    "mtime_ns": 1788565400372983254,
+    "sha256": "b8f650f46341a08ad47389f49a98a2cb9625e43ca59964f448e3ab42fe3e2d24"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0071/bipolar/sub-D0071_xtractaf.csv",
+    "bytes": 148681,
+    "mtime_ns": 1788565458470648592,
+    "sha256": "26228e1d633a5b835c9a77d9ef69e290c33e4ff6e93dd94c5c6291c2ebcd0709"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0071/bipolar/sub-D0071_xtractaf.csv",
+    "bytes": 148681,
+    "mtime_ns": 1788565402757174709,
+    "sha256": "f353a88db3293f8102f3694c3378bad5851ed48610ea74b83e716675032e7fa3"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0071/bipolar/sub-D0071_aparc2009s.csv",
+    "bytes": 55317,
+    "mtime_ns": 1784944138064527215,
+    "sha256": "be937eabb6cbe3f114a1ea1e9c8d37227848e0da7c46c96b91c7080e78daf713"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0071/bipolar/sub-D0071_xtractaf.csv",
+    "bytes": 148682,
+    "mtime_ns": 1788565506999545542,
+    "sha256": "546ffd394b7103336ce2bc535fdab6d28437136130cca84785b9490b2550f47c"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0075/bipolar/sub-D0075_xtractaf.csv",
+    "bytes": 196112,
+    "mtime_ns": 1788565459691746648,
+    "sha256": "02d849655a0730199ef3fef6b577b81f470452ff27256ecf1c03ee32ae05a4f5"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0079/bipolar/sub-D0079_xtractaf.csv",
+    "bytes": 221437,
+    "mtime_ns": 1788565460912844705,
+    "sha256": "51fcc52d8bd585ebc4eebf6e64157eee4d06cdf989f002b6f5a8290fa6caa637"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0079/bipolar/sub-D0079_xtractaf.csv",
+    "bytes": 132410,
+    "mtime_ns": 1788565404368304084,
+    "sha256": "ecb94ab74538e8dd042f479ff10fef33959ee428cd073bc7c6df0ef63f39b6c9"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0079/bipolar/sub-D0079_xtractaf.csv",
+    "bytes": 221448,
+    "mtime_ns": 1788565470227592693,
+    "sha256": "e26c8c250e6265e1abe194d34ab5e595b77f129cfcb1d0a13058841c35b95c24"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0080/bipolar/sub-D0080_xtractaf.csv",
+    "bytes": 224066,
+    "mtime_ns": 1788565405241374193,
+    "sha256": "08e0cc3fb12f633b54881f11501ebd84870e3e746af091c28d95fc89274f0414"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0080/bipolar/sub-D0080_xtractaf.csv",
+    "bytes": 224065,
+    "mtime_ns": 1788565470815639915,
+    "sha256": "28da27e33f41f5b25409c92eafee9e1f45c214d00b335d881cffe705e57e8324"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0081/bipolar/sub-D0081_xtractaf.csv",
+    "bytes": 202940,
+    "mtime_ns": 1788565406012436111,
+    "sha256": "0085bcfaa90cf5a2ec01aa792d11b12dc1c985bacd1218883debbc29bf864b83"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0081/bipolar/sub-D0081_xtractaf.csv",
+    "bytes": 202940,
+    "mtime_ns": 1788565471427689063,
+    "sha256": "7dec92deb4119b0b874c8c7300406c6fb95bdb7fed71ad6542d70ebf41801a9b"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0081/bipolar/sub-D0081_aparc2009s.csv",
+    "bytes": 79136,
+    "mtime_ns": 1784944137494926331,
+    "sha256": "300c53972eb99a47afc8d7d5119ce5dcb1345f2e2af554a0be353c04e357817b"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0081/bipolar/sub-D0081_xtractaf.csv",
+    "bytes": 202937,
+    "mtime_ns": 1788565510106795059,
+    "sha256": "01cbd790e4be4c65991f48f59857cffe46b680806ec7374f54de068e4bf6c509"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0085/bipolar/sub-D0085_xtractaf.csv",
+    "bytes": 225025,
+    "mtime_ns": 1788565462092939468,
+    "sha256": "d6d151a47f37acb06f43f719b2f36a785594e5712cbcf73dd7119dcc51c882fa"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0085/bipolar/sub-D0085_xtractaf.csv",
+    "bytes": 225025,
+    "mtime_ns": 1788565472684790011,
+    "sha256": "49535a0d6475a9acb52474e2d217b4e9f730d908eff761bbc373a3ae2fd64758"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0086/bipolar/sub-D0086_xtractaf.csv",
+    "bytes": 217168,
+    "mtime_ns": 1788565462752992471,
+    "sha256": "392b3c117e1b925defa43eb19c82b07066b1b634e2a24bceba39e13c8cea25ef"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0086/bipolar/sub-D0086_xtractaf.csv",
+    "bytes": 218173,
+    "mtime_ns": 1788565407206531999,
+    "sha256": "87779eaac1d89eca2ed77a310683cbe550bf9aefc288c39776380fa9eb1a65d9"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0086/bipolar/sub-D0086_xtractaf.csv",
+    "bytes": 218164,
+    "mtime_ns": 1788565473294838998,
+    "sha256": "c4ecd2839a9902a442cbfb7ce661c96053e337c5f653e63e0a6087a32212d053"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0088/bipolar/sub-D0088_xtractaf.csv",
+    "bytes": 168458,
+    "mtime_ns": 1788565463341039693,
+    "sha256": "00d59f2f211e37851b6928f28b2a2355d1a476765a36802bf64f53b0c824c7ee"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0088/bipolar/sub-D0088_xtractaf.csv",
+    "bytes": 168456,
+    "mtime_ns": 1788565473930890075,
+    "sha256": "0d68ec0c12e653d3e43d963c9bf3ed2112b02ab5853b6845c449a2dadc587f53"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0090/bipolar/sub-D0090_xtractaf.csv",
+    "bytes": 76391,
+    "mtime_ns": 1788565407738574723,
+    "sha256": "7367b401a04b52ec159f2e08242406fe70d9654612165213f3109cb3ccbdc219"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0090/bipolar/sub-D0090_xtractaf.csv",
+    "bytes": 151070,
+    "mtime_ns": 1788565474508936492,
+    "sha256": "02943535809aa0078c836a110d385c1f6bb38d362ba05fe171c449607fd0a528"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0091/bipolar/sub-D0091_xtractaf.csv",
+    "bytes": 195843,
+    "mtime_ns": 1788565463944088118,
+    "sha256": "70e1d5f95727f6c9267522c77b07048e27707e5a597f76fdfad98f6331c2b7ec"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0091/bipolar/sub-D0091_xtractaf.csv",
+    "bytes": 195831,
+    "mtime_ns": 1788565475072981786,
+    "sha256": "9a05f0c16ab87b95f9681d6ca26cda03da261e373b432561042de167bda68b69"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0092/bipolar/sub-D0092_xtractaf.csv",
+    "bytes": 199545,
+    "mtime_ns": 1788565464499132689,
+    "sha256": "6c31282f88cbef14450f023dac2af94ddd8a44dcff4c3bcf0b36b6fab66560ff"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0092/bipolar/sub-D0092_xtractaf.csv",
+    "bytes": 140559,
+    "mtime_ns": 1788565408312620820,
+    "sha256": "4f53e69bd11fd68eabbf35e4d4b261523758740ac872538116e9f1d57dfd9446"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0092/bipolar/sub-D0092_xtractaf.csv",
+    "bytes": 199545,
+    "mtime_ns": 1788565475644027642,
+    "sha256": "4b9d93b14120fe70c8e92b2ecccf4850f807f3ff5696be56ffeb9447a15eb057"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0093/bipolar/sub-D0093_xtractaf.csv",
+    "bytes": 191967,
+    "mtime_ns": 1788565465043176377,
+    "sha256": "54dfa9a91e90d25a31fe9534b43092d77d989170d0598448fc6f800959c9e91f"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0093/bipolar/sub-D0093_xtractaf.csv",
+    "bytes": 191972,
+    "mtime_ns": 1788565476244075827,
+    "sha256": "0f2410ecff777c46201fbb423b7464a64fd7fb60669a707dfb34f79b09de74a1"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0094/bipolar/sub-D0094_xtractaf.csv",
+    "bytes": 219374,
+    "mtime_ns": 1788565465616222393,
+    "sha256": "c3898bb27c22360f203c5ac94b635f02c967acd92333a0a7954f535f9943321e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0094/bipolar/sub-D0094_xtractaf.csv",
+    "bytes": 219375,
+    "mtime_ns": 1788565408920669647,
+    "sha256": "a9db13fec7538412b60470fa741a713a00e25e54001456aaeb5abe6c1ab0ef58"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0094/bipolar/sub-D0094_xtractaf.csv",
+    "bytes": 219375,
+    "mtime_ns": 1788565476838123530,
+    "sha256": "c196c74ba9e112a9561e9d5fa5a69917e7e9acbfb8bde6d418779dbc74306144"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0095/bipolar/sub-D0095_xtractaf.csv",
+    "bytes": 193699,
+    "mtime_ns": 1788565466169266804,
+    "sha256": "72dc7ae12bbff358d419325834a2bcb98472662cb56d8fb51b36f162b33360da"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0096/bipolar/sub-D0096_xtractaf.csv",
+    "bytes": 214431,
+    "mtime_ns": 1788565466747313222,
+    "sha256": "44903a0bf3460015ddc358549b2931807705ec27ba18c20f95f32e38231b4e57"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0096/bipolar/sub-D0096_xtractaf.csv",
+    "bytes": 214430,
+    "mtime_ns": 1788565409496715904,
+    "sha256": "b5c14fe260cf4501025ec0719373ea4dabde33e46a047041e934fc0bc2481149"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0096/bipolar/sub-D0096_xtractaf.csv",
+    "bytes": 214431,
+    "mtime_ns": 1788565477420170269,
+    "sha256": "69d8a270e05f3347e6fbf67fc59afac92f571141f22e86eb2bf0acbc1cff5321"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0101/bipolar/sub-D0101_xtractaf.csv",
+    "bytes": 192870,
+    "mtime_ns": 1788565411073842550,
+    "sha256": "95e30a3f7156e33dc50697991788c81040c4f98d1b8f50f22f5d023280f6e99a"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0101/bipolar/sub-D0101_xtractaf.csv",
+    "bytes": 192858,
+    "mtime_ns": 1788565479119306712,
+    "sha256": "34c8a044217278ad9963814562c9773ef00b1b827719f3528379b119d65724a5"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0102/bipolar/sub-D0102_xtractaf.csv",
+    "bytes": 208861,
+    "mtime_ns": 1788565467859402524,
+    "sha256": "5a38dc65b0b52781306ecd58e13f565c8e69c62c5882bd8b67bf708bb51e5d2e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0102/bipolar/sub-D0102_xtractaf.csv",
+    "bytes": 208859,
+    "mtime_ns": 1788565411867906315,
+    "sha256": "f90d52b3f42a0fc997046b0f30f15c194d909e71f20ffcec66ff104386c50448"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0102/bipolar/sub-D0102_xtractaf.csv",
+    "bytes": 208859,
+    "mtime_ns": 1788565479717354737,
+    "sha256": "fa8a9431d30f4086098da874c2282599a9aefdf08954ac16570d45d574e3c7b8"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0102/bipolar/sub-D0102_aparc2009s.csv",
+    "bytes": 81660,
+    "mtime_ns": 1784944141075832938,
+    "sha256": "499ef3d764aa39eb5fe131a3cf76537cf0a5265577ebebf8a456643bff37a50b"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/parcellation/sub-D0102/bipolar/sub-D0102_xtractaf.csv",
+    "bytes": 208854,
+    "mtime_ns": 1788565512244966758,
+    "sha256": "f75d4e9d50cdf6af3b0dc98281bf8da4fe90f4f30413dad78904c790580bac0e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_Phoneme_sequencing/BIDS/derivatives/parcellation/sub-D0103/bipolar/sub-D0103_xtractaf.csv",
+    "bytes": 210239,
+    "mtime_ns": 1788565468488453038,
+    "sha256": "a9b62d2787f74345cafe61fd3c95795a1989670bba875dadad453af788d7b854"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0103/bipolar/sub-D0103_xtractaf.csv",
+    "bytes": 210241,
+    "mtime_ns": 1788565412673971043,
+    "sha256": "5041a8b7cf6354db87cadda1b50ec9f59cc7327fd447dd9f5288b6512497430e"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0105/bipolar/sub-D0105_xtractaf.csv",
+    "bytes": 130018,
+    "mtime_ns": 1788565480324403484,
+    "sha256": "1ba0c6c294f28f554b8409258b454f9746efa2c46d8c9c9e5d1cdca8f5322026"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0107/bipolar/sub-D0107_xtractaf.csv",
+    "bytes": 210744,
+    "mtime_ns": 1788565413246016980,
+    "sha256": "536d2627d49c7e7fd2fe2d2e88946a8b5aa89f4e5bb5d303438cc4702e35b7b2"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0107/bipolar/sub-D0107_xtractaf.csv",
+    "bytes": 154147,
+    "mtime_ns": 1788565481539501058,
+    "sha256": "314ae70702a072477685d7f4099db3a51611ce7c325839aae50feadb9dc47958"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0115/bipolar/sub-D0115_xtractaf.csv",
+    "bytes": 204517,
+    "mtime_ns": 1788565414023079379,
+    "sha256": "50a776388946b6cb165c5127b90c814ddd9381e5496522adef4d1a78885a8372"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0118/bipolar/sub-D0118_xtractaf.csv",
+    "bytes": 176179,
+    "mtime_ns": 1788565482693593734,
+    "sha256": "357b9450376e745f4c2bf7ba8129df8e9bba6a2623b96f0f750eea713170b329"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0119/bipolar/sub-D0119_xtractaf.csv",
+    "bytes": 199307,
+    "mtime_ns": 1788565483318643926,
+    "sha256": "728085b3fa6d8f4a6c12341bb929ea452e8607505a38705e0eaf4508df211b13"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0123/bipolar/sub-D0123_xtractaf.csv",
+    "bytes": 182101,
+    "mtime_ns": 1788565484540742062,
+    "sha256": "928febb471b60ef446647e45a49ed26983daca72e5b44dc4b099fb7030fe30d9"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0125/bipolar/sub-D0125_xtractaf.csv",
+    "bytes": 204394,
+    "mtime_ns": 1788565485155791452,
+    "sha256": "d878996cb74acbc69d50b84f3e9551322843b782037251eb0e76ed37a78e0cc4"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0128/bipolar/sub-D0128_xtractaf.csv",
+    "bytes": 175153,
+    "mtime_ns": 1788565416509279025,
+    "sha256": "36eaabf0d8b63c4a3dd76a2a92ce3b6c80760ac51b0c337aa58475bf01d8278a"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0129/bipolar/sub-D0129_xtractaf.csv",
+    "bytes": 191647,
+    "mtime_ns": 1788565417076324559,
+    "sha256": "8ed3ae649e17270a5671483cca7437ec812707f9b9105785a91b019a9a319509"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0129/bipolar/sub-D0129_xtractaf.csv",
+    "bytes": 191645,
+    "mtime_ns": 1788565486256879871,
+    "sha256": "b8a002089238cbf264b3ce10ae95cadd0da4316b935c486538043abbac59025b"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0131/bipolar/sub-D0131_xtractaf.csv",
+    "bytes": 179879,
+    "mtime_ns": 1788565487368969174,
+    "sha256": "826f76b1395bc6bfaeb0e768b58c0a222ae522e7b80fd2d28b7d1c10e10c9d60"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0132/bipolar/sub-D0132_xtractaf.csv",
+    "bytes": 202934,
+    "mtime_ns": 1788565417664371781,
+    "sha256": "0107e2887f9ef0b0ffbf133f07d00b102d4a3ec82e3cd1daeece28fc488884b4"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0134/bipolar/sub-D0134_xtractaf.csv",
+    "bytes": 74280,
+    "mtime_ns": 1788565487886010693,
+    "sha256": "6007b63112fd41bd0f7fa79c3c7a6a84b59050a640f23c6984a3ef944469253d"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0137/bipolar/sub-D0137_xtractaf.csv",
+    "bytes": 206204,
+    "mtime_ns": 1788565418831465500,
+    "sha256": "69a0c1e7ab20d4c3c28d2a04709f65604105e445e3916225a8bef4b9348dd649"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0137/bipolar/sub-D0137_xtractaf.csv",
+    "bytes": 206216,
+    "mtime_ns": 1788565489004100478,
+    "sha256": "5f37b948877dedb606122b5060aacca329d1f1fd21e5001d7ed7600ad8074634"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0139/bipolar/sub-D0139_xtractaf.csv",
+    "bytes": 195177,
+    "mtime_ns": 1788565419941554642,
+    "sha256": "4a141dc3709595dc6697d48a5f4d51db114f1dec2638a36ef3030b7d0c9f9248"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.3_PictureNaming/BIDS/derivatives/parcellation/sub-D0139/bipolar/sub-D0139_xtractaf.csv",
+    "bytes": 184398,
+    "mtime_ns": 1788565490134191226,
+    "sha256": "7bb09a76c034a3f6fe0e02a989c9d2bb89d11256a5ce2b1d1ac923a0b90befdc"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.0_LexicalDecRepDelay/BIDS/derivatives/parcellation/sub-D0143/bipolar/sub-D0143_xtractaf.csv",
+    "bytes": 151548,
+    "mtime_ns": 1788565421042643061,
+    "sha256": "b26b1d433a324b1c302c6d88a2ef84c1da848a229bc6332397d9230e27952a8e"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D75/mri/orig.mgz",
+    "bytes": 6077648,
+    "mtime_ns": 1701891294521198000,
+    "sha256": "49aedbf717cea7cd2990b2b6e46d26b041c2d6bd3aabd61bd96abaa1fdee01af"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D75/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 445467,
+    "mtime_ns": 1701891319140143000,
+    "sha256": "544ccc426c2ab3f934021d61306d80823d77b0525bc0ffe9dd3bd52b9acc0968"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D79/mri/orig.mgz",
+    "bytes": 7343462,
+    "mtime_ns": 1701891293600419000,
+    "sha256": "ce32207f46557e41428e9b41e084072f0cfea0202ba2339d1fa0bf3544814097"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D79/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 498110,
+    "mtime_ns": 1701891317384194000,
+    "sha256": "fa477aaf7e3b8f7ac8f7dda5754142e59bc804f56db69a3431ee757dbb97633b"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D85/mri/orig.mgz",
+    "bytes": 6981889,
+    "mtime_ns": 1701891295932986000,
+    "sha256": "38f6e2e5651b8ae9ea38b249d7e6396351b2def8f3a98ca51bd519a0b0ec6227"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D85/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 423848,
+    "mtime_ns": 1701891319588691000,
+    "sha256": "17d1bedd444190d6ed5d34f1415a254e6fe98706f603d2bf713d257205610fea"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D86/mri/orig.mgz",
+    "bytes": 2819519,
+    "mtime_ns": 1701891311472867000,
+    "sha256": "eb16fbd34b84dc72f501bb4172a9bfc4fae5b93744cebaade6e86a6b7cb931a6"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D86/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 427429,
+    "mtime_ns": 1701891319303794000,
+    "sha256": "6f555c47a5d5d2619e1c4f4c04ef85b98fa7ed5dd9f42b199d0f6feb4c763645"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D88/mri/orig.mgz",
+    "bytes": 5694011,
+    "mtime_ns": 1701891292319934000,
+    "sha256": "f0530299df792182f4d6e279a161316088a46e2c9359773e938951111f69fdba"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D88/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 406540,
+    "mtime_ns": 1701891320129787000,
+    "sha256": "94702486c6718e65d7cd3973e1dcede70adf21a057774408a2e241af93e3f1de"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D80/mri/orig.mgz",
+    "bytes": 7059938,
+    "mtime_ns": 1701891295318877000,
+    "sha256": "a2c3ea9464930bdcb8c0fa8fa9d2f3a18cc69440aebf58f1f2bcbae58661185e"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D80/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 437524,
+    "mtime_ns": 1701891319250802000,
+    "sha256": "f24f9ab216dacb777b26f6a025a33ba8cd0dd76f438bce112a3b53539cc96c15"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D81/mri/orig.mgz",
+    "bytes": 6246550,
+    "mtime_ns": 1701891291204630000,
+    "sha256": "f1a0af2928ba584f14c301f74da6b9014dd2508784d688c1fffea270c22b08ef"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D81/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 414691,
+    "mtime_ns": 1701891319887079000,
+    "sha256": "a2b280e4223651410bbf96c341750954fb5ef0eb245a62c95d8d22089b3b9318"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D129/mri/orig.mgz",
+    "bytes": 5895736,
+    "mtime_ns": 1770747934255816000,
+    "sha256": "a2ba8795f2a540aeee7ac5e61cc497f0d0182c65953d445f3c1755c11839f6e1"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D129/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 433489,
+    "mtime_ns": 1770748225586872000,
+    "sha256": "ed4ef9c8d94ce27025b77420b3a31383d4108c1f3b0e0a9fbc9f981aa3becbbc"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/orig.mgz",
+    "bytes": 5868751,
+    "mtime_ns": 1770747935880160000,
+    "sha256": "7362fdc8243afa41c0103c3a9444db702f9cbce00d62fac3aa12e7d629cd3734"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D137/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 421176,
+    "mtime_ns": 1770748229504152000,
+    "sha256": "26c95561e0d4770fe25eb947a556e0feece4b7377966c475429cdd827780af37"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D131/mri/orig.mgz",
+    "bytes": 6084369,
+    "mtime_ns": 1770747922991842000,
+    "sha256": "2ad205dc669ae4a2427d4ea9b9e8e1f8cc977f4ec269a43304edbd2c99cbf4c8"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D131/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 417771,
+    "mtime_ns": 1770748231633925000,
+    "sha256": "dd4cc2e020af42f5ea9a2673da3d5e5a04a99fe449928bb2092daa8077ee04c5"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D134/mri/orig.mgz",
+    "bytes": 8062934,
+    "mtime_ns": 1770747887045525000,
+    "sha256": "985ada522d4daf58185f6c8b704c533c7a37cc8be949176897bd81e1bf08ef7c"
+  },
+  {
+    "path": "/hpc/group/coganlab/ECoG_Recon/D134/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 459467,
+    "mtime_ns": 1770748206876017000,
+    "sha256": "2e67e30ed8e5fad05f71ace98a66b1776e4c737ae83ddf75eeea810e45c899a9"
+  }
+]

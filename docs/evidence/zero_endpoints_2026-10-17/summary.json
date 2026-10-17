@@ -1,0 +1,273 @@
+{
+  "created_utc": "2026-10-17T22:37:25.795039+00:00",
+  "model_fitted": false,
+  "target_pairs": 132,
+  "target_subjects": 54,
+  "zero_endpoint_occurrences": 144,
+  "unique_subject_contacts": 131,
+  "unique_native_points": 131,
+  "cached_coord_matched_occurrences": 144,
+  "cached_classes": {
+    "white_matter": 81,
+    "insula_gray": 31,
+    "unknown": 30,
+    "other_tissue": 1,
+    "opercular_gray": 1
+  },
+  "best_available_classes_unique_points": {
+    "white_matter": 72,
+    "unknown": 30,
+    "insula_gray": 27,
+    "other_tissue": 1,
+    "opercular_gray": 1
+  },
+  "native_voxel_checked_unique_points": 20,
+  "native_coord_verified_unique_points": 20,
+  "maper_verified_unique_points": 0,
+  "native_vs_cached_label_disagreements": [],
+  "pairs_WM_by_available_evidence": 72,
+  "pairs_opercular_gray_evidence": 1,
+  "pairs_other_noninsula_gray_evidence": 0,
+  "cwork_inputs_subject_variants": [
+    {
+      "subject": "D0022",
+      "recon_subject": "D22"
+    },
+    {
+      "subject": "D0023",
+      "recon_subject": "D23"
+    },
+    {
+      "subject": "D0032",
+      "recon_subject": "D32"
+    },
+    {
+      "subject": "D0035",
+      "recon_subject": "D35"
+    },
+    {
+      "subject": "D0038",
+      "recon_subject": "D38"
+    },
+    {
+      "subject": "D0040",
+      "recon_subject": "D40"
+    },
+    {
+      "subject": "D0042",
+      "recon_subject": "D42"
+    },
+    {
+      "subject": "D0044",
+      "recon_subject": "D44"
+    },
+    {
+      "subject": "D0049",
+      "recon_subject": "D49"
+    },
+    {
+      "subject": "D0052",
+      "recon_subject": "D52"
+    },
+    {
+      "subject": "D0053",
+      "recon_subject": "D53"
+    },
+    {
+      "subject": "D0054",
+      "recon_subject": "D54"
+    },
+    {
+      "subject": "D0055",
+      "recon_subject": "D55"
+    },
+    {
+      "subject": "D0057",
+      "recon_subject": "D57"
+    },
+    {
+      "subject": "D0059",
+      "recon_subject": "D59"
+    },
+    {
+      "subject": "D0060",
+      "recon_subject": "D60"
+    },
+    {
+      "subject": "D0061",
+      "recon_subject": "D61"
+    },
+    {
+      "subject": "D0064",
+      "recon_subject": "D64"
+    },
+    {
+      "subject": "D0065",
+      "recon_subject": "D65"
+    },
+    {
+      "subject": "D0067",
+      "recon_subject": "D67"
+    },
+    {
+      "subject": "D0068",
+      "recon_subject": "D68"
+    },
+    {
+      "subject": "D0071",
+      "recon_subject": "D71"
+    },
+    {
+      "subject": "D0075",
+      "recon_subject": "D75"
+    },
+    {
+      "subject": "D0079",
+      "recon_subject": "D79"
+    },
+    {
+      "subject": "D0080",
+      "recon_subject": "D80"
+    },
+    {
+      "subject": "D0081",
+      "recon_subject": "D81"
+    },
+    {
+      "subject": "D0085",
+      "recon_subject": "D85"
+    },
+    {
+      "subject": "D0086",
+      "recon_subject": "D86"
+    },
+    {
+      "subject": "D0088",
+      "recon_subject": "D88"
+    },
+    {
+      "subject": "D0090",
+      "recon_subject": "D90"
+    },
+    {
+      "subject": "D0091",
+      "recon_subject": "D91"
+    },
+    {
+      "subject": "D0092",
+      "recon_subject": "D92"
+    },
+    {
+      "subject": "D0093",
+      "recon_subject": "D93"
+    },
+    {
+      "subject": "D0094",
+      "recon_subject": "D94"
+    },
+    {
+      "subject": "D0095",
+      "recon_subject": "D95"
+    },
+    {
+      "subject": "D0096",
+      "recon_subject": "D96"
+    },
+    {
+      "subject": "D0101",
+      "recon_subject": "D101"
+    },
+    {
+      "subject": "D0102",
+      "recon_subject": "D102"
+    },
+    {
+      "subject": "D0103",
+      "recon_subject": "D103"
+    },
+    {
+      "subject": "D0105",
+      "recon_subject": "D105"
+    },
+    {
+      "subject": "D0107",
+      "recon_subject": "D107B"
+    },
+    {
+      "subject": "D0115",
+      "recon_subject": "D115"
+    },
+    {
+      "subject": "D0118",
+      "recon_subject": "D118"
+    },
+    {
+      "subject": "D0119",
+      "recon_subject": "D119"
+    },
+    {
+      "subject": "D0123",
+      "recon_subject": "D123"
+    },
+    {
+      "subject": "D0125",
+      "recon_subject": "D125"
+    },
+    {
+      "subject": "D0128",
+      "recon_subject": "D128"
+    },
+    {
+      "subject": "D0129",
+      "recon_subject": "D129"
+    },
+    {
+      "subject": "D0131",
+      "recon_subject": "D131"
+    },
+    {
+      "subject": "D0132",
+      "recon_subject": "D132"
+    },
+    {
+      "subject": "D0134",
+      "recon_subject": "D134"
+    },
+    {
+      "subject": "D0137",
+      "recon_subject": "D137"
+    },
+    {
+      "subject": "D0139",
+      "recon_subject": "D139A"
+    },
+    {
+      "subject": "D0143",
+      "recon_subject": "D143"
+    }
+  ],
+  "availability_counts": {
+    "cwork_orig": 0,
+    "cwork_brainmask": 0,
+    "cwork_aparc": 0,
+    "cwork_aseg": 0,
+    "cwork_wm": 0,
+    "cwork_ribbon": 0,
+    "cwork_electrode_RAS": 0,
+    "shared_orig": 11,
+    "shared_brainmask": 11,
+    "shared_aparc": 11,
+    "shared_aseg": 1,
+    "shared_wm": 1,
+    "shared_ribbon": 1,
+    "shared_electrode_RAS": 11,
+    "maper_seg95": 0,
+    "maper_tissue": 0,
+    "raw_T1_PhonemeSequence": 0,
+    "raw_T1_LexicalDelay": 0,
+    "raw_T1_PictureNaming": 0,
+    "raw_T1_SentenceRep": 0
+  },
+  "source_table_sha256": "a040b4d3bd275116416d1bfdac0f1a9b4cba1a3a278b4751cb9920b4db64b8bb",
+  "script_sha256": "a4fe119533e23d2d2300d36f173441d74a5e5343f5341e9988abd6c65fc92ae8"
+}
