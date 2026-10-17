@@ -1,0 +1,4 @@
+channel,subject,roi,hemi,from_cluster,to_cluster,from_component,to_component,loading_sustain,loading_motor,loading_sensory,specificity_max,reason,applied_at,linear
+D0084_RAI2-3,D0084,AIC,R,motor,sustain,0,1,0.6042214655754256,0.6515920487055545,0.0,0.047,"mixed motor-sustain; image-stimulus significant, not sound; SHI-57 / SHI-51 2026-09-21",2026-09-21T16:09:04.364250+00:00,SHI-57
+D0084_RAI3-4,D0084,AIC,R,motor,sustain,0,1,0.5315497015253015,0.7151099781756387,0.0,0.184,"mixed motor-sustain; image-stimulus significant, not sound; SHI-57 / SHI-51 2026-09-21",2026-09-21T16:09:04.364250+00:00,SHI-57
+D0119_RIA4-5,D0119,AIC,R,motor,sustain,0,1,0.5786053283895858,0.590241779575959,0.0712804374994163,0.012,mixed motor-sustain; image and sound stimulus significant; SHI-57 / SHI-51 2026-09-21,2026-09-21T16:09:04.364250+00:00,SHI-57

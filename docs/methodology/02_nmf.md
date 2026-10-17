@@ -113,6 +113,10 @@ NMF 存在任意的组件尺度自由度。先对每个组件计算 `s[k]=||H[k,
 
 当前 assignment SHA-256 为 `d5ef9cb1cb9a135e76e1b19caa679a900ec3871adbbb82176b6405a1aecb7ac7`；现有 functional decoding 输入记录的为 `0b28f2105a7b08d0c91cfdb94686e6c6f266c9e7e5acc1e32971936695b00b97`。需把“模型原始标签”和“发布标签/覆盖规则”分别冻结。
 
+### 2026-09-21 人工覆盖（SHI-57 / SHI-51）
+
+在不重拟合 W/H 的前提下，把三个右侧 AIC mixed motor 电极的硬标签改为 sustain：`D0084_RAI2-3`、`D0084_RAI3-4`、`D0119_RIA4-5`。载荷未改。`D0084_RAI4-5` 本来就是 sustain。覆盖表：[nmf_label_overrides.csv](evidence/nmf_label_overrides.csv)。覆盖后计数为 sensory=39、sustain=83、motor=133；assignment SHA-256 为 `9c7721bde9cecdc63b757a2316c08c54cf087822e7795069043db16d12990d8b`。Decoding 输入尚未按此表重准备。
+
 ## 7. PCA 与 K-means 的独立对照
 
 实现：[waveform_pca.py](../../src/nmf/waveform_pca.py)、[pc_clustering.py](../../src/nmf/pc_clustering.py)，Figure 2 cell 16。PCA 对相同预处理的矩阵使用 full SVD，sklearn 内部按特征中心化；没有额外 StandardScaler 或 whitening。

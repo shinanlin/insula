@@ -19,8 +19,9 @@
 | [rt_results.csv](rt_results.csv) | 300 个 RT 文件的任务/被试/阶段、trial/item/fold/channel 数与实际时间窗 |
 | [rt_results_metadata.json](rt_results_metadata.json) | RT attrs、shapes、fold/recording 计数，共享时间向量保存一次；无 permutation/神经数组 |
 | [rt_summary_assignment_mismatches.csv](rt_summary_assignment_mismatches.csv) | 53 条 summary-row 标签差异；42 个 electrode 行、11 个 cluster 行 |
-| [nmf_channel_assignments_snapshot.csv](nmf_channel_assignments_snapshot.csv) | 当前 255 行发布表的原样快照，包括载荷和空间信息 |
-| [nmf_label_differences.csv](nmf_label_differences.csv) | 当前标签、loading argmax 与 PC 保存标签不同的 6 个电极 |
+| [nmf_channel_assignments_snapshot.csv](nmf_channel_assignments_snapshot.csv) | 2026-09-13 的 255 行发布表快照（覆盖前：sustain 80 / motor 136） |
+| [nmf_label_differences.csv](nmf_label_differences.csv) | 审计时标签、loading argmax 与 PC 保存标签不同的 6 个电极 |
+| [nmf_label_overrides.csv](nmf_label_overrides.csv) | 2026-09-21 SHI-57：三个右侧 AIC mixed motor → sustain；W 未改 |
 | [nmf_exclude_channels.txt](nmf_exclude_channels.txt) | canonical NMF 的 26 通道排除名单 |
 | [nmf_nmf_manifest.json](nmf_nmf_manifest.json) | canonical 发布信息原样快照 |
 | [nmf_rank_selection_meta.json](nmf_rank_selection_meta.json) | 选秩配置、255 行名单与输入维度 |
