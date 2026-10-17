@@ -85,7 +85,7 @@ NMF 的 pure insula 要求 gross ROI 为 AIC/PIC、`mix=False`、有效 label �
 
 ## 7. Figure 1 具体怎样计数
 
-任务集合为 PS、LD、LND、PN，不包含 Sentence。Notebook 使用旧相对路径 `../results/{Task}(bipolar)(hammers)`；本次检查四个目录在当前工作区不存在，相关旧数据存在于相邻 `insula/results`。以下数字来自 Notebook 缓存，未伪装成此次重算。
+任务集合为 PS、LD、PN、SentenceRep，与 NMF 一致，不含 LexicalNoDelay。覆盖图读 `results/hga/{Task}/*_coord.csv`（全部 zscore 通道），缺失时不得退回 `*_time.csv`。以下 ROI 响应/采样数字仍是旧 Notebook 缓存，coord 重新打包后需要重算。
 
 覆盖图先要求坐标非空并按通道去重；缓存输出为 13,933 个覆盖通道，其中 insula 442。ROI 饼图另做 pure/mix、label 和 ROI 排除筛选，分母因此不同。ROI 合并规则为 STGp/STGa/HG→STG，PrG/PoG/Subcentral→SMC，IFG 保留，其余保留为 Other。排除列表为 Unknown、BrainStem、Thal、CC、Caud、Put、Amyg、Hipp、LinG、Cun、mOccG、PhG、FuG、GRect、LatV、GSubcallosal、Intersection、BrainStem–Thal。完整 cell 来源可由 [notebook_cells.csv](evidence/notebook_cells.csv) 定位。
 

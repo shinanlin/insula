@@ -11,6 +11,7 @@ from tqdm import tqdm
 
 from src.hga.package_highgamma import (
     _filter_epoch_paths,
+    canonical_task_name,
     load_parcellation,
     parcellation_subset,
 )
@@ -136,6 +137,7 @@ def main(
         epochs = mne.read_epochs(epoch_path, preload=True, verbose=False)
         parc_sub = parcellation_subset(parc)
         sig_channels = _load_sig_channels(epoch_path)
+        task = canonical_task_name(epoch_path.task)
 
         df = build_coord_dataframe(
             epochs,
@@ -143,7 +145,7 @@ def main(
             sig_channels,
             band=band,
             subject=epoch_path.subject,
-            task=epoch_path.task,
+            task=task,
             description=epoch_path.description,
             phase=epoch_path.processing,
             modality=(
@@ -153,12 +155,12 @@ def main(
         )
 
         save_path = BIDSPath(
-            root=str(hga_results_dir(epoch_path.task, ref, atlas)),
+            root=str(hga_results_dir(task, ref, atlas)),
             description=epoch_path.description,
             datatype="HGA",
             suffix="coord",
             recording=epoch_path.recording,
-            task=epoch_path.task,
+            task=task,
             subject=epoch_path.subject,
             processing=epoch_path.processing,
             extension=".csv",
