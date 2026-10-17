@@ -1,0 +1,80 @@
+subject,first_stage,primary_reason,reason_zh,n_sites
+D0022,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0027,endpoints,missing_native_tissue_evidence,端点为 0，缺少可核验的原生组织图像,1
+D0027,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0028,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0032,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0035,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0038,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0040,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0042,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0042,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0044,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0047,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0049,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0052,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0053,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0054,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0055,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0057,endpoints,native_vs_archived_FS_conflict,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,6
+D0058,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0059,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0060,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0060,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0061,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,4
+D0063,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0064,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0067,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0067,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0068,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0070,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0071,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0075,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0076,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0079,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0080,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0081,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0081,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0085,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0085,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,4
+D0086,identity,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,26
+D0088,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0088,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0090,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0091,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0092,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,3
+D0092,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0094,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0094,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0095,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,3
+D0095,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0096,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,8
+D0096,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,5
+D0101,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0102,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0102,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0103,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0103,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0105,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,3
+D0107,identity,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,10
+D0108,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0115,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0115,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0118,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,3
+D0118,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0119,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0122,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,4
+D0123,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0125,midpoint,midpoint_label_conflict,中点 Hammers 是否属于岛叶的记录不一致,1
+D0128,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0129,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0129,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,1
+D0131,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0131,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,3
+D0132,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2
+D0132,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,2
+D0137,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,4
+D0138,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,4
+D0139,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,1
+D0139,identity,invalid_native_coordinates,原生中点或端点坐标不完整／中点不是端点均值,5
+D0143,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,2

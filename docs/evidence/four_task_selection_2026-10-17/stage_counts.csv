@@ -1,0 +1,41 @@
+task,stage,stage_zh,remaining,removed_from_previous
+PhonemeSequence,all_recorded,全脑有坐标表记录,8367,
+PhonemeSequence,insula_related_candidates,涉及岛叶或指定 LIA6 的候选,326,8041.0
+PhonemeSequence,after_subject_QC,排除 D0121 后,326,0.0
+PhonemeSequence,after_LIA6_exclusion,排除含 LIA6 配对后,326,0.0
+PhonemeSequence,after_identity_checks,坐标／身份可统一,300,26.0
+PhonemeSequence,after_midpoint_rule,中点确认岛叶灰质,218,82.0
+PhonemeSequence,eligible_anatomy,端点合格：解剖纳入,161,57.0
+PhonemeSequence,responsive_any_phase,至少一阶段显著响应,98,63.0
+LexicalDelay,all_recorded,全脑有坐标表记录,8640,
+LexicalDelay,insula_related_candidates,涉及岛叶或指定 LIA6 的候选,387,8253.0
+LexicalDelay,after_subject_QC,排除 D0121 后,387,0.0
+LexicalDelay,after_LIA6_exclusion,排除含 LIA6 配对后,387,0.0
+LexicalDelay,after_identity_checks,坐标／身份可统一,346,41.0
+LexicalDelay,after_midpoint_rule,中点确认岛叶灰质,257,89.0
+LexicalDelay,eligible_anatomy,端点合格：解剖纳入,199,58.0
+LexicalDelay,responsive_any_phase,至少一阶段显著响应,115,84.0
+PictureNaming,all_recorded,全脑有坐标表记录,6999,
+PictureNaming,insula_related_candidates,涉及岛叶或指定 LIA6 的候选,311,6688.0
+PictureNaming,after_subject_QC,排除 D0121 后,311,0.0
+PictureNaming,after_LIA6_exclusion,排除含 LIA6 配对后,309,2.0
+PictureNaming,after_identity_checks,坐标／身份可统一,268,41.0
+PictureNaming,after_midpoint_rule,中点确认岛叶灰质,198,70.0
+PictureNaming,eligible_anatomy,端点合格：解剖纳入,151,47.0
+PictureNaming,responsive_any_phase,至少一阶段显著响应,102,49.0
+SentenceRep,all_recorded,全脑有坐标表记录,4171,
+SentenceRep,insula_related_candidates,涉及岛叶或指定 LIA6 的候选,106,4065.0
+SentenceRep,after_subject_QC,排除 D0121 后,106,0.0
+SentenceRep,after_LIA6_exclusion,排除含 LIA6 配对后,106,0.0
+SentenceRep,after_identity_checks,坐标／身份可统一,106,0.0
+SentenceRep,after_midpoint_rule,中点确认岛叶灰质,71,35.0
+SentenceRep,eligible_anatomy,端点合格：解剖纳入,53,18.0
+SentenceRep,responsive_any_phase,至少一阶段显著响应,26,27.0
+ALL_UNIQUE,all_recorded,全脑有坐标表记录,15986,
+ALL_UNIQUE,insula_related_candidates,涉及岛叶或指定 LIA6 的候选,606,15380.0
+ALL_UNIQUE,after_subject_QC,排除 D0121 后,606,0.0
+ALL_UNIQUE,after_LIA6_exclusion,排除含 LIA6 配对后,604,2.0
+ALL_UNIQUE,after_identity_checks,坐标／身份可统一,563,41.0
+ALL_UNIQUE,after_midpoint_rule,中点确认岛叶灰质,415,148.0
+ALL_UNIQUE,eligible_anatomy,端点合格：解剖纳入,323,92.0
+ALL_UNIQUE,responsive_any_phase,至少一阶段显著响应,227,96.0

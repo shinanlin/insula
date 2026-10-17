@@ -1,0 +1,397 @@
+{
+  "created_utc": "2026-10-17T23:46:09.648663+00:00",
+  "raw_unique_names": 15986,
+  "candidate_unique_names": 606,
+  "candidate_task_sites": 1130,
+  "anatomy_status": {
+    "include": 323,
+    "pending": 197,
+    "exclude": 86
+  },
+  "primary_reason_counts": {
+    "eligible": 323,
+    "midpoint_zero_unknown": 98,
+    "endpoint_zero_unresolved": 50,
+    "midpoint_noninsula": 49,
+    "cross_task_native_coordinate_conflict": 36,
+    "endpoint_noninsula_gray": 34,
+    "native_vs_archived_FS_conflict": 6,
+    "invalid_native_coordinates": 5,
+    "excluded_LIA6_user_CSF": 2,
+    "missing_native_tissue_evidence": 1,
+    "midpoint_label_conflict": 1,
+    "endpoint_CSF": 1
+  },
+  "stages": [
+    {
+      "task": "PhonemeSequence",
+      "stage": "all_recorded",
+      "stage_zh": "全脑有坐标表记录",
+      "remaining": 8367,
+      "removed_from_previous": null
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "insula_related_candidates",
+      "stage_zh": "涉及岛叶或指定 LIA6 的候选",
+      "remaining": 326,
+      "removed_from_previous": 8041
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "after_subject_QC",
+      "stage_zh": "排除 D0121 后",
+      "remaining": 326,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "after_LIA6_exclusion",
+      "stage_zh": "排除含 LIA6 配对后",
+      "remaining": 326,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "after_identity_checks",
+      "stage_zh": "坐标／身份可统一",
+      "remaining": 300,
+      "removed_from_previous": 26
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "after_midpoint_rule",
+      "stage_zh": "中点确认岛叶灰质",
+      "remaining": 218,
+      "removed_from_previous": 82
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "eligible_anatomy",
+      "stage_zh": "端点合格：解剖纳入",
+      "remaining": 161,
+      "removed_from_previous": 57
+    },
+    {
+      "task": "PhonemeSequence",
+      "stage": "responsive_any_phase",
+      "stage_zh": "至少一阶段显著响应",
+      "remaining": 98,
+      "removed_from_previous": 63
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "all_recorded",
+      "stage_zh": "全脑有坐标表记录",
+      "remaining": 8640,
+      "removed_from_previous": null
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "insula_related_candidates",
+      "stage_zh": "涉及岛叶或指定 LIA6 的候选",
+      "remaining": 387,
+      "removed_from_previous": 8253
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "after_subject_QC",
+      "stage_zh": "排除 D0121 后",
+      "remaining": 387,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "after_LIA6_exclusion",
+      "stage_zh": "排除含 LIA6 配对后",
+      "remaining": 387,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "after_identity_checks",
+      "stage_zh": "坐标／身份可统一",
+      "remaining": 346,
+      "removed_from_previous": 41
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "after_midpoint_rule",
+      "stage_zh": "中点确认岛叶灰质",
+      "remaining": 257,
+      "removed_from_previous": 89
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "eligible_anatomy",
+      "stage_zh": "端点合格：解剖纳入",
+      "remaining": 199,
+      "removed_from_previous": 58
+    },
+    {
+      "task": "LexicalDelay",
+      "stage": "responsive_any_phase",
+      "stage_zh": "至少一阶段显著响应",
+      "remaining": 115,
+      "removed_from_previous": 84
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "all_recorded",
+      "stage_zh": "全脑有坐标表记录",
+      "remaining": 6999,
+      "removed_from_previous": null
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "insula_related_candidates",
+      "stage_zh": "涉及岛叶或指定 LIA6 的候选",
+      "remaining": 311,
+      "removed_from_previous": 6688
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "after_subject_QC",
+      "stage_zh": "排除 D0121 后",
+      "remaining": 311,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "after_LIA6_exclusion",
+      "stage_zh": "排除含 LIA6 配对后",
+      "remaining": 309,
+      "removed_from_previous": 2
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "after_identity_checks",
+      "stage_zh": "坐标／身份可统一",
+      "remaining": 268,
+      "removed_from_previous": 41
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "after_midpoint_rule",
+      "stage_zh": "中点确认岛叶灰质",
+      "remaining": 198,
+      "removed_from_previous": 70
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "eligible_anatomy",
+      "stage_zh": "端点合格：解剖纳入",
+      "remaining": 151,
+      "removed_from_previous": 47
+    },
+    {
+      "task": "PictureNaming",
+      "stage": "responsive_any_phase",
+      "stage_zh": "至少一阶段显著响应",
+      "remaining": 102,
+      "removed_from_previous": 49
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "all_recorded",
+      "stage_zh": "全脑有坐标表记录",
+      "remaining": 4171,
+      "removed_from_previous": null
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "insula_related_candidates",
+      "stage_zh": "涉及岛叶或指定 LIA6 的候选",
+      "remaining": 106,
+      "removed_from_previous": 4065
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "after_subject_QC",
+      "stage_zh": "排除 D0121 后",
+      "remaining": 106,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "after_LIA6_exclusion",
+      "stage_zh": "排除含 LIA6 配对后",
+      "remaining": 106,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "after_identity_checks",
+      "stage_zh": "坐标／身份可统一",
+      "remaining": 106,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "after_midpoint_rule",
+      "stage_zh": "中点确认岛叶灰质",
+      "remaining": 71,
+      "removed_from_previous": 35
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "eligible_anatomy",
+      "stage_zh": "端点合格：解剖纳入",
+      "remaining": 53,
+      "removed_from_previous": 18
+    },
+    {
+      "task": "SentenceRep",
+      "stage": "responsive_any_phase",
+      "stage_zh": "至少一阶段显著响应",
+      "remaining": 26,
+      "removed_from_previous": 27
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "all_recorded",
+      "stage_zh": "全脑有坐标表记录",
+      "remaining": 15986,
+      "removed_from_previous": null
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "insula_related_candidates",
+      "stage_zh": "涉及岛叶或指定 LIA6 的候选",
+      "remaining": 606,
+      "removed_from_previous": 15380
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "after_subject_QC",
+      "stage_zh": "排除 D0121 后",
+      "remaining": 606,
+      "removed_from_previous": 0
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "after_LIA6_exclusion",
+      "stage_zh": "排除含 LIA6 配对后",
+      "remaining": 604,
+      "removed_from_previous": 2
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "after_identity_checks",
+      "stage_zh": "坐标／身份可统一",
+      "remaining": 563,
+      "removed_from_previous": 41
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "after_midpoint_rule",
+      "stage_zh": "中点确认岛叶灰质",
+      "remaining": 415,
+      "removed_from_previous": 148
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "eligible_anatomy",
+      "stage_zh": "端点合格：解剖纳入",
+      "remaining": 323,
+      "removed_from_previous": 92
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "stage": "responsive_any_phase",
+      "stage_zh": "至少一阶段显著响应",
+      "remaining": 227,
+      "removed_from_previous": 96
+    }
+  ],
+  "response_counts": [
+    {
+      "task": "PhonemeSequence",
+      "anatomy_eligible": 161,
+      "responsive": 98,
+      "confirmed_not_responsive": 0,
+      "response_incomplete": 63,
+      "stimulus": 36,
+      "delay": 55,
+      "response": 75
+    },
+    {
+      "task": "LexicalDelay",
+      "anatomy_eligible": 199,
+      "responsive": 115,
+      "confirmed_not_responsive": 28,
+      "response_incomplete": 56,
+      "stimulus": 49,
+      "delay": 62,
+      "response": 97
+    },
+    {
+      "task": "PictureNaming",
+      "anatomy_eligible": 151,
+      "responsive": 102,
+      "confirmed_not_responsive": 0,
+      "response_incomplete": 49,
+      "stimulus": 54,
+      "delay": 48,
+      "response": 81
+    },
+    {
+      "task": "SentenceRep",
+      "anatomy_eligible": 53,
+      "responsive": 26,
+      "confirmed_not_responsive": 27,
+      "response_incomplete": 0,
+      "stimulus": 6,
+      "delay": 8,
+      "response": 20
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "anatomy_eligible": 323,
+      "responsive": 227,
+      "confirmed_not_responsive": 2,
+      "response_incomplete": 94,
+      "stimulus": 115,
+      "delay": 132,
+      "response": 182
+    }
+  ],
+  "old_464_included": 299,
+  "old_464_removed_or_pending": 165,
+  "newly_eligible": 24,
+  "old_manual26_status": {
+    "include": 21,
+    "pending": 5
+  },
+  "windows_seconds": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      0.5
+    ]
+  },
+  "window_boundaries": "Open intervals, matching historical implementation",
+  "response_definition": "Repeat; union across input modalities; any saved significant mask in any selected phase",
+  "primary_atlas": "Hammers; all insula labels allowed across AIC/PIC boundaries",
+  "zero_endpoint_rule": "Native aparc+aseg+ribbon concordant WM; when available MAPER must also be WM. Missing/conflicting tissue is pending.",
+  "cross_task_identity_rule": "Same subject and bipolar name; all geometry/version conflicts deferred rather than choosing first task",
+  "source_anatomy": "Archived Hammers; existing native MAPER when available; native FreeSurfer for zero-endpoint tissue verification",
+  "figures_generated": false,
+  "nmf_rerun": false,
+  "original_site_lists_modified": false,
+  "protected_source_sha256": {
+    "/hpc/group/coganlab/nanlinshi/insula-functional/vizpub/fig1.ipynb": "4e932e14c9ccd6763a56b1f35806bb3f026956a2481793dc461f96325032f75f",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/channel_assignments.csv": "9c7721bde9cecdc63b757a2316c08c54cf087822e7795069043db16d12990d8b",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/nmf_manifest.json": "e1820326780b274f65f1cd82570a0f6a43797b26f603873827ec7e19fd19da3c",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/exclude_channels.txt": "757e3d552f700b5098c016a7a12b01951d4a4648b4740f4e32f491d0ce4718bb"
+  },
+  "input_anatomy_files": 488,
+  "script_sha256": "f6f1c7d03aa9d316286882a7e068f3139ccedcd015c085a59c9aec95ffbbb8ca"
+}

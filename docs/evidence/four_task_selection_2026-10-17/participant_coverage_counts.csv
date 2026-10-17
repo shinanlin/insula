@@ -1,0 +1,6 @@
+task,anatomy_eligible_sites,anatomy_eligible_subjects,left,right,responsive_sites,responsive_subjects
+PhonemeSequence,161,36,91,70,98,32
+LexicalDelay,199,38,116,83,115,36
+PictureNaming,151,28,103,48,102,28
+SentenceRep,53,16,32,21,26,13
+ALL_UNIQUE,323,65,193,130,227,64

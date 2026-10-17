@@ -1,0 +1,34 @@
+task,status,first_stage,primary_reason,reason_zh,n_sites
+LexicalDelay,exclude,endpoints,endpoint_noninsula_gray,至少一个端点为非岛叶灰质,21
+LexicalDelay,exclude,midpoint,midpoint_noninsula,中点的 Hammers 分区为非岛叶,32
+LexicalDelay,include,included,eligible,满足当前解剖纳入规则,199
+LexicalDelay,pending,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,30
+LexicalDelay,pending,endpoints,missing_native_tissue_evidence,端点为 0，缺少可核验的原生组织图像,1
+LexicalDelay,pending,endpoints,native_vs_archived_FS_conflict,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,6
+LexicalDelay,pending,identity,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,36
+LexicalDelay,pending,identity,invalid_native_coordinates,原生中点或端点坐标不完整／中点不是端点均值,5
+LexicalDelay,pending,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,57
+PhonemeSequence,exclude,endpoints,endpoint_noninsula_gray,至少一个端点为非岛叶灰质,21
+PhonemeSequence,exclude,midpoint,midpoint_noninsula,中点的 Hammers 分区为非岛叶,30
+PhonemeSequence,include,included,eligible,满足当前解剖纳入规则,161
+PhonemeSequence,pending,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,30
+PhonemeSequence,pending,endpoints,native_vs_archived_FS_conflict,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,6
+PhonemeSequence,pending,identity,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,26
+PhonemeSequence,pending,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,52
+PictureNaming,exclude,endpoints,endpoint_CSF,至少一个端点被原生组织分割判为 CSF／脑室,1
+PictureNaming,exclude,endpoints,endpoint_noninsula_gray,至少一个端点为非岛叶灰质,16
+PictureNaming,exclude,known_CSF_contact,excluded_LIA6_user_CSF,D0125 含 LIA6：用户已确认排除；MAPER 为 CSF,2
+PictureNaming,exclude,midpoint,midpoint_noninsula,中点的 Hammers 分区为非岛叶,18
+PictureNaming,include,included,eligible,满足当前解剖纳入规则,151
+PictureNaming,pending,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,30
+PictureNaming,pending,identity,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,36
+PictureNaming,pending,identity,invalid_native_coordinates,原生中点或端点坐标不完整／中点不是端点均值,5
+PictureNaming,pending,midpoint,midpoint_label_conflict,中点 Hammers 是否属于岛叶的记录不一致,1
+PictureNaming,pending,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,51
+SentenceRep,exclude,endpoints,endpoint_noninsula_gray,至少一个端点为非岛叶灰质,5
+SentenceRep,exclude,midpoint,midpoint_noninsula,中点的 Hammers 分区为非岛叶,11
+SentenceRep,include,included,eligible,满足当前解剖纳入规则,53
+SentenceRep,pending,endpoints,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,6
+SentenceRep,pending,endpoints,missing_native_tissue_evidence,端点为 0，缺少可核验的原生组织图像,1
+SentenceRep,pending,endpoints,native_vs_archived_FS_conflict,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,6
+SentenceRep,pending,midpoint,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,24

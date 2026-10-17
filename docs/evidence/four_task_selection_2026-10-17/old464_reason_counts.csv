@@ -1,0 +1,10 @@
+status,primary_reason,reason_zh,n_sites
+exclude,endpoint_CSF,至少一个端点被原生组织分割判为 CSF／脑室,1
+exclude,excluded_LIA6_user_CSF,D0125 含 LIA6：用户已确认排除；MAPER 为 CSF,1
+include,eligible,满足当前解剖纳入规则,299
+pending,cross_task_native_coordinate_conflict,同名双极对跨记录／任务的原生位置不一致,21
+pending,endpoint_zero_unresolved,端点为 0，现有组织证据不足或互相冲突,50
+pending,invalid_native_coordinates,原生中点或端点坐标不完整／中点不是端点均值,4
+pending,midpoint_label_conflict,中点 Hammers 是否属于岛叶的记录不一致,1
+pending,midpoint_zero_unknown,中点 Hammers 为 0，不能确认岛叶灰质,81
+pending,native_vs_archived_FS_conflict,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,6

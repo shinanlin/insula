@@ -1,0 +1,62 @@
+{
+  "created_utc": "2026-10-17T23:47:18.352438+00:00",
+  "status": "passed",
+  "anatomical_sites_checked": 323,
+  "endpoint_decisions_checked": 646,
+  "coordinate_and_response_input_files_unchanged": 2892,
+  "cross_task_eligibility_consistent": true,
+  "old464_fully_accounted_for": true,
+  "no_included_D0121_or_LIA6": true,
+  "confirmed_WM_has_concordant_native_aparc_aseg_ribbon": true,
+  "stimulus_only_window_losses": 21,
+  "all_phase_response_window_losses": 2,
+  "participant_counts": [
+    {
+      "task": "PhonemeSequence",
+      "anatomy_eligible_sites": 161,
+      "anatomy_eligible_subjects": 36,
+      "left": 91,
+      "right": 70,
+      "responsive_sites": 98,
+      "responsive_subjects": 32
+    },
+    {
+      "task": "LexicalDelay",
+      "anatomy_eligible_sites": 199,
+      "anatomy_eligible_subjects": 38,
+      "left": 116,
+      "right": 83,
+      "responsive_sites": 115,
+      "responsive_subjects": 36
+    },
+    {
+      "task": "PictureNaming",
+      "anatomy_eligible_sites": 151,
+      "anatomy_eligible_subjects": 28,
+      "left": 103,
+      "right": 48,
+      "responsive_sites": 102,
+      "responsive_subjects": 28
+    },
+    {
+      "task": "SentenceRep",
+      "anatomy_eligible_sites": 53,
+      "anatomy_eligible_subjects": 16,
+      "left": 32,
+      "right": 21,
+      "responsive_sites": 26,
+      "responsive_subjects": 13
+    },
+    {
+      "task": "ALL_UNIQUE",
+      "anatomy_eligible_sites": 323,
+      "anatomy_eligible_subjects": 65,
+      "left": 193,
+      "right": 130,
+      "responsive_sites": 227,
+      "responsive_subjects": 64
+    }
+  ],
+  "figures_generated": false,
+  "nmf_rerun": false
+}

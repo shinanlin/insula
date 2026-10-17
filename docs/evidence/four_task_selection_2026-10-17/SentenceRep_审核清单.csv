@@ -1,0 +1,107 @@
+﻿任务,位点,参与者,解剖结论,首次未通过步骤,原因,旧464内,旧26名单内,stimulus_available,stimulus_significant,delay_available,delay_significant,response_available,response_significant,响应结论,三阶段模态记录完整,窗口内显著响应,old_window_any_significant,modalities,缺少的阶段模态,any_mask_conflict
+SentenceRep,D0022_LMIF3-4,D0022,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0022_LMIF4-5,D0022,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,True,True,False,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0022_LPIF3-4,D0022,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0022_LPIF4-5,D0022,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0023_R2IF1-2,D0023,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,False,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0023_R2IF2-3,D0023,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0027_LAI1-2,D0027,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0027_LAI2-3,D0027,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0027_LPI1-2,D0027,待核对，暂不纳入,endpoints,端点为 0，缺少可核验的原生组织图像,False,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0027_LPI2-3,D0027,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0027_LPI3-4,D0027,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0028_LAI1-2,D0028,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0028_LAI2-3,D0028,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0028_LAI3-4,D0028,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0028_LAI4-5,D0028,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0028_LPI1-2,D0028,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0028_LPI2-3,D0028,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0028_LPI3-4,D0028,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0028_LPI4-5,D0028,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0032_LAI1-2,D0032,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0032_LAI2-3,D0032,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0032_LAI3-4,D0032,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0032_LPI2-3,D0032,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0032_LPI3-4,D0032,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0032_LPI6-7,D0032,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0053_LPI1-2,D0053,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0053_LPI2-3,D0053,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0053_LPI3-4,D0053,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0053_RPI1-2,D0053,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,True,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0053_RPI2-3,D0053,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,True,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0053_RPI3-4,D0053,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0053_RPI4-5,D0053,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0053_RPI5-6,D0053,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0057_RAI1-2,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0057_RAI3-4,D0057,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0057_RAI4-5,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0057_RAI5-6,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0057_RAI6-7,D0057,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0057_RPI1-2,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0057_RPI2-3,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0057_RPI5-6,D0057,待核对，暂不纳入,endpoints,当前原生 FreeSurfer 与坐标匹配的历史标签不一致,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0059_LAT10-11,D0059,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0059_LAT11-12,D0059,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0059_LAT12-13,D0059,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0059_LAT13-14,D0059,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0059_LAT7-8,D0059,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0059_LPSF5-6,D0059,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0059_LPSF6-7,D0059,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_LI1-2,D0060,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,True,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0060_LI2-3,D0060,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_RI1-2,D0060,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_RI2-3,D0060,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_RI3-4,D0060,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_RI4-5,D0060,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0060_RI5-6,D0060,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0060_RI6-7,D0060,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0060_RI7-8,D0060,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LAI1-2,D0061,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0061_LAI2-3,D0061,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0061_LAI3-4,D0061,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LAI4-5,D0061,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0061_LAI5-6,D0061,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0061_LAI6-7,D0061,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0061_LPI1-2,D0061,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,True,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LPI3-4,D0061,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LPI4-5,D0061,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LPI5-6,D0061,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0061_LPI6-7,D0061,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0063_RAI1-2,D0063,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0063_RAI2-3,D0063,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0063_RAI3-4,D0063,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0063_RAI4-5,D0063,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0063_RAI5-6,D0063,排除,endpoints,至少一个端点为非岛叶灰质,False,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI2-3,D0064,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI3-4,D0064,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI4-5,D0064,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI5-6,D0064,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI6-7,D0064,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0064_LAI7-8,D0064,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,True,True,False,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0070_LIA1-2,D0070,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0070_LIA2-3,D0070,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0070_LIA3-4,D0070,排除,endpoints,至少一个端点为非岛叶灰质,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0070_LTAM4-5,D0070,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0070_LTAM5-6,D0070,排除,endpoints,至少一个端点为非岛叶灰质,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0070_LTMM3-4,D0070,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0070_LTMM4-5,D0070,排除,endpoints,至少一个端点为非岛叶灰质,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0071_RIA1-2,D0071,纳入,included,满足当前解剖纳入规则,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0071_RIA2-3,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0071_RIA3-4,D0071,排除,endpoints,至少一个端点为非岛叶灰质,False,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0071_RIP1-2,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,True,True,False,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0071_RIP2-3,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0071_RIP3-4,D0071,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0071_RIP4-5,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0071_RIP5-6,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0071_RIP6-7,D0071,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0081_LTAS1-2,D0081,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0081_LTAS2-3,D0081,纳入,included,满足当前解剖纳入规则,True,True,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0081_LTAS3-4,D0081,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,True,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0081_LTMS1-2,D0081,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0102_RFAI1-2,D0102,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0102_RFPI1-2,D0102,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0102_RFPI2-3,D0102,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,False,True,True,True,False,responsive,True,True,True,sound,,False
+SentenceRep,D0102_RTAS1-2,D0102,纳入,included,满足当前解剖纳入规则,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0102_RTAS2-3,D0102,待核对，暂不纳入,endpoints,端点为 0，现有组织证据不足或互相冲突,True,False,True,False,True,False,True,False,not_responsive,True,False,False,sound,,False
+SentenceRep,D0102_RTPS8-9,D0102,待核对，暂不纳入,midpoint,中点 Hammers 为 0，不能确认岛叶灰质,True,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False
+SentenceRep,D0102_RTPS9-10,D0102,排除,midpoint,中点的 Hammers 分区为非岛叶,False,False,True,True,True,True,True,True,responsive,True,True,True,sound,,False

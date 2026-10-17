@@ -1,0 +1,1177 @@
+{
+  "coordinate_files": 1834,
+  "coordinate_rows": 317089,
+  "coordinate_variants": 28177,
+  "unique_channel_names": 15986,
+  "by_task": {
+    "LexicalDelay": {
+      "rows": 69120,
+      "channels": 8640,
+      "subjects": 52,
+      "midpoint_insula_channels": 276,
+      "old_roi_mixfalse_channels": 288
+    },
+    "PhonemeSequence": {
+      "rows": 33468,
+      "channels": 8367,
+      "subjects": 49,
+      "midpoint_insula_channels": 228,
+      "old_roi_mixfalse_channels": 241
+    },
+    "PictureNaming": {
+      "rows": 167976,
+      "channels": 6999,
+      "subjects": 37,
+      "midpoint_insula_channels": 216,
+      "old_roi_mixfalse_channels": 234
+    },
+    "SentenceRep": {
+      "rows": 46525,
+      "channels": 4171,
+      "subjects": 30,
+      "midpoint_insula_channels": 71,
+      "old_roi_mixfalse_channels": 82
+    }
+  },
+  "available_stats_files": {
+    "LexicalDelay": 4,
+    "PictureNaming": 12,
+    "SentenceRep": 136
+  },
+  "native_recons": [
+    {
+      "subject": "D0005",
+      "recon_subject": "D5",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0008",
+      "recon_subject": "D8",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0015",
+      "recon_subject": "D15",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0017",
+      "recon_subject": "D17",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0018",
+      "recon_subject": "D18",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0019",
+      "recon_subject": "D19",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0020",
+      "recon_subject": "D20",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0022",
+      "recon_subject": "D22",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0023",
+      "recon_subject": "D23",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0024",
+      "recon_subject": "D24",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0025",
+      "recon_subject": "D25",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0026",
+      "recon_subject": "D26",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0027",
+      "recon_subject": "D27",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0028",
+      "recon_subject": "D28",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0029",
+      "recon_subject": "D29",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0030",
+      "recon_subject": "D30",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0031",
+      "recon_subject": "D31",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0032",
+      "recon_subject": "D32",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0035",
+      "recon_subject": "D35",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0038",
+      "recon_subject": "D38",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0040",
+      "recon_subject": "D40",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0041",
+      "recon_subject": "D41",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0042",
+      "recon_subject": "D42",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0044",
+      "recon_subject": "D44",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0045",
+      "recon_subject": "D45",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0047",
+      "recon_subject": "D47",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0049",
+      "recon_subject": "D49",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0052",
+      "recon_subject": "D52",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0053",
+      "recon_subject": "D53",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0054",
+      "recon_subject": "D54",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0055",
+      "recon_subject": "D55",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0056",
+      "recon_subject": "D56",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0057",
+      "recon_subject": "D57",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0058",
+      "recon_subject": "D58",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0059",
+      "recon_subject": "D59",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0060",
+      "recon_subject": "D60",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0061",
+      "recon_subject": "D61",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0063",
+      "recon_subject": "D63",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0064",
+      "recon_subject": "D64",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0065",
+      "recon_subject": "D65",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0066",
+      "recon_subject": "D66",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0067",
+      "recon_subject": "D67",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0068",
+      "recon_subject": "D68",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0069",
+      "recon_subject": "D69",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0070",
+      "recon_subject": "D70",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0071",
+      "recon_subject": "D71",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0073",
+      "recon_subject": "D73",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0075",
+      "recon_subject": "D75",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0076",
+      "recon_subject": "D76",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0077",
+      "recon_subject": "D77",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0079",
+      "recon_subject": "D79",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0080",
+      "recon_subject": "D80",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0081",
+      "recon_subject": "D81",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0084",
+      "recon_subject": "D84",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0085",
+      "recon_subject": "D85",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0086",
+      "recon_subject": "D86",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0088",
+      "recon_subject": "D88",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0090",
+      "recon_subject": "D90",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0091",
+      "recon_subject": "D91",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0092",
+      "recon_subject": "D92",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0093",
+      "recon_subject": "D93",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0094",
+      "recon_subject": "D94",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0095",
+      "recon_subject": "D95",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0096",
+      "recon_subject": "D96",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0097",
+      "recon_subject": "D97",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0100",
+      "recon_subject": "D100",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0101",
+      "recon_subject": "D101",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0102",
+      "recon_subject": "D102",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0103",
+      "recon_subject": "D103",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0105",
+      "recon_subject": "D105",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0106",
+      "recon_subject": "D106",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0107",
+      "recon_subject": "D107A",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0107",
+      "recon_subject": "D107B",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0108",
+      "recon_subject": "D108",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0115",
+      "recon_subject": "D115",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0117",
+      "recon_subject": "D117",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0118",
+      "recon_subject": "D118",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0119",
+      "recon_subject": "D119",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0121",
+      "recon_subject": "D121",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0122",
+      "recon_subject": "D122",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0123",
+      "recon_subject": "D123",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0125",
+      "recon_subject": "D125",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0126",
+      "recon_subject": "D126",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0127",
+      "recon_subject": "D127",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0128",
+      "recon_subject": "D128",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0129",
+      "recon_subject": "D129",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0130",
+      "recon_subject": "D130",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0131",
+      "recon_subject": "D131",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0132",
+      "recon_subject": "D132",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0134",
+      "recon_subject": "D134",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134_elec_locations_RAS_brainshifted.txt",
+        "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134_elec_locations_RAS.txt"
+      ]
+    },
+    {
+      "subject": "D0135",
+      "recon_subject": "D135",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0137",
+      "recon_subject": "D137",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0138",
+      "recon_subject": "D138",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0139",
+      "recon_subject": "D139A",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A_elec_locations_RAS_brainshifted.txt"
+      ]
+    },
+    {
+      "subject": "D0139",
+      "recon_subject": "D139B",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0140",
+      "recon_subject": "D140",
+      "orig": false,
+      "brainmask": false,
+      "aparc.a2009s+aseg": false,
+      "aseg": false,
+      "ribbon": false,
+      "ras_files": []
+    },
+    {
+      "subject": "D0143",
+      "recon_subject": "D143",
+      "orig": true,
+      "brainmask": true,
+      "aparc.a2009s+aseg": true,
+      "aseg": true,
+      "ribbon": true,
+      "ras_files": [
+        "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143_elec_locations_RAS.txt",
+        "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143_elec_locations_RAS_brainshifted.txt"
+      ]
+    }
+  ],
+  "figures_generated": false,
+  "nmf_rerun": false
+}

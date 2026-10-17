@@ -1,0 +1,6 @@
+task,anatomy_eligible,responsive,confirmed_not_responsive,response_incomplete,stimulus,delay,response
+PhonemeSequence,161,98,0,63,36,55,75
+LexicalDelay,199,115,28,56,49,62,97
+PictureNaming,151,102,0,49,54,48,81
+SentenceRep,53,26,27,0,6,8,20
+ALL_UNIQUE,323,227,2,94,115,132,182
