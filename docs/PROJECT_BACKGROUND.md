@@ -1,68 +1,75 @@
 # Project Background: Insula R01
 
-This document captures the scientific framing and task battery for the Insula R01 analysis workspace.
+This document captures the current manuscript framing and task battery for the Insula R01 analysis workspace. Scientific framing updated on 2026-10-14.
 
 ## Scientific Motivation
 
-The anterior insular cortex (AIC) has been linked to speech production for more than a century, but its role remains unresolved. Lesion and stroke studies associate AIC damage with selective speech deficits, including apraxia of speech, transient mutism, and speech production impairment in primary progressive aphasia. Neuroimaging studies also consistently report AIC activation during speech tasks.
+Lesion, stimulation, neuroimaging, and intracranial recording studies implicate the insula in speech, but the localization and interpretation of its contributions remain debated. Auditory responses, movement-related activity, and disputed accounts of articulatory planning establish the relevance of the insula while leaving its internal functional organization incompletely understood.
 
-These findings have motivated speech-specific accounts in which the AIC acts as an articulatory planner or verbal working memory hub. At the same time, the AIC is also active across many non-speech tasks as part of cognitive control and salience networks. This has motivated domain-general accounts in which AIC activity reflects general control demands rather than speech-specific content.
+The manuscript centers on **the functional architecture of speech within the human insula**. Its motivating question is how speech-related functions are organized within this region. Sensory, sustained, and motor response profiles are findings to characterize, rather than three categories presupposed by that question.
 
-The project is built around the tension between these views. Speech-specific accounts do not explain why AIC engages broadly across non-linguistic cognitive demands. Domain-general accounts do not explain why focal AIC damage can cause selective speech-related deficits.
+The introduction should establish the insula's relevance to speech, explain how existing evidence reveals different aspects of its contribution, and identify the unresolved organizational question. High spatial and temporal resolution enables the study; task contrasts, representational analyses, and behavioral prediction give the functional distinctions their interpretation.
 
-## Overarching Hypothesis
+## Central Findings and Interpretation
 
-The AIC performs domain-general cognitive operations over speech-specific neural representations.
+The current results support spatial differentiation of speech-related functions within the insula:
 
-In this view, AIC is a cognitive-motor interface:
+- Sensory responses provide an auditory reference within the organization and are concentrated toward posterior insular territories.
+- Sustained responses carry decodable articulator-category information during the interval between listening and speaking, supporting an interpretation involving retention of speech-related content.
+- Motor-related responses contribute evidence linking insular activity to speech output, including prediction of trial reaction time.
 
-- Domain-general operations include maintenance and goal/action-directed control.
-- Speech-specific representations include lexical status, phonetic content, and articulator identity.
-- AIC engagement reflects domain-general computations acting on speech-relevant content, rather than a purely speech-specific or purely domain-general function.
+Sustained representation and motor-related behavioral prediction are complementary parts of the paper; neither alone defines its scope. Functional groups may overlap spatially and respond in more than one task phase. Individual anatomy and functional profiles should be examined without equating a broad anterior/posterior partition with functional boundaries.
+
+Use "spatial differentiation" or "functional organization" for the central framing. A continuous functional gradient requires quantitative evidence beyond a smoothed spatial map. Delay-period decoding supports the presence of category-related information without by itself establishing a pure motor code or distinguishing retention from rehearsal and preparation. Reaction-time prediction establishes behavioral relevance without demonstrating causal control of speech initiation. See the decoding and RT methods for the exact inference and validation scope.
 
 ## Core Methods
 
 The project uses stereoelectroencephalography (sEEG) from epilepsy patients with insular coverage. This provides millimeter-scale spatial resolution and millisecond-scale temporal resolution.
 
-Primary analysis modalities include:
+Core manuscript analyses include:
 
 - High-gamma activity (HGA).
 - Multivariate encoding and decoding.
+- Time-resolved reaction-time prediction.
+- Spatial characterization and comparison of functional response profiles.
+
+The broader workspace also supports:
+
 - Micro-wire single-unit recordings.
 - Cortico-cortical evoked potentials (CCEP).
 - Directed functional connectivity.
 
-## Specific Aims
+## Manuscript Questions
 
-### Aim 1: Domain-General Operations
+### Functional Organization
 
-Characterize when and why AIC engages during speech.
+Characterize insular response profiles and their spatial distribution, then test how input modality and behavioral demands modulate them.
 
-- Aim 1.1 tests domain-generality by manipulating content, input modality, and output effector.
-- Aim 1.2 dissociates maintenance from sensory and execution-related activity in space and time.
-- Aim 1.3 tests cognitive demand scaling by comparing delayed repetition with delayed spoken lexical decision.
+- Separate responses associated with input, the delay interval, and output.
+- Compare passive and active conditions, repetition and lexical decision, and auditory and visual inputs where the task design permits.
+- Relate functional profiles to anatomy while accounting for individual variation and electrode coverage.
 
-### Aim 2: Speech-Specific Representations
+### Representational Content
 
-Characterize what speech content AIC encodes.
+Characterize what speech-related information the functional groups carry and when it is available.
 
-- Aim 2.1 tests encoding and decoding of lexical status and phonetic/articulatory content.
-- Aim 2.2 tests cross-task decoding to determine whether representations generalize abstractly across output goals.
-- Aim 2.3 tests whether higher-order and articulatory information coexist within single neurons using micro-wire recordings.
+- Decode articulator categories and lexical status across task phases.
+- Test cross-condition generalization where matching data are available.
+- Interpret sustained delay-period decoding alongside task modulation, without treating sustained activity alone as evidence for working memory.
 
-### Aim 3: Cognitive-Motor Interface
+### Behavioral Relevance and Network Context
 
-Establish where AIC sits in the speech network.
+Assess how activity relates to speech behavior and place the insular functional profiles in their broader cortical context.
 
-- Aim 3.1 maps effective connectivity using CCEP.
-- Aim 3.2 tests directed functional connectivity from cognitive regions through AIC to motor regions.
-- Aim 3.3 uses cross-regional multivariate decoding to characterize information flow.
+- Predict trial reaction time from insular activity, including motor-group sites.
+- Distinguish held-out prediction from post-selection descriptions of HGA amplitude and reaction time.
+- Compare insular response profiles with responses elsewhere in the brain. Waveform similarity is not connectivity; CCEP and other network analyses have separate evidential roles when included.
 
 ## Task Battery
 
 ### Lexical Delay
 
-Purpose: Tests lexical processing and speech production with an explicit delay between stimulus and response. The delay period engages working memory and separates perceptual processing from motor planning.
+Purpose: Tests lexical processing and speech production with an explicit delay between stimulus and response. The delay separates auditory input from vocal output, allowing retention- and preparation-related activity to be examined.
 
 Trial flow:
 
@@ -77,7 +84,7 @@ Conditions:
 
 Typical parameters: 4 blocks x 84 trials, for 336 total trials. Stimuli include high-frequency words, low-frequency words, and non-words.
 
-Used in Aim 1.2, Aim 1.3, Aim 2.1, and Aim 2.2.
+Supports task-context comparisons, delay-period representation, cross-condition decoding, and reaction-time analyses.
 
 ### Lexical No Delay
 
@@ -97,7 +104,7 @@ Conditions:
 
 Typical parameters: 4 blocks x 126 trials, for 504 total trials.
 
-Used in Aim 1.1 and Aim 1.2.
+Supports comparisons of passive listening, repetition, and manual lexical decision. Inclusion in a manuscript panel depends on the analysis actually used there.
 
 ### Picture Naming
 
@@ -121,7 +128,7 @@ Modalities:
 
 Typical parameters: 5 blocks x 72 trials, for 360 total trials. Stimuli are apple, duck, star, and umbrella.
 
-Used in Aim 1.1 for modality manipulation.
+Supports input-modality and active/passive comparisons, as well as reaction-time analyses.
 
 ### Phoneme Sequencing
 
@@ -139,23 +146,23 @@ Conditions:
 
 Typical parameters: 4 blocks x 52 trials, for 208 total trials. Stimuli include 26 CVC and 26 VCV non-words.
 
-Used in Aim 2.1 for articulatory decoding.
+Supports articulator-category decoding across task phases and reaction-time analyses.
 
 ### Environment Sternberg
 
-Purpose: Tests domain-generality of AIC maintenance using non-speech content in a Sternberg working memory structure matched to the speech tasks.
+Purpose: Provides non-speech working-memory comparisons within the broader task battery; its inclusion in the current manuscript depends on the analyses presented.
 
 Design notes:
 
 - Stimuli include environmental sounds and shapes.
 - Responses can be vocal or manual.
 - The delay period is matched to Lexical Delay.
-- This task provides the cleanest contrast with speech content for Aim 1.1.
+- Comparisons with speech tasks can examine the influence of content and response requirements.
 
 ## Analysis Mapping
 
-- Domain-generality analyses compare speech and non-speech content, auditory and visual inputs, and vocal and manual output demands.
-- Maintenance analyses compare passive listening, repetition, and delayed repetition.
-- Cognitive-demand analyses compare delayed repetition with delayed spoken lexical decision.
-- Speech-representation analyses decode lexicality, phonetic content, token identity, and articulator identity.
-- Network analyses combine CCEP, directed connectivity, cross-correlation, and cross-regional decoding.
+- Functional organization: characterize response profiles and their anatomical distributions.
+- Task context: compare input modality, passive/active conditions, and repetition/decision demands using the relevant within-task contrasts.
+- Representation: decode articulator categories and lexicality, including delay-period content and cross-condition generalization.
+- Behavior: predict reaction time and describe HGA–RT associations within their validation limits.
+- Network context: compare extra-insular response profiles; use CCEP or other connectivity analyses only for the claims those methods support.

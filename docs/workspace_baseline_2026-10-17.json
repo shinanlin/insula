@@ -1,0 +1,83 @@
+{
+  "date": "2026-10-17",
+  "purpose": "Inventory of existing ignored analysis outputs before any three-epoch NMF work; this file records fingerprints but does not archive artifact contents.",
+  "source_branch": "functional",
+  "source_commit": "3d6ac966bd66f6e34cc68995af51ffb632ba9181",
+  "artifacts": [
+    {
+      "path": "results/nmf/channel_assignments.csv",
+      "size_bytes": 34088,
+      "sha256": "9c7721bde9cecdc63b757a2316c08c54cf087822e7795069043db16d12990d8b"
+    },
+    {
+      "path": "results/nmf/nmf_manifest.json",
+      "size_bytes": 771,
+      "sha256": "e1820326780b274f65f1cd82570a0f6a43797b26f603873827ec7e19fd19da3c"
+    },
+    {
+      "path": "results/nmf/chosen_k.json",
+      "size_bytes": 175,
+      "sha256": "f02b63914678987ee5a8be89010c06f7e99e3459f7a97a95264e8c7751218d5e"
+    },
+    {
+      "path": "results/nmf/H_by_phase.csv",
+      "size_bytes": 54736,
+      "sha256": "fb57e49a58c8c3e0a2cc577dd35f3f8b784f69e7aefcb141f98bacd473d390bb"
+    },
+    {
+      "path": "results/nmf/rank_selection_meta.json",
+      "size_bytes": 5745,
+      "sha256": "a89c92da8fefff4a9709c1b03224984ec1c7b88397f5b32b6e2a9afebfa7a186"
+    },
+    {
+      "path": "results/nmf/rank_selection_metrics.csv",
+      "size_bytes": 616,
+      "sha256": "b52ab55c3942a44eb334906d72fcb8f57881bcf4a69aa05dbfe91757d634d70d"
+    },
+    {
+      "path": "results/nmf/whole_brain_projection/manifest.json",
+      "size_bytes": 190228,
+      "sha256": "e89e29cd824e741af972268f27482b2a3153072f9046fb2b41c51ddb4705a2d6"
+    },
+    {
+      "path": "img/pub/pub-new_fig1.png",
+      "size_bytes": 2346318,
+      "sha256": "29bfd1d58520003a68c9620c5b59f70a156c72f275f1a661618fa29e19c99ae5"
+    },
+    {
+      "path": "img/pub/pub-new_fig2.png",
+      "size_bytes": 1204610,
+      "sha256": "c4ac401e775f8c95c9a4991c79a7eb8adbdbc83558262fb8a302c77d5ad4ae7e"
+    },
+    {
+      "path": "img/pub/pub-new_fig3-restructured.png",
+      "size_bytes": 1258205,
+      "sha256": "f13c05b471cab92a9eb1a7500053b006361ebe97c5bb90bb872d2ca6c0adf7af"
+    },
+    {
+      "path": "img/pub/pub-new_fig3-restructured.svg",
+      "size_bytes": 1195394,
+      "sha256": "5e6f919b3f0a9c7386bf4e16dd29d57f88d6d615ae0b696e4dea5d4de57c6648"
+    },
+    {
+      "path": "img/pub/pub-new_fig3.png",
+      "size_bytes": 1330516,
+      "sha256": "f6aa41eae5292a9f207c1101fa74c65c0f63bf43b3759984a35a59a775a9e9d4"
+    },
+    {
+      "path": "img/pub/pub-new_fig4.png",
+      "size_bytes": 1080364,
+      "sha256": "fb23dde2ef1b719111a1e9d74e9aeb081b6eecf157bc0a7e18251285b23db7e0"
+    },
+    {
+      "path": "img/pub/pub-new_fig5.png",
+      "size_bytes": 619227,
+      "sha256": "6364ea33d4a6ca29d4f46a1f6cea6b2cc866f3dff950bffa42bc00d75086bc25"
+    },
+    {
+      "path": "img/pub/pub-new_fig6.png",
+      "size_bytes": 1134581,
+      "sha256": "d2110dcaba884da9da70e491ae8de3d7cf39abb12ea9d10228f62d243d9a22f9"
+    }
+  ]
+}

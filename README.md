@@ -1,8 +1,8 @@
 # Insula R01 Analysis Workspace
 
-This repository contains analysis scripts, SLURM launchers, notebooks, and figure-generation code for an Insula R01 project focused on the role of the anterior insular cortex in speech production.
+This repository contains analysis scripts, SLURM launchers, notebooks, and figure-generation code for an Insula R01 project investigating the functional architecture of speech within the human insula.
 
-The working hypothesis is that the anterior insula performs domain-general cognitive operations, such as maintenance and goal/action-directed control, over speech-specific neural representations, such as lexical status and articulator identity. The project uses human sEEG, high-gamma activity, multivariate decoding, CCEP, connectivity, and single-unit data to test this cognitive-motor interface account.
+The central question is how speech-related functions are organized within the insula. The current manuscript examines spatial differentiation of sensory, sustained, and motor response profiles, their modulation by task demands, the speech-related information they carry, and their relationship to behavior. Sustained delay-period articulator decoding and motor-group reaction-time prediction provide complementary evidence for this organization. Functional profiles are characterized before interpreting their anatomical distribution; broad anterior/posterior labels do not define the functional groups. Core analyses use human sEEG, high-gamma activity, multivariate decoding, and reaction-time prediction. The broader workspace also supports CCEP, connectivity, and single-unit analyses.
 
 ## Quick Start
 

@@ -1,0 +1,189 @@
+MANUSCRIPT REVIEW AND NEXT-CONVERSATION HANDOFF
+WRITING STYLE — 2026-10-17
+- Before any manuscript drafting or revision (including chat and Google Docs), read paper/WRITING_STYLE.md. It derives proposed rules from the author's three newly specified papers: nature12935, Cell Reports S2211-1247(25)01555-4, and s41586-021-04270-z.
+- The style file is a draft pending manual author edits, not an approved immutable policy. It separates source observations from this project's editorial choices and links each rule to a verified original example.
+
+LATEST AUTHOR DECISIONS — 2026-10-17 (supersede priorities below)
+- NMF four-epoch versus three-epoch difference is intentional: old results use four; author has decided on three and will rerun after building the manuscript text. Do not block current prose work on NMF provenance or revert the draft to four epochs. Reconcile rank, labels and dependent results when rerunning.
+- Spatial statistics ALREADY EXIST: component-loading differences across insular anatomical subdivisions were tested and will be presented in SI. Do not describe spatial inference as entirely absent. Exact tests remain to be documented; continuous-gradient wording still depends on what was tested.
+- Responsive-site counts will be harmonized later by the author.
+- Immediate prose priorities: restructure Introduction, reorganize RT, replace lexical-semantic with lexical status, and close Discussion on whole-insula architecture rather than sustained/AMN alone.
+- Passive, SI drafting, limitations, abstract/reference/legend completion, numbering, statistics/sample/ethics placeholders remain deferred according to author priorities.
+- These decisions and the review points were added to Google Docs as 10 new native text-anchored comments plus 9 replies to existing anchored threads. Readback verified all 19 operations and unchanged manuscript text. Existing threads were not resolved.
+
+Date: 2026-10-17 (America/New_York)
+Project: /hpc/group/coganlab/nanlinshi/insula-functional
+Authoritative manuscript: https://docs.google.com/document/d/1dZGhk1ID4weFt_eGvOKpWGZnmoHEq43pRB_2kttJKA0/edit
+Review snapshot: paper/manuscript_review_snapshot_2026-10-17.txt
+Scope: all current Google Doc text (one tab, t.0), plus targeted reads of local methodology records and small NMF result files. Embedded images and existing comments were not newly reviewed visually. No Google Doc edits, comments, code changes, reruns, commits or pushes were made during this review.
+Local manuscript_v004 predates this review: do not treat it as the latest draft.
+Approximate whitespace word counts, including section headings: Introduction 368; Results 1467; Discussion 573; Methods 2515. Main Intro+Results+Discussion ~2408. These are not Word or journal-specific counts.
+
+1. USER INTENT AND DEFERRED WORK
+- Target Nature Neuroscience / Neuron; refine argument and evidence first, language second.
+- Chinese discussion, English manuscript.
+- User deliberately defers passive-vs-repetition contrast, Supplementary Information drafting, and the proposed limitations paragraph. Do not reinsert limitations without invitation.
+- The user calls task-comparison problems “second part”; identify sections by their content because numbered Results have six headings.
+- Current request is review plus durable handoff, not permission to rewrite the live document.
+- Future doc comments must be genuinely anchored to target text. Prior unanchored comments were frustrating. Existing comments should be read before duplicating/resolving them.
+- Preserve unrelated dirty workspace files. No heavy computation on login node; use Slurm for analyses.
+
+2. CENTRAL CLAIM AND ACCEPTED ARGUMENT
+Working title in current Doc: “Distinct speech functions are spatially organized within the human insula.”
+Preferred formulation: “the functional architecture of speech within the human insula.”
+Core finding: partially overlapping spatial distributions of sensory (posterior preference), sustained (dorsal anterior preference), and motor (middle preference) temporal response profiles, with task sensitivity, decodable speech content, RT associations and broader cortical temporal-profile correspondence.
+Avoid reducing the paper to “insula also participates in language,” a more detailed map alone, or the old anterior-insula cognitive–motor-interface grant story.
+Do not make sustained/AMN the entire manuscript; use it to interpret one part of the whole-insula architecture.
+NMF identifies temporal patterns first. Task comparisons give functional meaning. Decoding asks what information they carry; RT asks how activity relates to behavior; whole-brain projection situates profiles in distributed activity.
+Main Results sequence:
+1 widespread recruitment;
+2 NMF temporal profiles, rank evidence, spatial distributions, electrode assignment;
+3 auditory-vs-picture and decision-vs-repetition task comparisons (passive deferred);
+4 phonetic-category then lexical-status decoding and cross-task generalization;
+5 RT;
+6 whole-brain temporal projection.
+User prefers narrative to follow panel order. Agreed RT panel sequence using old letters: A, B, D, E, F, G, C; remap labels after final layout.
+
+3. TOP-PRIORITY FINDINGS: VERIFIED VERSION DIFFERENCES
+These are factual differences in currently accessible files, not proof that every latest figure uses the wrong analysis. Resolve each figure’s actual provenance first.
+
+A. Electrode assignments are not uniformly maximum-loading assignments.
+Current Google Results (start 4435) says each electrode is assigned to its largest spatial weight.
+Direct read of results/nmf/channel_assignments.csv: 255 sites, 63 subjects; sensory=39, sustain=83, motor=133.
+SHA256: 9c7721bde9cecdc63b757a2316c08c54cf087822e7795069043db16d12990d8b
+Nine saved labels are sustain although largest loading is motor:
+D0057_RAI3-4, D0057_RAI4-5, D0057_RAI5-6,
+D0084_RAI2-3, D0084_RAI3-4, D0084_RAI4-5,
+D0090_RIA4-5, D0102_RFAI1-2, D0119_RIA4-5.
+results/nmf/label_overrides.csv explicitly records three overrides (D0084_RAI2-3, D0084_RAI3-4, D0119_RIA4-5) on 2026-09-21, reasons involving image-stimulus responsiveness. W/H were unchanged.
+docs/methodology/02_nmf.md records six older discrepancies with incompletely traced rationale; do not invent explanations.
+If image-response-based overrides were used to support sustained image responsiveness, the comparison is not wholly independent of classification. This is conditional on the figure using those labels. Establish exact inputs, then consider a pure-argmax sensitivity analysis or transparent treatment of overrides.
+Older decoding inputs / RT summaries reportedly use different assignment hashes. This review did not reopen every H5 to reconfirm; see docs/methodology/04_decoding.md and 05_rt.md for audit leads.
+
+B. NMF fitted epochs differ from manuscript epochs.
+Google Methods (25792): stimulus 0–0.6 s, delay 0–1 s, response 0–1 s; three epochs.
+Direct current results/nmf/nmf_manifest.json and rank_selection_meta.json: stimulus (0,1), delay (0,1), GO (0,1), response (0,0.5); four epochs; 255×444 matrix.
+Do not silently change either manuscript or analysis. Determine which model supplied Fig2 and all downstream labels/templates. Display windows are not necessarily fitting windows.
+Internal task name SentenceRep does not establish that sentence trials were analyzed: user says only single-word data are used and wants manuscript name “Single-word repetition task.”
+
+C. Rank-selection rationale is inconsistent.
+Google Results: cosine silhouette similar at K2/K3 and declining thereafter; retain K3 for greater response diversity.
+Google Methods: max cophenetic correlation of subsampling consensus.
+Direct chosen_k.json rule=max_cophenetic; K3; near ties K2,3,4 at delta .02.
+Method audit values: cophenetic K2=.998463, K3=.998703; silhouette K2=.336291, K3=.318636. K3 is not silhouette maximum.
+Describe primary rule and complementary evidence consistently, with honest near-equivalence. PCA separation from the same input is not independent confirmation of true biological types.
+
+4. MANUSCRIPT-SCALE SCIENTIFIC AND EDITORIAL PRIORITIES
+A. Evidence for spatial organization must match title and conclusion.
+Results describes maps of weights and regional preferences; Methods describes surface smoothing. Retrieved text does not specify a formal population-aware spatial test.
+Clarify whether spatial separation is descriptive or formally quantified, and where sampling density and within-subject dependence enter. If stronger gradient claims are retained, require the actual supporting analysis; anatomical preferences alone are not a measured continuous gradient.
+Methods currently omits maximum-W assignment and scaling convention even though Results mentions assignment. NMF scale ambiguity makes norm-normalized H / compensating W scaling important.
+Freeze sample flow: total cohort -> insular coverage -> responsive -> NMF -> analysis-specific sites/participants. A full SI table can wait; core denominators cannot.
+
+B. RT is the least finished prose and the largest interpretation jump.
+Google Results starts 10707 and 12033 contain duplicated/fractured sentences and repeat the fast/slow observation after the prediction narrative.
+Closing claim: “participate ... in the speech planning network” is stronger than current evidence.
+Separate:
+(1) held-out RT prediction,
+(2) post-selection descriptive HGA–RT correlation,
+(3) interpretation involving preparation/initiation.
+Go-window start<0 does not mean window ends before Go or before articulation. The current Methods explicitly selects predictive windows beginning before Go.
+Fixed selected sites/windows in subsequent correlation permutation do not account for the earlier selection. Treat direction analysis as descriptive unless selection is independent or repeated inside inference.
+Local method audit: fast/slow waveforms themselves use RT-selected sites. If confirmed for the figure, describe B as illustration rather than an independent discovery that motivated selection.
+Local audit says RT training had no universal >2s exclusion, while manuscript says >2s removed; and Delay/Go vs Response were run as separate correction families, while manuscript implies all epochs. Verify actual run manifests before revising these claims.
+Do not pool multiple tasks per person as independent subjects. Report the actual summary unit.
+Articulatory-category decoding, sustained delay activity and motor RT effects need not come from identical electrodes; do not combine them into one “anterior insula planning mechanism” without demonstrating overlap.
+
+C. Task-comparison Methods are missing.
+The Doc has activation-vs-baseline tests, decoding tests, RT tests, but no adequate account of auditory/picture or decision/repeat inferential comparisons.
+Need matched task/condition definition, electrodes/participants, windows, scalar/time-series statistic, inference unit, correction family. Can fit within preprocessing/statistics or a concise task-comparison subsection.
+Discussion and Results must distinguish “significant in both modalities” from equal responses or modality invariance; and significant sustained contrast with nonsignificant others from a population×condition interaction.
+Current auditory/picture Results is still rough prose (“repetition circuit”, “taking input information”) and lacks quantitative effect/statistics/figure callout.
+Current task description introduces pictures and sounds but later says “read the written word aloud” without introducing the text condition. Reconcile actual conditions used.
+Decision and repetition match input/output modality, not response content, difficulty, or unique cognitive-control process.
+Local docs/methodology/03_context.md describes older mixtures of tasks and metrics. Some current notebooks are newer/dirty. Use it to locate risks, not assume it describes the latest supplied figure.
+
+D. Decoding interpretation and reproducibility need a focused pass.
+Current lexical paragraph (9118) says “lexical-semantic”, “only component”, and sensory effect “due to saying yes and no.”
+Word-vs-pseudoword supports lexical-status information, not uniquely semantics. Yes/no is a plausible response-related explanation unless directly controlled. “Only” must be scoped to phase/condition and supported by results.
+PS articulatory labels describe phonetic categories; sensory-stage decoding is not evidence of articulator movements occurring then.
+Current PS Methods omits cross-subject pseudo-population assembly and missing-data handling. LD describes pooling, but both need actual sample/feature interpretation.
+Trial-CV PS vs item-grouped LD support different generalization claims. Across-task decoding does not establish abstract semantics or remove all acoustic/phonotactic influences.
+The two decoding tasks and phase-specific site selection mean “same population class carries both” is not automatically “same neurons carry both.”
+Phonetic paragraph and section ending repeat nearly the same conclusion; remove repeated summaries after claims are settled.
+
+E. Whole-brain projection and Discussion must retain measurement distinctions.
+NNLS projection shows temporal resemblance to fixed templates. It does not measure information flow, causal coupling, or functional connectivity.
+Current Discussion (14619) says connectivity differences “leads to” diverse function: use a supported anatomical interpretation, not a tested causal result.
+Current projection rationale “due to sparsity ... chose projection” is incomplete; explain why testing recurrence of fixed insular profiles addresses the question.
+Spatial projection Methods distinguishes normalized energy-weighted specificity from raw weights; Results/legend should refer to what is actually displayed.
+Cross-species connectivity / CCEP / tractography have different specificity; do not compress all into exact anterior-frontal / middle-motor / posterior-temporal one-to-one mapping.
+
+F. Intro and Discussion need consolidation, not more topics.
+Intro paragraphs 1 and 2 both open with diverse/conflicting roles. Give paragraph1 importance + organizing question; paragraph2 evidence and precise interpretive gap.
+Intro contains old grammar (“lesions and electrical stimulation to can”, “diverse from ...”); polish after scientific reconciliation.
+Discussion 1 summarizes findings; 2 connectivity; 3 controversy; 4 specialized/general + sustained + AMN. This is a coherent structure. User declines limitations for now.
+Discussion3 “century-long” is unsupported as written; older iEEG already had high temporal resolution. Discuss task/coverage/localization constraints alongside modality-specific resolution limits.
+Discussion3 merges anterior-insula movement information with RT; identify distinct evidence and locations rather than asserting a single established mechanism.
+AMN paragraph should remain a compatible interpretation, not confirmed membership. Multimodal responses do not demonstrate domain-generality by themselves. A language-nonselective region can still carry speech content.
+A brief return to whole-insula architecture at the end can prevent sustained/AMN from appearing to replace the paper’s main claim. This is optional, not a new section requirement.
+
+G. Completion items separate from deferred SI.
+Current text has no Abstract or reference list, and no full figure legends in returned paragraphs. Check whether maintained separately before creating them.
+Literature claims currently lack citations even where drafts previously had them. Build claim→source attribution with verified versions.
+Figure references conflict: decoding Fig4; RT still Fig4; whole-brain Results Fig5 vs Discussion Fig6. Freeze six-figure numbering and panel order.
+Resolve [N], statistics, pseudoword, acquisition/ethics placeholders. Keep unknowns explicit until verified; never invent.
+Do not equate lack of significant lateralization with bilateral equality, or 8.8% of responsive sampled sites with equal functional importance to STG/IFG.
+Check primary spatial-map legend/statistic and selection units before polishing headings.
+
+5. STYLE TO PRESERVE
+- Plain, compact academic English; concrete observations before interpretation.
+- Paragraph sequence: specific question -> minimal design contrast -> finding + figure/statistic -> one warranted inference.
+- Discussion develops significance; avoid re-listing panels, stacking citations, or generic claims that all findings “provide a framework.”
+- Do not introduce many caveats into every sentence; fix the evidence/claim match directly.
+- Avoid repetition of “Together, these findings...”, inflated claims, “fundamental” without content, “cascade” without sequential evidence, and “entire speech process” as universal coverage.
+- Preserve phonetic / articulatory-category vs lexical-status terminology, sustained (not sustain in prose), task vs condition, bipolar recording sites vs physical contacts, participants vs subject×task units.
+- Results temporal profiles first; independent task evidence next. Descriptive names are not proof of specific functions.
+- Established scientific distinction: speech content specificity is different from language-domain selectivity.
+- No old grant cognitive–motor-interface recentering.
+- Apply user’s requested paragraph/panel order when scientifically coherent.
+
+Style reference articles:
+Liu et al. 2025, Speech sequencing in the human precentral gyrus:
+https://doi.org/10.1038/s41562-025-02250-1
+Castellucci et al. 2022, A speech planning network for interactive language use:
+https://doi.org/10.1038/s41586-021-04270-z
+Castellucci et al., Neural activity flows through cortical subnetworks during speech production:
+https://doi.org/10.1016/j.celrep.2025.116783
+Cogan et al. 2017, Manipulating stored phonological input during verbal working memory:
+https://doi.org/10.1038/nn.4459
+Read actual relevant sections when needed; emulate clear structure, do not reproduce wording.
+
+6. LITERATURE KNOWLEDGE TO RETAIN (previously checked; recheck exact claims before citation)
+- Woolnough 2019, https://doi.org/10.7554/eLife.53086: high temporal resolution iEEG; sparse anterior pre-articulatory responses, posterior auditory/post-articulation effects. Do not dismiss all previous work as temporally inadequate.
+- Kerezoudis et al. published PNAS 2026, https://doi.org/10.1073/pnas.2517734123 (local card still 2025 preprint): simple tongue/hand/foot movements, effector-specific M1 connectivity, insula activation precedes EMG but follows M1. Supports motor involvement, not direct proof of speech planning.
+- Berger et al. 2026 J Neurosci, https://doi.org/10.1523/JNEUROSCI.1201-25.2025: passive tones/clicks; responsive single neurons more common posteriorly and present in smaller anterior subset. No claim that all insula neurons respond or that single units establish causal necessity.
+- Battistella 2018, https://pmc.ncbi.nlm.nih.gov/articles/PMC5970053/: target-based tractography BA44/BA4/BA22 and anterior/middle/posterior preferences; targets predefined.
+- Pinheiro 2026 CCEP, https://pmc.ncbi.nlm.nih.gov/articles/PMC12934889/: previously verified preprint; broad frontal/anterior and temporal/sensorimotor posterior patterns with dorsoventral differences; not exact three-way mapping.
+- Charbonneau 2026 cross-species review, https://www.nature.com/articles/s41593-026-02380-3: Fig2 macaque/rat corticocortical connectivity. User inspected Fig2; assistant previously verified abstract/figure title, not full image. Do not pretend visual confirmation.
+- Quabs cytoarchitecture: https://doi.org/10.1016/j.neuroimage.2022.119453 and https://doi.org/10.1002/hbm.70231. Cytoarchitecture is not cell-type identity; dorsal anterior human insula includes dysgranular areas. User wants connectivity mainline, microstructure optional one sentence.
+- Fedorenko & Thompson-Schill 2014 TICS, https://doi.org/10.1016/j.tics.2013.12.006: core/periphery framework, does not explicitly identify whole insula as periphery.
+- Fedorenko & Blank 2020 TICS, https://pmc.ncbi.nlm.nih.gov/articles/PMC7211504/: language-selective and MD portions of IFG; domain-general areas also in anterior insula.
+- Hertrich et al. 2020, The Margins of the Language Network in the Brain: https://doi.org/10.3389/fcomm.2020.519955, Frontiers in Communication, NOT NeuroImage.
+- User’s remembered NeuroImage “peripheral insula language network” article remains unconfirmed. Do not cite a guessed match.
+- Dosenbach et al. 2025, https://doi.org/10.1038/s41583-024-00895-x; Badke D’Andrea et al. 2025, https://doi.org/10.1073/pnas.2502021122: AMN goal maintenance/action selection/control; anterior insula in Decision subnetwork. No one-to-one mapping of our three temporal components onto Decision/Action/Feedback.
+- Excluded by user: Hao & Kamigaki Science Advances 2025 and Kayyal Nat Neurosci 2025. Do not reintroduce.
+
+7. RECOMMENDED NEXT-CONVERSATION START
+First read the current Google Doc (may have changed) and this handoff. Then:
+1. Resolve which NMF fit and electrode-label version underlie every current figure/decoding/RT dataset; make an internal provenance table. No unrequested reruns.
+2. Align the central spatial-organization claim with its actual statistics and sampling support.
+3. Rewrite RT around prediction vs descriptive correlation, with exact windows and inference scope.
+4. Complete task-comparison Methods and quantitative Results; passive remains deferred.
+5. Tighten lexical decoding and Discussion inferences.
+6. Finally unify Intro/Results/Discussion phrasing, citations, figure numbering and legends; prepare Abstract after claims settle.
+Keep unknown facts and scientific decisions separate from routine copyediting. Never silently replace unknown values with plausible numbers.
+
+Suggested prompt for the next conversation:
+“请先读 paper/MANUSCRIPT_REFINEMENT_HANDOFF_2026-10-17.txt，再读取其中链接的 Google Doc 最新版。我们暂时搁置 passive、SI 和 limitations，不直接改正文。先核实 NMF 的分析版本、标签归类及后续图/decoding/RT 的一致性，形成必须确认的事项清单，再按优先级协助我逐段 refine。保留现有 whole-insula functional architecture 主线和简洁的写作风格。”
+

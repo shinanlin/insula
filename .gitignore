@@ -13,6 +13,8 @@ viewer/hga_explorer/public/data/manifest.json
 
 img/
 tmp/
+# Local participant mapping workbook; retain outside version control.
+stim/Participant Mapping Data.xlsx
 .pytest_cache/
 __pycache__/
 .vscode/
