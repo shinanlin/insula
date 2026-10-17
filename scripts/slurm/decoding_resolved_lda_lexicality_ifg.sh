@@ -7,16 +7,17 @@
 #SBATCH --cpus-per-task=16
 #SBATCH --partition=common,scavenger
 #SBATCH --chdir=/hpc/group/coganlab/nanlinshi/insula-functional
-#SBATCH --array=0-1
+#SBATCH --array=0-5
 
-# SHI-59: IFGl Delay within-condition lexicality LDA. Gate the 2D cross jobs
-# on a non-empty curve. 1 ROI × Delay × Repeat/Decision = 2.
+# IFGl within-condition lexicality LDA. The worker skips complete outputs, so
+# the existing Delay results are preserved while Stimulus/Response are filled.
+# 1 ROI × 3 phases × Repeat/Decision = 6 tasks (4 compute, 2 skip).
 
 export TASK=LexicalDelay
 export DATATYPES=lexicality
 export SUBJECTS=IFGl
-export PHASES=Delay
+export PHASES="Stimulus Delay Response"
 export N_PERM=5000
-export EXPECTED_JOBS=2
+export EXPECTED_JOBS=6
 
 bash scripts/decoding_resolved_lda_worker.sh
