@@ -1,16 +1,16 @@
 #!/bin/bash
 #SBATCH --job-name=nmf_3phase_fit
-#SBATCH --output=/cwork/ns458/insula-functional-k3-three-phase/logs/slurm/nmf_3phase_fit_%j.out
-#SBATCH --error=/cwork/ns458/insula-functional-k3-three-phase/logs/slurm/nmf_3phase_fit_%j.err
+#SBATCH --output=/cwork/ns458/insula-paper/logs/slurm/nmf_3phase_fit_%j.out
+#SBATCH --error=/cwork/ns458/insula-paper/logs/slurm/nmf_3phase_fit_%j.err
 #SBATCH --time=04:00:00
 #SBATCH --mem=48G
 #SBATCH --cpus-per-task=8
 #SBATCH --partition=common
-#SBATCH --chdir=/cwork/ns458/insula-functional-k3-three-phase
+#SBATCH --chdir=/cwork/ns458/insula-paper
 
 set -euo pipefail
 
-WORKTREE=/cwork/ns458/insula-functional-k3-three-phase
+WORKTREE=/cwork/ns458/insula-paper
 SOURCE_RESULTS=/hpc/group/coganlab/nanlinshi/insula-functional/results
 [[ "$(pwd -P)" == "$WORKTREE" ]] || { echo "Wrong working directory" >&2; exit 2; }
 for output in "$WORKTREE/results" "$WORKTREE/results/nmf" "$WORKTREE/img" "$WORKTREE/img/nmf"; do

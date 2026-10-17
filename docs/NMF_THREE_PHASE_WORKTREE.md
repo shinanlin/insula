@@ -1,6 +1,6 @@
-# Three-phase NMF worktree
+# Insula Paper worktree
 
-This worktree is on branch `codex/nmf-k3-three-phase`, based on the frozen
+This worktree is at `/cwork/ns458/insula-paper`, on branch `codex/paper`, based on the frozen
 four-phase checkpoint `ccee0aa`. Its purpose is to fit K=3 to Stimulus,
 Delay, and Response, omitting Go from the concatenated input.
 
