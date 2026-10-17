@@ -1,0 +1,4317 @@
+[
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/aparc+aseg.mgz",
+    "bytes": 394987,
+    "sha256": "e89cc3952f07925dc958d319f99077b794339b0ab3466eac907a838d7d349a77"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 426991,
+    "sha256": "649815c6b8b3f8eb58271b9ac67afbbd564ad3c779c4662d5e1ee599867a2446"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/aseg.mgz",
+    "bytes": 335055,
+    "sha256": "d6a27b8abce6029b30c6174201d2116bf20614c6610be85053b414378380beeb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/brainmask.mgz",
+    "bytes": 1372257,
+    "sha256": "515b8f26091d9318f3d3c88bb7d1c0f6906d58e0d16afa4c9949e5a981f6e26b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/orig.mgz",
+    "bytes": 7837181,
+    "sha256": "2b61b54a35bc21f77fbcccc759d3e2a7113e18a5d27987390970cb9138567c12"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/ribbon.mgz",
+    "bytes": 205366,
+    "sha256": "612ff94d54e0c8d2347ec614010e11289fa14bee37fd2d62b7a4eba90c3ec4ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/mri/wm.mgz",
+    "bytes": 388986,
+    "sha256": "1480ab1deba9bf8e7d8472564ed6d56a3ca8f38c7e4976c0c500a390a64fcb54"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.electrodeNames",
+    "bytes": 1059,
+    "sha256": "7925f5a79e01d329f3773dd3f53163627d1b5130c528c344953244c4546bb846"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.LEPTO",
+    "bytes": 3237,
+    "sha256": "c59593442514e4cf67c19b3b2c4dd0a2fd86a0e8b184fda777c4bfcc6224acd7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.LEPTOVOX",
+    "bytes": 3298,
+    "sha256": "873b33fe436afc5a7bec852c4bd8b9bd3647fb45f1e0c8a76a10232653b98968"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.PIAL",
+    "bytes": 3237,
+    "sha256": "c59593442514e4cf67c19b3b2c4dd0a2fd86a0e8b184fda777c4bfcc6224acd7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.PIALVOX",
+    "bytes": 3298,
+    "sha256": "873b33fe436afc5a7bec852c4bd8b9bd3647fb45f1e0c8a76a10232653b98968"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22.POSTIMPLANT",
+    "bytes": 3237,
+    "sha256": "c59593442514e4cf67c19b3b2c4dd0a2fd86a0e8b184fda777c4bfcc6224acd7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22_elec_locations_RAS.txt",
+    "bytes": 4253,
+    "sha256": "c6f7ce2fe3e566f7086de227240c4236ebf6da6f62d2dbbcd891823981fd457c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D22/elec_recon/D22_elec_locations_RAS_brainshifted.txt",
+    "bytes": 4253,
+    "sha256": "c6f7ce2fe3e566f7086de227240c4236ebf6da6f62d2dbbcd891823981fd457c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/aparc+aseg.mgz",
+    "bytes": 453595,
+    "sha256": "bf9b75938fd787b89d3adfeadd80a46d70e73dc8c75916d6fb1ff24a6e2b01fe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 494051,
+    "sha256": "e6956dd58f38ee1614bab5580cb85a38d6e271c648d5e69f8b39ba85f92faed2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/aseg.mgz",
+    "bytes": 387329,
+    "sha256": "bbdd972284e8ebf7e8462734c9f63976f9491fd540de0384d88a1f5555c9b353"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/brainmask.mgz",
+    "bytes": 1421071,
+    "sha256": "b89d57795053cb55bcf72d48545ffad6a2db7106920f45d5d8591840245bac5f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/orig.mgz",
+    "bytes": 8305153,
+    "sha256": "02caeedf45dd734206941bb66450642e2b622f3763cd585413012862d07e5938"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/ribbon.mgz",
+    "bytes": 242178,
+    "sha256": "b0d8467c6107572e94322bab8990b43d043553efec1048466cf4a9450d60a8b2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/mri/wm.mgz",
+    "bytes": 592298,
+    "sha256": "03c281dc62a6474a9df972655e8d65e68c515240473fb75d77a80976d885ec88"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.electrodeNames",
+    "bytes": 1292,
+    "sha256": "b2eccd81317b8e8e7ef2f8e3da0f547b4e00fcb4410bee0a6ba6627a4b3efe2c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.LEPTO",
+    "bytes": 3745,
+    "sha256": "669dec3fc11748bf73383b2aee4492d78022edd4fd2d91bcf4914052a10d1e35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.LEPTOVOX",
+    "bytes": 3905,
+    "sha256": "9bed5dd78de643e1b37abebcf8b25b4dc31a53abb451f54de309ae67a2ab05c6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.PIAL",
+    "bytes": 3745,
+    "sha256": "669dec3fc11748bf73383b2aee4492d78022edd4fd2d91bcf4914052a10d1e35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.PIALVOX",
+    "bytes": 3905,
+    "sha256": "9bed5dd78de643e1b37abebcf8b25b4dc31a53abb451f54de309ae67a2ab05c6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23.POSTIMPLANT",
+    "bytes": 3745,
+    "sha256": "669dec3fc11748bf73383b2aee4492d78022edd4fd2d91bcf4914052a10d1e35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23_elec_locations_RAS.txt",
+    "bytes": 5030,
+    "sha256": "5e4c336bf948d4ac173231c908c3271302b88bac8c31f68638327d11c5d5a872"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/D23_elec_locations_RAS_brainshifted.txt",
+    "bytes": 5015,
+    "sha256": "8598d66c672a911ce72c8ac948796da2fc1449ff023b1a861825d7f8dbabb735"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D23/elec_recon/OLD_D23.electrodeNames",
+    "bytes": 1292,
+    "sha256": "e5c3724d8a8cd12e73354ad90c7f3f295b9eab2d4cdf6ae647134ffa3eec8a1d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/aparc+aseg.mgz",
+    "bytes": 342010,
+    "sha256": "ac295f8cb3c7a0da19f786f12816a1f704b6fac292708ae797481323dd331c40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 368335,
+    "sha256": "1fc52f67b0de7443370a371bf32dfeba119d1fe73615ec188f9f333cc2c9b076"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/aseg.mgz",
+    "bytes": 293567,
+    "sha256": "dc9efa28defd4ec6eab5a5e0b99a7f2b0996efdd0ac80e53031d430b5aec63e8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/brainmask.mgz",
+    "bytes": 1094873,
+    "sha256": "ac71fe21ebaf1e8c2d02bc52c32a1510d9d99c76300fda10c00b46024063b413"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/orig.mgz",
+    "bytes": 4698906,
+    "sha256": "56d33dd1b215bb6cc55d413319911e79355ce2bd7f9894662a350e095c29448d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/ribbon.mgz",
+    "bytes": 178282,
+    "sha256": "0065b072ca85b0a93c3a6aeac89a24909b9713677aa3c3270edc60749db1dfe1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/mri/wm.mgz",
+    "bytes": 368262,
+    "sha256": "957aa2898b1a6ae5cf94d604c6cd704a3094cbc4833852c89416e4883569cd39"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.electrodeNames",
+    "bytes": 1634,
+    "sha256": "5098ea8f20f996f8e7613244aaed12e53d5dbad8fe749e91fe0db1fc55b906f9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.LEPTO",
+    "bytes": 5085,
+    "sha256": "c79f92d9b2482004cba9c1a3b58f14e9696c68c013c206b592fdaafbb27b3828"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.LEPTOVOX",
+    "bytes": 5279,
+    "sha256": "cb39e7f914797ce90a5d522805744fefde55662848c302826f7134edc96fd1e5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.PIAL",
+    "bytes": 5085,
+    "sha256": "c79f92d9b2482004cba9c1a3b58f14e9696c68c013c206b592fdaafbb27b3828"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.PIALVOX",
+    "bytes": 5279,
+    "sha256": "cb39e7f914797ce90a5d522805744fefde55662848c302826f7134edc96fd1e5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32.POSTIMPLANT",
+    "bytes": 5085,
+    "sha256": "c79f92d9b2482004cba9c1a3b58f14e9696c68c013c206b592fdaafbb27b3828"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32_elec_locations_RAS.txt",
+    "bytes": 6734,
+    "sha256": "399c81be8a534338897890d19233904605554299d2ec70edd038db78a1a82189"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D32/elec_recon/D32_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6734,
+    "sha256": "399c81be8a534338897890d19233904605554299d2ec70edd038db78a1a82189"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/aparc+aseg.mgz",
+    "bytes": 427388,
+    "sha256": "874d5c5cd33f421afc2ec965bb717f0da12b8dff6e5d4ca3b3f0b1908d456634"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 461633,
+    "sha256": "5a7d23eef7329296215b580f857b0459ae4d348023fc3a8fa6ad0b6b8c05caa4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/aseg.mgz",
+    "bytes": 362819,
+    "sha256": "2309c4a249bb6a4ed690cac0fd60eca7df60266dc292f29a4f895458c3ff72c2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/brainmask.mgz",
+    "bytes": 1467674,
+    "sha256": "49ec02b6f5c80618add53784a67da5a929e7b5716a6e038701c7cacef3e6ccd9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/orig.mgz",
+    "bytes": 10229575,
+    "sha256": "1260229272e2e7c3ac33397bcfb8e7a556d2bff0b0cc81d94098826286ce32c9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/ribbon.mgz",
+    "bytes": 226636,
+    "sha256": "92c794008549c74f377761f62b43a51344519b2edb080bcfb56edbdf9d2ecac5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/mri/wm.mgz",
+    "bytes": 563952,
+    "sha256": "c8a09505d6b1198a3e9f9d787a4c5a0995ed1eaff2f71d2b3609588d44bcd95d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.electrodeNames",
+    "bytes": 1809,
+    "sha256": "42c45fb28ad111083c9dd05f5268043e5847ab792a673fc0f2afc48953420de1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.electrodeNames_orig",
+    "bytes": 1809,
+    "sha256": "42c45fb28ad111083c9dd05f5268043e5847ab792a673fc0f2afc48953420de1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.LEPTO",
+    "bytes": 5435,
+    "sha256": "6d16fffb6aefa431b33f9d08da5b7eb1fef44272444f42aee1181e09755b828c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.LEPTOVOX",
+    "bytes": 5718,
+    "sha256": "3974e1bc3b532705d2362b81304aabb9b9cbe0f1e957a3c28d047e87bd86e9a0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.PIAL",
+    "bytes": 5435,
+    "sha256": "6d16fffb6aefa431b33f9d08da5b7eb1fef44272444f42aee1181e09755b828c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.PIALVOX",
+    "bytes": 5718,
+    "sha256": "3974e1bc3b532705d2362b81304aabb9b9cbe0f1e957a3c28d047e87bd86e9a0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35.POSTIMPLANT",
+    "bytes": 5435,
+    "sha256": "6d16fffb6aefa431b33f9d08da5b7eb1fef44272444f42aee1181e09755b828c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35_elec_locations_RAS.txt",
+    "bytes": 7308,
+    "sha256": "8ff29975f285953554ce377fa80c2fbe8d281508b1ff6f2ccb42c3d13a907831"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D35/elec_recon/D35_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7308,
+    "sha256": "8ff29975f285953554ce377fa80c2fbe8d281508b1ff6f2ccb42c3d13a907831"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/aparc+aseg.mgz",
+    "bytes": 412802,
+    "sha256": "29d8cd67add9696a90b55938e3a57e0c8fb4e993a024c58472c23e3fca4cdb2e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 447387,
+    "sha256": "9c6f33fc92e8a4b04e00ae237d94d60a201710cf025b786f7c77f4a709e37881"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/aseg.mgz",
+    "bytes": 355395,
+    "sha256": "9b99b0a56746e6f123b5bcc80924bab0aaf11ec579a785185f207160d120af2c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/brainmask.mgz",
+    "bytes": 1400058,
+    "sha256": "a66f243c1f3c214bd594947b1b01bfa6eb1e4792bade868080530128cc646c07"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/orig.mgz",
+    "bytes": 7196333,
+    "sha256": "1820747c217866dd1128f4d56c617e36adfe1409cab3a06ff81e3636bcd2388b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/ribbon.mgz",
+    "bytes": 223065,
+    "sha256": "22b7ea9a34654f21eac3d470d0c5d04b457829e92dc9cd81985ffb8658171a07"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/mri/wm.mgz",
+    "bytes": 403378,
+    "sha256": "6f0d685f8b13b736b597a62338bcf2f394b5633cad1216805f35534690b26f1b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.electrodeNames",
+    "bytes": 2150,
+    "sha256": "4f47435138248a77d766c904ddf07f28dab7f83090079d53136bdb4d2384e0b6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.electrodeNames_orig",
+    "bytes": 2150,
+    "sha256": "4f47435138248a77d766c904ddf07f28dab7f83090079d53136bdb4d2384e0b6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.LEPTO",
+    "bytes": 6468,
+    "sha256": "2b60538d332416683982d2820c40089da2f0a1e2b8c4455599ade11957335eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.LEPTOVOX",
+    "bytes": 6885,
+    "sha256": "098092cd3800df21b5f75748a7a63d680385e48c0ebe6609b87fbcebd87e2dfb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.PIAL",
+    "bytes": 6468,
+    "sha256": "2b60538d332416683982d2820c40089da2f0a1e2b8c4455599ade11957335eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.PIALVOX",
+    "bytes": 6885,
+    "sha256": "098092cd3800df21b5f75748a7a63d680385e48c0ebe6609b87fbcebd87e2dfb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38.POSTIMPLANT",
+    "bytes": 6468,
+    "sha256": "2b60538d332416683982d2820c40089da2f0a1e2b8c4455599ade11957335eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38_elec_locations_RAS.txt",
+    "bytes": 8720,
+    "sha256": "4329a3ae2d2d7980a2e1c5896f3eac2361c77ba9d537968111198116384423eb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D38/elec_recon/D38_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8720,
+    "sha256": "4329a3ae2d2d7980a2e1c5896f3eac2361c77ba9d537968111198116384423eb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/aparc+aseg.mgz",
+    "bytes": 388886,
+    "sha256": "b5b186bd03400f84c3bb67715d0965a9ecd1bf4fd3da2f1e089d075076f103c9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 417225,
+    "sha256": "342640c95e9ab1476d91c533a67097252b905768c6593fe4fea0a778d135eda5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/aseg.mgz",
+    "bytes": 336394,
+    "sha256": "eb87841f3e4fe3b2c59ae13cca4da8800eb1c7abc6048f060e9e0caa8d3acd59"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/brainmask.mgz",
+    "bytes": 1359231,
+    "sha256": "7e5313d08e36e1f7ac53a1255f6713b8448b3b98edc0a6dafccfd0a021abdb03"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/orig.mgz",
+    "bytes": 5718851,
+    "sha256": "a25e453dd9714dd5790f92af70f6ff1678fb832455899a2eb895cc39423ea940"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/ribbon.mgz",
+    "bytes": 201246,
+    "sha256": "c17034e263f67b04d14fe140c33ffcf8d8ef3499405f36a533e24cd4a480809f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/mri/wm.mgz",
+    "bytes": 510612,
+    "sha256": "fea49c265c6f08b68c8cfb5fd74999e94d0b5d91978e1717db12e700c4ed556e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.electrodeNames",
+    "bytes": 1831,
+    "sha256": "6f20873969cbe4b562855ea33ef0a355548206752d20eab669abd77c86e265fa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.electrodeNames_orig",
+    "bytes": 1831,
+    "sha256": "6f20873969cbe4b562855ea33ef0a355548206752d20eab669abd77c86e265fa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.LEPTO",
+    "bytes": 5390,
+    "sha256": "ba9a26af6ac15c5c91e2eaac3b3b5dcf77cecee07660bdd70a73f50fc8337e40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.LEPTOVOX",
+    "bytes": 5695,
+    "sha256": "160c6f1d1614a7e1128cb97067778761b6b66a23e59a50a0a346bfdb4c607dcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.PIAL",
+    "bytes": 5390,
+    "sha256": "ba9a26af6ac15c5c91e2eaac3b3b5dcf77cecee07660bdd70a73f50fc8337e40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.PIALVOX",
+    "bytes": 5695,
+    "sha256": "160c6f1d1614a7e1128cb97067778761b6b66a23e59a50a0a346bfdb4c607dcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42.POSTIMPLANT",
+    "bytes": 5390,
+    "sha256": "ba9a26af6ac15c5c91e2eaac3b3b5dcf77cecee07660bdd70a73f50fc8337e40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42_elec_locations_RAS.txt",
+    "bytes": 7287,
+    "sha256": "32682d25f41fd404792b2d1956c75ae654ff58953f895b08c143ca56b939872f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D42/elec_recon/D42_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7287,
+    "sha256": "32682d25f41fd404792b2d1956c75ae654ff58953f895b08c143ca56b939872f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/aparc+aseg.mgz",
+    "bytes": 363126,
+    "sha256": "042d1a4d737cb5d1ca7713e098ed5c4fe464b988c41bb98970a688d911afd23e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 392908,
+    "sha256": "69bb230e8d07f2176d05b2e3f9f595c025aa6e000e4fd54009ad188682ad8da4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/aseg.mgz",
+    "bytes": 310341,
+    "sha256": "ae2477fd85cd193cc4873bc901d1a1c367e9a2670b7223c8d39df3606910a02d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/brainmask.mgz",
+    "bytes": 1222735,
+    "sha256": "571e69bb78bb0b2c13abff087aab1dbd6c83182e0d96695fbfeae6face8430fb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/orig.mgz",
+    "bytes": 8187144,
+    "sha256": "7047f4769523bb46125a7779cc552d9cedf5d4c62961afc73817bd8591dd739a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/ribbon.mgz",
+    "bytes": 190645,
+    "sha256": "c37b262012ea0f712003d465a9bdb29c2611fb4de6249adfc50bcc13565bb276"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/mri/wm.mgz",
+    "bytes": 459705,
+    "sha256": "76dbeb2add4920988ccf1275e952a871abf77d3cb6b072038dea5ad19bfaa06d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.electrodeNames",
+    "bytes": 1902,
+    "sha256": "6ce5a8def484cf6b470921d9ba753a1710661a5e2e92b0867acd2ef15eda259d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.electrodeNames_orig",
+    "bytes": 1902,
+    "sha256": "6ce5a8def484cf6b470921d9ba753a1710661a5e2e92b0867acd2ef15eda259d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.LEPTO",
+    "bytes": 5830,
+    "sha256": "bdf0a2521ca62211ee701a537996169728e12fade9f3e70b0abb54dbb3b36cd3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.LEPTOVOX",
+    "bytes": 6237,
+    "sha256": "3b0d7f694d53b0704edf4ecff4205fdb0d8f2c4edb78c0ca8a13362dc819edaf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.PIAL",
+    "bytes": 5830,
+    "sha256": "bdf0a2521ca62211ee701a537996169728e12fade9f3e70b0abb54dbb3b36cd3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.PIALVOX",
+    "bytes": 6237,
+    "sha256": "3b0d7f694d53b0704edf4ecff4205fdb0d8f2c4edb78c0ca8a13362dc819edaf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44.POSTIMPLANT",
+    "bytes": 5830,
+    "sha256": "bdf0a2521ca62211ee701a537996169728e12fade9f3e70b0abb54dbb3b36cd3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44_elec_locations_RAS.txt",
+    "bytes": 7812,
+    "sha256": "cf11c2f0127d47d3d617ed857fd2c26e3583ec4459d5a3efc799cd3c37bfaa41"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D44/elec_recon/D44_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7812,
+    "sha256": "cf11c2f0127d47d3d617ed857fd2c26e3583ec4459d5a3efc799cd3c37bfaa41"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/aparc+aseg.mgz",
+    "bytes": 374275,
+    "sha256": "59b0f623314f5a533e170f7c5d6c2a19b3e5037385aa33f5e9b165c9faacd785"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 403398,
+    "sha256": "82454bd2441a5824cd0aeb3df782708fd67e02bf277e24523b975df6103ec4b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/aseg.mgz",
+    "bytes": 320842,
+    "sha256": "6a4ffa7f7357161125e210473d69fa0d9dd73de24d7b5724120d911ebc6e6893"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/brainmask.mgz",
+    "bytes": 1157440,
+    "sha256": "da4b4445b80d946ad0a89f19a9d8188b0755a28a2c3c53c47406b7bfe187cfe7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/orig.mgz",
+    "bytes": 6456183,
+    "sha256": "379fb90944cdc98c2449b2363f197de999b0b503d3284502a9fad2d2201afbbf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/ribbon.mgz",
+    "bytes": 190742,
+    "sha256": "edbb4b2dda4ecf17ca43be84d97334ae23a44cfb2da9893d4ad8b6623ce1e40b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/mri/wm.mgz",
+    "bytes": 502439,
+    "sha256": "02d0f2e185148d83417eded65a79e8d2eceae9ca91954e2a94d9156a71e0db31"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.electrodeNames",
+    "bytes": 2178,
+    "sha256": "fbe6dace89069f39711a82fecee547bce64f124c8845fd15bbca64a4dbecc0ac"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.electrodeNames_orig",
+    "bytes": 2178,
+    "sha256": "fbe6dace89069f39711a82fecee547bce64f124c8845fd15bbca64a4dbecc0ac"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.LEPTO",
+    "bytes": 6720,
+    "sha256": "60f98220fda9e3f82cd0841e13ae99dd5902db38bf772634c6d3486c555db269"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.LEPTOVOX",
+    "bytes": 6932,
+    "sha256": "09286618b7674774b7a757d31965cfa16fd397c65c8f52123bb1765fdcbe80f3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.PIAL",
+    "bytes": 6720,
+    "sha256": "60f98220fda9e3f82cd0841e13ae99dd5902db38bf772634c6d3486c555db269"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.PIALVOX",
+    "bytes": 6932,
+    "sha256": "09286618b7674774b7a757d31965cfa16fd397c65c8f52123bb1765fdcbe80f3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49.POSTIMPLANT",
+    "bytes": 6720,
+    "sha256": "60f98220fda9e3f82cd0841e13ae99dd5902db38bf772634c6d3486c555db269"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49_elec_locations_RAS.txt",
+    "bytes": 8998,
+    "sha256": "7e795eee3cedd127e4f3855813b816d55066e88ec916bec6cccda6147ce5a8e9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D49/elec_recon/D49_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8998,
+    "sha256": "7e795eee3cedd127e4f3855813b816d55066e88ec916bec6cccda6147ce5a8e9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/aparc+aseg.mgz",
+    "bytes": 375824,
+    "sha256": "2ff4967f4f1bd7fac73e67acfbf01609842cbf36b0e0032aa45d2fba773f06b8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 407283,
+    "sha256": "a86eda02f77d974f11fd96f7f3c6c73cf39524e11352fb0ac0475e59afe789e6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/aseg.mgz",
+    "bytes": 318712,
+    "sha256": "022a20905d3c5ff4c6ec4ae3d290839b9b05b230447e0719363c9f6fd3460237"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/brainmask.mgz",
+    "bytes": 1207164,
+    "sha256": "f32c5e7afdb0ee67ebb39e570f6ad2f78b968336ec0706369260159016d66260"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/orig.mgz",
+    "bytes": 6107904,
+    "sha256": "0343b165c79617f4c4dd8d08072af6d00fb5dd0f01773be1af2a51ef1e4a0884"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/ribbon.mgz",
+    "bytes": 196315,
+    "sha256": "c393fb2642aee50ea6a4d1bc45e3e59cd9443ea2a4d57f722795569e37dd1555"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/mri/wm.mgz",
+    "bytes": 392102,
+    "sha256": "9409e4a2c67acc9edc73cce9fa1907bcf36a67af539ea33b10378a3015a801f2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.electrodeNames",
+    "bytes": 1962,
+    "sha256": "f3ea52eefbe90ddbfab484a660b4485e9674c9bf3378ee9129c43eea5e267d80"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.electrodeNames_orig",
+    "bytes": 1962,
+    "sha256": "f3ea52eefbe90ddbfab484a660b4485e9674c9bf3378ee9129c43eea5e267d80"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.LEPTO",
+    "bytes": 5948,
+    "sha256": "301603fefb78883959cb1763568ed77f40e4e096083856e034408ce022f428b1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.LEPTOVOX",
+    "bytes": 6303,
+    "sha256": "3933ca84aebf892feb1e00ba620f758ea28006a81b36b00a9a4ad406bdd8ba61"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.PIAL",
+    "bytes": 5948,
+    "sha256": "301603fefb78883959cb1763568ed77f40e4e096083856e034408ce022f428b1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.PIALVOX",
+    "bytes": 6303,
+    "sha256": "3933ca84aebf892feb1e00ba620f758ea28006a81b36b00a9a4ad406bdd8ba61"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52.POSTIMPLANT",
+    "bytes": 5948,
+    "sha256": "301603fefb78883959cb1763568ed77f40e4e096083856e034408ce022f428b1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52_elec_locations_RAS.txt",
+    "bytes": 7994,
+    "sha256": "44d8e0e8e683f4116051d779aa87e1e2499604dbb50705775f075a906b10f897"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D52/elec_recon/D52_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7994,
+    "sha256": "44d8e0e8e683f4116051d779aa87e1e2499604dbb50705775f075a906b10f897"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/aparc+aseg.mgz",
+    "bytes": 404993,
+    "sha256": "1598c43985bd00feac2cd096967d6ee5fad8eb5a18673acc8f3eaa1b2f865a04"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 440636,
+    "sha256": "b20bde2dc7d9d727b19cdfc709bcc9497823d76a6c476a3b92ca3a6e2d3cf0e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/aseg.mgz",
+    "bytes": 346453,
+    "sha256": "e13aae3a07eb382d8f79e3037b338d61b6104103965a69ecd1e58d0ed38492ce"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/brainmask.mgz",
+    "bytes": 1430393,
+    "sha256": "0f276e9f21e11ef4f47de825394b14f035b7847d6a25d8996f5d0d272b4f55dc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/orig.mgz",
+    "bytes": 5535299,
+    "sha256": "7b3c350371dc5b39e40139c46dadfcdbeb30df8edea6567581900d8299440050"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/ribbon.mgz",
+    "bytes": 214817,
+    "sha256": "f78e58f5a3352cd979a4e157dc808f19dbdae642ec6f1155b76da991b5b19848"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/mri/wm.mgz",
+    "bytes": 478940,
+    "sha256": "e03747e5d1711ae9f3fe82031465912b00c8f57a1b9e6211f49ee58c72903406"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.electrodeNames",
+    "bytes": 1629,
+    "sha256": "13980db8be5924cbf64833b3fa6d26dbc3414a2a336c8f6d97c92bfd4b718709"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.electrodeNames_orig",
+    "bytes": 1629,
+    "sha256": "13980db8be5924cbf64833b3fa6d26dbc3414a2a336c8f6d97c92bfd4b718709"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.LEPTO",
+    "bytes": 4934,
+    "sha256": "7d5a388a7b28056262ee77e1dbcbf0ad97a828f58a777c902c44ee00e4154de6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.LEPTOVOX",
+    "bytes": 5159,
+    "sha256": "c1da4cbe87c7911fc564a6e0faa2e3bca82c0f7b58d9fefbfc204b8532bd9896"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.PIAL",
+    "bytes": 4934,
+    "sha256": "7d5a388a7b28056262ee77e1dbcbf0ad97a828f58a777c902c44ee00e4154de6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.PIALVOX",
+    "bytes": 5159,
+    "sha256": "c1da4cbe87c7911fc564a6e0faa2e3bca82c0f7b58d9fefbfc204b8532bd9896"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53.POSTIMPLANT",
+    "bytes": 4934,
+    "sha256": "7d5a388a7b28056262ee77e1dbcbf0ad97a828f58a777c902c44ee00e4154de6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53_elec_locations_RAS.txt",
+    "bytes": 6611,
+    "sha256": "700528f65c3372a581a559ec0199666e73433f11979106ef570085b62537e896"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D53/elec_recon/D53_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6611,
+    "sha256": "700528f65c3372a581a559ec0199666e73433f11979106ef570085b62537e896"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/aparc+aseg.mgz",
+    "bytes": 345758,
+    "sha256": "c586ff5c54895c60b4fe152175743633653201755c70ddd61c1f2d0361b8d6d1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 373758,
+    "sha256": "f3d745d6fc0148800ffa49f9ad64a8211a1d90cabf893ed957841f7efbef060a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/aseg.mgz",
+    "bytes": 294990,
+    "sha256": "65105ddcffeb521b6b995c1afa82fa44957a7536332b2207a2126ef1f495b31c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/brainmask.mgz",
+    "bytes": 1304241,
+    "sha256": "12d5f8ff9f906a9f4466a7017e55e7e462ae542afd2acbfb2ef977d66b5a696b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/orig.mgz",
+    "bytes": 4330376,
+    "sha256": "badef1a6565d6929c7866a9e57d0ce02a161b08a5bea58a2e621e403055fe4e2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/ribbon.mgz",
+    "bytes": 174590,
+    "sha256": "f85314165ffc7f9bbab86e1f5cfb9e3b8a12f209f5b01e907007276c15321fdc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/mri/wm.mgz",
+    "bytes": 448183,
+    "sha256": "c1d7c162983a22f93f0af38d1241bbeb1adaf1a1adeb4da7684da439b60e30fd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.electrodeNames",
+    "bytes": 2064,
+    "sha256": "c8f306e7ee29106a8b18927121cb922bb34243b0fd2a41ece377dbdeedae481f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.electrodeNames_orig",
+    "bytes": 2064,
+    "sha256": "c8f306e7ee29106a8b18927121cb922bb34243b0fd2a41ece377dbdeedae481f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.LEPTO",
+    "bytes": 6120,
+    "sha256": "bb5fce13ad014fdeca3dd56ef3f1f1a1f20e7d413b2cc6991bcb2c3b30d08fb8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.LEPTOVOX",
+    "bytes": 6411,
+    "sha256": "26dcb732bb2d4d82c5e3f4acb47c25f3020114db88cfaa416bb74191bcd6d400"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.PIAL",
+    "bytes": 6120,
+    "sha256": "bb5fce13ad014fdeca3dd56ef3f1f1a1f20e7d413b2cc6991bcb2c3b30d08fb8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.PIALVOX",
+    "bytes": 6411,
+    "sha256": "26dcb732bb2d4d82c5e3f4acb47c25f3020114db88cfaa416bb74191bcd6d400"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54.POSTIMPLANT",
+    "bytes": 6120,
+    "sha256": "bb5fce13ad014fdeca3dd56ef3f1f1a1f20e7d413b2cc6991bcb2c3b30d08fb8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54_elec_locations_RAS.txt",
+    "bytes": 8274,
+    "sha256": "de709b0c35ecb147a5d953fc8800a1a6c7e97d80a0d1b370f1f9a65853795c44"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D54/elec_recon/D54_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8274,
+    "sha256": "de709b0c35ecb147a5d953fc8800a1a6c7e97d80a0d1b370f1f9a65853795c44"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/aparc+aseg.mgz",
+    "bytes": 368529,
+    "sha256": "f65988afa08c0e05e52c1799531db1464087c73b91a4f0c513c0743bd38c33a3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 395933,
+    "sha256": "159f87040efaf10fb959ccd1f45786108d84552ece3327ec962fcbb777fe8639"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/aseg.mgz",
+    "bytes": 321684,
+    "sha256": "2cef5415ca4ae2fbbb7a11a5f15ac3fab097b87a0671b58558334166213e48ba"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/brainmask.mgz",
+    "bytes": 2523430,
+    "sha256": "df18698e0fc59fe6dd7199100b534387948a5d62bb1ffe4352d13127731ac65c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/orig.mgz",
+    "bytes": 6415953,
+    "sha256": "bde7d276fb92b730f5b116827ac3c09e1133145781504f7e000d0d5a1f1bbe57"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/ribbon.mgz",
+    "bytes": 188107,
+    "sha256": "c1c44f09f27dbdc609fc503eb2da919188934a44c6087f6a6cb5b6a20a1a9f92"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/mri/wm.mgz",
+    "bytes": 427714,
+    "sha256": "2c01fe912f1dd1aef39104bc8efd51826b4d1cc1e8814673a8cf333340c8ed2c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.electrodeNames",
+    "bytes": 1907,
+    "sha256": "88da3cf214d89853bcf0b5a09203171ef1547c1ad994f8b189b072298139ea95"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.electrodeNames_orig",
+    "bytes": 1907,
+    "sha256": "88da3cf214d89853bcf0b5a09203171ef1547c1ad994f8b189b072298139ea95"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.LEPTO",
+    "bytes": 5835,
+    "sha256": "b9ac467d17f4fcbbe29dd1ce8f20696ca99cacaf044c7f5bb963e31fcec284a1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.LEPTOVOX",
+    "bytes": 6024,
+    "sha256": "e5600546b570160ca9c88a33cd7c3179beefb71c3161353f3c4a5992d6e87e79"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.PIAL",
+    "bytes": 5835,
+    "sha256": "b9ac467d17f4fcbbe29dd1ce8f20696ca99cacaf044c7f5bb963e31fcec284a1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.PIALVOX",
+    "bytes": 6024,
+    "sha256": "e5600546b570160ca9c88a33cd7c3179beefb71c3161353f3c4a5992d6e87e79"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59.POSTIMPLANT",
+    "bytes": 5835,
+    "sha256": "b9ac467d17f4fcbbe29dd1ce8f20696ca99cacaf044c7f5bb963e31fcec284a1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59_elec_locations_RAS.txt",
+    "bytes": 7836,
+    "sha256": "716ff3893d8b43cb7425e11fd805cdec9442fc95135a3585a8349fbd16317eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D59/elec_recon/D59_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7836,
+    "sha256": "716ff3893d8b43cb7425e11fd805cdec9442fc95135a3585a8349fbd16317eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/aparc+aseg.mgz",
+    "bytes": 454538,
+    "sha256": "a37a9ae673ae2aa1f4046f74a0699c82e3fa708ae58ef8acf9ef27802c602c53"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 494409,
+    "sha256": "5c57b09d37e17f1f1fd3d3f6b902764e80249c18036a201cc02f889cbbefdf95"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/aseg.mgz",
+    "bytes": 386602,
+    "sha256": "d81ff6f89dbc829febeeb9ba81f105889c835831bcffe441abc1d229159db827"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/brainmask.mgz",
+    "bytes": 1475163,
+    "sha256": "4c495d501afcd06c637d05ec8efadcd600fb64a501b6066037632870d05f599d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/orig.mgz",
+    "bytes": 9256415,
+    "sha256": "5c13ccfad8817920c5a6bbfbcd96be7f387198347fa961665efe8c40485c2cfc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/ribbon.mgz",
+    "bytes": 243815,
+    "sha256": "1d4ebab11dbdcfd73b0e4748f7ae280822a36796980b55ae038a87de80c31dea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/mri/wm.mgz",
+    "bytes": 617493,
+    "sha256": "1b2bbc87202be844898d2c022862eecb8640824ac4fc82ce8c157eea60cfa2c7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.electrodeNames",
+    "bytes": 2394,
+    "sha256": "e2a90d608bf2cc2ddc48707625e19ed14b93bb0c760dfb293559ec352b83dd08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.electrodeNames_orig",
+    "bytes": 2394,
+    "sha256": "e2a90d608bf2cc2ddc48707625e19ed14b93bb0c760dfb293559ec352b83dd08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.LEPTO",
+    "bytes": 7238,
+    "sha256": "db3cee44a1e78b0bba38f4bdbb254aa871d18598c30a2f6b7d9deee9387acb30"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.LEPTOVOX",
+    "bytes": 7527,
+    "sha256": "fb7efe29111e357ca1629d0a8d6694a06fe2a2cfef640fd4ec6687ea86410c4c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.PIAL",
+    "bytes": 7238,
+    "sha256": "db3cee44a1e78b0bba38f4bdbb254aa871d18598c30a2f6b7d9deee9387acb30"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.PIALVOX",
+    "bytes": 7527,
+    "sha256": "fb7efe29111e357ca1629d0a8d6694a06fe2a2cfef640fd4ec6687ea86410c4c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61.POSTIMPLANT",
+    "bytes": 7238,
+    "sha256": "db3cee44a1e78b0bba38f4bdbb254aa871d18598c30a2f6b7d9deee9387acb30"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61_elec_locations_RAS.txt",
+    "bytes": 9754,
+    "sha256": "199e5b2a27d3d9e3d92a673015e76a3512e65f8d33c2240a253f7234d9520a7e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D61/elec_recon/D61_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9754,
+    "sha256": "199e5b2a27d3d9e3d92a673015e76a3512e65f8d33c2240a253f7234d9520a7e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/aparc+aseg.mgz",
+    "bytes": 356857,
+    "sha256": "cb2b439391a387ba66f905067e229510df55ad1772340a0bddb993ac492f2f7d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 384134,
+    "sha256": "2d02a4e08065f252dcb901ee007affbde1dc75cb1e6d11c0294de7c54ac04020"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/aseg.mgz",
+    "bytes": 309620,
+    "sha256": "18dfb46ce4cbeca48e2abf8318bb7ef37120bc7dcb9ab04c2abe328bbbaa1351"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/brainmask.mgz",
+    "bytes": 1179981,
+    "sha256": "cd876f6725c2c3d7fd91a1ae67a2daf3f7fe3bfb8782ab7635c20b1269da5981"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/orig.mgz",
+    "bytes": 6106399,
+    "sha256": "38a211ca6e72e3b3670a8e381438bce3d8c0e01e3c58040f49d3b7dba8e066de"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/ribbon.mgz",
+    "bytes": 189884,
+    "sha256": "251cecf08e82fb38d9b12453214334d2fca7e3199441f65033dbd006891d3967"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/mri/wm.mgz",
+    "bytes": 442235,
+    "sha256": "727a33f25679f7bee5c75ecf0078257fabc8e37cb44ab8857f0f50cd2b7b64f6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.electrodeNames",
+    "bytes": 1853,
+    "sha256": "039d79d5976806c0d2daf816b13341b2eb075f35a9a4db984b3ce7a984ad4f6b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.electrodeNames_orig",
+    "bytes": 1853,
+    "sha256": "039d79d5976806c0d2daf816b13341b2eb075f35a9a4db984b3ce7a984ad4f6b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.LEPTO",
+    "bytes": 5637,
+    "sha256": "0570cff45af1dcb37f1e5eee36fbef96b5a4ca070f4abcddc9e7acbf7e9c5e45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.LEPTOVOX",
+    "bytes": 5858,
+    "sha256": "f7f6a49a844c399aacd962c051fc2632bbbeb9686bc0e252d024a69d4b7ed66f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.PIAL",
+    "bytes": 5637,
+    "sha256": "0570cff45af1dcb37f1e5eee36fbef96b5a4ca070f4abcddc9e7acbf7e9c5e45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.PIALVOX",
+    "bytes": 5858,
+    "sha256": "f7f6a49a844c399aacd962c051fc2632bbbeb9686bc0e252d024a69d4b7ed66f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64.POSTIMPLANT",
+    "bytes": 5637,
+    "sha256": "0570cff45af1dcb37f1e5eee36fbef96b5a4ca070f4abcddc9e7acbf7e9c5e45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64_elec_locations_RAS.txt",
+    "bytes": 7558,
+    "sha256": "c115bb3f2067062994a33e08c73b0e19bc6992b5ec41a744c01c41c93317ce57"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D64/elec_recon/D64_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7558,
+    "sha256": "c115bb3f2067062994a33e08c73b0e19bc6992b5ec41a744c01c41c93317ce57"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/aparc+aseg.mgz",
+    "bytes": 475640,
+    "sha256": "d4c413cad9f524567e5846a35ed35945fb234dd02ec2f299ea90bf7cf6512b35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 510887,
+    "sha256": "19ac1a3cdb2f1be45ed338673e8f5845d4cacdd6ec863e77a044d6a436a7a13f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/aseg.mgz",
+    "bytes": 407802,
+    "sha256": "59592f8fb315199d087d9eaa4a91885c51b75f6a6ab866e97dddc75f8e9102a3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/brainmask.mgz",
+    "bytes": 1644524,
+    "sha256": "1f34b5011d1480f79b14e27feefc4276923f45f7c5fdff0e9924aa838e8de185"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/orig.mgz",
+    "bytes": 6699599,
+    "sha256": "ff013a6bc8e3c2c857c1bde179632575aa5a8f846398246e7833247246ba4d13"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/ribbon.mgz",
+    "bytes": 256158,
+    "sha256": "6b082b706ee7ee80cc75cffc4b1f110f3d38faef55e2a1f6dcdb158800185246"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/mri/wm.mgz",
+    "bytes": 617060,
+    "sha256": "4ede4aa9a5e29cf0b7049221d2ce2721a06b28375bdbdc95dc97c0780aca3da6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.electrodeNames",
+    "bytes": 2286,
+    "sha256": "8e458431f748ac20045320bc631a0ab64e570b9d1d95dfa4ded080b0323439b9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.electrodeNames_orig",
+    "bytes": 2286,
+    "sha256": "8e458431f748ac20045320bc631a0ab64e570b9d1d95dfa4ded080b0323439b9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.LEPTO",
+    "bytes": 6835,
+    "sha256": "3bef2bef6bd331b24c3d58c80a47c791741b13a5bf1f0d900235b3e80ae643db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.LEPTOVOX",
+    "bytes": 7064,
+    "sha256": "5e25213d050338a902fee740aff3236567effb4ad8429d8bcd11a3ff1c9bc1f2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.PIAL",
+    "bytes": 6835,
+    "sha256": "3bef2bef6bd331b24c3d58c80a47c791741b13a5bf1f0d900235b3e80ae643db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.PIALVOX",
+    "bytes": 7064,
+    "sha256": "5e25213d050338a902fee740aff3236567effb4ad8429d8bcd11a3ff1c9bc1f2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65.POSTIMPLANT",
+    "bytes": 6835,
+    "sha256": "3bef2bef6bd331b24c3d58c80a47c791741b13a5bf1f0d900235b3e80ae643db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65_elec_locations_RAS.txt",
+    "bytes": 9231,
+    "sha256": "9ab48238b5d3cbc942050d1752acc7a2409bf0657b7550d8fcd1c14e1813bc3f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D65/elec_recon/D65_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9231,
+    "sha256": "9ab48238b5d3cbc942050d1752acc7a2409bf0657b7550d8fcd1c14e1813bc3f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/aparc+aseg.mgz",
+    "bytes": 442805,
+    "sha256": "a204e22b21f3ccbc12f09fa6322ce92b3b8d9473f7b9211608d32dc99a7fcd4d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 482710,
+    "sha256": "47beb1ccf0be669793e280de7128ecb69a200847ea89e5837d1e4501c8a7cfcb"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/aseg.mgz",
+    "bytes": 377084,
+    "sha256": "4f14e4993db5ac502786ea91268bbd1844cb837bcf64e32ab9bd3f7672a735ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/brainmask.mgz",
+    "bytes": 1481518,
+    "sha256": "702071d2d01d0e610804ec42b593d1e0c25ef221aee533bd740304671584e125"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/orig.mgz",
+    "bytes": 8100958,
+    "sha256": "c223d89b2add6315deb0aad5a9154d8e8efcff80b1a5e53c318ab9499b644759"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/ribbon.mgz",
+    "bytes": 239852,
+    "sha256": "7eb3e286e27333db61030d4c037fee92316f673253651841ad05b58fb3850e91"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/mri/wm.mgz",
+    "bytes": 420014,
+    "sha256": "1f8ee2f254c1da07d3ad7ec9591fe8bb9954cafd89e9bc12a7d1b4b2026c7759"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.electrodeNames",
+    "bytes": 744,
+    "sha256": "8cf952d5d86a9cde1d80edb63889650b65bd69ceea4daafa968c17db92c99245"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.electrodeNames_orig",
+    "bytes": 744,
+    "sha256": "8cf952d5d86a9cde1d80edb63889650b65bd69ceea4daafa968c17db92c99245"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.LEPTO",
+    "bytes": 2288,
+    "sha256": "0bbba2f57273fbb9c351c455c40a442506caceb5ecca3433c3f29322b031351f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.LEPTOVOX",
+    "bytes": 2395,
+    "sha256": "f0119ab94028da9863b6336f1ee8787316e23a46bdf95ca0ccdf8b6f61a05bb6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.PIAL",
+    "bytes": 2286,
+    "sha256": "fb260650ed54857bdfbd1d69d61172f5e4013055eea31bc5d43f1b43b1af7db2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.PIALVOX",
+    "bytes": 2394,
+    "sha256": "66c614ce8ef04bf453cbc85d6edb1a4b6f4b9178b4f1f582a910a425f3a48194"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67.POSTIMPLANT",
+    "bytes": 2285,
+    "sha256": "7d283945597eaad2c1db41b5b64acdbdb249ef0891f07510afa33e0302427e91"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67_elec_locations_RAS.txt",
+    "bytes": 2991,
+    "sha256": "c64023bd8551f84bbac55813654878d1b93654a029c13f2e1f8fc7c8cb1b37c1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D67/elec_recon/D67_elec_locations_RAS_brainshifted.txt",
+    "bytes": 2992,
+    "sha256": "e4866dc669232925f52d097c4ce9bb50e1d8bf9b758cd5da6a209fcfbc487255"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/aparc+aseg.mgz",
+    "bytes": 383558,
+    "sha256": "0a537f9607d6ac289b3c6a9bd0c13fdebe6eaef65b82eed619cfc15022b40980"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 418420,
+    "sha256": "7d2661edf5ed59a4d6c31c08cce4cc868dff21ea24fac6764ffb162801e9c07f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/aseg.mgz",
+    "bytes": 329546,
+    "sha256": "5f1b7b0df78b2e1d29716c24fa4e9bd5a16cb04a4d9c41e1ff747b4075c01b4d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/brainmask.mgz",
+    "bytes": 1328839,
+    "sha256": "16042c21a319d889397cebf18018bebb5829b37ed09f912c10ada824841d192c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/orig.mgz",
+    "bytes": 5918069,
+    "sha256": "40167acfeb55d02298aacac79690342b338be3c989fa3cf415560c366e46ca8e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/ribbon.mgz",
+    "bytes": 201564,
+    "sha256": "0d7b86529ae1670a971938d438794bcc0265a00e9e5eb26c06ce69b09b958fa6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/mri/wm.mgz",
+    "bytes": 367902,
+    "sha256": "4a0c61135609b6c083911afcec0de8d1b83d4c2127462fd3fdcfd7a9fd07e90b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.electrodeNames",
+    "bytes": 1509,
+    "sha256": "45c677a02d6b6f3eb06fe72c7b879ebe695bd51b75e942fda8ae76ff45f6398d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.electrodeNames_orig",
+    "bytes": 1509,
+    "sha256": "45c677a02d6b6f3eb06fe72c7b879ebe695bd51b75e942fda8ae76ff45f6398d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.LEPTO",
+    "bytes": 4584,
+    "sha256": "964e3d8a09363ff4bd9ec526ee5788c72e0d640f6de130147b58a0802cf68ccc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.LEPTOVOX",
+    "bytes": 4812,
+    "sha256": "4e0d8eb55b88ad1652a2ab3457bc4a4424c4e14413120c15f18f9bf88ed801dd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.PIAL",
+    "bytes": 4584,
+    "sha256": "964e3d8a09363ff4bd9ec526ee5788c72e0d640f6de130147b58a0802cf68ccc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.PIALVOX",
+    "bytes": 4812,
+    "sha256": "4e0d8eb55b88ad1652a2ab3457bc4a4424c4e14413120c15f18f9bf88ed801dd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68.POSTIMPLANT",
+    "bytes": 4584,
+    "sha256": "964e3d8a09363ff4bd9ec526ee5788c72e0d640f6de130147b58a0802cf68ccc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68_elec_locations_RAS.txt",
+    "bytes": 6129,
+    "sha256": "2abff7cb8f2ec7594ed3fd90c47e8fcbe310721a79169d35eb34ff297f75cd51"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D68/elec_recon/D68_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6129,
+    "sha256": "2abff7cb8f2ec7594ed3fd90c47e8fcbe310721a79169d35eb34ff297f75cd51"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/aparc+aseg.mgz",
+    "bytes": 409927,
+    "sha256": "db7e7fea6d1ff18655f1b0f7ee9e3d2e5d56942fa7d0056802a71d0bb2dcc1c3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 445467,
+    "sha256": "544ccc426c2ab3f934021d61306d80823d77b0525bc0ffe9dd3bd52b9acc0968"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/aseg.mgz",
+    "bytes": 348204,
+    "sha256": "086eaa340f128ac7c8925f396bc4cc467d53b91db8d5130debe9495556516b8f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/brainmask.mgz",
+    "bytes": 1287813,
+    "sha256": "ffbc2d0843e34181021dc220c27fae4e90a45438e379597a9d76604b33b6016c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/orig.mgz",
+    "bytes": 6077648,
+    "sha256": "49aedbf717cea7cd2990b2b6e46d26b041c2d6bd3aabd61bd96abaa1fdee01af"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/ribbon.mgz",
+    "bytes": 218828,
+    "sha256": "01c67dc97eefad0675de9a6d5f632b241a9d8386ec2c36f4cc11718c689713c8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/mri/wm.mgz",
+    "bytes": 464208,
+    "sha256": "f5391b0c37e0c718011ac2652212881751aadf885a177d3eb3d5fe9f67434f6f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.electrodeNames",
+    "bytes": 2230,
+    "sha256": "3b68f39acf5f0165ea46d85eb1e8c3e0ba36c94b7e1654e2ef8d1c10c909b440"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.electrodeNames_orig",
+    "bytes": 2230,
+    "sha256": "3b68f39acf5f0165ea46d85eb1e8c3e0ba36c94b7e1654e2ef8d1c10c909b440"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.LEPTO",
+    "bytes": 6579,
+    "sha256": "7f4ed52e3920355d9ecf83a1fa25e998f67d662295843ad42fb16c2d0e9d3635"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.LEPTOVOX",
+    "bytes": 6890,
+    "sha256": "3f5084f79b716aa8aa43be961b4f28f6498c28eff5a4be6cef114d4a11582eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.PIAL",
+    "bytes": 6579,
+    "sha256": "7f4ed52e3920355d9ecf83a1fa25e998f67d662295843ad42fb16c2d0e9d3635"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.PIALVOX",
+    "bytes": 6890,
+    "sha256": "3f5084f79b716aa8aa43be961b4f28f6498c28eff5a4be6cef114d4a11582eb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75.POSTIMPLANT",
+    "bytes": 6579,
+    "sha256": "7f4ed52e3920355d9ecf83a1fa25e998f67d662295843ad42fb16c2d0e9d3635"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75_elec_locations_RAS.txt",
+    "bytes": 8914,
+    "sha256": "269ab537ff115d9dd0c670f8b0b5b00228b35509b02c4883462eafa837cfbde5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D75/elec_recon/D75_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8914,
+    "sha256": "269ab537ff115d9dd0c670f8b0b5b00228b35509b02c4883462eafa837cfbde5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/aparc+aseg.mgz",
+    "bytes": 458910,
+    "sha256": "1381217771dcd98b22c2f412f697dce56314e823f9c6ec2da94aff4b7351c9a7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 498110,
+    "sha256": "fa477aaf7e3b8f7ac8f7dda5754142e59bc804f56db69a3431ee757dbb97633b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/aseg.mgz",
+    "bytes": 393189,
+    "sha256": "f807ce4efe6a67e1a96dc7d72f6369883ec7a95fb1fa448ca15a40a4dae057c4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/brainmask.mgz",
+    "bytes": 1599481,
+    "sha256": "b7d585d8875b9e9d81e58ec97e5dc3857265117d6ecd67ed5c59de049af65e64"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/orig.mgz",
+    "bytes": 7343462,
+    "sha256": "ce32207f46557e41428e9b41e084072f0cfea0202ba2339d1fa0bf3544814097"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/ribbon.mgz",
+    "bytes": 247132,
+    "sha256": "5db0d1b067b1cfe3b36536773a55ce076c94b53082ce1266a087c1940092b4b3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/mri/wm.mgz",
+    "bytes": 482705,
+    "sha256": "c10f87bc86f6d7b03a1929c1552dd429dd0cf59f938b9dbf672eddad26229b71"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.electrodeNames",
+    "bytes": 2632,
+    "sha256": "61a2393d4432d516a79083de9e938208012cd7132defa942344b527fb7d5a86d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.electrodeNames_orig",
+    "bytes": 2632,
+    "sha256": "61a2393d4432d516a79083de9e938208012cd7132defa942344b527fb7d5a86d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.LEPTO",
+    "bytes": 8086,
+    "sha256": "49893ad05e67010e2bb937cf9bab1007433542f3fc44957ebc209631517b5cb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.LEPTOVOX",
+    "bytes": 8412,
+    "sha256": "54b200c5be7abf3760be83e8d26b345ac35da392a5a940dea5023de290ca6cea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.PIAL",
+    "bytes": 8086,
+    "sha256": "49893ad05e67010e2bb937cf9bab1007433542f3fc44957ebc209631517b5cb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.PIALVOX",
+    "bytes": 8412,
+    "sha256": "54b200c5be7abf3760be83e8d26b345ac35da392a5a940dea5023de290ca6cea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79.POSTIMPLANT",
+    "bytes": 8086,
+    "sha256": "49893ad05e67010e2bb937cf9bab1007433542f3fc44957ebc209631517b5cb0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79_elec_locations_RAS.txt",
+    "bytes": 10864,
+    "sha256": "0ca2ead35c32bbdb6030251ab2df45fbafbce086a049c961f45db646c79b6512"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D79/elec_recon/D79_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10864,
+    "sha256": "0ca2ead35c32bbdb6030251ab2df45fbafbce086a049c961f45db646c79b6512"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/aparc+aseg.mgz",
+    "bytes": 403420,
+    "sha256": "80bb79474c79d689538cb4f0e0cd3e2f0f3c83d166fbb861296d7cabd35576f4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 437524,
+    "sha256": "f24f9ab216dacb777b26f6a025a33ba8cd0dd76f438bce112a3b53539cc96c15"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/aseg.mgz",
+    "bytes": 348101,
+    "sha256": "1dcd6d9987ccb04eaf3e7c66ed4b4ba9a2d1db9d3aca9299773459d509eb714b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/brainmask.mgz",
+    "bytes": 1507739,
+    "sha256": "ab9049159a9813bf70b86df8bae4e754948ee5101d72c4fedecb7a4c4d386828"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/orig.mgz",
+    "bytes": 7059938,
+    "sha256": "a2c3ea9464930bdcb8c0fa8fa9d2f3a18cc69440aebf58f1f2bcbae58661185e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/ribbon.mgz",
+    "bytes": 212088,
+    "sha256": "7cb02b2382345cd9db103a85afb5807c9d40f78495574973fc0b2e48689a89bd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/mri/wm.mgz",
+    "bytes": 419107,
+    "sha256": "893e34c24ba4606da5ac2f219260bd117901030a790c95353af96f8d92816a25"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.electrodeNames",
+    "bytes": 2595,
+    "sha256": "be80888dd70f8d209c134f873e0640b538327e536fa0ecbd8f50976672eb9ec8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.electrodeNames_orig",
+    "bytes": 2595,
+    "sha256": "be80888dd70f8d209c134f873e0640b538327e536fa0ecbd8f50976672eb9ec8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.LEPTO",
+    "bytes": 7974,
+    "sha256": "c621dc9b04284c9325354f7e75a1f0c46f9b76608033e1c08e3afc2662c84dcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.LEPTOVOX",
+    "bytes": 8271,
+    "sha256": "3216e2b5ad9634f4bdfc3879fdd04b62cd1a9a70a2876e52b5e1358d74106f60"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.PIAL",
+    "bytes": 7974,
+    "sha256": "c621dc9b04284c9325354f7e75a1f0c46f9b76608033e1c08e3afc2662c84dcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.PIALVOX",
+    "bytes": 8271,
+    "sha256": "3216e2b5ad9634f4bdfc3879fdd04b62cd1a9a70a2876e52b5e1358d74106f60"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80.POSTIMPLANT",
+    "bytes": 7974,
+    "sha256": "c621dc9b04284c9325354f7e75a1f0c46f9b76608033e1c08e3afc2662c84dcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80_elec_locations_RAS.txt",
+    "bytes": 10714,
+    "sha256": "f97ee6c968e1ea1bd006b557698b5f8b5c3bdeaa685bf6d0a13cf39544c7a3ef"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D80/elec_recon/D80_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10714,
+    "sha256": "f97ee6c968e1ea1bd006b557698b5f8b5c3bdeaa685bf6d0a13cf39544c7a3ef"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/aparc+aseg.mgz",
+    "bytes": 383784,
+    "sha256": "80089816b4e9c3c31200ef3d4eb71da6609aec60c93b4a3b72d8ecc3aa403bc3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 414691,
+    "sha256": "a2b280e4223651410bbf96c341750954fb5ef0eb245a62c95d8d22089b3b9318"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/aseg.mgz",
+    "bytes": 325060,
+    "sha256": "e2f1b939cd983f25f1a51238693e98f6b7e9a91a7e89adf9ac4bd9d19c282e01"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/brainmask.mgz",
+    "bytes": 1346638,
+    "sha256": "fd66ca90a83a659d63c4901d31d83824b61d560faaf461f8e557d9fdbf6943a2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/orig.mgz",
+    "bytes": 6246550,
+    "sha256": "f1a0af2928ba584f14c301f74da6b9014dd2508784d688c1fffea270c22b08ef"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/ribbon.mgz",
+    "bytes": 199805,
+    "sha256": "1a5bd83a0cdfd2d4ae95ff5acd2f7d3968e344717cf1ac2f67de1bdb19ee77fe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/mri/wm.mgz",
+    "bytes": 429848,
+    "sha256": "8da8ccc8b7c5d1b9dc957fb20ecb400fde93322a311fa0a0999c0f14e12706b9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.electrodeNames",
+    "bytes": 2293,
+    "sha256": "92b9aaaee91a2f4b7af35171fe6df27063ac56fcf5fe8c0453a91787641f4b31"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.electrodeNames_orig",
+    "bytes": 2293,
+    "sha256": "92b9aaaee91a2f4b7af35171fe6df27063ac56fcf5fe8c0453a91787641f4b31"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.LEPTO",
+    "bytes": 7033,
+    "sha256": "a75f1015702245612caaf66cca11eb6d4049351f9f939dc92598719fb2cd061f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.LEPTOVOX",
+    "bytes": 7284,
+    "sha256": "415b6758ecc9cb46b5bedc5f669442c67d4bcd7d0ac97ef7b4c93bb94bae654f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.PIAL",
+    "bytes": 7033,
+    "sha256": "a75f1015702245612caaf66cca11eb6d4049351f9f939dc92598719fb2cd061f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.PIALVOX",
+    "bytes": 7284,
+    "sha256": "415b6758ecc9cb46b5bedc5f669442c67d4bcd7d0ac97ef7b4c93bb94bae654f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81.POSTIMPLANT",
+    "bytes": 7033,
+    "sha256": "a75f1015702245612caaf66cca11eb6d4049351f9f939dc92598719fb2cd061f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81_elec_locations_RAS.txt",
+    "bytes": 9438,
+    "sha256": "f1ba37098d4be47c79ad97a1a59cd95fffde36995731b0b944d34b29a56ed719"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D81/elec_recon/D81_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9438,
+    "sha256": "f1ba37098d4be47c79ad97a1a59cd95fffde36995731b0b944d34b29a56ed719"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/aparc+aseg.mgz",
+    "bytes": 392053,
+    "sha256": "835c4051b2f4dc745fed9f1ef0e449282415b033563d77f3893d520d6112ca3c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 423848,
+    "sha256": "17d1bedd444190d6ed5d34f1415a254e6fe98706f603d2bf713d257205610fea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/aseg.mgz",
+    "bytes": 337643,
+    "sha256": "94b389bf52b0c5df99772628c0ab3bfaeca4b225b68a47a32b7775d7f0e22b1e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/brainmask.mgz",
+    "bytes": 1338828,
+    "sha256": "140b5f308b992c0f82a5cd37a8cee459096076b037d40c34db1e2417379f6d91"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/orig.mgz",
+    "bytes": 6981889,
+    "sha256": "38f6e2e5651b8ae9ea38b249d7e6396351b2def8f3a98ca51bd519a0b0ec6227"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/ribbon.mgz",
+    "bytes": 207202,
+    "sha256": "caebe801425077a35d5e9f131ee824b12166c008f0f317e09b51d6be7710b604"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/mri/wm.mgz",
+    "bytes": 399750,
+    "sha256": "4a10ae5750cb1115ccae43d78e1bd43fbac008919aa7362ab1c61119c9efa98e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.electrodeNames",
+    "bytes": 2513,
+    "sha256": "1d19f3e4659efeaca40f47fd83d64efd3e9dbdaf60e9e8463f4f0a6fdf0dd48b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.electrodeNames_orig",
+    "bytes": 2513,
+    "sha256": "1d19f3e4659efeaca40f47fd83d64efd3e9dbdaf60e9e8463f4f0a6fdf0dd48b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.LEPTO",
+    "bytes": 7782,
+    "sha256": "4c13827107df9643fac153ae3396fc60c475503885d22aba7b4f342205c77d2d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.LEPTOVOX",
+    "bytes": 8058,
+    "sha256": "2f1949cbce69320c15f047d4a1d30d09f80f8effd25caaae29388dce1fcfae54"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.PIAL",
+    "bytes": 7782,
+    "sha256": "4c13827107df9643fac153ae3396fc60c475503885d22aba7b4f342205c77d2d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.PIALVOX",
+    "bytes": 8058,
+    "sha256": "2f1949cbce69320c15f047d4a1d30d09f80f8effd25caaae29388dce1fcfae54"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85.POSTIMPLANT",
+    "bytes": 7782,
+    "sha256": "4c13827107df9643fac153ae3396fc60c475503885d22aba7b4f342205c77d2d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85_elec_locations_RAS.txt",
+    "bytes": 10432,
+    "sha256": "aeaf9c8b963a5e67908acd768044ea0ce14a8fcad5d1b612fddbf90cede56169"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D85/elec_recon/D85_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10432,
+    "sha256": "aeaf9c8b963a5e67908acd768044ea0ce14a8fcad5d1b612fddbf90cede56169"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/aparc+aseg.mgz",
+    "bytes": 396736,
+    "sha256": "78a20695c311bba53e06877b47aa638acf337df36eef9928108a617cc103ac2b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 427429,
+    "sha256": "6f555c47a5d5d2619e1c4f4c04ef85b98fa7ed5dd9f42b199d0f6feb4c763645"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/aseg.mgz",
+    "bytes": 339929,
+    "sha256": "1a12a861f0933dba05b77211571be17c385193d5365e3ea1d354491569bc2c06"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/brainmask.mgz",
+    "bytes": 1229240,
+    "sha256": "61dbbbca9a8ab0551e402f328b8d4190023d81e9a336f8e7ca56cf7f9430ed19"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/orig.mgz",
+    "bytes": 2819519,
+    "sha256": "eb16fbd34b84dc72f501bb4172a9bfc4fae5b93744cebaade6e86a6b7cb931a6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/ribbon.mgz",
+    "bytes": 212478,
+    "sha256": "c59bd3c1ee94a964f9169f2cee75f991641048c1079deb0507ac169507983c7a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/mri/wm.mgz",
+    "bytes": 497141,
+    "sha256": "ea376f209046ce7008fe3a18620a3608a229e11288cc2a8f515bbb5087d90913"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.electrodeNames",
+    "bytes": 2938,
+    "sha256": "cc9294fa77c5edc1297307c045cfe28592210ef9d3a7ccbea508f2623c5d5c37"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.electrodeNames_orig",
+    "bytes": 2938,
+    "sha256": "cc9294fa77c5edc1297307c045cfe28592210ef9d3a7ccbea508f2623c5d5c37"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.LEPTO",
+    "bytes": 8948,
+    "sha256": "538bfa2e5b392c009961f9f3a965b2d3681b8e25e711093c5aadb0823781d728"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.LEPTOVOX",
+    "bytes": 9313,
+    "sha256": "c5a38700449334295a73afd8ee675b28224e26ff28bb83e44ea34f86cca47f0b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.PIAL",
+    "bytes": 8948,
+    "sha256": "538bfa2e5b392c009961f9f3a965b2d3681b8e25e711093c5aadb0823781d728"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.PIALVOX",
+    "bytes": 9313,
+    "sha256": "c5a38700449334295a73afd8ee675b28224e26ff28bb83e44ea34f86cca47f0b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86.POSTIMPLANT",
+    "bytes": 8948,
+    "sha256": "538bfa2e5b392c009961f9f3a965b2d3681b8e25e711093c5aadb0823781d728"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86_elec_locations_RAS.txt",
+    "bytes": 12060,
+    "sha256": "33bf5cdf2defd02d07c56861c1199b63d37005c21e90977ce07b0d7c3e5c7eb7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D86/elec_recon/D86_elec_locations_RAS_brainshifted.txt",
+    "bytes": 12060,
+    "sha256": "33bf5cdf2defd02d07c56861c1199b63d37005c21e90977ce07b0d7c3e5c7eb7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/aparc+aseg.mgz",
+    "bytes": 376116,
+    "sha256": "29adff364652a1ef4d9cae395b0d6d9825813232f0127d040ae3f03ab7b8c1cc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 406540,
+    "sha256": "94702486c6718e65d7cd3973e1dcede70adf21a057774408a2e241af93e3f1de"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/aseg.mgz",
+    "bytes": 324747,
+    "sha256": "80652886a33c21de8bae87e23c4e14ab8b9b0ac6053166690b5739713d4744ba"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/brainmask.mgz",
+    "bytes": 1274818,
+    "sha256": "1c2d4a75cc3eb5b32e669719fcc5700a269a49d3fb3fc6c4e2513e20cc96868a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/orig.mgz",
+    "bytes": 5694011,
+    "sha256": "f0530299df792182f4d6e279a161316088a46e2c9359773e938951111f69fdba"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/ribbon.mgz",
+    "bytes": 200498,
+    "sha256": "85547cb604660d83999804840f08b9d973d43d56e5e74d2d736ab018d84e526a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/mri/wm.mgz",
+    "bytes": 377280,
+    "sha256": "a6779e801567055ce40622e06c546b714af183f6f73c386a1fd0c552c6933ee1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.electrodeNames",
+    "bytes": 1885,
+    "sha256": "d700fcae6bdb963c6071a396a955a5cf44c983c27fccf386888248b9955b841e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.electrodeNames_orig",
+    "bytes": 1885,
+    "sha256": "d700fcae6bdb963c6071a396a955a5cf44c983c27fccf386888248b9955b841e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.LEPTO",
+    "bytes": 5897,
+    "sha256": "4f02eeef8a3fa1b873457de0884be260e6c2af33bc7bd8bf1225d3b7767f718f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.LEPTOVOX",
+    "bytes": 6082,
+    "sha256": "8c15160e83f02e28c726ec247cc0572ba09614335364712f8769ca287f498fcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.PIAL",
+    "bytes": 5897,
+    "sha256": "4f02eeef8a3fa1b873457de0884be260e6c2af33bc7bd8bf1225d3b7767f718f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.PIALVOX",
+    "bytes": 6082,
+    "sha256": "8c15160e83f02e28c726ec247cc0572ba09614335364712f8769ca287f498fcd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88.POSTIMPLANT",
+    "bytes": 5897,
+    "sha256": "4f02eeef8a3fa1b873457de0884be260e6c2af33bc7bd8bf1225d3b7767f718f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88_elec_locations_RAS.txt",
+    "bytes": 7856,
+    "sha256": "95cdbf22b945f087d7f13507ff7c293106f66f5efacdd732361e247056cbc479"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D88/elec_recon/D88_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7856,
+    "sha256": "95cdbf22b945f087d7f13507ff7c293106f66f5efacdd732361e247056cbc479"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/aparc+aseg.mgz",
+    "bytes": 401957,
+    "sha256": "6bbed21aaff907e9b39fe0b01d6c1b9132cae9b164e47c7dd88e2758a3cf789e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 437010,
+    "sha256": "4c7573586d713221bf69750c5b7f6dee92543bd9e80d3977f717767501cffc63"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/aseg.mgz",
+    "bytes": 344815,
+    "sha256": "6a82c19a4874b6d3e2e2382f0ea463723156c0113cf0767b97214eb99fbab885"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/brainmask.mgz",
+    "bytes": 1310482,
+    "sha256": "966039f48388642cb502c37763e878ab60bea88d26304fc9fd73d1488a5839be"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/orig.mgz",
+    "bytes": 6081357,
+    "sha256": "8e762e38902628a8559c05553dce878cda5cf2fe1e0c70a4c5ec78e2879c2e46"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/ribbon.mgz",
+    "bytes": 216926,
+    "sha256": "a9a36b0fd52e7a4d0c176acf22f526b3be9777374f5a6c6ec820d1e1d1ea972f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/mri/wm.mgz",
+    "bytes": 406362,
+    "sha256": "30fa329a38c7beb1403a7fe53fe47f093bd8c92444b3ddad7599409ee7dae0fc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.electrodeNames",
+    "bytes": 1683,
+    "sha256": "9e3cd8744b3659b0c9ed90c874ef617c752841268df2a91f9271e4bb55d0c259"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.electrodeNames_orig",
+    "bytes": 1683,
+    "sha256": "9e3cd8744b3659b0c9ed90c874ef617c752841268df2a91f9271e4bb55d0c259"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.LEPTO",
+    "bytes": 5087,
+    "sha256": "7ba3d16d94b21be17aeeb54a5c4dc5a6b5c4bb7cdbd2880996708c1260ac35b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.LEPTOVOX",
+    "bytes": 5290,
+    "sha256": "0a1a4568da0ea37d6d765c372a4b76fd76c88eb6e9b385cb8c419975be1e422a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.PIAL",
+    "bytes": 5087,
+    "sha256": "7ba3d16d94b21be17aeeb54a5c4dc5a6b5c4bb7cdbd2880996708c1260ac35b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.PIALVOX",
+    "bytes": 5290,
+    "sha256": "0a1a4568da0ea37d6d765c372a4b76fd76c88eb6e9b385cb8c419975be1e422a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90.POSTIMPLANT",
+    "bytes": 5087,
+    "sha256": "7ba3d16d94b21be17aeeb54a5c4dc5a6b5c4bb7cdbd2880996708c1260ac35b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90_elec_locations_RAS.txt",
+    "bytes": 6824,
+    "sha256": "62c61c5ae61a8277e643095bed88f15b2fd9dbc632abe7dd1850b4a428e31e9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D90/elec_recon/D90_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6824,
+    "sha256": "62c61c5ae61a8277e643095bed88f15b2fd9dbc632abe7dd1850b4a428e31e9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/aparc+aseg.mgz",
+    "bytes": 428345,
+    "sha256": "68eb23421dd5e4440f07ad0f5cd7ef6f0625a570392a9ca36afea273163b6e27"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 466358,
+    "sha256": "64b3a789bd8398a6d40e03b2cc4e8374f350fd415eb4ae0193234bb03ceb3182"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/aseg.mgz",
+    "bytes": 361897,
+    "sha256": "e62339f2e4a902eda67c766165ce14cddb8f6137cc8ecdee149dcd10605ef3a8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/brainmask.mgz",
+    "bytes": 1448015,
+    "sha256": "8580f96a56cd783c3d6ea53fa60a28082c46c961f0f7fc6bc49b4422fe31b53d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/orig.mgz",
+    "bytes": 5571492,
+    "sha256": "f4b782490401ca9c5ea6c9de24db3afc04212852c97ee8af68fad29344991b94"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/ribbon.mgz",
+    "bytes": 227729,
+    "sha256": "236702ff444a9884cc1170ed588c46536b6f5c004ea6dc21c392ceed5021b5e7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/mri/wm.mgz",
+    "bytes": 520845,
+    "sha256": "c23a85d865c457d8af06bc9c9db4469ac52cb8c5a9f8e9b19f0c113811c8cab3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.electrodeNames",
+    "bytes": 3604,
+    "sha256": "36b9b7ee0cbf7fe56c426984faa76ccdf158857fa639ab91e83b14b773c022b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.electrodeNames_orig",
+    "bytes": 3604,
+    "sha256": "36b9b7ee0cbf7fe56c426984faa76ccdf158857fa639ab91e83b14b773c022b4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.LEPTO",
+    "bytes": 10470,
+    "sha256": "278472e54f64efdb1f8c2b17495a0470db8d6ebefb0691cda8ad66b0c6fadcae"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.LEPTOVOX",
+    "bytes": 10916,
+    "sha256": "18d297a50c01ed2f4b4ff10798c090e027c29ae2c1e11a8f6db2ddb7ba378340"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.PIAL",
+    "bytes": 10470,
+    "sha256": "278472e54f64efdb1f8c2b17495a0470db8d6ebefb0691cda8ad66b0c6fadcae"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.PIALVOX",
+    "bytes": 10916,
+    "sha256": "9c6d91d3aa4cc12f92458d597a0d408f81a22ade4fb8c3cee40bc6005b2f5ce0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91.POSTIMPLANT",
+    "bytes": 10470,
+    "sha256": "278472e54f64efdb1f8c2b17495a0470db8d6ebefb0691cda8ad66b0c6fadcae"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91_elec_locations_RAS.txt",
+    "bytes": 14296,
+    "sha256": "a5c3e6db84222ede68d1e9a5d487d373d85f1d7db674be7fa7284d4449f47666"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D91/elec_recon/D91_elec_locations_RAS_brainshifted.txt",
+    "bytes": 14296,
+    "sha256": "a5c3e6db84222ede68d1e9a5d487d373d85f1d7db674be7fa7284d4449f47666"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/aparc+aseg.mgz",
+    "bytes": 384711,
+    "sha256": "2306f8eb1130a93f795abc1a9bff92f875669de7c182113ff0f757dca6d52fb8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 417039,
+    "sha256": "abfef6fc50015588ca0300f3bd16fae418b4cfe9570161f55679faae4ce2af50"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/aseg.mgz",
+    "bytes": 331554,
+    "sha256": "3c01e13a654cb8780e2ed3a865a63a50607a055b2ef41c0732336e1263976f11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/brainmask.mgz",
+    "bytes": 1376396,
+    "sha256": "c45d0058e2ea7cbd0e06b84471c384548532811e97b00517f374596e5e747f7c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/orig.mgz",
+    "bytes": 6229361,
+    "sha256": "1d3e1faffebf9e6df82b576b55bfb96bbb62d91053aeaef11617b855c7778ce4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/ribbon.mgz",
+    "bytes": 208710,
+    "sha256": "89ea77814ba739727205cb916ef1f350778a2db7dff224fb7654c2006179a83a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/mri/wm.mgz",
+    "bytes": 387193,
+    "sha256": "81cc357a01e905f5bce6b4cd8238686acd69b2f4512d8b5d0bb00b5b9a2fd28a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.electrodeNames",
+    "bytes": 2213,
+    "sha256": "125fbea8a6dfa65c9611aa28b915dd55e85af848174eccc650e3015e07976740"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.electrodeNames_orig",
+    "bytes": 2213,
+    "sha256": "125fbea8a6dfa65c9611aa28b915dd55e85af848174eccc650e3015e07976740"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.LEPTO",
+    "bytes": 6838,
+    "sha256": "426428a6f7e1d6c78f7e03b3417a4442aebc0ca63fc07593faa88713226e696d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.LEPTOVOX",
+    "bytes": 7053,
+    "sha256": "8c7559380e941cc195ec3d42486dd83fe1a47f41fc1e8944a32de49ab811104b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.PIAL",
+    "bytes": 6838,
+    "sha256": "426428a6f7e1d6c78f7e03b3417a4442aebc0ca63fc07593faa88713226e696d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.PIALVOX",
+    "bytes": 7053,
+    "sha256": "1971bbc15ff6a8e573311710887662eb0ab9be2b396193006e0aa2daefc8d361"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92.POSTIMPLANT",
+    "bytes": 6838,
+    "sha256": "426428a6f7e1d6c78f7e03b3417a4442aebc0ca63fc07593faa88713226e696d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92_elec_locations_RAS.txt",
+    "bytes": 9159,
+    "sha256": "9b134a1b6c30726ea949e894d9413de263997adfd2884f7d6d6eeafc91e99b38"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D92/elec_recon/D92_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9159,
+    "sha256": "9b134a1b6c30726ea949e894d9413de263997adfd2884f7d6d6eeafc91e99b38"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/aparc+aseg.mgz",
+    "bytes": 406621,
+    "sha256": "08ffe602cff93e3278c1b7d8c385eeeb6dfd3ae54b96dfb8208edeee7b50ffe5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 439884,
+    "sha256": "b8a59e9881bf863a9a8d2c63723494e99d6062e1e81ca853ef9e87d7c73ff894"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/aseg.mgz",
+    "bytes": 351016,
+    "sha256": "aee255d4f25b0c6b155527513408b9c6875280e85f69bc7fdf71d0d5fb8aa321"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/brainmask.mgz",
+    "bytes": 1315524,
+    "sha256": "a8777dda47a71634230787d20a58ba44314a6f4b5432f05d808cf47d1a5572b0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/orig.mgz",
+    "bytes": 5860340,
+    "sha256": "a801a2239a7286e8b83316d4d54937a04927d3a47b33f8ef1a26e996b00dffaf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/ribbon.mgz",
+    "bytes": 217531,
+    "sha256": "32c52ea3ed45785cc01c8aa11337284427dbcc02953b34e96335025669f4d0d0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/mri/wm.mgz",
+    "bytes": 398546,
+    "sha256": "66c657eb24308b678e2364492cb1401318f7aed248c2236c833f0a76687fb9b8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.electrodeNames",
+    "bytes": 2475,
+    "sha256": "0c94db7de6894d919ac5d35812df7d7341a1187ee94086e82191de2dd8b3c1d1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.electrodeNames_orig",
+    "bytes": 2475,
+    "sha256": "0c94db7de6894d919ac5d35812df7d7341a1187ee94086e82191de2dd8b3c1d1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.LEPTO",
+    "bytes": 7485,
+    "sha256": "80cde5047a28823b45ead27b47ea27fded2e6bfe3b5afe49778e285ff238817e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.LEPTOVOX",
+    "bytes": 7827,
+    "sha256": "94e4d670114cace592a122c529deddb5bb671be1b6584854e1be14f283a9ca11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.PIAL",
+    "bytes": 7485,
+    "sha256": "80cde5047a28823b45ead27b47ea27fded2e6bfe3b5afe49778e285ff238817e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.PIALVOX",
+    "bytes": 7827,
+    "sha256": "94e4d670114cace592a122c529deddb5bb671be1b6584854e1be14f283a9ca11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94.POSTIMPLANT",
+    "bytes": 7485,
+    "sha256": "80cde5047a28823b45ead27b47ea27fded2e6bfe3b5afe49778e285ff238817e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94_elec_locations_RAS.txt",
+    "bytes": 10090,
+    "sha256": "75256be982132dab05a101e9dba5852ca0d1182f2866c396e9d5a43af4f5bb42"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D94/elec_recon/D94_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10090,
+    "sha256": "75256be982132dab05a101e9dba5852ca0d1182f2866c396e9d5a43af4f5bb42"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/aparc+aseg.mgz",
+    "bytes": 367496,
+    "sha256": "49adc1cd68bb38112f708fd379719a0e8c0cd02bc363412c521a00dd786b2edf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 396527,
+    "sha256": "fec002650db37c3a83c73f805583bf7346ff1f38a515fff03bd01a820ee967bf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/aseg.mgz",
+    "bytes": 316375,
+    "sha256": "6d7d8c2125cc8a124ead4c4a7b5a9e352c9dfc775794a90effde51fb1df4ba6d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/brainmask.mgz",
+    "bytes": 1376510,
+    "sha256": "817b5543aaa501243902f02eb46fe2eb2560e5776aa1457ea3561a00326adb71"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/orig.mgz",
+    "bytes": 6329966,
+    "sha256": "869b7766b6a772f11bff2820a404a6047531cf7409dd2d9738322952c009dec8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/ribbon.mgz",
+    "bytes": 197077,
+    "sha256": "fccfc91df272e1895b6020d87db91f292391e589b939459af226a2ac4d29548c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/mri/wm.mgz",
+    "bytes": 392307,
+    "sha256": "8dd5e3d191be78d8d65b4dfb86f09030124f24045d5352055c8eea585e97146b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.electrodeNames",
+    "bytes": 3006,
+    "sha256": "fe1fa878f089689026dc10de58eb0dc99276afd88cd1a27b4beffd5be89bffc8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.electrodeNames_orig",
+    "bytes": 3006,
+    "sha256": "fe1fa878f089689026dc10de58eb0dc99276afd88cd1a27b4beffd5be89bffc8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.LEPTO",
+    "bytes": 9123,
+    "sha256": "377e8b5211e38ca188579de1ca7eed297e5c55160077b13b47dd40096de092c3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.LEPTOVOX",
+    "bytes": 9588,
+    "sha256": "e2fe3e1c0ff7c88b5d49aabdcd6114c37805563c0fdd815ae7520afe0b9ba2f8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.PIAL",
+    "bytes": 9123,
+    "sha256": "377e8b5211e38ca188579de1ca7eed297e5c55160077b13b47dd40096de092c3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.PIALVOX",
+    "bytes": 9588,
+    "sha256": "e2fe3e1c0ff7c88b5d49aabdcd6114c37805563c0fdd815ae7520afe0b9ba2f8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95.POSTIMPLANT",
+    "bytes": 9123,
+    "sha256": "377e8b5211e38ca188579de1ca7eed297e5c55160077b13b47dd40096de092c3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95_elec_locations_RAS.txt",
+    "bytes": 12313,
+    "sha256": "1f1a64e00c277e9a3af0506ebe1144acc882581d6aedf672c9816912f6d917d5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D95/elec_recon/D95_elec_locations_RAS_brainshifted.txt",
+    "bytes": 12313,
+    "sha256": "1f1a64e00c277e9a3af0506ebe1144acc882581d6aedf672c9816912f6d917d5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/aparc+aseg.mgz",
+    "bytes": 360751,
+    "sha256": "24af89b701cdfb58f4c330c694bdd38a3841150ac6864039ae75c34e88ae7abe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 388053,
+    "sha256": "074547152074da1ac2370643b173e1f9b9166d96a9b2c8ebd1cf3ddc979890d1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/aseg.mgz",
+    "bytes": 311304,
+    "sha256": "d53784ef0dcc49fe8bab6e1dd54239d6663fe59b6fbb75925a9c1c32d5c5f73c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/brainmask.mgz",
+    "bytes": 1335179,
+    "sha256": "574f9c07390e7c6e28eca26ee8812881f71d3952c31e8f8c34a91e4ddd354a59"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/orig.mgz",
+    "bytes": 5629697,
+    "sha256": "b0a41b7d9e9c7fdb259a8c710b34253ae35732a5be1b1071e16f57a2181c0662"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/ribbon.mgz",
+    "bytes": 194335,
+    "sha256": "c3be65809f4ff223596d24ad096dffd36405b665a08324d4ad4c94880b033e69"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/mri/wm.mgz",
+    "bytes": 357082,
+    "sha256": "c8fc49a29738d4f7f8ac7c2139d80cdf2be7e03bb919bac54a35e87f869aab49"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.electrodeNames",
+    "bytes": 2220,
+    "sha256": "e13073794b7a012df60ae1fccda6a362f3eb5523dd38ece262d0d59b209a9588"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.electrodeNames_orig",
+    "bytes": 2220,
+    "sha256": "e13073794b7a012df60ae1fccda6a362f3eb5523dd38ece262d0d59b209a9588"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.LEPTO",
+    "bytes": 6571,
+    "sha256": "e5617aa01ec627047f8029142feab2c76161b764818dbf51c8e62eb859a809bc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.LEPTOVOX",
+    "bytes": 7013,
+    "sha256": "501efdc0ae6436b3c6ee3e0f1769b1ad1d89b9d00cefa188a432d842d681dbf4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.PIAL",
+    "bytes": 6571,
+    "sha256": "e5617aa01ec627047f8029142feab2c76161b764818dbf51c8e62eb859a809bc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.PIALVOX",
+    "bytes": 7013,
+    "sha256": "501efdc0ae6436b3c6ee3e0f1769b1ad1d89b9d00cefa188a432d842d681dbf4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101.POSTIMPLANT",
+    "bytes": 6571,
+    "sha256": "e5617aa01ec627047f8029142feab2c76161b764818dbf51c8e62eb859a809bc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101_elec_locations_RAS.txt",
+    "bytes": 8897,
+    "sha256": "94da9f91d472ecf905db51974e16454bb5ce63729b61a1395549dcd45f3a59a2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D101/elec_recon/D101_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8897,
+    "sha256": "94da9f91d472ecf905db51974e16454bb5ce63729b61a1395549dcd45f3a59a2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/aparc+aseg.mgz",
+    "bytes": 416744,
+    "sha256": "aed9b14c7216e9a2d46046c19679f716d3d7913eaeb6cae45aa8d36c844e578e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 449424,
+    "sha256": "9f278ca7c0f6c2de7382127f04d3be886e4cafcd805e7bd657ccd08b293e68b1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/aseg.mgz",
+    "bytes": 358302,
+    "sha256": "aad09bc942bcc0ff1609b42723821935dee09401d8d2b806dbfd518544c8bd2e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/brainmask.mgz",
+    "bytes": 1363964,
+    "sha256": "f6d95dd3424e777ae371b72d8a0d2d2511e7b27a8855d83df78fd4c3dc8f8dfa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/orig.mgz",
+    "bytes": 6494529,
+    "sha256": "56b391c3b6b4c62b7b4753b38f894ae3779a798f06598ef0f326f5ca2c81b52c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/ribbon.mgz",
+    "bytes": 227225,
+    "sha256": "867f4913b55a7aeff1a1fd379722881703a3c1e4ea261be4a27e0198c757c752"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/mri/wm.mgz",
+    "bytes": 435914,
+    "sha256": "a113631ed0e70275996a93c0db5f97043f9bd548edfc70d96fab0ac097e6d3d8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.electrodeNames",
+    "bytes": 2372,
+    "sha256": "2c20102181f840de1c7e21f23e77d0bdcf062ae938ed0369e55491952c0d0519"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.electrodeNames_orig",
+    "bytes": 2372,
+    "sha256": "2c20102181f840de1c7e21f23e77d0bdcf062ae938ed0369e55491952c0d0519"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.LEPTO",
+    "bytes": 7005,
+    "sha256": "e768e11a242a493640e084fb8b1315da2a7f03e4a21c433e87a9d2b8f0ebef86"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.LEPTOVOX",
+    "bytes": 7374,
+    "sha256": "ec264fefa506e9a9c2d4542c9780e3896a51276210137c8babf96af98fd740da"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.PIAL",
+    "bytes": 7005,
+    "sha256": "e768e11a242a493640e084fb8b1315da2a7f03e4a21c433e87a9d2b8f0ebef86"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.PIALVOX",
+    "bytes": 7374,
+    "sha256": "ec264fefa506e9a9c2d4542c9780e3896a51276210137c8babf96af98fd740da"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102.POSTIMPLANT",
+    "bytes": 7005,
+    "sha256": "e768e11a242a493640e084fb8b1315da2a7f03e4a21c433e87a9d2b8f0ebef86"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102_elec_locations_RAS.txt",
+    "bytes": 9494,
+    "sha256": "d6f1d2bb3a51e1a38182fde26a62611cdd9252d88684fa66ba98c92a476431f3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D102/elec_recon/D102_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9494,
+    "sha256": "d6f1d2bb3a51e1a38182fde26a62611cdd9252d88684fa66ba98c92a476431f3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/aparc+aseg.mgz",
+    "bytes": 437436,
+    "sha256": "22231c5bc2c9101e197c1d6e7d13bb9e129e6ea56f32ad8196ed7bdb31c1ebcf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 476478,
+    "sha256": "a08d9008a53c0ac392efaf5d08b7fa9f8ae71d4ba1e584a91c2047fddd28e64d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/aseg.mgz",
+    "bytes": 378587,
+    "sha256": "9e1c8624e9f2b31b9dd3bb52894b78165656793f04b6b3093ab3a3cc77a72035"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/brainmask.mgz",
+    "bytes": 1511938,
+    "sha256": "4bb8965feb8145d4f74a0fbe1de16568c0b62180bf280302b36e4f080a7dd5b7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/orig.mgz",
+    "bytes": 6444652,
+    "sha256": "2ddf81333bc242562e53b0ec8037c0f6611929c84cb6473d75e6ebf9a75be3c4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/ribbon.mgz",
+    "bytes": 239541,
+    "sha256": "43ed49cd6206fb6364935dffa066190f78761a8bbdc92b8d21415a2618dc68c2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/mri/wm.mgz",
+    "bytes": 449836,
+    "sha256": "371ade8cc12fadc93ecaba2c10844fac56eda56ea45839b2fda4a02ebf78148c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.electrodeNames",
+    "bytes": 2551,
+    "sha256": "48f6fe305833a62fe7b6cfd4af10ca3737a150fef168ac2ba78151d796bb7f46"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.electrodeNames_orig",
+    "bytes": 2551,
+    "sha256": "48f6fe305833a62fe7b6cfd4af10ca3737a150fef168ac2ba78151d796bb7f46"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.LEPTO",
+    "bytes": 7908,
+    "sha256": "744978090681704614014f432a2837393b8a9ff1b986f119e4c95bca984b25e7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.LEPTOVOX",
+    "bytes": 8137,
+    "sha256": "01a64e0cde5cc68ec8ec0a4c341f54992cb0b6438c24cde85f69f57ffb4b8341"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.PIAL",
+    "bytes": 7908,
+    "sha256": "744978090681704614014f432a2837393b8a9ff1b986f119e4c95bca984b25e7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.PIALVOX",
+    "bytes": 8137,
+    "sha256": "01a64e0cde5cc68ec8ec0a4c341f54992cb0b6438c24cde85f69f57ffb4b8341"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103.POSTIMPLANT",
+    "bytes": 7908,
+    "sha256": "363ee3378a3e246a12beed6b4efa2e559c6d7b9bfb3ae969d7ca1612c952e16b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103_elec_locations_RAS.txt",
+    "bytes": 10596,
+    "sha256": "1c7ce1e980e7fb356637c9aee2d593e16c274e8acb905039ee4ec1f79774fdc6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D103/elec_recon/D103_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10596,
+    "sha256": "1c7ce1e980e7fb356637c9aee2d593e16c274e8acb905039ee4ec1f79774fdc6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/aparc+aseg.mgz",
+    "bytes": 446681,
+    "sha256": "7b57488c19c92977f33e7a55fc91a1c7537d8e1cd0481fcba5334b82bdd64231"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 484371,
+    "sha256": "a115f7df51ae065d80724680f5b80197197bcf1249fa56097323f2775af7197c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/aseg.mgz",
+    "bytes": 386331,
+    "sha256": "0f0039f884b3b9767daa5334701a3f4d8204a4bf1f66e0f7d1e7f3b903a15200"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/brainmask.mgz",
+    "bytes": 1641747,
+    "sha256": "2fb8b4a63435f607c019c95ec8c4b7e2e51458bb706a435a801209e409cd0a74"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/orig.mgz",
+    "bytes": 7483841,
+    "sha256": "16cf0891cb74839c5a3e29378843f54df54fc25169bd8a20a4a4def889d63d10"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/ribbon.mgz",
+    "bytes": 240315,
+    "sha256": "6858a460d808d144689ac76c7584b578f10de01e81844cacf4560bddde05f31b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/mri/wm.mgz",
+    "bytes": 464458,
+    "sha256": "ab9a639655dcbb23f9a83057c14908a29d52f79cc0764439bd399a9baf06d33e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.electrodeNames",
+    "bytes": 2238,
+    "sha256": "74470e8d0dcb82a108b228e7113de5ab76ea6722d731e48f2f9cb268d08bdae2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.electrodeNames_orig",
+    "bytes": 2238,
+    "sha256": "74470e8d0dcb82a108b228e7113de5ab76ea6722d731e48f2f9cb268d08bdae2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.LEPTO",
+    "bytes": 7108,
+    "sha256": "61ccb86648280b0bd15e4739fbca5d8cb6774a635e575cbaecb3407de19c9177"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.LEPTOVOX",
+    "bytes": 7428,
+    "sha256": "bcaad2a69e09623c6a99fb41ac1f83ef097eee080afd6915d7b032fc87093f69"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.PIAL",
+    "bytes": 7108,
+    "sha256": "61ccb86648280b0bd15e4739fbca5d8cb6774a635e575cbaecb3407de19c9177"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.PIALVOX",
+    "bytes": 7428,
+    "sha256": "bcaad2a69e09623c6a99fb41ac1f83ef097eee080afd6915d7b032fc87093f69"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B.POSTIMPLANT",
+    "bytes": 7108,
+    "sha256": "61ccb86648280b0bd15e4739fbca5d8cb6774a635e575cbaecb3407de19c9177"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B_elec_locations_RAS.txt",
+    "bytes": 9468,
+    "sha256": "78e516f188f88712a7d416bd740dc98f74acb10493c4b24772354c73aee867fe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D107B/elec_recon/D107B_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9468,
+    "sha256": "78e516f188f88712a7d416bd740dc98f74acb10493c4b24772354c73aee867fe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/aparc+aseg.mgz",
+    "bytes": 291543,
+    "sha256": "ea5d3908be4f3980f2de39e6e572f1f62a3e02b749c90034fc592faa55880bb4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 313469,
+    "sha256": "4a898d9037ecdfcb1a43b6c135fe7f06ddd9748783e7f1990466e26defabe08e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/aseg.mgz",
+    "bytes": 250499,
+    "sha256": "546338a26393cf14e9ad761f345c68549ba2223a99b06ad65b715253d4c3eed8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/brainmask.mgz",
+    "bytes": 1059521,
+    "sha256": "61b352c936806ec4544fd4271943818a7dbd5feef3ec47cde309e7c1af977599"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/orig.mgz",
+    "bytes": 5577610,
+    "sha256": "d3019f93b932102baabc9a5deb9d4beb24372168c20cd25ed8c199dfd6c6d4e2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/ribbon.mgz",
+    "bytes": 147390,
+    "sha256": "69cfc8523e64fbdae057319744f849b85ca8a579a0eb16afe78887fa86eb238e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/mri/wm.mgz",
+    "bytes": 312398,
+    "sha256": "1eb42c656735e8f8c4fb8f25955a5a6f041df3ba517f467988bcb1451de3f5af"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.electrodeNames",
+    "bytes": 2506,
+    "sha256": "409fa24b0885b7c387c4530091ab327e585cceed3e20c96a5af1a768ba07bbf4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.electrodeNames_orig",
+    "bytes": 2506,
+    "sha256": "409fa24b0885b7c387c4530091ab327e585cceed3e20c96a5af1a768ba07bbf4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.LEPTO",
+    "bytes": 7752,
+    "sha256": "907868037c6b7c26d6ef7afd7d80dadd5b235c24552acfbef85f70d81c13bebe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.LEPTOVOX",
+    "bytes": 8024,
+    "sha256": "533114142230d2a645087e7c9a4cc1c5e169bc24bb5e2a5172f606327273f47e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.PIAL",
+    "bytes": 7752,
+    "sha256": "907868037c6b7c26d6ef7afd7d80dadd5b235c24552acfbef85f70d81c13bebe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.PIALVOX",
+    "bytes": 8024,
+    "sha256": "533114142230d2a645087e7c9a4cc1c5e169bc24bb5e2a5172f606327273f47e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115.POSTIMPLANT",
+    "bytes": 7752,
+    "sha256": "907868037c6b7c26d6ef7afd7d80dadd5b235c24552acfbef85f70d81c13bebe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115_elec_locations_RAS.txt",
+    "bytes": 10391,
+    "sha256": "5bb27e99104a4002c845c820c8118c94d5f84449f720b91a6cb7574b89047fef"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D115/elec_recon/D115_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10391,
+    "sha256": "5bb27e99104a4002c845c820c8118c94d5f84449f720b91a6cb7574b89047fef"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/aparc+aseg.mgz",
+    "bytes": 421099,
+    "sha256": "10fa41243117f46129a25d16314738dc252cea10f2e3d7dbbd3155c7ee91f910"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 454951,
+    "sha256": "9e228c6db75da62f4239b1caba083eeb7d86284e5828b9499caab0a01bde43a8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/aseg.mgz",
+    "bytes": 363213,
+    "sha256": "b2ebfb63ef2bb51158fc16f226225021555a93177691ecdeae44b315d23d283b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/brainmask.mgz",
+    "bytes": 1622900,
+    "sha256": "0f72325fb7321e2c50bcfc694ba6a5cdd456001db11195f3963f8876b05398bd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/orig.mgz",
+    "bytes": 7684104,
+    "sha256": "011b3efb8a6118eccba889852c6eb228cb606b8e0e39c1b9551c027f58778f36"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/ribbon.mgz",
+    "bytes": 225815,
+    "sha256": "d64180b1490e11463e84b5db415c1629fb16b5e232f1f3403b06450e1336bea9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/mri/wm.mgz",
+    "bytes": 515964,
+    "sha256": "896bf7113318333bc316c9f36dfdb8ece9f8b5869ca84263105e771e50210369"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.electrodeNames",
+    "bytes": 3276,
+    "sha256": "815c43de3634b0ae8866ed3132a0a6774d8c409aa99c11bca00a3bf7a72869a7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.electrodeNames_orig",
+    "bytes": 3276,
+    "sha256": "815c43de3634b0ae8866ed3132a0a6774d8c409aa99c11bca00a3bf7a72869a7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.LEPTO",
+    "bytes": 9918,
+    "sha256": "fc6d0badddea866d2bfae932cecd0a85e9cda1d412e3a3c1c2bf8f9272598173"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.LEPTOVOX",
+    "bytes": 10281,
+    "sha256": "b974b13b557cdf1ef64c4f360c88ccb6a857044bf827de7ff5f7065d581b25d5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.PIAL",
+    "bytes": 9918,
+    "sha256": "fc6d0badddea866d2bfae932cecd0a85e9cda1d412e3a3c1c2bf8f9272598173"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.PIALVOX",
+    "bytes": 10281,
+    "sha256": "b974b13b557cdf1ef64c4f360c88ccb6a857044bf827de7ff5f7065d581b25d5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118.POSTIMPLANT",
+    "bytes": 9918,
+    "sha256": "fc6d0badddea866d2bfae932cecd0a85e9cda1d412e3a3c1c2bf8f9272598173"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118_elec_locations_RAS.txt",
+    "bytes": 13399,
+    "sha256": "7d00ad1dabcc4e31dd099367ccc0ae7019cb577f1be1ede486012b9d4168b2ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D118/elec_recon/D118_elec_locations_RAS_brainshifted.txt",
+    "bytes": 13399,
+    "sha256": "7d00ad1dabcc4e31dd099367ccc0ae7019cb577f1be1ede486012b9d4168b2ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/aparc+aseg.mgz",
+    "bytes": 346758,
+    "sha256": "5fd9c7d9dac461a21eddfe49192f6b8e54fa9f72db7bec04093d4472cccd1d31"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 376321,
+    "sha256": "1be174d2ed6fbf3cb651261f3dffbfbb8a1101405893c532e9afb631720881e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/aseg.mgz",
+    "bytes": 300196,
+    "sha256": "4ac1fdbb53477d6508bc754f896d44740f389c5d2c05740973133dca60482da8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/brainmask.mgz",
+    "bytes": 1168275,
+    "sha256": "07c6cde280ed4b2d7a69a8fc663821469fd997dfc87b8540370a444f73ce2f4f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/orig.mgz",
+    "bytes": 5745312,
+    "sha256": "b315dd416c1b826af0fa41b10deed8efbcfa661844cc9686feb80a071586574b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/ribbon.mgz",
+    "bytes": 183318,
+    "sha256": "35217c036fd4409fbf5cf30ae40a4578075878ef323c8aea6ae68a7ee3b63a95"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/mri/wm.mgz",
+    "bytes": 330526,
+    "sha256": "0628d97540f870017e0ebbc375881013e801274b9999c6dd89230715d2379400"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.electrodeNames",
+    "bytes": 2494,
+    "sha256": "e36aedc6455e52001c1640f71ba51eb75c9f02ecec511cb666929473cf2b59ed"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.electrodeNames_orig",
+    "bytes": 2494,
+    "sha256": "e36aedc6455e52001c1640f71ba51eb75c9f02ecec511cb666929473cf2b59ed"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.LEPTO",
+    "bytes": 7592,
+    "sha256": "2cb9e0398b46a7eea7eccdf725bec52b81d6e57d62ce8a6cdf8bc5fb502fe124"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.LEPTOVOX",
+    "bytes": 7954,
+    "sha256": "319ec1788c75e008dda0a19ebc6caa48d7c8b90e0b909d8301407504b6707960"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.PIAL",
+    "bytes": 7592,
+    "sha256": "2cb9e0398b46a7eea7eccdf725bec52b81d6e57d62ce8a6cdf8bc5fb502fe124"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.PIALVOX",
+    "bytes": 7954,
+    "sha256": "319ec1788c75e008dda0a19ebc6caa48d7c8b90e0b909d8301407504b6707960"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119.POSTIMPLANT",
+    "bytes": 7592,
+    "sha256": "2cb9e0398b46a7eea7eccdf725bec52b81d6e57d62ce8a6cdf8bc5fb502fe124"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119_elec_locations_RAS.txt",
+    "bytes": 10222,
+    "sha256": "9e14e1d1f5e1534073d5163fd0134c2267d1c1e59e455842340af68d423dbaf6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D119/elec_recon/D119_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10222,
+    "sha256": "9e14e1d1f5e1534073d5163fd0134c2267d1c1e59e455842340af68d423dbaf6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/aparc+aseg.mgz",
+    "bytes": 405247,
+    "sha256": "d2978bcb5a728c9704a4b312ba8940c3dc679ddc9b17643d6ee1cdf51d0d4049"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 436760,
+    "sha256": "1073b01cd192b8f3bc382976c2d5c42db1449a67f3cf76f4cd688b8ee8416dfd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/aseg.mgz",
+    "bytes": 345590,
+    "sha256": "ddd3ca38fdb40608d3463df21ae2f42d2d3b8ece263bc661661d2287e88959a1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/brainmask.mgz",
+    "bytes": 1386586,
+    "sha256": "71cf2faabdda7f6df5833f36b9230990e824cf2c2a67559a6dfc6d559584664b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/orig.mgz",
+    "bytes": 5998952,
+    "sha256": "7d8881cd3ce4df4e51bd8e7289edd08772dcc11cc9bfd79ba1998e351ab6c22a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/ribbon.mgz",
+    "bytes": 215921,
+    "sha256": "61ac5e4ca32769f0f538bcc30421ed50a7263e80e9a38ecaaa790ff683854f49"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/mri/wm.mgz",
+    "bytes": 501442,
+    "sha256": "81ea14db89c6a88792f939281157db3c67bc14258eb7cacf3451bf3192765ce9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.electrodeNames",
+    "bytes": 2287,
+    "sha256": "0cd2d2a97564aeda20101df64f65218a24c84db9265fbec777750b47db94b7a2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.electrodeNames_orig",
+    "bytes": 2287,
+    "sha256": "0cd2d2a97564aeda20101df64f65218a24c84db9265fbec777750b47db94b7a2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.LEPTO",
+    "bytes": 7100,
+    "sha256": "932c9e901171f6335786869b81574b236f3e8110653e872ac59f3cf764ae2d11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.LEPTOVOX",
+    "bytes": 7304,
+    "sha256": "06f70641fc443fbefeaab9b720cebd2b7f536f2ddd75d494785b0a9ed9a37315"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.PIAL",
+    "bytes": 7100,
+    "sha256": "932c9e901171f6335786869b81574b236f3e8110653e872ac59f3cf764ae2d11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.PIALVOX",
+    "bytes": 7304,
+    "sha256": "06f70641fc443fbefeaab9b720cebd2b7f536f2ddd75d494785b0a9ed9a37315"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123.POSTIMPLANT",
+    "bytes": 7100,
+    "sha256": "932c9e901171f6335786869b81574b236f3e8110653e872ac59f3cf764ae2d11"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123_elec_locations_RAS.txt",
+    "bytes": 9499,
+    "sha256": "1ced874831946ffb12a818a81378ff211f7695e2b63d97ce5c52dcced7e22de2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D123/elec_recon/D123_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9499,
+    "sha256": "1ced874831946ffb12a818a81378ff211f7695e2b63d97ce5c52dcced7e22de2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/aparc+aseg.mgz",
+    "bytes": 348490,
+    "sha256": "05d851ac6e2ff02a83328d2f88d42997f190428378e7180125a24abe18e2ff3e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 378886,
+    "sha256": "18a784bff83dc9b19823bf0cd7502ea68fc7886dd4d3faabf1adedb90c44cd75"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/aseg.mgz",
+    "bytes": 299701,
+    "sha256": "a7e77cb02de70b93b21063f549e91b478a5ad7575b28a4348404f87e1a26f092"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/brainmask.mgz",
+    "bytes": 1145154,
+    "sha256": "0f36e19d4a47a7dc22596b4fe088137171540273928fd87c48e1a7092b16da05"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/orig.mgz",
+    "bytes": 6444151,
+    "sha256": "658fbc9625c5d424e25b8125f2ad52fe942f67a62df574d3b07cd37bdc583ae8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/ribbon.mgz",
+    "bytes": 182435,
+    "sha256": "b74b58597a91dca456b9939219659700b1c274ad6d0d31095256226e76fb374c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/mri/wm.mgz",
+    "bytes": 336773,
+    "sha256": "536b03fc141c9c2c5b3af6733f4fd08c028a0e393bb596aa5d0de5fd4d4f4437"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.electrodeNames",
+    "bytes": 2285,
+    "sha256": "10e0dd5e89e2b9752da77fd16e3f3be9a5c04c247ffda99fac70fc4d53c6abfa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.electrodeNames_orig",
+    "bytes": 2285,
+    "sha256": "10e0dd5e89e2b9752da77fd16e3f3be9a5c04c247ffda99fac70fc4d53c6abfa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.LEPTO",
+    "bytes": 7012,
+    "sha256": "b64e38a9b09698a834a592fffe5d24e634197b67613b6e1245b70f95805ed0e6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.LEPTOVOX",
+    "bytes": 7312,
+    "sha256": "c81d45cb00862046a04f179348462b3b88da306f77b8ce00aa846aab5292da35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.PIAL",
+    "bytes": 7012,
+    "sha256": "b64e38a9b09698a834a592fffe5d24e634197b67613b6e1245b70f95805ed0e6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.PIALVOX",
+    "bytes": 7312,
+    "sha256": "c81d45cb00862046a04f179348462b3b88da306f77b8ce00aa846aab5292da35"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125.POSTIMPLANT",
+    "bytes": 7012,
+    "sha256": "b64e38a9b09698a834a592fffe5d24e634197b67613b6e1245b70f95805ed0e6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS.txt",
+    "bytes": 9409,
+    "sha256": "35414d9d38b1170b21265c049f6436dc138e1572991734783fe1d76589846c45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9409,
+    "sha256": "35414d9d38b1170b21265c049f6436dc138e1572991734783fe1d76589846c45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/aparc+aseg.mgz",
+    "bytes": 428758,
+    "sha256": "3f244ee1d010dc12880b60f11f18addc371aba72bf3f2a16916d1c14678029c9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 465997,
+    "sha256": "99c7f17244cc9100ec745ce34eb2b6e7a62e00a948d2564202ecec2805e85e7e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/aseg.mgz",
+    "bytes": 371355,
+    "sha256": "dc64498edcc1d23fdbae02d02c1b69aaea92eac7dcfa0c31b887fc5bba81a2ad"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/brainmask.mgz",
+    "bytes": 1738030,
+    "sha256": "e955d00c9b25caa6c67845b142fa5a5f135564570ff0b333c2b2dd8a93d817ad"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/orig.mgz",
+    "bytes": 6392667,
+    "sha256": "36da74f1d0ac6230138b7b565e02b9ca02e1385f32f25e60507e629c4fa2c65a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/ribbon.mgz",
+    "bytes": 230686,
+    "sha256": "023eb1be365acfff4a785895af1c176518c0e0da9d9e8cbfd62c801b35f19ae6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/mri/wm.mgz",
+    "bytes": 466545,
+    "sha256": "0eaad626cafaa880ef02cf636dd1cde66b39a4d4faf0c0cdd632e6b0bf6639a5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.electrodeNames",
+    "bytes": 2402,
+    "sha256": "1a1b18b6307b03557da600dd57e2b457cf7b984a26e7fa0bef63cd3c45df2611"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.electrodeNames_orig",
+    "bytes": 2402,
+    "sha256": "1a1b18b6307b03557da600dd57e2b457cf7b984a26e7fa0bef63cd3c45df2611"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.LEPTO",
+    "bytes": 7377,
+    "sha256": "e9612988b211c923d0bfd1bbd09e00a1a2f4034f20a3cfcc0cbaf826d75a6f77"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.LEPTOVOX",
+    "bytes": 7618,
+    "sha256": "475d9fbe9c5c6194bb3df84167cfe89ad069bc41a7eac1bdf54c5711c1f22e93"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.PIAL",
+    "bytes": 7377,
+    "sha256": "eca835dd5a4f2959670eff78358b8e25edeb944eba53928c65d41ca202fd5a14"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.PIALVOX",
+    "bytes": 7618,
+    "sha256": "475d9fbe9c5c6194bb3df84167cfe89ad069bc41a7eac1bdf54c5711c1f22e93"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128.POSTIMPLANT",
+    "bytes": 7377,
+    "sha256": "e9612988b211c923d0bfd1bbd09e00a1a2f4034f20a3cfcc0cbaf826d75a6f77"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128_elec_locations_RAS.txt",
+    "bytes": 9905,
+    "sha256": "dcb433cda4cc0ed826fb0ce66e9d64c6ff077d3f0e87c1fd061e26df0b67af8d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D128/elec_recon/D128_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9905,
+    "sha256": "dcb433cda4cc0ed826fb0ce66e9d64c6ff077d3f0e87c1fd061e26df0b67af8d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/aparc+aseg.mgz",
+    "bytes": 399988,
+    "sha256": "0220e5c9451e0f04e3ac237f36cda679f9e625b131a106b5b285c3f879fdb919"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 433489,
+    "sha256": "ed4ef9c8d94ce27025b77420b3a31383d4108c1f3b0e0a9fbc9f981aa3becbbc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/aseg.mgz",
+    "bytes": 339849,
+    "sha256": "9d4bd64c76363030062f0925cfa55e6631060d109a4799e340d202cec471879d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/brainmask.mgz",
+    "bytes": 1336182,
+    "sha256": "b87fc174facadca4e4bd9f46cc92c9b6205ade6dc53cb8f8d12931b2f1490993"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/orig.mgz",
+    "bytes": 5895736,
+    "sha256": "a2ba8795f2a540aeee7ac5e61cc497f0d0182c65953d445f3c1755c11839f6e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/ribbon.mgz",
+    "bytes": 213780,
+    "sha256": "20d3a446155a409a6c7cf93351be72ef103164724a16e94ad0e66291c9c1e700"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/mri/wm.mgz",
+    "bytes": 416910,
+    "sha256": "b985e376d994e6ef53cbdf276b70d2015bace1031bc167ec7776aa3d62853c47"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.electrodeNames",
+    "bytes": 2166,
+    "sha256": "febc357ed464b70d19b68f9d0e3e8553af21128b53bc7daa7ed65ec6f014a167"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.electrodeNames_orig",
+    "bytes": 2166,
+    "sha256": "febc357ed464b70d19b68f9d0e3e8553af21128b53bc7daa7ed65ec6f014a167"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.LEPTO",
+    "bytes": 6654,
+    "sha256": "c484e56739b30f1da4a31620b5061a8fd0d245aaf4936e3d161f9a9d2b142cb7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.LEPTOVOX",
+    "bytes": 6872,
+    "sha256": "24eead7f7580bb975bc1f342845257bba44aefac84b543dda3881df1d7e76219"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.PIAL",
+    "bytes": 6654,
+    "sha256": "c484e56739b30f1da4a31620b5061a8fd0d245aaf4936e3d161f9a9d2b142cb7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.PIALVOX",
+    "bytes": 6872,
+    "sha256": "24eead7f7580bb975bc1f342845257bba44aefac84b543dda3881df1d7e76219"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129.POSTIMPLANT",
+    "bytes": 6654,
+    "sha256": "c484e56739b30f1da4a31620b5061a8fd0d245aaf4936e3d161f9a9d2b142cb7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129_elec_locations_RAS.txt",
+    "bytes": 8918,
+    "sha256": "97ae775ba63e75c55db367249ecece69ebfa71035b5e833daea432d5fd52484f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D129/elec_recon/D129_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8918,
+    "sha256": "97ae775ba63e75c55db367249ecece69ebfa71035b5e833daea432d5fd52484f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/aparc+aseg.mgz",
+    "bytes": 384370,
+    "sha256": "a448b80028a6e2401745a78b456020582dd38bbadc7e57a306d6e8a58a66dcc1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 417771,
+    "sha256": "dd4cc2e020af42f5ea9a2673da3d5e5a04a99fe449928bb2092daa8077ee04c5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/aseg.mgz",
+    "bytes": 333382,
+    "sha256": "0918daf631833ee3b0859198096654f7e3f811443f93b3efb4c847e5cdf4673f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/brainmask.mgz",
+    "bytes": 1320935,
+    "sha256": "51b536f99874cf0a3a7744e9a90b051e73804158ebff200d93b0ad7f74abb61c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/orig.mgz",
+    "bytes": 6084369,
+    "sha256": "2ad205dc669ae4a2427d4ea9b9e8e1f8cc977f4ec269a43304edbd2c99cbf4c8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/ribbon.mgz",
+    "bytes": 205894,
+    "sha256": "20d5561168bec03e2a8852a49dff31aac4260e134ad2149ef3ded11e417a85fa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/mri/wm.mgz",
+    "bytes": 385397,
+    "sha256": "1deb1b38380894ab381719ac3ac6dea1d95d0c7b9640e0e660d280a147b13886"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.electrodeNames",
+    "bytes": 2027,
+    "sha256": "216f36d162c443b80702fb1e25ee77fb996948c3074f34969f573e696b1a0d40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.electrodeNames_orig",
+    "bytes": 2027,
+    "sha256": "216f36d162c443b80702fb1e25ee77fb996948c3074f34969f573e696b1a0d40"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.LEPTO",
+    "bytes": 6298,
+    "sha256": "51a54a13810b44bb454b5bd1e2080ee2309ccbd3f7398d2756a9b9dba12ddca3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.LEPTOVOX",
+    "bytes": 6529,
+    "sha256": "9ef6c466fe70e9af4c52fff926781a0253ff1ee035ff8d829bc024c5ecdc70af"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.PIAL",
+    "bytes": 6298,
+    "sha256": "51a54a13810b44bb454b5bd1e2080ee2309ccbd3f7398d2756a9b9dba12ddca3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.PIALVOX",
+    "bytes": 6529,
+    "sha256": "9ef6c466fe70e9af4c52fff926781a0253ff1ee035ff8d829bc024c5ecdc70af"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131.POSTIMPLANT",
+    "bytes": 6298,
+    "sha256": "51a54a13810b44bb454b5bd1e2080ee2309ccbd3f7398d2756a9b9dba12ddca3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131_elec_locations_RAS.txt",
+    "bytes": 8416,
+    "sha256": "647d5c423e33ef7d27ae941bf2ee767c929ccee9f14c1b8a45df8aa4590c1bfc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D131/elec_recon/D131_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8416,
+    "sha256": "647d5c423e33ef7d27ae941bf2ee767c929ccee9f14c1b8a45df8aa4590c1bfc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/aparc+aseg.mgz",
+    "bytes": 356984,
+    "sha256": "b0de4559c8f4b0b607f858dff25a85a05bb0f7e5e88872e200651e704add91a1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 382023,
+    "sha256": "8d2af2803e2fb9033a360d2b99a1a1ac950c5237ba8423f91f6c86f413f26ffa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/aseg.mgz",
+    "bytes": 307108,
+    "sha256": "32bd19e3be0f1bdc56c65fa9f05665e4466ff51024629e7e790b8c007e014129"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/brainmask.mgz",
+    "bytes": 1177872,
+    "sha256": "166ccbd889c4330ead29f5c2a3952778f54e6dea81e45fa33bf88356ffb35020"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/orig.mgz",
+    "bytes": 6208312,
+    "sha256": "f8a366c4d7d699ed9a1d6ce3ec8f3d057b9e5e9b0ea41793e8a62f27a833e4ed"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/ribbon.mgz",
+    "bytes": 190547,
+    "sha256": "20226adac13099c3d809ba13ba936887ce0a8c8c488d01e8859b672270724b07"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/mri/wm.mgz",
+    "bytes": 421345,
+    "sha256": "7392e66dc67323096a644a2f74237b1df397a3201d26c724ccbe681fdbd7fa21"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.electrodeNames",
+    "bytes": 2557,
+    "sha256": "d138e5a56a4b00d3a30ac37f79e777c898e101fb41903234044bd068227fd4df"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.electrodeNames_orig",
+    "bytes": 2557,
+    "sha256": "d138e5a56a4b00d3a30ac37f79e777c898e101fb41903234044bd068227fd4df"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.LEPTO",
+    "bytes": 7701,
+    "sha256": "781452a02d831188ca86c85382636d35e311a0ef45b45f086554d5e60fef9e6a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.LEPTOVOX",
+    "bytes": 8077,
+    "sha256": "9972af10ffb8d485f60f463c3f220d28b3e842adf404a679c3efd02b7c9ac905"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.PIAL",
+    "bytes": 7701,
+    "sha256": "781452a02d831188ca86c85382636d35e311a0ef45b45f086554d5e60fef9e6a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.PIALVOX",
+    "bytes": 8077,
+    "sha256": "9972af10ffb8d485f60f463c3f220d28b3e842adf404a679c3efd02b7c9ac905"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132.POSTIMPLANT",
+    "bytes": 7701,
+    "sha256": "781452a02d831188ca86c85382636d35e311a0ef45b45f086554d5e60fef9e6a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132_elec_locations_RAS.txt",
+    "bytes": 10394,
+    "sha256": "30d7964633bcf7adbf9d1ee052b0676f7cb78ff4927c2be4e8c633caeab6d942"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D132/elec_recon/D132_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10394,
+    "sha256": "30d7964633bcf7adbf9d1ee052b0676f7cb78ff4927c2be4e8c633caeab6d942"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/aparc+aseg.mgz",
+    "bytes": 423710,
+    "sha256": "8ab98f7eb47eb74ed3355e9201127ebe06fb48889b44be5d0608145db5288f0d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 459467,
+    "sha256": "2e67e30ed8e5fad05f71ace98a66b1776e4c737ae83ddf75eeea810e45c899a9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/aseg.mgz",
+    "bytes": 357589,
+    "sha256": "dcaf15f1669d1fd249391e1d676ecd37705364db54897e88ce112878a83c608d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/brainmask.mgz",
+    "bytes": 1329045,
+    "sha256": "eb839cd333ca98c72df21bcb092eaabd6d032cd8c813ca6a7624da3457cf0ee9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/orig.mgz",
+    "bytes": 8062934,
+    "sha256": "985ada522d4daf58185f6c8b704c533c7a37cc8be949176897bd81e1bf08ef7c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/ribbon.mgz",
+    "bytes": 222584,
+    "sha256": "73b4c57d23b9675fd4160c9af6f1cb10bfc46e20190d3d2ad36e71f882bf5d10"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/mri/wm.mgz",
+    "bytes": 417756,
+    "sha256": "6c4ba97f9054482ed885aa8758c412f0c2c51688b1d39ce4d1a9f5cb8fa334e7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.electrodeNames",
+    "bytes": 3918,
+    "sha256": "63775e3c9ee119b445167d2b9005e0e1276b135d9a6a88450f4e4f3d2da1fc00"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.electrodeNames_orig",
+    "bytes": 3918,
+    "sha256": "63775e3c9ee119b445167d2b9005e0e1276b135d9a6a88450f4e4f3d2da1fc00"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.LEPTO",
+    "bytes": 11300,
+    "sha256": "25fb5a168e94caa649835140eee995376aa6e429b4ea35678939d8c74ff21fd2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.LEPTOVOX",
+    "bytes": 11716,
+    "sha256": "b4fb9690f1eae22b4e400f749b8a92429d4d4a95885c86ae81c7ed786617baf8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.PIAL",
+    "bytes": 11300,
+    "sha256": "25fb5a168e94caa649835140eee995376aa6e429b4ea35678939d8c74ff21fd2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.PIALVOX",
+    "bytes": 11716,
+    "sha256": "b4fb9690f1eae22b4e400f749b8a92429d4d4a95885c86ae81c7ed786617baf8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134.POSTIMPLANT",
+    "bytes": 11300,
+    "sha256": "65a9f1a509cd19690a6cd55500d650af64b72ea6996de9993a88e7e2e6229dcf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134_elec_locations_RAS.txt",
+    "bytes": 15474,
+    "sha256": "50605088f85cb8411df1f7e69d37698d82177dd5c9c9455de6e0bb0ab92cc14b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D134/elec_recon/D134_elec_locations_RAS_brainshifted.txt",
+    "bytes": 15474,
+    "sha256": "50605088f85cb8411df1f7e69d37698d82177dd5c9c9455de6e0bb0ab92cc14b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/aparc+aseg.mgz",
+    "bytes": 390046,
+    "sha256": "aab2132d63f3f891056c5190592146b0068a0dcfc94d90b778e429bfe0415e8f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 421176,
+    "sha256": "26c95561e0d4770fe25eb947a556e0feece4b7377966c475429cdd827780af37"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/aseg.mgz",
+    "bytes": 336442,
+    "sha256": "9cdfef577e7d323b8bfdae641c05cb10d1d322f4afa7f257c3edf10b4229d739"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/brainmask.mgz",
+    "bytes": 1416256,
+    "sha256": "528c2195b19ad1babbb5aecdefb0fd90eaa2c4d49f22984aca3db6206d44b915"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/orig.mgz",
+    "bytes": 5868751,
+    "sha256": "7362fdc8243afa41c0103c3a9444db702f9cbce00d62fac3aa12e7d629cd3734"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/ribbon.mgz",
+    "bytes": 208148,
+    "sha256": "e99888ff43516ef151d6c19ee767aca07f5048f7ac6fdb9ac1c0a29fa11ecb45"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/mri/wm.mgz",
+    "bytes": 394972,
+    "sha256": "67f0d47d1eebc2f7a6634c15d3bf4fdac518667bf4a7ac78d82f9756896b95e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.electrodeNames",
+    "bytes": 2536,
+    "sha256": "a6f5b7d2ea7345a5d7c87bf77f0e577133f554c87b40de213b6ec9efb0f4f9ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.electrodeNames_orig",
+    "bytes": 2536,
+    "sha256": "a6f5b7d2ea7345a5d7c87bf77f0e577133f554c87b40de213b6ec9efb0f4f9ea"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.LEPTO",
+    "bytes": 7908,
+    "sha256": "fdf8695c3b829a6ba57f2748cbc3ded621883bab15a94de0cf16e932cad3e7be"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.LEPTOVOX",
+    "bytes": 8130,
+    "sha256": "9dc3e3379df299adda5f346e7adfa668eae67b16be3d8fc62192c73cbfb966db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.PIAL",
+    "bytes": 7908,
+    "sha256": "fdf8695c3b829a6ba57f2748cbc3ded621883bab15a94de0cf16e932cad3e7be"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.PIALVOX",
+    "bytes": 8130,
+    "sha256": "9dc3e3379df299adda5f346e7adfa668eae67b16be3d8fc62192c73cbfb966db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137.POSTIMPLANT",
+    "bytes": 7908,
+    "sha256": "fdf8695c3b829a6ba57f2748cbc3ded621883bab15a94de0cf16e932cad3e7be"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137_elec_locations_RAS.txt",
+    "bytes": 10547,
+    "sha256": "4e27dc9cabb1a202328879d058051f01e3607cb5e90b1639aa9018194eb605e9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D137/elec_recon/D137_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10547,
+    "sha256": "4e27dc9cabb1a202328879d058051f01e3607cb5e90b1639aa9018194eb605e9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/aparc+aseg.mgz",
+    "bytes": 414126,
+    "sha256": "ac047c1d1f796ba4ac67fae57068bad569d2223d528d207be728822942f989f2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 450405,
+    "sha256": "79f733710cdc8b435ccea1ffa7216d7625316ac54a914cef281f389d5c9b54a3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/aseg.mgz",
+    "bytes": 353149,
+    "sha256": "45b54891877e192e8d451c042d9033585dc279a56acb25f272e7c96f04de3bf5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/brainmask.mgz",
+    "bytes": 1430747,
+    "sha256": "07927d302809280c351ba41f75b0d41af8af0ec4cc55b37033a65186237f70b5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/orig.mgz",
+    "bytes": 5984389,
+    "sha256": "e29dd6ec951bf63597dce961c45e6f80e2477f4b849ece75722993b655b681f0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/ribbon.mgz",
+    "bytes": 220308,
+    "sha256": "e930b50e0ac17236521f3cc7ddf286cc979291f13ecdb8431b88cbfd8339f3d8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/mri/wm.mgz",
+    "bytes": 430542,
+    "sha256": "adda1eb2793e67b39e027882d55d6a3c2b3ee603bd191bb58612c30098294282"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.electrodeNames",
+    "bytes": 2421,
+    "sha256": "122118638ede4e049846e118b3a1217b2b2c7ffccf114435e74f48cc51a49838"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.electrodeNames_orig",
+    "bytes": 2421,
+    "sha256": "122118638ede4e049846e118b3a1217b2b2c7ffccf114435e74f48cc51a49838"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.LEPTO",
+    "bytes": 7413,
+    "sha256": "ffbbbe98c14e8c096ceaa38d7e471d3208784af0b0742e5a77646dcc0b900736"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.LEPTOVOX",
+    "bytes": 7710,
+    "sha256": "eb23219bdebb2c63f3bd569959c85c9527681f9140c36dae0d39030368705e64"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.PIAL",
+    "bytes": 7413,
+    "sha256": "ffbbbe98c14e8c096ceaa38d7e471d3208784af0b0742e5a77646dcc0b900736"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.PIALVOX",
+    "bytes": 7710,
+    "sha256": "eb23219bdebb2c63f3bd569959c85c9527681f9140c36dae0d39030368705e64"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A.POSTIMPLANT",
+    "bytes": 7413,
+    "sha256": "ffbbbe98c14e8c096ceaa38d7e471d3208784af0b0742e5a77646dcc0b900736"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A_elec_locations_RAS.txt",
+    "bytes": 9957,
+    "sha256": "ed95a5d0b8511e3e35a30a52ed5aa2a4d6113cab9cfa3f23ece8d947dc6caf7a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D139A/elec_recon/D139A_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9957,
+    "sha256": "ed95a5d0b8511e3e35a30a52ed5aa2a4d6113cab9cfa3f23ece8d947dc6caf7a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/aparc+aseg.mgz",
+    "bytes": 403590,
+    "sha256": "1917d16325befb9a70b7a8561c8df5dfd8e6ec1913d6279a56dfd35b80396ffc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 437315,
+    "sha256": "21c70565979cff92c22283d2c7e22ab11e9204e825d560fc12f3a552c89d3671"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/aseg.mgz",
+    "bytes": 348524,
+    "sha256": "6562c610853ced6365af3efcbd1106fbb17b20b26166695e7cab07beb663c74c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/brainmask.mgz",
+    "bytes": 1351810,
+    "sha256": "dee6043472885f307d861f526ae72058fdb2b5da57e44dc49393dfd9137a4daf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/orig.mgz",
+    "bytes": 6540579,
+    "sha256": "82e431cc3e02b36d04575cf697b476bc4e1c82931e0a09420fd3c86a6e55bcbd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/ribbon.mgz",
+    "bytes": 218618,
+    "sha256": "c4fb24887943454b4aec7197cffbfad6d29491d929ceb98fab0141b58b623b50"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/mri/wm.mgz",
+    "bytes": 423849,
+    "sha256": "92d31995d171953b3a3e432dc374a55126b997ab50b475fabdb5e872fd15e265"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.electrodeNames",
+    "bytes": 1786,
+    "sha256": "9ea935422d28dd7ad39efc4ab410f9fbe65e8a68e23639a6286466015bd7b928"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.electrodeNames_orig",
+    "bytes": 1786,
+    "sha256": "9ea935422d28dd7ad39efc4ab410f9fbe65e8a68e23639a6286466015bd7b928"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.LEPTO",
+    "bytes": 5287,
+    "sha256": "2bdc001d682681669c9bed51293a3cfcbef864efa33847c4a6d49d359656a61d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.LEPTOVOX",
+    "bytes": 5512,
+    "sha256": "7ddb61ad510b7042305f82934d974b86b9bb2be9890b3133865f3a001ab0c1c8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.PIAL",
+    "bytes": 5287,
+    "sha256": "2bdc001d682681669c9bed51293a3cfcbef864efa33847c4a6d49d359656a61d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.PIALVOX",
+    "bytes": 5512,
+    "sha256": "7ddb61ad510b7042305f82934d974b86b9bb2be9890b3133865f3a001ab0c1c8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143.POSTIMPLANT",
+    "bytes": 5287,
+    "sha256": "2bdc001d682681669c9bed51293a3cfcbef864efa33847c4a6d49d359656a61d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143_elec_locations_RAS.txt",
+    "bytes": 7135,
+    "sha256": "26126545b7df96665cf034b7147b8ec98dfff4af2a5d1404e8ffb6e8540cb9da"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D143/elec_recon/D143_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7135,
+    "sha256": "26126545b7df96665cf034b7147b8ec98dfff4af2a5d1404e8ffb6e8540cb9da"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/aparc+aseg.mgz",
+    "bytes": 369777,
+    "sha256": "cf1c4e650a39d7f266407019469e1f2f5175857f23bdd63e068ed9cc3a9440e2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 399379,
+    "sha256": "98e27c327dcbc6f0a164cf33d59ef10966d6879aa7d8d791c7b47c6bc890479c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/aseg.mgz",
+    "bytes": 314047,
+    "sha256": "56546a63215f6c7f1b61a4a142d3e359cf64b411268ce280029a6523c3370899"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/brainmask.mgz",
+    "bytes": 1227660,
+    "sha256": "90d353c3dc8151b9cf39592e8b299f5a1a0cd477e0be01cd4a799966f3031e92"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/orig.mgz",
+    "bytes": 8637156,
+    "sha256": "43eaf6bdef4349d83e49c0dbea1988f6db52981b6a78bb0ab937507b94bfb14c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/ribbon.mgz",
+    "bytes": 194049,
+    "sha256": "4809c7a12a028e42f80971d3f5e182e3db3922909c975f8261bb635ee5a2ac82"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/mri/wm.mgz",
+    "bytes": 395891,
+    "sha256": "bad3623f4eb49204bf8384f93ead74956b7297a88e72b249219a3b438cb5f94c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.electrodeNames",
+    "bytes": 1991,
+    "sha256": "ee96f0d8f02ddaf8372772fd9b93b70664e961fd0ede0e594d5bdc7e48ea19e2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.electrodeNames_orig",
+    "bytes": 1991,
+    "sha256": "ee96f0d8f02ddaf8372772fd9b93b70664e961fd0ede0e594d5bdc7e48ea19e2"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.LEPTO",
+    "bytes": 5938,
+    "sha256": "a4b6fdd0b06a9ab58281ae669f3c991d9f5b438f84a0081af014b4a192b72c08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.LEPTOVOX",
+    "bytes": 6113,
+    "sha256": "e076ad781409d9a26e41f4c0886e9ef97908bd60dbf29dafc6f27f760f8b8b90"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.PIAL",
+    "bytes": 5938,
+    "sha256": "a4b6fdd0b06a9ab58281ae669f3c991d9f5b438f84a0081af014b4a192b72c08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.PIALVOX",
+    "bytes": 6113,
+    "sha256": "e076ad781409d9a26e41f4c0886e9ef97908bd60dbf29dafc6f27f760f8b8b90"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40.POSTIMPLANT",
+    "bytes": 5938,
+    "sha256": "a4b6fdd0b06a9ab58281ae669f3c991d9f5b438f84a0081af014b4a192b72c08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40_elec_locations_RAS.txt",
+    "bytes": 8007,
+    "sha256": "b55c1a8d4e1602a0dad91fa4c90327dd3c307edc2d701847e356a1f0b7217302"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D40/elec_recon/D40_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8007,
+    "sha256": "b55c1a8d4e1602a0dad91fa4c90327dd3c307edc2d701847e356a1f0b7217302"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/aparc+aseg.mgz",
+    "bytes": 382426,
+    "sha256": "7f1f6ec92f13e9992b1a1fcd70d7fa2b72f4ac5563c1efa6778b7bd8eb8d30f3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 412448,
+    "sha256": "4b7f97911e6b0848bd0ac5554553279b7e76d50ef69722f8324797e64ce0bc8f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/aseg.mgz",
+    "bytes": 326990,
+    "sha256": "67ceedeea9f0ebc16e82df6286601425f277ffe0cc0d82fb5f882f483b5e3d23"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/brainmask.mgz",
+    "bytes": 1219674,
+    "sha256": "9a0aa6ed84fd783cc118154ca0a41486e00caa69a911d56c23e1659e91e137cf"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/orig.mgz",
+    "bytes": 5829157,
+    "sha256": "dbae70f05e2386f169e36d00f38628ab87508a88c4abc25af89a1af8dddb1bd4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/ribbon.mgz",
+    "bytes": 205607,
+    "sha256": "9c32f7f21245952c9344b98cde94aece7ec0720e74aab35f9fa688b74f82f6fa"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/mri/wm.mgz",
+    "bytes": 397330,
+    "sha256": "a35fc1e8f49ef4fecb60f6018f477bab24ffc035376e34a7c25ba6907b248cd7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.electrodeNames",
+    "bytes": 1981,
+    "sha256": "28ca6c2ac578be7ee78f34a5fe9b49e5807cc2f110c3e017a5672fff6db3c0b9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.electrodeNames_orig",
+    "bytes": 1981,
+    "sha256": "28ca6c2ac578be7ee78f34a5fe9b49e5807cc2f110c3e017a5672fff6db3c0b9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.LEPTO",
+    "bytes": 5827,
+    "sha256": "5e6e2a108aefefbf9dac38c28ba051b06a830485dd649d88271a9048db05c7e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.LEPTOVOX",
+    "bytes": 6180,
+    "sha256": "92beae1cccef637ac6197117c226c9297dcf34fb78ab7508572ca757bd73bb3d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.PIAL",
+    "bytes": 5827,
+    "sha256": "5e6e2a108aefefbf9dac38c28ba051b06a830485dd649d88271a9048db05c7e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.PIALVOX",
+    "bytes": 6180,
+    "sha256": "92beae1cccef637ac6197117c226c9297dcf34fb78ab7508572ca757bd73bb3d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55.POSTIMPLANT",
+    "bytes": 5827,
+    "sha256": "5e6e2a108aefefbf9dac38c28ba051b06a830485dd649d88271a9048db05c7e1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55_elec_locations_RAS.txt",
+    "bytes": 7888,
+    "sha256": "e1d863d6474af08c67d9eb0ae225b0bd495d94302ecec1f6620b4eb3c26a7df1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D55/elec_recon/D55_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7888,
+    "sha256": "e1d863d6474af08c67d9eb0ae225b0bd495d94302ecec1f6620b4eb3c26a7df1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/aparc+aseg.mgz",
+    "bytes": 386211,
+    "sha256": "c7c621da1e0d159157cc2ca1e241ead0b9b4232addeaac856dacb29874880c9b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 413011,
+    "sha256": "4e58ef416648b98abd0fb664326cd2314633564839b27d34999ac42a2ad53566"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/aseg.mgz",
+    "bytes": 334526,
+    "sha256": "7626fe6401f39778611054092d22ab9c643159aec355a849cf9821fa70266b29"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/brainmask.mgz",
+    "bytes": 1181740,
+    "sha256": "00ddb1cb5a2b0c3e43fc57cd9b31f732a99891cbec1a9c8594aca56532875b9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/orig.mgz",
+    "bytes": 6292551,
+    "sha256": "503d1fa011c771a1a2a3e3e63f524cd4654e0dfd4af6fc096fd64397c2b480a0"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/ribbon.mgz",
+    "bytes": 186753,
+    "sha256": "411ccdf7b119bdfa71afb37c64958c335b80b209ddee9f458029d1b016db0a54"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/mri/wm.mgz",
+    "bytes": 383499,
+    "sha256": "9cfb42eccc2cffa077010cc1bce5060249a46393538e7c755a53bc8bfc1711f1"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.electrodeNames",
+    "bytes": 1850,
+    "sha256": "b05f4fae539046f0417cc581b7be0df868cc6411afcaceb7f278436273203657"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.electrodeNames_orig",
+    "bytes": 1850,
+    "sha256": "b05f4fae539046f0417cc581b7be0df868cc6411afcaceb7f278436273203657"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.LEPTO",
+    "bytes": 5547,
+    "sha256": "07c727c4c7b891651c19efb86977374fb49452b75e7eb4ae9825bb6403be0f9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.LEPTOVOX",
+    "bytes": 5784,
+    "sha256": "52e1de27ce93d3f9bd9c1437b76e8834cedd898f2d870a0896bd1e2bde394594"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.PIAL",
+    "bytes": 5547,
+    "sha256": "07c727c4c7b891651c19efb86977374fb49452b75e7eb4ae9825bb6403be0f9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.PIALVOX",
+    "bytes": 5784,
+    "sha256": "52e1de27ce93d3f9bd9c1437b76e8834cedd898f2d870a0896bd1e2bde394594"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57.POSTIMPLANT",
+    "bytes": 5547,
+    "sha256": "07c727c4c7b891651c19efb86977374fb49452b75e7eb4ae9825bb6403be0f9c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57_2.electrodeNames",
+    "bytes": 1850,
+    "sha256": "ba853266a797166ea4868a8c582d849f41490a231fcf86d367f29baac6d8fdd3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57_elec_locations_RAS.txt",
+    "bytes": 7323,
+    "sha256": "3f044033dcd033980547f3ff8ab77cdd40a4aff5328d501aa60912cb9171fd66"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D57/elec_recon/D57_elec_locations_RAS_brainshifted.txt",
+    "bytes": 7323,
+    "sha256": "3f044033dcd033980547f3ff8ab77cdd40a4aff5328d501aa60912cb9171fd66"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/aparc+aseg.mgz",
+    "bytes": 377104,
+    "sha256": "df3a7ea5d1c2ba1af1abc74730af66198d2380b61985adf522c19934c9284b83"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 405910,
+    "sha256": "b4be672cbf94a8f9db5b1b7924813cfd9ea8bb521bc7d2d164874fa9aa1a7368"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/aseg.mgz",
+    "bytes": 322773,
+    "sha256": "91de03d69940650270c4fd8342636b382e9d0fa540eb99a6d64a4d1126313758"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/brainmask.mgz",
+    "bytes": 1192639,
+    "sha256": "204bcaccc102a7fa3b08d40f178bb84fb300cfbee225ca22b487c97cf6bb2983"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/orig.mgz",
+    "bytes": 8182401,
+    "sha256": "45f1e0a6f648abc84eb86ea1bb872a8e48796463fdaae78a7c75bfba155f0ca4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/ribbon.mgz",
+    "bytes": 199413,
+    "sha256": "b3da266366dffc258da1a1088d2035771e00964f022f1385d3a67f5e21a63057"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/mri/wm.mgz",
+    "bytes": 462970,
+    "sha256": "01ed582c1e57bc3327e19162440fa8a87e3fb857e504967180c3c63d58117a41"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.electrodeNames",
+    "bytes": 2596,
+    "sha256": "3130a19e16b3da0a2eb04d3d945f99cc55f82b7a3ba65642d65a7867f798cb6a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.electrodeNames_orig",
+    "bytes": 2596,
+    "sha256": "3130a19e16b3da0a2eb04d3d945f99cc55f82b7a3ba65642d65a7867f798cb6a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.LEPTO",
+    "bytes": 7863,
+    "sha256": "c611161d419f8f5443e47796e005ae975d43f1de387e3221bd5e7da838f84bcc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.LEPTOVOX",
+    "bytes": 8158,
+    "sha256": "68f9f7543a7fcd3fc8225cb13bcf061bed3de0c325c9839aa10fb653735e61ed"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.PIAL",
+    "bytes": 7863,
+    "sha256": "c611161d419f8f5443e47796e005ae975d43f1de387e3221bd5e7da838f84bcc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.PIALVOX",
+    "bytes": 8158,
+    "sha256": "68f9f7543a7fcd3fc8225cb13bcf061bed3de0c325c9839aa10fb653735e61ed"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60.POSTIMPLANT",
+    "bytes": 7863,
+    "sha256": "c611161d419f8f5443e47796e005ae975d43f1de387e3221bd5e7da838f84bcc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60_elec_locations_RAS.txt",
+    "bytes": 10601,
+    "sha256": "70a7605f950414a430e5acce0530d2e3b42a322a100de3ddd29cc644b9d0571e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D60/elec_recon/D60_elec_locations_RAS_brainshifted.txt",
+    "bytes": 10601,
+    "sha256": "70a7605f950414a430e5acce0530d2e3b42a322a100de3ddd29cc644b9d0571e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/aparc+aseg.mgz",
+    "bytes": 350675,
+    "sha256": "b8505ee460864a786289484fa3910836134aaca6cf31365fe89eede655319001"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 381474,
+    "sha256": "e66b578e9131ccf5fd71a8dd34b499c7eb97f50bcd1b30d82bec62c9f6d7602e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/aseg.mgz",
+    "bytes": 301630,
+    "sha256": "6f92219a6f5b0c483848b266f98db4a7facd0cb9f617230b32a6071e0fbda79f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/brainmask.mgz",
+    "bytes": 1181453,
+    "sha256": "1bc8a166fc946cb183c27894c576730d4044247ff50ad3c17e04cd79f2ffada3"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/orig.mgz",
+    "bytes": 3628574,
+    "sha256": "8b87ff0a50f078df49e9f14c959bf8f5516f7f6a9ff9b8aaa106951b4be3dfe4"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/ribbon.mgz",
+    "bytes": 185393,
+    "sha256": "dd8fbd1263b1d80f8bdadd012c4914cc9796f33e611d38c1ff500ef9f736ad82"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/mri/wm.mgz",
+    "bytes": 319621,
+    "sha256": "985401e68e7791cfc351f65e1bd7bd9bb6d58ac7b4422125e1ad55c553c32e08"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.electrodeNames",
+    "bytes": 1652,
+    "sha256": "b88dd8c4039e1a72c0f526bc0a15b2cf89dcf955ec5d0bd1d51a4bd0834c84a8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.electrodeNames_orig",
+    "bytes": 1652,
+    "sha256": "b88dd8c4039e1a72c0f526bc0a15b2cf89dcf955ec5d0bd1d51a4bd0834c84a8"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.LEPTO",
+    "bytes": 5032,
+    "sha256": "4cb11c8018b95e33d26fa46104a1d3ed86046a09601d4687392e77c7ce9bffec"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.LEPTOVOX",
+    "bytes": 5242,
+    "sha256": "ae838eed74d5efba9e34e5d29530764462249fd5f5af778022a25d8469c7fd64"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.PIAL",
+    "bytes": 5032,
+    "sha256": "4cb11c8018b95e33d26fa46104a1d3ed86046a09601d4687392e77c7ce9bffec"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.PIALVOX",
+    "bytes": 5242,
+    "sha256": "ae838eed74d5efba9e34e5d29530764462249fd5f5af778022a25d8469c7fd64"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71.POSTIMPLANT",
+    "bytes": 5032,
+    "sha256": "4cb11c8018b95e33d26fa46104a1d3ed86046a09601d4687392e77c7ce9bffec"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71_elec_locations_RAS.txt",
+    "bytes": 6736,
+    "sha256": "30a8d57c4403a0e530c233a7146d2826495492a7122404c1372ee3636eff73d6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D71/elec_recon/D71_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6736,
+    "sha256": "30a8d57c4403a0e530c233a7146d2826495492a7122404c1372ee3636eff73d6"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/aparc+aseg.mgz",
+    "bytes": 382888,
+    "sha256": "c9fc1b80200ca9a8ec0a68270f46327228a47242d4e667a11452eb93e4d49f41"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 413318,
+    "sha256": "85a8542bb759d33cb1a6040f1f1e279edcdd1442abd4a49a89c427732331a67f"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/aseg.mgz",
+    "bytes": 333430,
+    "sha256": "ba35586b699798e94aef88d75234ad7aff6ef1c85d03b453b8cc6095d372ee72"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/brainmask.mgz",
+    "bytes": 1405614,
+    "sha256": "cc0463763b1fada1197e111744e54137057c2a58f415aef5cb2dffe5944fc58b"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/orig.mgz",
+    "bytes": 5365682,
+    "sha256": "4c12b205a8b9cef7d5d3f230a2d7fff2611c6fd5a42866d6801f36e1dd605d28"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/ribbon.mgz",
+    "bytes": 208479,
+    "sha256": "534ebb6fc4eab3aea124ee48faeb882739713cd594a8c7380de76e61cf0ded9d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/mri/wm.mgz",
+    "bytes": 374665,
+    "sha256": "2928a30b393b702e92b58625483c5f9cb040f1c42f55ec29cb852d11b05e4045"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.electrodeNames",
+    "bytes": 2166,
+    "sha256": "978d112cce05458576f340b844c7033d5957ef9aff23423575cd2f4cd23539db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.electrodeNames_orig",
+    "bytes": 2166,
+    "sha256": "978d112cce05458576f340b844c7033d5957ef9aff23423575cd2f4cd23539db"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.LEPTO",
+    "bytes": 6727,
+    "sha256": "db7eb547eb198f443b7d2550e9f7e8135ca84832e7e8235045d67a2140956181"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.LEPTOVOX",
+    "bytes": 6953,
+    "sha256": "508733c12a67146af343d0429c62e539454fb18c600e2d992d8d03658910b1d9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.PIAL",
+    "bytes": 6727,
+    "sha256": "db7eb547eb198f443b7d2550e9f7e8135ca84832e7e8235045d67a2140956181"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.PIALVOX",
+    "bytes": 6953,
+    "sha256": "508733c12a67146af343d0429c62e539454fb18c600e2d992d8d03658910b1d9"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93.POSTIMPLANT",
+    "bytes": 6727,
+    "sha256": "db7eb547eb198f443b7d2550e9f7e8135ca84832e7e8235045d67a2140956181"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93_elec_locations_RAS.txt",
+    "bytes": 8993,
+    "sha256": "30f7d745e1f7b1071d2fd1e1411eefb4893e37b4019ee847122f04e84daf9dbe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D93/elec_recon/D93_elec_locations_RAS_brainshifted.txt",
+    "bytes": 8993,
+    "sha256": "30f7d745e1f7b1071d2fd1e1411eefb4893e37b4019ee847122f04e84daf9dbe"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/aparc+aseg.mgz",
+    "bytes": 381553,
+    "sha256": "ba1dbffbd9c99c043a90235b998997b35f08d78b97c41f4c700cc40397c8bd05"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 414969,
+    "sha256": "124018c57506cbdcc21345442211e5d3ef8f93e29a10d12bc5ec242c8d777e3c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/aseg.mgz",
+    "bytes": 325230,
+    "sha256": "49d898216fc26af65d567f4607f1f4e05ed681c3f89af34f692cad56a7b8650a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/brainmask.mgz",
+    "bytes": 1215631,
+    "sha256": "7be53cb82407cba20ec7b3d2b373b4e5acd5d75207e41f75ce786124cafedd16"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/orig.mgz",
+    "bytes": 6243238,
+    "sha256": "8e9546cd4354f0617be94c2c675b44dd911dcf570f897df748b181a66ca32119"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/ribbon.mgz",
+    "bytes": 201131,
+    "sha256": "2e289a719de0c661a032d396b1448b2cedc16644f46114f73c646de4b91fec6e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/mri/wm.mgz",
+    "bytes": 354750,
+    "sha256": "08bfb54cd456d91bce0223bd945e865ec45f2f27e13a29c7843e1d9343a5be66"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.electrodeNames",
+    "bytes": 2410,
+    "sha256": "76f8ea4f2c7ce042351af18a7bbc910bb79d9d34e5537ece9ced355e28266595"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.electrodeNames_orig",
+    "bytes": 2410,
+    "sha256": "76f8ea4f2c7ce042351af18a7bbc910bb79d9d34e5537ece9ced355e28266595"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.LEPTO",
+    "bytes": 7310,
+    "sha256": "2bfa48038765aecf64a4482534227de56d7a16fc7202540875fa67e5979368cc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.LEPTOVOX",
+    "bytes": 7632,
+    "sha256": "651d53ccd754c2b4baa1cf27fd8d98e12b23b0fb9870dc5e29d1639c2e22cacd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.PIAL",
+    "bytes": 7310,
+    "sha256": "2bfa48038765aecf64a4482534227de56d7a16fc7202540875fa67e5979368cc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.PIALVOX",
+    "bytes": 7632,
+    "sha256": "651d53ccd754c2b4baa1cf27fd8d98e12b23b0fb9870dc5e29d1639c2e22cacd"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96.POSTIMPLANT",
+    "bytes": 7310,
+    "sha256": "2bfa48038765aecf64a4482534227de56d7a16fc7202540875fa67e5979368cc"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96_elec_locations_RAS.txt",
+    "bytes": 9844,
+    "sha256": "82a9b1852a439ca3bf138b1b5f4e89de9367b69fe3bcea5b012bc992bfcb0437"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D96/elec_recon/D96_elec_locations_RAS_brainshifted.txt",
+    "bytes": 9844,
+    "sha256": "82a9b1852a439ca3bf138b1b5f4e89de9367b69fe3bcea5b012bc992bfcb0437"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/aparc+aseg.mgz",
+    "bytes": 346356,
+    "sha256": "0756c269b61f19a8435b8eee7e6113384cb25f36f523a596036a0100d1a27887"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/aparc.a2009s+aseg.mgz",
+    "bytes": 373910,
+    "sha256": "0a1e108ed8ef9927a6dffd45daf1d426bfb645fade1e9e9e376404ce654c47e5"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/aseg.mgz",
+    "bytes": 298695,
+    "sha256": "e401419439bd77f77c025a83c476b13155e0ba354dd757a6b0c14310ff669756"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/brainmask.mgz",
+    "bytes": 1160521,
+    "sha256": "37efb0212a492b120277dce7305953274cb322b471fe6ab4911dea876d99eb13"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/orig.mgz",
+    "bytes": 5521267,
+    "sha256": "2a5c45c263d72e549b894d7c1439e93e0901267b04e20dfd3bbeb20e999b7def"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/ribbon.mgz",
+    "bytes": 180076,
+    "sha256": "a97ec0f6d4b3e4f471629fa6068416a372920f9e42bb8917d94020dc891a997e"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/mri/wm.mgz",
+    "bytes": 322615,
+    "sha256": "e79bc1f1d1b73662863733f5e2a1dd9cb691c7f277071419891e27f1d2652c4c"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.electrodeNames",
+    "bytes": 1476,
+    "sha256": "c9c48d1a49468e114f24d291f42a2790fb50a7d8a31ab9ae74d107fc70af948a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.electrodeNames_orig",
+    "bytes": 1476,
+    "sha256": "c9c48d1a49468e114f24d291f42a2790fb50a7d8a31ab9ae74d107fc70af948a"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.LEPTO",
+    "bytes": 4551,
+    "sha256": "2872dac6daf0b363c1d87af4ae07acbd24d594ad4f9e7fc80c434269d9429517"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.LEPTOVOX",
+    "bytes": 4711,
+    "sha256": "fd290e3145db21d78161c82f54de4a3626119752b216d3ff09cb27264d94eb2d"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.PIAL",
+    "bytes": 4551,
+    "sha256": "2872dac6daf0b363c1d87af4ae07acbd24d594ad4f9e7fc80c434269d9429517"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.PIALVOX",
+    "bytes": 4711,
+    "sha256": "764d2b7b23011ec5dc4f5e62a692e39965750417dbdd00f07cbac3d8b5b2c4b7"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105.POSTIMPLANT",
+    "bytes": 4551,
+    "sha256": "2872dac6daf0b363c1d87af4ae07acbd24d594ad4f9e7fc80c434269d9429517"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105_elec_locations_RAS.txt",
+    "bytes": 6059,
+    "sha256": "0119f5e15ab3a5451126468f1b3a4da43123e1ee71e318120c019edb01eb7124"
+  },
+  {
+    "path": "/cwork/ns458/ECoG_Recon/D105/elec_recon/D105_elec_locations_RAS_brainshifted.txt",
+    "bytes": 6059,
+    "sha256": "0119f5e15ab3a5451126468f1b3a4da43123e1ee71e318120c019edb01eb7124"
+  }
+]

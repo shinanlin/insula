@@ -1,0 +1,16 @@
+{
+  "created_utc": "2026-10-17T22:50:50.287770+00:00",
+  "source_collection": "bfd3e08e-22c9-11f0-9e52-0ed8719d94b5",
+  "source_root": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full",
+  "destination_collection": "1ad66c7c-4f60-11e8-900c-0a6d4e044368",
+  "destination_root": "/cwork/ns458/ECoG_Recon",
+  "n_subjects": 54,
+  "n_required_mri_complete": 54,
+  "n_files": 863,
+  "total_bytes": 521190299,
+  "n_listing_errors": 0,
+  "model_fitted": false,
+  "transfer_submitted": false,
+  "target_manifest_sha256": "4cc607f36900c9712c4f016da69d4aceb8090e2fc65c97533e42a5e7f0b14d09",
+  "transfer_batch_sha256": "138f19d18225ff5c3890c170de559191e34e7c12f15b22b478df639039d8e1d4"
+}

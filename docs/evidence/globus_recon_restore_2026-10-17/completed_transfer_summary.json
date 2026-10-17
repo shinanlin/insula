@@ -1,0 +1,20 @@
+{
+  "task_id": "998f6fea-ca7d-11f1-9382-0effdcd59acd",
+  "status": "SUCCEEDED",
+  "request_time": "2026-10-17T22:53:43+00:00",
+  "completion_time": "2026-10-17T22:56:52+00:00",
+  "files": 863,
+  "files_transferred": 863,
+  "files_skipped": 0,
+  "bytes_transferred": 521190299,
+  "bytes_checksummed": 0,
+  "verify_checksum": true,
+  "encrypt_data": true,
+  "sync_level": 3,
+  "faults": 0,
+  "fatal_error": null,
+  "source_root": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full",
+  "destination_root": "/cwork/ns458/ECoG_Recon",
+  "model_fitted": false,
+  "participant_maper_started": false
+}

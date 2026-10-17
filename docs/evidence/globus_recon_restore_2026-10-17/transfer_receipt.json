@@ -1,0 +1,23 @@
+{
+  "DATA_TYPE": "transfer_result",
+  "code": "Accepted",
+  "message": "The transfer has been accepted and a task has been created and queued for execution",
+  "request_id": "wGqSMiP0Z",
+  "resource": "/transfer",
+  "submission_id": "998f70a4-ca7d-11f1-8526-0effdcd59acd",
+  "task_id": "998f6fea-ca7d-11f1-9382-0effdcd59acd",
+  "task_link": {
+    "DATA_TYPE": "link",
+    "href": "task/998f6fea-ca7d-11f1-9382-0effdcd59acd?format=json",
+    "rel": "related",
+    "resource": "task",
+    "title": "related task"
+  },
+  "reviewed_payload_sha256": "ca244528f26683a661193621f031fad1ea2b1905d7d2b9cd6249d2ca67e2b853",
+  "submitted_utc": "2026-10-17T22:53:42.645211+00:00",
+  "source_collection": "bfd3e08e-22c9-11f0-9e52-0ed8719d94b5",
+  "destination_collection": "1ad66c7c-4f60-11e8-900c-0a6d4e044368",
+  "n_files": 863,
+  "total_bytes": 521190299,
+  "model_fitted": false
+}
