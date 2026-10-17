@@ -1,0 +1,35 @@
+#!/bin/bash
+#SBATCH --job-name=rm-bids-nodelay
+#SBATCH --partition=common
+#SBATCH --nodes=1
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=1
+#SBATCH --mem=2G
+#SBATCH --time=04:00:00
+#SBATCH --output=/hpc/group/coganlab/nanlinshi/insula-functional/logs/slurm/rm-bids-nodelay-%j.out
+#SBATCH --error=/hpc/group/coganlab/nanlinshi/insula-functional/logs/slurm/rm-bids-nodelay-%j.err
+
+set -euo pipefail
+
+TARGET="/hpc/group/coganlab/BIDS-1.0_LexicalDecRepNoDelay_TO_DELETE"
+CANONICAL="/cwork/ns458/BIDS-1.0_LexicalDecRepNoDelay"
+
+echo "host=$(hostname) user=$(whoami) start=$(date -Is)"
+echo "target=$TARGET"
+
+if [[ ! -d "$TARGET" ]]; then
+  echo "ERROR: target missing: $TARGET"
+  exit 1
+fi
+
+if [[ ! -d "$CANONICAL" ]]; then
+  echo "ERROR: canonical /cwork copy missing; aborting delete"
+  exit 2
+fi
+
+du -sh "$TARGET" "$CANONICAL" || true
+echo "Deleting $TARGET ..."
+rm -rf -- "$TARGET"
+echo "done=$(date -Is)"
+ls -ld "$TARGET" 2>&1 || echo "confirmed removed"
+df -h /hpc/group/coganlab | tail -1
