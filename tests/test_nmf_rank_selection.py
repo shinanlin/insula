@@ -3,6 +3,7 @@
 import numpy as np
 import pandas as pd
 
+from src.nmf import rank_selection
 from src.nmf.rank_selection import (
     _accumulate_consensus,
     choose_k,
@@ -85,3 +86,34 @@ def test_mean_pairwise_ari_perfect_agreement():
         max_pairs=10,
     )
     assert ari == 1.0
+
+
+def test_run_uses_three_phases_for_matrix_and_metadata(monkeypatch, tmp_path):
+    captured = {}
+
+    def fake_build_concat_matrix(**kwargs):
+        captured["windows"] = kwargs["windows"]
+        return np.eye(3), pd.DataFrame({"channel": ["a", "b", "c"]})
+
+    def fake_write_rank_selection_outputs(**kwargs):
+        captured["meta"] = kwargs["meta"]
+
+    monkeypatch.setattr(rank_selection, "build_concat_matrix", fake_build_concat_matrix)
+    monkeypatch.setattr(
+        rank_selection,
+        "run_rank_selection",
+        lambda *_args, **_kwargs: (pd.DataFrame(), {}, {"k": 3}),
+    )
+    monkeypatch.setattr(
+        rank_selection, "write_rank_selection_outputs", fake_write_rank_selection_outputs
+    )
+    monkeypatch.setattr(
+        rank_selection,
+        "default_output_dirs",
+        lambda: (tmp_path / "results", tmp_path / "images"),
+    )
+
+    rank_selection.run(results_root=tmp_path, phases=("stimulus", "delay", "response"))
+
+    assert list(captured["windows"]) == ["stimulus", "delay", "response"]
+    assert list(captured["meta"]["windows"]) == ["stimulus", "delay", "response"]

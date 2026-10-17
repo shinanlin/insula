@@ -15,7 +15,7 @@ from src.nmf.rank_selection import (
     DEFAULT_ROW_FRAC,
     run,
 )
-from src.nmf.waveform_analysis import TASKS
+from src.nmf.waveform_analysis import PHASE_WINDOWS_POSTONSET, TASKS
 from src.paths import RESULTS_ROOT, nmf_exclude_channels_path
 
 
@@ -23,6 +23,13 @@ def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--results-root", type=Path, default=RESULTS_ROOT)
     parser.add_argument("--tasks", nargs="+", default=list(TASKS))
+    parser.add_argument(
+        "--phases",
+        nargs="+",
+        choices=tuple(PHASE_WINDOWS_POSTONSET),
+        default=list(PHASE_WINDOWS_POSTONSET),
+        help="Ordered epochs to concatenate (default: all four)",
+    )
     parser.add_argument(
         "--exclude-subject",
         action="append",
@@ -49,9 +56,12 @@ def main() -> None:
     args = parse_args()
     if args.k_min < 2 or args.k_max < args.k_min:
         raise SystemExit("--k-min/--k-max must satisfy 2 <= k_min <= k_max")
+    if len(set(args.phases)) != len(args.phases):
+        raise SystemExit("--phases must be unique")
     decision = run(
         results_root=args.results_root,
         tasks=tuple(args.tasks),
+        phases=tuple(args.phases),
         exclude_subjects=set(args.exclude_subject),
         exclude_channels_file=args.exclude_channels_file,
         k_min=args.k_min,

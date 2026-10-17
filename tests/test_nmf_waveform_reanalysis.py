@@ -104,6 +104,7 @@ def test_concatenated_phase_matrix_keeps_intersection_and_slices():
     for channel, phases in (
         ("ch_all", ("stimulus", "delay", "go", "response")),
         ("ch_missing_delay", ("stimulus", "go", "response")),
+        ("ch_no_go", ("stimulus", "delay", "response")),
     ):
         for phase in phases:
             t0, t1 = {"stimulus": (-0.2, 0.2), "delay": (0.1, 0.3), "go": (-0.1, 0.2), "response": (-0.1, 0.1)}[phase]
@@ -145,6 +146,13 @@ def test_concatenated_phase_matrix_keeps_intersection_and_slices():
     assert set(split) == set(slices)
     assert "sensory" in names.values()
     assert "sustain" in names.values()
+
+    three_phase, _, three_slices = concatenated_phase_matrix(
+        frame, ("stimulus", "delay", "response"), min_coverage=0.95
+    )
+    assert list(three_phase.index) == ["ch_all", "ch_no_go"]
+    assert list(three_slices) == ["stimulus", "delay", "response"]
+    assert three_phase.shape[1] < concat.shape[1]
 
 
 def test_held_out_contrasts_use_paired_subjects_only():

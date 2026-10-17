@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Concatenated multi-phase NMF: one shared electrode clustering across epochs.
 
-Builds channel × [stimulus|delay|go|response] features (intersection of channels
-present in all phases), rectifies and L2-normalizes the full concatenated
+Builds channel × selected-phase features (intersection of channels present in
+those phases), rectifies and L2-normalizes the full concatenated
 vector, fits NMF, and names components from early−late shape on the *stimulus
 segment* of H (not by matching separate per-phase fits).
 
@@ -50,7 +50,6 @@ from src.paths import (
 )
 
 
-DISCOVERY_PHASES = tuple(PHASE_WINDOWS)
 WINDOW_PRESETS: dict[str, dict[str, tuple[float, float]]] = {
     "default": PHASE_WINDOWS,
     "postonset": PHASE_WINDOWS_POSTONSET,
@@ -123,14 +122,15 @@ def plot_h_overview(
     """One panel per phase; all components overlaid (waveforms-style)."""
 
     clusters = ordered_clusters(list(names.values()))
+    phases = tuple(H_by_phase)
     fig, axes = plt.subplots(
         1,
-        len(DISCOVERY_PHASES),
-        figsize=(3.0 * len(DISCOVERY_PHASES), 3.0),
+        len(phases),
+        figsize=(3.0 * len(phases), 3.0),
         sharey=True,
         squeeze=False,
     )
-    for col, phase in enumerate(DISCOVERY_PHASES):
+    for col, phase in enumerate(phases):
         axis = axes[0, col]
         H, times = H_by_phase[phase]
         for cluster in clusters:
@@ -338,6 +338,13 @@ def parse_args() -> argparse.Namespace:
         help="Phase time crops (default: postonset)",
     )
     parser.add_argument(
+        "--phases",
+        nargs="+",
+        choices=tuple(PHASE_WINDOWS),
+        default=list(PHASE_WINDOWS),
+        help="Ordered epochs to concatenate (default: all four)",
+    )
+    parser.add_argument(
         "--run-tag",
         type=str,
         default=None,
@@ -456,13 +463,15 @@ def main() -> None:
     ks = (args.k,)
     k_max = max(args.k_max, max(ks))
     hemi = None if args.hemi == "both" else args.hemi
-    windows = WINDOW_PRESETS[args.windows]
+    if len(set(args.phases)) != len(args.phases) or "stimulus" not in args.phases:
+        raise SystemExit("--phases must be unique and include stimulus")
+    windows = {phase: WINDOW_PRESETS[args.windows][phase] for phase in args.phases}
     run_tag = args.run_tag
 
-    print("Loading all-phase HGA rows...", flush=True)
+    print("Loading selected-phase HGA rows...", flush=True)
     held_out_rows = load_hga_rows(
         all_paths,
-        phases=set(PHASE_WINDOWS),
+        phases=set(windows),
         exclude_subjects=exclude,
     )
     exclude_path = args.exclude_channels_file

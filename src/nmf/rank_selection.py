@@ -446,6 +446,7 @@ def run(
     *,
     results_root: Path = RESULTS_ROOT,
     tasks: tuple[str, ...] = TASKS,
+    phases: tuple[str, ...] = tuple(PHASE_WINDOWS_POSTONSET),
     exclude_subjects: set[str] | None = None,
     exclude_channels_file: Path | None = None,
     k_min: int = DEFAULT_K_MIN,
@@ -470,12 +471,16 @@ def run(
         else nmf_exclude_channels_path()
     )
     drop_channels = _load_exclude_channels(exclude_path)
+    if not phases or len(set(phases)) != len(phases):
+        raise ValueError("phases must be nonempty and unique")
+    windows = {phase: PHASE_WINDOWS_POSTONSET[phase] for phase in phases}
 
     X, channel_meta = build_concat_matrix(
         results_root=results_root,
         tasks=tasks,
         exclude_subjects=exclude_subjects,
         exclude_channels=drop_channels,
+        windows=windows,
     )
     metrics, consensus, decision = run_rank_selection(
         X,
@@ -498,9 +503,7 @@ def run(
     )
     meta = {
         "tasks": list(tasks),
-        "windows": {
-            phase: list(bounds) for phase, bounds in PHASE_WINDOWS_POSTONSET.items()
-        },
+        "windows": {phase: list(bounds) for phase, bounds in windows.items()},
         "n_electrodes": int(X.shape[0]),
         "n_features": int(X.shape[1]),
         "n_boot": n_boot,
