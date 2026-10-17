@@ -2,6 +2,8 @@
 
 日期：2026-10-17。本记录接续 [此前的零端点审计](zero_endpoint_audit_2026-10-17.md)。恢复范围为 132 对双极位点涉及的 54 位参与者，不能视作整个论文队列的完整影像备份。
 
+**同日后续：** 已按用户指定完成 [D0125 的 MAPER 与 LIA6 核对](maper_D0125_LIA6_2026-10-17.md)。LIA6 的 MAPER 中心分类为 CSF，FreeSurfer 为盖部灰质；不支持把它视作已确认白质端点。本文下方“尚未提交个体 MAPER”的状态保留为恢复完成时的记录。其他参与者与 NMF 尚未重跑。
+
 ## 1 恢复已完成
 
 - Windows Globus 源目录：`/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full`。

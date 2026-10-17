@@ -1,0 +1,22 @@
+{
+  "created_utc": "2026-10-17T23:10:40.799200+00:00",
+  "subject": "D0125",
+  "recon_subject": "D125",
+  "run": "/cwork/ns458/maper_run/restore_20261017/D0125",
+  "target": "/cwork/ns458/maper_run/restore_20261017/D0125/target/sub-D0125_T1w_brain.nii.gz",
+  "launchlist": "/cwork/ns458/maper_run/restore_20261017/D0125/launchlist_D0125.sh",
+  "container": "/hpc/group/coganlab/nanlinshi/maper_tool/maper.sif",
+  "n_atlases": 30,
+  "launchlist_sha256": "f8c5dd552bf9b67c9be8e4d7cbf1a5755fc941c8f6e6faaac864fd4656021bdd",
+  "input_sha256": {
+    "/cwork/ns458/ECoG_Recon/D125/mri/orig.mgz": "658fbc9625c5d424e25b8125f2ad52fe942f67a62df574d3b07cd37bdc583ae8",
+    "/cwork/ns458/ECoG_Recon/D125/mri/brainmask.mgz": "0f36e19d4a47a7dc22596b4fe088137171540273928fd87c48e1a7092b16da05",
+    "/cwork/ns458/ECoG_Recon/D125/mri/aparc.a2009s+aseg.mgz": "18a784bff83dc9b19823bf0cd7502ea68fc7886dd4d3faabf1adedb90c44cd75",
+    "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS.txt": "35414d9d38b1170b21265c049f6436dc138e1572991734783fe1d76589846c45",
+    "/cwork/ns458/ECoG_Recon/D125/elec_recon/D125_elec_locations_RAS_brainshifted.txt": "35414d9d38b1170b21265c049f6436dc138e1572991734783fe1d76589846c45"
+  },
+  "target_sha256": "82e995ad1241476ce3aec06c790ebe8032996164b983acd89cc3ae29b8c43e17",
+  "atlas_manifest_sha256": "390b292fde67c10180d4a60bf800176c6f76c0e0fcea0edfa8c3f958bf01cafa",
+  "coordinate_space": "Native FreeSurfer tkRAS millimetres via inv(orig.vox2ras_tkr)",
+  "focus": "LIA6 and LIA5-6 midpoint only; no cohort rerun, no NMF"
+}
