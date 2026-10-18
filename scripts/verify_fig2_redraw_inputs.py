@@ -34,6 +34,7 @@ def main():
   path=nmf/name;metadata=json.loads(path.read_text())
   metadata['figure1_notebook_sha256']=new_notebook
   metadata['figure1_cache_sha256']=sha(fig1/'available_evidence_stream.pkl')
+  metadata['figure1_group_average_weighting']='equal electrode means; SEM across electrodes'
   path.write_text(json.dumps(metadata,indent=2)+'\n')
  assert all(sha(nmf/name)==digest for name,digest in protected.items())
  record=dict(passed=True,identical_sound_site_waveforms=True,identical_source_membership=True,

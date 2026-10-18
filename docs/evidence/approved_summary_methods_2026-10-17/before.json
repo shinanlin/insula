@@ -1,0 +1,60 @@
+{
+  "base_commit": "0ab4de7193de3e4e9a8eab7c6fa4a83cd9b912da",
+  "protected_sha256": {
+    "results/nmf/input_matrix.npz": "adb61127d0643c8c024ba46f7bce3f366311334f3d0fcfc4d934ddf9f2aca645",
+    "results/nmf/factors.npz": "738e7dfef3bdf42031a844765c0ce271a2bcf1cb2477c55c959ed794b087d2cc",
+    "results/nmf/channel_assignments.csv": "1d2dd11236636fa216a9d7fb334d2e226066971f473ebe31f306571e84dd34b7",
+    "results/nmf/H_by_phase.csv": "42c0f0fb9fa0b56f18c0f2a9452d9104c7e9169bcc170e5bf7985bf1594c5eaa",
+    "results/nmf/site_waveforms.csv.gz": "f3c2265f5d943bbbf80a744817f1b413e83a026e80055a228d5bd209c47e69c6",
+    "results/nmf/rank_selection_metrics.csv": "a6dd58b5ddfd9df5c0b7a4fb41a74b855b0c3c85a11393ea3708e22dfd8a58b8",
+    "results/nmf/initialization_metrics.csv": "fcfc3b492cf0b6b69b3bef723a1c03a4b738b5c3609c0b9a4424913af5881ea2",
+    "docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_unique.csv": "0c380a8ed4aa1787367584ed1409dc96b671444230bc2bcfc61f421d2412933b",
+    "docs/evidence/sound_only_cohort_2026-10-17/nmf_candidate_sites_not_final_inputs.csv": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c"
+  },
+  "unchanged_model_fields": {
+    "k": 3,
+    "phases": [
+      "stimulus",
+      "delay",
+      "response"
+    ],
+    "fit_windows": {
+      "stimulus": [
+        0.0,
+        0.6
+      ],
+      "delay": [
+        0.0,
+        1.0
+      ],
+      "response": [
+        -0.5,
+        1.0
+      ]
+    },
+    "significance_windows": {
+      "stimulus": [
+        0.0,
+        0.6
+      ],
+      "delay": [
+        0.0,
+        1.0
+      ],
+      "response": [
+        -0.5,
+        0.5
+      ]
+    },
+    "naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
+    "assignment": "argmax W after unit L2 normalization of each full concatenated H component",
+    "cluster_counts": {
+      "motor": 129,
+      "sustain": 67,
+      "sensory": 35
+    },
+    "source_cohort_sha256": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c"
+  },
+  "previous_pca_embedding_pcs": 31,
+  "previous_nmf_kmeans_ari": 0.7597420722898953
+}

@@ -77,15 +77,14 @@ assert subset['mask'].notna().all()
  text=source(cells['fig2']['fig2-load'])
  if 'point_masks=pd.read_csv' not in text:text+=mask_load
  set_source(cells['fig2']['fig2-load'],text)
- pooled='''pooled_participant = subset.groupby(['subject','phase','time'],as_index=False).value.mean()
-pooled = pooled_participant.groupby(['phase','time']).value.agg(['mean','std','count']).reset_index()
+ pooled='''pooled = subset.groupby(['phase','time']).value.agg(['mean','std','count']).reset_index()
 pooled['sem'] = pooled['std']/np.sqrt(pooled['count'])
 pooled.to_csv(FIG2_DATA/'pooled_waveform_summary.csv',index=False)
 '''
  restore('fig2','fig2-avg-plot',pooled+original_trace(old['fig2']['fig2-avg-plot'],'pooled'),
-  'Original curve canvas, axes, scale bar; reviewed participant mean and SEM retained')
+  'Original curve canvas, axes, scale bar; approved electrode mean and SEM')
  restore('fig2','fig2-hga-plot',original_trace(old['fig2']['fig2-hga-plot'],'cluster_trace',True),
-  'Original curve canvas, axes, scale bar and colors; reviewed participant mean and SEM retained')
+  'Original curve canvas, axes, scale bar and colors; approved electrode mean and SEM')
  restore('fig2','fig2-nmf-plot',old['fig2']['fig2-nmf-plot'].replace(
   '# Concat-NMF H is post-onset only (no pre-event samples). Go cannot use the\n# HGA crop (-1, 0); that window is empty. Keep the same column *width* as HGA go.',
   '# Retain the original display context. Current fitted phases and samples come from H_by_phase.'))
@@ -158,7 +157,7 @@ FIG2_MARGINS=dict(left=.16,right=.94,wspace=.2)
   'save_aligned_svg(fig, "fig2_insula_average_traces.svg")',
   "fig.savefig(FIG1_DIR/'fig1_insula_average_traces.svg',bbox_inches=None,pad_inches=0)")
  set_source(cells['fig1']['fig1-average'],prefix+constants+plot)
- records.append(dict(figure='fig1',cell='fig1-average',adaptation='Original pooled HGA canvas, axes and scale bar; reviewed participant mean/SEM and site waveforms retained'))
+ records.append(dict(figure='fig1',cell='fig1-average',adaptation='Original pooled HGA canvas, axes and scale bar; approved electrode mean/SEM and existing site waveforms'))
  for name,nb in notebooks.items():
   for c in nb['cells']:
    if c['cell_type']=='code':c['execution_count']=None;c['outputs']=[]

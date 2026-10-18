@@ -28,8 +28,8 @@ def main():
  waves=pd.read_csv(FIG1/'average_hga_site_waveforms.csv.gz')
  assert set(waves.channel)==ids and set(waves.phase)==set(NMF_WINDOWS)
  assert waves.groupby('phase').channel.nunique().eq(len(ids)).all()
- # Verify exact agreement with the participant-balanced Figure 1 trace.
- group=waves.groupby(['subject','phase','time']).value.mean().groupby(['phase','time']).mean()
+ # Verify exact agreement with the approved electrode-level Figure 1 trace.
+ group=waves.groupby(['phase','time']).value.mean()
  expected=pd.read_csv(FIG1/'average_hga_group_trace.csv').set_index(['phase','time'])['mean']
  assert len(group)==len(expected) and np.allclose(group.sort_index(),expected.sort_index(),atol=1e-10)
  blocks=[];features=[]

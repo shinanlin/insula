@@ -1,5 +1,7 @@
 # Insula Paper analysis rules
 
+- Any future change to the currently approved analysis or figure conventions, or any deviation from the original insula-functional reference, however small, requires the user's review before implementation. Present the exact proposed difference and affected outputs first. Existing explicit approvals remain valid; do not infer approval for additional methods from a request to refresh data or redraw figures. The current approved exceptions are recorded in docs/MAIN_ANALYSIS.md.
+- Group HGA means and SEM use electrodes as the statistical unit, with one waveform per bipolar site; do not average sites within participants before the group mean. PCA embedding follows the original per-PC explained-variance >5% rule, not cumulative 90% variance. The user has approved the current phase windows.
 - Main analyses use **Repeat + sound only**, including responsive-site selection, Figure 1 HGA and significance counts, NMF discovery inputs, and dependent main-analysis figures.
 - Never pool image/picture or text into the main selection or discovery waveform. Those conditions are separate modality comparisons; they cannot add a site to the main sound-responsive cohort.
 - Use `src/main_analysis.py` for conditions, windows, cohort paths and palettes. Read `docs/MAIN_ANALYSIS.md` before changing them. A task named PictureNaming contains auditory trials too; select rows by modality, not by task name.

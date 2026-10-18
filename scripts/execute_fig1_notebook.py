@@ -36,7 +36,7 @@ def update_analysis_markdown(nb,cohort):
         "Incomplete sound evidence does not establish a negative response.")
     nb.cells[25].source=("## Mean sound HGA at confirmed-responsive insular sites\n\n"
         "Select sites using sound Repeat significance, and use sound Repeat waveforms only. "
-        "Average available tasks within site, then sites within participant; show participant mean ± SEM. "
+        "Average available tasks within each site, then electrodes equally; show electrode mean ± SEM. "
         "Full sound epochs can supplement an omitted waveform. No image/text input or NMF assignments enter the curve.")
 
 
@@ -79,6 +79,8 @@ def main():
     assert manifest['sampled_sites']==cohort['sampled_sites'] and manifest['confirmed_responsive_sites']==cohort['responsive_sites']
     assert manifest['condition']=='Repeat' and manifest['modality']=='sound'
     assert manifest['smc_export_color_verified'] and manifest['roi_colors']['SMC']=='#F39B35'
+    assert manifest['group_average_error_bars']=='SEM across electrode means'
+    assert 'equal electrode means' in manifest['group_average_weighting']
     membership=__import__('pandas').read_csv(OUT/'average_hga_source_membership.csv')
     assert membership.modality.eq('sound').all()
     assert manifest['nmf_files_unchanged'] and not manifest['nmf_used_for_selection']

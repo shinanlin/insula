@@ -10,7 +10,8 @@ import pandas as pd
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from src.paths import nmf_chosen_k
-from src.main_analysis import CONDITION,MODALITY,COHORT_DIR,NMF_WINDOWS
+from src.main_analysis import CONDITION,MODALITY,COHORT_DIR,NMF_WINDOWS,PCA_VARIANCE_THRESHOLD
+from src.nmf.pc_clustering import n_pcs_above_threshold
 SOURCE=Path('/hpc/group/coganlab/nanlinshi/insula-functional')
 OUT=ROOT/'results/fig2';NMF=ROOT/'results/nmf';NOTEBOOK=ROOT/'vizpub/fig2.ipynb'
 EVIDENCE=ROOT/'docs/evidence/figure2_sound_only_2026-10-17'
@@ -52,6 +53,9 @@ def main():
  rank_meta=json.loads((NMF/'rank_selection_meta.json').read_text());rank=pd.read_csv(NMF/'rank_selection_metrics.csv')
  assert rank_meta['input_matrix_sha256']==sha(NMF/'input_matrix.npz') and rank_meta['modality']=='sound'
  assert set(rank.k)==set(range(2,7)) and rank.n_boot.eq(200).all() and rank.row_frac.eq(.8).all()
+ pc_meta=json.loads((NMF/'pc_clustering_meta.json').read_text())
+ assert pc_meta['variance_threshold']==PCA_VARIANCE_THRESHOLD==.05
+ assert pc_meta['n_embedding_pcs']==n_pcs_above_threshold(pc_meta['explained_variance_ratio'],threshold=PCA_VARIANCE_THRESHOLD)
  nb=nbformat.read(NOTEBOOK,as_version=4)
  for i,c in enumerate(nb.cells):
   if c.cell_type=='code':ast.parse(c.source,filename=f'fig2-cell-{i}')
@@ -100,6 +104,8 @@ def main():
   assignments_match_normalized_W_argmax=True,best_of_20_verified=True,rank_same_sound_input_verified=True,
   fitted_model_rank_used_by_downstream=True,figure1_and_legacy_results_unchanged=True,previous_multimodal_archives_unchanged=True,
   heatmap_non_significant_points_blank=True,heatmap_order='first significant time separately per phase',
+  hga_average_unit='electrode',hga_error_bar='SEM',pca_variance_threshold=PCA_VARIANCE_THRESHOLD,
+  pca_embedding_pcs=pc_meta['n_embedding_pcs'],
   notebook_sha256=sha(NOTEBOOK),protected_file_hashes=before)
  (OUT/'execution_validation.json').write_text(json.dumps(validation,indent=2)+'\n');shutil.copy2(OUT/'execution_validation.json',EVIDENCE/'execution_validation.json')
  (OUT/'fig2_failed.ipynb').unlink(missing_ok=True)

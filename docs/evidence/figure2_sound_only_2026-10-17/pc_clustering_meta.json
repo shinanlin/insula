@@ -1,5 +1,7 @@
 {
-  "n_embedding_pcs": 31,
+  "n_embedding_pcs": 3,
+  "variance_threshold": 0.05,
+  "embedding_rule": "original rule: each retained PC explains >5%; original minimum-two-PC fallback",
   "random_state": 42,
   "explained_variance_ratio": [
     0.28732725946469184,
@@ -236,5 +238,5 @@
   ],
   "input": "same rectified L2-normalized three-phase NMF matrix",
   "n_sites": 231,
-  "nmf_kmeans_ari": 0.7597420722898953
+  "nmf_kmeans_ari": 0.7585766756494137
 }

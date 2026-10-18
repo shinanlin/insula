@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "group_average_unit": "electrode",
+  "error_bar": "SEM across electrodes",
+  "per_electrode_waveforms_unchanged": true,
+  "n_sites": 231,
+  "group_curve_mean_and_SEM_recomputed_and_verified": true,
+  "figure1_figure2_means_identical": true,
+  "previous_pca_embedding_pcs": 31,
+  "pca_embedding_pcs": 3,
+  "pca_variance_threshold": 0.05,
+  "nmf_kmeans_ari": 0.7585766756494137,
+  "input_matrix_factors_assignments_and_rank_unchanged": true,
+  "nmf_refitted": false,
+  "approved_windows_unchanged": true,
+  "component_naming_and_assignment_rules_unchanged": true,
+  "future_deviations_require_user_review": true
+}

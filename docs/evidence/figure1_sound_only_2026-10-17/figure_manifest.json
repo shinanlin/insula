@@ -47,7 +47,8 @@
       "confirmed_responsive": 86
     }
   },
-  "group_average_weighting": "sound only; equal task means within site, then equal participant means",
+  "group_average_weighting": "sound only; equal task means within site, then equal electrode means",
+  "group_average_error_bars": "SEM across electrode means",
   "group_average_counts": {
     "stimulus": {
       "n_sites": 231,
@@ -113,59 +114,59 @@
   "figures": {
     "fig1_all_electrodes_projected.svg": {
       "bytes": 239248,
-      "sha256": "db30af05fd88d13eaf9e31f52cdbe9e3e8f34c92f2420118fcf83ac1b0078aa9"
+      "sha256": "76c50cecd9e000896b6e3ad0967535df349750ba7312dfd05d9e33a78ee91f5c"
     },
     "fig1_example_electrode_tfr.svg": {
       "bytes": 36720,
-      "sha256": "03f93a2885fa7c9e028a748aed89183d189b45b78112da34e97a1effc5124c08"
+      "sha256": "5d075f216be47381129fc79742b3cb49dbb18af9b2d59a8a3a6701f86ce5076d"
     },
     "fig1_example_electrode_tfr_raw.svg": {
       "bytes": 45266,
-      "sha256": "368cfc683b2e75aedc98b594fa7993514b25251dc3f07b9691a6e2bd31a89ecb"
+      "sha256": "161f7aeb9bc37e261dbc2e9d076f02894db9987fc4bd9175976803907c6221c8"
     },
     "fig1_insula_average_traces.svg": {
-      "bytes": 39709,
-      "sha256": "eb5726075459d68b045a6d3b0c26e284f80626529a7bc60b3e42add462dd83ea"
+      "bytes": 39595,
+      "sha256": "5c0050123b00459c9eb4e0f97894d75dfef755d75ba51e3d97d235f4190c142a"
     },
     "fig1_insula_electrode_schematic.svg": {
       "bytes": 375626,
-      "sha256": "96a0c6779e002ab9c95b7fa944a15664dc868cf7db5c6ee6cf7e4bb65a89ce85"
+      "sha256": "fc302ed02cfa6946b1cdd8ef3fd9291f1da353aae2a6a5101a54fc9478be5412"
     },
     "fig1_insula_electrode_schematic_seeg.svg": {
       "bytes": 484844,
       "sha256": "676915f75552e2f5aebebe6b78032fc1e08f4e7ee9d77d77e79de355c8d5f179"
     },
     "fig1_insula_electrodes_gyrus_lines.svg": {
-      "bytes": 220173,
-      "sha256": "26552cdc90cf071fba9681d5de3b36d5f3fca4bc7336f97bb185f8d76244eb5c"
+      "bytes": 220052,
+      "sha256": "d9ea46dcaec59b50560a8ca752408db717e86a09b81a77d1fb8a5cdb092c1048"
     },
     "fig1_insula_laterality_yield.svg": {
       "bytes": 7044,
-      "sha256": "7a315e9132070dad1043298c6cd18f48852f94a5a7149ed7d83bcbf14e9c8ad9"
+      "sha256": "b35bb5c849f8f6802cae7dd92b566df923d41d9806b0debb8ec178fea62bed61"
     },
     "fig1_phase_insula_vs_other.svg": {
       "bytes": 9573,
-      "sha256": "b1cd806511478119794dae1c25164b70a848aedb513fc120905b323edcc017c1"
+      "sha256": "5bec7e77e9fd2e313071d3b51ae14251cd7cd725d934501e9cafa0f186af47a2"
     },
     "fig1_phase_roi_breakdown.svg": {
       "bytes": 14633,
-      "sha256": "5bbb6339fa080fdce14ce65e430eb83456841cd69929b1801f20910f2cef1f03"
+      "sha256": "0e49a5c5442ffa0461909af55c4694370abb39afcfdbc1f815d8aaafa376f5a6"
     },
     "fig1_phase_roi_breakdown_union.svg": {
       "bytes": 5491,
-      "sha256": "e21e47e483351d13daa45623a7757428353435efcefa7eba239429abb791987e"
+      "sha256": "436aece1fbc0f3631bfe9ba814e4a1491837909d179dcfe00fb5a97879213fba"
     },
     "fig1_roi_breakdown_sig_and_sampled.svg": {
       "bytes": 9958,
-      "sha256": "d6e54c6dda1e04a3ba467348eece12a9f77c21442a850cd1b85be51916a9ba50"
+      "sha256": "39d46d97330cdcb8258d6b3c7a2dd6cf8e46e3aaff28d8633d43218fdcd3d0b0"
     },
     "fig1_roi_significant_yield.svg": {
       "bytes": 8931,
-      "sha256": "75f6624b0dfc46ec67da6a1f276fff107795b45ca8989de0acfbe887a6d05427"
+      "sha256": "ac59f24b8635f63c17ee4fba6c0a4d6ad482ebaae0d655ad9d381f3d1105feba"
     },
     "fig1_subject_task_counts.svg": {
       "bytes": 14922,
-      "sha256": "e884f55a1447519be441244742ba8eb62821acf990ad0775b859abe0f8be124a"
+      "sha256": "94f04ae3bd95f035090151d6756db8184d1cfc1c66f38d6cbf735dcf64f7675c"
     }
   }
 }

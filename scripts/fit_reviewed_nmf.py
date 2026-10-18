@@ -17,6 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.nmf.waveform_analysis import fit_one_nmf, CLUSTER_ORDER
 from src.nmf.rank_selection import run_rank_selection, write_rank_selection_outputs
+from src.nmf.reviewed_pca import update_pca_outputs
 OUT = ROOT/'results/nmf'
 
 
@@ -136,17 +137,7 @@ def main():
     pd.concat(long).to_csv(OUT/'H_by_phase.csv', index=False)
     pd.DataFrame(starts).to_csv(OUT/'initialization_metrics.csv', index=False)
     aris = [adjusted_rand_score(a['labels'], b['labels']) for a,b in itertools.combinations(fits,2)]
-    pca = PCA(svd_solver='full').fit(X)
-    scores = pca.transform(X)
-    n_embed = int(np.searchsorted(np.cumsum(pca.explained_variance_ratio_), .9)+1)
-    score_table = assignments[['channel','subject','functional_cluster']].copy()
-    for i in range(n_embed): score_table[f'PC{i+1}'] = scores[:,i]
-    score_table.to_csv(OUT/'pc_scores.csv', index=False)
-    km = KMeans(n_clusters=3,n_init=50,random_state=42).fit_predict(scores[:,:n_embed])
-    (OUT/'pc_clustering_meta.json').write_text(json.dumps(dict(n_embedding_pcs=n_embed,
-        random_state=42, explained_variance_ratio=pca.explained_variance_ratio_.tolist(),
-        input='same rectified L2-normalized three-phase NMF matrix', n_sites=len(X),
-        nmf_kmeans_ari=adjusted_rand_score(labels,km)), indent=2)+'\n')
+    pca_metadata,km = update_pca_outputs(OUT)
     old = pd.read_csv('/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/channel_assignments.csv')
     comparison = assignments[['channel','functional_cluster']].merge(
         old[['channel','functional_cluster']].rename(columns={'functional_cluster':'old_four_phase_cluster'}),on='channel',how='outer',indicator=True)
@@ -167,6 +158,9 @@ def main():
         'old_model_shared_sites':len(shared),
         'old_model_shared_ari':float(adjusted_rand_score(shared.functional_cluster,shared.old_four_phase_cluster)),
         'nmf_kmeans_ari':float(adjusted_rand_score(labels,km)),
+        'pca_embedding_rule':pca_metadata['embedding_rule'],
+        'pca_variance_threshold':pca_metadata['variance_threshold'],
+        'pca_embedding_pcs':pca_metadata['n_embedding_pcs'],
         'factor_H_unit_norm':bool(np.allclose(np.linalg.norm(H,axis=1),1)),
         'outputs':{p.name:sha(p) for p in [OUT/'channel_assignments.csv',OUT/'factors.npz',OUT/'H_by_phase.csv']}}
     if manifest.get('modality')=='sound':

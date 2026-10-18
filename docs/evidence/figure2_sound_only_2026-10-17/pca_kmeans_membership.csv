@@ -47,7 +47,7 @@ D0049_LAI3-4,D0049,sensory,sensory
 D0049_LPI1-2,D0049,sensory,sensory
 D0049_LPI2-3,D0049,sensory,sensory
 D0049_LPI3-4,D0049,motor,sustain
-D0049_LPI4-5,D0049,sustain,motor
+D0049_LPI4-5,D0049,sustain,sustain
 D0052_LI3-4,D0052,motor,motor
 D0052_RI3-4,D0052,motor,motor
 D0052_RI4-5,D0052,motor,motor
@@ -79,7 +79,7 @@ D0061_LPI4-5,D0061,motor,motor
 D0061_LPI5-6,D0061,motor,motor
 D0061_LPI6-7,D0061,motor,motor
 D0063_RAI1-2,D0063,motor,sustain
-D0063_RAI2-3,D0063,motor,motor
+D0063_RAI2-3,D0063,motor,sustain
 D0063_RAI4-5,D0063,motor,motor
 D0064_LAI3-4,D0064,motor,motor
 D0064_LAI4-5,D0064,motor,motor
