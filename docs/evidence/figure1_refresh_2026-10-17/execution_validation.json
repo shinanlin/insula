@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "code_cells": 22,
+  "all_code_cells_executed": true,
+  "output_errors": [],
+  "legacy_notebook_unchanged": true,
+  "sampled_sites": 323,
+  "confirmed_responsive_sites": 227,
+  "svg_panels": 14,
+  "tfr_example_in_reviewed_cohort": true,
+  "svg_inline_only": true,
+  "average_hga_counts": {
+    "stimulus": {
+      "n_sites": 227,
+      "n_subjects": 64
+    },
+    "delay": {
+      "n_sites": 227,
+      "n_subjects": 64
+    },
+    "response": {
+      "n_sites": 227,
+      "n_subjects": 64
+    }
+  },
+  "average_hga_missing_site_phase_pairs": 0,
+  "nmf_unchanged": true,
+  "notebook_sha256": "ed72a6979e7615bb4ec74070d146f56256f6ff4705d32399648d6c444e3cfd8b"
+}

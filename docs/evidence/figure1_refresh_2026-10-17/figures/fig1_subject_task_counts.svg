@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="395.376378pt" height="136.773602pt" viewBox="0 0 395.376378 136.773602" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T20:41:50.019607</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 136.773602 
+L 395.376378 136.773602 
+L 395.376378 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="table_1">
+    <g id="patch_2">
+     <path d="M 7.2 29.628121 
+L 106.253858 29.628121 
+L 106.253858 9.623622 
+L 7.2 9.623622 
+z
+" style="fill: #eceaf5; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="21.440403" transform="rotate(-0 56.726929 21.440403)">Task</text>
+    </g>
+    <g id="patch_3">
+     <path d="M 106.253858 29.628121 
+L 178.63937 29.628121 
+L 178.63937 9.623622 
+L 106.253858 9.623622 
+z
+" style="fill: #eceaf5; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_2">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(127.85927 17.786075)">Sampled</text>
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(122.610364 25.180044)">participants</text>
+    </g>
+    <g id="patch_4">
+     <path d="M 178.63937 29.628121 
+L 231.976063 29.628121 
+L 231.976063 9.623622 
+L 178.63937 9.623622 
+z
+" style="fill: #eceaf5; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(190.720373 17.786075)">Sampled</text>
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(197.330998 25.180044)">sites</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 231.976063 29.628121 
+L 304.361575 29.628121 
+L 304.361575 9.623622 
+L 231.976063 9.623622 
+z
+" style="fill: #eceaf5; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(248.523975 17.743419)">Responsive</text>
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(248.332569 25.137387)">participants</text>
+    </g>
+    <g id="patch_6">
+     <path d="M 304.361575 29.628121 
+L 388.176378 29.628121 
+L 388.176378 9.623622 
+L 304.361575 9.623622 
+z
+" style="fill: #eceaf5; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(328.769523 17.743419)">Confirmed</text>
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(318.840461 25.137387)">responsive sites</text>
+    </g>
+    <g id="patch_7">
+     <path d="M 7.2 45.016198 
+L 106.253858 45.016198 
+L 106.253858 29.628121 
+L 7.2 29.628121 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="39.131769" transform="rotate(-0 56.726929 39.131769)">Phoneme sequence</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 106.253858 45.016198 
+L 178.63937 45.016198 
+L 178.63937 29.628121 
+L 106.253858 29.628121 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="142.446614" y="39.131769" transform="rotate(-0 142.446614 39.131769)">36</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 178.63937 45.016198 
+L 231.976063 45.016198 
+L 231.976063 29.628121 
+L 178.63937 29.628121 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="205.307717" y="39.131769" transform="rotate(-0 205.307717 39.131769)">161</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 231.976063 45.016198 
+L 304.361575 45.016198 
+L 304.361575 29.628121 
+L 231.976063 29.628121 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="268.168819" y="39.131769" transform="rotate(-0 268.168819 39.131769)">32</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 304.361575 45.016198 
+L 388.176378 45.016198 
+L 388.176378 29.628121 
+L 304.361575 29.628121 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="346.268976" y="39.131769" transform="rotate(-0 346.268976 39.131769)">98</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 7.2 60.404274 
+L 106.253858 60.404274 
+L 106.253858 45.016198 
+L 7.2 45.016198 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="54.47883" transform="rotate(-0 56.726929 54.47883)">Lexical delay</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 106.253858 60.404274 
+L 178.63937 60.404274 
+L 178.63937 45.016198 
+L 106.253858 45.016198 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="142.446614" y="54.519846" transform="rotate(-0 142.446614 54.519846)">38</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 178.63937 60.404274 
+L 231.976063 60.404274 
+L 231.976063 45.016198 
+L 178.63937 45.016198 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="205.307717" y="54.519846" transform="rotate(-0 205.307717 54.519846)">199</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 231.976063 60.404274 
+L 304.361575 60.404274 
+L 304.361575 45.016198 
+L 231.976063 45.016198 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="268.168819" y="54.519846" transform="rotate(-0 268.168819 54.519846)">36</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 304.361575 60.404274 
+L 388.176378 60.404274 
+L 388.176378 45.016198 
+L 304.361575 45.016198 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="346.268976" y="54.519846" transform="rotate(-0 346.268976 54.519846)">115</text>
+    </g>
+    <g id="patch_17">
+     <path d="M 7.2 75.792351 
+L 106.253858 75.792351 
+L 106.253858 60.404274 
+L 7.2 60.404274 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="69.866906" transform="rotate(-0 56.726929 69.866906)">Picture naming</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 106.253858 75.792351 
+L 178.63937 75.792351 
+L 178.63937 60.404274 
+L 106.253858 60.404274 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="142.446614" y="69.907922" transform="rotate(-0 142.446614 69.907922)">28</text>
+    </g>
+    <g id="patch_19">
+     <path d="M 178.63937 75.792351 
+L 231.976063 75.792351 
+L 231.976063 60.404274 
+L 178.63937 60.404274 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="205.307717" y="69.907922" transform="rotate(-0 205.307717 69.907922)">151</text>
+    </g>
+    <g id="patch_20">
+     <path d="M 231.976063 75.792351 
+L 304.361575 75.792351 
+L 304.361575 60.404274 
+L 231.976063 60.404274 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="268.168819" y="69.907922" transform="rotate(-0 268.168819 69.907922)">28</text>
+    </g>
+    <g id="patch_21">
+     <path d="M 304.361575 75.792351 
+L 388.176378 75.792351 
+L 388.176378 60.404274 
+L 304.361575 60.404274 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="346.268976" y="69.907922" transform="rotate(-0 346.268976 69.907922)">102</text>
+    </g>
+    <g id="patch_22">
+     <path d="M 7.2 91.180427 
+L 106.253858 91.180427 
+L 106.253858 75.792351 
+L 7.2 75.792351 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_21">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="85.338655" transform="rotate(-0 56.726929 85.338655)">SentenceRep</text>
+    </g>
+    <g id="patch_23">
+     <path d="M 106.253858 91.180427 
+L 178.63937 91.180427 
+L 178.63937 75.792351 
+L 106.253858 75.792351 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_22">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="142.446614" y="85.295999" transform="rotate(-0 142.446614 85.295999)">16</text>
+    </g>
+    <g id="patch_24">
+     <path d="M 178.63937 91.180427 
+L 231.976063 91.180427 
+L 231.976063 75.792351 
+L 178.63937 75.792351 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_23">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="205.307717" y="85.295999" transform="rotate(-0 205.307717 85.295999)">53</text>
+    </g>
+    <g id="patch_25">
+     <path d="M 231.976063 91.180427 
+L 304.361575 91.180427 
+L 304.361575 75.792351 
+L 231.976063 75.792351 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_24">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="268.168819" y="85.295999" transform="rotate(-0 268.168819 85.295999)">13</text>
+    </g>
+    <g id="patch_26">
+     <path d="M 304.361575 91.180427 
+L 388.176378 91.180427 
+L 388.176378 75.792351 
+L 304.361575 75.792351 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_25">
+     <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="346.268976" y="85.295999" transform="rotate(-0 346.268976 85.295999)">26</text>
+    </g>
+    <g id="patch_27">
+     <path d="M 7.2 106.568504 
+L 106.253858 106.568504 
+L 106.253858 91.180427 
+L 7.2 91.180427 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_26">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="56.726929" y="100.688997" transform="rotate(-0 56.726929 100.688997)">Across-task union</text>
+    </g>
+    <g id="patch_28">
+     <path d="M 106.253858 106.568504 
+L 178.63937 106.568504 
+L 178.63937 91.180427 
+L 106.253858 91.180427 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_27">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="142.446614" y="100.688997" transform="rotate(-0 142.446614 100.688997)">65</text>
+    </g>
+    <g id="patch_29">
+     <path d="M 178.63937 106.568504 
+L 231.976063 106.568504 
+L 231.976063 91.180427 
+L 178.63937 91.180427 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_28">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="205.307717" y="100.688997" transform="rotate(-0 205.307717 100.688997)">323</text>
+    </g>
+    <g id="patch_30">
+     <path d="M 231.976063 106.568504 
+L 304.361575 106.568504 
+L 304.361575 91.180427 
+L 231.976063 91.180427 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_29">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="268.168819" y="100.688997" transform="rotate(-0 268.168819 100.688997)">64</text>
+    </g>
+    <g id="patch_31">
+     <path d="M 304.361575 106.568504 
+L 388.176378 106.568504 
+L 388.176378 91.180427 
+L 304.361575 91.180427 
+z
+" style="fill: #ffffff; stroke: #d9d9d9; stroke-width: 0.4; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_30">
+     <text style="font-weight: 700; font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: middle" x="346.268976" y="100.688997" transform="rotate(-0 346.268976 100.688997)">227</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_31">
+   <text style="font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: start" x="7.2" y="128.381102" transform="rotate(-0 7.2 128.381102)">Across-task totals count each bipolar site once. Responsive counts reflect available evidence.</text>
+  </g>
+ </g>
+</svg>

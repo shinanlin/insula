@@ -1,0 +1,152 @@
+[
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0027_LAI1-2"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0027_LAI1-2"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0027_LAI1-2"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0028_LPI2-3"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0028_LPI2-3"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0028_LPI2-3"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0032_LAI2-3",
+      "D0032_LPI2-3"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0032_LAI2-3",
+      "D0032_LPI2-3"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0032_LAI2-3",
+      "D0032_LPI2-3"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0060_LI1-2"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0060_LI1-2"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0060_LI1-2"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0061_LAI4-5"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0061_LAI4-5"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0061_LAI4-5"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0063_RAI1-2"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0063_RAI1-2"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0063_RAI1-2"
+    ],
+    "phase": "response"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0102_RTAS1-2"
+    ],
+    "phase": "stimulus"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0102_RTAS1-2"
+    ],
+    "phase": "delay"
+  },
+  {
+    "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+    "channels": [
+      "D0102_RTAS1-2"
+    ],
+    "phase": "response"
+  }
+]

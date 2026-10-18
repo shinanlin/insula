@@ -1,0 +1,287 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="298.384567pt" height="112.870661pt" viewBox="0 0 298.384567 112.870661" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T20:42:13.323822</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 112.870661 
+L 298.384567 112.870661 
+L 298.384567 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 50.205762 39.919462 
+C 48.351875 39.919462 46.502978 40.111767 44.688774 40.493289 
+C 42.874569 40.874811 41.104824 41.443495 39.407968 42.190205 
+L 50.205762 66.727559 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 39.407968 42.190205 
+C 34.326611 44.426284 30.063171 48.186514 27.209749 52.948681 
+C 24.356328 57.710847 23.051431 63.243793 23.47628 68.779111 
+L 50.205762 66.727559 
+z
+" style="fill: #20b2aa; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 23.47628 68.779111 
+C 23.680029 71.433739 24.278111 74.043265 25.250808 76.521657 
+C 26.223505 79.000048 27.560008 81.319765 29.216255 83.40433 
+L 50.205762 66.727559 
+z
+" style="fill: #f39b35; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 29.216255 83.40433 
+C 30.198798 84.640965 31.288708 85.788352 32.473263 86.833094 
+C 33.657817 87.877837 34.932387 88.815853 36.282091 89.636192 
+L 50.205762 66.727559 
+z
+" style="fill: #2369bd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 36.282091 89.636192 
+C 39.817626 91.78506 43.803093 93.086572 47.925446 93.438498 
+C 52.047799 93.790423 56.196206 93.183302 60.044824 91.664819 
+C 63.893442 90.146337 67.338797 87.75732 70.11027 84.685417 
+C 72.881742 81.613514 74.904819 77.941316 76.020593 73.95726 
+C 77.136368 69.973205 77.314842 65.784408 76.541997 61.719883 
+C 75.769152 57.655359 74.065767 53.824386 71.565637 50.527873 
+C 69.065506 47.23136 65.835849 44.557938 62.130342 42.717593 
+C 58.424835 40.877248 54.343106 39.919461 50.205758 39.919462 
+L 50.205762 66.727559 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="44.137075" y="39.679471" transform="rotate(-0 44.137075 39.679471)">Insula</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="46.895569" y="52.54231" transform="rotate(-0 46.895569 52.54231)">6.6%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="24.910148" y="53.380402" transform="rotate(-0 24.910148 53.380402)">STG</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="36.408154" y="60.015545" transform="rotate(-0 36.408154 60.015545)">19.6%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="22.755313" y="79.310676" transform="rotate(-0 22.755313 79.310676)">SMC</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="35.23279" y="74.15933" transform="rotate(-0 35.23279 74.15933)">9.5%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="30.700013" y="90.653257" transform="rotate(-0 30.700013 90.653257)">IFG</text>
+   </g>
+   <g id="text_8">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="39.566262" y="80.346193" transform="rotate(-0 39.566262 80.346193)">5.6%</text>
+   </g>
+   <g id="text_9">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="78.602076" y="76.48984" transform="rotate(-0 78.602076 76.48984)">Other</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="65.694661" y="72.620692" transform="rotate(-0 65.694661 72.620692)">58.7%</text>
+   </g>
+   <g id="text_11">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(36.785449 19.71125)">Stimulus</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(36.099121 27.217437)">(n=1743)</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_7">
+    <path d="M 143.073684 39.191096 
+C 141.001691 39.191096 138.936302 39.424958 136.916765 39.888238 
+C 134.897229 40.351518 132.936419 41.041262 131.071597 41.944364 
+L 143.073684 66.727559 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 131.071597 41.944364 
+C 126.642603 44.089252 122.868503 47.382688 120.143707 51.480494 
+C 117.418911 55.5783 115.841762 60.332578 115.57708 65.246484 
+L 143.073684 66.727559 
+z
+" style="fill: #20b2aa; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 115.57708 65.246484 
+C 115.433453 67.912949 115.678456 70.586182 116.304382 73.182117 
+C 116.930309 75.778052 117.930528 78.269189 119.273587 80.577188 
+L 143.073684 66.727559 
+z
+" style="fill: #f39b35; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 119.273587 80.577188 
+C 120.07852 81.960436 121.002513 83.270882 122.035068 84.493635 
+C 123.067622 85.716388 124.204813 86.846799 125.433717 87.872024 
+L 143.073684 66.727559 
+z
+" style="fill: #2369bd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 125.433717 87.872024 
+C 128.830196 90.705568 132.859935 92.679461 137.180697 93.626063 
+C 141.501459 94.572666 145.987362 94.4644 150.257428 93.31046 
+C 154.527493 92.156521 158.457318 89.990527 161.713148 86.996431 
+C 164.968979 84.002336 167.45596 80.26737 168.962877 76.108736 
+C 170.469795 71.950102 170.952746 67.488957 170.370715 63.104179 
+C 169.788685 58.719401 168.158628 54.538736 165.618984 50.917238 
+C 163.07934 47.29574 159.704098 44.338919 155.77991 42.297892 
+C 151.855723 40.256865 147.496918 39.191095 143.073679 39.191096 
+L 143.073684 66.727559 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4"/>
+   <g id="text_12">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="136.301074" y="39.013915" transform="rotate(-0 136.301074 39.013915)">Insula</text>
+   </g>
+   <g id="text_13">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="139.379533" y="52.179279" transform="rotate(-0 139.379533 52.179279)">7.2%</text>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="117.850709" y="51.765397" transform="rotate(-0 117.850709 51.765397)">STG</text>
+   </g>
+   <g id="text_15">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="129.315698" y="59.134633" transform="rotate(-0 129.315698 59.134633)">17.0%</text>
+   </g>
+   <g id="text_16">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="113.627452" y="75.637182" transform="rotate(-0 113.627452 75.637182)">SMC</text>
+   </g>
+   <g id="text_17">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="127.012103" y="72.155606" transform="rotate(-0 127.012103 72.155606)">9.2%</text>
+   </g>
+   <g id="text_18">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="119.931206" y="88.079852" transform="rotate(-0 119.931206 88.079852)">IFG</text>
+   </g>
+   <g id="text_19">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="130.450514" y="78.942517" transform="rotate(-0 130.450514 78.942517)">5.5%</text>
+   </g>
+   <g id="text_20">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="171.551797" y="78.856463" transform="rotate(-0 171.551797 78.856463)">Other</text>
+   </g>
+   <g id="text_21">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="158.6072" y="73.911578" transform="rotate(-0 158.6072 73.911578)">61.1%</text>
+   </g>
+   <g id="text_22">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(134.125715 18.718761)">Delay</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(128.967043 26.30698)">(n=1839)</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_12">
+    <path d="M 241.374586 35.573078 
+C 238.849089 35.573078 236.332935 35.880167 233.881571 36.487578 
+C 231.430207 37.094989 229.061771 37.998228 226.828453 39.177392 
+L 241.374586 66.727559 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_13">
+    <path d="M 226.828453 39.177392 
+C 222.742914 41.334503 219.187902 44.373643 216.421685 48.074022 
+C 213.655467 51.7744 211.746694 56.044185 210.834033 60.573181 
+L 241.374586 66.727559 
+z
+" style="fill: #20b2aa; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_14">
+    <path d="M 210.834033 60.573181 
+C 210.018246 64.621453 210.015463 68.791819 210.825847 72.841176 
+C 211.636232 76.890533 213.243724 80.73864 215.55462 84.161179 
+L 241.374586 66.727559 
+z
+" style="fill: #f39b35; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_15">
+    <path d="M 215.55462 84.161179 
+C 216.415874 85.436734 217.370467 86.646716 218.410556 87.781183 
+C 219.450645 88.915649 220.573373 89.971484 221.769513 90.940012 
+L 241.374586 66.727559 
+z
+" style="fill: #2369bd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_16">
+    <path d="M 221.769513 90.940012 
+C 225.643819 94.077077 230.21508 96.238889 235.097981 97.243226 
+C 239.980883 98.247564 245.034265 98.065394 249.832174 96.71207 
+C 254.630084 95.358747 259.033818 92.873393 262.672183 89.465502 
+C 266.310548 86.057611 269.078362 81.825702 270.742324 77.126484 
+C 272.406287 72.427266 272.918294 67.396589 272.235188 62.458494 
+C 271.552083 57.520398 269.693612 52.817639 266.816429 48.746615 
+C 263.939245 44.675591 260.126525 41.353992 255.699646 39.061797 
+C 251.272766 36.769602 246.359703 35.573077 241.374583 35.573078 
+L 241.374586 66.727559 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_5"/>
+   <g id="matplotlib.axis_6"/>
+   <g id="text_23">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="233.13227" y="35.273189" transform="rotate(-0 233.13227 35.273189)">Insula</text>
+   </g>
+   <g id="text_24">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="236.878777" y="50.138883" transform="rotate(-0 236.878777 50.138883)">7.7%</text>
+   </g>
+   <g id="text_25">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="213.926395" y="48.018277" transform="rotate(-0 213.926395 48.018277)">STG</text>
+   </g>
+   <g id="text_26">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="226.402845" y="57.090749" transform="rotate(-0 226.402845 57.090749)">14.1%</text>
+   </g>
+   <g id="text_27">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="207.770974" y="75.262147" transform="rotate(-0 207.770974 75.262147)">SMC</text>
+   </g>
+   <g id="text_28">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="223.045343" y="71.951042" transform="rotate(-0 223.045343 71.951042)">12.6%</text>
+   </g>
+   <g id="text_29">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="216.114153" y="91.696154" transform="rotate(-0 216.114153 91.696154)">IFG</text>
+   </g>
+   <g id="text_30">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="227.596168" y="80.915046" transform="rotate(-0 227.596168 80.915046)">4.7%</text>
+   </g>
+   <g id="text_31">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="273.679098" y="79.975986" transform="rotate(-0 273.679098 79.975986)">Other</text>
+   </g>
+   <g id="text_32">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="258.995229" y="74.522226" transform="rotate(-0 258.995229 74.522226)">60.8%</text>
+   </g>
+   <g id="text_33">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(225.615289 14.27827)">Response</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(227.267945 21.784457)">(n=2354)</text>
+   </g>
+  </g>
+  <g id="text_34">
+   <text style="font-size: 8px; font-family: 'Arial', sans-serif; text-anchor: middle" x="144.254695" y="13.02375" transform="rotate(-0 144.254695 13.02375)">Confirmed HGA responses by phase</text>
+  </g>
+ </g>
+</svg>

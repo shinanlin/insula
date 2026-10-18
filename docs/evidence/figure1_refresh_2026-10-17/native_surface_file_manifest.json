@@ -1,0 +1,32 @@
+[
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/surf/lh.curv",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/surf/lh.curv",
+    "bytes": 566295
+  },
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/surf/lh.pial",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/surf/lh.pial",
+    "bytes": 5097858
+  },
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/surf/rh.curv",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/surf/rh.curv",
+    "bytes": 565075
+  },
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/surf/rh.pial",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/surf/rh.pial",
+    "bytes": 5086878
+  },
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/label/lh.aparc.a2009s.annot",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/label/lh.aparc.a2009s.annot",
+    "bytes": 1135764
+  },
+  {
+    "source": "/C/Users/ns458/Box/CoganLab/ECoG_Recon_Full/D64/label/rh.aparc.a2009s.annot",
+    "destination": "/cwork/ns458/ECoG_Recon/D64/label/rh.aparc.a2009s.annot",
+    "bytes": 1133324
+  }
+]

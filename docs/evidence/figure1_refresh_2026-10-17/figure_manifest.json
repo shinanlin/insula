@@ -1,0 +1,156 @@
+{
+  "cohort": "reviewed_2026-10-17",
+  "sampled_sites": 323,
+  "sampled_participants": 65,
+  "excluded_subjects": [
+    "D0121"
+  ],
+  "raw_recorded_site_count": 15986,
+  "retained_coordinate_site_count": 15792,
+  "noise_excluded_site_count": 194,
+  "confirmed_responsive_sites": 227,
+  "responsive_participants": 64,
+  "phase_response_counts": {
+    "stimulus": 115,
+    "delay": 132,
+    "response": 182
+  },
+  "response_windows": {
+    "stimulus": {
+      "phase": "stimulus",
+      "time_min": 0.0,
+      "time_max": 0.6
+    },
+    "delay": {
+      "phase": "delay",
+      "time_min": 0.0,
+      "time_max": 1.0
+    },
+    "response": {
+      "phase": "response",
+      "time_min": -0.5,
+      "time_max": 0.5
+    }
+  },
+  "response_count_finalized": false,
+  "unresolved_response_sites": 94,
+  "confirmed_nonresponsive_sites": 2,
+  "laterality": {
+    "L": {
+      "sampled": 193,
+      "confirmed_responsive": 146
+    },
+    "R": {
+      "sampled": 130,
+      "confirmed_responsive": 81
+    }
+  },
+  "group_average_weighting": "equal participants after equal modality and task means within site",
+  "group_average_counts": {
+    "stimulus": {
+      "n_sites": 227,
+      "n_subjects": 64
+    },
+    "delay": {
+      "n_sites": 227,
+      "n_subjects": 64
+    },
+    "response": {
+      "n_sites": 227,
+      "n_subjects": 64
+    }
+  },
+  "group_average_missing_site_phase_pairs": 0,
+  "schematic_subject": "D0064",
+  "tfr_subject": "D0064",
+  "tfr_task": "PhonemeSequence",
+  "tfr_channel": "D0064_LAI3-4",
+  "tfr_recomputed": false,
+  "nmf_used_for_selection": false,
+  "nmf_files_unchanged": true,
+  "data_source_root": "/hpc/group/coganlab/nanlinshi/insula-functional",
+  "output_root": "/cwork/ns458/insula-paper/img/fig1",
+  "roi_sampling_counts": {
+    "Insula": 323,
+    "STG": 491,
+    "SMC": 448,
+    "IFG": 237,
+    "Other": 3652,
+    "total": 5151
+  },
+  "roi_confirmed_counts": {
+    "Insula": 227,
+    "STG": 391,
+    "SMC": 327,
+    "IFG": 147,
+    "Other": 1921,
+    "total": 3013
+  },
+  "source_lists": {
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/sampled_sites_unique.csv": "c9fd26334e7d55233ac1d05778471f617e981e75057e63a1d93a088a58567d93",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/nmf_candidate_sites_not_final_inputs.csv": "53695474b60f613695a216b3e4a847b1161097427358765d7aac522988b4f6a9",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/task_summary.csv": "8af7b691391c258afa69367116033bffa85ae594c79245eca42cb9391b51a225",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/sampled_sites_by_subject_task.csv": "e6d12ed3b87aa3ba8f9fbbe23a649d9257fe2e3abbecce4726da5afe4ac06196",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/responsive_sites_by_subject_task.csv": "6acc810b60af3719379ae943937ed232219bcdd8516753309a5b064dd4f8721d",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/subject_task_counts_wide.csv": "c2c838e3b79edb4cd70bb6696dc8f12bc671a6b2aef53be4d3d150f8170cd843",
+    "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/subject_task_counts_and_lists.csv": "3942b4a638e6e1eb341f18ae5c7078686ed9e0aedd98eda718760d1841256315"
+  },
+  "figures": {
+    "fig1_all_electrodes_projected.svg": {
+      "bytes": 238852,
+      "sha256": "e9a0eb188f88ac32638b852f1eabda3b927527726e9e26f2a8abc8cd3d3ff3ec"
+    },
+    "fig1_example_electrode_tfr.svg": {
+      "bytes": 36720,
+      "sha256": "5322fdee8c298b8d8b24822be43370f9db365139b05ebed09c0ce37e44f0c1d3"
+    },
+    "fig1_example_electrode_tfr_raw.svg": {
+      "bytes": 45266,
+      "sha256": "a680f0d01cb292245896f573a5d0f80341c6cab7de4848e6e3caf53f3bcb9182"
+    },
+    "fig1_insula_average_traces.svg": {
+      "bytes": 43639,
+      "sha256": "3dc6e8e1c2d2df68f83a626bac515d36b6bc96d6102df974d2da5e9db2753a6a"
+    },
+    "fig1_insula_electrode_schematic.svg": {
+      "bytes": 375626,
+      "sha256": "2258ae70cee2d93eb84cdd45d53b08d77ec24e4b2e9a27682c3a15c863f3bb20"
+    },
+    "fig1_insula_electrode_schematic_seeg.svg": {
+      "bytes": 89709,
+      "sha256": "99638756b3d62ab29be0ec958ae7fff4e195d4124bf0f3db08f8d26eba3c8e71"
+    },
+    "fig1_insula_electrodes_gyrus_lines.svg": {
+      "bytes": 216863,
+      "sha256": "b8669aff89803711e2540c3b911a7638397d4b86427582eab8ea981cc76fb9fe"
+    },
+    "fig1_insula_laterality_counts.svg": {
+      "bytes": 7464,
+      "sha256": "c6569831392e517b8ecb906e278b3c2afd0bc1f165d36c64f1002cd72e2d7b08"
+    },
+    "fig1_phase_insula_vs_other.svg": {
+      "bytes": 9561,
+      "sha256": "8758f4b03871669fd416b3cd5021026378a5cb7ce26dc7ae38804fe93a18152c"
+    },
+    "fig1_phase_roi_breakdown.svg": {
+      "bytes": 14627,
+      "sha256": "4ae54286edcb04cb6ac42ad7cf0d715c0fcaec99e7a7b18a3649bd64b129684f"
+    },
+    "fig1_phase_roi_breakdown_union.svg": {
+      "bytes": 5488,
+      "sha256": "91fc487c5957e636924b19f88eda273708db3966ec77c323e0750b26c99712b9"
+    },
+    "fig1_roi_breakdown_sig_and_sampled.svg": {
+      "bytes": 9956,
+      "sha256": "30423fd5ac4067f6db37f8c03cb38a5ccb7e17a7a1d454ea572cab233cc16a68"
+    },
+    "fig1_roi_significant_yield.svg": {
+      "bytes": 8933,
+      "sha256": "26b354579e367171b2eee2ea30f13bd71a29aaeee8da9f2dd33710d7222934dc"
+    },
+    "fig1_subject_task_counts.svg": {
+      "bytes": 14911,
+      "sha256": "74da670fa1f607a14b5c552ab78b66595add72bd9a77cefb1dd9364107cea8ff"
+    }
+  }
+}
