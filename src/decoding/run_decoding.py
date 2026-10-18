@@ -28,7 +28,7 @@ from src.decoding.decoder import (
     decode_permutation_scores,
     get_cv_predict,
 )
-from src.paths import decoding_task_dir
+from src.paths import decoding_task_dir, decoding_input_dir
 
 logging.basicConfig(
     level=logging.INFO,
@@ -109,7 +109,7 @@ def load_roi_data(
         If no matching files found for the specified ROI
     """
     root = BIDSPath(
-        root=os.path.join(bids_root, 'derivatives', f'decoding({ref})'),
+        root=str(decoding_input_dir(bids_root, ref)),
         datatype=datatype,
         description=description,
         suffix=band,

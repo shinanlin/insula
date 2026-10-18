@@ -1,0 +1,3 @@
+set,n,sensory,sustain,motor
+sound_stimulus,48,12,20,16
+image_stimulus,23,1,12,10

@@ -1,0 +1,10 @@
+{
+  "passed": true,
+  "changed_python_and_notebook_sources_compile": true,
+  "RT_task_specific_anatomy_used_without_HGA_significance": true,
+  "HGA_original_RT_split_and_finite_trial_filter_preserved": true,
+  "HGA_per_electrode_waveforms_retain_original_within_subject_mean": true,
+  "HGA_tasks_collapsed_before_electrode_mean_and_SEM": true,
+  "RT_and_functional_decoding_models_fitted": false,
+  "limitation": "Original task epochs missing; RT/decoding fits not claimed"
+}

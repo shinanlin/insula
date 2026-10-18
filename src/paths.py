@@ -1,6 +1,7 @@
 """Shared output paths for insula analysis pipelines."""
 
 from pathlib import Path
+import os
 
 import matplotlib.pyplot as plt
 
@@ -40,7 +41,13 @@ def hga_results_dir(
     in the output path.
     """
     del ref, atlas  # study default: bipolar + Hammers
-    return RESULTS_ROOT / "hga" / task
+    return Path(os.environ.get("INSULA_HGA_INPUT_ROOT", RESULTS_ROOT / "hga")) / task
+
+
+def decoding_input_dir(bids_root: Path | str, ref: str = "bipolar") -> Path:
+    """Read isolated prepared inputs when running a paper refresh."""
+    override = os.environ.get("INSULA_DECODING_INPUT_ROOT")
+    return Path(override) if override else Path(bids_root) / "derivatives" / f"decoding({ref})"
 
 
 def decoding_results_dir() -> Path:

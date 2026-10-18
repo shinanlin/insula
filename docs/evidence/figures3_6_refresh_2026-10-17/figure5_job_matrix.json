@@ -1,0 +1,410 @@
+[
+  {
+    "task": "LexicalDelay",
+    "subject": "D0023"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0027"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0028"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0032"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0035"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0038"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0044"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0047"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0053"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0054"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0055"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0057"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0059"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0063"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0065"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0068"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0070"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0071"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0079"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0080"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0081"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0084"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0090"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0092"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0094"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0096"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0101"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0102"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0103"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0115"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0128"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0129"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0132"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0137"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0138"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0139"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0140"
+  },
+  {
+    "task": "LexicalDelay",
+    "subject": "D0143"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0022"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0023"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0028"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0035"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0040"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0042"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0045"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0049"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0052"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0053"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0054"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0055"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0057"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0058"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0059"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0060"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0061"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0063"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0064"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0067"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0068"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0070"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0071"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0075"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0079"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0084"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0085"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0088"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0091"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0092"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0093"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0094"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0095"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0096"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0102"
+  },
+  {
+    "task": "PhonemeSequence",
+    "subject": "D0103"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0076"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0079"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0080"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0081"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0084"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0085"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0088"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0090"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0091"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0092"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0093"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0094"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0096"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0101"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0102"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0105"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0108"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0118"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0119"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0122"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0123"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0125"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0129"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0131"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0134"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0137"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0138"
+  },
+  {
+    "task": "PictureNaming",
+    "subject": "D0139"
+  }
+]

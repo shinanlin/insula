@@ -124,21 +124,27 @@ def aligned_fast_slow_traces(
         keep = np.isfinite(target) & np.isfinite(trial_hga).all(axis=1)
         if int(keep.sum()) < int(min_trials):
             continue
-        fast, slow, n_fast, n_slow = median_split_traces(trial_hga, target)
-        for time_index, time in enumerate(data.times):
-            rows.append(
-                {
-                    "task": task,
-                    "subject": subject,
-                    "functional_cluster": cluster,
-                    "time": float(time),
-                    "hga_fast": float(fast[time_index]),
-                    "hga_slow": float(slow[time_index]),
-                    "n_fast": n_fast,
-                    "n_slow": n_slow,
-                    "n_electrodes": len(channels),
-                }
-            )
+        # Preserve the original subject/cluster trial filter and RT split.
+        # Retain a separate waveform per electrode so the group mean/SEM
+        # does not weight subjects equally when electrode counts differ.
+        for channel in channels:
+            electrode_hga = data.X[keep, channel_index[channel], :]
+            fast, slow, n_fast, n_slow = median_split_traces(electrode_hga, target[keep])
+            for time_index, time in enumerate(data.times):
+                rows.append(
+                    {
+                        "task": task,
+                        "subject": subject,
+                        "channel": channel,
+                        "functional_cluster": cluster,
+                        "time": float(time),
+                        "hga_fast": float(fast[time_index]),
+                        "hga_slow": float(slow[time_index]),
+                        "n_fast": n_fast,
+                        "n_slow": n_slow,
+                        "n_electrodes": 1,
+                    }
+                )
     return rows
 
 
@@ -644,24 +650,6 @@ def summarize_hga_rt_encoding(
                 continue
             retained_clusters.append(cluster)
 
-            channel_indices = [channel_index[channel] for channel in channels]
-            trial_hga = np.mean(data.X[:, channel_indices, :], axis=1)
-            fast, slow, n_fast, n_slow = median_split_traces(trial_hga, target)
-            for time_index, time in enumerate(data.times):
-                trace_rows.append(
-                    {
-                        "task": task,
-                        "subject": subject,
-                        "functional_cluster": cluster,
-                        "time": float(time),
-                        "hga_fast": float(fast[time_index]),
-                        "hga_slow": float(slow[time_index]),
-                        "n_fast": n_fast,
-                        "n_slow": n_slow,
-                        "n_electrodes": len(channels),
-                    }
-                )
-
             for trial_index in np.flatnonzero(finite_trials):
                 trial_rows.append(
                     {
@@ -678,6 +666,9 @@ def summarize_hga_rt_encoding(
         # Delay- and Response-aligned traces for the same assigned pre-Go
         # electrodes. Median-split uses that phase's rt_log table.
         if retained_clusters:
+            trace_rows.extend(aligned_fast_slow_traces(
+                data, task=task, subject=subject, retained_clusters=retained_clusters,
+                by_cluster=by_cluster, min_trials=0))
             for phase, row_list in (
                 ("Delay", delay_trace_rows),
                 ("Response", response_trace_rows),

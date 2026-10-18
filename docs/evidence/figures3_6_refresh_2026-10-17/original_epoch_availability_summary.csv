@@ -1,0 +1,9 @@
+task,datatype,expected_subject_condition_phase_cells,available_cells,subjects,missing_cells
+LexicalDelay,epoch(band)(sig),304,0,38,304
+LexicalDelay,epoch(band)(zscore),304,0,38,304
+LexicalNoDelay,epoch(band)(sig),90,0,15,90
+LexicalNoDelay,epoch(band)(zscore),90,0,15,90
+PhonemeSequence,epoch(band)(sig),144,0,36,144
+PhonemeSequence,epoch(band)(zscore),144,0,36,144
+PictureNaming,epoch(band)(sig),336,28,28,308
+PictureNaming,epoch(band)(zscore),336,28,28,308

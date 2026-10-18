@@ -13,6 +13,7 @@ import os
 import h5py
 import numpy as np
 from mne_bids import BIDSPath
+from src.paths import decoding_input_dir
 
 
 def load_pooled_roi(bids_root, ref, roi, datatype, description, phase, band, tmin, tmax):
@@ -55,7 +56,7 @@ def load_pooled_roi(bids_root, ref, roi, datatype, description, phase, band, tmi
         The matched source file.
     """
     root = BIDSPath(
-        root=os.path.join(bids_root, "derivatives", f"decoding({ref})"),
+        root=str(decoding_input_dir(bids_root, ref)),
         datatype=datatype,
         description=description,
         suffix=band,

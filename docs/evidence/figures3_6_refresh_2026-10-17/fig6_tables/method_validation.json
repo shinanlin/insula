@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "n_subjects": 94,
+  "projected_sites": 8477,
+  "projected_discovery_sites": 230,
+  "map_sites": 4440,
+  "map_subjects": 93,
+  "other_insula_sites_in_original_map_rule": 107,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "n_features": 399,
+  "basis_sha256": "42c0f0fb9fa0b56f18c0f2a9452d9104c7e9169bcc170e5bf7985bf1594c5eaa",
+  "original_fixed_H_NNLS_and_surface_rules_preserved": true,
+  "no_claim_of_pairwise_connectivity": true,
+  "discovery_sites_absent_from_packaged_projection": [
+    "D0060_LI1-2"
+  ],
+  "trial_counts": "Not available in trial-averaged source CSVs; no trial count invented"
+}

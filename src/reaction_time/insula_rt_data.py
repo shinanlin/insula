@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import re
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -229,6 +230,7 @@ def load_strict_insula_parcellation(
     subject: str,
     ref: str = "bipolar",
     atlas: str = "hammers",
+    task: str | None = None,
 ) -> pd.DataFrame:
     """Load strict AIC/PIC bipolar contacts, preserving native/template coords."""
 
@@ -242,7 +244,18 @@ def load_strict_insula_parcellation(
     missing = required.difference(parcellation.columns)
     if missing:
         raise ValueError(f"Parcellation missing columns: {sorted(missing)}")
-    out = parcellation[parcellation["roi"].isin(STRICT_INSULA_ROIS)].copy()
+    cohort_path = os.environ.get("INSULA_RT_COHORT")
+    if cohort_path:
+        if task is None:
+            raise ValueError("Approved task-specific RT cohort requires task")
+        cohort = pd.read_csv(cohort_path)
+        accepted = set(cohort.loc[cohort.subject.eq(subject) & cohort.task.eq(task), "site_id"])
+        missing = accepted - set(parcellation["name"])
+        if missing:
+            raise ValueError(f"Accepted RT contacts missing parcellation: {sorted(missing)}")
+        out = parcellation[parcellation["name"].isin(accepted)].copy()
+    else:
+        out = parcellation[parcellation["roi"].isin(STRICT_INSULA_ROIS)].copy()
     out = out.drop_duplicates("name", keep="first").rename(columns={"name": "channel"})
 
     # Canonical plotting coordinates use the existing template-transformed xyz
@@ -301,12 +314,14 @@ def load_phase_data(
         band=band,
         ref=ref,
     )
+    if os.environ.get("INSULA_RT_COHORT") and task == "PictureNaming":
+        paths = [p for p in paths if "_recording-sound_" in p.name]
     if not paths:
         raise FileNotFoundError(
             f"No {phase}/{description}/{band} epochs for sub-{subject}"
         )
     channel_meta = load_strict_insula_parcellation(
-        bids_root, subject=subject, ref=ref, atlas=atlas
+        bids_root, subject=subject, ref=ref, atlas=atlas, task=task
     )
     if channel_meta.empty:
         raise NoStrictInsulaError(f"sub-{subject} has no strict AIC/PIC electrodes")

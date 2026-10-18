@@ -3,8 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import logging
+import os
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -276,7 +278,10 @@ def run_subject(
         "band": band,
         "ref": ref,
         "atlas": atlas,
-        "strict_rois": "AIC,PIC",
+        "strict_rois": "approved_task_specific_anatomical_cohort" if os.environ.get("INSULA_RT_COHORT") else "AIC,PIC",
+        "sample_selection": os.environ.get("INSULA_RT_COHORT", "original_strict_hammers"),
+        "sample_selection_sha256": hashlib.sha256(Path(os.environ["INSULA_RT_COHORT"]).read_bytes()).hexdigest() if os.environ.get("INSULA_RT_COHORT") else "",
+        "modality": "sound" if os.environ.get("INSULA_RT_COHORT") else "original_all_recordings",
         "max_windows": max_windows,
     }
     paths: list[Path] = []

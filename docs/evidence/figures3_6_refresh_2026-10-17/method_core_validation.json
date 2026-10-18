@@ -1,0 +1,14 @@
+{
+  "passed": true,
+  "unchanged_files": [
+    "src/decoding/decoder.py",
+    "src/decoding/run_decoding_resolved_lda.py",
+    "src/decoding/run_cross_condition_resolved_lda.py",
+    "src/reaction_time/insula_ridge.py",
+    "src/decoding/prepare_functional_decoding_dataset.py",
+    "src/nmf/whole_brain_projection_viz.py"
+  ],
+  "RT_fit_phase_unchanged": true,
+  "scientific_parameters": "Original Figure 3\u20136 analysis definitions retained; approved changes recorded in MAIN_ANALYSIS.md",
+  "source_missing_inputs_explicit": true
+}

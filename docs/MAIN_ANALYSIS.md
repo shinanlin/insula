@@ -44,5 +44,14 @@ NMF 功能成分沿用 sensory `#2369BD`、sustained `#C4A35A`、motor `#A9373B`
 
 ## 版本与当前修正
 
+### Figure 3–6 更新：2026-10-17 用户已批准
+
+- 冻结当前 Figure 1/2、348 个采样位点、231 个 sound-responsive 位点和三阶段 k=3 模型。Figure 3/4 优先，Figure 5/6 同时更新。
+- Figure 3 保留 PN sound–image、LD Decision–Repeat、PN Repeat–Passive，沿用原窗口、逐电极统计和原 FDR family；新名单只在原规则对应的位置相交。核对 Passive 的虚拟 Response 对齐及旧绘图排除，保存缺失和配对名单。
+- Figure 4 重新准备并拟合功能群解码。原分类器、解码 PCA、CV、置换次数及时间/二维簇校正保持原样；Figure 2 的单-PC >5% 规则不替代解码 PCA。未改变输入和方法的解剖对照可校验后复用。
+- Figure 5：RT 模型按任务使用当前解剖合格且有有效 Repeat+sound 试次的位点，不要求预先 HGA 显著。功能群汇总只取其中具有当前 NMF 标签的位点，其他位点单列。快慢反应 HGA 改为 electrode 等权均值±SEM；RT 相关统计继续原被试级汇总/检验。保留 Delay、Go、Response，Delay/Go 联合校正与 Response 单独校正沿用原实现。
+- Figure 6：冻结当前三阶段 H，重新 NNLS 投影、计算空间缓存及区域计数，保留原空间参数和 top 50% 显示规则；不复用旧四阶段投影或旧 no-Go 测试模板。
+- 本次路径迁移只隔离输入/输出，不改变方法。所有逐图参与者、位点、试次和缺失清单随结果保存。额外方法/画法变化必须先审阅。
+
 此前 323/227 名单及 Figure 1、两版三阶段 NMF 使用了跨模态显著并集或混合模态波形，不能作为符合本口径的正式主分析结果。旧归档保留作为审计依据。
 当前唯一参数入口为 `src/main_analysis.py`；正式 sound-only 名单位于 `docs/evidence/sound_only_cohort_2026-10-17/`。修正时同步更新 supplementary 清单与 Figure 1，再从同一名单重建 NMF 和 Figure 2。

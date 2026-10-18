@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "figure": 6,
+  "completed_utc": "2026-10-18T03:43:45.544430+00:00",
+  "code_cells": 6,
+  "all_code_cells_executed": true,
+  "svg_inline_only": true,
+  "notebook_sha256": "addd14023a483c6a436819e029434d5baae443a2d438038114363430b756c97c",
+  "frozen_figure1_2_and_nmf_unchanged": true,
+  "scope": "full notebook",
+  "figures": [
+    {
+      "path": "/cwork/ns458/insula-paper/img/fig6/fig6_nmf_templates_nogo.svg",
+      "sha256": "a1f7d125f4b74dd030067df2426d7188dfcdc4c9a5392d5cc9c783f38b901ebb",
+      "bytes": 26655
+    },
+    {
+      "path": "/cwork/ns458/insula-paper/img/fig6/wholebrain_surface_motifs_focused_aparc_share.svg",
+      "sha256": "334d78dc9cf1178be656c2d35bf032354c7bd1de1da4a6297ea5f06cc5221382",
+      "bytes": 15966
+    },
+    {
+      "path": "/cwork/ns458/insula-paper/img/fig6/wholebrain_surface_motifs_focused_combined_pial_top50.svg",
+      "sha256": "752f662791054802163e9fb9153389eece5a91ade8aebb4f08810243c67d25aa",
+      "bytes": 376627
+    }
+  ]
+}

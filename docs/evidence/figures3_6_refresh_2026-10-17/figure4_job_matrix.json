@@ -1,0 +1,239 @@
+[
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sensory",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sensory",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sensory",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sustain",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sustain",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Sustain",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Motor",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Motor",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "window",
+    "task": "PhonemeSequence",
+    "roi": "Motor",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Stimulus",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Delay",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Response",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Stimulus",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Delay",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Response",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Stimulus",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Delay",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Response",
+    "description": "Repeat"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Stimulus",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Delay",
+    "description": "Decision"
+  },
+  {
+    "mode": "resolved",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Response",
+    "description": "Decision"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Delay",
+    "train": "Repeat",
+    "test": "Decision"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Sensory",
+    "phase": "Delay",
+    "train": "Decision",
+    "test": "Repeat"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Delay",
+    "train": "Repeat",
+    "test": "Decision"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Sustain",
+    "phase": "Delay",
+    "train": "Decision",
+    "test": "Repeat"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Delay",
+    "train": "Repeat",
+    "test": "Decision"
+  },
+  {
+    "mode": "cross",
+    "task": "LexicalDelay",
+    "roi": "Motor",
+    "phase": "Delay",
+    "train": "Decision",
+    "test": "Repeat"
+  }
+]

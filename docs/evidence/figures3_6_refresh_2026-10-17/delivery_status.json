@@ -1,0 +1,165 @@
+{
+  "status": "partially_complete_missing_original_epochs",
+  "completed": {
+    "figure3": "5 original statistical/spatial SVGs; remaining waveforms/heatmaps pending",
+    "figure6": "full notebook and 3 SVGs"
+  },
+  "pending": {
+    "figure3": "Original single-trial zscore/sig files required for full waveforms and heatmaps",
+    "figure4": "Input preparation failed before any functional classifier fit",
+    "figure5": "Approved cohort/SEM implementation verified; original epochs required before model fitting"
+  },
+  "figures": {
+    "3": {
+      "passed": true,
+      "figure": 3,
+      "completed_utc": "2026-10-18T03:39:56.240965+00:00",
+      "code_cells": 15,
+      "all_code_cells_executed": true,
+      "svg_inline_only": true,
+      "notebook_sha256": "cb757bc2a5ccae66af026e7f81836bea639aee56121ab17d6498d072bab9ef35",
+      "frozen_figure1_2_and_nmf_unchanged": true,
+      "scope": "cached statistical/spatial panels only; full waveform panels pending original epochs",
+      "figures": [
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig3/fig3_decision_gt_repeat_spatial_delay.svg",
+          "sha256": "155710e54ee7165556af30efc85151353b66e9c28881da4a2bb1001d7460460f",
+          "bytes": 102227
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig3/fig3_delay_decision_gt_repeat_spatial.svg",
+          "sha256": "c9e7c8c2c80528911607ab3980b3fe6dcf381c47ff15a0629a6640229222eeea",
+          "bytes": 121060
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig3/fig3_output_repeat_gt_passive_spatial.svg",
+          "sha256": "b09e75caf069bc4ae5135f1b9e091ba2d8c70a08e5956464022649cdee8a6d3c",
+          "bytes": 129365
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig3/fig3_paired_delay_p75.svg",
+          "sha256": "0693e8d933a612fdfc3dba60ed92d830b5fd117d7c479d1807ed1cf3724834bb",
+          "bytes": 249492
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig3/fig3_pn_repeat_sound_vs_image_spatial.svg",
+          "sha256": "75b1a232c5f65b4a41a48c8b394f42b0d44cef540dae24be87f7c49e540a6846",
+          "bytes": 329907
+        }
+      ]
+    },
+    "6": {
+      "passed": true,
+      "figure": 6,
+      "completed_utc": "2026-10-18T03:43:45.544430+00:00",
+      "code_cells": 6,
+      "all_code_cells_executed": true,
+      "svg_inline_only": true,
+      "notebook_sha256": "addd14023a483c6a436819e029434d5baae443a2d438038114363430b756c97c",
+      "frozen_figure1_2_and_nmf_unchanged": true,
+      "scope": "full notebook",
+      "figures": [
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig6/fig6_nmf_templates_nogo.svg",
+          "sha256": "a1f7d125f4b74dd030067df2426d7188dfcdc4c9a5392d5cc9c783f38b901ebb",
+          "bytes": 26655
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig6/wholebrain_surface_motifs_focused_aparc_share.svg",
+          "sha256": "334d78dc9cf1178be656c2d35bf032354c7bd1de1da4a6297ea5f06cc5221382",
+          "bytes": 15966
+        },
+        {
+          "path": "/cwork/ns458/insula-paper/img/fig6/wholebrain_surface_motifs_focused_combined_pial_top50.svg",
+          "sha256": "752f662791054802163e9fb9153389eece5a91ade8aebb4f08810243c67d25aa",
+          "bytes": 376627
+        }
+      ]
+    }
+  },
+  "figure6_validation": {
+    "passed": true,
+    "n_subjects": 94,
+    "projected_sites": 8477,
+    "projected_discovery_sites": 230,
+    "map_sites": 4440,
+    "map_subjects": 93,
+    "other_insula_sites_in_original_map_rule": 107,
+    "phases": [
+      "stimulus",
+      "delay",
+      "response"
+    ],
+    "n_features": 399,
+    "basis_sha256": "42c0f0fb9fa0b56f18c0f2a9452d9104c7e9169bcc170e5bf7985bf1594c5eaa",
+    "original_fixed_H_NNLS_and_surface_rules_preserved": true,
+    "no_claim_of_pairwise_connectivity": true,
+    "discovery_sites_absent_from_packaged_projection": [
+      "D0060_LI1-2"
+    ],
+    "trial_counts": "Not available in trial-averaged source CSVs; no trial count invented"
+  },
+  "approved_method_checks": {
+    "passed": true,
+    "changed_python_and_notebook_sources_compile": true,
+    "RT_task_specific_anatomy_used_without_HGA_significance": true,
+    "HGA_original_RT_split_and_finite_trial_filter_preserved": true,
+    "HGA_per_electrode_waveforms_retain_original_within_subject_mean": true,
+    "HGA_tasks_collapsed_before_electrode_mean_and_SEM": true,
+    "RT_and_functional_decoding_models_fitted": false,
+    "limitation": "Original task epochs missing; RT/decoding fits not claimed"
+  },
+  "frozen_figure1_2_and_nmf_unchanged": true,
+  "original_plot_cells_unchanged": {
+    "3": [
+      "fig3-wave-plot",
+      "fig3-wave-delta-plot",
+      "fig3-wave-delta-by-contrast-plot",
+      "fig3-spatial-plot",
+      "fig3-paired-plot",
+      "fig3-pn-spatial-plot",
+      "2c822034",
+      "fd0653c5",
+      "e4224dbb",
+      "e8f6f406",
+      "4a5e562c",
+      "baa8a760",
+      "fa055a2a"
+    ],
+    "4": [
+      "fig4-load",
+      "fig4-plot",
+      "6d90cfcc",
+      "e9e9b66c",
+      "fa9672cb",
+      "75488adc",
+      "7131fbad",
+      "7b9ca006",
+      "3ddab93b",
+      "fe196b6f",
+      "2cece52c",
+      "4e9354cd",
+      "dcbff0c0"
+    ],
+    "5": [
+      "fig5-raster",
+      "183f0fe7",
+      "1acf3d59",
+      "fig5-spatial",
+      "fig5-spatial-delay-go"
+    ],
+    "6": [
+      "fig6-style",
+      "fig6-helpers",
+      "fig6-pial",
+      "fig6-roi"
+    ]
+  },
+  "missing_inputs_csv": "/cwork/ns458/insula-paper/docs/evidence/figures3_6_refresh_2026-10-17/missing_original_inputs.csv",
+  "missing_input_summary_csv": "/cwork/ns458/insula-paper/docs/evidence/figures3_6_refresh_2026-10-17/original_epoch_availability_summary.csv",
+  "no_formal_decoding_or_RT_results_substituted": true,
+  "held_model_arrays_cancelled": [
+    "58872407",
+    "58872408"
+  ]
+}
