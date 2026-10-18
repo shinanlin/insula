@@ -1,0 +1,2247 @@
+{
+  "condition": "Repeat",
+  "modality": "sound",
+  "n_sites": 231,
+  "n_points": 121506,
+  "n_significant_points": 31799,
+  "n_points_without_saved_mask": 0,
+  "missing_site_phase_pairs": 0,
+  "existing_saved_masks_only": true,
+  "phase_selection_counts_reproduced": true,
+  "source_priority": "original packaged masks first; full-channel statistics fill missing channel/time entries",
+  "aggregation": "any across contributing sound Repeat tasks; unobserved evidence remains flagged and blank",
+  "sources": [
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0022/HGA/sub-D0022_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6129416
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0022/HGA/sub-D0022_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6184317
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0022/HGA/sub-D0022_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6190707
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0023/HGA/sub-D0023_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4865534
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0023/HGA/sub-D0023_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4907246
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0023/HGA/sub-D0023_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4915745
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0028/HGA/sub-D0028_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7029000
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0028/HGA/sub-D0028_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7093527
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0028/HGA/sub-D0028_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7099306
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0032/HGA/sub-D0032_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7258772
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0032/HGA/sub-D0032_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7329681
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0032/HGA/sub-D0032_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7336235
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0053/HGA/sub-D0053_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8439077
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0053/HGA/sub-D0053_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8516035
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0053/HGA/sub-D0053_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8524185
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0057/HGA/sub-D0057_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9963434
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0057/HGA/sub-D0057_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10051240
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0057/HGA/sub-D0057_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10061440
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0060/HGA/sub-D0060_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12953609
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0060/HGA/sub-D0060_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13076366
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0060/HGA/sub-D0060_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13083619
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0061/HGA/sub-D0061_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12963982
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0061/HGA/sub-D0061_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13086410
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0061/HGA/sub-D0061_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13097292
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0063/HGA/sub-D0063_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11309103
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0063/HGA/sub-D0063_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11401586
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0063/HGA/sub-D0063_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11417159
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0064/HGA/sub-D0064_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11390253
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0064/HGA/sub-D0064_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11501966
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0064/HGA/sub-D0064_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11504177
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0070/HGA/sub-D0070_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9256745
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0070/HGA/sub-D0070_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9342218
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0070/HGA/sub-D0070_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9343244
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0071/HGA/sub-D0071_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10176255
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0071/HGA/sub-D0071_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10249383
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0071/HGA/sub-D0071_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10273147
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0081/HGA/sub-D0081_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14115085
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0081/HGA/sub-D0081_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14244465
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0081/HGA/sub-D0081_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14250362
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0102/HGA/sub-D0102_task-SentenceRep_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9955316
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0102/HGA/sub-D0102_task-SentenceRep_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10042939
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/SentenceRep/sub-D0102/HGA/sub-D0102_task-SentenceRep_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10049403
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0023/HGA/sub-D0023_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5902570
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0023/HGA/sub-D0023_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5953391
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0023/HGA/sub-D0023_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5964450
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0027/HGA/sub-D0027_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4220942
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0027/HGA/sub-D0027_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4257443
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0027/HGA/sub-D0027_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4264026
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0028/HGA/sub-D0028_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7248351
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0028/HGA/sub-D0028_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7309880
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0028/HGA/sub-D0028_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7319997
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0032/HGA/sub-D0032_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7439812
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0032/HGA/sub-D0032_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7511340
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0032/HGA/sub-D0032_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7522266
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0035/HGA/sub-D0035_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9037007
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0035/HGA/sub-D0035_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9128345
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0035/HGA/sub-D0035_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9137642
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0038/HGA/sub-D0038_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10746297
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0038/HGA/sub-D0038_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10856934
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0038/HGA/sub-D0038_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10855827
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0044/HGA/sub-D0044_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11323208
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0044/HGA/sub-D0044_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11436970
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0044/HGA/sub-D0044_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11440877
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0047/HGA/sub-D0047_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17680259
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0047/HGA/sub-D0047_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17835336
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0047/HGA/sub-D0047_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17846740
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0053/HGA/sub-D0053_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9045765
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0053/HGA/sub-D0053_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9127507
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0053/HGA/sub-D0053_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9133702
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0054/HGA/sub-D0054_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9425724
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0054/HGA/sub-D0054_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9510922
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0054/HGA/sub-D0054_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9519914
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0055/HGA/sub-D0055_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10293842
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0055/HGA/sub-D0055_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10380021
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0055/HGA/sub-D0055_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10392339
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0057/HGA/sub-D0057_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10471544
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0057/HGA/sub-D0057_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10564452
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0057/HGA/sub-D0057_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10575481
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0063/HGA/sub-D0063_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10913941
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0063/HGA/sub-D0063_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11007193
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0063/HGA/sub-D0063_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11017503
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0065/HGA/sub-D0065_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8793784
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0065/HGA/sub-D0065_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8875621
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0065/HGA/sub-D0065_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8882587
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0068/HGA/sub-D0068_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8915689
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0068/HGA/sub-D0068_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8998778
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0068/HGA/sub-D0068_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8999234
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0070/HGA/sub-D0070_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9789197
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0070/HGA/sub-D0070_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9878780
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0070/HGA/sub-D0070_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9877139
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0071/HGA/sub-D0071_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10978482
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0071/HGA/sub-D0071_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11058897
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0071/HGA/sub-D0071_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11082265
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0079/HGA/sub-D0079_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10495281
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0079/HGA/sub-D0079_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10589591
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0079/HGA/sub-D0079_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10602416
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0080/HGA/sub-D0080_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17261271
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0080/HGA/sub-D0080_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17429425
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0080/HGA/sub-D0080_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 17437698
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0081/HGA/sub-D0081_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12513287
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0081/HGA/sub-D0081_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12628142
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0081/HGA/sub-D0081_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12630511
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0084/HGA/sub-D0084_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12191429
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0084/HGA/sub-D0084_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12286114
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0084/HGA/sub-D0084_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12306581
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0090/HGA/sub-D0090_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6149445
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0090/HGA/sub-D0090_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6200786
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0090/HGA/sub-D0090_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6206008
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0092/HGA/sub-D0092_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7664860
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0092/HGA/sub-D0092_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7739671
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0092/HGA/sub-D0092_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7737755
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0094/HGA/sub-D0094_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12966883
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0094/HGA/sub-D0094_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13074789
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0094/HGA/sub-D0094_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13092762
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0096/HGA/sub-D0096_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10496851
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0096/HGA/sub-D0096_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10591908
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0096/HGA/sub-D0096_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10602044
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0101/HGA/sub-D0101_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7753631
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0101/HGA/sub-D0101_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7830505
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0101/HGA/sub-D0101_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7831801
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0102/HGA/sub-D0102_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12458223
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0102/HGA/sub-D0102_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12563878
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0102/HGA/sub-D0102_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12581054
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0103/HGA/sub-D0103_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14081597
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0103/HGA/sub-D0103_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14202190
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0103/HGA/sub-D0103_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14215418
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0115/HGA/sub-D0115_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14019832
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0115/HGA/sub-D0115_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14155300
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0115/HGA/sub-D0115_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14154773
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0128/HGA/sub-D0128_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9215631
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0128/HGA/sub-D0128_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9313737
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0128/HGA/sub-D0128_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9310885
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0129/HGA/sub-D0129_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14992200
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0129/HGA/sub-D0129_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 15131376
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0129/HGA/sub-D0129_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 15132760
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0132/HGA/sub-D0132_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13516239
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0132/HGA/sub-D0132_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13635971
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0132/HGA/sub-D0132_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13647432
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0137/HGA/sub-D0137_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 18087053
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0137/HGA/sub-D0137_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 18248667
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0137/HGA/sub-D0137_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 18253396
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0138/HGA/sub-D0138_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11377066
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0138/HGA/sub-D0138_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11480320
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0138/HGA/sub-D0138_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11479878
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0139/HGA/sub-D0139_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 15569329
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0139/HGA/sub-D0139_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 15706222
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0139/HGA/sub-D0139_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 15714839
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0140/HGA/sub-D0140_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8976109
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0140/HGA/sub-D0140_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9059804
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0140/HGA/sub-D0140_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9060781
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0143/HGA/sub-D0143_task-LexicalDelay_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10222779
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0143/HGA/sub-D0143_task-LexicalDelay_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10320297
+    },
+    {
+      "task": "LexicalDelay",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/LexicalDelay/sub-D0143/HGA/sub-D0143_task-LexicalDelay_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10322041
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0028/HGA/sub-D0028_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5365685
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0028/HGA/sub-D0028_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5410438
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0028/HGA/sub-D0028_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5418051
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0035/HGA/sub-D0035_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5783582
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0035/HGA/sub-D0035_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5840752
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0035/HGA/sub-D0035_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5845984
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0040/HGA/sub-D0040_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6820821
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0040/HGA/sub-D0040_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6886728
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0040/HGA/sub-D0040_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6879279
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0042/HGA/sub-D0042_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4676407
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0042/HGA/sub-D0042_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4720134
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0042/HGA/sub-D0042_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4721320
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0045/HGA/sub-D0045_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7878563
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0045/HGA/sub-D0045_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7948219
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0045/HGA/sub-D0045_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7961062
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0049/HGA/sub-D0049_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9332345
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0049/HGA/sub-D0049_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9412583
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0049/HGA/sub-D0049_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9420397
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0052/HGA/sub-D0052_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6721221
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0052/HGA/sub-D0052_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6776011
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0052/HGA/sub-D0052_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6787308
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0053/HGA/sub-D0053_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5291271
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0053/HGA/sub-D0053_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5335280
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0053/HGA/sub-D0053_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5342404
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0054/HGA/sub-D0054_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6818850
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0054/HGA/sub-D0054_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6878548
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0054/HGA/sub-D0054_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6883930
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0055/HGA/sub-D0055_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7900465
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0055/HGA/sub-D0055_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7959883
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0055/HGA/sub-D0055_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7972514
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0057/HGA/sub-D0057_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6782014
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0057/HGA/sub-D0057_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6836859
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0057/HGA/sub-D0057_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6848345
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0058/HGA/sub-D0058_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11916542
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0058/HGA/sub-D0058_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12021897
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0058/HGA/sub-D0058_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12024004
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0060/HGA/sub-D0060_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10675124
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0060/HGA/sub-D0060_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10767529
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0060/HGA/sub-D0060_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10782553
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0061/HGA/sub-D0061_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9370950
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0061/HGA/sub-D0061_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9455780
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0061/HGA/sub-D0061_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9462045
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0063/HGA/sub-D0063_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7243019
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0063/HGA/sub-D0063_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7298343
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0063/HGA/sub-D0063_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7310452
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0064/HGA/sub-D0064_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 8987110
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0064/HGA/sub-D0064_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9076972
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0064/HGA/sub-D0064_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9076570
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0067/HGA/sub-D0067_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 1866709
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0067/HGA/sub-D0067_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 1881548
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0067/HGA/sub-D0067_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 1883893
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0068/HGA/sub-D0068_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6569378
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0068/HGA/sub-D0068_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6629192
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0068/HGA/sub-D0068_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6629508
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0070/HGA/sub-D0070_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6318244
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0070/HGA/sub-D0070_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6370926
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0070/HGA/sub-D0070_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6378016
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0071/HGA/sub-D0071_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6735322
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0071/HGA/sub-D0071_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6784006
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0071/HGA/sub-D0071_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6799022
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0075/HGA/sub-D0075_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10390590
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0075/HGA/sub-D0075_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10477095
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0075/HGA/sub-D0075_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10481879
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0079/HGA/sub-D0079_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11616508
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0079/HGA/sub-D0079_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11705826
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0079/HGA/sub-D0079_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11726388
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0084/HGA/sub-D0084_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11984868
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0084/HGA/sub-D0084_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12082078
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0084/HGA/sub-D0084_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12095650
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0088/HGA/sub-D0088_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9530562
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0088/HGA/sub-D0088_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9617713
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0088/HGA/sub-D0088_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9621514
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0091/HGA/sub-D0091_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6626043
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0091/HGA/sub-D0091_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6693129
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0091/HGA/sub-D0091_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 6692820
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0092/HGA/sub-D0092_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7360996
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0092/HGA/sub-D0092_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7430254
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0092/HGA/sub-D0092_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7430737
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0093/HGA/sub-D0093_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10189664
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0093/HGA/sub-D0093_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10278161
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0093/HGA/sub-D0093_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10283817
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0094/HGA/sub-D0094_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9537459
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0094/HGA/sub-D0094_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9615646
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0094/HGA/sub-D0094_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9629343
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0095/HGA/sub-D0095_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7033237
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0095/HGA/sub-D0095_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7093882
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0095/HGA/sub-D0095_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 7101921
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0096/HGA/sub-D0096_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10053801
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0096/HGA/sub-D0096_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10139753
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0096/HGA/sub-D0096_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10150058
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0102/HGA/sub-D0102_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10244429
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0102/HGA/sub-D0102_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10328833
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0102/HGA/sub-D0102_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10349499
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0103/HGA/sub-D0103_task-PhonemeSequence_proc-Delay_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10458105
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0103/HGA/sub-D0103_task-PhonemeSequence_proc-Response_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10553730
+    },
+    {
+      "task": "PhonemeSequence",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PhonemeSequence/sub-D0103/HGA/sub-D0103_task-PhonemeSequence_proc-Stimulus_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10566980
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0079/HGA/sub-D0079_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13772619
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0079/HGA/sub-D0079_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13881123
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0079/HGA/sub-D0079_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13897441
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0080/HGA/sub-D0080_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13751308
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0080/HGA/sub-D0080_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13870119
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0080/HGA/sub-D0080_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13892792
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0081/HGA/sub-D0081_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12655161
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0081/HGA/sub-D0081_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12765548
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0081/HGA/sub-D0081_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12770163
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0084/HGA/sub-D0084_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13319560
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0084/HGA/sub-D0084_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13422804
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0084/HGA/sub-D0084_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13443345
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0085/HGA/sub-D0085_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10351399
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0085/HGA/sub-D0085_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10442069
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0085/HGA/sub-D0085_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10446168
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0088/HGA/sub-D0088_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12793292
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0088/HGA/sub-D0088_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12906517
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0088/HGA/sub-D0088_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12913383
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0090/HGA/sub-D0090_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10289395
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0090/HGA/sub-D0090_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10375698
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0090/HGA/sub-D0090_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10383276
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0091/HGA/sub-D0091_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13534646
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0091/HGA/sub-D0091_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13660216
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0091/HGA/sub-D0091_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13672745
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0092/HGA/sub-D0092_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10265759
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0092/HGA/sub-D0092_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10365655
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0092/HGA/sub-D0092_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10362095
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0093/HGA/sub-D0093_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12701540
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0093/HGA/sub-D0093_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12813733
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0093/HGA/sub-D0093_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12816743
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0094/HGA/sub-D0094_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11349671
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0094/HGA/sub-D0094_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11435984
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0094/HGA/sub-D0094_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11451091
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0096/HGA/sub-D0096_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10728539
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0096/HGA/sub-D0096_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10823204
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0096/HGA/sub-D0096_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10827662
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0101/HGA/sub-D0101_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9927620
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0101/HGA/sub-D0101_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10026482
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0101/HGA/sub-D0101_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10028421
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0102/HGA/sub-D0102_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11094425
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0102/HGA/sub-D0102_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11188557
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0102/HGA/sub-D0102_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11199797
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0105/HGA/sub-D0105_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4564041
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0105/HGA/sub-D0105_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4605035
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0105/HGA/sub-D0105_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4605965
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0108/HGA/sub-D0108_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9768116
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0108/HGA/sub-D0108_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9849370
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0108/HGA/sub-D0108_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 9860760
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0118/HGA/sub-D0118_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14395516
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0118/HGA/sub-D0118_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14509498
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0118/HGA/sub-D0118_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14538102
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0119/HGA/sub-D0119_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12597261
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0119/HGA/sub-D0119_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12704854
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0119/HGA/sub-D0119_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12718121
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0123/HGA/sub-D0123_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11799883
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0123/HGA/sub-D0123_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11904612
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0123/HGA/sub-D0123_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11906572
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0125/HGA/sub-D0125_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14310443
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0125/HGA/sub-D0125_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14419977
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0125/HGA/sub-D0125_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14444295
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0129/HGA/sub-D0129_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 12914039
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0129/HGA/sub-D0129_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13034359
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0129/HGA/sub-D0129_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 13033840
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0131/HGA/sub-D0131_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11799633
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0131/HGA/sub-D0131_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11908777
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0131/HGA/sub-D0131_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 11909671
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0134/HGA/sub-D0134_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 4968501
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0134/HGA/sub-D0134_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5011374
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0134/HGA/sub-D0134_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 5016630
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0137/HGA/sub-D0137_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 16729337
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0137/HGA/sub-D0137_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 16869322
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0137/HGA/sub-D0137_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 16882819
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0138/HGA/sub-D0138_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10321002
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0138/HGA/sub-D0138_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10409841
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0138/HGA/sub-D0138_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 10414225
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0139/HGA/sub-D0139_task-PictureNaming_proc-Delay_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14559546
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0139/HGA/sub-D0139_task-PictureNaming_proc-Response_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14692164
+    },
+    {
+      "task": "PictureNaming",
+      "path": "/hpc/group/coganlab/nanlinshi/insula-functional/results/hga/PictureNaming/sub-D0139/HGA/sub-D0139_task-PictureNaming_proc-Stimulus_recording-sound_desc-Repeat_time.csv",
+      "kind": "packaged_mask",
+      "bytes": 14704018
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0022/bipolar/sub-D0022_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 465616
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0022/bipolar/sub-D0022_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 470096
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0022/bipolar/sub-D0022_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 465488
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0023/bipolar/sub-D0023_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 568144
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0023/bipolar/sub-D0023_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 572720
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0023/bipolar/sub-D0023_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 568272
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0027/bipolar/sub-D0027_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 532272
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0027/bipolar/sub-D0027_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 536672
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0027/bipolar/sub-D0027_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 532336
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0028/bipolar/sub-D0028_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 501488
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0028/bipolar/sub-D0028_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 506240
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0028/bipolar/sub-D0028_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 501472
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0032/bipolar/sub-D0032_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 762320
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0032/bipolar/sub-D0032_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 762800
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0032/bipolar/sub-D0032_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 762480
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0053/bipolar/sub-D0053_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 767488
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0053/bipolar/sub-D0053_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 767936
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0053/bipolar/sub-D0053_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 767408
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0057/bipolar/sub-D0057_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 854768
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0057/bipolar/sub-D0057_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 855600
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0057/bipolar/sub-D0057_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 854912
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0060/bipolar/sub-D0060_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1132320
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0060/bipolar/sub-D0060_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1137056
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0060/bipolar/sub-D0060_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1136720
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0061/bipolar/sub-D0061_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1121824
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0061/bipolar/sub-D0061_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1126800
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0061/bipolar/sub-D0061_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1122176
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0063/bipolar/sub-D0063_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1157744
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0063/bipolar/sub-D0063_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1162656
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0063/bipolar/sub-D0063_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1157744
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0064/bipolar/sub-D0064_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 865632
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0064/bipolar/sub-D0064_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 866048
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0064/bipolar/sub-D0064_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 865856
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0070/bipolar/sub-D0070_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 957776
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0070/bipolar/sub-D0070_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 958016
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0070/bipolar/sub-D0070_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 957840
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0071/bipolar/sub-D0071_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 788000
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0071/bipolar/sub-D0071_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 789008
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0071/bipolar/sub-D0071_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 788192
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0081/bipolar/sub-D0081_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1065632
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0081/bipolar/sub-D0081_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1070672
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0081/bipolar/sub-D0081_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1065808
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0102/bipolar/sub-D0102_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1142624
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0102/bipolar/sub-D0102_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1147248
+    },
+    {
+      "task": "SentenceRep",
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/statistics/sub-D0102/bipolar/sub-D0102_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "kind": "full_channel_statistics_mask",
+      "bytes": 1142656
+    }
+  ]
+}

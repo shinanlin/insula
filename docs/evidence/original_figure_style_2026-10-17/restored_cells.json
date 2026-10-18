@@ -1,0 +1,84 @@
+[
+  {
+    "figure": "fig2",
+    "cell": "6c3ec19c",
+    "reference_source_sha256": "ee79f931993ef8a5f657ae46e4ee61b240eba5c89cd4c1c9af7d196864aa0635",
+    "restored_source_sha256": "082c930943f18aafb6bb562f815a1b70e4e4b7866d336487c965a514b9f96a21",
+    "adaptation": "Original masking, row ordering and renderer; add saved verification tables"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-avg-plot",
+    "reference_source_sha256": "e0ce5810328dba987001a739183c6f01219f5ad9db6ed7cf3c2c6676dbb415eb",
+    "restored_source_sha256": "ea96f8640618c05296e0d09ce55e37c7e4cff9d067b95a03f09d6fc4861ed7bf",
+    "adaptation": "Original curve canvas, axes, scale bar; reviewed participant mean and SEM retained"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-hga-plot",
+    "reference_source_sha256": "10ee42d07d3edac98025fbf899113eb2d92b1afbdddb254f2a7a9d8ffcf0ccf3",
+    "restored_source_sha256": "da795622c8f0094370de7fff3204262331409d3e7291807b8c23164683470424",
+    "adaptation": "Original curve canvas, axes, scale bar and colors; reviewed participant mean and SEM retained"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-nmf-plot",
+    "reference_source_sha256": "3aa691fbbf70840c488842a9d4daab7472ca79ab5d3472ef96a84044c0247d31",
+    "restored_source_sha256": "902c425c79dd1f41ab758a208ce1411eb0d4de09bfbd076eeda2e9e983da4f64",
+    "adaptation": "Original plotting cell; current data supplied upstream"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-rank-plot",
+    "reference_source_sha256": "e988bcbfa5d2cd2d19df4e9f9219d736fa537b254157940b7e35956dc0096c1b",
+    "restored_source_sha256": "03f1a724ccdbe54380f00a7f1b975bf10b6c6c59cb8b9e4c9cbd1815fd1dbbaa",
+    "adaptation": "Original cosine silhouette plot; highlight actual fitted k=3"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-pca-kmeans-plot",
+    "reference_source_sha256": "7ea33bf2cbbe678cfdf491c397024a1a92a072e7bf084114df2d6cddd2ca52df",
+    "restored_source_sha256": "79cc4e75a8ca3772c2565274f939e766d6de4f774928f2bd3d2283731f968323",
+    "adaptation": "Original plotting cell; current data supplied upstream"
+  },
+  {
+    "figure": "fig2",
+    "cell": "3b264e16",
+    "reference_source_sha256": "fb2ad8a0b3870bcca49c78e94f6d3a2a13ec28a6424b5dce843bbe7140d0d172",
+    "restored_source_sha256": "9f60ee9e6e2c798afe6025e4d404ec1985c7de5a69247fc8e6747fe753ce576a",
+    "adaptation": "Original plotting cell; current data supplied upstream"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-spatial-plot",
+    "reference_source_sha256": "e2d2004258cfe529c6eacab3b22f9d310ee8f86c4118587ca61555ce7e85117e",
+    "restored_source_sha256": "e2d2004258cfe529c6eacab3b22f9d310ee8f86c4118587ca61555ce7e85117e",
+    "adaptation": "Original plotting cell; current data supplied upstream"
+  },
+  {
+    "figure": "fig2",
+    "cell": "fig2-laterality-plot",
+    "reference_source_sha256": "835042dacd3d8f0c8fa4ab8d8bd999709387406f3f13a9b18c7d2267cd517f89",
+    "restored_source_sha256": "64efca17970f700c8db3df63100b40316e701a17855839785330e93e89d25517",
+    "adaptation": "Original plot and exploratory electrode-count tests; reviewed sound sampling denominator retained"
+  },
+  {
+    "figure": "fig1",
+    "cell": "4de8e393",
+    "reference_source_sha256": "4e25dd6d6c6f1cd6797c8746db4e008a38bc3032705f7e98d282cfda0ba20fb3",
+    "restored_source_sha256": "73cfb083bbf06e53a656a61540f0ca3a531d387edb197acea2002e911454c239",
+    "adaptation": "Original laterality plot; current reviewed counts and CSV export"
+  },
+  {
+    "figure": "fig1",
+    "cell": "fig1-seeg-plot",
+    "reference_source_sha256": "31dfd5d006eca1de8a770ea061f655cc580bab377a78606c11f815b0698ac173",
+    "restored_source_sha256": "5af5a559b38dfbcf2202b7920158dafc13bb8e2cb49b60dafb8be57ff48e2eac",
+    "adaptation": "Original illustrative SVG reused byte-for-byte; original D0075 MAPER input is unavailable"
+  },
+  {
+    "figure": "fig1",
+    "cell": "fig1-average",
+    "adaptation": "Original pooled HGA canvas, axes and scale bar; reviewed participant mean/SEM and site waveforms retained"
+  }
+]

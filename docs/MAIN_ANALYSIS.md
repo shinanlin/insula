@@ -27,6 +27,13 @@
 这些值来自原 insula-functional Figure 1 Notebook 及实际导出 SVG。区域类别需固定映射到颜色，不能因当前类别缺失或排序变化而移动配色。
 NMF 功能成分沿用 sensory `#2369BD`、sustained `#C4A35A`、motor `#A9373B`；它们不代表 SMC 等解剖区域。
 
+## 原版绘图约定
+
+- Figure 1／2 的画法以原 insula-functional Notebook 为依据，刷新名单和数据时不更改画布、坐标轴、比例尺、配色、图例和布局。
+- Figure 2 HGA 热图将保存的 `mask=False` 时间点设为 NaN 留白，同一位点跨 sound Repeat 任务的 mask 取 any；各阶段内按首次显著时间独立排列。没有 mask 的位置保持缺证据标记并留白，不能从 HGA 数值推断显著性。
+- 原秩评估面板呈现 cosine silhouette，突出实际拟合的 k=3；cophenetic 最大值 k=2 继续保存在统计结果中，不能改称已拟合 k=2。
+- 曲线均值和 SEM 继续来自已保存的参与者均值；恢复原画布、0.5-z 比例尺及固定坐标范围，不改变 NMF 输入。原 SEEG 固定解剖示例直接保留原 SVG，并记录其来源。
+
 ## 版本与当前修正
 
 此前 323/227 名单及 Figure 1、两版三阶段 NMF 使用了跨模态显著并集或混合模态波形，不能作为符合本口径的正式主分析结果。旧归档保留作为审计依据。

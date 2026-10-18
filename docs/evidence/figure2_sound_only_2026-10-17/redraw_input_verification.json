@@ -3,8 +3,8 @@
   "identical_sound_site_waveforms": true,
   "identical_source_membership": true,
   "cohort_sha256": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c",
-  "previous_figure1_notebook_sha256": "4de6c964c2647f3e1138590d06f2358bf72d9f777cfb47f27da187325a5ffc70",
-  "current_figure1_notebook_sha256": "b31e1205d0ea7e2bf685eb26e64773378d7c9e736c441fb4f371031df42525b2",
+  "previous_figure1_notebook_sha256": "b31e1205d0ea7e2bf685eb26e64773378d7c9e736c441fb4f371031df42525b2",
+  "current_figure1_notebook_sha256": "abedb0a4b9f363832274595116805c2246446bb5712bbb4f2d2c970a3663bb26",
   "nmf_refitted": false,
   "unchanged_nmf_data_factors_labels_and_rank": {
     "input_matrix.npz": "adb61127d0643c8c024ba46f7bce3f366311334f3d0fcfc4d934ddf9f2aca645",

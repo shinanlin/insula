@@ -73,6 +73,11 @@ def main():
  manifest=json.loads((OUT/'figure_manifest.json').read_text())
  assert manifest['n_sites']==n_sites and manifest['n_subjects']==n_subjects and manifest['assignments_sha256']==sha(NMF/'channel_assignments.csv')
  assert manifest['modality']=='sound' and manifest['condition']=='Repeat' and manifest['fit_windows']==model['fit_windows']
+ heatmap=json.loads((OUT/'heatmap_plot_validation.json').read_text())
+ assert heatmap['non_significant_points_blank'] and heatmap['order']=='first significant time separately per phase'
+ masks=pd.read_csv(OUT/'site_significance_masks.csv.gz')
+ assert set(masks.channel)==set(sites.channel) and masks['mask'].any()
+ assert heatmap['n_significant_points']==int(masks['mask'].sum())
  assert len(manifest['figures'])>=15
  nb.metadata['insula_figure2']=dict(cohort_version='sound_only_2026-10-17',condition=CONDITION,modality=MODALITY,n_sites=n_sites,n_subjects=n_subjects,k=3,
   phases=list(NMF_WINDOWS),fit_windows=model['fit_windows'],executed_utc=datetime.now(timezone.utc).isoformat(),svg_inline_only=True)
@@ -84,6 +89,8 @@ def main():
   shutil.copy2(NMF/name,EVIDENCE/name)
  for path in OUT.glob('*.csv*'):shutil.copy2(path,EVIDENCE/path.name)
  shutil.copy2(OUT/'figure_manifest.json',EVIDENCE/'figure_manifest.json')
+ for name in ['site_significance_manifest.json','heatmap_plot_validation.json']:
+  shutil.copy2(OUT/name,EVIDENCE/name)
  for folder,source in [('figures',ROOT/'img/fig2'),('rank_figures',ROOT/'img/nmf')]:
   destination=EVIDENCE/folder;destination.mkdir(exist_ok=True)
   for path in source.glob('*.svg'):shutil.copy2(path,destination/path.name)
@@ -92,6 +99,7 @@ def main():
   n_sites=n_sites,n_subjects=n_subjects,k=3,n_features=len(features),fit_windows=model['fit_windows'],H_components_unit_norm=True,
   assignments_match_normalized_W_argmax=True,best_of_20_verified=True,rank_same_sound_input_verified=True,
   fitted_model_rank_used_by_downstream=True,figure1_and_legacy_results_unchanged=True,previous_multimodal_archives_unchanged=True,
+  heatmap_non_significant_points_blank=True,heatmap_order='first significant time separately per phase',
   notebook_sha256=sha(NOTEBOOK),protected_file_hashes=before)
  (OUT/'execution_validation.json').write_text(json.dumps(validation,indent=2)+'\n');shutil.copy2(OUT/'execution_validation.json',EVIDENCE/'execution_validation.json')
  (OUT/'fig2_failed.ipynb').unlink(missing_ok=True)
