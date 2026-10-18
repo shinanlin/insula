@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="280.718207pt" height="98.479002pt" viewBox="0 0 280.718207 98.479002" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T21:49:24.750033</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 98.479002 
+L 280.718207 98.479002 
+L 280.718207 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 39.940157 32.346719 
+C 38.090932 32.346719 36.246894 32.542559 34.438917 32.930959 
+C 32.63094 33.31936 30.869169 33.898142 29.183098 34.657615 
+L 39.940157 58.538845 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 29.183098 34.657615 
+C 26.259492 35.974524 23.602415 37.817181 21.344313 40.093736 
+C 19.086212 42.37029 17.265241 45.042277 15.97217 47.976504 
+C 14.679099 50.910731 13.935777 54.057621 13.779255 57.260311 
+C 13.622733 60.463001 14.055657 63.667376 15.056447 66.713709 
+C 16.057236 69.760041 17.608981 72.596858 19.634332 75.082754 
+C 21.659683 77.568649 24.124418 79.661619 26.905679 81.257336 
+C 29.686939 82.853053 32.737731 83.924554 35.905981 84.418429 
+C 39.074231 84.912304 42.306407 84.820208 45.441395 84.146731 
+C 48.576383 83.473255 51.561213 82.229777 54.247099 80.478282 
+C 56.932986 78.726786 59.274547 76.496868 61.155063 73.89968 
+C 63.035578 71.302493 64.423275 68.381921 65.24898 65.283545 
+C 66.074685 62.185169 66.324446 58.961341 65.985814 55.77276 
+C 65.647183 52.584179 64.725879 49.48472 63.267829 46.628882 
+C 61.809778 43.773044 59.839617 41.209081 57.45555 39.064798 
+C 55.071484 36.920516 52.313795 35.232144 49.319946 34.083845 
+C 46.326098 32.935545 43.146675 32.34672 39.940162 32.346719 
+L 39.940157 58.538845 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="33.888793" y="32.17978" transform="rotate(-0 33.888793 32.17978)">Insula</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="36.639413" y="44.729426" transform="rotate(-0 36.639413 44.729426)">6.7%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="45.991519" y="88.517129" transform="rotate(-0 45.991519 88.517129)">Other ROIs</text>
+   </g>
+   <g id="text_4">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="43.2409" y="75.458889" transform="rotate(-0 43.2409 75.458889)">93.3%</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(26.519845 12.2925)">Stimulus</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(25.833517 19.798688)">(n=1544)</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_4">
+    <path d="M 132.473578 32.346719 
+C 130.529751 32.346719 128.59195 32.563108 126.696003 32.991887 
+C 124.800056 33.420665 122.957719 34.059173 121.203055 34.895606 
+L 132.473578 58.538845 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 121.203055 34.895606 
+C 118.319316 36.270259 115.711256 38.160974 113.507931 40.474192 
+C 111.304606 42.787411 109.542968 45.484337 108.310189 48.431518 
+C 107.07741 51.378699 106.394164 54.526707 106.294263 57.719769 
+C 106.194361 60.91283 106.679478 64.097393 107.725608 67.115875 
+C 108.771739 70.134356 110.361338 72.936133 112.415747 75.382564 
+C 114.470157 77.828995 116.954921 79.87905 119.747086 81.431286 
+C 122.539251 82.983522 125.591988 84.011905 128.754239 84.465549 
+C 131.916489 84.919193 135.135218 84.790488 138.251152 84.085804 
+C 141.367085 83.38112 144.327966 82.112275 146.987278 80.342055 
+C 149.646591 78.571836 151.959736 76.329931 153.812252 73.727277 
+C 155.664768 71.124623 157.025585 68.204871 157.827366 65.112498 
+C 158.629147 62.020126 158.858445 58.806996 158.503913 55.632106 
+C 158.149382 52.457215 157.216966 49.373811 155.752806 46.53447 
+C 154.288646 43.695129 152.317298 41.147471 149.936309 39.017561 
+C 147.55532 36.887652 144.804623 35.211213 141.820333 34.0712 
+C 138.836042 32.931187 135.668207 32.34672 132.473583 32.346719 
+L 132.473578 58.538845 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4"/>
+   <g id="text_6">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="126.118245" y="32.2468" transform="rotate(-0 126.118245 32.2468)">Insula</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="129.007033" y="44.765982" transform="rotate(-0 129.007033 44.765982)">7.1%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="138.828909" y="88.450109" transform="rotate(-0 138.828909 88.450109)">Other ROIs</text>
+   </g>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="135.940122" y="75.422333" transform="rotate(-0 135.940122 75.422333)">92.9%</text>
+   </g>
+   <g id="text_10">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(123.52561 12.210469)">Delay</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(118.366938 19.798688)">(n=1695)</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_6">
+    <path d="M 231.274753 32.346719 
+C 229.176847 32.346719 227.08652 32.598772 225.048746 33.097455 
+C 223.010972 33.596139 221.040473 34.337849 219.179647 35.306628 
+L 231.274753 58.538845 
+z
+" style="fill: #6a5acd; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 219.179647 35.306628 
+C 216.363207 36.772917 213.836735 38.739215 211.723762 41.109381 
+C 209.610789 43.479547 207.946322 46.214311 206.811745 49.179961 
+C 205.677168 52.14561 205.091278 55.293009 205.082722 58.468268 
+C 205.074166 61.643526 205.643085 64.794037 206.761664 67.765758 
+C 207.880242 70.737479 209.529946 73.481174 211.630115 75.862692 
+C 213.730284 78.244211 216.246123 80.224095 219.05462 81.705542 
+C 221.863118 83.186988 224.917743 84.14545 228.069143 84.534066 
+C 231.220542 84.922682 234.416503 84.735013 237.500762 83.980234 
+C 240.58502 83.225455 243.506476 81.916072 246.122286 80.116106 
+C 248.738097 78.316141 251.004923 76.055414 252.811931 73.444463 
+C 254.618938 70.833512 255.936188 67.915595 256.699274 64.833381 
+C 257.46236 61.751167 257.65864 58.555724 257.278517 55.403289 
+C 256.898394 52.250853 255.948165 49.193657 254.474291 46.381178 
+C 253.000418 43.568699 251.027319 41.047535 248.651468 38.940956 
+C 246.275617 36.834378 243.536376 35.177287 240.56768 34.050706 
+C 237.598984 32.924125 234.450018 32.346718 231.274748 32.346719 
+L 231.274753 58.538845 
+z
+" style="fill: #d3d3d3; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_5"/>
+   <g id="matplotlib.axis_6"/>
+   <g id="text_11">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: end" x="224.426145" y="32.362926" transform="rotate(-0 224.426145 32.362926)">Insula</text>
+   </g>
+   <g id="text_12">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="227.539149" y="44.829324" transform="rotate(-0 227.539149 44.829324)">7.6%</text>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="238.123363" y="88.333982" transform="rotate(-0 238.123363 88.333982)">Other ROIs</text>
+   </g>
+   <g id="text_14">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #ffffff" x="235.010358" y="75.358991" transform="rotate(-0 235.010358 75.358991)">92.4%</text>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(215.515456 12.2925)">Response</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(217.168112 19.798688)">(n=2186)</text>
+   </g>
+  </g>
+  <g id="text_16">
+   <text style="font-size: 8px; font-family: 'Arial', sans-serif; text-anchor: middle" x="134.489363" y="19.716926" transform="rotate(-0 134.489363 19.716926)">Confirmed HGA responses by phase</text>
+  </g>
+ </g>
+</svg>

@@ -1,5 +1,7 @@
 # Figure 1 Notebook 更新
 
+> **历史混合模态版本，不能作为正式主分析。** 用户已明确主分析筛选及波形均限 sound Repeat。当前口径见 [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md)，修正结果见 [sound-only 修正记录](sound_only_correction_2026-10-17.md)。原 evidence 目录保留用于追溯。
+
 主入口：[vizpub/fig1.ipynb](../vizpub/fig1.ipynb)。图中内容和生成代码均保留在 Notebook 中；辅助脚本只负责执行与输出核对。
 
 ## 已更新的内容

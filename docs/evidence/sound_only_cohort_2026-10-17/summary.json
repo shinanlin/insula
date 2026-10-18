@@ -1,0 +1,31 @@
+{
+  "condition": "Repeat",
+  "modality": "sound",
+  "sampled_sites": 323,
+  "sampled_subjects": 65,
+  "responsive_sites": 213,
+  "responsive_subjects": 61,
+  "incomplete_response_sites": 103,
+  "confirmed_nonresponsive_sites": 7,
+  "phase_counts": {
+    "stimulus": 104,
+    "delay": 120,
+    "response": 167
+  },
+  "selection_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      0.5
+    ]
+  },
+  "coordinate_rows": 112708,
+  "coordinate_sources": 672
+}

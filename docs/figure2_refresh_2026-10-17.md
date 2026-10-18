@@ -1,5 +1,7 @@
 # Figure 2：核对后的三阶段 NMF
 
+> **历史混合模态版本，不能作为正式主分析。** 用户已明确主分析筛选及波形均限 sound Repeat。当前口径见 [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md)，修正结果见 [sound-only 修正记录](sound_only_correction_2026-10-17.md)。原 evidence 目录保留用于追溯。
+
 > 本页记录最初 Response 0–1 s 的版本；后续按用户要求将 Response 改为 −0.5–1 s。当前结果见[窗口修订记录](figure2_response_window_2026-10-17.md)。本页数值及对应 evidence 目录保留作为旧窗口的比较依据。
 
 工作区：`/cwork/ns458/insula-paper`；分支：`codex/paper`。

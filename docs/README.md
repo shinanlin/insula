@@ -3,6 +3,10 @@
 Entry point for project documentation. Start here, then drill into reference
 docs as needed.
 
+## Main analysis
+
+**Sound Repeat only** for main site selection, Figure 1 and NMF discovery. Start with [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md), then [the corrected results](sound_only_correction_2026-10-17.md). Image/text data are separate comparisons.
+
 ## Start here
 
 | Document | When to read |
@@ -16,7 +20,7 @@ docs as needed.
 | Document | When to read |
 |----------|----------------|
 | [`methodology/README.md`](methodology/README.md) | **Figure 1–5 方法规范（中文）** — 按图追溯 HGA、NMF、条件对比、decoding、RT，含参数与结果证据 |
-| [`NMF.md`](NMF.md) | **Canonical NMF** — concat postonset, bootstrap rank selection, flat publish paths |
+| [`NMF.md`](NMF.md) | Historical four-phase NMF reference; current paper procedure is in `NMF_THREE_PHASE_WORKTREE.md` |
 | [`HGA_EXPLORER.md`](HGA_EXPLORER.md) | Interactive HGA Explorer — export schema, UI behavior |
 | [`../viewer/ROADMAP.md`](../viewer/ROADMAP.md) | HGA Explorer implementation roadmap |
 | [`../pipeline/README.md`](../pipeline/README.md) | MAPER fusion (Hammers volume propagation) |

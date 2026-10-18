@@ -169,6 +169,20 @@ def main():
         'nmf_kmeans_ari':float(adjusted_rand_score(labels,km)),
         'factor_H_unit_norm':bool(np.allclose(np.linalg.norm(H,axis=1),1)),
         'outputs':{p.name:sha(p) for p in [OUT/'channel_assignments.csv',OUT/'factors.npz',OUT/'H_by_phase.csv']}}
+    if manifest.get('modality')=='sound':
+        previous=pd.read_csv(ROOT/'docs/evidence/figure2_response_window_2026-10-17/channel_assignments.csv')
+        delta=assignments[['channel','subject','functional_cluster']].rename(columns={'functional_cluster':'sound_only_cluster'}).merge(
+            previous[['channel','functional_cluster']].rename(columns={'functional_cluster':'previous_multimodal_cluster'}),
+            on='channel',how='outer',indicator=True,validate='one_to_one')
+        delta.to_csv(OUT/'comparison_with_previous_multimodal.csv',index=False)
+        shared_delta=delta.loc[delta['_merge'].eq('both')]
+        summary['previous_multimodal_comparison']=dict(shared_sites=len(shared_delta),
+            removed_from_previous=int(delta['_merge'].eq('right_only').sum()),
+            changed_labels=int(shared_delta.sound_only_cluster.ne(shared_delta.previous_multimodal_cluster).sum()),
+            ari=float(adjusted_rand_score(shared_delta.sound_only_cluster,shared_delta.previous_multimodal_cluster)),
+            interpretation='Selection and discovery are both now sound-only; this is not a window-only comparison')
+        for name in ['response_window_comparison.json','comparison_with_response_0_to1.csv','response_window_label_transitions.csv']:
+            (OUT/name).unlink(missing_ok=True)
     if args.reference_run is not None:
         summary['response_window_comparison'] = compare_response_windows(
             args.reference_run, data, features, assignments)

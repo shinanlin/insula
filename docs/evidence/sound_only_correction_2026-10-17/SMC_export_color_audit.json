@@ -1,0 +1,16 @@
+[
+  {
+    "version": "original_functional",
+    "file": "/hpc/group/coganlab/nanlinshi/insula-functional/img/fig1/fig1_roi_significant_yield.svg",
+    "region": "SMC",
+    "fill": "#F39B35",
+    "style": "fill: #f39b35; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"
+  },
+  {
+    "version": "sound_only_paper",
+    "file": "/cwork/ns458/insula-paper/img/fig1/fig1_roi_significant_yield.svg",
+    "region": "SMC",
+    "fill": "#F39B35",
+    "style": "fill: #f39b35; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"
+  }
+]

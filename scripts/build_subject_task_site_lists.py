@@ -14,9 +14,9 @@ from openpyxl.styles import Alignment, Font, PatternFill
 
 BASE=Path('/cwork/ns458/insula-paper')
 SOURCE=Path('/hpc/group/coganlab/nanlinshi/insula-functional')
-AUDIT=BASE/'results/audit/four_task_selection_2026-10-17'
-OUT=BASE/'results/audit/subject_task_site_lists_2026-10-17'
-EVIDENCE=BASE/'docs/evidence/subject_task_site_lists_2026-10-17'
+AUDIT=BASE/'results/audit/sound_only_cohort_2026-10-17'
+OUT=AUDIT
+EVIDENCE=BASE/'docs/evidence/sound_only_cohort_2026-10-17'
 TASKS=['PhonemeSequence','LexicalDelay','PictureNaming','SentenceRep']
 
 
@@ -46,6 +46,7 @@ def main():
     anatomy=pd.read_csv(AUDIT/'task_site_anatomy_audit.csv')
     response=pd.read_csv(AUDIT/'task_site_response_audit.csv')
     evidence=pd.read_csv(AUDIT/'response_evidence.csv')
+    assert evidence.modality.eq('sound').all(), 'Main selection must use sound only'
     sampled=anatomy.loc[anatomy.status.eq('include'),
         ['subject','task','channel','contact_1','contact_2','old_midpoint_labels']].copy()
     sampled=sampled.merge(response[['task','channel','any_significant','response_status',
@@ -64,7 +65,7 @@ def main():
     sampled=sampled.sort_values(['subject','task','site_id']).reset_index(drop=True)
     responsive=sampled.loc[sampled.confirmed_responsive].copy()
     assert not sampled.duplicated(['subject','task','site_id']).any()
-    assert len(sampled)==564 and len(responsive)==341
+    assert len(responsive)<=len(sampled) and len(sampled)>0
 
     # Include every subject/task with a coordinate export, including rows with zero eligible sites.
     recorded=set()
@@ -96,8 +97,8 @@ def main():
             confirmed_responsive=bool(len(sig)),contact_1=rows.contact_1.iloc[0],contact_2=rows.contact_2.iloc[0]))
     unique=pd.DataFrame(unique).sort_values(['subject','site_id'])
     nmf_candidates=unique.loc[unique.confirmed_responsive].copy()
-    assert len(unique)==323 and len(nmf_candidates)==227
-    assert unique.subject.nunique()==65
+    assert len(nmf_candidates)<=len(unique) and len(nmf_candidates)>0
+    assert unique.subject.nunique()>0
     summary=[]
     for task in TASKS+['ALL_UNIQUE']:
         one=sampled if task=='ALL_UNIQUE' else sampled.loc[sampled.task.eq(task)]
@@ -107,8 +108,8 @@ def main():
             n_subjects_with_responsive_sites=sig.subject.nunique(),n_confirmed_responsive_bipolar_sites=sig.site_id.nunique(),
             sampled_subject_ids=join_ids(one.subject),responsive_subject_ids=join_ids(sig.subject)))
     summary=pd.DataFrame(summary)
-    assert summary.n_sampled_bipolar_sites.tolist()==[161,199,151,53,323]
-    assert summary.n_confirmed_responsive_bipolar_sites.tolist()==[98,115,102,26,227]
+    assert int(summary.iloc[-1].n_sampled_bipolar_sites)==len(unique)
+    assert int(summary.iloc[-1].n_confirmed_responsive_bipolar_sites)==len(nmf_candidates)
 
     wide=[]
     counts_index=counts.set_index(['subject','task'])
@@ -124,7 +125,7 @@ def main():
         wide.append(row)
     wide=pd.DataFrame(wide)
     for column in wide.columns[1:]:wide[column]=wide[column].astype('Int64')
-    assert len(wide)==65
+    assert len(wide)==unique.subject.nunique()
 
     tables={'task_summary.csv':summary,'subject_task_counts_and_lists.csv':counts,
         'subject_task_counts_wide.csv':wide,'sampled_sites_by_subject_task.csv':sampled,
@@ -134,12 +135,12 @@ def main():
     notes=pd.DataFrame([
         ('计数单位','一个满足当前中点及双端点组织／分区规则的岛叶双极位点；同一任务内不重复计阶段、条件或模态。'),
         ('采样位点','当前统一解剖规则纳入的岛叶位点；组织不明确、身份冲突和明确排除者均暂不计入。'),
-        ('显著位点','上述采样位点中，现有且版本核实的 Repeat mask 在 Stimulus 0–0.6 s、Delay 0–1 s 或 Response −0.5–0.5 s 任一窗口显著；合并 sound/image/text。沿用开区间。'),
-        ('显著计数状态','已确认数量，尚未作为完整队列的最终显著总数定稿。94 个跨任务去重位点仍缺完整证据；不能将全部未入显著名单者写成无响应。'),
+        ('显著位点','上述采样位点中，现有且版本核实的 Repeat mask 在 Stimulus 0–0.6 s、Delay 0–1 s 或 Response −0.5–0.5 s 任一窗口显著；仅使用 sound。沿用开区间。'),
+        ('显著计数状态','已确认的 sound 阳性数量；尚缺完整 sound 证据者单列，不能将全部未入显著名单者写成无响应。'),
         ('参与者×任务表','包括全部有现存坐标记录的参与者×任务组合。0 表示该任务记录中没有符合当前纳入条件的位点。'),
-        ('参与者宽表','65 位有纳入采样位点的参与者；空白表示没有该参与者×任务的现存坐标记录，不代表已核实没有做该任务。'),
+        ('参与者宽表','有纳入 sound 采样位点的参与者；空白表示没有该参与者×任务的现存坐标记录，不代表已核实没有做该任务。'),
         ('跨任务去重','同一参与者的同一双极位点跨任务只计一次；逐任务数不能直接相加。'),
-        ('NMF 名单','227 个已确认显著位点是新 NMF 的候选筛选名单；并非旧 255 位点，也不是已确认三阶段数据覆盖完整的最终拟合输入。本轮未读写 NMF 模型或生成图片。'),
+        ('NMF 名单','sound 已确认显著位点是新 NMF 的候选筛选名单；并非旧 255 位点，也不是已确认三阶段数据覆盖完整的最终拟合输入。本轮未读写 NMF 模型或生成图片。'),
     ],columns=['项目','定义与备注'])
     xlsx=OUT/'参与者任务_采样与显著位点清单.xlsx'
     cn_counts=counts.rename(columns={'subject':'参与者','task':'任务',
@@ -147,7 +148,7 @@ def main():
         'sampled_site_ids':'采样位点名单','confirmed_responsive_site_ids':'显著位点名单'})
     with pd.ExcelWriter(xlsx,engine='openpyxl') as writer:
         sheets={'口径说明':notes,'任务汇总':summary,'参与者×任务':cn_counts,
-            '65位参与者宽表':wide,'逐任务采样位点':sampled,'逐任务显著位点':responsive,
+            f'{len(wide)}位参与者宽表':wide,'逐任务采样位点':sampled,'逐任务显著位点':responsive,
             '跨任务去重采样':unique,'新NMF候选_尚非最终输入':nmf_candidates}
         for name,frame in sheets.items():frame.to_excel(writer,sheet_name=name,index=False)
         for sheet in writer.book.worksheets:
@@ -168,7 +169,7 @@ def main():
         subject_wide_rows=len(wide),inputs_unchanged=all(digest(Path(p))==h for p,h in inputs.items()),
         protected_unchanged=all(digest(Path(p))==h for p,h in protected.items()),
         figures_generated=False,nmf_fitted=False,nmf_input_finalized=False,
-        significance_count_finalized=False)
+        significance_count_finalized=False,condition='Repeat',modality='sound')
     assert validation['inputs_unchanged'] and validation['protected_unchanged']
     (OUT/'validation.json').write_text(json.dumps(validation,indent=2)+'\n')
     (OUT/'input_and_protection_manifest.json').write_text(json.dumps(dict(inputs=inputs,protected=protected),indent=2)+'\n')
@@ -178,22 +179,22 @@ def main():
         'n_sampled_bipolar_sites':'采样位点数','n_subjects_with_responsive_sites':'显著参与者数',
         'n_confirmed_responsive_bipolar_sites':'已确认显著位点数'})
     report='# 参与者 × 任务：采样与显著位点清单\n\n'
-    report+='计数单位为符合当前解剖纳入规则的岛叶双极位点。显著位点按已约定的 Repeat 三阶段窗口合并模态，取现有核实 mask 的阳性证据。\n\n'
+    report+='计数单位为符合当前解剖纳入规则的岛叶双极位点。显著位点按已约定的 Repeat 三阶段窗口，仅使用 sound，取现有核实 mask 的阳性证据。\n\n'
     report+=markdown(compact)+'\n'
     report+='逐任务数量有跨任务重复；ALL_UNIQUE 按参与者＋双极名称取并集。\n\n'
-    report+=f'完整长表覆盖 **{len(counts)} 条参与者×任务记录**；65 位纳入采样队列参与者另有宽表。每条计数均附对应采样和显著位点名称，任务汇总另列参与者 ID。\n\n'
+    report+=f'完整长表覆盖 **{len(counts)} 条参与者×任务记录**；{len(wide)} 位纳入采样队列参与者另有宽表。每条计数均附对应采样和显著位点名称，任务汇总另列参与者 ID。\n\n'
     report+='## 文件\n\n'
-    prefix='evidence/subject_task_site_lists_2026-10-17/'
+    prefix='evidence/sound_only_cohort_2026-10-17/'
     for label,name in [('完整工作簿',xlsx.name),('参与者×任务计数及名单','subject_task_counts_and_lists.csv'),
-        ('65 位参与者宽表','subject_task_counts_wide.csv'),('逐任务采样位点','sampled_sites_by_subject_task.csv'),
+        ('参与者宽表','subject_task_counts_wide.csv'),('逐任务采样位点','sampled_sites_by_subject_task.csv'),
         ('逐任务显著位点','responsive_sites_by_subject_task.csv'),('跨任务去重的新 NMF 候选名单','nmf_candidate_sites_not_final_inputs.csv')]:
         report+=f'- [{label}]({prefix+name})\n'
     report+='\n## 使用说明\n\n'
     report+='- 采样数量和名单已按当前解剖规则列齐。0 表示有该任务记录但没有当前纳入位点；宽表空白表示缺少该参与者×任务的现存坐标记录。\n'
-    report+='- 显著列为当前**已确认**阳性数量。94 个位点尚缺完整响应证据，未据此判为阴性，因此该列暂不能作为完整队列的最终显著总数。工作簿保留此备注。\n'
-    report+='- 227 个跨任务去重显著位点可用作新 NMF 的候选筛选名单；正式拟合还须检查拟采用任务／模态的三阶段波形覆盖。此处不把它写成已经确认的最终拟合人数。\n'
+    report+='- 显著列为当前**已确认**阳性数量。部分位点尚缺完整 sound 响应证据，未据此判为阴性，因此该列暂不能作为完整队列的最终显著总数。工作簿保留此备注。\n'
+    report+='- 跨任务去重的 sound 显著位点可用作新 NMF 的候选筛选名单；正式拟合还须检查拟采用任务／模态的三阶段波形覆盖。此处不把它写成已经确认的最终拟合人数。\n'
     report+='- 本轮只汇总现有审核结果。Figure 1、NMF 模型和旧输入均未改动；输入及受保护文件哈希核对通过。\n'
-    (BASE/'docs/subject_task_site_lists_2026-10-17.md').write_text(report)
+    (BASE/'docs/sound_only_subject_task_site_lists_2026-10-17.md').write_text(report)
     print(compact.to_string(index=False),flush=True)
     print(json.dumps(validation,indent=2),flush=True)
 

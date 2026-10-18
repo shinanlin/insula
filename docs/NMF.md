@@ -1,5 +1,7 @@
 # NMF
 
+> This page preserves the historical four-phase procedure. The current paper uses **sound Repeat only for both selection and discovery**. See [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md) and [NMF_THREE_PHASE_WORKTREE.md](NMF_THREE_PHASE_WORKTREE.md); do not use the historical launchers below for current paper figures.
+
 Canonical functional clustering is **concatenated multi-phase NMF with
 post-onset crop windows**, after dropping channels listed in
 ``results/nmf/exclude_channels.txt``.

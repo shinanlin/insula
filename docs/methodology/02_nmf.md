@@ -1,6 +1,6 @@
 # 02 NMF、功能群与 Figure 2
 
-> **历史四阶段方法记录。** 本页正文及 `evidence/nmf_*` 快照描述旧 255 位点分析。Insula Paper 当前三阶段、227 位点的拟合与 Figure 2 请见 [2026-10-17 更新记录](../figure2_response_window_2026-10-17.md)；不能将本页旧名单、排除规则或选秩结论用于新图。
+> **历史四阶段方法记录。** 本页正文及 `evidence/nmf_*` 快照描述旧 255 位点分析。Insula Paper 当前sound-only 三阶段、213 位点的拟合与 Figure 2 请见 [2026-10-17 更新记录](../sound_only_correction_2026-10-17.md)；不能将本页旧名单、排除规则或选秩结论用于新图。
 
 入口：[Figure 2](../../vizpub/fig2.ipynb)。核心实现：[waveform_analysis.py](../../src/nmf/waveform_analysis.py)、[rank_selection.py](../../src/nmf/rank_selection.py)。启动参数：[nmf_concat.sh](../../scripts/slurm/nmf_concat.sh)、[nmf_rank_bootstrap.sh](../../scripts/slurm/nmf_rank_bootstrap.sh)。发布结果位于 `results/nmf/`，已有简版说明见 [NMF.md](../NMF.md)。
 

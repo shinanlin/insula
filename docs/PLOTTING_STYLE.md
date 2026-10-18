@@ -82,8 +82,8 @@ orange = "#CC8963"
 green = "#009944"
 
 stg_color = "#20B2AA"
-smc_color = "#6A5ACD"
-insula_color = "#D4AF37"
+smc_color = "#F39B35"
+insula_color = "#6A5ACD"
 
 reds = sns.light_palette(red, as_cmap=True)
 blues = sns.light_palette(blue, as_cmap=True)
@@ -98,6 +98,9 @@ This pattern keeps figure notebooks self-contained. If a future shared style hel
 
 ## Canonical Colors
 
+For the paper, anatomical region colors are fixed by `ROI_COLORS` in `src/main_analysis.py`: Insula `#6A5ACD`, STG `#20B2AA`, SMC `#F39B35`, IFG `#2369BD`, Other `#D3D3D3`. These match the original Figure 1 exported SVGs, including `fig1_roi_significant_yield.svg`. An earlier version of this guide incorrectly listed SMC as purple and insula as gold; those example values have been corrected. Map by region name rather than palette position.
+
+
 Use the existing color vocabulary where possible:
 
 ```python
@@ -107,8 +110,8 @@ orange = "#CC8963"
 green = "#009944"
 
 stg_color = "#20B2AA"
-smc_color = "#6A5ACD"
-insula_color = "#D4AF37"
+smc_color = "#F39B35"
+insula_color = "#6A5ACD"
 ```
 
 Common ROI color roles:
@@ -125,8 +128,8 @@ single source of truth is `FUNCTION_COLORS` in
 
 | key | display | hex | role |
 |---|---|---|---|
-| `sustain` | sustained | `#C4A35A` (gold) | holds / ramps |
-| `motor` | motor | `#A9373B` (red) | middle profile |
+| `sustain` | sustained | `#C4A35A` (gold) | delay-active / sustained |
+| `motor` | motor | `#A9373B` (red) | response-associated |
 | `sensory` | sensory | `#2369BD` (blue) | brief / sensory-weighted |
 
 Import `FUNCTION_COLORS` and `CLUSTER_LABELS` for every NMF / projection /

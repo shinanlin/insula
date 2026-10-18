@@ -1,0 +1,36 @@
+{
+  "inputs": {
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "e1e0caa58d092bc2b07dce4138853354d63e198d5943baa4ad1c05bcc40ca7bd",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_anatomy_audit.csv": "1b3cc9c6c327c109dd97047866ab8bb5dc9169843da8887d5b3f46789c644941",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "41d9cb81969b028883ffec88bcfed6692ef9e4759ef237219c60db62551fa094",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/response_evidence.csv": "e27f79fcdcd387fd94888c1fdb739c9908abe96b39312d8adefa9aa75be7a16f",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/coordinate_manifest.json": "10fa9840626578effa8c59fe3b203be0ef5eb21641fcbbf8961ff771405dcca7"
+  },
+  "protected": {
+    "/hpc/group/coganlab/nanlinshi/insula-functional/vizpub/fig1.ipynb": "4e932e14c9ccd6763a56b1f35806bb3f026956a2481793dc461f96325032f75f",
+    "/cwork/ns458/insula-paper/vizpub/fig1.ipynb": "ed72a6979e7615bb4ec74070d146f56256f6ff4705d32399648d6c444e3cfd8b",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_home_phase_seesaw.csv": "99e95aa1c49114b590e9b284ddb5cd6a2cb92bfeda180ef1ccee476eb4a89bab",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/model_selection_metrics.csv": "832a92980964f8108cc0b19da1b803a20d7fa0001b338128ad77e633784f5dce",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/pc_scree.csv": "74f732f682e8c5aac5766b2600eb82951961e4b4d03f2dd35c665fabf036effb",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/pc_clustering_metrics.csv": "450b3d6c96f12579715b55020ca4cd7e32dc0ef3b1592175280da3ec38ffe2e5",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_relative_weight_secondary.csv": "52391d732f1930026203f1b295085cca2c7e962c39406e2bcd54487af619983a",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_relative_weight_paired.csv": "5944f1357ae947a3008c7c5d725934319985f3758be083d53941ed1947030d29",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/waveform_summary.csv": "585801172921b82cbd3879fad43b49c6276ee30eb0d5d982c6a250e26efb28e0",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_home_phase_hga.csv": "8d63c6712338cb24994f488c9701db99b3e02dabe97b6fbf248bf6f59361e133",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_relative_weight_primary.csv": "b39031f1c9e13c17601b2638788c2ce020709b65c9c4247c1a352dcc53767b94",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/waveform_coverage.csv": "d6edad3eea2b36fff6c92255afd6c676924a2e4c1152a960ce9b6e630c181b42",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/H_by_phase.csv": "fb57e49a58c8c3e0a2cc577dd35f3f8b784f69e7aefcb141f98bacd473d390bb",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/channel_assignments.csv": "9c7721bde9cecdc63b757a2316c08c54cf087822e7795069043db16d12990d8b",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_relative_weight_paired_subject_level.csv": "0216e84a9c48f34fa61f920dc362dd4b12f6b0172a8b2bc6e1884154645cd41d",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/pc_clustering_iterations.csv": "59faf295d00eb143c7a90819f384477f73de0b4cf6c29e40fc1e306ee0111276",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/pc_scores.csv": "d44f1758f9209c595d5dcb9b5787b6942fb6ebf0ab4d340721c4bb25466ee787",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_relative_weight_subject_level.csv": "286f200cf8966c09b00ed946c94aa3d37f1d05582b63104169604b36ec6c88c9",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/rank_selection_metrics.csv": "b52ab55c3942a44eb334906d72fcb8f57881bcf4a69aa05dbfe91757d634d70d",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/waveform_pca_scores.csv": "2032da605cb20f5633862fed208ddbc2b56a09811c2921d2095ce04207681b1d",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_home_phase_electrodes.csv": "0b07478be8f187521d543f9f17b6c046fe2bbc94a74571fba67859916050f7de",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/concat_nmf_summary.csv": "089b2ffb7c170674b28be753f9b23d632fd9978a0876a913a0d866ea506941b5",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/label_overrides.csv": "649e1a0b394e245aa34eef2e6dede06cdf1b235866ccf556d009ea377cc2c012",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/nmf_manifest.json": "e1820326780b274f65f1cd82570a0f6a43797b26f603873827ec7e19fd19da3c",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/exclude_channels.txt": "757e3d552f700b5098c016a7a12b01951d4a4648b4740f4e32f491d0ce4718bb"
+  }
+}

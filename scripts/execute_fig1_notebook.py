@@ -15,6 +15,7 @@ from nbclient import NotebookClient
 ROOT=Path('/cwork/ns458/insula-paper')
 SOURCE=Path('/hpc/group/coganlab/nanlinshi/insula-functional')
 OUT=ROOT/'results/fig1'
+COHORT=ROOT/'docs/evidence/sound_only_cohort_2026-10-17'
 NOTEBOOK=ROOT/'vizpub/fig1.ipynb'
 
 
@@ -22,10 +23,28 @@ def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
+
+def update_analysis_markdown(nb,cohort):
+    nb.cells[8].source=(f"# Insular sampling and confirmed sound responses\n\n"
+        f"The same **{cohort['sampled_sites']} sound-sampled, reviewed sites** are used throughout Figure 1. "
+        f"Purple marks **{cohort['responsive_sites']} confirmed sound-responsive sites**. "
+        "Other sampled sites are gray; missing sound evidence is not a negative result. "
+        "Hammers gyrus contours and the existing display geometry are retained.")
+    nb.cells[12].source=(f"### Coverage and confirmed sound responses by hemisphere\n\n"
+        f"Use the {cohort['sampled_sites']}-site sampling denominator and {cohort['responsive_sites']}-site "
+        "sound-response list shared with the maps and supplementary table. Show counts. "
+        "Incomplete sound evidence does not establish a negative response.")
+    nb.cells[25].source=("## Mean sound HGA at confirmed-responsive insular sites\n\n"
+        "Select sites using sound Repeat significance, and use sound Repeat waveforms only. "
+        "Average available tasks within site, then sites within participant; show participant mean ± SEM. "
+        "Full sound epochs can supplement an omitted waveform. No image/text input or NMF assignments enter the curve.")
+
+
 def main():
     OUT.mkdir(parents=True,exist_ok=True)
     original_legacy=sha(SOURCE/'vizpub/fig1.ipynb')
     nb=nbformat.read(NOTEBOOK,as_version=4)
+    update_analysis_markdown(nb,json.loads((COHORT/'summary.json').read_text()))
     for i,cell in enumerate(nb.cells):
         if cell.cell_type=='code':ast.parse(cell.source,filename=f'fig1-cell-{i}')
     nbformat.validate(nb)
@@ -56,25 +75,30 @@ def main():
     assert not [i for i,c in enumerate(nb.cells) for o in c.get('outputs',[]) if 'image/png' in o.get('data',{})]
     assert not list((ROOT/'img/fig1').glob('*.png'))
     manifest=json.loads((OUT/'figure_manifest.json').read_text())
-    assert manifest['sampled_sites']==323 and manifest['confirmed_responsive_sites']==227
+    cohort=json.loads((COHORT/'summary.json').read_text())
+    assert manifest['sampled_sites']==cohort['sampled_sites'] and manifest['confirmed_responsive_sites']==cohort['responsive_sites']
+    assert manifest['condition']=='Repeat' and manifest['modality']=='sound'
+    assert manifest['smc_export_color_verified'] and manifest['roi_colors']['SMC']=='#F39B35'
+    membership=__import__('pandas').read_csv(OUT/'average_hga_source_membership.csv')
+    assert membership.modality.eq('sound').all()
     assert manifest['nmf_files_unchanged'] and not manifest['nmf_used_for_selection']
     assert manifest['tfr_channel']=='D0064_LAI3-4'
     assert manifest['excluded_subjects']==['D0121']
     assert len(manifest['figures'])>=12
     nb.metadata['insula_figure1']=dict(
-        cohort_version='2026-10-17',sampled_sites=323,confirmed_responsive_sites=227,
+        cohort_version='sound_only_2026-10-17',sampled_sites=cohort['sampled_sites'],confirmed_responsive_sites=cohort['responsive_sites'],condition='Repeat',modality='sound',
         figures_svg_only=True,significance_finalized=False,
         executed_utc=datetime.now(timezone.utc).isoformat())
     temporary=NOTEBOOK.with_suffix('.executed.tmp.ipynb')
     nbformat.write(nb,temporary)
     temporary.replace(NOTEBOOK)
-    evidence=ROOT/'docs/evidence/figure1_refresh_2026-10-17'
+    evidence=ROOT/'docs/evidence/figure1_sound_only_2026-10-17'
     evidence.mkdir(parents=True,exist_ok=True)
     for name in ['figure_manifest.json','task_summary.csv','insula_laterality_counts.csv',
                  'phase_roi_counts.csv','roi_sampled_and_confirmed_counts.csv',
                  'average_hga_counts.csv','average_hga_missing_waveforms.csv',
                  'average_hga_site_membership.csv','average_hga_supplemented_epochs.json',
-                 'average_hga_source_membership.csv',
+                 'average_hga_source_membership.csv','average_hga_site_waveforms.csv.gz',
                  'average_hga_time_coverage.csv',
                  'excluded_noise_subject_sites.csv',
                  'D0064_native_schematic_sites.csv','insula_plot_coordinates.csv']:
@@ -86,7 +110,7 @@ def main():
     validation=dict(passed=True,code_cells=sum(c.cell_type=='code' for c in nb.cells),
         all_code_cells_executed=all(c.execution_count is not None for c in nb.cells if c.cell_type=='code'),
         output_errors=errors,legacy_notebook_unchanged=True,
-        sampled_sites=323,confirmed_responsive_sites=227,svg_panels=len(manifest['figures']),
+        sampled_sites=cohort['sampled_sites'],confirmed_responsive_sites=cohort['responsive_sites'],condition='Repeat',modality='sound',sound_only_source_membership_verified=True,smc_export_color_verified=True,svg_panels=len(manifest['figures']),
         tfr_example_in_reviewed_cohort=True,svg_inline_only=True,
         average_hga_counts=manifest['group_average_counts'],
         average_hga_missing_site_phase_pairs=manifest['group_average_missing_site_phase_pairs'],

@@ -1,0 +1,34 @@
+{
+  "passed": true,
+  "code_cells": 22,
+  "all_code_cells_executed": true,
+  "output_errors": [],
+  "legacy_notebook_unchanged": true,
+  "sampled_sites": 323,
+  "confirmed_responsive_sites": 213,
+  "condition": "Repeat",
+  "modality": "sound",
+  "sound_only_source_membership_verified": true,
+  "smc_export_color_verified": true,
+  "svg_panels": 14,
+  "tfr_example_in_reviewed_cohort": true,
+  "svg_inline_only": true,
+  "average_hga_counts": {
+    "stimulus": {
+      "n_sites": 213,
+      "n_subjects": 61
+    },
+    "delay": {
+      "n_sites": 213,
+      "n_subjects": 61
+    },
+    "response": {
+      "n_sites": 213,
+      "n_subjects": 61
+    }
+  },
+  "average_hga_missing_site_phase_pairs": 0,
+  "nmf_unchanged": true,
+  "notebook_sha256": "5af819ccdaee379c1045a8477a1644c69d38aad49895a1050772394e60aca6c1",
+  "markdown_matches_sound_only_counts": true
+}

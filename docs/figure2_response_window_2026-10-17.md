@@ -1,5 +1,7 @@
 # Figure 2：Response 拟合窗口改为 −0.5–1 s
 
+> **历史混合模态版本，不能作为正式主分析。** 用户已明确主分析筛选及波形均限 sound Repeat。当前口径见 [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md)，修正结果见 [sound-only 修正记录](sound_only_correction_2026-10-17.md)。原 evidence 目录保留用于追溯。
+
 本次按用户修订，仅扩展三阶段 k=3 NMF 的 Response 拟合窗口。
 当前入口：[Figure 2 Notebook](../vizpub/fig2.ipynb)。
 完整输入、模型、结果与 SVG：[本轮归档](evidence/figure2_response_window_2026-10-17/)。
