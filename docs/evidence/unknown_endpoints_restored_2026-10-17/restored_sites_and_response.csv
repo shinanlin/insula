@@ -1,0 +1,26 @@
+channel,subject,accepted_unknown_contacts,previous_status,previous_reason,new_status,basis,sound_responsive,old_sensory_site,functional_cluster
+D0035_LAI2-3,D0035,LAI3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0042_RAI3-4,D0042,RAI3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0049_LAI3-4,D0049,LAI4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0055_RAI2-3,D0055,RAI2,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0075_RAI6-7,D0075,RAI7,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,motor
+D0079_LAI1-2,D0079,LAI1,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0081_LTAS3-4,D0081,LTAS4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0095_LIA1-2,D0095,LIA1,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0095_RIA1-2,D0095,RIA1,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,motor
+D0095_RPI4-5,D0095,RPI4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0096_LFAI1-2,D0096,LFAI2,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,motor
+D0102_RFAI1-2,D0102,RFAI2,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,motor
+D0102_RTAS2-3,D0102,RTAS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,motor
+D0105_LIA4-5,D0105,LIA5,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,sustain
+D0105_LTAS2-3,D0105,LTAS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,False,False,
+D0115_LTAS2-3,D0115,LTAS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0115_LTMS1-2,D0115,LTMS2,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0119_RIA4-5,D0119,RIA5,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,sustain
+D0129_LTAS2-3,D0129,LTAS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,sustain
+D0131_RTAS2-3,D0131,RTAS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,sustain
+D0132_LTAS3-4,D0132,LTAS4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0132_LTMS3-4,D0132,LTMS4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0139_LTAS3-4,D0139,LTAS4,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory
+D0143_RFAI1-2,D0143,RFAI2,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,False,sensory
+D0143_RTMS2-3,D0143,RTMS3,pending,endpoint_zero_unresolved,include,user_retains_native_Unknown_endpoints; midpoint and identity gates unchanged,True,True,sensory

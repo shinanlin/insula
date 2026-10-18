@@ -2,7 +2,7 @@
   "cohort": "sound_only_2026-10-17",
   "condition": "Repeat",
   "modality": "sound",
-  "sampled_sites": 323,
+  "sampled_sites": 348,
   "sampled_participants": 65,
   "excluded_subjects": [
     "D0121"
@@ -10,12 +10,12 @@
   "raw_recorded_site_count": 15986,
   "retained_coordinate_site_count": 15792,
   "noise_excluded_site_count": 194,
-  "confirmed_responsive_sites": 213,
-  "responsive_participants": 61,
+  "confirmed_responsive_sites": 231,
+  "responsive_participants": 62,
   "phase_response_counts": {
-    "stimulus": 104,
-    "delay": 120,
-    "response": 167
+    "stimulus": 118,
+    "delay": 136,
+    "response": 181
   },
   "response_windows": {
     "stimulus": {
@@ -35,31 +35,31 @@
     }
   },
   "response_count_finalized": false,
-  "unresolved_response_sites": 103,
+  "unresolved_response_sites": 110,
   "confirmed_nonresponsive_sites": 7,
   "laterality": {
     "L": {
-      "sampled": 193,
-      "confirmed_responsive": 135
+      "sampled": 207,
+      "confirmed_responsive": 145
     },
     "R": {
-      "sampled": 130,
-      "confirmed_responsive": 78
+      "sampled": 141,
+      "confirmed_responsive": 86
     }
   },
   "group_average_weighting": "sound only; equal task means within site, then equal participant means",
   "group_average_counts": {
     "stimulus": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     },
     "delay": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     },
     "response": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     }
   },
   "group_average_missing_site_phase_pairs": 0,
@@ -73,20 +73,20 @@
   "data_source_root": "/hpc/group/coganlab/nanlinshi/insula-functional",
   "output_root": "/cwork/ns458/insula-paper/img/fig1",
   "roi_sampling_counts": {
-    "Insula": 323,
+    "Insula": 348,
     "STG": 491,
     "SMC": 448,
     "IFG": 237,
     "Other": 3652,
-    "total": 5151
+    "total": 5176
   },
   "roi_confirmed_counts": {
-    "Insula": 213,
+    "Insula": 231,
     "STG": 383,
     "SMC": 309,
     "IFG": 136,
     "Other": 1769,
-    "total": 2810
+    "total": 2828
   },
   "roi_colors": {
     "Insula": "#6A5ACD",
@@ -97,74 +97,75 @@
   },
   "smc_export_color_verified": true,
   "source_lists": {
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_unique.csv": "7b81fabe455d1106ea95d4bc29de65683dcc4a658b47e29fb30ae5526111e08d",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_unique.csv": "0c380a8ed4aa1787367584ed1409dc96b671444230bc2bcfc61f421d2412933b",
     "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/response_evidence.csv": "e27f79fcdcd387fd94888c1fdb739c9908abe96b39312d8adefa9aa75be7a16f",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/nmf_candidate_sites_not_final_inputs.csv": "096f15be77d73cd6a4f1b2d0676baae7ffdaee1e7d4a504c3fa41c0f18fdbbda",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_summary.csv": "63df3e04cd97b3438e1244b7d2a5681fd9bd875d96ff7c1349491f6be77ec02b",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/nmf_candidate_sites_not_final_inputs.csv": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_summary.csv": "f977067f2b0fe1ea5f4bb4eed894e1b927fc3636098eee41883f4fbcb9acfb01",
     "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/removed_from_multimodal_responsive_list.csv": "a643113646ac328804b42ac2a2debbe744bba8fb5d5257d04710747977ca4787",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_by_subject_task.csv": "02db032372de4ae17640bd0491469e4bf691623ef4351709dc046866960d7711",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/responsive_sites_by_subject_task.csv": "1390524ce9646ad493fe0b098ce9fb14467749fdfbe4bd0b463a907dd6f7cc68",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "41d9cb81969b028883ffec88bcfed6692ef9e4759ef237219c60db62551fa094",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_wide.csv": "8066c913d0eaa9c859ea299e1102dd9ba1194181d570f79cac00b78c671816db",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "e1e0caa58d092bc2b07dce4138853354d63e198d5943baa4ad1c05bcc40ca7bd",
-    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_and_lists.csv": "6655211f88f2775f8ec006db992e0cabc19f65e839e42f2ca07c2ad81dc9ba42"
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_by_subject_task.csv": "2370792fcce609c225d5257a229bab1cf6f1a6c3ec82c3ac608989c278a02158",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/responsive_sites_by_subject_task.csv": "1d8d3b428afe48cd1b52648d5697e3013bff069f4ab9a7156426139d17e4a1af",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "b9ab2ca6d02490f2717b1e149c5705b47387e9b8cf2171381ed4852c7efd0ab9",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_wide.csv": "066af95b392bb499b828f153373f280e6b6fa9674752808c2b46cba718863480",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "7c5a5661cd408b89b789f72fda7733b7df47f67b51537212911da655ca87048e",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_and_lists.csv": "9d8199d88072f4fb1c7d6e99132965b19753e5d841c215c4ffe8d42760cda98e",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/unknown_endpoint_restorations.csv": "3dcf7b10706609224db817fdd25a4d84e9586355509bed423c594db4f4c62d48"
   },
   "figures": {
     "fig1_all_electrodes_projected.svg": {
-      "bytes": 238852,
-      "sha256": "a6033af11ed424e14ce6297a8fb4daf83bcbe26a8ee71a01f8704b9ee4a27b8b"
+      "bytes": 239248,
+      "sha256": "2a3e9579f87ccfcc1715bbe7999c26153cc72548e57a344dce7ab9d822170ff8"
     },
     "fig1_example_electrode_tfr.svg": {
       "bytes": 36720,
-      "sha256": "ee56b4a83f6402b31f9bb8edb4cc8dbbdc3862f465724473dcd1ee1d6eadef49"
+      "sha256": "c4858b436fd5a2309ef9347ac691c7937d252097cadef0184c0d896062c9f8eb"
     },
     "fig1_example_electrode_tfr_raw.svg": {
       "bytes": 45266,
-      "sha256": "3c5b40e41b03d0de39de8728d9d87c1f3e2c49615ed0b271269caf6056828a02"
+      "sha256": "01ec28ac7cb3793d49380f6367b7a9b010908332c3230d8b435be7951be9e9e1"
     },
     "fig1_insula_average_traces.svg": {
-      "bytes": 43494,
-      "sha256": "89b2219496dc51f9caac9427a67011b4e753152c93f7927e9409533d0d41a9ab"
+      "bytes": 43474,
+      "sha256": "fb0df2e02a32bb54648eaa2ee2871cd24df9d32c001283eaef744796c5120f5e"
     },
     "fig1_insula_electrode_schematic.svg": {
       "bytes": 375626,
-      "sha256": "10ebb34150435c43a0dab9f32d867510faa21fded7e65f8db841c55588b9083b"
+      "sha256": "d4b9004ca2bf3b4f07236633ab3d06b6cf2f9e9d405233462871c1f2eba184b4"
     },
     "fig1_insula_electrode_schematic_seeg.svg": {
       "bytes": 89709,
-      "sha256": "8ead433794e424c731be8c1b7fe6731612262b26b614fafc195d6af065052598"
+      "sha256": "d08d1cbc2c442d8329970183c1fca5cf5554d001b013b97885ac9e6eb305042b"
     },
     "fig1_insula_electrodes_gyrus_lines.svg": {
-      "bytes": 216788,
-      "sha256": "44d520387a5287755930ed03c26fd891a9f8d3cdac8d6f472fde5e39fec7cd1a"
+      "bytes": 220173,
+      "sha256": "40e6b4f8a3d624aaab2cb56fecee779cfe5ffd2a1112aae1f8d77a808e959f98"
     },
     "fig1_insula_laterality_counts.svg": {
-      "bytes": 7464,
-      "sha256": "6f1e5ab04cf8f8feda53d8aa6db81df311e75ddc58a12d2d6b27191871ffdaeb"
+      "bytes": 7861,
+      "sha256": "ecdebd1d53b3f20754d05ee7d5313d886a365bacf43632517eb62bf1007a88b0"
     },
     "fig1_phase_insula_vs_other.svg": {
-      "bytes": 9568,
-      "sha256": "f81b2f29cee4fd46bf3b948e0c15178064e4071f315cd0884afbc66cb4e8f5b6"
+      "bytes": 9573,
+      "sha256": "186dc50d73caa3008d9e813eb149c4d2cfbad79f0d0430f97525356ca5db0917"
     },
     "fig1_phase_roi_breakdown.svg": {
-      "bytes": 14624,
-      "sha256": "a6b4a8ed95cc86acc2e7ddd3740cb1403b6b1c5f7308d0ad81d0d2891888e6fd"
+      "bytes": 14633,
+      "sha256": "d9883aea38d493276d16818e7ec5e620fe8240dbc2bab4f42d120398f9555bc1"
     },
     "fig1_phase_roi_breakdown_union.svg": {
-      "bytes": 5487,
-      "sha256": "a18278eacbcc5ffb82a80d130e80ca74d6bc220c912fae01bd532164ad579e15"
+      "bytes": 5491,
+      "sha256": "307f455b6188de251a5dd43f480e3654bb1e8d7f14372410274279bb35f032dc"
     },
     "fig1_roi_breakdown_sig_and_sampled.svg": {
-      "bytes": 9980,
-      "sha256": "208cd252eb10f59202ec415679b42e96fe54ccd31a6ff7f0d7aea5bd11d7d813"
+      "bytes": 9958,
+      "sha256": "82641920677279474b0896c5b1930410816bf241db0c25f348a1cbbeca7fa8a7"
     },
     "fig1_roi_significant_yield.svg": {
       "bytes": 8931,
-      "sha256": "873754e7a19ffa2240d418adf99dbc547971e144b7e3b32e0fa10c129137aafd"
+      "sha256": "2b6e321a526eda9456b92ce1c7f762dd98739cd7cd86ce385cf8163b4d31b49c"
     },
     "fig1_subject_task_counts.svg": {
-      "bytes": 14921,
-      "sha256": "19f87801fb014b023619d09f7e41f177f30f0a07077ed38ec7f1b39115ba8741"
+      "bytes": 14922,
+      "sha256": "ce6bb945c9a4c8d825bece4d3eb0b35f77e4d2379a255ac5c20c477ad8dafe7c"
     }
   }
 }

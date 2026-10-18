@@ -1,5 +1,7 @@
 # Sound-only 主分析纠正：Figure 1、NMF 与 Figure 2
 
+**历史版本说明：**本文记录恢复 Unknown 端点之前的 323／213 sound-only 版本。用户随后要求恢复 Unknown；最新名单和结果见 [Unknown 恢复记录](unknown_endpoints_restored_2026-10-17.md)，恢复前文件见 `evidence/before_unknown_endpoints_2026-10-17/`。下文数量和原文件哈希用于追溯该历史版本。
+
 用户明确主分析及有效位点筛选仅使用 **sound**。前次把 image/text 并入有效位点、波形及主 NMF 是方法错误，不能作为正式主分析。
 已将该约束写入 [MAIN_ANALYSIS.md](MAIN_ANALYSIS.md)、根目录 `AGENTS.md`、项目文档入口及共享参数 `src/main_analysis.py`，并在原 Figure 1、Figure 2 Notebook 中落实。
 

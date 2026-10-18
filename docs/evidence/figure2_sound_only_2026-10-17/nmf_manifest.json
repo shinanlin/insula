@@ -1,6 +1,6 @@
 {
-  "n_sites": 213,
-  "n_subjects": 61,
+  "n_sites": 231,
+  "n_subjects": 62,
   "n_features": 399,
   "condition": "Repeat",
   "modality": "sound",
@@ -52,13 +52,14 @@
     "D0121"
   ],
   "old_manual_exclusions_applied": false,
-  "anatomy_selection": "reviewed midpoint insular gray matter; endpoints insular GM or confirmed WM",
-  "incomplete_response_evidence_sites": 103,
+  "anatomy_selection": "reviewed insular midpoint; endpoints insular GM, confirmed WM, or native Unknown retained and explicitly flagged by user policy",
+  "retained_unknown_endpoint_sampled_sites": 25,
+  "incomplete_response_evidence_sites": 110,
   "missing_evidence_interpretation": "excluded pending sound evidence; not negative",
   "source_cohort": "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/nmf_candidate_sites_not_final_inputs.csv",
-  "source_cohort_sha256": "096f15be77d73cd6a4f1b2d0676baae7ffdaee1e7d4a504c3fa41c0f18fdbbda",
-  "figure1_cache_sha256": "0d2cf6b922ba3355ffe80e04d96f51b09b0512ef03c4a353d277f66616ab3e36",
-  "figure1_notebook_sha256": "5af819ccdaee379c1045a8477a1644c69d38aad49895a1050772394e60aca6c1",
+  "source_cohort_sha256": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c",
+  "figure1_cache_sha256": "f944b8753965ba72165ead4173412e0f6bcb307fbe13bf7246d60714c661bcdf",
+  "figure1_notebook_sha256": "4de6c964c2647f3e1138590d06f2358bf72d9f777cfb47f27da187325a5ffc70",
   "figure1_group_mean_reproduced": true,
   "sound_only_source_membership_verified": true,
   "supplemented_epochs": [
@@ -214,41 +215,41 @@
     }
   ],
   "outputs": {
-    "channel_assignments.csv": "d9ec39cdd467506464685d874bc2c1660e8a9df78b68694ed077f9d5053417fa",
-    "factors.npz": "432e422c21fab9747019861461ffe1e5b81bb52fb352e264573f0ad43c16b077",
-    "H_by_phase.csv": "cbb25bba5d9d80f2f690ca8803b52e42cc88e27ded46370bc69a5311b6fb2277"
+    "channel_assignments.csv": "1d2dd11236636fa216a9d7fb334d2e226066971f473ebe31f306571e84dd34b7",
+    "factors.npz": "738e7dfef3bdf42031a844765c0ce271a2bcf1cb2477c55c959ed794b087d2cc",
+    "H_by_phase.csv": "42c0f0fb9fa0b56f18c0f2a9452d9104c7e9169bcc170e5bf7985bf1594c5eaa"
   },
   "k": 3,
   "n_init": 20,
   "random_state": 42,
-  "best_run": 10,
+  "best_run": 8,
   "solver": "coordinate descent, squared Frobenius error, nndsvdar initialization, max_iter=5000, tol=1e-4",
-  "reconstruction_error": 7.481538979701599,
-  "explained_energy": 0.7372139647662231,
+  "reconstruction_error": 7.739622891843145,
+  "explained_energy": 0.740685010788128,
   "mean_initialization_ari": 1.0,
   "converged_starts": 20,
   "cluster_counts": {
-    "motor": 123,
-    "sustain": 61,
-    "sensory": 29
+    "motor": 129,
+    "sustain": 67,
+    "sensory": 35
   },
   "cluster_subject_counts": {
     "motor": 53,
     "sensory": 19,
-    "sustain": 32
+    "sustain": 33
   },
   "n_mixed": 76,
   "naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
   "assignment": "argmax W after unit L2 normalization of each full concatenated H component",
-  "old_model_shared_sites": 184,
-  "old_model_shared_ari": 0.6916572928424221,
-  "nmf_kmeans_ari": 0.43888516047679665,
+  "old_model_shared_sites": 202,
+  "old_model_shared_ari": 0.7162379317615002,
+  "nmf_kmeans_ari": 0.7597420722898953,
   "factor_H_unit_norm": true,
   "previous_multimodal_comparison": {
     "shared_sites": 213,
     "removed_from_previous": 14,
-    "changed_labels": 30,
-    "ari": 0.6822210991864975,
+    "changed_labels": 34,
+    "ari": 0.6568651158779505,
     "interpretation": "Selection and discovery are both now sound-only; this is not a window-only comparison"
   }
 }

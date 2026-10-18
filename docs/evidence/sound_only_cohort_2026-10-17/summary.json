@@ -1,16 +1,18 @@
 {
   "condition": "Repeat",
   "modality": "sound",
-  "sampled_sites": 323,
+  "sampled_sites": 348,
+  "retained_unknown_endpoint_sites": 25,
+  "anatomy_policy": "Insular midpoint; native Unknown endpoints retained and flagged by user decision; explicit CSF/noninsula and identity conflicts remain excluded or pending",
   "sampled_subjects": 65,
-  "responsive_sites": 213,
-  "responsive_subjects": 61,
-  "incomplete_response_sites": 103,
+  "responsive_sites": 231,
+  "responsive_subjects": 62,
+  "incomplete_response_sites": 110,
   "confirmed_nonresponsive_sites": 7,
   "phase_counts": {
-    "stimulus": 104,
-    "delay": 120,
-    "response": 167
+    "stimulus": 118,
+    "delay": 136,
+    "response": 181
   },
   "selection_windows": {
     "stimulus": [

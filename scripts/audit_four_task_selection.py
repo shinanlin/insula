@@ -3,7 +3,8 @@
 
 Hammers is the primary anatomical atlas. A zero endpoint is not presumed WM.
 Native FreeSurfer WM must agree across aparc, aseg, and ribbon; available
-MAPER tissue must also support WM. Unknown/conflicting evidence is deferred.
+MAPER tissue must also support WM. Native Unknown endpoints are retained by
+the user's revised policy, explicitly flagged rather than called white matter.
 All cross-task variants are retained and same-name identity conflicts deferred.
 """
 from collections import Counter, defaultdict
@@ -13,11 +14,15 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import sys
 
 import h5py
 import nibabel as nib
 import numpy as np
 import pandas as pd
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from src.anatomy_selection import accepted_unknown_endpoint
 
 from audit_zero_endpoints import ROOTS, TASK_KEYS, INSULA, classify, load_lut, read_recon_contact_positions
 
@@ -280,6 +285,8 @@ def endpoint_decision(point, labels):
     if point['native_FS_label'] in {'Left-Thalamus','Right-Thalamus','Left-Caudate','Right-Caudate',
                                   'Left-Putamen','Right-Putamen','Left-Pallidum','Right-Pallidum'}:
         return 'exclude','endpoint_other_tissue','native_FS_subcortical_GM'
+    if accepted_unknown_endpoint(point):
+        return 'include','','native_unknown_retained_user_policy'
     return 'pending','endpoint_zero_unresolved','zero_Hammers_not_confirmed_WM'
 
 
@@ -611,7 +618,7 @@ def summaries(data,sites,task_sites,response,evidence,protected):
         windows_seconds=WINDOWS,window_boundaries='Open intervals, matching historical implementation',
         response_definition='Repeat; union across input modalities; any saved significant mask in any selected phase',
         primary_atlas='Hammers; all insula labels allowed across AIC/PIC boundaries',
-        zero_endpoint_rule='Native aparc+aseg+ribbon concordant WM; when available MAPER must also be WM. Missing/conflicting tissue is pending.',
+        zero_endpoint_rule='Concordant native WM or explicitly retained native Unknown endpoints; available MAPER and known exclusions take precedence. Other missing/conflicting tissue is pending.',
         cross_task_identity_rule='Same subject and bipolar name; all geometry/version conflicts deferred rather than choosing first task',
         source_anatomy='Archived Hammers; existing native MAPER when available; native FreeSurfer for zero-endpoint tissue verification',
         figures_generated=False,nmf_rerun=False,original_site_lists_modified=False,

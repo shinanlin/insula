@@ -1,0 +1,170 @@
+{
+  "cohort": "sound_only_2026-10-17",
+  "condition": "Repeat",
+  "modality": "sound",
+  "sampled_sites": 323,
+  "sampled_participants": 65,
+  "excluded_subjects": [
+    "D0121"
+  ],
+  "raw_recorded_site_count": 15986,
+  "retained_coordinate_site_count": 15792,
+  "noise_excluded_site_count": 194,
+  "confirmed_responsive_sites": 213,
+  "responsive_participants": 61,
+  "phase_response_counts": {
+    "stimulus": 104,
+    "delay": 120,
+    "response": 167
+  },
+  "response_windows": {
+    "stimulus": {
+      "phase": "stimulus",
+      "time_min": 0.0,
+      "time_max": 0.6
+    },
+    "delay": {
+      "phase": "delay",
+      "time_min": 0.0,
+      "time_max": 1.0
+    },
+    "response": {
+      "phase": "response",
+      "time_min": -0.5,
+      "time_max": 0.5
+    }
+  },
+  "response_count_finalized": false,
+  "unresolved_response_sites": 103,
+  "confirmed_nonresponsive_sites": 7,
+  "laterality": {
+    "L": {
+      "sampled": 193,
+      "confirmed_responsive": 135
+    },
+    "R": {
+      "sampled": 130,
+      "confirmed_responsive": 78
+    }
+  },
+  "group_average_weighting": "sound only; equal task means within site, then equal participant means",
+  "group_average_counts": {
+    "stimulus": {
+      "n_sites": 213,
+      "n_subjects": 61
+    },
+    "delay": {
+      "n_sites": 213,
+      "n_subjects": 61
+    },
+    "response": {
+      "n_sites": 213,
+      "n_subjects": 61
+    }
+  },
+  "group_average_missing_site_phase_pairs": 0,
+  "schematic_subject": "D0064",
+  "tfr_subject": "D0064",
+  "tfr_task": "PhonemeSequence",
+  "tfr_channel": "D0064_LAI3-4",
+  "tfr_recomputed": false,
+  "nmf_used_for_selection": false,
+  "nmf_files_unchanged": true,
+  "data_source_root": "/hpc/group/coganlab/nanlinshi/insula-functional",
+  "output_root": "/cwork/ns458/insula-paper/img/fig1",
+  "roi_sampling_counts": {
+    "Insula": 323,
+    "STG": 491,
+    "SMC": 448,
+    "IFG": 237,
+    "Other": 3652,
+    "total": 5151
+  },
+  "roi_confirmed_counts": {
+    "Insula": 213,
+    "STG": 383,
+    "SMC": 309,
+    "IFG": 136,
+    "Other": 1769,
+    "total": 2810
+  },
+  "roi_colors": {
+    "Insula": "#6A5ACD",
+    "STG": "#20B2AA",
+    "SMC": "#F39B35",
+    "IFG": "#2369BD",
+    "Other": "#D3D3D3"
+  },
+  "smc_export_color_verified": true,
+  "source_lists": {
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_unique.csv": "7b81fabe455d1106ea95d4bc29de65683dcc4a658b47e29fb30ae5526111e08d",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/response_evidence.csv": "e27f79fcdcd387fd94888c1fdb739c9908abe96b39312d8adefa9aa75be7a16f",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/nmf_candidate_sites_not_final_inputs.csv": "096f15be77d73cd6a4f1b2d0676baae7ffdaee1e7d4a504c3fa41c0f18fdbbda",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_summary.csv": "63df3e04cd97b3438e1244b7d2a5681fd9bd875d96ff7c1349491f6be77ec02b",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/removed_from_multimodal_responsive_list.csv": "a643113646ac328804b42ac2a2debbe744bba8fb5d5257d04710747977ca4787",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/sampled_sites_by_subject_task.csv": "02db032372de4ae17640bd0491469e4bf691623ef4351709dc046866960d7711",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/responsive_sites_by_subject_task.csv": "1390524ce9646ad493fe0b098ce9fb14467749fdfbe4bd0b463a907dd6f7cc68",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "41d9cb81969b028883ffec88bcfed6692ef9e4759ef237219c60db62551fa094",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_wide.csv": "8066c913d0eaa9c859ea299e1102dd9ba1194181d570f79cac00b78c671816db",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "e1e0caa58d092bc2b07dce4138853354d63e198d5943baa4ad1c05bcc40ca7bd",
+    "/cwork/ns458/insula-paper/docs/evidence/sound_only_cohort_2026-10-17/subject_task_counts_and_lists.csv": "6655211f88f2775f8ec006db992e0cabc19f65e839e42f2ca07c2ad81dc9ba42"
+  },
+  "figures": {
+    "fig1_all_electrodes_projected.svg": {
+      "bytes": 238852,
+      "sha256": "a6033af11ed424e14ce6297a8fb4daf83bcbe26a8ee71a01f8704b9ee4a27b8b"
+    },
+    "fig1_example_electrode_tfr.svg": {
+      "bytes": 36720,
+      "sha256": "ee56b4a83f6402b31f9bb8edb4cc8dbbdc3862f465724473dcd1ee1d6eadef49"
+    },
+    "fig1_example_electrode_tfr_raw.svg": {
+      "bytes": 45266,
+      "sha256": "3c5b40e41b03d0de39de8728d9d87c1f3e2c49615ed0b271269caf6056828a02"
+    },
+    "fig1_insula_average_traces.svg": {
+      "bytes": 43494,
+      "sha256": "89b2219496dc51f9caac9427a67011b4e753152c93f7927e9409533d0d41a9ab"
+    },
+    "fig1_insula_electrode_schematic.svg": {
+      "bytes": 375626,
+      "sha256": "10ebb34150435c43a0dab9f32d867510faa21fded7e65f8db841c55588b9083b"
+    },
+    "fig1_insula_electrode_schematic_seeg.svg": {
+      "bytes": 89709,
+      "sha256": "8ead433794e424c731be8c1b7fe6731612262b26b614fafc195d6af065052598"
+    },
+    "fig1_insula_electrodes_gyrus_lines.svg": {
+      "bytes": 216788,
+      "sha256": "44d520387a5287755930ed03c26fd891a9f8d3cdac8d6f472fde5e39fec7cd1a"
+    },
+    "fig1_insula_laterality_counts.svg": {
+      "bytes": 7464,
+      "sha256": "6f1e5ab04cf8f8feda53d8aa6db81df311e75ddc58a12d2d6b27191871ffdaeb"
+    },
+    "fig1_phase_insula_vs_other.svg": {
+      "bytes": 9568,
+      "sha256": "f81b2f29cee4fd46bf3b948e0c15178064e4071f315cd0884afbc66cb4e8f5b6"
+    },
+    "fig1_phase_roi_breakdown.svg": {
+      "bytes": 14624,
+      "sha256": "a6b4a8ed95cc86acc2e7ddd3740cb1403b6b1c5f7308d0ad81d0d2891888e6fd"
+    },
+    "fig1_phase_roi_breakdown_union.svg": {
+      "bytes": 5487,
+      "sha256": "a18278eacbcc5ffb82a80d130e80ca74d6bc220c912fae01bd532164ad579e15"
+    },
+    "fig1_roi_breakdown_sig_and_sampled.svg": {
+      "bytes": 9980,
+      "sha256": "208cd252eb10f59202ec415679b42e96fe54ccd31a6ff7f0d7aea5bd11d7d813"
+    },
+    "fig1_roi_significant_yield.svg": {
+      "bytes": 8931,
+      "sha256": "873754e7a19ffa2240d418adf99dbc547971e144b7e3b32e0fa10c129137aafd"
+    },
+    "fig1_subject_task_counts.svg": {
+      "bytes": 14921,
+      "sha256": "19f87801fb014b023619d09f7e41f177f30f0a07077ed38ec7f1b39115ba8741"
+    }
+  }
+}

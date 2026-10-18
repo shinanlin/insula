@@ -1,0 +1,11 @@
+channel,contact,hammers_endpoint_labels,freesurfer_aparc_label,freesurfer_aseg_label,ribbon_code,hammers_midpoint_labels,status,hammers_zero_endpoint
+D0049_LAI1-2,LAI1,0,ctx_lh_S_circular_insula_inf,Left-Cerebral-Cortex,3,insula anterior long gyrus L,pending,True
+D0049_LAI1-2,LAI2,insula anterior long gyrus L,ctx_lh_G_Ins_lg_and_S_cent_ins,Left-Cerebral-Cortex,3,insula anterior long gyrus L,pending,False
+D0085_RAI1-2,RAI1,0,ctx_rh_G_insular_short,Right-Cerebral-Cortex,42,insula posterior short gyrus R,pending,True
+D0085_RAI1-2,RAI2,insula posterior short gyrus R,ctx_rh_G_Ins_lg_and_S_cent_ins,Right-Cerebral-Cortex,42,insula posterior short gyrus R,pending,False
+D0096_LTAS2-3,LTAS2,insula posterior long gyrus L,Left-Cerebral-White-Matter,Left-Cerebral-White-Matter,2,insula posterior long gyrus L,pending,False
+D0096_LTAS2-3,LTAS3,0,ctx_lh_S_circular_insula_inf,Left-Cerebral-Cortex,3,insula posterior long gyrus L,pending,True
+D0103_LTMS1-2,LTMS1,insula posterior long gyrus L,Left-Cerebral-White-Matter,Left-Cerebral-White-Matter,2,insula posterior long gyrus L,pending,False
+D0103_LTMS1-2,LTMS2,0,ctx_lh_S_circular_insula_inf,Left-Cerebral-Cortex,3,insula posterior long gyrus L,pending,True
+D0118_RTAS2-3,RTAS2,insula posterior long gyrus R,ctx_rh_G_Ins_lg_and_S_cent_ins,Right-Cerebral-Cortex,42,insula posterior long gyrus R,pending,False
+D0118_RTAS2-3,RTAS3,0,ctx_rh_G_Ins_lg_and_S_cent_ins,Right-Cerebral-Cortex,42,insula posterior long gyrus R,pending,True

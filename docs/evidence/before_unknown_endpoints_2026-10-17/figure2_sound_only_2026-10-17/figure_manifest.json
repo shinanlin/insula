@@ -1,0 +1,76 @@
+{
+  "n_sites": 213,
+  "n_subjects": 61,
+  "k": 3,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "condition": "Repeat",
+  "modality": "sound",
+  "sound_only_source_membership_verified": true,
+  "fit_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      1.0
+    ]
+  },
+  "cluster_counts": {
+    "sustain": 61,
+    "motor": 123,
+    "sensory": 29
+  },
+  "cluster_subject_counts": {
+    "sustain": 32,
+    "motor": 53,
+    "sensory": 19
+  },
+  "pending_response_evidence_sites": 103,
+  "rank_cophenetic_maximum": 2,
+  "rank_near_ties": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "component_naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
+  "previous_multimodal_comparison": {
+    "shared_sites": 213,
+    "removed_from_previous": 14,
+    "changed_labels": 30,
+    "ari": 0.6822210991864975,
+    "interpretation": "Selection and discovery are both now sound-only; this is not a window-only comparison"
+  },
+  "nmf_manifest_sha256": "a6983b92d606adcb905574b8e42dcc43d89ce66a4825464911921110243d1df5",
+  "assignments_sha256": "d9ec39cdd467506464685d874bc2c1660e8a9df78b68694ed077f9d5053417fa",
+  "heatmap": "unthresholded site means; same site order across phases",
+  "hga_error_bars": "SEM across participant means; sites averaged within participant/cluster",
+  "laterality": "descriptive confirmed cluster fraction of all reviewed sampled sites; no electrode-level inference",
+  "figures": {
+    "fig2_cluster_density.svg": "609f0919b9a65214d20813c6a3cd7c81c8cd9289f343cfe39b1ab0d93bad204e",
+    "fig2_hga_heatmap.svg": "5d74c79173a9db62155cb36a1a357adc6af9ffc2c1f06625ef20f0cf9510cb9c",
+    "fig2_hga_traces.svg": "1de4faffc23c5aac7b31f351478f92e136143e5ee8d2dc969754d6647ee25a6e",
+    "fig2_insula_average_traces.svg": "a0c2d029f1d9841536bfd75932c10a67b8946dc9c0b20e8396ab93baa584750f",
+    "fig2_insula_cluster_parcel_pies.svg": "7305c62e11687dbd749f7a6e5fd534150ad7f6a775e8ebf14e7feba45c8b1c9e",
+    "fig2_insula_cluster_parcel_pies_k6.svg": "c5e588a0bc74944eddcf927f8ee42b9ae2427b249f57c706a6a7e9edccfb7678",
+    "fig2_insula_spatial_kdecontour.svg": "f8cec81e03304d141f64979694d143913b50b9b70aafe80dd040164f384ff049",
+    "fig2_laterality_cluster_rate.svg": "aa04bcded9ef122b37a7f72f7f0ba2722c5771b7945aeccae0d2d518c7e04375",
+    "fig2_nmf_dominance.svg": "191c46d906c3eb064a8ea41ca9e384f80dbb2177550ca93e2f97f097aa175286",
+    "fig2_nmf_rank_k.svg": "eccddc5ba66c179ba6d62e574546fc6a3112a8f4442910055ebd2ae037b527a2",
+    "fig2_nmf_traces.svg": "aa7f3a02dfa239f2d019d5585c578a2b1e034d4fd3c26b3b2bdf08cc9b226cdc",
+    "fig2_nmf_weight_density_all.svg": "4bcff703d9c759f5ca5611d4d1bd56d738e7195e9254b3264c747268852bd5ac",
+    "fig2_nmf_weight_density_motor.svg": "7eb1fabb1585ed835e511d475d1339ccf4a59f42cbcd98e30d8a3a87f748dbb1",
+    "fig2_nmf_weight_density_sensory.svg": "1f1d45101784c24625a4ddaae8fa5010df4423917d172fe712f3272d51a18d2c",
+    "fig2_nmf_weight_density_sustain.svg": "344475cb930a20561819488f313d026a99b16a9c9338e33a2081721177d6d18e",
+    "fig2_waveform_pca_kmeans.svg": "9ea279d76d46f78a201750d002500b6d5a4676b592b06e9fe10c0ba10805f818"
+  }
+}

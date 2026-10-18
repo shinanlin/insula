@@ -1,565 +1,606 @@
-﻿subject,task,site_id,contact_1,contact_2,hammers_midpoint_labels,confirmed_responsive,response_evidence_status,stimulus_significant,delay_significant,response_significant,response_evidence_complete,significant_phases,significant_modalities
-D0022,PhonemeSequence,D0022_LMIF3-4,LMIF3,LMIF4,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0022,PhonemeSequence,D0022_LPIF3-4,LPIF3,LPIF4,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0022,SentenceRep,D0022_LMIF3-4,LMIF3,LMIF4,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0022,SentenceRep,D0022_LPIF3-4,LPIF3,LPIF4,insula posterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0023,LexicalDelay,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0023,PhonemeSequence,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0023,SentenceRep,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0027,LexicalDelay,D0027_LAI1-2,LAI1,LAI2,insula middle short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0027,SentenceRep,D0027_LAI1-2,LAI1,LAI2,insula middle short gyrus L,False,not_responsive,False,False,False,True,,
-D0028,LexicalDelay,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0028,LexicalDelay,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0028,LexicalDelay,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0028,LexicalDelay,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0028,LexicalDelay,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0028,PhonemeSequence,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0028,PhonemeSequence,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0028,PhonemeSequence,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0028,PhonemeSequence,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0028,PhonemeSequence,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0028,SentenceRep,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0028,SentenceRep,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0028,SentenceRep,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0028,SentenceRep,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0028,SentenceRep,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0032,LexicalDelay,D0032_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0032,LexicalDelay,D0032_LAI2-3,LAI2,LAI3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0032,LexicalDelay,D0032_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0032,LexicalDelay,D0032_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0032,SentenceRep,D0032_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0032,SentenceRep,D0032_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,not_responsive,False,False,False,True,,
-D0032,SentenceRep,D0032_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0032,SentenceRep,D0032_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0035,LexicalDelay,D0035_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0035,LexicalDelay,D0035_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0035,LexicalDelay,D0035_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0035,LexicalDelay,D0035_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0035,LexicalDelay,D0035_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0035,LexicalDelay,D0035_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0035,PhonemeSequence,D0035_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0035,PhonemeSequence,D0035_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,True,responsive,False,True,False,True,delay,sound
-D0035,PhonemeSequence,D0035_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0035,PhonemeSequence,D0035_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0035,PhonemeSequence,D0035_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0035,PhonemeSequence,D0035_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0038,LexicalDelay,D0038_LI3-4,LI3,LI4,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0038,LexicalDelay,D0038_LI4-5,LI4,LI5,insula posterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0038,LexicalDelay,D0038_LI5-6,LI5,LI6,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0038,LexicalDelay,D0038_LI6-7,LI6,LI7,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0038,LexicalDelay,D0038_RI1-2,RI1,RI2,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0038,LexicalDelay,D0038_RI2-3,RI2,RI3,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0040,PhonemeSequence,D0040_L3ST1-2,L3ST1,L3ST2,insula posterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0042,PhonemeSequence,D0042_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0042,PhonemeSequence,D0042_RPI2-3,RPI2,RPI3,insula posterior long gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0042,PhonemeSequence,D0042_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0042,PhonemeSequence,D0042_RPI4-5,RPI4,RPI5,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0042,PhonemeSequence,D0042_RPI5-6,RPI5,RPI6,insula anterior long gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0044,LexicalDelay,D0044_LI4-5,LI4,LI5,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0044,LexicalDelay,D0044_LI5-6,LI5,LI6,insula posterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0044,LexicalDelay,D0044_LI6-7,LI6,LI7,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0044,LexicalDelay,D0044_LI7-8,LI7,LI8,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0044,LexicalDelay,D0044_LI8-9,LI8,LI9,insula posterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0044,LexicalDelay,D0044_RI1-2,RI1,RI2,insula posterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0044,LexicalDelay,D0044_RI2-3,RI2,RI3,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0044,LexicalDelay,D0044_RI4-5,RI4,RI5,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0044,LexicalDelay,D0044_RI5-6,RI5,RI6,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0045,PhonemeSequence,D0045_RAI1-2,RAI1,RAI2,insula anterior pole R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0045,PhonemeSequence,D0045_RAI2-3,RAI2,RAI3,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0045,PhonemeSequence,D0045_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,True,responsive,False,True,False,True,delay,sound
-D0045,PhonemeSequence,D0045_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0045,PhonemeSequence,D0045_RMST1-2,RMST1,RMST2,insula posterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0045,PhonemeSequence,D0045_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,True,responsive,False,True,False,True,delay,sound
-D0045,PhonemeSequence,D0045_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0045,PhonemeSequence,D0045_RPI3-4,RPI3,RPI4,insula posterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0045,PhonemeSequence,D0045_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0047,LexicalDelay,D0047_LI1-2,LI1,LI2,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0047,LexicalDelay,D0047_LI2-3,LI2,LI3,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0047,LexicalDelay,D0047_LI3-4,LI3,LI4,insula posterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0047,LexicalDelay,D0047_LI4-5,LI4,LI5,insula middle short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0047,LexicalDelay,D0047_RI5-6,RI5,RI6,insula posterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0047,LexicalDelay,D0047_RI6-7,RI6,RI7,insula posterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0049,PhonemeSequence,D0049_LAI2-3,LAI2,LAI3,insula posterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0049,PhonemeSequence,D0049_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0049,PhonemeSequence,D0049_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0049,PhonemeSequence,D0049_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0049,PhonemeSequence,D0049_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0052,PhonemeSequence,D0052_LI3-4,LI3,LI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0052,PhonemeSequence,D0052_RI1-2,RI1,RI2,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0052,PhonemeSequence,D0052_RI3-4,RI3,RI4,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0052,PhonemeSequence,D0052_RI4-5,RI4,RI5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0053,LexicalDelay,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0053,LexicalDelay,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0053,LexicalDelay,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0053,LexicalDelay,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0053,PhonemeSequence,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0053,PhonemeSequence,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0053,PhonemeSequence,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0053,PhonemeSequence,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0053,SentenceRep,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0053,SentenceRep,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,True,responsive,False,True,False,True,delay,sound
-D0053,SentenceRep,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,True,responsive,False,True,False,True,delay,sound
-D0053,SentenceRep,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,not_responsive,False,False,False,True,,
-D0054,LexicalDelay,D0054_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0054,LexicalDelay,D0054_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0054,LexicalDelay,D0054_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0054,PhonemeSequence,D0054_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0054,PhonemeSequence,D0054_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0054,PhonemeSequence,D0054_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,LexicalDelay,D0055_RAI3-4,RAI3,RAI4,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0055,LexicalDelay,D0055_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0055,LexicalDelay,D0055_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0055,LexicalDelay,D0055_RAI6-7,RAI6,RAI7,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0055,LexicalDelay,D0055_RAI7-8,RAI7,RAI8,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0055,LexicalDelay,D0055_RPI3-4,RPI3,RPI4,insula posterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0055,LexicalDelay,D0055_RPI4-5,RPI4,RPI5,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,LexicalDelay,D0055_RPI5-6,RPI5,RPI6,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,LexicalDelay,D0055_RPI6-7,RPI6,RPI7,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0055,LexicalDelay,D0055_RPI7-8,RPI7,RPI8,insula posterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0055,LexicalDelay,D0055_RPI8-9,RPI8,RPI9,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0055,PhonemeSequence,D0055_RAI3-4,RAI3,RAI4,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0055,PhonemeSequence,D0055_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0055,PhonemeSequence,D0055_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0055,PhonemeSequence,D0055_RAI6-7,RAI6,RAI7,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0055,PhonemeSequence,D0055_RAI7-8,RAI7,RAI8,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0055,PhonemeSequence,D0055_RPI3-4,RPI3,RPI4,insula posterior long gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0055,PhonemeSequence,D0055_RPI4-5,RPI4,RPI5,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,PhonemeSequence,D0055_RPI5-6,RPI5,RPI6,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,PhonemeSequence,D0055_RPI6-7,RPI6,RPI7,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0055,PhonemeSequence,D0055_RPI7-8,RPI7,RPI8,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0055,PhonemeSequence,D0055_RPI8-9,RPI8,RPI9,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0057,LexicalDelay,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0057,PhonemeSequence,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0057,SentenceRep,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0058,PhonemeSequence,D0058_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0058,PhonemeSequence,D0058_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0058,PhonemeSequence,D0058_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0058,PhonemeSequence,D0058_LPI4-5,LPI4,LPI5,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0058,PhonemeSequence,D0058_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0059,LexicalDelay,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,LexicalDelay,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,LexicalDelay,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0059,LexicalDelay,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,PhonemeSequence,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0059,PhonemeSequence,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0059,PhonemeSequence,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0059,PhonemeSequence,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0059,SentenceRep,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,SentenceRep,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,SentenceRep,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0059,SentenceRep,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0060,PhonemeSequence,D0060_LI1-2,LI1,LI2,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0060,PhonemeSequence,D0060_RI1-2,RI1,RI2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0060,PhonemeSequence,D0060_RI3-4,RI3,RI4,insula posterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0060,PhonemeSequence,D0060_RI4-5,RI4,RI5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0060,PhonemeSequence,D0060_RI6-7,RI6,RI7,insula posterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0060,SentenceRep,D0060_LI1-2,LI1,LI2,insula posterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0060,SentenceRep,D0060_RI1-2,RI1,RI2,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0060,SentenceRep,D0060_RI3-4,RI3,RI4,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0060,SentenceRep,D0060_RI4-5,RI4,RI5,insula posterior short gyrus R,False,not_responsive,False,False,False,True,,
-D0060,SentenceRep,D0060_RI6-7,RI6,RI7,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0061,PhonemeSequence,D0061_LAI2-3,LAI2,LAI3,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0061,PhonemeSequence,D0061_LAI3-4,LAI3,LAI4,insula middle short gyrus L,False,incomplete,False,False,False,False,,
-D0061,PhonemeSequence,D0061_LAI4-5,LAI4,LAI5,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0061,PhonemeSequence,D0061_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,True,responsive,False,True,False,True,delay,sound
-D0061,PhonemeSequence,D0061_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0061,PhonemeSequence,D0061_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0061,PhonemeSequence,D0061_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0061,SentenceRep,D0061_LAI2-3,LAI2,LAI3,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0061,SentenceRep,D0061_LAI3-4,LAI3,LAI4,insula middle short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0061,SentenceRep,D0061_LAI4-5,LAI4,LAI5,insula middle short gyrus L,False,not_responsive,False,False,False,True,,
-D0061,SentenceRep,D0061_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,True,responsive,False,True,False,True,delay,sound
-D0061,SentenceRep,D0061_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0061,SentenceRep,D0061_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0061,SentenceRep,D0061_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0063,LexicalDelay,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0063,LexicalDelay,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0063,LexicalDelay,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0063,PhonemeSequence,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0063,PhonemeSequence,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0063,PhonemeSequence,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0063,SentenceRep,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0063,SentenceRep,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,not_responsive,False,False,False,True,,
-D0063,SentenceRep,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0064,PhonemeSequence,D0064_LAI3-4,LAI3,LAI4,insula middle short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0064,PhonemeSequence,D0064_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0064,PhonemeSequence,D0064_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0064,PhonemeSequence,D0064_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0064,SentenceRep,D0064_LAI3-4,LAI3,LAI4,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0064,SentenceRep,D0064_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0064,SentenceRep,D0064_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0064,SentenceRep,D0064_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0065,LexicalDelay,D0065_RI1-2,RI1,RI2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0065,LexicalDelay,D0065_RI2-3,RI2,RI3,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0065,LexicalDelay,D0065_RI3-4,RI3,RI4,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0065,LexicalDelay,D0065_RI4-5,RI4,RI5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0065,LexicalDelay,D0065_RI5-6,RI5,RI6,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0065,LexicalDelay,D0065_RI6-7,RI6,RI7,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0067,PhonemeSequence,D0067_LPII1-2,LPII1,LPII2,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0068,LexicalDelay,D0068_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0068,PhonemeSequence,D0068_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0070,LexicalDelay,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,False,incomplete,False,False,False,False,,
-D0070,LexicalDelay,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0070,PhonemeSequence,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0070,PhonemeSequence,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0070,SentenceRep,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0070,SentenceRep,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0071,LexicalDelay,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0071,LexicalDelay,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0071,LexicalDelay,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0071,LexicalDelay,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0071,LexicalDelay,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0071,LexicalDelay,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0071,LexicalDelay,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,True,responsive,False,True,False,True,delay,sound
-D0071,PhonemeSequence,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0071,PhonemeSequence,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0071,PhonemeSequence,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0071,PhonemeSequence,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0071,PhonemeSequence,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0071,PhonemeSequence,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0071,PhonemeSequence,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0071,SentenceRep,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,not_responsive,False,False,False,True,,
-D0071,SentenceRep,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0071,SentenceRep,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0071,SentenceRep,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0071,SentenceRep,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0071,SentenceRep,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0071,SentenceRep,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0075,PhonemeSequence,D0075_RAI1-2,RAI1,RAI2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0075,PhonemeSequence,D0075_RAI2-3,RAI2,RAI3,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0075,PhonemeSequence,D0075_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0075,PhonemeSequence,D0075_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0075,PhonemeSequence,D0075_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0076,PictureNaming,D0076_LTP6-7,LTP6,LTP7,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0076,PictureNaming,D0076_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0076,PictureNaming,D0076_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0076,PictureNaming,D0076_RPI3-4,RPI3,RPI4,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0079,LexicalDelay,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0079,LexicalDelay,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0079,LexicalDelay,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0079,LexicalDelay,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,LexicalDelay,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,LexicalDelay,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,LexicalDelay,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,LexicalDelay,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0079,LexicalDelay,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,LexicalDelay,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0079,LexicalDelay,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,LexicalDelay,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PhonemeSequence,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0079,PhonemeSequence,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0079,PhonemeSequence,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PhonemeSequence,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PhonemeSequence,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PhonemeSequence,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PhonemeSequence,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PictureNaming,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PictureNaming,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0079,PictureNaming,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PictureNaming,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PictureNaming,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0079,PictureNaming,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0079,PictureNaming,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0080,LexicalDelay,D0080_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0080,LexicalDelay,D0080_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0080,LexicalDelay,D0080_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0080,LexicalDelay,D0080_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0080,LexicalDelay,D0080_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0080,PictureNaming,D0080_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0080,PictureNaming,D0080_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0080,PictureNaming,D0080_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0080,PictureNaming,D0080_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0080,PictureNaming,D0080_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,True,responsive,False,True,False,True,delay,sound
-D0081,LexicalDelay,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0081,PictureNaming,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0081,SentenceRep,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0084,LexicalDelay,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,not_responsive,False,False,False,True,,
-D0084,LexicalDelay,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0084,LexicalDelay,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0084,LexicalDelay,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0084,LexicalDelay,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0084,LexicalDelay,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0084,PhonemeSequence,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0084,PhonemeSequence,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0084,PhonemeSequence,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0084,PhonemeSequence,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0084,PhonemeSequence,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0084,PhonemeSequence,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0084,PictureNaming,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0084,PictureNaming,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0084,PictureNaming,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0084,PictureNaming,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0084,PictureNaming,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0084,PictureNaming,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0085,PhonemeSequence,D0085_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,incomplete,False,False,False,False,,
-D0085,PhonemeSequence,D0085_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0085,PictureNaming,D0085_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,not_responsive,False,False,False,True,,
-D0085,PictureNaming,D0085_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0088,PhonemeSequence,D0088_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0088,PhonemeSequence,D0088_LAI2-3,LAI2,LAI3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0088,PhonemeSequence,D0088_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0088,PhonemeSequence,D0088_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0088,PhonemeSequence,D0088_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0088,PhonemeSequence,D0088_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0088,PictureNaming,D0088_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0088,PictureNaming,D0088_LAI2-3,LAI2,LAI3,insula anterior pole L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0088,PictureNaming,D0088_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0088,PictureNaming,D0088_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0088,PictureNaming,D0088_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0088,PictureNaming,D0088_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0090,LexicalDelay,D0090_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0090,LexicalDelay,D0090_RIA2-3,RIA2,RIA3,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0090,LexicalDelay,D0090_RIA4-5,RIA4,RIA5,insula anterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0090,LexicalDelay,D0090_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0090,LexicalDelay,D0090_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0090,LexicalDelay,D0090_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0090,LexicalDelay,D0090_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0090,LexicalDelay,D0090_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0090,LexicalDelay,D0090_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0090,PictureNaming,D0090_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0090,PictureNaming,D0090_RIA2-3,RIA2,RIA3,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0090,PictureNaming,D0090_RIA4-5,RIA4,RIA5,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0090,PictureNaming,D0090_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0090,PictureNaming,D0090_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0090,PictureNaming,D0090_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0090,PictureNaming,D0090_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0090,PictureNaming,D0090_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0090,PictureNaming,D0090_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0091,PhonemeSequence,D0091_LPI3-5,LPI3,LPI5,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0091,PhonemeSequence,D0091_LPI5-7,LPI5,LPI7,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0091,PictureNaming,D0091_LPI3-5,LPI3,LPI5,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0091,PictureNaming,D0091_LPI5-7,LPI5,LPI7,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0092,LexicalDelay,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0092,LexicalDelay,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0092,LexicalDelay,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0092,LexicalDelay,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0092,LexicalDelay,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0092,LexicalDelay,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,False,incomplete,False,False,False,False,,
-D0092,LexicalDelay,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,False,incomplete,False,False,False,False,,
-D0092,LexicalDelay,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0092,PhonemeSequence,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0092,PhonemeSequence,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0092,PhonemeSequence,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0092,PhonemeSequence,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0092,PhonemeSequence,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0092,PhonemeSequence,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,False,incomplete,False,False,False,False,,
-D0092,PhonemeSequence,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,False,incomplete,False,False,False,False,,
-D0092,PhonemeSequence,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0092,PictureNaming,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0092,PictureNaming,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0092,PictureNaming,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0092,PictureNaming,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0092,PictureNaming,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0092,PictureNaming,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,True,responsive,False,True,False,True,delay,sound
-D0092,PictureNaming,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0092,PictureNaming,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0093,PhonemeSequence,D0093_LIA1-2,LIA1,LIA2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0093,PhonemeSequence,D0093_LIA2-3,LIA2,LIA3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0093,PhonemeSequence,D0093_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0093,PhonemeSequence,D0093_LIA5-6,LIA5,LIA6,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0093,PictureNaming,D0093_LIA1-2,LIA1,LIA2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0093,PictureNaming,D0093_LIA2-3,LIA2,LIA3,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0093,PictureNaming,D0093_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0093,PictureNaming,D0093_LIA5-6,LIA5,LIA6,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0094,LexicalDelay,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0094,LexicalDelay,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0094,PhonemeSequence,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0094,PhonemeSequence,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0094,PictureNaming,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0094,PictureNaming,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0095,PhonemeSequence,D0095_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0095,PhonemeSequence,D0095_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0095,PhonemeSequence,D0095_RIA2-3,RIA2,RIA3,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0095,PhonemeSequence,D0095_RPI1-2,RPI1,RPI2,insula anterior long gyrus R,True,responsive,False,True,False,True,delay,sound
-D0096,LexicalDelay,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0096,LexicalDelay,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0096,PhonemeSequence,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0096,PhonemeSequence,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0096,PictureNaming,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0096,PictureNaming,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0101,LexicalDelay,D0101_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,LexicalDelay,D0101_RIA5-6,RIA5,RIA6,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0101,LexicalDelay,D0101_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0101,LexicalDelay,D0101_RIP2-3,RIP2,RIP3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,LexicalDelay,D0101_RIP3-4,RIP3,RIP4,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,LexicalDelay,D0101_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,LexicalDelay,D0101_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,LexicalDelay,D0101_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0101,PictureNaming,D0101_RIA5-6,RIA5,RIA6,insula anterior short gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0101,PictureNaming,D0101_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIP2-3,RIP2,RIP3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIP3-4,RIP3,RIP4,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0101,PictureNaming,D0101_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0102,LexicalDelay,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0102,LexicalDelay,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0102,PhonemeSequence,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,True,responsive,False,True,True,True,delay|response,sound
-D0102,PhonemeSequence,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0102,PictureNaming,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0102,PictureNaming,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0102,SentenceRep,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,True,responsive,False,False,True,True,response,sound
-D0102,SentenceRep,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0103,LexicalDelay,D0103_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0103,LexicalDelay,D0103_LAI2-3,LAI2,LAI3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0103,LexicalDelay,D0103_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0103,LexicalDelay,D0103_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0103,LexicalDelay,D0103_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0103,LexicalDelay,D0103_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0103,LexicalDelay,D0103_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0103,LexicalDelay,D0103_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0103,LexicalDelay,D0103_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0103,LexicalDelay,D0103_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0103,PhonemeSequence,D0103_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0103,PhonemeSequence,D0103_LAI2-3,LAI2,LAI3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0103,PhonemeSequence,D0103_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0103,PhonemeSequence,D0103_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0103,PhonemeSequence,D0103_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0103,PhonemeSequence,D0103_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0103,PhonemeSequence,D0103_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0103,PhonemeSequence,D0103_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,True,responsive,False,True,True,True,delay|response,sound
-D0103,PhonemeSequence,D0103_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0103,PhonemeSequence,D0103_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0105,PictureNaming,D0105_LIA1-2,LIA1,LIA2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0105,PictureNaming,D0105_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0105,PictureNaming,D0105_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0105,PictureNaming,D0105_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0105,PictureNaming,D0105_LTPS1-2,LTPS1,LTPS2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0108,PictureNaming,D0108_LFAI1-2,LFAI1,LFAI2,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0108,PictureNaming,D0108_LFAI2-3,LFAI2,LFAI3,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0115,LexicalDelay,D0115_LIA1-2,LIA1,LIA2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0115,LexicalDelay,D0115_LIA2-3,LIA2,LIA3,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0115,LexicalDelay,D0115_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0115,LexicalDelay,D0115_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0118,PictureNaming,D0118_LFMI1-2,LFMI1,LFMI2,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0118,PictureNaming,D0118_LFMI2-3,LFMI2,LFMI3,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0118,PictureNaming,D0118_LIA2-3,LIA2,LIA3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0118,PictureNaming,D0118_LIA3-4,LIA3,LIA4,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0118,PictureNaming,D0118_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0118,PictureNaming,D0118_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0118,PictureNaming,D0118_LTMS1-2,LTMS1,LTMS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0118,PictureNaming,D0118_LTMS2-3,LTMS2,LTMS3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0118,PictureNaming,D0118_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0119,PictureNaming,D0119_RIA1-2,RIA1,RIA2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0119,PictureNaming,D0119_RIA2-3,RIA2,RIA3,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0119,PictureNaming,D0119_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0119,PictureNaming,D0119_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,not_responsive,False,False,False,True,,
-D0119,PictureNaming,D0119_RIP2-3,RIP2,RIP3,insula anterior long gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0119,PictureNaming,D0119_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,True,responsive,True,False,True,True,stimulus|response,sound
-D0122,PictureNaming,D0122_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0122,PictureNaming,D0122_LTMS1-2,LTMS1,LTMS2,insula posterior long gyrus L,False,incomplete,False,False,False,False,,
-D0123,PictureNaming,D0123_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0123,PictureNaming,D0123_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0123,PictureNaming,D0123_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,not_responsive,False,False,False,True,,
-D0125,PictureNaming,D0125_LIA1-2,LIA1,LIA2,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0125,PictureNaming,D0125_LIA2-3,LIA2,LIA3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0125,PictureNaming,D0125_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0125,PictureNaming,D0125_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0125,PictureNaming,D0125_LTAS1-2,LTAS1,LTAS2,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0125,PictureNaming,D0125_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,True,responsive,False,False,True,True,response,sound
-D0125,PictureNaming,D0125_LTMS1-2,LTMS1,LTMS2,insula posterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0125,PictureNaming,D0125_LTMS2-3,LTMS2,LTMS3,insula posterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0128,LexicalDelay,D0128_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,True,responsive,False,False,True,True,response,sound
-D0128,LexicalDelay,D0128_RTMS1-2,RTMS1,RTMS2,insula posterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0128,LexicalDelay,D0128_RTMS2-3,RTMS2,RTMS3,insula posterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0129,LexicalDelay,D0129_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0129,LexicalDelay,D0129_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,incomplete,False,False,False,False,,
-D0129,LexicalDelay,D0129_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0129,LexicalDelay,D0129_LAI4-5,LAI4,LAI5,insula posterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0129,LexicalDelay,D0129_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0129,LexicalDelay,D0129_LFAI2-3,LFAI2,LFAI3,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0129,LexicalDelay,D0129_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0129,LexicalDelay,D0129_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0129,LexicalDelay,D0129_LTMS2-3,LTMS2,LTMS3,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0129,PictureNaming,D0129_LAI1-2,LAI1,LAI2,insula anterior pole L,True,responsive,False,True,False,True,delay,sound
-D0129,PictureNaming,D0129_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,incomplete,False,False,False,False,,
-D0129,PictureNaming,D0129_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0129,PictureNaming,D0129_LAI4-5,LAI4,LAI5,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0129,PictureNaming,D0129_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0129,PictureNaming,D0129_LFAI2-3,LFAI2,LFAI3,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0129,PictureNaming,D0129_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0129,PictureNaming,D0129_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0129,PictureNaming,D0129_LTMS2-3,LTMS2,LTMS3,insula anterior long gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0131,PictureNaming,D0131_LIA1-2,LIA1,LIA2,insula anterior pole L,True,responsive,True,False,False,True,stimulus,sound
-D0131,PictureNaming,D0131_LIA2-3,LIA2,LIA3,insula middle short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0131,PictureNaming,D0131_LIA3-4,LIA3,LIA4,insula middle short gyrus L,False,not_responsive,False,False,False,True,,
-D0131,PictureNaming,D0131_LIA4-5,LIA4,LIA5,insula middle short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0131,PictureNaming,D0131_RFAI1-2,RFAI1,RFAI2,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0131,PictureNaming,D0131_RFAI2-3,RFAI2,RFAI3,insula anterior short gyrus R,False,incomplete,False,False,False,False,,
-D0131,PictureNaming,D0131_RIA1-2,RIA1,RIA2,insula posterior short gyrus R,True,responsive,True,False,False,True,stimulus,sound
-D0131,PictureNaming,D0131_RTAS1-2,RTAS1,RTAS2,insula anterior pole R,False,incomplete,False,False,False,False,,
-D0131,PictureNaming,D0131_RTMS1-2,RTMS1,RTMS2,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0131,PictureNaming,D0131_RTMS2-3,RTMS2,RTMS3,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0131,PictureNaming,D0131_RTMS3-4,RTMS3,RTMS4,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0132,LexicalDelay,D0132_LFPI1-2,LFPI1,LFPI2,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0132,LexicalDelay,D0132_LPPI8-9,LPPI8,LPPI9,insula posterior long gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0132,LexicalDelay,D0132_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0132,LexicalDelay,D0132_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,incomplete,False,False,False,False,,
-D0134,PictureNaming,D0134_LINS1-3,LINS1,LINS3,insula posterior short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0134,PictureNaming,D0134_LINS3-6,LINS3,LINS6,insula middle short gyrus L,True,responsive,False,False,True,True,response,sound
-D0134,PictureNaming,D0134_RINS1-6,RINS1,RINS6,insula posterior short gyrus R,True,responsive,False,False,True,True,response,sound
-D0137,LexicalDelay,D0137_LAI1-2,LAI1,LAI2,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0137,LexicalDelay,D0137_LAI2-3,LAI2,LAI3,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0137,LexicalDelay,D0137_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0137,LexicalDelay,D0137_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0137,LexicalDelay,D0137_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0137,LexicalDelay,D0137_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0137,LexicalDelay,D0137_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0137,LexicalDelay,D0137_LPAI2-3,LPAI2,LPAI3,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0137,LexicalDelay,D0137_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0137,LexicalDelay,D0137_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0137,LexicalDelay,D0137_LTMS1-2,LTMS1,LTMS2,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0137,LexicalDelay,D0137_LTMS2-3,LTMS2,LTMS3,insula posterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0137,PictureNaming,D0137_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0137,PictureNaming,D0137_LAI2-3,LAI2,LAI3,insula anterior pole L,True,responsive,True,False,False,True,stimulus,sound
-D0137,PictureNaming,D0137_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0137,PictureNaming,D0137_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0137,PictureNaming,D0137_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0137,PictureNaming,D0137_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0137,PictureNaming,D0137_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0137,PictureNaming,D0137_LPAI2-3,LPAI2,LPAI3,insula anterior long gyrus L,True,responsive,False,False,True,True,response,sound
-D0137,PictureNaming,D0137_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0137,PictureNaming,D0137_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,True,responsive,True,False,False,True,stimulus,sound
-D0137,PictureNaming,D0137_LTMS1-2,LTMS1,LTMS2,insula posterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0137,PictureNaming,D0137_LTMS2-3,LTMS2,LTMS3,insula posterior short gyrus L,True,responsive,False,True,False,True,delay,sound
-D0138,LexicalDelay,D0138_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0138,LexicalDelay,D0138_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0138,LexicalDelay,D0138_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0138,LexicalDelay,D0138_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0138,LexicalDelay,D0138_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0138,PictureNaming,D0138_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,True,responsive,False,False,True,True,response,sound
-D0138,PictureNaming,D0138_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0138,PictureNaming,D0138_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0138,PictureNaming,D0138_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0138,PictureNaming,D0138_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,not_responsive,False,False,False,True,,
-D0139,LexicalDelay,D0139_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,True,responsive,True,True,True,True,stimulus|delay|response,sound
-D0139,LexicalDelay,D0139_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,True,responsive,True,False,False,True,stimulus,sound
-D0139,LexicalDelay,D0139_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0139,PictureNaming,D0139_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,True,responsive,True,False,True,True,stimulus|response,sound
-D0139,PictureNaming,D0139_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0139,PictureNaming,D0139_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0140,LexicalDelay,D0140_LAI1-2,LAI1,LAI2,insula anterior pole L,False,incomplete,False,False,False,False,,
-D0140,LexicalDelay,D0140_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0140,LexicalDelay,D0140_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,not_responsive,False,False,False,True,,
-D0140,LexicalDelay,D0140_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,incomplete,False,False,False,False,,
-D0140,LexicalDelay,D0140_LFAI1-2,LFAI1,LFAI2,insula posterior short gyrus L,True,responsive,True,True,False,True,stimulus|delay,sound
-D0140,LexicalDelay,D0140_LFAI2-3,LFAI2,LFAI3,insula posterior short gyrus L,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,incomplete,False,False,False,False,,
-D0143,LexicalDelay,D0143_RPAI1-2,RPAI1,RPAI2,insula anterior long gyrus R,True,responsive,True,True,False,True,stimulus|delay,sound
-D0143,LexicalDelay,D0143_RTAS1-2,RTAS1,RTAS2,insula anterior pole R,True,responsive,False,False,True,True,response,sound
-D0143,LexicalDelay,D0143_RTMS1-2,RTMS1,RTMS2,insula posterior long gyrus R,False,not_responsive,False,False,False,True,,
+﻿subject,task,site_id,contact_1,contact_2,hammers_midpoint_labels,has_accepted_unknown_endpoint,accepted_unknown_contacts,confirmed_responsive,response_evidence_status,stimulus_significant,delay_significant,response_significant,response_evidence_complete,significant_phases,significant_modalities
+D0022,PhonemeSequence,D0022_LMIF3-4,LMIF3,LMIF4,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0022,PhonemeSequence,D0022_LPIF3-4,LPIF3,LPIF4,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0022,SentenceRep,D0022_LMIF3-4,LMIF3,LMIF4,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0022,SentenceRep,D0022_LPIF3-4,LPIF3,LPIF4,insula posterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0023,LexicalDelay,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0023,PhonemeSequence,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0023,SentenceRep,D0023_R2IF1-2,R2IF1,R2IF2,insula anterior long gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0027,LexicalDelay,D0027_LAI1-2,LAI1,LAI2,insula middle short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0027,SentenceRep,D0027_LAI1-2,LAI1,LAI2,insula middle short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0028,LexicalDelay,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0028,LexicalDelay,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0028,LexicalDelay,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0028,LexicalDelay,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0028,LexicalDelay,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0028,PhonemeSequence,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0028,PhonemeSequence,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0028,PhonemeSequence,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0028,PhonemeSequence,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0028,PhonemeSequence,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0028,SentenceRep,D0028_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0028,SentenceRep,D0028_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0028,SentenceRep,D0028_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0028,SentenceRep,D0028_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0028,SentenceRep,D0028_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0032,LexicalDelay,D0032_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0032,LexicalDelay,D0032_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0032,LexicalDelay,D0032_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0032,LexicalDelay,D0032_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0032,SentenceRep,D0032_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0032,SentenceRep,D0032_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0032,SentenceRep,D0032_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0032,SentenceRep,D0032_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0035,LexicalDelay,D0035_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0035,LexicalDelay,D0035_LAI2-3,LAI2,LAI3,insula anterior pole L,True,LAI3,False,not_responsive,False,False,False,True,,
+D0035,LexicalDelay,D0035_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0035,LexicalDelay,D0035_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0035,LexicalDelay,D0035_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0035,LexicalDelay,D0035_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0035,LexicalDelay,D0035_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0035,PhonemeSequence,D0035_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0035,PhonemeSequence,D0035_LAI2-3,LAI2,LAI3,insula anterior pole L,True,LAI3,False,incomplete,False,False,False,False,,
+D0035,PhonemeSequence,D0035_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0035,PhonemeSequence,D0035_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0035,PhonemeSequence,D0035_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0035,PhonemeSequence,D0035_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0035,PhonemeSequence,D0035_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0038,LexicalDelay,D0038_LI3-4,LI3,LI4,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0038,LexicalDelay,D0038_LI4-5,LI4,LI5,insula posterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0038,LexicalDelay,D0038_LI5-6,LI5,LI6,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0038,LexicalDelay,D0038_LI6-7,LI6,LI7,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0038,LexicalDelay,D0038_RI1-2,RI1,RI2,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0038,LexicalDelay,D0038_RI2-3,RI2,RI3,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0040,PhonemeSequence,D0040_L3ST1-2,L3ST1,L3ST2,insula posterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0042,PhonemeSequence,D0042_RAI3-4,RAI3,RAI4,insula posterior short gyrus R,True,RAI3,False,incomplete,False,False,False,False,,
+D0042,PhonemeSequence,D0042_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0042,PhonemeSequence,D0042_RPI2-3,RPI2,RPI3,insula posterior long gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0042,PhonemeSequence,D0042_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0042,PhonemeSequence,D0042_RPI4-5,RPI4,RPI5,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0042,PhonemeSequence,D0042_RPI5-6,RPI5,RPI6,insula anterior long gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0044,LexicalDelay,D0044_LI4-5,LI4,LI5,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0044,LexicalDelay,D0044_LI5-6,LI5,LI6,insula posterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0044,LexicalDelay,D0044_LI6-7,LI6,LI7,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0044,LexicalDelay,D0044_LI7-8,LI7,LI8,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0044,LexicalDelay,D0044_LI8-9,LI8,LI9,insula posterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0044,LexicalDelay,D0044_RI1-2,RI1,RI2,insula posterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0044,LexicalDelay,D0044_RI2-3,RI2,RI3,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0044,LexicalDelay,D0044_RI4-5,RI4,RI5,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0044,LexicalDelay,D0044_RI5-6,RI5,RI6,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0045,PhonemeSequence,D0045_RAI1-2,RAI1,RAI2,insula anterior pole R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0045,PhonemeSequence,D0045_RAI2-3,RAI2,RAI3,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0045,PhonemeSequence,D0045_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,,True,responsive,False,True,False,True,delay,sound
+D0045,PhonemeSequence,D0045_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0045,PhonemeSequence,D0045_RMST1-2,RMST1,RMST2,insula posterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0045,PhonemeSequence,D0045_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,False,,True,responsive,False,True,False,True,delay,sound
+D0045,PhonemeSequence,D0045_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0045,PhonemeSequence,D0045_RPI3-4,RPI3,RPI4,insula posterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0045,PhonemeSequence,D0045_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0047,LexicalDelay,D0047_LI1-2,LI1,LI2,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0047,LexicalDelay,D0047_LI2-3,LI2,LI3,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0047,LexicalDelay,D0047_LI3-4,LI3,LI4,insula posterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0047,LexicalDelay,D0047_LI4-5,LI4,LI5,insula middle short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0047,LexicalDelay,D0047_RI5-6,RI5,RI6,insula posterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0047,LexicalDelay,D0047_RI6-7,RI6,RI7,insula posterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0049,PhonemeSequence,D0049_LAI2-3,LAI2,LAI3,insula posterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0049,PhonemeSequence,D0049_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,True,LAI4,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0049,PhonemeSequence,D0049_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0049,PhonemeSequence,D0049_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0049,PhonemeSequence,D0049_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0049,PhonemeSequence,D0049_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0052,PhonemeSequence,D0052_LI3-4,LI3,LI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0052,PhonemeSequence,D0052_RI1-2,RI1,RI2,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0052,PhonemeSequence,D0052_RI3-4,RI3,RI4,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0052,PhonemeSequence,D0052_RI4-5,RI4,RI5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0053,LexicalDelay,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0053,LexicalDelay,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0053,LexicalDelay,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0053,LexicalDelay,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0053,PhonemeSequence,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0053,PhonemeSequence,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0053,PhonemeSequence,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0053,PhonemeSequence,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0053,SentenceRep,D0053_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0053,SentenceRep,D0053_RPI1-2,RPI1,RPI2,insula anterior pole R,False,,True,responsive,False,True,False,True,delay,sound
+D0053,SentenceRep,D0053_RPI2-3,RPI2,RPI3,insula anterior pole R,False,,True,responsive,False,True,False,True,delay,sound
+D0053,SentenceRep,D0053_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0054,LexicalDelay,D0054_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0054,LexicalDelay,D0054_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0054,LexicalDelay,D0054_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0054,PhonemeSequence,D0054_RPI1-2,RPI1,RPI2,insula posterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0054,PhonemeSequence,D0054_RPI2-3,RPI2,RPI3,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0054,PhonemeSequence,D0054_RPI3-4,RPI3,RPI4,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RAI2-3,RAI2,RAI3,insula anterior pole R,True,RAI2,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RAI3-4,RAI3,RAI4,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0055,LexicalDelay,D0055_RAI6-7,RAI6,RAI7,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0055,LexicalDelay,D0055_RAI7-8,RAI7,RAI8,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0055,LexicalDelay,D0055_RPI3-4,RPI3,RPI4,insula posterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0055,LexicalDelay,D0055_RPI4-5,RPI4,RPI5,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RPI5-6,RPI5,RPI6,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,LexicalDelay,D0055_RPI6-7,RPI6,RPI7,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0055,LexicalDelay,D0055_RPI7-8,RPI7,RPI8,insula posterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0055,LexicalDelay,D0055_RPI8-9,RPI8,RPI9,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0055,PhonemeSequence,D0055_RAI2-3,RAI2,RAI3,insula anterior pole R,True,RAI2,False,incomplete,False,False,False,False,,
+D0055,PhonemeSequence,D0055_RAI3-4,RAI3,RAI4,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0055,PhonemeSequence,D0055_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0055,PhonemeSequence,D0055_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0055,PhonemeSequence,D0055_RAI6-7,RAI6,RAI7,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0055,PhonemeSequence,D0055_RAI7-8,RAI7,RAI8,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0055,PhonemeSequence,D0055_RPI3-4,RPI3,RPI4,insula posterior long gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0055,PhonemeSequence,D0055_RPI4-5,RPI4,RPI5,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,PhonemeSequence,D0055_RPI5-6,RPI5,RPI6,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,PhonemeSequence,D0055_RPI6-7,RPI6,RPI7,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0055,PhonemeSequence,D0055_RPI7-8,RPI7,RPI8,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0055,PhonemeSequence,D0055_RPI8-9,RPI8,RPI9,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0057,LexicalDelay,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0057,PhonemeSequence,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0057,SentenceRep,D0057_RAI3-4,RAI3,RAI4,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0058,PhonemeSequence,D0058_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0058,PhonemeSequence,D0058_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0058,PhonemeSequence,D0058_LPI3-4,LPI3,LPI4,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0058,PhonemeSequence,D0058_LPI4-5,LPI4,LPI5,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0058,PhonemeSequence,D0058_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0059,LexicalDelay,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,LexicalDelay,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,LexicalDelay,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0059,LexicalDelay,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,PhonemeSequence,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0059,PhonemeSequence,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0059,PhonemeSequence,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0059,PhonemeSequence,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0059,SentenceRep,D0059_LAT10-11,LAT10,LAT11,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,SentenceRep,D0059_LAT11-12,LAT11,LAT12,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,SentenceRep,D0059_LAT12-13,LAT12,LAT13,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0059,SentenceRep,D0059_LAT7-8,LAT7,LAT8,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0060,PhonemeSequence,D0060_LI1-2,LI1,LI2,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0060,PhonemeSequence,D0060_RI1-2,RI1,RI2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0060,PhonemeSequence,D0060_RI3-4,RI3,RI4,insula posterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0060,PhonemeSequence,D0060_RI4-5,RI4,RI5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0060,PhonemeSequence,D0060_RI6-7,RI6,RI7,insula posterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0060,SentenceRep,D0060_LI1-2,LI1,LI2,insula posterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0060,SentenceRep,D0060_RI1-2,RI1,RI2,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0060,SentenceRep,D0060_RI3-4,RI3,RI4,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0060,SentenceRep,D0060_RI4-5,RI4,RI5,insula posterior short gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0060,SentenceRep,D0060_RI6-7,RI6,RI7,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0061,PhonemeSequence,D0061_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0061,PhonemeSequence,D0061_LAI3-4,LAI3,LAI4,insula middle short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0061,PhonemeSequence,D0061_LAI4-5,LAI4,LAI5,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0061,PhonemeSequence,D0061_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0061,PhonemeSequence,D0061_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0061,PhonemeSequence,D0061_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0061,PhonemeSequence,D0061_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0061,SentenceRep,D0061_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0061,SentenceRep,D0061_LAI3-4,LAI3,LAI4,insula middle short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0061,SentenceRep,D0061_LAI4-5,LAI4,LAI5,insula middle short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0061,SentenceRep,D0061_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0061,SentenceRep,D0061_LPI4-5,LPI4,LPI5,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0061,SentenceRep,D0061_LPI5-6,LPI5,LPI6,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0061,SentenceRep,D0061_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0063,LexicalDelay,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0063,LexicalDelay,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0063,LexicalDelay,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0063,PhonemeSequence,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0063,PhonemeSequence,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0063,PhonemeSequence,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0063,SentenceRep,D0063_RAI1-2,RAI1,RAI2,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0063,SentenceRep,D0063_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0063,SentenceRep,D0063_RAI4-5,RAI4,RAI5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0064,PhonemeSequence,D0064_LAI3-4,LAI3,LAI4,insula middle short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0064,PhonemeSequence,D0064_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0064,PhonemeSequence,D0064_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0064,PhonemeSequence,D0064_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0064,SentenceRep,D0064_LAI3-4,LAI3,LAI4,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0064,SentenceRep,D0064_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0064,SentenceRep,D0064_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0064,SentenceRep,D0064_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0065,LexicalDelay,D0065_RI1-2,RI1,RI2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0065,LexicalDelay,D0065_RI2-3,RI2,RI3,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0065,LexicalDelay,D0065_RI3-4,RI3,RI4,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0065,LexicalDelay,D0065_RI4-5,RI4,RI5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0065,LexicalDelay,D0065_RI5-6,RI5,RI6,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0065,LexicalDelay,D0065_RI6-7,RI6,RI7,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0067,PhonemeSequence,D0067_LPII1-2,LPII1,LPII2,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0068,LexicalDelay,D0068_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0068,PhonemeSequence,D0068_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0070,LexicalDelay,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0070,LexicalDelay,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0070,PhonemeSequence,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0070,PhonemeSequence,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0070,SentenceRep,D0070_LIA1-2,LIA1,LIA2,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0070,SentenceRep,D0070_LIA2-3,LIA2,LIA3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0071,LexicalDelay,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0071,LexicalDelay,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0071,LexicalDelay,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0071,LexicalDelay,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0071,LexicalDelay,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0071,LexicalDelay,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0071,LexicalDelay,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,False,,True,responsive,False,True,False,True,delay,sound
+D0071,PhonemeSequence,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0071,PhonemeSequence,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0071,PhonemeSequence,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0071,PhonemeSequence,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0071,PhonemeSequence,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0071,PhonemeSequence,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0071,PhonemeSequence,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0071,SentenceRep,D0071_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,not_responsive,False,False,False,True,,
+D0071,SentenceRep,D0071_RIA2-3,RIA2,RIA3,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0071,SentenceRep,D0071_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0071,SentenceRep,D0071_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0071,SentenceRep,D0071_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0071,SentenceRep,D0071_RIP5-6,RIP5,RIP6,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0071,SentenceRep,D0071_RIP6-7,RIP6,RIP7,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0075,PhonemeSequence,D0075_RAI1-2,RAI1,RAI2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0075,PhonemeSequence,D0075_RAI2-3,RAI2,RAI3,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0075,PhonemeSequence,D0075_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0075,PhonemeSequence,D0075_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0075,PhonemeSequence,D0075_RAI5-6,RAI5,RAI6,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0075,PhonemeSequence,D0075_RAI6-7,RAI6,RAI7,insula anterior short gyrus R,True,RAI7,True,responsive,False,True,True,True,delay|response,sound
+D0076,PictureNaming,D0076_LTP6-7,LTP6,LTP7,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0076,PictureNaming,D0076_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0076,PictureNaming,D0076_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0076,PictureNaming,D0076_RPI3-4,RPI3,RPI4,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0079,LexicalDelay,D0079_LAI1-2,LAI1,LAI2,insula anterior pole L,True,LAI1,False,not_responsive,False,False,False,True,,
+D0079,LexicalDelay,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0079,LexicalDelay,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0079,LexicalDelay,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0079,LexicalDelay,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,LexicalDelay,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,LexicalDelay,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,LexicalDelay,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,LexicalDelay,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0079,LexicalDelay,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,LexicalDelay,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0079,LexicalDelay,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,LexicalDelay,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PhonemeSequence,D0079_LAI1-2,LAI1,LAI2,insula anterior pole L,True,LAI1,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PhonemeSequence,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0079,PhonemeSequence,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PhonemeSequence,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PhonemeSequence,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PhonemeSequence,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PhonemeSequence,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LAI1-2,LAI1,LAI2,insula anterior pole L,True,LAI1,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LAI3-4,LAI3,LAI4,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LAI7-8,LAI7,LAI8,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LPI1-2,LPI1,LPI2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LPI2-3,LPI2,LPI3,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LPI3-4,LPI3,LPI4,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LPI4-5,LPI4,LPI5,insula posterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0079,PictureNaming,D0079_LPI5-6,LPI5,LPI6,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LPI6-7,LPI6,LPI7,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LPI7-8,LPI7,LPI8,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0079,PictureNaming,D0079_LPI8-9,LPI8,LPI9,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0079,PictureNaming,D0079_LPI9-10,LPI9,LPI10,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0080,LexicalDelay,D0080_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0080,LexicalDelay,D0080_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0080,LexicalDelay,D0080_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0080,LexicalDelay,D0080_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0080,LexicalDelay,D0080_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0080,PictureNaming,D0080_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0080,PictureNaming,D0080_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0080,PictureNaming,D0080_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0080,PictureNaming,D0080_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0080,PictureNaming,D0080_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0081,LexicalDelay,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0081,LexicalDelay,D0081_LTAS3-4,LTAS3,LTAS4,insula posterior long gyrus L,True,LTAS4,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0081,PictureNaming,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0081,PictureNaming,D0081_LTAS3-4,LTAS3,LTAS4,insula posterior long gyrus L,True,LTAS4,True,responsive,True,False,True,True,stimulus|response,sound
+D0081,SentenceRep,D0081_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0081,SentenceRep,D0081_LTAS3-4,LTAS3,LTAS4,insula posterior long gyrus L,True,LTAS4,True,responsive,True,False,True,True,stimulus|response,sound
+D0084,LexicalDelay,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,,False,not_responsive,False,False,False,True,,
+D0084,LexicalDelay,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0084,LexicalDelay,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0084,LexicalDelay,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0084,LexicalDelay,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0084,LexicalDelay,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0084,PhonemeSequence,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0084,PhonemeSequence,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0084,PhonemeSequence,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0084,PhonemeSequence,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0084,PhonemeSequence,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0084,PhonemeSequence,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0084,PictureNaming,D0084_RAI1-2,RAI1,RAI2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0084,PictureNaming,D0084_RAI2-3,RAI2,RAI3,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0084,PictureNaming,D0084_RAI3-4,RAI3,RAI4,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0084,PictureNaming,D0084_RAI4-5,RAI4,RAI5,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0084,PictureNaming,D0084_RPI1-2,RPI1,RPI2,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0084,PictureNaming,D0084_RPI2-3,RPI2,RPI3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0085,PhonemeSequence,D0085_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0085,PhonemeSequence,D0085_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0085,PictureNaming,D0085_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0085,PictureNaming,D0085_RAI2-3,RAI2,RAI3,insula posterior short gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0088,PhonemeSequence,D0088_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0088,PhonemeSequence,D0088_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0088,PhonemeSequence,D0088_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0088,PhonemeSequence,D0088_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0088,PhonemeSequence,D0088_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0088,PhonemeSequence,D0088_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0088,PictureNaming,D0088_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0088,PictureNaming,D0088_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0088,PictureNaming,D0088_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0088,PictureNaming,D0088_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0088,PictureNaming,D0088_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0088,PictureNaming,D0088_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0090,LexicalDelay,D0090_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0090,LexicalDelay,D0090_RIA2-3,RIA2,RIA3,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0090,LexicalDelay,D0090_RIA4-5,RIA4,RIA5,insula anterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0090,LexicalDelay,D0090_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0090,LexicalDelay,D0090_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0090,LexicalDelay,D0090_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0090,LexicalDelay,D0090_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0090,LexicalDelay,D0090_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0090,LexicalDelay,D0090_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0090,PictureNaming,D0090_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0090,PictureNaming,D0090_RIA2-3,RIA2,RIA3,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0090,PictureNaming,D0090_RIA4-5,RIA4,RIA5,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0090,PictureNaming,D0090_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0090,PictureNaming,D0090_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0090,PictureNaming,D0090_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0090,PictureNaming,D0090_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0090,PictureNaming,D0090_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0090,PictureNaming,D0090_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0091,PhonemeSequence,D0091_LPI3-5,LPI3,LPI5,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0091,PhonemeSequence,D0091_LPI5-7,LPI5,LPI7,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0091,PictureNaming,D0091_LPI3-5,LPI3,LPI5,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0091,PictureNaming,D0091_LPI5-7,LPI5,LPI7,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0092,LexicalDelay,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0092,LexicalDelay,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0092,LexicalDelay,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0092,LexicalDelay,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0092,LexicalDelay,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0092,LexicalDelay,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0092,LexicalDelay,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0092,LexicalDelay,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0092,PhonemeSequence,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0092,PhonemeSequence,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0092,PhonemeSequence,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0092,PhonemeSequence,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0092,PhonemeSequence,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0092,PhonemeSequence,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0092,PhonemeSequence,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0092,PhonemeSequence,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0092,PictureNaming,D0092_LIA1-2,LIA1,LIA2,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0092,PictureNaming,D0092_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0092,PictureNaming,D0092_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0092,PictureNaming,D0092_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0092,PictureNaming,D0092_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0092,PictureNaming,D0092_RIA2-3,RIA2,RIA3,insula middle short gyrus R,False,,True,responsive,False,True,False,True,delay,sound
+D0092,PictureNaming,D0092_RIA3-4,RIA3,RIA4,insula middle short gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0092,PictureNaming,D0092_RIA4-5,RIA4,RIA5,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0093,PhonemeSequence,D0093_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0093,PhonemeSequence,D0093_LIA2-3,LIA2,LIA3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0093,PhonemeSequence,D0093_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0093,PhonemeSequence,D0093_LIA5-6,LIA5,LIA6,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0093,PictureNaming,D0093_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0093,PictureNaming,D0093_LIA2-3,LIA2,LIA3,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0093,PictureNaming,D0093_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0093,PictureNaming,D0093_LIA5-6,LIA5,LIA6,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0094,LexicalDelay,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0094,LexicalDelay,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0094,PhonemeSequence,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0094,PhonemeSequence,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0094,PictureNaming,D0094_LFAI2-3,LFAI2,LFAI3,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0094,PictureNaming,D0094_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0095,PhonemeSequence,D0095_LIA1-2,LIA1,LIA2,insula anterior pole L,True,LIA1,False,incomplete,False,False,False,False,,
+D0095,PhonemeSequence,D0095_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0095,PhonemeSequence,D0095_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0095,PhonemeSequence,D0095_RIA1-2,RIA1,RIA2,insula anterior pole R,True,RIA1,True,responsive,False,True,True,True,delay|response,sound
+D0095,PhonemeSequence,D0095_RIA2-3,RIA2,RIA3,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0095,PhonemeSequence,D0095_RPI1-2,RPI1,RPI2,insula anterior long gyrus R,False,,True,responsive,False,True,False,True,delay,sound
+D0095,PhonemeSequence,D0095_RPI4-5,RPI4,RPI5,insula posterior short gyrus R,True,RPI4,False,incomplete,False,False,False,False,,
+D0096,LexicalDelay,D0096_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,True,LFAI2,True,responsive,False,True,True,True,delay|response,sound
+D0096,LexicalDelay,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0096,LexicalDelay,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0096,PhonemeSequence,D0096_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,True,LFAI2,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0096,PhonemeSequence,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0096,PhonemeSequence,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0096,PictureNaming,D0096_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,True,LFAI2,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0096,PictureNaming,D0096_LFMI2-3,LFMI2,LFMI3,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0096,PictureNaming,D0096_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0101,LexicalDelay,D0101_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,LexicalDelay,D0101_RIA5-6,RIA5,RIA6,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0101,LexicalDelay,D0101_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0101,LexicalDelay,D0101_RIP2-3,RIP2,RIP3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,LexicalDelay,D0101_RIP3-4,RIP3,RIP4,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,LexicalDelay,D0101_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,LexicalDelay,D0101_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,LexicalDelay,D0101_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0101,PictureNaming,D0101_RIA5-6,RIA5,RIA6,insula anterior short gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0101,PictureNaming,D0101_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIP2-3,RIP2,RIP3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIP3-4,RIP3,RIP4,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIP4-5,RIP4,RIP5,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0101,PictureNaming,D0101_RIP6-7,RIP6,RIP7,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0102,LexicalDelay,D0102_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,True,RFAI2,True,responsive,False,True,True,True,delay|response,sound
+D0102,LexicalDelay,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0102,LexicalDelay,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0102,LexicalDelay,D0102_RTAS2-3,RTAS2,RTAS3,insula posterior long gyrus R,True,RTAS3,True,responsive,True,False,True,True,stimulus|response,sound
+D0102,PhonemeSequence,D0102_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,True,RFAI2,True,responsive,False,True,True,True,delay|response,sound
+D0102,PhonemeSequence,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,False,,True,responsive,False,True,True,True,delay|response,sound
+D0102,PhonemeSequence,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0102,PhonemeSequence,D0102_RTAS2-3,RTAS2,RTAS3,insula posterior long gyrus R,True,RTAS3,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0102,PictureNaming,D0102_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,True,RFAI2,True,responsive,False,False,True,True,response,sound
+D0102,PictureNaming,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0102,PictureNaming,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0102,PictureNaming,D0102_RTAS2-3,RTAS2,RTAS3,insula posterior long gyrus R,True,RTAS3,True,responsive,True,False,False,True,stimulus,sound
+D0102,SentenceRep,D0102_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,True,RFAI2,True,responsive,False,False,True,True,response,sound
+D0102,SentenceRep,D0102_RFPI1-2,RFPI1,RFPI2,insula anterior long gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0102,SentenceRep,D0102_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0102,SentenceRep,D0102_RTAS2-3,RTAS2,RTAS3,insula posterior long gyrus R,True,RTAS3,False,not_responsive,False,False,False,True,,
+D0103,LexicalDelay,D0103_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0103,LexicalDelay,D0103_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0103,LexicalDelay,D0103_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0103,LexicalDelay,D0103_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0103,LexicalDelay,D0103_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0103,LexicalDelay,D0103_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0103,LexicalDelay,D0103_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0103,LexicalDelay,D0103_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0103,LexicalDelay,D0103_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0103,LexicalDelay,D0103_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0103,PhonemeSequence,D0103_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0103,PhonemeSequence,D0103_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0103,PhonemeSequence,D0103_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0103,PhonemeSequence,D0103_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0103,PhonemeSequence,D0103_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0103,PhonemeSequence,D0103_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0103,PhonemeSequence,D0103_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0103,PhonemeSequence,D0103_LPI2-3,LPI2,LPI3,insula posterior short gyrus L,False,,True,responsive,False,True,True,True,delay|response,sound
+D0103,PhonemeSequence,D0103_LPI3-4,LPI3,LPI4,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0103,PhonemeSequence,D0103_LPI6-7,LPI6,LPI7,insula posterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0105,PictureNaming,D0105_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0105,PictureNaming,D0105_LIA2-3,LIA2,LIA3,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0105,PictureNaming,D0105_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0105,PictureNaming,D0105_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,True,LIA5,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0105,PictureNaming,D0105_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0105,PictureNaming,D0105_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,True,LTAS3,False,incomplete,False,False,False,False,,
+D0105,PictureNaming,D0105_LTPS1-2,LTPS1,LTPS2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0108,PictureNaming,D0108_LFAI1-2,LFAI1,LFAI2,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0108,PictureNaming,D0108_LFAI2-3,LFAI2,LFAI3,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0115,LexicalDelay,D0115_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0115,LexicalDelay,D0115_LIA2-3,LIA2,LIA3,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0115,LexicalDelay,D0115_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0115,LexicalDelay,D0115_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0115,LexicalDelay,D0115_LTAS2-3,LTAS2,LTAS3,insula posterior long gyrus L,True,LTAS3,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0115,LexicalDelay,D0115_LTMS1-2,LTMS1,LTMS2,insula posterior long gyrus L,True,LTMS2,True,responsive,True,False,False,True,stimulus,sound
+D0118,PictureNaming,D0118_LFMI1-2,LFMI1,LFMI2,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0118,PictureNaming,D0118_LFMI2-3,LFMI2,LFMI3,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0118,PictureNaming,D0118_LIA2-3,LIA2,LIA3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0118,PictureNaming,D0118_LIA3-4,LIA3,LIA4,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0118,PictureNaming,D0118_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0118,PictureNaming,D0118_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0118,PictureNaming,D0118_LTMS1-2,LTMS1,LTMS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0118,PictureNaming,D0118_LTMS2-3,LTMS2,LTMS3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0118,PictureNaming,D0118_RTAS1-2,RTAS1,RTAS2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0119,PictureNaming,D0119_RIA1-2,RIA1,RIA2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0119,PictureNaming,D0119_RIA2-3,RIA2,RIA3,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0119,PictureNaming,D0119_RIA3-4,RIA3,RIA4,insula anterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0119,PictureNaming,D0119_RIA4-5,RIA4,RIA5,insula anterior short gyrus R,True,RIA5,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0119,PictureNaming,D0119_RIP1-2,RIP1,RIP2,insula anterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0119,PictureNaming,D0119_RIP2-3,RIP2,RIP3,insula anterior long gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0119,PictureNaming,D0119_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0122,PictureNaming,D0122_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0122,PictureNaming,D0122_LTMS1-2,LTMS1,LTMS2,insula posterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0123,PictureNaming,D0123_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0123,PictureNaming,D0123_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0123,PictureNaming,D0123_LTAS1-2,LTAS1,LTAS2,insula posterior long gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0125,PictureNaming,D0125_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0125,PictureNaming,D0125_LIA2-3,LIA2,LIA3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0125,PictureNaming,D0125_LIA3-4,LIA3,LIA4,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0125,PictureNaming,D0125_LIA4-5,LIA4,LIA5,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0125,PictureNaming,D0125_LTAS1-2,LTAS1,LTAS2,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0125,PictureNaming,D0125_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,True,responsive,False,False,True,True,response,sound
+D0125,PictureNaming,D0125_LTMS1-2,LTMS1,LTMS2,insula posterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0125,PictureNaming,D0125_LTMS2-3,LTMS2,LTMS3,insula posterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0128,LexicalDelay,D0128_RFAI1-2,RFAI1,RFAI2,insula middle short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0128,LexicalDelay,D0128_RTMS1-2,RTMS1,RTMS2,insula posterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0128,LexicalDelay,D0128_RTMS2-3,RTMS2,RTMS3,insula posterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0129,LexicalDelay,D0129_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0129,LexicalDelay,D0129_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,LexicalDelay,D0129_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,LexicalDelay,D0129_LAI4-5,LAI4,LAI5,insula posterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0129,LexicalDelay,D0129_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0129,LexicalDelay,D0129_LFAI2-3,LFAI2,LFAI3,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0129,LexicalDelay,D0129_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0129,LexicalDelay,D0129_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,True,LTAS3,False,incomplete,False,False,False,False,,
+D0129,LexicalDelay,D0129_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,LexicalDelay,D0129_LTMS2-3,LTMS2,LTMS3,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0129,PictureNaming,D0129_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,True,responsive,False,True,False,True,delay,sound
+D0129,PictureNaming,D0129_LAI2-3,LAI2,LAI3,insula middle short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,PictureNaming,D0129_LAI3-4,LAI3,LAI4,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,PictureNaming,D0129_LAI4-5,LAI4,LAI5,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,PictureNaming,D0129_LFAI1-2,LFAI1,LFAI2,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0129,PictureNaming,D0129_LFAI2-3,LFAI2,LFAI3,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0129,PictureNaming,D0129_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0129,PictureNaming,D0129_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,True,LTAS3,True,responsive,False,True,False,True,delay,sound
+D0129,PictureNaming,D0129_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0129,PictureNaming,D0129_LTMS2-3,LTMS2,LTMS3,insula anterior long gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0131,PictureNaming,D0131_LIA1-2,LIA1,LIA2,insula anterior pole L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0131,PictureNaming,D0131_LIA2-3,LIA2,LIA3,insula middle short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0131,PictureNaming,D0131_LIA3-4,LIA3,LIA4,insula middle short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0131,PictureNaming,D0131_LIA4-5,LIA4,LIA5,insula middle short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0131,PictureNaming,D0131_RFAI1-2,RFAI1,RFAI2,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0131,PictureNaming,D0131_RFAI2-3,RFAI2,RFAI3,insula anterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0131,PictureNaming,D0131_RIA1-2,RIA1,RIA2,insula posterior short gyrus R,False,,True,responsive,True,False,False,True,stimulus,sound
+D0131,PictureNaming,D0131_RTAS1-2,RTAS1,RTAS2,insula anterior pole R,False,,False,incomplete,False,False,False,False,,
+D0131,PictureNaming,D0131_RTAS2-3,RTAS2,RTAS3,insula anterior pole R,True,RTAS3,True,responsive,True,True,False,True,stimulus|delay,sound
+D0131,PictureNaming,D0131_RTMS1-2,RTMS1,RTMS2,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0131,PictureNaming,D0131_RTMS2-3,RTMS2,RTMS3,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0131,PictureNaming,D0131_RTMS3-4,RTMS3,RTMS4,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0132,LexicalDelay,D0132_LFPI1-2,LFPI1,LFPI2,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0132,LexicalDelay,D0132_LPPI8-9,LPPI8,LPPI9,insula posterior long gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0132,LexicalDelay,D0132_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0132,LexicalDelay,D0132_LTAS3-4,LTAS3,LTAS4,insula anterior pole L,True,LTAS4,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0132,LexicalDelay,D0132_LTMS1-2,LTMS1,LTMS2,insula anterior long gyrus L,False,,False,incomplete,False,False,False,False,,
+D0132,LexicalDelay,D0132_LTMS3-4,LTMS3,LTMS4,insula anterior long gyrus L,True,LTMS4,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0134,PictureNaming,D0134_LINS1-3,LINS1,LINS3,insula posterior short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0134,PictureNaming,D0134_LINS3-6,LINS3,LINS6,insula middle short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0134,PictureNaming,D0134_RINS1-6,RINS1,RINS6,insula posterior short gyrus R,False,,True,responsive,False,False,True,True,response,sound
+D0137,LexicalDelay,D0137_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0137,LexicalDelay,D0137_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0137,LexicalDelay,D0137_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0137,LexicalDelay,D0137_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0137,LexicalDelay,D0137_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0137,LexicalDelay,D0137_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0137,LexicalDelay,D0137_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0137,LexicalDelay,D0137_LPAI2-3,LPAI2,LPAI3,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0137,LexicalDelay,D0137_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0137,LexicalDelay,D0137_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0137,LexicalDelay,D0137_LTMS1-2,LTMS1,LTMS2,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0137,LexicalDelay,D0137_LTMS2-3,LTMS2,LTMS3,insula posterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0137,PictureNaming,D0137_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0137,PictureNaming,D0137_LAI2-3,LAI2,LAI3,insula anterior pole L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0137,PictureNaming,D0137_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0137,PictureNaming,D0137_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0137,PictureNaming,D0137_LAI5-6,LAI5,LAI6,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0137,PictureNaming,D0137_LAI6-7,LAI6,LAI7,insula anterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0137,PictureNaming,D0137_LPAI1-2,LPAI1,LPAI2,insula anterior long gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0137,PictureNaming,D0137_LPAI2-3,LPAI2,LPAI3,insula anterior long gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0137,PictureNaming,D0137_LPI1-2,LPI1,LPI2,insula anterior long gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0137,PictureNaming,D0137_LPI2-3,LPI2,LPI3,insula anterior long gyrus L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0137,PictureNaming,D0137_LTMS1-2,LTMS1,LTMS2,insula posterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0137,PictureNaming,D0137_LTMS2-3,LTMS2,LTMS3,insula posterior short gyrus L,False,,True,responsive,False,True,False,True,delay,sound
+D0138,LexicalDelay,D0138_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0138,LexicalDelay,D0138_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0138,LexicalDelay,D0138_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0138,LexicalDelay,D0138_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0138,LexicalDelay,D0138_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0138,PictureNaming,D0138_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,False,,True,responsive,False,False,True,True,response,sound
+D0138,PictureNaming,D0138_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0138,PictureNaming,D0138_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0138,PictureNaming,D0138_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0138,PictureNaming,D0138_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,False,not_responsive,False,False,False,True,,
+D0139,LexicalDelay,D0139_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,False,,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0139,LexicalDelay,D0139_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,True,responsive,True,False,False,True,stimulus,sound
+D0139,LexicalDelay,D0139_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0139,LexicalDelay,D0139_LTAS3-4,LTAS3,LTAS4,insula anterior pole L,True,LTAS4,True,responsive,False,True,True,True,delay|response,sound
+D0139,PictureNaming,D0139_LFAI1-2,LFAI1,LFAI2,insula middle short gyrus L,False,,True,responsive,True,False,True,True,stimulus|response,sound
+D0139,PictureNaming,D0139_LTAS1-2,LTAS1,LTAS2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0139,PictureNaming,D0139_LTAS2-3,LTAS2,LTAS3,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0139,PictureNaming,D0139_LTAS3-4,LTAS3,LTAS4,insula anterior pole L,True,LTAS4,True,responsive,True,False,True,True,stimulus|response,sound
+D0140,LexicalDelay,D0140_LAI1-2,LAI1,LAI2,insula anterior pole L,False,,False,incomplete,False,False,False,False,,
+D0140,LexicalDelay,D0140_LAI2-3,LAI2,LAI3,insula anterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0140,LexicalDelay,D0140_LAI3-4,LAI3,LAI4,insula anterior short gyrus L,False,,False,not_responsive,False,False,False,True,,
+D0140,LexicalDelay,D0140_LAI4-5,LAI4,LAI5,insula anterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0140,LexicalDelay,D0140_LFAI1-2,LFAI1,LFAI2,insula posterior short gyrus L,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0140,LexicalDelay,D0140_LFAI2-3,LFAI2,LFAI3,insula posterior short gyrus L,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RFAI1-2,RFAI1,RFAI2,insula posterior short gyrus R,True,RFAI2,True,responsive,True,True,True,True,stimulus|delay|response,sound
+D0143,LexicalDelay,D0143_RIP1-2,RIP1,RIP2,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RIP2-3,RIP2,RIP3,insula posterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RIP3-4,RIP3,RIP4,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RIP4-5,RIP4,RIP5,insula anterior long gyrus R,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RIP5-6,RIP5,RIP6,insula posterior short gyrus R,False,,False,incomplete,False,False,False,False,,
+D0143,LexicalDelay,D0143_RPAI1-2,RPAI1,RPAI2,insula anterior long gyrus R,False,,True,responsive,True,True,False,True,stimulus|delay,sound
+D0143,LexicalDelay,D0143_RTAS1-2,RTAS1,RTAS2,insula anterior pole R,False,,True,responsive,False,False,True,True,response,sound
+D0143,LexicalDelay,D0143_RTMS1-2,RTMS1,RTMS2,insula posterior long gyrus R,False,,False,not_responsive,False,False,False,True,,
+D0143,LexicalDelay,D0143_RTMS2-3,RTMS2,RTMS3,insula posterior long gyrus R,True,RTMS3,True,responsive,True,False,False,True,stimulus,sound

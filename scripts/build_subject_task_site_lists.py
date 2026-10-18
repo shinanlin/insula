@@ -48,7 +48,8 @@ def main():
     evidence=pd.read_csv(AUDIT/'response_evidence.csv')
     assert evidence.modality.eq('sound').all(), 'Main selection must use sound only'
     sampled=anatomy.loc[anatomy.status.eq('include'),
-        ['subject','task','channel','contact_1','contact_2','old_midpoint_labels']].copy()
+        ['subject','task','channel','contact_1','contact_2','old_midpoint_labels',
+         'has_accepted_unknown_endpoint','accepted_unknown_contacts']].copy()
     sampled=sampled.merge(response[['task','channel','any_significant','response_status',
         'stimulus_significant','delay_significant','response_significant','all_three_phases_available']],
         on=['task','channel'],how='left',validate='one_to_one')
@@ -94,7 +95,9 @@ def main():
         sig=rows.loc[rows.confirmed_responsive]
         unique.append(dict(subject=rows.subject.iloc[0],site_id=site_id,
             sampled_in_tasks=join_ids(rows.task),responsive_in_tasks=join_ids(sig.task),
-            confirmed_responsive=bool(len(sig)),contact_1=rows.contact_1.iloc[0],contact_2=rows.contact_2.iloc[0]))
+            confirmed_responsive=bool(len(sig)),contact_1=rows.contact_1.iloc[0],contact_2=rows.contact_2.iloc[0],
+            has_accepted_unknown_endpoint=bool(rows.has_accepted_unknown_endpoint.any()),
+            accepted_unknown_contacts=rows.accepted_unknown_contacts.iloc[0]))
     unique=pd.DataFrame(unique).sort_values(['subject','site_id'])
     nmf_candidates=unique.loc[unique.confirmed_responsive].copy()
     assert len(nmf_candidates)<=len(unique) and len(nmf_candidates)>0

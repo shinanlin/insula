@@ -4,8 +4,8 @@
   "all_code_cells_executed": true,
   "output_errors": [],
   "legacy_notebook_unchanged": true,
-  "sampled_sites": 323,
-  "confirmed_responsive_sites": 213,
+  "sampled_sites": 348,
+  "confirmed_responsive_sites": 231,
   "condition": "Repeat",
   "modality": "sound",
   "sound_only_source_membership_verified": true,
@@ -15,20 +15,19 @@
   "svg_inline_only": true,
   "average_hga_counts": {
     "stimulus": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     },
     "delay": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     },
     "response": {
-      "n_sites": 213,
-      "n_subjects": 61
+      "n_sites": 231,
+      "n_subjects": 62
     }
   },
   "average_hga_missing_site_phase_pairs": 0,
   "nmf_unchanged": true,
-  "notebook_sha256": "5af819ccdaee379c1045a8477a1644c69d38aad49895a1050772394e60aca6c1",
-  "markdown_matches_sound_only_counts": true
+  "notebook_sha256": "4de6c964c2647f3e1138590d06f2358bf72d9f777cfb47f27da187325a5ffc70"
 }

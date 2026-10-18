@@ -1,14 +1,14 @@
 {
   "inputs": {
-    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "e1e0caa58d092bc2b07dce4138853354d63e198d5943baa4ad1c05bcc40ca7bd",
-    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_anatomy_audit.csv": "1b3cc9c6c327c109dd97047866ab8bb5dc9169843da8887d5b3f46789c644941",
-    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "41d9cb81969b028883ffec88bcfed6692ef9e4759ef237219c60db62551fa094",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/site_anatomy_audit.csv": "7c5a5661cd408b89b789f72fda7733b7df47f67b51537212911da655ca87048e",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_anatomy_audit.csv": "ae09c27261caff8a8405c53c12d8234e563f8ea1978ac2fe829816cd7ba142d0",
+    "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/task_site_response_audit.csv": "b9ab2ca6d02490f2717b1e149c5705b47387e9b8cf2171381ed4852c7efd0ab9",
     "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/response_evidence.csv": "e27f79fcdcd387fd94888c1fdb739c9908abe96b39312d8adefa9aa75be7a16f",
     "/cwork/ns458/insula-paper/results/audit/sound_only_cohort_2026-10-17/coordinate_manifest.json": "10fa9840626578effa8c59fe3b203be0ef5eb21641fcbbf8961ff771405dcca7"
   },
   "protected": {
     "/hpc/group/coganlab/nanlinshi/insula-functional/vizpub/fig1.ipynb": "4e932e14c9ccd6763a56b1f35806bb3f026956a2481793dc461f96325032f75f",
-    "/cwork/ns458/insula-paper/vizpub/fig1.ipynb": "ed72a6979e7615bb4ec74070d146f56256f6ff4705d32399648d6c444e3cfd8b",
+    "/cwork/ns458/insula-paper/vizpub/fig1.ipynb": "5af819ccdaee379c1045a8477a1644c69d38aad49895a1050772394e60aca6c1",
     "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/laterality_home_phase_seesaw.csv": "99e95aa1c49114b590e9b284ddb5cd6a2cb92bfeda180ef1ccee476eb4a89bab",
     "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/model_selection_metrics.csv": "832a92980964f8108cc0b19da1b803a20d7fa0001b338128ad77e633784f5dce",
     "/hpc/group/coganlab/nanlinshi/insula-functional/results/nmf/pc_scree.csv": "74f732f682e8c5aac5766b2600eb82951961e4b4d03f2dd35c665fabf036effb",

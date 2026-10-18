@@ -1,0 +1,31 @@
+{
+  "passed": true,
+  "previous_sampled_sites": 323,
+  "current_sampled_sites": 348,
+  "previous_responsive_sites": 213,
+  "current_responsive_sites": 231,
+  "restored_unknown_endpoint_sites": 25,
+  "restored_sound_responsive_sites": 18,
+  "restored_old_sensory_sites": 8,
+  "gray_sites_still_pending": [
+    "D0049_LAI1-2",
+    "D0085_RAI1-2",
+    "D0096_LTAS2-3",
+    "D0103_LTMS1-2",
+    "D0118_RTAS2-3"
+  ],
+  "coordinate_conflicts_still_pending": [
+    "D0086_RTPS4-9",
+    "D0107_RTAS1-2"
+  ],
+  "explicit_CSF_sites_still_excluded": true,
+  "previous_snapshot_unchanged": true,
+  "sound_only_selection_and_waveforms_verified": true,
+  "nmf_k": 3,
+  "nmf_cluster_counts": {
+    "motor": 129,
+    "sustain": 67,
+    "sensory": 35
+  },
+  "figure1_and_figure2_validated": true
+}

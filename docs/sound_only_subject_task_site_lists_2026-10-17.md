@@ -4,11 +4,11 @@
 
 | 任务 | 采样参与者数 | 采样位点数 | 显著参与者数 | 已确认显著位点数 |
 | --- | --- | --- | --- | --- |
-| PhonemeSequence | 36 | 161 | 32 | 98 |
-| LexicalDelay | 38 | 199 | 36 | 115 |
-| PictureNaming | 28 | 151 | 25 | 82 |
-| SentenceRep | 16 | 53 | 13 | 26 |
-| ALL_UNIQUE | 65 | 323 | 61 | 213 |
+| PhonemeSequence | 36 | 173 | 32 | 104 |
+| LexicalDelay | 38 | 214 | 37 | 126 |
+| PictureNaming | 28 | 162 | 26 | 91 |
+| SentenceRep | 16 | 56 | 14 | 28 |
+| ALL_UNIQUE | 65 | 348 | 62 | 231 |
 
 逐任务数量有跨任务重复；ALL_UNIQUE 按参与者＋双极名称取并集。
 
