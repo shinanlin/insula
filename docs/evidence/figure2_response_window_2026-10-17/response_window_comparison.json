@@ -1,0 +1,23 @@
+{
+  "reference_run": "/cwork/ns458/insula-paper/docs/evidence/figure2_refresh_2026-10-17",
+  "previous_manifest_sha256": "c97dd2459e6536ce4eae223497d1909d53c86dc37b5d3f462109293b695cee21",
+  "previous_response_window": [
+    0.0,
+    1.0
+  ],
+  "current_response_window": [
+    -0.5,
+    1.0
+  ],
+  "n_sites": 227,
+  "n_subjects": 64,
+  "previous_n_features": 335,
+  "current_n_features": 399,
+  "added_response_samples": 64,
+  "common_raw_features_unchanged": true,
+  "site_waveforms_unchanged": true,
+  "cohort_and_site_order_unchanged": true,
+  "n_changed": 44,
+  "n_unchanged": 183,
+  "ari": 0.6168925376328254
+}

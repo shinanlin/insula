@@ -24,9 +24,62 @@ def sha(path):
     return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
+def compare_response_windows(reference, data, features, assignments):
+    """Verify the window-only change and compare labels on the identical cohort."""
+    previous = np.load(reference/'input_matrix.npz')
+    previous_features = pd.read_csv(reference/'input_features.csv')
+    previous_manifest = json.loads((reference/'nmf_manifest.json').read_text())
+    current_manifest = json.loads((OUT/'input_manifest.json').read_text())
+    assert previous_manifest['fit_windows']['response'] == [0., 1.]
+    assert current_manifest['fit_windows']['response'] == [-.5, 1.]
+    assert np.array_equal(previous['channels'], data['channels'])
+    previous_index = pd.MultiIndex.from_frame(previous_features[['phase','time']])
+    current_index = pd.MultiIndex.from_frame(features[['phase','time']])
+    positions = current_index.get_indexer(previous_index)
+    assert np.all(positions >= 0), 'A previous feature was lost'
+    assert np.allclose(previous['raw'], data['raw'][:,positions], atol=1e-12, rtol=0)
+    added = current_index.difference(previous_index)
+    assert len(added) == 64 and all(p == 'response' and -.5 <= t < 0 for p,t in added)
+    assert len(features) == 399
+    previous_waves = pd.read_csv(reference/'site_waveforms.csv.gz')
+    current_waves = pd.read_csv(OUT/'site_waveforms.csv.gz')
+    keys = ['subject','channel','phase','time']
+    left = previous_waves.set_index(keys).sort_index()
+    right = current_waves.set_index(keys).sort_index()
+    pd.testing.assert_index_equal(left.index, right.index)
+    assert np.allclose(left.value, right.value, atol=1e-12, rtol=0)
+    previous_sites = pd.read_csv(reference/'channel_assignments.csv')
+    comparison = assignments[['channel','subject','functional_cluster']].rename(
+        columns={'functional_cluster':'new_cluster'}).merge(
+            previous_sites[['channel','functional_cluster']].rename(
+                columns={'functional_cluster':'previous_cluster'}),
+            on='channel', validate='one_to_one')
+    assert len(comparison) == len(assignments) == len(previous_sites)
+    comparison['cluster_changed'] = comparison.new_cluster.ne(comparison.previous_cluster)
+    comparison.to_csv(OUT/'comparison_with_response_0_to1.csv', index=False)
+    pd.crosstab(comparison.previous_cluster, comparison.new_cluster).reindex(
+        index=CLUSTER_ORDER, columns=CLUSTER_ORDER, fill_value=0).to_csv(
+            OUT/'response_window_label_transitions.csv')
+    result = dict(reference_run=str(reference.resolve()),
+        previous_manifest_sha256=sha(reference/'nmf_manifest.json'),
+        previous_response_window=[0.,1.], current_response_window=[-.5,1.],
+        n_sites=len(comparison), n_subjects=int(comparison.subject.nunique()),
+        previous_n_features=int(previous['X'].shape[1]), current_n_features=len(features),
+        added_response_samples=len(added), common_raw_features_unchanged=True,
+        site_waveforms_unchanged=True, cohort_and_site_order_unchanged=True,
+        n_changed=int(comparison.cluster_changed.sum()),
+        n_unchanged=int((~comparison.cluster_changed).sum()),
+        ari=float(adjusted_rand_score(comparison.previous_cluster, comparison.new_cluster)))
+    (OUT/'response_window_comparison.json').write_text(json.dumps(result, indent=2)+'\n')
+    print(json.dumps(result, indent=2), flush=True)
+    return result
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--rank-only', action='store_true')
+    parser.add_argument('--reference-run', type=Path,
+                        help='Frozen previous Response 0–1 s run for a window-only comparison')
     args = parser.parse_args()
     data = np.load(OUT/'input_matrix.npz')
     X = data['X']
@@ -116,6 +169,9 @@ def main():
         'nmf_kmeans_ari':float(adjusted_rand_score(labels,km)),
         'factor_H_unit_norm':bool(np.allclose(np.linalg.norm(H,axis=1),1)),
         'outputs':{p.name:sha(p) for p in [OUT/'channel_assignments.csv',OUT/'factors.npz',OUT/'H_by_phase.csv']}}
+    if args.reference_run is not None:
+        summary['response_window_comparison'] = compare_response_windows(
+            args.reference_run, data, features, assignments)
     (OUT/'nmf_manifest.json').write_text(json.dumps(summary,indent=2)+'\n')
     print(profiles.to_string(index=False),flush=True)
     print(json.dumps({k:v for k,v in summary.items() if k not in ['outputs','supplemented_epochs']},indent=2),flush=True)

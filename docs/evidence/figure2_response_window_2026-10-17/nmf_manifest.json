@@ -1,0 +1,290 @@
+{
+  "n_sites": 227,
+  "n_subjects": 64,
+  "n_features": 399,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "fit_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      1.0
+    ]
+  },
+  "significance_windows": {
+    "stimulus": [
+      0,
+      0.6
+    ],
+    "delay": [
+      0,
+      1
+    ],
+    "response": [
+      -0.5,
+      0.5
+    ]
+  },
+  "phase_samples": {
+    "delay": 129,
+    "response": 193,
+    "stimulus": 77
+  },
+  "condition": "Repeat",
+  "modalities": [
+    "image",
+    "sound",
+    "text"
+  ],
+  "weighting": "equal modalities within site/task; equal available tasks within site; one NMF row per site",
+  "preprocessing": "negative HGA clipped at zero; L2 normalization across full concatenated waveform",
+  "excluded_subjects": [
+    "D0121"
+  ],
+  "old_manual_exclusions_applied": false,
+  "anatomy_selection": "Figure 1 reviewed midpoint insular gray matter; endpoints insular GM or confirmed WM",
+  "incomplete_response_evidence_sites": 94,
+  "missing_evidence_interpretation": "excluded pending evidence; not negative",
+  "source_cohort": "/cwork/ns458/insula-paper/docs/evidence/subject_task_site_lists_2026-10-17/nmf_candidate_sites_not_final_inputs.csv",
+  "source_cohort_sha256": "53695474b60f613695a216b3e4a847b1161097427358765d7aac522988b4f6a9",
+  "figure1_cache_sha256": "cadf3416df1a2e47bc636912699b3921d2abbeafefa8b966a025f74b4722d314",
+  "figure1_notebook_sha256": "ed72a6979e7615bb4ec74070d146f56256f6ff4705d32399648d6c444e3cfd8b",
+  "figure1_group_mean_reproduced": true,
+  "supplemented_epochs": [
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "a597d7ed58c5a7f7d401f90969acbe76646070be7c60839a07338423ffe329ea",
+      "channels": [
+        "D0027_LAI1-2"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "f2e862f104d024ef6e7a9b8353193ae9a40cb596aaba8a3737ed3861519f5620",
+      "channels": [
+        "D0027_LAI1-2"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0027/epoch(band)(zscore)/sub-D0027_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "ba81c38f994fca41af4f0230cae3175e0f5270eb9fe91ea50cd1edfda8dd531e",
+      "channels": [
+        "D0027_LAI1-2"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "aa6a5f0f664a25351706b9de44c36fc2a9251c36617062081374c47a2c7ba3d0",
+      "channels": [
+        "D0028_LPI2-3"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "1bc2c12fd8902d97313478b360f00c3066892090d0789cf23f5b290910f7c74c",
+      "channels": [
+        "D0028_LPI2-3"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0028/epoch(band)(zscore)/sub-D0028_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "c43fd7c4ee21bf187b25f94a81a7273e5dc7f999538e4fd2e50718b15d821c3b",
+      "channels": [
+        "D0028_LPI2-3"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "c5772e924b0779fafbdb15b954a5ecddb6c7b65f949f974b2d74706ec8bc5a73",
+      "channels": [
+        "D0032_LAI2-3",
+        "D0032_LPI2-3"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "3dd2933a69524b4f426182ccc042ca6086fe7d08530cbd47c178a3eb2629f616",
+      "channels": [
+        "D0032_LAI2-3",
+        "D0032_LPI2-3"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0032/epoch(band)(zscore)/sub-D0032_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "0bbe4b9ea1825c39d1e6e91b672c4c3b93f344e61bb3efccfb2f0b4c32324036",
+      "channels": [
+        "D0032_LAI2-3",
+        "D0032_LPI2-3"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "76a4f3bec072fd0ee773c10e56f23c7227af2bfca4f973ada9391ae25c1ee11a",
+      "channels": [
+        "D0060_LI1-2"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "e275d1cc32b3f0c73919792535e474254349a92ef04e927cd0d5872ae3186e42",
+      "channels": [
+        "D0060_LI1-2"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0060/epoch(band)(zscore)/sub-D0060_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "893d1ea1e5c5f21f6f3c0521ec332aeec29c21d0664cc77b6d65f5f4b2f1e0af",
+      "channels": [
+        "D0060_LI1-2"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "ca931c8751a9c2f160f92b74b69542daebc18d3714acb9eb466625bb2510e5b5",
+      "channels": [
+        "D0061_LAI4-5"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "91ad4f8eb6a0373a820976718dcc0a3783e9adcbd18adc41f4bdbb0f8851ea87",
+      "channels": [
+        "D0061_LAI4-5"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0061/epoch(band)(zscore)/sub-D0061_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "cd4e9faf23bd503b9838cb982629170272bc62adcecfba9d7f7a0011c3a60cc6",
+      "channels": [
+        "D0061_LAI4-5"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "38a9a625e7eb4cc3dea637e2d739d7a62ea78a1bc101b2c4cafccbf9b5b379b2",
+      "channels": [
+        "D0063_RAI1-2"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "6bf2cab271a83eabb0bb314ff23d4f198f89bcd0a0c52c0fa7b12e0c784fe43c",
+      "channels": [
+        "D0063_RAI1-2"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0063/epoch(band)(zscore)/sub-D0063_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "6c9d149908db36de866406a94c1033fcf6a8c9c844bfe02d45753330a54a6b17",
+      "channels": [
+        "D0063_RAI1-2"
+      ],
+      "phase": "response"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Stimulus_desc-Repeat_highgamma.h5",
+      "sha256": "52f11183406b3f0ffceee575277ac2f3e6cc62e4e8f481037dcec85aa3921d0b",
+      "channels": [
+        "D0102_RTAS1-2"
+      ],
+      "phase": "stimulus"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Delay_desc-Repeat_highgamma.h5",
+      "sha256": "0d71c31cc40d8b7e7745e39b9d233842535b3c2ab9abb17ed3d3b3ba1ac37300",
+      "channels": [
+        "D0102_RTAS1-2"
+      ],
+      "phase": "delay"
+    },
+    {
+      "path": "/cwork/ns458/BIDS-1.4_SentenceRep/BIDS/derivatives/epoch(bipolar)/sub-D0102/epoch(band)(zscore)/sub-D0102_task-SentenceRep_proc-Response_desc-Repeat_highgamma.h5",
+      "sha256": "a0e1eb439d2d827d0466135f8d7a451d00879fbfec834cd438fba3192201ef96",
+      "channels": [
+        "D0102_RTAS1-2"
+      ],
+      "phase": "response"
+    }
+  ],
+  "outputs": {
+    "channel_assignments.csv": "a4c04c7760b0bdeb56282b5646f5054612ccb3a3686591fc3b14e9937b1137f6",
+    "factors.npz": "a3cbf47a07ef86eb3aa760d3e92546f963f5e9470e76477422146a05f2369d3d",
+    "H_by_phase.csv": "659741f7e5b11f137bf2c25a5a81fe34e850b6b3baeb065551a825e80641c15f"
+  },
+  "k": 3,
+  "n_init": 20,
+  "random_state": 42,
+  "best_run": 8,
+  "solver": "coordinate descent, squared Frobenius error, nndsvdar initialization, max_iter=5000, tol=1e-4",
+  "reconstruction_error": 7.716409113129763,
+  "explained_energy": 0.7376961691577448,
+  "mean_initialization_ari": 1.0,
+  "converged_starts": 20,
+  "cluster_counts": {
+    "motor": 128,
+    "sustain": 55,
+    "sensory": 44
+  },
+  "cluster_subject_counts": {
+    "motor": 56,
+    "sensory": 26,
+    "sustain": 35
+  },
+  "n_mixed": 82,
+  "naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
+  "assignment": "argmax W after unit L2 normalization of each full concatenated H component",
+  "old_model_shared_sites": 187,
+  "old_model_shared_ari": 0.5378240954886293,
+  "nmf_kmeans_ari": 0.43376757745556793,
+  "factor_H_unit_norm": true,
+  "response_window_comparison": {
+    "reference_run": "/cwork/ns458/insula-paper/docs/evidence/figure2_refresh_2026-10-17",
+    "previous_manifest_sha256": "c97dd2459e6536ce4eae223497d1909d53c86dc37b5d3f462109293b695cee21",
+    "previous_response_window": [
+      0.0,
+      1.0
+    ],
+    "current_response_window": [
+      -0.5,
+      1.0
+    ],
+    "n_sites": 227,
+    "n_subjects": 64,
+    "previous_n_features": 335,
+    "current_n_features": 399,
+    "added_response_samples": 64,
+    "common_raw_features_unchanged": true,
+    "site_waveforms_unchanged": true,
+    "cohort_and_site_order_unchanged": true,
+    "n_changed": 44,
+    "n_unchanged": 183,
+    "ari": 0.6168925376328254
+  }
+}

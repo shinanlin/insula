@@ -14,7 +14,7 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'results/nmf'
 FIG1 = ROOT / 'results/fig1'
 COHORT = ROOT / 'docs/evidence/subject_task_site_lists_2026-10-17/nmf_candidate_sites_not_final_inputs.csv'
-WINDOWS = {'stimulus': (0., .6), 'delay': (0., 1.), 'response': (0., 1.)}
+WINDOWS = {'stimulus': (0., .6), 'delay': (0., 1.), 'response': (-.5, 1.)}
 DISPLAY = {'stimulus': (-.5, .6), 'delay': (0., 1.), 'response': (-.5, 1.5)}
 
 

@@ -1,5 +1,7 @@
 # Figure 2：核对后的三阶段 NMF
 
+> 本页记录最初 Response 0–1 s 的版本；后续按用户要求将 Response 改为 −0.5–1 s。当前结果见[窗口修订记录](figure2_response_window_2026-10-17.md)。本页数值及对应 evidence 目录保留作为旧窗口的比较依据。
+
 工作区：`/cwork/ns458/insula-paper`；分支：`codex/paper`。
 入口：[已执行的 Figure 2 Notebook](../vizpub/fig2.ipynb)。
 冻结证据：[本次输入、模型、表格与 SVG](evidence/figure2_refresh_2026-10-17/)。

@@ -20,6 +20,8 @@ SOURCE=Path('/hpc/group/coganlab/nanlinshi/insula-functional')
 OUT=ROOT/'results/fig2'
 NMF=ROOT/'results/nmf'
 NOTEBOOK=ROOT/'vizpub/fig2.ipynb'
+EVIDENCE=ROOT/'docs/evidence/figure2_response_window_2026-10-17'
+PREVIOUS=ROOT/'docs/evidence/figure2_refresh_2026-10-17'
 
 
 def sha(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
@@ -30,10 +32,15 @@ def main():
     protected = [ROOT/'vizpub/fig1.ipynb', SOURCE/'vizpub/fig2.ipynb']
     protected += list((ROOT/'img/fig1').glob('*.svg'))
     protected += [p for p in (SOURCE/'results/nmf').glob('*') if p.is_file()]
+    protected += [p for p in PREVIOUS.rglob('*') if p.is_file()]
     before = {str(p):sha(p) for p in protected}
     model=json.loads((NMF/'nmf_manifest.json').read_text())
     assert model['figure1_notebook_sha256']==sha(ROOT/'vizpub/fig1.ipynb')
     assert nmf_chosen_k()==model['k']==3, 'Downstream rank must match fitted factors, not rank-selection maximum'
+    assert model['fit_windows']=={'stimulus':[0.,.6], 'delay':[0.,1.], 'response':[-.5,1.]}
+    comparison=json.loads((NMF/'response_window_comparison.json').read_text())
+    assert comparison['common_raw_features_unchanged'] and comparison['site_waveforms_unchanged']
+    assert comparison['cohort_and_site_order_unchanged'] and comparison['added_response_samples']==64
     factors=np.load(NMF/'factors.npz')
     inputs=np.load(NMF/'input_matrix.npz')
     sites=pd.read_csv(NMF/'channel_assignments.csv')
@@ -42,6 +49,11 @@ def main():
     assert set(sites.channel)==set(expected.site_id)
     assert np.array_equal(factors['channels'],inputs['channels'])
     assert sites.channel.tolist()==inputs['channels'].tolist()
+    features=pd.read_csv(NMF/'input_features.csv')
+    assert inputs['X'].shape==(227,399)
+    assert features.groupby('phase').size().to_dict()=={'stimulus':77,'delay':129,'response':193}
+    response_times=features.loc[features.phase.eq('response'),'time']
+    assert np.isclose(response_times.min(),-.5) and np.isclose(response_times.max(),1.)
     assert np.allclose(np.linalg.norm(inputs['X'],axis=1),1)
     assert np.isfinite(inputs['X']).all() and (inputs['X']>=0).all()
     assert np.allclose(np.linalg.norm(factors['H'],axis=1),1)
@@ -83,19 +95,23 @@ def main():
     figure_manifest=json.loads((OUT/'figure_manifest.json').read_text())
     assert figure_manifest['n_sites']==227 and figure_manifest['n_subjects']==64
     assert figure_manifest['assignments_sha256']==sha(NMF/'channel_assignments.csv')
+    assert figure_manifest['fit_windows']==model['fit_windows']
     assert len(figure_manifest['figures'])>=15
     nb.metadata['insula_figure2']=dict(cohort_version='2026-10-17',n_sites=227,n_subjects=64,k=3,
-        phases=['stimulus','delay','response'],executed_utc=datetime.now(timezone.utc).isoformat(),svg_inline_only=True)
+        phases=['stimulus','delay','response'],fit_windows=model['fit_windows'],
+        executed_utc=datetime.now(timezone.utc).isoformat(),svg_inline_only=True)
     temporary=NOTEBOOK.with_suffix('.executed.tmp.ipynb')
     nbformat.write(nb,temporary)
     temporary.replace(NOTEBOOK)
-    evidence=ROOT/'docs/evidence/figure2_refresh_2026-10-17'
+    evidence=EVIDENCE
     evidence.mkdir(parents=True,exist_ok=True)
     for name in ['input_manifest.json','input_matrix.npz','input_sites.csv','input_features.csv',
         'site_waveforms.csv.gz','waveform_source_membership.csv','channel_assignments.csv','factors.npz',
         'H_by_phase.csv','component_phase_profiles.csv','initialization_metrics.csv','nmf_manifest.json',
         'rank_selection_metrics.csv','rank_selection_meta.json','chosen_k.json','pc_scores.csv',
-        'pc_clustering_meta.json','comparison_with_old_four_phase.csv']:
+        'pc_clustering_meta.json','comparison_with_old_four_phase.csv',
+        'comparison_with_response_0_to1.csv','response_window_label_transitions.csv',
+        'response_window_comparison.json']:
         shutil.copy2(NMF/name,evidence/name)
     for path in OUT.glob('*.csv*'): shutil.copy2(path,evidence/path.name)
     shutil.copy2(OUT/'figure_manifest.json',evidence/'figure_manifest.json')
@@ -109,6 +125,8 @@ def main():
         phases=['stimulus','delay','response'],H_components_unit_norm=True,
         assignments_match_normalized_W_argmax=True,best_of_20_verified=True,
         rank_same_input_verified=True,fitted_model_rank_used_by_downstream=True,figure1_and_legacy_results_unchanged=True,
+        previous_response_window_archive_unchanged=True,window_only_change_verified=True,
+        fit_windows=model['fit_windows'],n_features=399,response_time_samples=193,
         notebook_sha256=sha(NOTEBOOK),protected_file_hashes=before)
     (OUT/'execution_validation.json').write_text(json.dumps(validation,indent=2)+'\n')
     shutil.copy2(OUT/'execution_validation.json',evidence/'execution_validation.json')

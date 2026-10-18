@@ -1,0 +1,87 @@
+{
+  "n_sites": 227,
+  "n_subjects": 64,
+  "k": 3,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "fit_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      1.0
+    ]
+  },
+  "cluster_counts": {
+    "sustain": 55,
+    "motor": 128,
+    "sensory": 44
+  },
+  "cluster_subject_counts": {
+    "sustain": 35,
+    "motor": 56,
+    "sensory": 26
+  },
+  "pending_response_evidence_sites": 94,
+  "rank_cophenetic_maximum": 2,
+  "rank_near_ties": [
+    2,
+    5
+  ],
+  "component_naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
+  "response_window_comparison": {
+    "reference_run": "/cwork/ns458/insula-paper/docs/evidence/figure2_refresh_2026-10-17",
+    "previous_manifest_sha256": "c97dd2459e6536ce4eae223497d1909d53c86dc37b5d3f462109293b695cee21",
+    "previous_response_window": [
+      0.0,
+      1.0
+    ],
+    "current_response_window": [
+      -0.5,
+      1.0
+    ],
+    "n_sites": 227,
+    "n_subjects": 64,
+    "previous_n_features": 335,
+    "current_n_features": 399,
+    "added_response_samples": 64,
+    "common_raw_features_unchanged": true,
+    "site_waveforms_unchanged": true,
+    "cohort_and_site_order_unchanged": true,
+    "n_changed": 44,
+    "n_unchanged": 183,
+    "ari": 0.6168925376328254
+  },
+  "nmf_manifest_sha256": "48cf971d305cdd310f82ab0f72562fd133f3771be4522d513c4b006b1c9fbc5a",
+  "assignments_sha256": "a4c04c7760b0bdeb56282b5646f5054612ccb3a3686591fc3b14e9937b1137f6",
+  "heatmap": "unthresholded site means; same site order across phases",
+  "hga_error_bars": "SEM across participant means; sites averaged within participant/cluster",
+  "laterality": "descriptive confirmed cluster fraction of all reviewed sampled sites; no electrode-level inference",
+  "figures": {
+    "fig2_cluster_density.svg": "3870b7c1c4fb915f3edbf0bc956e1acaa8a9840da2394f72e24c26ca0b68d281",
+    "fig2_hga_heatmap.svg": "67ab84c34158d9c5fdaecf7be7786a3e7fd6d6933270758ed2e255539810d70d",
+    "fig2_hga_traces.svg": "4556fbee242d53eef8a161e001175648ca4479fa53bb0d49d9f79e36e17474c0",
+    "fig2_insula_average_traces.svg": "30baeea60a0c8fc67099225d580f70669c845b4a471d17fdd8011bec4f1278ec",
+    "fig2_insula_cluster_parcel_pies.svg": "2040c8161069a9869a2457dffb2de9154a2d8da5a673df435519ba91cf3d2de4",
+    "fig2_insula_cluster_parcel_pies_k6.svg": "a6198bd7ff58e44fc55fa7e9abccf592f9a644d424fb3d503b80068ef7a04008",
+    "fig2_insula_spatial_kdecontour.svg": "5c1ef2ad36f15fef66c22f4a39051de4a056484ea2696da1e297389c2a600c82",
+    "fig2_laterality_cluster_rate.svg": "a63eb2a7e48410dab8cb8ca1da42cfd0876adb43ab3114cb33f094263dd15fbd",
+    "fig2_nmf_dominance.svg": "ba3f81e7f7aeb7cfec2bd127919489d7a575b74f0bfe54974940828a79993154",
+    "fig2_nmf_rank_k.svg": "7d4d2307e53151051afd94770501643a7c633645b1806eddc322215169e7063d",
+    "fig2_nmf_traces.svg": "0bc99a497c2d6a6065e50c7147657a5b3a93d8f6b691a19a820476c3638e8a4b",
+    "fig2_nmf_weight_density_all.svg": "7752befc9241af1d29897d5438fe29b8cb352a96c5428721f18405b093ca0358",
+    "fig2_nmf_weight_density_motor.svg": "fb2a98d92939acff9196ea51cee3d38e9cd45005b111a86031de67e650cbcf73",
+    "fig2_nmf_weight_density_sensory.svg": "5050f5a09b54e0b4d7cab617c67f45fc6277acc6d75af14d7f9cb1dd6a13aceb",
+    "fig2_nmf_weight_density_sustain.svg": "bee7425f3029b5daf5d67b70bdeb72a910355a2e9119a9ac6ef3ab2c6fffe090",
+    "fig2_waveform_pca_kmeans.svg": "28a9182a12ffbc659f98aebf8c82c3f52977ac8559c2a0aeb478f9dd52c041c6"
+  }
+}
