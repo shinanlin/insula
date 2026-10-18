@@ -113,59 +113,59 @@
   "figures": {
     "fig1_all_electrodes_projected.svg": {
       "bytes": 239248,
-      "sha256": "2a3e9579f87ccfcc1715bbe7999c26153cc72548e57a344dce7ab9d822170ff8"
+      "sha256": "cd129f9ba4842fc4fe9c3faba95fc9498f78054d567a6379509465bd39026fb1"
     },
     "fig1_example_electrode_tfr.svg": {
       "bytes": 36720,
-      "sha256": "c4858b436fd5a2309ef9347ac691c7937d252097cadef0184c0d896062c9f8eb"
+      "sha256": "00fb14965a4c140c24b4d7fd42d8fd3da3e692025759b26652f3dd0c47539ee3"
     },
     "fig1_example_electrode_tfr_raw.svg": {
       "bytes": 45266,
-      "sha256": "01ec28ac7cb3793d49380f6367b7a9b010908332c3230d8b435be7951be9e9e1"
+      "sha256": "5d550d10d5be84bfa69aacf9f72a3b966582919269ef1bab02b96852d4a912c4"
     },
     "fig1_insula_average_traces.svg": {
       "bytes": 43474,
-      "sha256": "fb0df2e02a32bb54648eaa2ee2871cd24df9d32c001283eaef744796c5120f5e"
+      "sha256": "347f927a19656f1bc90ee797c41bb4e38d89d6e56d7be4e36b68d765427f7468"
     },
     "fig1_insula_electrode_schematic.svg": {
       "bytes": 375626,
-      "sha256": "d4b9004ca2bf3b4f07236633ab3d06b6cf2f9e9d405233462871c1f2eba184b4"
+      "sha256": "8e3fa40aba1900a9efd52e1563b836eaf72e3f9bb957dae87d6a7ef906829b57"
     },
     "fig1_insula_electrode_schematic_seeg.svg": {
       "bytes": 89709,
-      "sha256": "d08d1cbc2c442d8329970183c1fca5cf5554d001b013b97885ac9e6eb305042b"
+      "sha256": "6bde684f05f36e89a6ca73f03fa553fe5409d27d793c6ed17412fbbb1b9a1005"
     },
     "fig1_insula_electrodes_gyrus_lines.svg": {
-      "bytes": 220173,
-      "sha256": "40e6b4f8a3d624aaab2cb56fecee779cfe5ffd2a1112aae1f8d77a808e959f98"
+      "bytes": 219836,
+      "sha256": "e658f41c8d0ce4b8866e21edfd238f7498c082b5f734205bb8ba26d8f892e88a"
     },
     "fig1_insula_laterality_counts.svg": {
       "bytes": 7861,
-      "sha256": "ecdebd1d53b3f20754d05ee7d5313d886a365bacf43632517eb62bf1007a88b0"
+      "sha256": "2bbef1dda994496a2c8f3ab18139a4d6bc7725da22eefac349c20acdb8032a5a"
     },
     "fig1_phase_insula_vs_other.svg": {
       "bytes": 9573,
-      "sha256": "186dc50d73caa3008d9e813eb149c4d2cfbad79f0d0430f97525356ca5db0917"
+      "sha256": "5c2ba0ca8ba97721cc4d3ffbb44188ad74c8d3ef75b28c734283af3a97b1b57a"
     },
     "fig1_phase_roi_breakdown.svg": {
       "bytes": 14633,
-      "sha256": "d9883aea38d493276d16818e7ec5e620fe8240dbc2bab4f42d120398f9555bc1"
+      "sha256": "a457efb96b9f850f551f13c123041cf71974c44929f09a088fd0d0e900b8db9a"
     },
     "fig1_phase_roi_breakdown_union.svg": {
       "bytes": 5491,
-      "sha256": "307f455b6188de251a5dd43f480e3654bb1e8d7f14372410274279bb35f032dc"
+      "sha256": "64569137d63be156356844c95295adbfb1ccc46a91ba1378949bf83e446f4472"
     },
     "fig1_roi_breakdown_sig_and_sampled.svg": {
       "bytes": 9958,
-      "sha256": "82641920677279474b0896c5b1930410816bf241db0c25f348a1cbbeca7fa8a7"
+      "sha256": "a560751d91674247fd7265367ec7a2339f44d8847aea74234c2ffcff9b76e0d5"
     },
     "fig1_roi_significant_yield.svg": {
       "bytes": 8931,
-      "sha256": "2b6e321a526eda9456b92ce1c7f762dd98739cd7cd86ce385cf8163b4d31b49c"
+      "sha256": "1c281c3d4cb42767432e344b575d04506a7dde07842dcf76d597d2110331e2fd"
     },
     "fig1_subject_task_counts.svg": {
       "bytes": 14922,
-      "sha256": "ce6bb945c9a4c8d825bece4d3eb0b35f77e4d2379a255ac5c20c477ad8dafe7c"
+      "sha256": "6d7d7ae3f4a4ff29f4300614006563b9ec25b7ed27c438df53be969c81effdbb"
     }
   }
 }
