@@ -1,0 +1,58 @@
+{
+  "audit_jobs": [
+    58870361,
+    58870384
+  ],
+  "source_worktree": "/hpc/group/coganlab/nanlinshi/insula-functional",
+  "paper_worktree": "/cwork/ns458/insula-paper",
+  "canonical_model_changed": false,
+  "figure1_or_figure2_changed": false,
+  "fitted_response_window": [
+    -0.5,
+    1.0
+  ],
+  "display_response_window": [
+    -0.5,
+    1.5
+  ],
+  "controlled_modality_comparison": {
+    "n_sites": 218,
+    "fit_windows": {
+      "stimulus": [
+        0,
+        0.6
+      ],
+      "delay": [
+        0,
+        1
+      ],
+      "response": [
+        -0.5,
+        1
+      ]
+    },
+    "n_initializations": 20,
+    "random_state": 42
+  },
+  "files": {
+    "modality_control_summary.json": "b7015eb2f299e2a20375bc7e76cbbe32540059cbda8479e61cde1a0f880ad387",
+    "all_old_sites_signal_and_disposition.csv": "8b99cc6a23a3681121fcd3d6985e2d4db6a1d40a89ccf66f4cc533f9cbbad5bd",
+    "old_sensory_sites_trace.csv": "7c2cb11aa38724c598b5a9c0c70ec86d910e26395cdb523b36d4ce43432a4d99",
+    "sites_without_complete_sound_input.csv": "98274cbaf9b240a93c21ea19a457d198a0c138b0243d4f533b9fa13e2cb131fb",
+    "all_modalities_assignments.csv": "7747ace2a1174140d8f77e0b57c4f501fea5cb5cfc588185c5c92b102995e46a",
+    "summary.json": "3eb898cece876a802b5f5d0d79d3fff20683e70bd7e485f37a80a695db28bff0",
+    "protected_hashes.json": "a3365bf4dbaad5055bf6d46349139ed93ce89373624ca0e8ea3b892380291bee",
+    "stimulus_source_rows.pkl.gz": "91c60ec6f9dd96769033915d56673b4eb0e1a1f33c7cd85396b6da934cac97c8",
+    "cohort_control_label_comparison.csv": "19228c234283eef1fe0fc6a3ad45354edb03ded59ecfa35da548c7199cf4a2ec",
+    "\u65e7sensory\u4f4d\u70b9\u9010\u4e00\u6838\u5bf9.csv": "60a0a51385db62db5a90d84290d1bc34293f15d29d50095d7cf4af4444932f2a",
+    "cohort_control_summary.json": "885f3b70c9a0e5badeeb31bf9660efdb7f6efdbc6448961200a6c063e5721013",
+    "component_scale_comparison.csv": "1d2101f609feda36d56b9af0242d3147936c2251d407ed6ec42e06d7eafedf3f",
+    "sensory_peak_averaging_comparison.svg": "d6afa33f7d8efb80afc26011b307a552d24a2901903abd1618eeb7cd3d5ccb29",
+    "averaging_comparison_curves.csv": "4c63aef196c538d5200311da915f83bdad6716af61900523b22550c68d1b262b",
+    "all_modalities_H.csv": "d0121f4959e6f803ab6f0d6e1c73bda4a62e09b7f74170611fb9e8adfd5260c7",
+    "all_phase_waveforms_by_task_modality.csv.gz": "f2b9a68321c7abb716545569ae32d5b956464dbbbc13d18494aa0e2413ed6026",
+    "sound_only_assignments.csv": "7604b58b11ea77365d2b8cd0032533dc3fc82c0ae182d2e011e5b7b544308478",
+    "modality_control_label_comparison.csv": "74606975333c71825a4b385326220fb448e1a930d92b2606edc7770df93a7357",
+    "sound_only_H.csv": "045f18cc648b51cec881397f13b104a24763d64f76fdc87e7a9cb1149af8b366"
+  }
+}

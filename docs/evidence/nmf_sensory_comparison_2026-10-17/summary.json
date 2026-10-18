@@ -1,0 +1,106 @@
+{
+  "n_old_sites": 255,
+  "n_new_sites": 227,
+  "n_shared": 187,
+  "n_old_sensory": 39,
+  "n_old_sensory_retained": 19,
+  "n_current_sensory": 44,
+  "old_sensory_dispositions": {
+    "retained_sensory": 17,
+    "pending": 15,
+    "anatomy_eligible_without_confirmed_response": 4,
+    "retained_motor": 2,
+    "exclude": 1
+  },
+  "raw_group_peak_0_0p6": {
+    "old Figure 2: sound, record rows, old sensory39": 0.7147124072581287,
+    "sound, equal sites, old sensory39": 0.7280454897575545,
+    "sound, equal participants, old sensory39": 0.6888942110224422,
+    "sound, equal participants, retained old sensory": 0.4933546617101014,
+    "all modalities, equal participants, retained old sensory": 0.38795360873687734,
+    "current Figure 2: all modalities, new sensory44": 0.25113709534848505
+  },
+  "old_sensory_anatomy_reasons": {
+    "\u7aef\u70b9\u4e3a 0\uff0c\u73b0\u6709\u7ec4\u7ec7\u8bc1\u636e\u4e0d\u8db3\u6216\u4e92\u76f8\u51b2\u7a81": 13,
+    "\u6ee1\u8db3\u5f53\u524d\u89e3\u5256\u7eb3\u5165\u89c4\u5219": 4,
+    "\u540c\u540d\u53cc\u6781\u5bf9\u8de8\u8bb0\u5f55\uff0f\u4efb\u52a1\u7684\u539f\u751f\u4f4d\u7f6e\u4e0d\u4e00\u81f4": 2,
+    "\u81f3\u5c11\u4e00\u4e2a\u7aef\u70b9\u88ab\u539f\u751f\u7ec4\u7ec7\u5206\u5272\u5224\u4e3a CSF\uff0f\u8111\u5ba4": 1
+  },
+  "fit_response_window": [
+    -0.5,
+    1.0
+  ],
+  "display_response_window": [
+    -0.5,
+    1.5
+  ],
+  "current_waveform_reproduction_passed": true,
+  "component_scale_comparison": [
+    {
+      "version": "old_four_phase",
+      "cluster": "motor",
+      "stimulus_H_peak": 0.0061898284145231,
+      "full_H_l2_norm": 0.9999999999999996,
+      "stimulus_energy_fraction": 0.0003075623224307701
+    },
+    {
+      "version": "old_four_phase",
+      "cluster": "sensory",
+      "stimulus_H_peak": 0.1731086301014313,
+      "full_H_l2_norm": 0.9999999999999991,
+      "stimulus_energy_fraction": 0.9318214317390155
+    },
+    {
+      "version": "old_four_phase",
+      "cluster": "sustain",
+      "stimulus_H_peak": 0.0679026207095516,
+      "full_H_l2_norm": 0.9999999999999988,
+      "stimulus_energy_fraction": 0.0879841766045851
+    },
+    {
+      "version": "short_response",
+      "cluster": "motor",
+      "stimulus_H_peak": 0.0033789474562546,
+      "full_H_l2_norm": 0.9999999999999997,
+      "stimulus_energy_fraction": 0.00012324285254997145
+    },
+    {
+      "version": "short_response",
+      "cluster": "sensory",
+      "stimulus_H_peak": 0.1823520969218067,
+      "full_H_l2_norm": 0.9999999999999997,
+      "stimulus_energy_fraction": 0.958784899121291
+    },
+    {
+      "version": "short_response",
+      "cluster": "sustain",
+      "stimulus_H_peak": 0.0932824614590867,
+      "full_H_l2_norm": 0.9999999999999991,
+      "stimulus_energy_fraction": 0.17648664613595538
+    },
+    {
+      "version": "current",
+      "cluster": "motor",
+      "stimulus_H_peak": 0.0077943667711394,
+      "full_H_l2_norm": 0.9999999999999994,
+      "stimulus_energy_fraction": 0.0009846791318974364
+    },
+    {
+      "version": "current",
+      "cluster": "sensory",
+      "stimulus_H_peak": 0.1371248282505975,
+      "full_H_l2_norm": 0.9999999999999999,
+      "stimulus_energy_fraction": 0.7370301575520989
+    },
+    {
+      "version": "current",
+      "cluster": "sustain",
+      "stimulus_H_peak": 0.0539280019731377,
+      "full_H_l2_norm": 0.9999999999999993,
+      "stimulus_energy_fraction": 0.05201611340266589
+    }
+  ],
+  "source_stimulus_csv_count": 242,
+  "current_sound_site_count": 218,
+  "protected_files_unchanged": true
+}

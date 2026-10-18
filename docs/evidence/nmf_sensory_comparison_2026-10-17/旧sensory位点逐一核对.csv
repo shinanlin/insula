@@ -1,0 +1,40 @@
+﻿位点,参与者,旧sound峰值_z_0至0.6秒,当前去向,解剖原因,响应证据状态,当前sound峰值_z,当前合并模态峰值_z
+D0125_LTMS3-4,D0125,4.242,端点 CSF 排除,至少一个端点被原生组织分割判为 CSF／脑室,responsive,,
+D0125_LTMS2-3,D0125,3.37,转为 motor,满足当前解剖纳入规则,responsive,3.37,1.326
+D0107_RTAS1-2,D0107,2.943,解剖待核,同名双极对跨记录／任务的原生位置不一致,responsive,,
+D0132_LTMS3-4,D0132,2.305,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0086_RTPS4-9,D0086,1.99,解剖待核,同名双极对跨记录／任务的原生位置不一致,responsive,,
+D0049_LAI1-2,D0049,1.706,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0115_LTMS1-2,D0115,1.185,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0125_LTMS1-2,D0125,1.154,转为 motor,满足当前解剖纳入规则,responsive,1.154,0.435
+D0129_LFAI2-3,D0129,1.072,仍为 sensory,满足当前解剖纳入规则,responsive,1.072,0.818
+D0049_LPI1-2,D0049,0.991,仍为 sensory,满足当前解剖纳入规则,responsive,0.991,0.991
+D0049_LAI3-4,D0049,0.801,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0115_LTAS2-3,D0115,0.745,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0071_RIP1-2,D0071,0.743,仍为 sensory,满足当前解剖纳入规则,incomplete|responsive,0.743,0.743
+D0132_LTAS2-3,D0132,0.721,仍为 sensory,满足当前解剖纳入规则,responsive,0.721,0.721
+D0049_LPI2-3,D0049,0.667,仍为 sensory,满足当前解剖纳入规则,responsive,0.667,0.667
+D0143_RPAI1-2,D0143,0.627,仍为 sensory,满足当前解剖纳入规则,responsive,0.627,0.627
+D0081_LTAS3-4,D0081,0.578,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0143_RTMS2-3,D0143,0.558,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0042_RPI1-2,D0042,0.52,仍为 sensory,满足当前解剖纳入规则,responsive,0.52,0.52
+D0128_RTMS2-3,D0128,0.512,仍为 sensory,满足当前解剖纳入规则,responsive,0.512,0.512
+D0042_RPI2-3,D0042,0.51,仍为 sensory,满足当前解剖纳入规则,responsive,0.51,0.51
+D0132_LTAS3-4,D0132,0.49,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0118_RTAS2-3,D0118,0.405,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0096_LTAS2-3,D0096,0.371,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0137_LPI1-2,D0137,0.365,仍为 sensory,满足当前解剖纳入规则,responsive,0.365,0.319
+D0090_RIP1-2,D0090,0.36,仍为 sensory,满足当前解剖纳入规则,not_responsive|responsive,0.36,0.36
+D0058_LPI5-6,D0058,0.333,仍为 sensory,满足当前解剖纳入规则,responsive,0.333,0.333
+D0103_LTMS1-2,D0103,0.325,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0139_LTAS3-4,D0139,0.312,解剖待核,端点为 0，现有组织证据不足或互相冲突,responsive,,
+D0119_RIP1-2,D0119,0.293,未通过当前响应纳入,满足当前解剖纳入规则,incomplete,,
+D0071_RIP2-3,D0071,0.292,仍为 sensory,满足当前解剖纳入规则,not_responsive|responsive,0.292,0.292
+D0137_LPI2-3,D0137,0.285,仍为 sensory,满足当前解剖纳入规则,responsive,0.285,0.285
+D0139_LTAS1-2,D0139,0.24,仍为 sensory,满足当前解剖纳入规则,responsive,0.24,0.228
+D0143_RTMS1-2,D0143,0.238,未通过当前响应纳入,满足当前解剖纳入规则,not_responsive,,
+D0090_RIP2-3,D0090,0.232,未通过当前响应纳入,满足当前解剖纳入规则,incomplete|not_responsive,,
+D0103_LAI1-2,D0103,0.189,未通过当前响应纳入,满足当前解剖纳入规则,incomplete|not_responsive,,
+D0080_LPI1-2,D0080,0.177,仍为 sensory,满足当前解剖纳入规则,not_responsive|responsive,0.177,0.177
+D0085_RAI1-2,D0085,0.165,解剖待核,端点为 0，现有组织证据不足或互相冲突,incomplete|responsive,,
+D0085_RAI2-3,D0085,0.084,仍为 sensory,满足当前解剖纳入规则,incomplete|responsive,0.084,0.029

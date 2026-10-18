@@ -1,0 +1,18 @@
+{
+  "full_cohort_sites": 227,
+  "control_cohort_sites": 218,
+  "full_cohort_sensory_sites": 44,
+  "control_cohort_sensory_sites": 29,
+  "n_shared_labels_changed": 21,
+  "ari": 0.7816628944774986,
+  "old_sensory_sites_in_modality_control": 19,
+  "old_sensory_sound_only_labels": {
+    "sensory": 18,
+    "sustain": 1
+  },
+  "old_sensory_all_modality_labels": {
+    "sensory": 17,
+    "motor": 2
+  },
+  "interpretation": "Same 399 features, modalities, preprocessing, solver, seeds and naming; only the cohort differs"
+}

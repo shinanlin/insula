@@ -1,0 +1,96 @@
+{
+  "common_sites": 218,
+  "n_features": 399,
+  "full_input_reproduced": true,
+  "fit_windows": {
+    "stimulus": [
+      0,
+      0.6
+    ],
+    "delay": [
+      0,
+      1
+    ],
+    "response": [
+      -0.5,
+      1
+    ]
+  },
+  "cohorts_identical_between_control_fits": true,
+  "settings_and_naming_identical": true,
+  "n_labels_changed": 17,
+  "ari": 0.8152599068603713,
+  "models": {
+    "sound_only": {
+      "n_sites": 218,
+      "n_features": 399,
+      "cluster_counts": {
+        "motor": 124,
+        "sustain": 63,
+        "sensory": 31
+      },
+      "converged_starts": 20,
+      "reconstruction_error": 7.655892845435509
+    },
+    "all_modalities": {
+      "n_sites": 218,
+      "n_features": 399,
+      "cluster_counts": {
+        "motor": 129,
+        "sustain": 60,
+        "sensory": 29
+      },
+      "converged_starts": 20,
+      "reconstruction_error": 7.444575463381703
+    }
+  },
+  "excluded_from_control_missing_sound": [
+    "D0076_RPI1-2",
+    "D0088_LPI1-2",
+    "D0101_RIP2-3",
+    "D0108_LFAI2-3",
+    "D0118_LTMS2-3",
+    "D0122_LTAS1-2",
+    "D0122_LTMS1-2",
+    "D0125_LIA4-5",
+    "D0131_RTAS1-2"
+  ],
+  "D0125_LTMS2_3": [
+    {
+      "channel": "D0125_LTMS2-3",
+      "sound_only_cluster": "sensory",
+      "all_modalities_cluster": "motor",
+      "changed": true,
+      "old_four_phase_cluster": "sensory"
+    }
+  ],
+  "current_sensory_composition_from_old_labels": {
+    "sustain": 20,
+    "sensory": 17,
+    "not_in_old_255": 5,
+    "motor": 2
+  },
+  "four_old_sensory_without_response_confirmation": [
+    {
+      "channel": "D0119_RIP1-2",
+      "response_status": "incomplete",
+      "old_sound_peak_0_0p6": 0.2930461150361225
+    },
+    {
+      "channel": "D0143_RTMS1-2",
+      "response_status": "not_responsive",
+      "old_sound_peak_0_0p6": 0.238250577561613
+    },
+    {
+      "channel": "D0090_RIP2-3",
+      "response_status": "incomplete|not_responsive",
+      "old_sound_peak_0_0p6": 0.2322790821403818
+    },
+    {
+      "channel": "D0103_LAI1-2",
+      "response_status": "incomplete|not_responsive",
+      "old_sound_peak_0_0p6": 0.1887259083284464
+    }
+  ],
+  "protected_files_unchanged": true
+}
