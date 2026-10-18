@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="219.571654pt" height="126.961525pt" viewBox="0 0 219.571654 126.961525" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-10-17T20:57:04.508717</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.1, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 126.961525 
+L 219.571654 126.961525 
+L 219.571654 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 37.795276 29.733336 
+C 32.282355 29.733336 26.927891 31.595897 22.605101 35.017268 
+C 18.282311 38.438638 15.239693 43.22214 13.973442 48.587669 
+C 12.707192 53.953198 13.290101 59.592314 15.627107 64.585379 
+C 17.964114 69.578443 21.920873 73.638427 26.852109 76.10322 
+L 37.795276 54.209557 
+z
+" style="fill: #c47a6a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 26.852109 76.10322 
+C 31.397911 78.37536 36.540452 79.176289 41.561935 78.394214 
+C 46.583419 77.612139 51.238811 75.285222 54.878311 71.738255 
+C 58.517811 68.191289 60.963823 63.597353 61.874931 58.597672 
+C 62.78604 53.59799 62.117785 48.436532 59.963443 43.833734 
+L 37.795276 54.209557 
+z
+" style="fill: #b8a99a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 59.963443 43.833734 
+C 57.991079 39.619736 54.857439 36.054228 50.93157 33.55712 
+C 47.0057 31.060012 42.448017 29.733336 37.795276 29.733336 
+L 37.795276 54.209557 
+z
+" style="fill: #8fb0d4; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_1"/>
+   <g id="matplotlib.axis_2"/>
+   <g id="text_1">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="23.502176" y="52.391737" transform="rotate(-0 23.502176 52.391737)">43%</text>
+   </g>
+   <g id="text_2">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="48.045097" y="66.282088" transform="rotate(-0 48.045097 66.282088)">39%</text>
+   </g>
+   <g id="text_3">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="45.677052" y="43.373407" transform="rotate(-0 45.677052 43.373407)">18%</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #c4a35a" transform="translate(22.813635 12.210469)">sustained</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #c4a35a" transform="translate(29.912072 19.614281)">n=61</text>
+   </g>
+  </g>
+  <g id="axes_2">
+   <g id="patch_5">
+    <path d="M 109.785827 29.733336 
+C 105.554498 29.733336 101.394602 30.830574 97.713742 32.917537 
+C 94.032881 35.0045 90.955337 38.010724 88.782659 41.641649 
+L 109.785827 54.209557 
+z
+" style="fill: #c47a6a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 88.782659 41.641649 
+C 85.654118 46.869987 84.587836 53.082655 85.794007 59.054961 
+C 87.000178 65.027267 90.393971 70.339175 95.306374 73.943559 
+C 100.218778 77.547942 106.304298 79.191303 112.36331 78.549687 
+C 118.422321 77.908072 124.028688 75.026606 128.077239 70.473308 
+L 109.785827 54.209557 
+z
+" style="fill: #b8a99a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_7">
+    <path d="M 128.077239 70.473308 
+C 131.212425 66.947247 133.262144 62.58872 133.978392 57.925086 
+C 134.69464 53.261453 134.047314 48.488709 132.114738 44.184334 
+C 130.182162 39.87996 127.045556 36.224852 123.084433 33.661262 
+C 119.12331 31.097671 114.504144 29.733337 109.785829 29.733336 
+L 109.785827 54.209557 
+z
+" style="fill: #8fb0d4; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_3"/>
+   <g id="matplotlib.axis_4"/>
+   <g id="text_5">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="102.542576" y="42.989657" transform="rotate(-0 102.542576 42.989657)">16%</text>
+   </g>
+   <g id="text_6">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="101.098155" y="67.60527" transform="rotate(-0 101.098155 67.60527)">47%</text>
+   </g>
+   <g id="text_7">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="123.183174" y="49.749736" transform="rotate(-0 123.183174 49.749736)">37%</text>
+   </g>
+   <g id="text_8">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #a9373b" transform="translate(100.840046 12.210469)">motor</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #a9373b" transform="translate(99.956296 19.614281)">n=134</text>
+   </g>
+  </g>
+  <g id="axes_3">
+   <g id="patch_8">
+    <path d="M 181.776378 29.733336 
+C 178.56219 29.733336 175.379256 30.366461 172.409734 31.596478 
+C 169.440212 32.826494 166.74185 34.629481 164.469076 36.902255 
+L 181.776378 54.209557 
+z
+" style="fill: #c47a6a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 164.469076 36.902255 
+C 159.880655 41.490677 157.300157 47.720549 157.300157 54.209557 
+C 157.300157 60.698564 159.880655 66.928437 164.469076 71.516858 
+L 181.776378 54.209557 
+z
+" style="fill: #b8a99a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 164.469076 71.516858 
+C 167.315116 74.362898 170.81971 76.463471 174.671306 77.631839 
+C 178.522902 78.800208 182.603882 79.000694 186.551452 78.215474 
+C 190.499022 77.430253 194.192632 75.683305 197.303928 73.129931 
+C 200.415223 70.576557 202.849192 67.29473 204.389457 63.576201 
+C 205.929722 59.857671 206.529249 55.815994 206.134739 51.810468 
+C 205.740229 47.804941 204.36373 43.957886 202.127611 40.611297 
+C 199.891493 37.264709 196.86404 34.520786 193.314388 32.623458 
+C 189.764737 30.726129 185.801285 29.733336 181.776378 29.733336 
+L 181.776378 54.209557 
+z
+" style="fill: #8fb0d4; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="matplotlib.axis_5"/>
+   <g id="matplotlib.axis_6"/>
+   <g id="text_9">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="176.156392" y="42.197022" transform="rotate(-0 176.156392 42.197022)">12%</text>
+   </g>
+   <g id="text_10">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="167.090646" y="55.764869" transform="rotate(-0 167.090646 55.764869)">25%</text>
+   </g>
+   <g id="text_11">
+    <text style="font-weight: 700; font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle; fill: #333333" x="195.344225" y="61.384856" transform="rotate(-0 195.344225 61.384856)">62%</text>
+   </g>
+   <g id="text_12">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #2369bd" transform="translate(169.522003 12.128438)">sensory</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; fill: #2369bd" transform="translate(173.893175 19.614281)">n=32</text>
+   </g>
+  </g>
+  <g id="legend_1">
+   <g id="patch_11">
+    <path d="M 25.145983 115.488244 
+L 39.145983 115.488244 
+L 39.145983 110.588244 
+L 25.145983 110.588244 
+z
+" style="fill: #c47a6a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_13">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="44.745983" y="115.488244" transform="rotate(-0 44.745983 115.488244)">ant. short</text>
+   </g>
+   <g id="patch_12">
+    <path d="M 87.926139 115.488244 
+L 101.926139 115.488244 
+L 101.926139 110.588244 
+L 87.926139 110.588244 
+z
+" style="fill: #b8a99a; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_14">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="107.526139" y="115.488244" transform="rotate(-0 107.526139 115.488244)">int. short</text>
+   </g>
+   <g id="patch_13">
+    <path d="M 148.368952 115.488244 
+L 162.368952 115.488244 
+L 162.368952 110.588244 
+L 148.368952 110.588244 
+z
+" style="fill: #8fb0d4; stroke: #ffffff; stroke-width: 0.5; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_15">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif; text-anchor: start" x="167.968952" y="115.488244" transform="rotate(-0 167.968952 115.488244)">long gyri</text>
+   </g>
+  </g>
+ </g>
+</svg>

@@ -1,0 +1,66 @@
+{
+  "n_sites": 227,
+  "n_subjects": 64,
+  "k": 3,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "fit_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      0.0,
+      1.0
+    ]
+  },
+  "cluster_counts": {
+    "sustain": 61,
+    "motor": 134,
+    "sensory": 32
+  },
+  "cluster_subject_counts": {
+    "sustain": 30,
+    "motor": 56,
+    "sensory": 21
+  },
+  "pending_response_evidence_sites": 94,
+  "rank_cophenetic_maximum": 2,
+  "rank_near_ties": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "component_naming": "Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no anatomy or legacy labels used",
+  "nmf_manifest_sha256": "c97dd2459e6536ce4eae223497d1909d53c86dc37b5d3f462109293b695cee21",
+  "assignments_sha256": "2e6c7865398325c23c394b2e674d2ba91ec87ebe306481c31220530f7722385e",
+  "heatmap": "unthresholded site means; same site order across phases",
+  "hga_error_bars": "SEM across participant means; sites averaged within participant/cluster",
+  "laterality": "descriptive confirmed cluster fraction of all reviewed sampled sites; no electrode-level inference",
+  "figures": {
+    "fig2_cluster_density.svg": "e7cdaa4912a939864c602189b2a5210770c25ac08b11ada415ae29655638ac5c",
+    "fig2_hga_heatmap.svg": "ff8c3f3193a27a7df99aac806f45c4056d1543cc840affd98dc01b37931dda0d",
+    "fig2_hga_traces.svg": "0822703f2a33cd3d9587e66cf9437229c5e1e2a88fb7e540ba4cfc6c667ab211",
+    "fig2_insula_average_traces.svg": "b30a5d54c5d4fcc0fc8409342557585a519666eb0125c3f7c3f8a798ba4fb60d",
+    "fig2_insula_cluster_parcel_pies.svg": "39f292411a7dd98ed5416c8fdb6c8d1e050443467aea443738f9fa1842597de8",
+    "fig2_insula_cluster_parcel_pies_k6.svg": "2df3281d2a0e4d40bddb8a04d27eaa7e646bab2f00ada4e8c40646d29522a68e",
+    "fig2_insula_spatial_kdecontour.svg": "05a6f781394f67e9449952db334e4a4406da456caf37b893f9979d627ac0867d",
+    "fig2_laterality_cluster_rate.svg": "94bf4ca933535a9347530f275ebc5847a59b192c40c17f6c316a6fb36ed8a4c8",
+    "fig2_nmf_dominance.svg": "533c023e245b2f332fa9aaa6ae1f650c7d88f7e1680b4fc5c723b568074e2242",
+    "fig2_nmf_rank_k.svg": "8d057aff22af88cb8ea8acab26109f9cd55109f5e9bb927d2920beed406ff94c",
+    "fig2_nmf_traces.svg": "8a8ed9b06651b6048b6c08ff6874c65074bfaab6318e08e8d5a5ea2f0d22f8ac",
+    "fig2_nmf_weight_density_all.svg": "80500e348da2b2b5768edea916f79a7cc4b39d663a069fbbc64fb940bb7f252b",
+    "fig2_nmf_weight_density_motor.svg": "171b6500ac7cfe01daa24e74970b9231f88e44daffc6f413bdcc19cdc6aac5a7",
+    "fig2_nmf_weight_density_sensory.svg": "6a54417540afb39e8ea410b594132a07790ef40dc215d82a25b4dc33a026196e",
+    "fig2_nmf_weight_density_sustain.svg": "e082efe0bbbeb1a292de14661b2ec3079eae4d5b0fd279c0d28a7599f15e77ed",
+    "fig2_waveform_pca_kmeans.svg": "fea405db7e02972e017fd751bde12f623cd8a6c9df59b331f7b97d43e466c76a"
+  }
+}

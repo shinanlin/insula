@@ -1,33 +1,16 @@
 #!/bin/bash
-#SBATCH --job-name=nmf_3phase_fit
-#SBATCH --output=/cwork/ns458/insula-paper/logs/slurm/nmf_3phase_fit_%j.out
-#SBATCH --error=/cwork/ns458/insula-paper/logs/slurm/nmf_3phase_fit_%j.err
-#SBATCH --time=04:00:00
-#SBATCH --mem=48G
-#SBATCH --cpus-per-task=8
+#SBATCH --job-name=insula_reviewed_nmf
+#SBATCH --output=/cwork/ns458/insula-paper/logs/slurm/nmf_reviewed_%j.out
+#SBATCH --error=/cwork/ns458/insula-paper/logs/slurm/nmf_reviewed_%j.err
+#SBATCH --time=01:00:00
+#SBATCH --mem=32G
+#SBATCH --cpus-per-task=2
 #SBATCH --partition=common
 #SBATCH --chdir=/cwork/ns458/insula-paper
-
 set -euo pipefail
-
-WORKTREE=/cwork/ns458/insula-paper
-SOURCE_RESULTS=/hpc/group/coganlab/nanlinshi/insula-functional/results
-[[ "$(pwd -P)" == "$WORKTREE" ]] || { echo "Wrong working directory" >&2; exit 2; }
-for output in "$WORKTREE/results" "$WORKTREE/results/nmf" "$WORKTREE/img" "$WORKTREE/img/nmf"; do
+export OMP_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1 MKL_NUM_THREADS=1 MPLBACKEND=Agg
+for output in results results/nmf img img/nmf; do
   [[ ! -L "$output" ]] || { echo "Refusing symlinked output: $output" >&2; exit 2; }
 done
-[[ -f "$SOURCE_RESULTS/nmf/exclude_channels.txt" ]] || { echo "Missing frozen exclusion list" >&2; exit 2; }
-
-source /hpc/home/ns458/miniconda3/etc/profile.d/conda.sh
-conda activate ieeg
-export PYTHONPATH="$WORKTREE${PYTHONPATH:+:$PYTHONPATH}"
-export MPLBACKEND=Agg
-mkdir -p "$WORKTREE/logs/slurm" "$WORKTREE/results/nmf" "$WORKTREE/img/nmf"
-
-python scripts/plot_nmf_concat_phases.py \
-  --results-root "$SOURCE_RESULTS" \
-  --windows postonset \
-  --phases stimulus delay response \
-  --k 3 --k-max 3 \
-  --n-init 20 --max-iter 5000 --random-state 42 \
-  --exclude-channels-file "$SOURCE_RESULTS/nmf/exclude_channels.txt"
+/hpc/home/ns458/miniconda3/envs/ieeg/bin/python scripts/prepare_reviewed_nmf.py
+/hpc/home/ns458/miniconda3/envs/ieeg/bin/python scripts/fit_reviewed_nmf.py

@@ -1,0 +1,13 @@
+{
+  "k": 2,
+  "rule": "max_cophenetic",
+  "tie_break": "smaller_k",
+  "cophenetic": 0.9975894266160262,
+  "near_tie_delta": 0.02,
+  "near_tie_ks": [
+    2,
+    3,
+    4,
+    5
+  ]
+}

@@ -109,20 +109,20 @@ def nmf_exclude_channels_path() -> Path:
 
 
 def nmf_chosen_k(default: int = 3) -> int:
-    """Read k from ``chosen_k.json`` or ``nmf_manifest.json``, else ``default``."""
+    """Read the fitted model rank; use the rank-selection decision only as fallback.
+
+    The requested fitted model can differ from the maximum-cophenetic rank.
+    Downstream consumers must use the rank of the actual assignments/factors.
+    """
 
     import json
 
-    chosen = nmf_results_dir() / "chosen_k.json"
-    if chosen.is_file():
-        payload = json.loads(chosen.read_text(encoding="utf-8"))
-        if "k" in payload:
-            return int(payload["k"])
-    manifest = nmf_results_dir() / "nmf_manifest.json"
-    if manifest.is_file():
-        payload = json.loads(manifest.read_text(encoding="utf-8"))
-        if "k" in payload:
-            return int(payload["k"])
+    for name in ("nmf_manifest.json", "chosen_k.json"):
+        path = nmf_results_dir() / name
+        if path.is_file():
+            payload = json.loads(path.read_text(encoding="utf-8"))
+            if "k" in payload:
+                return int(payload["k"])
     return default
 
 

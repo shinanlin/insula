@@ -1,5 +1,7 @@
 # 02 NMF、功能群与 Figure 2
 
+> **历史四阶段方法记录。** 本页正文及 `evidence/nmf_*` 快照描述旧 255 位点分析。Insula Paper 当前三阶段、227 位点的拟合与 Figure 2 请见 [2026-10-17 更新记录](../figure2_refresh_2026-10-17.md)；不能将本页旧名单、排除规则或选秩结论用于新图。
+
 入口：[Figure 2](../../vizpub/fig2.ipynb)。核心实现：[waveform_analysis.py](../../src/nmf/waveform_analysis.py)、[rank_selection.py](../../src/nmf/rank_selection.py)。启动参数：[nmf_concat.sh](../../scripts/slurm/nmf_concat.sh)、[nmf_rank_bootstrap.sh](../../scripts/slurm/nmf_rank_bootstrap.sh)。发布结果位于 `results/nmf/`，已有简版说明见 [NMF.md](../NMF.md)。
 
 注意 `waveform_analysis.py` 顶部还保留“只用 Stimulus 发现、其他阶段留出”的另一条分析说明；Figure 2 的 canonical manifest 和 concat 启动脚本明确采用四阶段拼接。本文按实际调用链和结果描述 concat 方法，不能仅根据模块开头的 docstring 宣称 Delay/Go/Response 在此图中均为 held-out 数据。
