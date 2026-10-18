@@ -1,0 +1,22 @@
+{
+  "original_sites": 94,
+  "original_task_rows": 149,
+  "original_missing_cells": 597,
+  "current_statistics_found_for_missing_cells": 0,
+  "h5_files_checked": 1193,
+  "h5_classes": {
+    "other_downstream_output": 725,
+    "reaction_time_model_output": 270,
+    "mne_fif_epochs_without_response_statistics": 162,
+    "original_band_statistics": 36
+  },
+  "archives_checked": 2,
+  "missing_original_statistics_files": 258,
+  "backup_candidates_by_version_reason": {
+    "significance_mask_differs": 661,
+    "matches_current": 96,
+    "time_axis_differs": 21
+  },
+  "protected_changed": [],
+  "passed": true
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/hpc/group/coganlab/nanlinshi/tmp/2768f746-94ad-45b9-a9d8-e1ab3ffbc506.zip",
+    "member_count": 3670,
+    "first_five_members": [
+      "5b7d14d7-3d96-410e-a135-f6f7acd2c9bd.meta.json",
+      "d2e5bf97-88af-4bc2-a41c-9d4953dd5296.meta.json",
+      "909c5a72-cf9a-4d24-9be3-f2b44e0474a5.meta.json",
+      "2c27de0b-b527-438a-b3c5-bc99d28cc5cb.meta.json",
+      "480398a9-3f10-44e3-b205-43feeb675c7b.meta.json"
+    ],
+    "possible_statistics_members": []
+  },
+  {
+    "path": "/hpc/group/coganlab/nanlinshi/tmp/beafb6c0-34b0-48ce-a5a4-c9c64faf6126.zip",
+    "member_count": 3670,
+    "first_five_members": [
+      "5b7d14d7-3d96-410e-a135-f6f7acd2c9bd.meta.json",
+      "d2e5bf97-88af-4bc2-a41c-9d4953dd5296.meta.json",
+      "909c5a72-cf9a-4d24-9be3-f2b44e0474a5.meta.json",
+      "2c27de0b-b527-438a-b3c5-bc99d28cc5cb.meta.json",
+      "480398a9-3f10-44e3-b205-43feeb675c7b.meta.json"
+    ],
+    "possible_statistics_members": []
+  }
+]

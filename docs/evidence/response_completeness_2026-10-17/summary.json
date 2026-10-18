@@ -1,0 +1,48 @@
+{
+  "original_sites": 94,
+  "original_incomplete_task_rows": 129,
+  "original_missing_cells": 597,
+  "current_original_statistics_cells": 0,
+  "missing_cells_in_existing_coordinate_exports": 597,
+  "missing_cells_with_archived_sig_flag": 0,
+  "cells_with_backup_masks": 351,
+  "sites_with_backup_masks": 60,
+  "compatible_recovered_cells": 0,
+  "after_site_status": {
+    "证据不完整，不能判为无响应": 94
+  },
+  "diagnosis_by_cell": {
+    "backup_version_unverified": 351,
+    "no_saved_mask_for_channel": 246
+  },
+  "by_task": {
+    "LexicalDelay": {
+      "missing_cells": 138,
+      "sites": 46,
+      "backup_cells": 54,
+      "stats_present": 0
+    },
+    "PhonemeSequence": {
+      "missing_cells": 117,
+      "sites": 39,
+      "backup_cells": 68,
+      "stats_present": 0
+    },
+    "PictureNaming": {
+      "missing_cells": 342,
+      "sites": 44,
+      "backup_cells": 229,
+      "stats_present": 0
+    }
+  },
+  "scanned_csv_files": 1572,
+  "csv_scan_errors": 0,
+  "additional_array_files": 7823,
+  "protected_files": 67,
+  "protected_changed": [],
+  "source_csv_files_unchanged": 1572,
+  "source_metadata_changed": [],
+  "figures_regenerated": false,
+  "nmf_rerun": false,
+  "statistics_rerun": false
+}

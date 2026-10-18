@@ -1,0 +1,95 @@
+﻿位点,参与者,任务,原缺失任务数,原缺失阶段模态数,原统计文件当前存在数,旧版导出可找到mask的缺失单元数,本次已补齐单元数,尚缺单元数,补齐后结论,缺失详情,原因
+D0022_LMIF3-4,D0022,PhonemeSequence|SentenceRep,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0028_LPI1-2,D0028,PhonemeSequence|LexicalDelay|SentenceRep,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0028_LPI3-4,D0028,PhonemeSequence|LexicalDelay|SentenceRep,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0032_LAI1-2,D0032,LexicalDelay|SentenceRep,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0035_LAI1-2,D0035,PhonemeSequence|LexicalDelay,2,6,0,3,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0042_RPI3-4,D0042,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0042_RPI4-5,D0042,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0044_LI4-5,D0044,LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0044_RI2-3,D0044,LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0045_RAI2-3,D0045,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0045_RAI4-5,D0045,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0045_RPI4-5,D0045,PhonemeSequence,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0052_RI1-2,D0052,PhonemeSequence,1,3,0,1,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0055_RAI3-4,D0055,PhonemeSequence|LexicalDelay,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0055_RPI4-5,D0055,PhonemeSequence|LexicalDelay,2,6,0,1,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0055_RPI5-6,D0055,PhonemeSequence|LexicalDelay,2,6,0,0,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0058_LPI1-2,D0058,PhonemeSequence,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0058_LPI2-3,D0058,PhonemeSequence,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0058_LPI3-4,D0058,PhonemeSequence,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0058_LPI4-5,D0058,PhonemeSequence,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0059_LAT10-11,D0059,PhonemeSequence|LexicalDelay|SentenceRep,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0059_LAT11-12,D0059,PhonemeSequence|LexicalDelay|SentenceRep,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0059_LAT12-13,D0059,PhonemeSequence|LexicalDelay|SentenceRep,2,6,0,0,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0059_LAT7-8,D0059,PhonemeSequence|LexicalDelay|SentenceRep,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0060_RI1-2,D0060,PhonemeSequence|SentenceRep,1,3,0,0,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0060_RI4-5,D0060,PhonemeSequence|SentenceRep,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0065_RI1-2,D0065,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0065_RI2-3,D0065,LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0065_RI3-4,D0065,LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0065_RI4-5,D0065,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0065_RI6-7,D0065,LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0071_RIA1-2,D0071,PhonemeSequence|LexicalDelay|SentenceRep,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0075_RAI1-2,D0075,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0075_RAI2-3,D0075,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0075_RAI3-4,D0075,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0076_LTP6-7,D0076,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0076_RPI2-3,D0076,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0076_RPI3-4,D0076,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0079_LPI1-2,D0079,PhonemeSequence|LexicalDelay|PictureNaming,3,12,0,6,0,12,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|response/image|response/sound|stimulus/image|stimulus/sound,存在版本未核实的历史 mask
+D0079_LPI2-3,D0079,PhonemeSequence|LexicalDelay|PictureNaming,3,12,0,0,0,12,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|response/image|response/sound|stimulus/image|stimulus/sound,未找到该通道的现存 mask
+D0084_RAI1-2,D0084,PhonemeSequence|LexicalDelay|PictureNaming,2,12,0,3,0,12,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0084_RPI2-3,D0084,PhonemeSequence|LexicalDelay|PictureNaming,3,15,0,15,0,15,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0090_RIA1-2,D0090,LexicalDelay|PictureNaming,2,12,0,12,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0090_RIA2-3,D0090,LexicalDelay|PictureNaming,2,12,0,12,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0090_RIP2-3,D0090,LexicalDelay|PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0092_LIA1-2,D0092,PhonemeSequence|LexicalDelay|PictureNaming,2,9,0,0,0,9,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/text|response/image|response/text|stimulus/image|stimulus/text,未找到该通道的现存 mask
+D0092_RIA1-2,D0092,PhonemeSequence|LexicalDelay|PictureNaming,3,15,0,9,0,15,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0093_LIA1-2,D0093,PhonemeSequence|PictureNaming,2,9,0,9,0,9,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/sound|delay/text|response/sound|response/text|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0093_LIA2-3,D0093,PhonemeSequence|PictureNaming,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|response/image|stimulus/image,存在版本未核实的历史 mask
+D0095_LIA2-3,D0095,PhonemeSequence,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0101_RIP1-2,D0101,LexicalDelay|PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0101_RIP3-4,D0101,LexicalDelay|PictureNaming,2,12,0,9,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0101_RIP4-5,D0101,LexicalDelay|PictureNaming,2,12,0,9,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0101_RIP5-6,D0101,LexicalDelay|PictureNaming,2,12,0,9,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0101_RIP6-7,D0101,LexicalDelay|PictureNaming,2,9,0,6,0,9,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|response/image|response/sound|stimulus/image|stimulus/sound,存在版本未核实的历史 mask
+D0103_LAI1-2,D0103,PhonemeSequence|LexicalDelay,1,3,0,3,0,3,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0103_LAI2-3,D0103,PhonemeSequence|LexicalDelay,2,6,0,6,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0103_LFAI1-2,D0103,PhonemeSequence|LexicalDelay,2,6,0,0,0,6,证据不完整，不能判为无响应,PhonemeSequence:delay/sound|response/sound|stimulus/sound | LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0105_LIA1-2,D0105,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0105_LTAS1-2,D0105,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0105_LTPS1-2,D0105,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0115_LIA1-2,D0115,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0115_LTAS1-2,D0115,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0118_LIA2-3,D0118,PictureNaming,1,6,0,4,0,6,证据不完整，不能判为无响应,PictureNaming:delay/sound|delay/text|response/sound|response/text|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0118_LIA3-4,D0118,PictureNaming,1,9,0,6,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0118_LTMS1-2,D0118,PictureNaming,1,6,0,0,0,6,证据不完整，不能判为无响应,PictureNaming:delay/sound|delay/text|response/sound|response/text|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0118_RTAS1-2,D0118,PictureNaming,1,9,0,6,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0119_RIA1-2,D0119,PictureNaming,1,6,0,6,0,6,证据不完整，不能判为无响应,PictureNaming:delay/sound|delay/text|response/sound|response/text|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0119_RIA2-3,D0119,PictureNaming,1,9,0,9,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0119_RIP1-2,D0119,PictureNaming,1,3,0,3,0,3,证据不完整，不能判为无响应,PictureNaming:delay/text|response/text|stimulus/text,存在版本未核实的历史 mask
+D0123_LAI1-2,D0123,PictureNaming,1,3,0,3,0,3,证据不完整，不能判为无响应,PictureNaming:delay/image|response/image|stimulus/image,存在版本未核实的历史 mask
+D0125_LIA2-3,D0125,PictureNaming,1,9,0,0,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0129_LAI2-3,D0129,LexicalDelay|PictureNaming,2,12,0,6,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0129_LAI3-4,D0129,LexicalDelay|PictureNaming,2,6,0,5,0,6,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/sound|response/sound|stimulus/sound,存在版本未核实的历史 mask
+D0129_LTAS1-2,D0129,LexicalDelay|PictureNaming,2,12,0,9,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0129_LTMS1-2,D0129,LexicalDelay|PictureNaming,2,12,0,9,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0131_RFAI1-2,D0131,PictureNaming,1,9,0,0,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0131_RFAI2-3,D0131,PictureNaming,1,9,0,0,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0131_RTMS1-2,D0131,PictureNaming,1,9,0,6,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0131_RTMS2-3,D0131,PictureNaming,1,9,0,6,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0131_RTMS3-4,D0131,PictureNaming,1,9,0,6,0,9,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,存在版本未核实的历史 mask
+D0132_LTMS1-2,D0132,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0137_LAI1-2,D0137,LexicalDelay|PictureNaming,1,6,0,4,0,6,证据不完整，不能判为无响应,PictureNaming:delay/image|delay/sound|response/image|response/sound|stimulus/image|stimulus/sound,存在版本未核实的历史 mask
+D0138_LTAS1-2,D0138,LexicalDelay|PictureNaming,2,12,0,0,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0138_LTAS2-3,D0138,LexicalDelay|PictureNaming,2,9,0,0,0,9,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/text|response/image|response/text|stimulus/image|stimulus/text,未找到该通道的现存 mask
+D0139_LTAS2-3,D0139,LexicalDelay|PictureNaming,2,12,0,0,0,12,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound | PictureNaming:delay/image|delay/sound|delay/text|response/image|response/sound|response/text|stimulus/image|stimulus/sound|stimulus/text,未找到该通道的现存 mask
+D0140_LAI1-2,D0140,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0140_LAI4-5,D0140,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0140_LFAI2-3,D0140,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0143_RIP1-2,D0143,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0143_RIP2-3,D0143,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0143_RIP3-4,D0143,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0143_RIP4-5,D0143,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
+D0143_RIP5-6,D0143,LexicalDelay,1,3,0,0,0,3,证据不完整，不能判为无响应,LexicalDelay:delay/sound|response/sound|stimulus/sound,未找到该通道的现存 mask
