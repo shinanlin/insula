@@ -13,7 +13,7 @@ from IPython.display import SVG
 
 ROOT=Path('/cwork/ns458/insula-paper')
 sys.path.insert(0,str(ROOT))
-AUDIT=ROOT/'results/audit/figure3_editable_venn_2026-11-01'
+AUDIT=ROOT/'results/audit/figure3_venn_restore_overlap_2026-11-01'
 
 
 def main():
@@ -58,22 +58,32 @@ def main():
         tree=ET.parse(path);root=tree.getroot()
         previous=ET.parse(AUDIT/'before'/path.relative_to(ROOT)).getroot()
         old_axes=previous.find(f'.//{svg}g[@id="axes_1"]')
-        original_paths=[g.find(svg+'path').get('d') for g in old_axes if g.tag==svg+'g' and g.find(svg+'path') is not None][:3]
+        if old_axes is not None:
+            original_paths=[g.find(svg+'path').get('d').strip().removesuffix('z').rstrip()
+                for g in old_axes if g.tag==svg+'g' and g.find(svg+'path') is not None][:3]
+        else:
+            ids=list(old_meta['editable_svg_groups'])
+            original_paths=[previous.find(f'.//{svg}g[@id="{ids[i]}_shape"]/{svg}path').get('d').strip().removesuffix('z').rstrip()
+                for i in (0,2,1)]
         region_ids=list(meta['editable_svg_groups'])
         # Match the original left/right/center path ordering exactly.
         region_paths={}
         for group_id,spec in meta['editable_svg_groups'].items():
             group=root.find(f'.//{svg}g[@id="{group_id}"]')
             assert group is not None
+            assert group.get('transform') is None and spec['offset_mm']==0
             members={child.get('id') for child in group if child.tag==svg+'g'}
             assert members==set(spec['members'])
             shape=group.find(f'{svg}g[@id="{group_id}_shape"]/{svg}path')
             assert shape is not None and shape.get('d').strip().lower().endswith('z')
-            assert 'stroke:' in shape.get('style','')
+            assert 'stroke:' not in shape.get('style','')
             assert not any('clip-path' in element.attrib for element in group.iter())
             assert group.find(f'.//{svg}g[@id="{group_id}_count"]/{svg}text') is not None
             region_paths[group_id]=shape.get('d').strip()[:-1].rstrip()
-        assert [region_paths[region_ids[i]] for i in (0,2,1)]==[d.strip() for d in original_paths]
+        assert [region_paths[region_ids[i]] for i in (0,2,1)]==original_paths
+        outlines=root.find(f'.//{svg}g[@id="circle_outlines"]')
+        assert outlines is not None and len(outlines)==2
+        assert all(outline.find(svg+'path') is not None for outline in outlines)
         assert not root.findall('.//'+svg+'image')
         assert len([e for e in root.iter() if e.get('id','').startswith('region_') and e.get('id') in region_ids])==3
         cells=[c for c in nb.cells if f"results['{key}']['diagram']" in c.source]
@@ -84,7 +94,8 @@ def main():
         main_manifest['svg_sha256'][str(path)]=sha(path)
         proof[key]=dict(svg=str(path),svg_sha256=sha(path),independent_groups=meta['editable_svg_groups'],
             original_closed_paths_identical=True,area_scale_and_counts_identical=True,
-            borders_counts_labels_grouped=True,shared_clipping_masks=False)
+            fills_counts_labels_grouped=True,shared_clipping_masks=False,
+            conventional_overlapping_circle_outlines=True,no_display_offsets=True)
         print('UPDATED',key,meta['target_counts'],flush=True)
     # Retain every other notebook cell/output; only update the caption and two SVGs.
     nb.cells[0].source=main_notebook().cells[0].source

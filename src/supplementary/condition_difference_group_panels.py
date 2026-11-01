@@ -89,11 +89,7 @@ def load_groups(key):
 
 
 def _group_editable_regions(path,region_groups):
-    """Make each region, border, count and heading one native SVG group.
-
-    Translating complete groups leaves the closed region paths and their
-    count-proportional areas intact. No shared clipping mask is needed.
-    """
+    """Group region fills and text without changing the normal Venn appearance."""
     namespaces={'':'http://www.w3.org/2000/svg',
         'xlink':'http://www.w3.org/1999/xlink',
         'dc':'http://purl.org/dc/elements/1.1/',
@@ -105,8 +101,7 @@ def _group_editable_regions(path,region_groups):
     elements={element.get('id'):element for element in root.iter() if element.get('id')}
     figure=elements['figure_1']
     for group_id,spec in region_groups.items():
-        group=ET.SubElement(figure,svg+'g',id=group_id,
-            transform=f"translate({spec['offset_mm']*72/25.4:.9f} 0)")
+        group=ET.SubElement(figure,svg+'g',id=group_id)
         ET.SubElement(group,svg+'title').text=spec['label']
         for member_id in spec['members']:
             element=elements[member_id]
@@ -119,7 +114,14 @@ def _group_editable_regions(path,region_groups):
                 # close command. Close explicitly for Illustrator path editing.
                 if not shape.get('d').strip().lower().endswith('z'):
                     shape.set('d',shape.get('d').rstrip()+' z')
-    # Matplotlib's axes group is empty after all region artists are regrouped.
+    # Keep both ordinary circle outlines above the fills, as in the original
+    # matplotlib-venn drawing. The author will split them locally if desired.
+    outlines=ET.SubElement(figure,svg+'g',id='circle_outlines')
+    for number in (1,2):
+        element=elements[f'venn_circle_{number}_outline']
+        parents[element].remove(element)
+        outlines.append(element)
+    # Matplotlib's axes group is empty after all diagram artists are regrouped.
     for element in list(figure):
         if element.get('id')=='axes_1' and not len(element):figure.remove(element)
     ET.indent(tree,space=' ')
@@ -127,7 +129,7 @@ def _group_editable_regions(path,region_groups):
 
 
 def diagram(key,pool,groups):
-    """Proportional areas in three independent, slightly separated SVG groups."""
+    """Count-proportional, normally overlapping circles with editable SVG fills."""
     spec = SPECS[key]
     fig,ax = plt.subplots(figsize=(10/2.54,7.3/2.54))
     fig.subplots_adjust(left=.025,right=.975,bottom=.24,top=.79)
@@ -138,21 +140,21 @@ def diagram(key,pool,groups):
     names=dict(zip(('10','11','01'),(SPECS[key]['conditions'][0]+'_gt_'+SPECS[key]['conditions'][1],
         'no_detected_difference',SPECS[key]['conditions'][1]+'_gt_'+SPECS[key]['conditions'][0])))
     region_groups={}
-    for region,offset,label in (('10',-1,spec['names'][0]+' only'),
-        ('11',0,'No detected difference'),('01',1,spec['names'][1]+' only')):
+    for region,label in (('10',spec['names'][0]+' only'),
+        ('11','No detected difference'),('01',spec['names'][1]+' only')):
         group_id='region_'+names[region]
-        region_groups[group_id]=dict(label=label,offset_mm=offset,
+        region_groups[group_id]=dict(label=label,offset_mm=0,
             members=[group_id+'_shape',group_id+'_count',group_id+'_label'])
     for region,color in zip(('10','01','11'),('#2166AC','#D95F02','#E8E8E8')):
         patch=v.get_patch_by_id(region)
         group_id='region_'+names[region]
         patch.set_alpha(None);patch.set_facecolor(to_rgba(color,1 if region=='11' else .22))
-        patch.set_edgecolor('#666666' if region=='11' else color)
-        patch.set_linewidth(1);patch.set_clip_on(False);patch.set_gid(group_id+'_shape')
+        patch.set_edgecolor('none')
+        patch.set_clip_on(False);patch.set_gid(group_id+'_shape')
         label=v.get_label_by_id(region);label.set_fontsize(12);label.set_gid(group_id+'_count')
-    # Each region carries its own full closed border. The two whole-circle
-    # outlines are used only to verify the original areas, never displayed.
-    for circle in circles:circle.remove()
+    for number,(circle,color) in enumerate(zip(circles,('#2166AC','#D95F02')),start=1):
+        circle.set_edgecolor(color);circle.set_clip_on(False)
+        circle.set_gid(f'venn_circle_{number}_outline')
     if subsets[1]==1:
         label=v.get_label_by_id('01');location=label.get_position();label.set_visible(False)
         group_id='region_'+names['01']
@@ -190,8 +192,9 @@ def diagram(key,pool,groups):
         radii_data_units=[c.get_radius() for c in circles],
         common_area_per_electrode_data_units=1/78,
         pixels_per_data_unit=scale,center_means_no_detected_difference=True,
-        editable_svg_groups=region_groups,independent_closed_region_borders=True,
-        display_translation_only=True,original_region_shapes_and_areas_preserved=True))
+        editable_svg_groups=region_groups,independent_closed_region_borders=False,
+        conventional_overlapping_circle_outlines=True,no_display_offsets=True,
+        original_region_shapes_and_areas_preserved=True))
     path = IMG/f'fig3_{key}_condition_difference_schematic.svg'
     # Identical uncropped canvases keep the common physical area scale visible
     # when the two independent SVGs are placed at the same displayed width.

@@ -2,7 +2,7 @@
 
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
-- 正文分类图的可编辑结构（用户批准）：三个区域分别为独立 SVG 组，每组含完整闭合边界、填色、数字、标签及需要的引导线；左右组各向外平移 1 mm。原有形状、面积比例、数量与统计不变。正文 notebook 的两张分类图输出同步更新；原始曲线、脑图及 SI 保持原样。更新入口为 `scripts/refresh_figure3_venn.py`，永久绘制入口仍为 `src/supplementary/condition_difference_group_panels.py::diagram`。SVG 分组检查通过，待作者在本地 Illustrator 验证操作。
+- 正文分类图外观修正（用户要求）：恢复两个圆自然相交的常规 Venn 外观，取消区域外移、人工间隙及各区域单独描边，恢复原有两个整圆的轮廓。作者自行在 Adobe Illustrator 中分开区域；保留不改变外观的填色／数字／标签分组。形状、面积比例、数量与统计不变。正文 notebook 的两张输出同步更新；曲线、脑图、SI 及 NMF 保持原样。更新入口仍为 `scripts/refresh_figure3_venn.py`。
 
 - 修改前已确认旧正文 notebook 与 Git 内容完全一致，并建立检查点 `5924930849762b209838fadf4f991833597086ad`，保存旧正文及当时的 Figure3 代码和 SI。
 - 正文唯一入口：`vizpub/fig3.ipynb`。保留条件差异分类示意、功能着色空间图、PN21 位点两条件波形及平均 HGA heatmap、LD27 位点两条件波形及差值 heatmap。仍为独立子图，保持已批准的颜色、窗口、行高、mask 和统计结果。输出统一到 `img/fig3/`、`results/fig3/`，共享入口为 `src/figure3.py`。
