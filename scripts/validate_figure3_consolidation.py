@@ -70,7 +70,7 @@ def main():
                     checked+=1
     assert memberships==dict(sound_image=81,decision_repeat=135,repeat_passive=64)
     total_svgs=0
-    for relative in ('vizpub/fig3.ipynb','vizpub/supplementary/fig3_sampling_responsiveness.ipynb','vizpub/supplementary/fig3_all_condition_hga.ipynb'):
+    for relative in ('vizpub/fig3.ipynb','vizpub/supplementary/fig3_supplementary.ipynb'):
         nb=nbformat.read(ROOT/relative,as_version=4)
         for cell in nb.cells:
             for output in cell.get('outputs',[]):
