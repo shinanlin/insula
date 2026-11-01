@@ -17,13 +17,13 @@ from matplotlib_venn._math import circle_intersection_area
 import numpy as np
 import pandas as pd
 
-from src.supplementary.directional_venn_draft import SPECS
+from src.figure3 import CONDITION_SPECS as SPECS
 from src.main_analysis import FUNCTIONAL_COMPONENTS, assigned_functional_sites
 
 ROOT = Path('/cwork/ns458/insula-paper')
-OUT = ROOT/'results/supplementary/fig3_assigned_only_2026-11-01/regions'
-IMG = ROOT/'img/supplementary/fig3_condition_difference_groups'
-NOTEBOOK = ROOT/'vizpub/supplementary/fig3_directional_difference_venn_draft.ipynb'
+OUT = ROOT/'results/fig3/regions'
+IMG = ROOT/'img/fig3'
+NOTEBOOK = ROOT/'vizpub/fig3.ipynb'
 COMPONENTS = FUNCTIONAL_COMPONENTS
 COLORS = dict(sensory='#2369BD', sustain='#C4A35A', motor='#A9373B')
 LABELS = dict(sensory='Sensory', sustain='Sustained', motor='Motor')
@@ -141,7 +141,7 @@ def diagram(key,pool,groups):
 
 
 def maps(key,groups,titles):
-    from src.supplementary.condition_response_maps import brain_pair
+    from src.figure3_brain import brain_pair
     from src.supplementary.selected_brain_contours import _figure2_contour_helpers
     from scripts.refresh_lexical_condition_sets import sha,write
     _,contour_proof = _figure2_contour_helpers(ROOT)

@@ -53,21 +53,11 @@ def write_json(path, value):
 
 def source_helpers():
     """Reuse definitions verbatim, without executing the main notebook."""
-    notebook = json.loads((ROOT / "vizpub/fig3.ipynb").read_text())
+    from src import figure3_legacy_hga
     names = {"rfig3_blend_rgb", "rfig3_darken", "rfig3_lighten",
              "rfig3_condition_color", "rfig3_condition_cmap",
              "rfig3_compute_shared_ylim", "rfig3_electrode_key"}
-    body = []
-    for cell in notebook["cells"]:
-        if cell.get("id") not in {"2c822034", "6f90f72d"}:
-            continue
-        tree = ast.parse("".join(cell["source"]))
-        body += [n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in names]
-    assert {n.name for n in body} == names
-    namespace = dict(np=np, pd=pd, sns=sns, to_hex=to_hex, to_rgb=to_rgb,
-                     rfig3_clusters=list(CLUSTERS))
-    exec(compile(ast.Module(body=body, type_ignores=[]), "fig3:original_helpers", "exec"), namespace)
-    return namespace
+    return {name:getattr(figure3_legacy_hga,name) for name in names}
 
 
 def protected_snapshot():

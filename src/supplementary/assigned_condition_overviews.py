@@ -10,16 +10,18 @@ from src.supplementary.assigned_condition_cohorts import ROOT,OUT,load_cohort
 from src.supplementary.assigned_comparison_traces import override
 
 
-def render(key):
+def render(key, *, core_only=False, image_dir=None):
     from scripts.refresh_lexical_condition_sets import write
     from src.supplementary import lexical_condition_figures as legacy
-    from src.supplementary.condition_response_maps import brain_pair
+    from src.figure3_brain import brain_pair
     from src.supplementary.condition_difference_group_panels import COLORS as functional_colors,LABELS
     table,parent=load_cohort(key)
     a,b=('sound','image') if key=='picture' else ('decision','repeat')
     title='Picture Naming · Stimulus 0–1 s' if key=='picture' else 'Lexical Delay · Delay 0–1 s'
     dest=OUT/key/'overview';dest.mkdir(parents=True,exist_ok=True)
-    image_dir=ROOT/'img/supplementary'/f'fig3_{key}_stimulus_condition_sets' if key=='picture' else ROOT/'img/supplementary/fig3_lexical_delay_condition_sets'
+    if image_dir is None:
+        image_dir=ROOT/'img/supplementary'/f'fig3_{key}_stimulus_condition_sets' if key=='picture' else ROOT/'img/supplementary/fig3_lexical_delay_condition_sets'
+    image_dir=Path(image_dir)
     image_dir.mkdir(parents=True,exist_ok=True)
     prefix='fig3_picture_stimulus' if key=='picture' else 'fig3_lexical_delay'
     paths={}
@@ -65,6 +67,13 @@ def render(key):
     composition=pd.DataFrame(rows);composition['fraction_within_component']=composition.n_electrodes/composition.component_denominator
     composition.to_csv(dest/'component_composition.csv',index=False)
     pd.DataFrame([dict(set=label,n_electrodes=len(part),n_participants=part.subject.nunique(),participants=';'.join(sorted(part.subject.unique()))) for label,part in sets]).to_csv(dest/'set_counts.csv',index=False)
+    if core_only:
+        write(dest/'completion.json',dict(passed=True,anatomical_inventory_n=len(parent),
+            anatomical_inventory_subjects=parent.subject.nunique(),statistical_n=len(table),
+            statistical_subjects=table.subject.nunique(),responsive_n=int(responsive.sum()),
+            responsive_subjects=table.loc[responsive,'subject'].nunique(),baseline_venn_regions=list(counts),
+            unassigned_in_statistics=0,paths=paths,no_new_tests=True,labels_and_coordinates_unchanged=True))
+        return paths
     # Original absolute-count stacked-bar convention; never hide small counts in percentages.
     names=[name for name,_ in sets];fig,ax=plt.subplots(figsize=(8.5/2.54,6/2.54));fig.subplots_adjust(left=.33,right=.96,bottom=.22,top=.85)
     left=np.zeros(len(names));y=np.arange(len(names))

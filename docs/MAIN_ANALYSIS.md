@@ -1,5 +1,14 @@
 # 主分析口径：Repeat + sound-only
 
+## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
+
+- 修改前已确认旧正文 notebook 与 Git 内容完全一致，并建立检查点 `5924930849762b209838fadf4f991833597086ad`，保存旧正文及当时的 Figure3 代码和 SI。
+- 正文唯一入口：`vizpub/fig3.ipynb`。保留条件差异分类示意、功能着色空间图、PN21 位点两条件波形及平均 HGA heatmap、LD27 位点两条件波形及差值 heatmap。仍为独立子图，保持已批准的颜色、窗口、行高、mask 和统计结果。输出统一到 `img/fig3/`、`results/fig3/`，共享入口为 `src/figure3.py`。
+- SI 采样与 baseline 响应：`vizpub/supplementary/fig3_sampling_responsiveness.ipynb`。先列完整解剖采样 PN162／28 人、LD214／38 人；再列 native QC 通过且配对统计完整128／27、187／35；功能分类后81／24、135／35；目标阶段响应池44／21、71／27。完整采样是覆盖元数据，功能统计排除 Unassigned。Venn 中央表示两条件均相对 baseline 响应：PN Sound35、Image21、交集12；LD Decision61、Repeat58、交集48。与正文中央“未检出条件差异”的分类图严格区分。
+- SI 完整 HGA：`vizpub/supplementary/fig3_all_condition_hga.ipynb`。保留 Stimulus／Delay／Response × Sensory／Sustained／Motor 的两条件波形与原始 HGA heatmap，沿用原版函数体、baseline mask 空白规则、P95 色阶及条件配色。Sound–Image81 位点、Decision–Repeat135 位点；Repeat–Passive 保留原缓存与当前功能样本的64 位点。Passive Response 沿用 nominal 对齐，不视为实际发声。
+- 所有四任务采样与任务交叠图继续保留在独立 `vizpub/supplementary/task_sampling.ipynb`。不混入正文 Figure3。
+- 已淘汰的 weight 混色／高斯展示及重复入口从当前工作流移除。必要的原始统计、波形、冻结 NMF 和排除记录保留；旧代码可从 Git 检查点恢复。正文 Figure1／2／4／5／6 与 NMF 不改。
+
 **用户已明确：主分析仅使用 sound 条件。该要求同时约束有效／显著位点筛选、Figure 1、NMF 输入和依赖这些分群的后续主分析。**
 
 ## 数据条件

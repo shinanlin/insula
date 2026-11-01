@@ -68,12 +68,8 @@ def draw_venn(table):
 def brain_renderer():
     # Reuse this notebook's accepted point display verbatim, including the
     # exact Figure 1 surface, camera-facing snap, 4-mm lift and marker size.
-    nb=json.loads((AUDIT/'before/fig3_lexical_delay_condition_sets.ipynb').read_text())
-    source=''.join(nb['cells'][11]['source']).split('\npoints = electrode_table')[0]
-    assert 'def brain_pair(' in source
-    namespace=dict(ROOT=ROOT,np=np,plt=plt,Line2D=Line2D)
-    exec(compile(source,str(AUDIT/'before/fig3_lexical_delay_condition_sets.ipynb')+':cell11','exec'),namespace)
-    return namespace
+    from src.figure3_legacy_brain import renderer_namespace
+    return renderer_namespace(ROOT)
 
 
 def draw_brains(table):

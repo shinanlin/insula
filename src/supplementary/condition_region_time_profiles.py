@@ -1,4 +1,4 @@
-"""Temporal portraits of the audited PN25 and LD28 spatial region sets."""
+"""Temporal portraits of the audited assigned PN21 and LD27 region sets."""
 from pathlib import Path
 import ast
 import hashlib
@@ -13,10 +13,10 @@ from matplotlib import font_manager
 from matplotlib.colors import LinearSegmentedColormap
 
 ROOT=Path('/cwork/ns458/insula-paper')
-OUT=ROOT/'results/supplementary/fig3_assigned_only_2026-11-01/time_profiles'
-IMG=ROOT/'img/supplementary/fig3_condition_time_profiles'
-NOTEBOOK=ROOT/'vizpub/supplementary/fig3_directional_difference_venn_draft.ipynb'
-REGIONS=ROOT/'results/supplementary/fig3_assigned_only_2026-11-01/regions'
+OUT=ROOT/'results/fig3/time_profiles'
+IMG=ROOT/'img/fig3'
+NOTEBOOK=ROOT/'vizpub/fig3.ipynb'
+REGIONS=ROOT/'results/fig3/regions'
 CLUSTERS=('sensory','sustain','motor')
 COLORS=dict(sensory='#2369BD',sustain='#C4A35A',motor='#A9373B')
 LABELS=dict(sensory='Sensory',sustain='Sustained',motor='Motor')
@@ -41,9 +41,8 @@ SPECS={
 
 def shared_ylim(waves,selected,spec):
     """Use the original saved P98/floor-.4 helper without editing its code."""
-    path=ROOT/'results/audit/sound_image_difference_full_cohort_2026-10-28/before/sound_image_test.ipynb'
-    nb=json.loads(path.read_text())
-    source=''.join(next(c for c in nb['cells'] if c.get('id')=='sound-original-functions')['source'])
+    path=ROOT/'src/figure3_legacy_hga.py'
+    source=path.read_text()
     names={'rfig3_electrode_key','rfig3_compute_shared_ylim'}
     nodes=[n for n in ast.parse(source).body if isinstance(n,ast.FunctionDef) and n.name in names]
     assert {n.name for n in nodes}==names
