@@ -2,6 +2,8 @@
 
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
+- 正文分类图的可编辑结构（用户批准）：三个区域分别为独立 SVG 组，每组含完整闭合边界、填色、数字、标签及需要的引导线；左右组各向外平移 1 mm。原有形状、面积比例、数量与统计不变。正文 notebook 的两张分类图输出同步更新；原始曲线、脑图及 SI 保持原样。更新入口为 `scripts/refresh_figure3_venn.py`，永久绘制入口仍为 `src/supplementary/condition_difference_group_panels.py::diagram`。SVG 分组检查通过，待作者在本地 Illustrator 验证操作。
+
 - 修改前已确认旧正文 notebook 与 Git 内容完全一致，并建立检查点 `5924930849762b209838fadf4f991833597086ad`，保存旧正文及当时的 Figure3 代码和 SI。
 - 正文唯一入口：`vizpub/fig3.ipynb`。保留条件差异分类示意、功能着色空间图、PN21 位点两条件波形及平均 HGA heatmap、LD27 位点两条件波形及差值 heatmap。仍为独立子图，保持已批准的颜色、窗口、行高、mask 和统计结果。输出统一到 `img/fig3/`、`results/fig3/`，共享入口为 `src/figure3.py`。
 - SI 统一入口（用户要求合并）：`vizpub/supplementary/fig3_supplementary.ipynb`。按 Picture Naming、Lexical Delay、Repeat–Passive 组织，前两组各自的采样／响应信息和完整 HGA 放在一起。原采样与完整 HGA 两个 notebook 已合并移除。采样与 baseline 响应部分：先列完整解剖采样 PN162／28 人、LD214／38 人；再列 native QC 通过且配对统计完整128／27、187／35；功能分类后81／24、135／35；目标阶段响应池44／21、71／27。完整采样是覆盖元数据，功能统计排除 Unassigned。Venn 中央表示两条件均相对 baseline 响应：PN Sound35、Image21、交集12；LD Decision61、Repeat58、交集48。与正文中央“未检出条件差异”的分类图严格区分。

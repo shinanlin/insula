@@ -7,9 +7,11 @@ from pathlib import Path
 import json
 import os
 import sys
+import xml.etree.ElementTree as ET
 
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
+from matplotlib.colors import to_rgba
 from matplotlib.patches import Rectangle
 from matplotlib_venn import venn2,venn2_circles
 from matplotlib_venn.layout.venn2 import DefaultLayoutAlgorithm
@@ -86,8 +88,46 @@ def load_groups(key):
     return pool,groups,counts,titles
 
 
+def _group_editable_regions(path,region_groups):
+    """Make each region, border, count and heading one native SVG group.
+
+    Translating complete groups leaves the closed region paths and their
+    count-proportional areas intact. No shared clipping mask is needed.
+    """
+    namespaces={'':'http://www.w3.org/2000/svg',
+        'xlink':'http://www.w3.org/1999/xlink',
+        'dc':'http://purl.org/dc/elements/1.1/',
+        'cc':'http://creativecommons.org/ns#',
+        'rdf':'http://www.w3.org/1999/02/22-rdf-syntax-ns#'}
+    for prefix,uri in namespaces.items():ET.register_namespace(prefix,uri)
+    tree=ET.parse(path);root=tree.getroot();svg='{'+namespaces['']+'}'
+    parents={child:parent for parent in root.iter() for child in parent}
+    elements={element.get('id'):element for element in root.iter() if element.get('id')}
+    figure=elements['figure_1']
+    for group_id,spec in region_groups.items():
+        group=ET.SubElement(figure,svg+'g',id=group_id,
+            transform=f"translate({spec['offset_mm']*72/25.4:.9f} 0)")
+        ET.SubElement(group,svg+'title').text=spec['label']
+        for member_id in spec['members']:
+            element=elements[member_id]
+            parents[element].remove(element)
+            group.append(element)
+            for child in element.iter():child.attrib.pop('clip-path',None)
+            if member_id.endswith('_shape'):
+                shape=element.find(svg+'path')
+                # matplotlib-venn returns to the first vertex but omits the SVG
+                # close command. Close explicitly for Illustrator path editing.
+                if not shape.get('d').strip().lower().endswith('z'):
+                    shape.set('d',shape.get('d').rstrip()+' z')
+    # Matplotlib's axes group is empty after all region artists are regrouped.
+    for element in list(figure):
+        if element.get('id')=='axes_1' and not len(element):figure.remove(element)
+    ET.indent(tree,space=' ')
+    tree.write(path,encoding='utf-8',xml_declaration=True)
+
+
 def diagram(key,pool,groups):
-    """Exact count-proportional areas, using a common area-per-site scale."""
+    """Proportional areas in three independent, slightly separated SVG groups."""
     spec = SPECS[key]
     fig,ax = plt.subplots(figsize=(10/2.54,7.3/2.54))
     fig.subplots_adjust(left=.025,right=.975,bottom=.24,top=.79)
@@ -95,21 +135,38 @@ def diagram(key,pool,groups):
     layout=DefaultLayoutAlgorithm(normalize_to=sum(subsets)/78.)
     v=venn2(subsets=subsets,set_labels=None,ax=ax,layout_algorithm=layout)
     circles=venn2_circles(subsets=subsets,ax=ax,layout_algorithm=layout,linewidth=1)
+    names=dict(zip(('10','11','01'),(SPECS[key]['conditions'][0]+'_gt_'+SPECS[key]['conditions'][1],
+        'no_detected_difference',SPECS[key]['conditions'][1]+'_gt_'+SPECS[key]['conditions'][0])))
+    region_groups={}
+    for region,offset,label in (('10',-1,spec['names'][0]+' only'),
+        ('11',0,'No detected difference'),('01',1,spec['names'][1]+' only')):
+        group_id='region_'+names[region]
+        region_groups[group_id]=dict(label=label,offset_mm=offset,
+            members=[group_id+'_shape',group_id+'_count',group_id+'_label'])
     for region,color in zip(('10','01','11'),('#2166AC','#D95F02','#E8E8E8')):
         patch=v.get_patch_by_id(region)
-        patch.set_facecolor(color);patch.set_alpha(1 if region=='11' else .22)
-        v.get_label_by_id(region).set_fontsize(12)
-    for circle,color in zip(circles,('#2166AC','#D95F02')):circle.set_edgecolor(color)
+        group_id='region_'+names[region]
+        patch.set_alpha(None);patch.set_facecolor(to_rgba(color,1 if region=='11' else .22))
+        patch.set_edgecolor('#666666' if region=='11' else color)
+        patch.set_linewidth(1);patch.set_clip_on(False);patch.set_gid(group_id+'_shape')
+        label=v.get_label_by_id(region);label.set_fontsize(12);label.set_gid(group_id+'_count')
+    # Each region carries its own full closed border. The two whole-circle
+    # outlines are used only to verify the original areas, never displayed.
+    for circle in circles:circle.remove()
     if subsets[1]==1:
         label=v.get_label_by_id('01');location=label.get_position();label.set_visible(False)
-        ax.annotate('1',xy=location,xytext=(.77,-.29),ha='center',va='center',fontsize=12,
+        group_id='region_'+names['01']
+        annotation=ax.annotate('1',xy=location,xytext=(.77,-.29),ha='center',va='center',fontsize=12,
             arrowprops=dict(arrowstyle='-',color='#555555',linewidth=.65))
+        annotation.set_gid(group_id+'_count');annotation.arrow_patch.set_gid(group_id+'_leader')
+        region_groups[group_id]['members'].insert(1,group_id+'_leader')
     ax.set(xlim=(-.90,.90),ylim=(-.60,.60),aspect='equal');ax.axis('off')
     fig.suptitle(spec['title'],fontsize=9,y=.98)
     fig.text(.5,.88,f'{len(pool)} responsive electrodes / {pool.subject.nunique()} participants',ha='center',fontsize=7)
-    for x,label,color in ((.205,spec['names'][0]+' only','#2166AC'),
-        (.5,'No detected\ndifference','#444444'),(.795,spec['names'][1]+' only','#D95F02')):
-        fig.text(x,.815,label,ha='center',va='center',fontsize=6.7,color=color)
+    for region,x,label,color in (('10',.205,spec['names'][0]+' only','#2166AC'),
+        ('11',.5,'No detected\ndifference','#444444'),('01',.795,spec['names'][1]+' only','#D95F02')):
+        text=fig.text(x,.815,label,ha='center',va='center',fontsize=6.7,color=color)
+        text.set_gid('region_'+names[region]+'_label')
     if len(groups['bidirectional']):
         fig.add_artist(Rectangle((.08,.12),.84,.105,transform=fig.transFigure,
             fill=False,linewidth=.65,edgecolor='#555555'))
@@ -132,11 +189,14 @@ def diagram(key,pool,groups):
         circle_totals=[subsets[0]+subsets[2],subsets[1]+subsets[2]],
         radii_data_units=[c.get_radius() for c in circles],
         common_area_per_electrode_data_units=1/78,
-        pixels_per_data_unit=scale,center_means_no_detected_difference=True))
+        pixels_per_data_unit=scale,center_means_no_detected_difference=True,
+        editable_svg_groups=region_groups,independent_closed_region_borders=True,
+        display_translation_only=True,original_region_shapes_and_areas_preserved=True))
     path = IMG/f'fig3_{key}_condition_difference_schematic.svg'
     # Identical uncropped canvases keep the common physical area scale visible
     # when the two independent SVGs are placed at the same displayed width.
     fig.savefig(path,format='svg',bbox_inches=None);plt.close(fig)
+    _group_editable_regions(path,region_groups)
     return path
 
 
