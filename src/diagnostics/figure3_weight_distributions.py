@@ -121,9 +121,9 @@ def render(*,sound_gt_image=False):
             summary.append(dict(group=key,component=component,n_electrodes=n,n_participants=subjects,
                 mean=float(proportions[:,index].mean()),median=float(np.median(proportions[:,index])),
                 q25=float(np.quantile(proportions[:,index],.25)),q75=float(np.quantile(proportions[:,index],.75))))
-        axis.text(.5,height+.055,'Sensory\n100%',ha='center',va='bottom',fontsize=8,color=COLORS[0])
-        axis.text(-.005,-.10,'Sustained\n100%',ha='center',va='top',fontsize=8,color=COLORS[1])
-        axis.text(1.005,-.10,'Motor\n100%',ha='center',va='top',fontsize=8,color=COLORS[2])
+        axis.text(.5,height+.055,'Sensory',ha='center',va='bottom',fontsize=8,color=COLORS[0])
+        axis.text(-.005,-.10,'Sustained',ha='center',va='top',fontsize=8,color=COLORS[1])
+        axis.text(1.005,-.10,'Motor',ha='center',va='top',fontsize=8,color=COLORS[2])
         axis.set_title(f'{title}\n{n} electrodes / {subjects} participants',fontsize=9,pad=16)
         axis.set(xlim=(-.15,1.15),ylim=(-.20,height+.20),aspect='equal')
         axis.axis('off')
