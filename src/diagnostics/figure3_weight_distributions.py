@@ -96,8 +96,6 @@ def render():
             edgecolor='white',linewidth=.6,zorder=3,clip_on=False)
         points.set_gid(key+'_original_electrodes')
         mean=proportions.mean(axis=0);mean_xy=mean@vertices
-        mean_point=axis.scatter(*mean_xy,s=55,marker='D',facecolor='white',edgecolor='#23262B',linewidth=1.2,zorder=4)
-        mean_point.set_gid(key+'_mean_composition')
         group_means.append(dict(group=key,sensory=float(mean[0]),sustain=float(mean[1]),motor=float(mean[2]),
             ternary_x=float(mean_xy[0]),ternary_y=float(mean_xy[1])))
         for i,row in enumerate(frame.itertuples()):
@@ -144,9 +142,8 @@ def render():
     handles=[Line2D([],[],marker='o',linestyle='none',markersize=4.5,color=color,label=label)
         for color,label in zip(COLORS,LABELS)]
     handles += [
-        Line2D([],[],marker='D',linestyle='none',markersize=5,markerfacecolor='white',markeredgecolor='#23262B',label='Mean composition'),
         Line2D([],[],color='#A2A9B2',ls=(0,(3,3)),lw=.8,label='Sustained = Motor')]
-    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.065),ncol=5,frameon=False,
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.065),ncol=4,frameon=False,
         fontsize=7,columnspacing=1.1,handletextpad=.4)
     fig.text(.5,.025,'Point colors blend the three component weights; gray clouds show relative electrode density.',
         ha='center',fontsize=6.7)
@@ -168,7 +165,7 @@ def render():
         point_color_definition='sRGB weighted blend: RGB = proportion vector @ original component RGB anchors',
         no_argmax_color_assignment=True,density_color_is_neutral_gray=True,
         triangle_vertices=dict(zip(COMPONENTS,vertices.tolist())),grid_spacing=.5,
-        dashed_line='Sustained and Motor proportions are equal',mean_marker='Open diamond, electrode-equal mean',
+        dashed_line='Sustained and Motor proportions are equal',mean_marker=None,
         projection_inverted_to_original_proportions=True,no_coordinate_jitter=True,point_coordinates_unsmoothed=True,
         density_sigma_in_triangle_side_units=DENSITY_SIGMA,density_bandwidth_shared_across_groups=True,
         density_definition='Equal-electrode isotropic Gaussian display kernels, clipped to valid simplex',
