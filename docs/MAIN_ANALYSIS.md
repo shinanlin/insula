@@ -2,7 +2,7 @@
 
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
-- 非空间 weight 分布草图（2026-11-02 用户修正）：用户明确删除上一版脑图，其 SVG、notebook、专用代码与缓存已移除。当前独立入口为 `vizpub/diagnostics/fig3_weight_distributions.ipynb`；两组仍为 PN21 个未检出 Sound–Image 差异的位点／14人及 LD27 个 Decision>Repeat 位点／16人，沿用各电极三个冻结 loading 的归一化比例。分布草图用箱线图与全部电极散点，并用灰线连接同一电极的 Sustained／Motor；箱体表示中位数及四分位范围，须线取1.5IQR范围内最远观测值，全部离群值也保留为散点。不做新检验或重拟合，正文与 SI 原图保持原样。
+- 非空间 weight 分布草图（2026-11-02 用户修正）：用户明确删除上一版脑图，并进一步要求高斯形态的平滑分布曲线，替代箱线／散点图。当前独立入口仍为 `vizpub/diagnostics/fig3_weight_distributions.ipynb`；两组为 PN21 个未检出 Sound–Image 差异位点／14人及 LD27 个 Decision>Repeat 位点／16人，沿用各电极三个冻结 loading 的归一化比例。横轴为weight比例0–1、纵轴为概率密度，三个成分各一条蓝／金／红曲线；使用高斯核密度估计及Scott带宽，0和1边界反射，区间内面积归一化为1，两组共用坐标范围。不假设电极权重服从正态分布；不做新检验或重拟合，正文／SI原图保持原样。旧脑图SVG、notebook、专用代码及缓存已移除。
 
 - 正文分类图外观修正（用户要求）：恢复两个圆自然相交的常规 Venn 外观，取消区域外移、人工间隙及各区域单独描边，恢复原有两个整圆的轮廓。作者自行在 Adobe Illustrator 中分开区域；保留不改变外观的填色／数字／标签分组。形状、面积比例、数量与统计不变。正文 notebook 的两张输出同步更新；曲线、脑图、SI 及 NMF 保持原样。更新入口仍为 `scripts/refresh_figure3_venn.py`。
 
