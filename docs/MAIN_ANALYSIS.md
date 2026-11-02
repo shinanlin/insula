@@ -2,7 +2,7 @@
 
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
-- 非空间 weight 分布草图（2026-11-02 用户继续要求更换表达）：当前为两张三角坐标图，独立入口仍为 `vizpub/diagnostics/fig3_weight_distributions.ipynb`。样本固定为 PN21 个未检出 Sound–Image 差异位点／14人及 LD27 个 Decision>Repeat 位点／16人；各电极三个冻结 loading 的归一化比例直接决定位置，每个电极一个中性颜色点，三个顶点标示 Sensory／Sustained／Motor 的100%。网格间隔25%，竖虚线表示 Sustained=Motor，空心菱形为电极等权平均构成。坐标无抖动或平滑，已反变换核对原权重；不做新检验或重拟合。原脑图草稿已删除，旧密度曲线SVG及曲线缓存已移出当前输出；正文／SI原图保持原样。
+- 非空间 weight 构成草图（2026-11-02 用户要求 manifold 风格美化）：仍使用 `vizpub/diagnostics/fig3_weight_distributions.ipynb` 的两张三角坐标图，固定 PN21／14人、LD27／16人的三个冻结 loading 比例。保持原始点位、组平均菱形和 Sustained=Motor 虚线，弱化框架及50%辅助线，增加低饱和度密度云和等高线。密度采用共同σ=0.09（三角边长1）的等权高斯显示核，各组除以电极数，再共享峰值色阶；只显示有效三元权重范围，等高线为共同峰值的20／40／60／80%。此为描述性密度美化，不代表新embedding、置信区间或显著性；不改变坐标、权重、NMF或正文／SI原图。原始三元坐标和密度网格均保存用于溯源。
 
 - 正文分类图外观修正（用户要求）：恢复两个圆自然相交的常规 Venn 外观，取消区域外移、人工间隙及各区域单独描边，恢复原有两个整圆的轮廓。作者自行在 Adobe Illustrator 中分开区域；保留不改变外观的填色／数字／标签分组。形状、面积比例、数量与统计不变。正文 notebook 的两张输出同步更新；曲线、脑图、SI 及 NMF 保持原样。更新入口仍为 `scripts/refresh_figure3_venn.py`。
 
