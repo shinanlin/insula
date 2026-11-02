@@ -4,7 +4,7 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 from matplotlib.cm import ScalarMappable
-from matplotlib.colors import LinearSegmentedColormap,Normalize
+from matplotlib.colors import LinearSegmentedColormap,Normalize,to_rgb,to_hex
 from matplotlib.lines import Line2D
 import numpy as np
 import pandas as pd
@@ -48,11 +48,12 @@ def render():
     style()
     fig,axes=plt.subplots(1,2,figsize=(17.6/2.54,10.4/2.54))
     fig.subplots_adjust(left=.035,right=.965,bottom=.27,top=.77,wspace=.23)
-    records=[];summary=[];coordinates=[];group_means=[]
+    records=[];summary=[];coordinates=[];group_means=[];color_records=[]
     inputs={str(assignments):sha(assignments)}
     height=np.sqrt(3)/2
     # Columns follow COMPONENTS: Sensory, Sustained, Motor.
     vertices=np.array([[.5,height],[0.,0.],[1.,0.]])
+    component_rgb=np.array([to_rgb(color) for color in COLORS])
     xx,yy=np.meshgrid(np.linspace(0,1,301),np.linspace(0,height,261))
     sensory_grid=yy/height;motor_grid=xx-.5*sensory_grid
     valid=(sensory_grid>=0)&(motor_grid>=0)&(sensory_grid+motor_grid<=1)
@@ -90,8 +91,9 @@ def render():
             axis.text(.5+.5*fraction+.025,height*(1-fraction),f'{fraction:.0%}',
                 ha='left',va='center',fontsize=5.5,color='#9299A2')
         axis.plot([.5,.5],[0,height],color='#A2A9B2',lw=.7,ls=(0,(3,3)),zorder=2)
-        points=axis.scatter(xy[:,0],xy[:,1],s=23,facecolor='#344054',alpha=.8,
-            edgecolor='white',linewidth=.5,zorder=3,clip_on=False)
+        point_rgb=proportions@component_rgb
+        points=axis.scatter(xy[:,0],xy[:,1],s=25,facecolor=point_rgb,alpha=.95,
+            edgecolor='white',linewidth=.6,zorder=3,clip_on=False)
         points.set_gid(key+'_original_electrodes')
         mean=proportions.mean(axis=0);mean_xy=mean@vertices
         mean_point=axis.scatter(*mean_xy,s=55,marker='D',facecolor='white',edgecolor='#23262B',linewidth=1.2,zorder=4)
@@ -99,6 +101,10 @@ def render():
         group_means.append(dict(group=key,sensory=float(mean[0]),sustain=float(mean[1]),motor=float(mean[2]),
             ternary_x=float(mean_xy[0]),ternary_y=float(mean_xy[1])))
         for i,row in enumerate(frame.itertuples()):
+            color_records.append(dict(group=key,electrode=row.electrode,
+                sensory=float(proportions[i,0]),sustain=float(proportions[i,1]),motor=float(proportions[i,2]),
+                red=float(point_rgb[i,0]),green=float(point_rgb[i,1]),blue=float(point_rgb[i,2]),
+                color_hex=to_hex(point_rgb[i])))
             coordinates.append(dict(group=key,electrode=row.electrode,subject=row.subject,channel=row.channel,
                 sensory=float(proportions[i,0]),sustain=float(proportions[i,1]),motor=float(proportions[i,2]),
                 ternary_x=float(xy[i,0]),ternary_y=float(xy[i,1])))
@@ -119,7 +125,7 @@ def render():
         inputs[str(source)]=sha(source)
     density_peak=max(float(density[valid].max()) for _,_,density in clouds)
     cmap=LinearSegmentedColormap.from_list('composition_cloud',
-        ['#FAFBFD','#EDF1FA','#D2DDF1','#ACBFE2','#7C97C9'])
+        ['#FAFBFC','#F0F1F3','#DEE1E6','#C5CBD4','#A2ACBB'])
     for axis,key,density in clouds:
         relative=density/density_peak
         density_cache[key+'_relative_density']=relative
@@ -128,18 +134,21 @@ def render():
             vmin=0,vmax=1,zorder=.5,antialiased=True)
         fill.set_gid(key+'_composition_density_cloud')
         contours=axis.contour(xx,yy,masked,levels=[.2,.4,.6,.8],
-            colors='#657FAE',linewidths=.55,alpha=.40,zorder=1)
+            colors='#858F9E',linewidths=.55,alpha=.40,zorder=1)
         contours.set_gid(key+'_descriptive_density_contours')
     color_axis=fig.add_axes([.36,.175,.28,.012])
     colorbar=fig.colorbar(ScalarMappable(norm=Normalize(0,1),cmap=cmap),cax=color_axis,orientation='horizontal')
     colorbar.set_ticks([0,.5,1]);colorbar.ax.tick_params(labelsize=6,length=2,pad=2)
     colorbar.set_label('Relative electrode density',fontsize=7,labelpad=2)
     colorbar.outline.set_visible(False)
-    handles=[Line2D([],[],marker='o',linestyle='none',markersize=4,color='#344054',label='Electrode'),
+    handles=[Line2D([],[],marker='o',linestyle='none',markersize=4.5,color=color,label=label)
+        for color,label in zip(COLORS,LABELS)]
+    handles += [
         Line2D([],[],marker='D',linestyle='none',markersize=5,markerfacecolor='white',markeredgecolor='#23262B',label='Mean composition'),
         Line2D([],[],color='#A2A9B2',ls=(0,(3,3)),lw=.8,label='Sustained = Motor')]
-    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.065),ncol=3,frameon=False,fontsize=7.5)
-    fig.text(.5,.025,'Point positions retain the original NMF proportions; clouds summarize their local concentration.',
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.065),ncol=5,frameon=False,
+        fontsize=7,columnspacing=1.1,handletextpad=.4)
+    fig.text(.5,.025,'Point colors blend the three component weights; gray clouds show relative electrode density.',
         ha='center',fontsize=6.7)
     svg=IMAGES/'fig3_component_weight_ternary.svg'
     fig.savefig(svg,format='svg',bbox_inches=None);plt.close(fig)
@@ -147,13 +156,17 @@ def render():
     pd.DataFrame(summary).to_csv(RESULTS/'descriptive_summary.csv',index=False)
     pd.DataFrame(coordinates).to_csv(RESULTS/'ternary_coordinates.csv',index=False)
     pd.DataFrame(group_means).to_csv(RESULTS/'mean_compositions.csv',index=False)
+    pd.DataFrame(color_records).to_csv(RESULTS/'electrode_colors.csv',index=False)
     np.savez_compressed(RESULTS/'composition_density_grid.npz',**density_cache)
     assert all(sha(p)==digest for p,digest in protected.items())
     write(RESULTS/'manifest.json',dict(passed=True,job_id=os.environ['SLURM_JOB_ID'],
         svg=str(svg),svg_sha256=sha(svg),source_hashes=inputs,
         n_electrodes=dict(picture=21,lexical=27),n_participants=dict(picture=14,lexical=16),
         proportion_definition='Each frozen W loading divided by the sum of the three W loadings for that electrode',
-        visualization='Ternary composition landscape with descriptive Gaussian density clouds and unchanged original points',
+        visualization='Ternary composition landscape with continuous component-color electrodes and neutral-gray density clouds',
+        point_color_anchors=dict(zip(COMPONENTS,COLORS)),point_color_alpha=.95,
+        point_color_definition='sRGB weighted blend: RGB = proportion vector @ original component RGB anchors',
+        no_argmax_color_assignment=True,density_color_is_neutral_gray=True,
         triangle_vertices=dict(zip(COMPONENTS,vertices.tolist())),grid_spacing=.5,
         dashed_line='Sustained and Motor proportions are equal',mean_marker='Open diamond, electrode-equal mean',
         projection_inverted_to_original_proportions=True,no_coordinate_jitter=True,point_coordinates_unsmoothed=True,
