@@ -2,7 +2,7 @@
 
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
-- 连续 weight 空间草图（2026-11-02 用户批准）：独立 notebook 为 `vizpub/diagnostics/fig3_continuous_weights.ipynb`。两行分别为正文 PN21 个未检出 Sound–Image 差异的位点／14人，以及 LD27 个 Decision>Repeat 位点／16人；三列分别显示 Sensory／Sustained／Motor。颜色深浅为逐电极 `loading_c / 三个 loading 之和`，共用0–1比例范围、各自蓝／金／红单色渐变。沿用原岛叶表面、视角、坐标投影、4-mm抬升、24-pixel点及固定裁剪；不用 hard label 决定颜色、不混色、不做空间平滑或新检验、不重拟合NMF。保持正文／SI 原图，待作者审阅草图。
+- 非空间 weight 分布草图（2026-11-02 用户修正）：用户明确删除上一版脑图，其 SVG、notebook、专用代码与缓存已移除。当前独立入口为 `vizpub/diagnostics/fig3_weight_distributions.ipynb`；两组仍为 PN21 个未检出 Sound–Image 差异的位点／14人及 LD27 个 Decision>Repeat 位点／16人，沿用各电极三个冻结 loading 的归一化比例。分布草图用箱线图与全部电极散点，并用灰线连接同一电极的 Sustained／Motor；箱体表示中位数及四分位范围，须线取1.5IQR范围内最远观测值，全部离群值也保留为散点。不做新检验或重拟合，正文与 SI 原图保持原样。
 
 - 正文分类图外观修正（用户要求）：恢复两个圆自然相交的常规 Venn 外观，取消区域外移、人工间隙及各区域单独描边，恢复原有两个整圆的轮廓。作者自行在 Adobe Illustrator 中分开区域；保留不改变外观的填色／数字／标签分组。形状、面积比例、数量与统计不变。正文 notebook 的两张输出同步更新；曲线、脑图、SI 及 NMF 保持原样。更新入口仍为 `scripts/refresh_figure3_venn.py`。
 
