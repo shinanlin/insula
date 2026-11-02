@@ -29,9 +29,15 @@ def composition_density(xy,xx,yy):
     return density/(len(xy)*2*np.pi*DENSITY_SIGMA**2)
 
 
-def render():
+def render(*,sound_gt_image=False):
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
-    RESULTS.mkdir(parents=True,exist_ok=True);IMAGES.mkdir(parents=True,exist_ok=True)
+    results=RESULTS/'sound_gt_image' if sound_gt_image else RESULTS
+    groups=(('picture','first_only',18,12,'Sound–Image\nSound > Image only'),) if sound_gt_image else GROUPS
+    reference_peak=None
+    if sound_gt_image:
+        import json
+        reference_peak=json.loads((RESULTS/'manifest.json').read_text())['common_density_peak']
+    results.mkdir(parents=True,exist_ok=True);IMAGES.mkdir(parents=True,exist_ok=True)
     original_paths=[p for folder in ('results/nmf','results/fig3','img/fig3')
         for p in (ROOT/folder).rglob('*') if p.is_file()]
     original_paths += [ROOT/f'vizpub/fig{i}.ipynb' for i in range(1,7)]
@@ -46,7 +52,8 @@ def render():
         for index,name in enumerate(factors['component_names'].tolist()):
             np.testing.assert_allclose(w[f'loading_{name}'],factors['W'][:,index],rtol=0,atol=1e-12)
     style()
-    fig,axes=plt.subplots(1,2,figsize=(17.6/2.54,10.4/2.54))
+    fig,axes=plt.subplots(1,len(groups),squeeze=False,figsize=(8.8*len(groups)/2.54,10.4/2.54))
+    axes=axes[0]
     fig.subplots_adjust(left=.035,right=.965,bottom=.27,top=.77,wspace=.23)
     records=[];summary=[];coordinates=[];group_means=[];color_records=[]
     inputs={str(assignments):sha(assignments)}
@@ -58,7 +65,7 @@ def render():
     sensory_grid=yy/height;motor_grid=xx-.5*sensory_grid
     valid=(sensory_grid>=0)&(motor_grid>=0)&(sensory_grid+motor_grid<=1)
     clouds=[];density_cache=dict(x=xx,y=yy,valid_simplex=valid)
-    for axis,(key,region,n,subjects,title) in zip(axes,GROUPS):
+    for axis,(key,region,n,subjects,title) in zip(axes,groups):
         source=ROOT/'results/fig3/regions'/key/f'{region}_electrodes.csv'
         selected=pd.read_csv(source,float_precision='round_trip')
         assert len(selected)==n and selected.subject.nunique()==subjects and selected.electrode.is_unique
@@ -121,7 +128,7 @@ def render():
         axis.set(xlim=(-.15,1.15),ylim=(-.20,height+.20),aspect='equal')
         axis.axis('off')
         inputs[str(source)]=sha(source)
-    density_peak=max(float(density[valid].max()) for _,_,density in clouds)
+    density_peak=reference_peak if reference_peak is not None else max(float(density[valid].max()) for _,_,density in clouds)
     cmap=LinearSegmentedColormap.from_list('composition_cloud',
         ['#FAFBFC','#F0F1F3','#DEE1E6','#C5CBD4','#A2ACBB'])
     for axis,key,density in clouds:
@@ -129,12 +136,12 @@ def render():
         density_cache[key+'_relative_density']=relative
         masked=np.ma.masked_where(~valid,relative)
         fill=axis.contourf(xx,yy,masked,levels=np.linspace(.06,1,17),cmap=cmap,
-            vmin=0,vmax=1,zorder=.5,antialiased=True)
+            vmin=0,vmax=1,zorder=.5,antialiased=True,extend='max' if relative[valid].max()>1 else 'neither')
         fill.set_gid(key+'_composition_density_cloud')
         contours=axis.contour(xx,yy,masked,levels=[.2,.4,.6,.8],
             colors='#858F9E',linewidths=.55,alpha=.40,zorder=1)
         contours.set_gid(key+'_descriptive_density_contours')
-    color_axis=fig.add_axes([.36,.175,.28,.012])
+    color_axis=fig.add_axes([.22 if sound_gt_image else .36,.215 if sound_gt_image else .175,.56 if sound_gt_image else .28,.012])
     colorbar=fig.colorbar(ScalarMappable(norm=Normalize(0,1),cmap=cmap),cax=color_axis,orientation='horizontal')
     colorbar.set_ticks([0,.5,1]);colorbar.ax.tick_params(labelsize=6,length=2,pad=2)
     colorbar.set_label('Relative electrode density',fontsize=7,labelpad=2)
@@ -143,22 +150,27 @@ def render():
         for color,label in zip(COLORS,LABELS)]
     handles += [
         Line2D([],[],color='#A2A9B2',ls=(0,(3,3)),lw=.8,label='Sustained = Motor')]
-    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.065),ncol=4,frameon=False,
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.055 if sound_gt_image else .065),ncol=2 if sound_gt_image else 4,frameon=False,
         fontsize=7,columnspacing=1.1,handletextpad=.4)
-    fig.text(.5,.025,'Point colors blend the three component weights; gray clouds show relative electrode density.',
-        ha='center',fontsize=6.7)
-    svg=IMAGES/'fig3_component_weight_ternary.svg'
+    footer='Point colors blend the three component weights; gray clouds show relative electrode density.'
+    if sound_gt_image:footer='Point colors blend component weights; gray clouds show density.\nOne bidirectionally significant electrode is shown separately in the main figure.'
+    fig.text(.5,.015 if sound_gt_image else .025,footer,
+        ha='center',fontsize=5.7 if sound_gt_image else 6.7)
+    svg=IMAGES/('fig3_sound_gt_image_weight_ternary.svg' if sound_gt_image else 'fig3_component_weight_ternary.svg')
     fig.savefig(svg,format='svg',bbox_inches=None);plt.close(fig)
-    pd.DataFrame(records).to_csv(RESULTS/'electrode_weights_long.csv',index=False)
-    pd.DataFrame(summary).to_csv(RESULTS/'descriptive_summary.csv',index=False)
-    pd.DataFrame(coordinates).to_csv(RESULTS/'ternary_coordinates.csv',index=False)
-    pd.DataFrame(group_means).to_csv(RESULTS/'mean_compositions.csv',index=False)
-    pd.DataFrame(color_records).to_csv(RESULTS/'electrode_colors.csv',index=False)
-    np.savez_compressed(RESULTS/'composition_density_grid.npz',**density_cache)
+    pd.DataFrame(records).to_csv(results/'electrode_weights_long.csv',index=False)
+    pd.DataFrame(summary).to_csv(results/'descriptive_summary.csv',index=False)
+    pd.DataFrame(coordinates).to_csv(results/'ternary_coordinates.csv',index=False)
+    pd.DataFrame(group_means).to_csv(results/'mean_compositions.csv',index=False)
+    pd.DataFrame(color_records).to_csv(results/'electrode_colors.csv',index=False)
+    np.savez_compressed(results/'composition_density_grid.npz',**density_cache)
     assert all(sha(p)==digest for p,digest in protected.items())
-    write(RESULTS/'manifest.json',dict(passed=True,job_id=os.environ['SLURM_JOB_ID'],
+    write(results/'manifest.json',dict(passed=True,job_id=os.environ['SLURM_JOB_ID'],
         svg=str(svg),svg_sha256=sha(svg),source_hashes=inputs,
-        n_electrodes=dict(picture=21,lexical=27),n_participants=dict(picture=14,lexical=16),
+        n_electrodes={key:n for key,_,n,_,_ in groups},n_participants={key:subjects for key,_,_,subjects,_ in groups},
+        selected_regions={key:region for key,region,_,_,_ in groups},
+        bidirectional_electrode_excluded=sound_gt_image,
+        density_reference_manifest=str(RESULTS/'manifest.json') if sound_gt_image else None,
         proportion_definition='Each frozen W loading divided by the sum of the three W loadings for that electrode',
         visualization='Ternary composition landscape with continuous component-color electrodes and neutral-gray density clouds',
         point_color_anchors=dict(zip(COMPONENTS,COLORS)),point_color_alpha=.95,
