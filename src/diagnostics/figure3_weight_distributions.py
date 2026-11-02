@@ -60,6 +60,7 @@ def render(*,sound_gt_image=False):
     height=np.sqrt(3)/2
     # Columns follow COMPONENTS: Sensory, Sustained, Motor.
     vertices=np.array([[.5,height],[0.,0.],[1.,0.]])
+    center=vertices.mean(axis=0)
     component_rgb=np.array([to_rgb(color) for color in COLORS])
     xx,yy=np.meshgrid(np.linspace(0,1,301),np.linspace(0,height,261))
     sensory_grid=yy/height;motor_grid=xx-.5*sensory_grid
@@ -86,18 +87,17 @@ def render(*,sound_gt_image=False):
         outline=np.vstack([vertices,vertices[0]])
         axis.fill(outline[:,0],outline[:,1],facecolor='#FAFBFD',edgecolor='none',zorder=-1)
         axis.plot(outline[:,0],outline[:,1],color='#CBD2DD',lw=.7,zorder=2)
+        for component,vertex in zip(COMPONENTS,vertices):
+            spoke,=axis.plot([center[0],vertex[0]],[center[1],vertex[1]],
+                color='#A2A9B2',lw=.7,zorder=2)
+            spoke.set_gid(key+'_center_to_'+component+'_vertex')
         for fraction in (.5,):
-            for index in range(3):
-                others=[i for i in range(3) if i!=index]
-                ends=fraction*vertices[index]+(1-fraction)*vertices[others]
-                axis.plot(ends[:,0],ends[:,1],color='#DDE2EA',lw=.4,zorder=1.2)
             axis.text(.5*fraction-.025,height*fraction,f'{fraction:.0%}',
                 ha='right',va='center',fontsize=5.5,color='#9299A2')
             axis.text(1-fraction,-.025,f'{fraction:.0%}',
                 ha='center',va='top',fontsize=5.5,color='#9299A2')
             axis.text(.5+.5*fraction+.025,height*(1-fraction),f'{fraction:.0%}',
                 ha='left',va='center',fontsize=5.5,color='#9299A2')
-        axis.plot([.5,.5],[0,height],color='#A2A9B2',lw=.7,ls=(0,(3,3)),zorder=2)
         point_rgb=proportions@component_rgb
         points=axis.scatter(xy[:,0],xy[:,1],s=25,facecolor=point_rgb,alpha=.95,
             edgecolor='white',linewidth=.6,zorder=3,clip_on=False)
@@ -148,9 +148,7 @@ def render(*,sound_gt_image=False):
     colorbar.outline.set_visible(False)
     handles=[Line2D([],[],marker='o',linestyle='none',markersize=4.5,color=color,label=label)
         for color,label in zip(COLORS,LABELS)]
-    handles += [
-        Line2D([],[],color='#A2A9B2',ls=(0,(3,3)),lw=.8,label='Sustained = Motor')]
-    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.055 if sound_gt_image else .065),ncol=2 if sound_gt_image else 4,frameon=False,
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.055 if sound_gt_image else .065),ncol=3,frameon=False,
         fontsize=7,columnspacing=1.1,handletextpad=.4)
     footer='Point colors blend the three component weights; gray clouds show relative electrode density.'
     if sound_gt_image:footer='Point colors blend component weights; gray clouds show density.\nOne bidirectionally significant electrode is shown separately in the main figure.'
@@ -176,8 +174,11 @@ def render(*,sound_gt_image=False):
         point_color_anchors=dict(zip(COMPONENTS,COLORS)),point_color_alpha=.95,
         point_color_definition='sRGB weighted blend: RGB = proportion vector @ original component RGB anchors',
         no_argmax_color_assignment=True,density_color_is_neutral_gray=True,
-        triangle_vertices=dict(zip(COMPONENTS,vertices.tolist())),grid_spacing=.5,
-        dashed_line='Sustained and Motor proportions are equal',mean_marker=None,
+        triangle_vertices=dict(zip(COMPONENTS,vertices.tolist())),grid_spacing=None,edge_proportion_labels=[.5],
+        dashed_line=None,mean_marker=None,
+        interior_guides='Three solid segments from the triangle centroid to its vertices',
+        guide_center=center.tolist(),guide_endpoints=vertices.tolist(),
+        guide_sections_are_not_argmax_functional_classes=True,
         projection_inverted_to_original_proportions=True,no_coordinate_jitter=True,point_coordinates_unsmoothed=True,
         density_sigma_in_triangle_side_units=DENSITY_SIGMA,density_bandwidth_shared_across_groups=True,
         density_definition='Equal-electrode isotropic Gaussian display kernels, clipped to valid simplex',
