@@ -77,6 +77,22 @@ def render_main():
     return results
 
 
+def render_component_weights(*,sound_gt_image=False):
+    """Render the approved weight panels into the main Figure 3 output folders."""
+    assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
+    from src.diagnostics import figure3_weight_distributions as weights
+    output=MAIN_RESULTS/'component_weights'
+    with override(weights,RESULTS=output,IMAGES=MAIN_IMG):
+        svg=weights.render(sound_gt_image=sound_gt_image)
+    manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
+    key='sound_gt_image' if sound_gt_image else 'picture_lexical'
+    manifest.setdefault('component_weight_panels',{})[key]=str(svg)
+    manifest['svg_sha256'][str(svg)]=sha(svg)
+    manifest['component_weight_results']=str(output)
+    write(MAIN_RESULTS/'manifest.json',manifest)
+    return svg
+
+
 def render_sampling():
     """Sampling counts and literal baseline-response Venns belong in SI."""
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'

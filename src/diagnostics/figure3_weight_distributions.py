@@ -32,6 +32,7 @@ def composition_density(xy,xx,yy):
 def render(*,sound_gt_image=False):
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
     results=RESULTS/'sound_gt_image' if sound_gt_image else RESULTS
+    svg=IMAGES/('fig3_sound_gt_image_weight_ternary.svg' if sound_gt_image else 'fig3_component_weight_ternary.svg')
     groups=(('picture','first_only',18,12,'Sound–Image\nSound > Image only'),) if sound_gt_image else GROUPS
     reference_peak=None
     if sound_gt_image:
@@ -39,7 +40,7 @@ def render(*,sound_gt_image=False):
         reference_peak=json.loads((RESULTS/'manifest.json').read_text())['common_density_peak']
     results.mkdir(parents=True,exist_ok=True);IMAGES.mkdir(parents=True,exist_ok=True)
     original_paths=[p for folder in ('results/nmf','results/fig3','img/fig3')
-        for p in (ROOT/folder).rglob('*') if p.is_file()]
+        for p in (ROOT/folder).rglob('*') if p.is_file() and p!=svg and results not in p.parents]
     original_paths += [ROOT/f'vizpub/fig{i}.ipynb' for i in range(1,7)]
     original_paths += [ROOT/'vizpub/supplementary/fig3_supplementary.ipynb']
     protected={str(p):sha(p) for p in original_paths}

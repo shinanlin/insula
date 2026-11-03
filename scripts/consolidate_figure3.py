@@ -18,6 +18,19 @@ def setup():
     return nbf.v4.new_code_cell("import sys\nsys.path.insert(0,'/cwork/ns458/insula-paper')\nfrom IPython.display import SVG,display\nimport pandas as pd\nfrom src.figure3 import ROOT,MAIN_RESULTS,SAMPLING_RESULTS,HGA_RESULTS\n",id='fig3-imports')
 
 
+def component_weight_cells():
+    return [nbf.v4.new_markdown_cell('''## Continuous functional-component weights · PN and Lexical Delay
+
+Generate the reviewed two-panel ternary plot from the frozen NMF: Picture Naming no-detected-Sound–Image-difference21 sites/14 participants and Lexical Delay Decision > Repeat27 sites/16 participants. Each site's three loadings are divided by their sum. Points retain the continuous Sensory-blue/Sustained-gold/Motor-red blend. Gray density clouds use the approved shared sigma0.09 and reference peak. Three solid guides connect the triangle centroid to its vertices; mean diamonds, the old dashed/50% guide lines and vertex100% text remain omitted. These are geometric sections, not maximum-weight functional classes. No refitting, new testing or selection.
+
+The following cells execute the plotting code and export SVGs to `img/fig3/`, with numerical/provenance outputs under `results/fig3/component_weights/`. Both panels retain their reviewed layout and scales.
+''',id='fig3-weight-title'),nbf.v4.new_code_cell("import sys\nsys.path.insert(0,'/cwork/ns458/insula-paper')\nfrom IPython.display import SVG,display\nfrom src.figure3 import render_component_weights\nweight_svg=render_component_weights()\ndisplay(SVG(filename=str(weight_svg)))\n",id='fig3-weight-picture-lexical'),
+        nbf.v4.new_markdown_cell('''### Sound > Image only · Stimulus0–1 s
+
+The same18 exclusively Sound > Image sites/12 participants use the frozen continuous weights, the same reference density peak and the same approved drawing. The one bidirectionally significant site remains separate. This is the original standalone component-colored plot; the later gray/blue group overlay remains in the diagnostic notebook.
+''',id='fig3-weight-sound-title'),nbf.v4.new_code_cell("sound_weight_svg=render_component_weights(sound_gt_image=True)\ndisplay(SVG(filename=str(sound_weight_svg)))\n",id='fig3-weight-sound-image')]
+
+
 def main_notebook():
     cells=[nbf.v4.new_markdown_cell('''# Figure 3 · Input modality and task demands
 
@@ -39,6 +52,7 @@ Sampling counts, literal baseline-response Venns and complete component×phase p
             cells += [nbf.v4.new_markdown_cell('### '+label),nbf.v4.new_code_cell(f"display(SVG(filename=results['{key}']['brains']['{group}']))\n")]
             if (key,group) in [('picture','no_detected_difference'),('lexical','first_only')]:
                 cells += [nbf.v4.new_markdown_cell('### Temporal waveforms and heatmaps · same selected electrodes'),nbf.v4.new_code_cell(f"display(SVG(filename=results['{key}']['time_portrait']))\n")]
+    cells.extend(component_weight_cells())
     return nbf.v4.new_notebook(cells=cells)
 
 
