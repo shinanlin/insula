@@ -191,3 +191,112 @@ def render(*,sound_gt_image=False):
     (IMAGES/'fig3_component_weight_distributions.svg').unlink(missing_ok=True)
     (RESULTS/'density_curves.csv').unlink(missing_ok=True)
     return svg
+
+
+def render_picture_overlay():
+    """Overlay accepted PN groups using their unchanged cached densities."""
+    import json
+
+    assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
+    results=RESULTS/'picture_overlay'
+    svg=IMAGES/'fig3_sound_image_weight_overlay.svg'
+    protected_paths=[p for folder in ('results/nmf','results/fig3','img/fig3')
+        for p in (ROOT/folder).rglob('*') if p.is_file()]
+    protected_paths += [ROOT/f'vizpub/fig{i}.ipynb' for i in range(1,7)]
+    protected_paths += [ROOT/'vizpub/supplementary/fig3_supplementary.ipynb']
+    protected_paths += [p for p in RESULTS.rglob('*') if p.is_file() and results not in p.parents]
+    protected_paths += [p for p in IMAGES.glob('*.svg') if p!=svg]
+    protected={str(p):sha(p) for p in protected_paths}
+    results.mkdir(parents=True,exist_ok=True);IMAGES.mkdir(parents=True,exist_ok=True)
+    definitions=(('no_detected_difference','no_detected_difference',RESULTS,21,14,'#858F9E',.40),
+        ('sound_gt_image','first_only',RESULTS/'sound_gt_image',18,12,'#2369BD',.40))
+    entries=[];inputs={};cached={};reference_peak=None
+    for key,region,source,n,subjects,color,cloud_alpha in definitions:
+        manifest_path=source/'manifest.json'
+        manifest=json.loads(manifest_path.read_text())
+        peak=manifest['common_density_peak']
+        if reference_peak is None:reference_peak=peak
+        assert peak==reference_peak and manifest['density_sigma_in_triangle_side_units']==DENSITY_SIGMA
+        coordinate_path=source/'ternary_coordinates.csv'
+        frame=pd.read_csv(coordinate_path,float_precision='round_trip')
+        frame=frame.loc[frame.group.eq('picture')].copy()
+        selection_path=ROOT/'results/fig3/regions/picture'/f'{region}_electrodes.csv'
+        selected=pd.read_csv(selection_path)
+        assert frame.electrode.tolist()==selected.electrode.tolist()
+        assert len(frame)==n and frame.subject.nunique()==subjects and frame.electrode.is_unique
+        density_path=source/'composition_density_grid.npz'
+        with np.load(density_path,allow_pickle=False) as data:
+            grid={name:data[name].copy() for name in ('x','y','valid_simplex')}
+            relative=data['picture_relative_density'].copy();raw=data['picture_density'].copy()
+        if cached:
+            for name,array in grid.items():np.testing.assert_array_equal(array,cached[name])
+        else:cached.update(grid)
+        cached[key+'_density']=raw;cached[key+'_relative_density']=relative
+        entries.append((key,frame,color,cloud_alpha))
+        for path in (manifest_path,coordinate_path,density_path,selection_path):inputs[str(path)]=sha(path)
+    assert set(entries[0][1].electrode).isdisjoint(entries[1][1].electrode)
+    style()
+    fig,axis=plt.subplots(figsize=(8.8/2.54,10.4/2.54))
+    fig.subplots_adjust(left=.035,right=.965,bottom=.27,top=.77)
+    height=np.sqrt(3)/2;vertices=np.array([[.5,height],[0.,0.],[1.,0.]])
+    center=vertices.mean(axis=0);outline=np.vstack([vertices,vertices[0]])
+    axis.fill(outline[:,0],outline[:,1],facecolor='#FAFBFD',edgecolor='none',zorder=-1)
+    palettes=(['#FAFBFC','#F0F1F3','#DEE1E6','#C5CBD4','#A2ACBB'],
+        ['#F8FBFF','#E8F0FB','#BED4F1','#7FA9DD','#2369BD'])
+    cmaps=[]
+    for (key,frame,color,cloud_alpha),palette in zip(entries,palettes):
+        cmap=LinearSegmentedColormap.from_list(key+'_density',palette);cmaps.append(cmap)
+        relative=cached[key+'_relative_density']
+        masked=np.ma.masked_where(~cached['valid_simplex'],relative)
+        fill=axis.contourf(cached['x'],cached['y'],masked,levels=np.linspace(.06,1,17),
+            cmap=cmap,vmin=0,vmax=1,alpha=cloud_alpha,zorder=.5,antialiased=True,
+            extend='max' if relative[cached['valid_simplex']].max()>1 else 'neither')
+        fill.set_gid(key+'_density_cloud')
+        contours=axis.contour(cached['x'],cached['y'],masked,levels=[.2,.4,.6,.8],
+            colors=color,linewidths=.65,alpha=.65,zorder=1)
+        contours.set_gid(key+'_density_contours')
+    axis.plot(outline[:,0],outline[:,1],color='#CBD2DD',lw=.7,zorder=2)
+    for component,vertex in zip(COMPONENTS,vertices):
+        spoke,=axis.plot([center[0],vertex[0]],[center[1],vertex[1]],color='#A2A9B2',lw=.7,zorder=2)
+        spoke.set_gid('overlay_center_to_'+component+'_vertex')
+    axis.text(.225,height*.5,'50%',ha='right',va='center',fontsize=5.5,color='#9299A2')
+    axis.text(.5,-.025,'50%',ha='center',va='top',fontsize=5.5,color='#9299A2')
+    axis.text(.775,height*.5,'50%',ha='left',va='center',fontsize=5.5,color='#9299A2')
+    for key,frame,color,_ in entries:
+        points=axis.scatter(frame.ternary_x,frame.ternary_y,s=14,facecolor=color,
+            alpha=.60,edgecolor='white',linewidth=.35,zorder=3,clip_on=False)
+        points.set_gid(key+'_original_electrodes')
+    axis.text(.5,height+.055,'Sensory',ha='center',va='bottom',fontsize=8,color=COLORS[0])
+    axis.text(-.005,-.10,'Sustained',ha='center',va='top',fontsize=8,color=COLORS[1])
+    axis.text(1.005,-.10,'Motor',ha='center',va='top',fontsize=8,color=COLORS[2])
+    axis.set_title('Sound–Image · Stimulus 0–1 s\nFunctional-weight distributions',fontsize=9,pad=16)
+    axis.set(xlim=(-.15,1.15),ylim=(-.20,height+.20),aspect='equal');axis.axis('off')
+    for left,cmap in zip((.14,.56),cmaps):
+        cax=fig.add_axes([left,.215,.30,.012])
+        bar=fig.colorbar(ScalarMappable(norm=Normalize(0,1),cmap=cmap),cax=cax,orientation='horizontal',alpha=.40)
+        bar.set_ticks([0,.5,1]);bar.ax.tick_params(labelsize=6,length=2,pad=2);bar.outline.set_visible(False)
+    fig.text(.5,.16,'Relative electrode density · shared scale',ha='center',fontsize=7)
+    handles=[Line2D([],[],marker='o',linestyle='none',markersize=4,color=entries[i][2],label=label)
+        for i,label in enumerate(('No detected difference · 21 electrodes / 14 participants',
+            'Sound > Image only · 18 electrodes / 12 participants'))]
+    fig.legend(handles=handles,loc='lower center',bbox_to_anchor=(.5,.055),ncol=1,
+        frameon=False,fontsize=6.3,handletextpad=.5,labelspacing=.65)
+    fig.text(.5,.015,'Point color identifies the condition group; position shows component weights.',
+        ha='center',fontsize=5.3)
+    fig.savefig(svg,format='svg',bbox_inches=None);plt.close(fig)
+    combined=pd.concat([frame.assign(comparison_group=key) for key,frame,_,_ in entries],ignore_index=True)
+    combined.to_csv(results/'electrode_coordinates.csv',index=False)
+    np.savez_compressed(results/'composition_density_grid.npz',**cached)
+    assert all(sha(p)==digest for p,digest in protected.items())
+    write(results/'manifest.json',dict(passed=True,job_id=os.environ['SLURM_JOB_ID'],svg=str(svg),
+        svg_sha256=sha(svg),source_hashes=inputs,n_electrodes=dict(no_detected_difference=21,sound_gt_image=18),
+        n_participants=dict(no_detected_difference=14,sound_gt_image=12),groups_disjoint=True,
+        bidirectional_electrode_excluded=True,point_size=14,point_alpha=.60,
+        group_colors={key:color for key,_,color,_ in entries},
+        cloud_alpha={key:alpha for key,_,_,alpha in entries},contour_alpha=.65,
+        point_color_encodes_condition_group=True,point_coordinates_identical_to_prior_exports=True,
+        density_arrays_reused_without_recomputation=True,density_sigma=DENSITY_SIGMA,
+        common_density_peak=reference_peak,relative_density_contour_levels=[.2,.4,.6,.8],
+        interior_guides='Triangle centroid to three vertices',mean_marker=None,vertex_percentages=False,
+        no_NMF_refit=True,no_new_inferential_tests=True,protected_files_unchanged=len(protected)))
+    return svg

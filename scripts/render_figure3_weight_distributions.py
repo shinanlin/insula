@@ -8,6 +8,13 @@ ROOT=Path('/cwork/ns458/insula-paper')
 AUDIT=ROOT/'results/audit/figure3_weight_distribution_2026-11-02'
 
 
+def overlay_cells():
+    return [nbf.v4.new_markdown_cell('''## Sound–Image · Two-group weight-distribution overlay
+
+Overlay the same 21 no-detected-Sound–Image-difference electrodes / 14 participants (gray) and 18 exclusively Sound > Image electrodes / 12 participants (blue) in one ternary plane. Point color and density hue identify the condition group; original ternary positions show the three frozen functional-weight proportions. Vertex labels retain the original component palette. Points are reduced from25 to14 and alpha from0.95 to0.60. Both groups reuse their exact previously saved density arrays, shared sigma0.09 and common reference peak; gray/blue clouds are semitransparent, with identical relative-density contour levels20/40/60/80%. The paired color scales share identical numeric limits. The one bidirectional site remains separate. Keep the center-to-vertex guides and omit mean diamonds/vertex100% labels. No new NMF, selection or inference; all previous panels remain available above.
+'''),nbf.v4.new_code_cell("import sys\nsys.path.insert(0,'/cwork/ns458/insula-paper')\nfrom IPython.display import SVG,display\nfrom src.diagnostics.figure3_weight_distributions import render_picture_overlay\noverlay_svg=render_picture_overlay()\ndisplay(SVG(filename=str(overlay_svg)))\n")]
+
+
 def main():
     assert os.environ.get('SLURM_JOB_ID'),'Use Slurm'
     kernel=AUDIT/'jupyter/kernels/fig3-weight-distributions';kernel.mkdir(parents=True,exist_ok=True)
@@ -26,6 +33,7 @@ The manifold-like appearance is a **descriptive density overlay**, without learn
 
 The 18 **exclusively Sound > Image** electrodes / 12 participants come from the current main Figure 3 assigned responsive pool. The one bidirectionally significant electrode (D0080 LPI2–3) remains separate, as in the main figure. Use unchanged frozen NMF loading proportions, ternary coordinates, continuous component-color mixing, sigma0.09 density overlay and no mean diamonds. The gray density uses the same reference peak as the preceding two-panel plot, enabling direct comparison. No new test, fit, selection or functional classification.
 '''),nbf.v4.new_code_cell("sound_svg=render(sound_gt_image=True)\ndisplay(SVG(filename=str(sound_svg)))\ndisplay(pd.read_csv(RESULTS/'sound_gt_image/descriptive_summary.csv'))\n")])
+    nb.cells.extend(overlay_cells())
     try:NotebookClient(nb,kernel_name='fig3-weight-distributions',timeout=600,resources={'metadata':{'path':str(ROOT)}}).execute()
     except Exception:nbf.write(nb,AUDIT/'failed.ipynb');raise
     assert not [o for c in nb.cells for o in c.get('outputs',[]) if o.get('output_type')=='error' or 'image/png' in o.get('data',{})]
