@@ -11,6 +11,7 @@ import pandas as pd
 
 from src.reaction_time.insula_ridge import iter_true_runs
 from src.reaction_time.insula_rt_io import DEFAULT_RT_OUTPUT_ROOT, decode_strings
+from src.main_analysis import ROOT, FUNCTIONAL_COMPONENTS
 
 
 def _channel_metadata(h5: h5py.File) -> pd.DataFrame:
@@ -43,7 +44,9 @@ def summarize_results(
     assignments_path: Path | None = None,
 ) -> tuple[pd.DataFrame, pd.DataFrame, pd.DataFrame]:
     output_root = Path(output_root)
-    assignments = _functional_assignments(assignments_path)
+    assignments = _functional_assignments(assignments_path or ROOT/'results/nmf/channel_assignments.csv')
+    if assignments.empty:
+        raise ValueError('Frozen functional assignments are required for RT statistics')
     coverage_rows: list[dict] = []
     electrode_rows: list[dict] = []
     cluster_rows: list[dict] = []
@@ -70,6 +73,11 @@ def summarize_results(
             start = h5["windows/start"][:]
             end = h5["windows/end"][:]
             items = decode_strings(h5["trials/item_id"][:])
+            # Keep original HDF5 scores and original across-channel correction.
+            # The reporting cohort contains assigned sites only (2026-11-01).
+            keep = channel_meta['channel'].map(assignments).isin(FUNCTIONAL_COMPONENTS)
+            if not keep.any():
+                continue
             coverage_rows.append(
                 {
                     "task": task,
@@ -77,13 +85,15 @@ def summarize_results(
                     "phase": phase,
                     "n_trials": len(items),
                     "n_items": len(set(items)),
-                    "n_electrodes": len(channel_meta),
-                    "n_significant_electrodes": int(significant.any(axis=1).sum()),
+                    "n_electrodes": int(keep.sum()),
+                    "n_significant_electrodes": int(significant[keep.to_numpy()].any(axis=1).sum()),
                     "n_windows": len(center),
                     "source_h5": str(path),
                 }
             )
             for channel_index, meta in channel_meta.iterrows():
+                if not keep.loc[channel_index]:
+                    continue
                 finite = np.isfinite(score_r[channel_index])
                 peak_index = (
                     int(np.nanargmax(score_r[channel_index])) if finite.any() else None

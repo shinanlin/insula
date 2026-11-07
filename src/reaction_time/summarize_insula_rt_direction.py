@@ -19,6 +19,7 @@ import pandas as pd
 from scipy.stats import binomtest, pearsonr, wilcoxon
 
 from src.reaction_time.insula_rt_data import load_phase_data
+from src.main_analysis import FUNCTIONAL_COMPONENTS
 
 
 DEFAULT_OUTPUT_ROOT = Path(
@@ -205,6 +206,8 @@ def summarize_amplitude_direction(
                 )
             }
             for row in selected:
+                if cluster_by_channel.get(str(row['channel'])) not in FUNCTIONAL_COMPONENTS:
+                    continue
                 correlation, p_value, slope, n_trials = mean_hga_rt_direction(
                     data.X,
                     data.times,
