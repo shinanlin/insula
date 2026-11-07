@@ -1,5 +1,23 @@
 # Figure 3–6 更新记录（2026-10-18）
 
+## 单试次缓存核对补充（2026-10-18）
+
+此前的输入缺失结论针对原生 `epoch(band)(zscore)`／`epoch(band)(sig)` 路径，不能解读为所有单试次缓存均已消失。后续只读核对找到了 449 份保存电极单试次矩阵的 H5，以及四份与现存解码输入数值完全一致的 rebuttal NPZ 副本。
+
+- 当前任务内采样／NMF 名单交集分别为 PS 173／125、LD 214／151、PN 162／102；本任务 sound 阳性仍是 104／126／91，三个数量不可混用。
+- 当前 NMF 名单中有 Repeat 缓存的 Stimulus／Delay／Response 位点：PS 24／39／65，LD 66／68／105；LD Decision 为 61／61／92。它们均已受旧的显著性和 trial/channel QC 筛选，不能直接当作未删减的原始输入。
+- PN 当前 28 位采样参与者的 Passive Response 原生 zscore 仍在，sound 可覆盖全部 162 个采样／102 个任务内 NMF 位点；Repeat sound/image 及 Passive Stimulus/Delay 未找到。
+- Figure 5 当前全采样名单的 Delay／Go／Response 缓存覆盖：PS 39／45／65（分母 173），LD 71／69／110（分母 214），PN 均为 0（分母 162）。旧 RT 模型文件保存事件、RT、预测及置换分布，没有保存原 HGA；对应 RT 事件覆盖 PS 34/36、LD 37/38、PN 26/28 位参与者。PS/LD 旧单电极结果可待输入和 trial 核验后考虑复用，不能先认定必须全部重拟合；PN 旧模型混模态，不能直接作为 sound-only 模型。
+- 没有因本次审计重建 HGA、拟合、改图或重跑 NMF。56 份受保护的 Figure 1/2 和 NMF 文件保持一致。
+
+完整报告：[audit_report.txt](evidence/single_trial_cache_audit_2026-10-18/audit_report.txt)；逐图复用清单、逐 subject/task/phase 的数量与电极名单：[single_trial_cache_audit.xlsx](evidence/single_trial_cache_audit_2026-10-18/single_trial_cache_audit.xlsx)。本补充修正下文此前“缺输入”的范围解释，不改变已批准方法。
+
+### 按参与者补齐预处理的清单
+
+对四个主任务的完整采样参与者名单逐一核对后，PS 36 位、LD 38 位、PN 28 位均缺 Repeat+sound 的四阶段原生 zscore；共 102 个 subject-task 组合，涉及 65 位不重复参与者。SentenceRep 16 位的四阶段 zscore 覆盖全部当前采样位点，64 个阶段的 sig 和 statistics 文件也均在，无需为本批恢复原生分析 epoch。PN 已有 Passive Response 保留。Figure 3 补充任务 LexicalNoDelay 另有 13 位参与者需补原生 epoch。
+
+逐 Task/Subject 的状态、更早 raw/clean/bipolar 信号文件存在性和逐条件阶段缺口见 [subject_preprocessing_gaps.xlsx](evidence/subject_preprocessing_gaps_2026-10-18/subject_preprocessing_gaps.xlsx)；逐任务单列的 Subject 文本清单位于同目录。此处“缺失”指本机对应任务目录中的完整原生输入未找到，不表示已有 prepared/RT 缓存也已丢失。
+
 ## 当前交付状态
 
 | Figure | 已完成 | 待完成与原因 |
@@ -50,6 +68,23 @@ PN stimulus 空间图：sound 48 个（12/20/16），image 23 个（1/12/10）�
 输入名单、参与者×区域数量和检查位于 `results/fig6/`；完整执行后的 notebook 为 `vizpub/fig6.ipynb`。
 
 ## Figure 4/5 已固定的运行规则
+
+### 2026-10-18 晚间恢复进度
+
+用户随后明确批准补算全部剩余 64 位的 MAPER、按原入口重建分区 CSV，并在验证后接续 Figure 5；保持 Figure 1/2 和 NMF 冻结。
+
+- 64 × 30 = 1,920 个原 MAPER atlas 配准，分两个数组提交，合计最多 40 个同时运行；参数、组织分割保留及自动融合均沿用 D0125 已验证流程。
+- 65 个逐参与者分区作业分别依赖本人的 30 个配准（D0125 复用产物），输出四任务的 118 份真实 Hammers CSV。D0125 重建已通过，8 个冻结采样位点保留；其中 1 个岛叶内部子分区标签更新已单独记录，未改变主名单。
+- 新结果若出现中心不属岛叶、已纳入端点为 CSF／邻区灰质等解剖冲突，保留对照表，相关 Figure 5 拟合停在用户审阅前，不自动增删主名单。
+- Figure 5 的 102 条 subject×task 记录（含原坏道 QC 后零可用位点的显式跳过记录）在新 CSV 与原生 epoch 验证后接续，最多同时运行 6 项；仍使用原 Ridge、10×5 嵌套 CV、1,000 次置换、种子 42、原时间窗及校正族，保留 Go。
+- Figure 4 的统计与画法不变；两个解剖控制覆盖图仅把 CSV 查找路径接到重建目录，功能群坐标仍来自冻结 assignments。主图保护清单也覆盖 Figure 1/2 的图片与表格。
+- 完整作业依赖、输入 hash 与参数记录：`results/maper_restore_2026-10-18/jobs.json`、`batch_manifest.json`、`submission_validation.json`。本节之后的旧缺失状态为历史记录。
+
+- Figure 4 PS 九个拟合已完成：`results/fig4/model_00.json` 至 `model_08.json`。
+- LD 的 D0027、D0032、D0090、D0092 已恢复原生坐标；其 22 个采样位点与全部旧原生触点核对误差小于 1e-4 mm，全部 EDF run 的坐标读回、事件、坏道及原配对函数检查通过。只在独立预处理目录补回坐标元数据，原 EDF／事件／QC 不改；用原入口继续预处理。证明在 `results/audit/figure45_resume_2026-10-18/hammers_regeneration/LD_montage_verification/`。
+- LD 预处理验证完成后自动准备并运行余下 24 个拟合，作业记录为 `results/audit/figure45_resume_2026-10-18/LD_resume_jobs.json`。旧已完成作业从 Slurm 的活动记录移除时，以已保存的成功验证记录替代无效依赖。
+- 四任务 parcellation 输入共 65 位参与者／118 条记录；MRI 和坐标现均齐全。从原重建备份补回 25 个 MRI 文件，并核对原生体素几何。完整任务／参与者清单位于 `results/audit/figure45_resume_2026-10-18/hammers_regeneration/subject_task_review.md`。
+- MAPER 只有 D0125 的完整 seg95／组织分割可复用，其余 64 位仍缺完整产物；按 Figure 5 的实际非零原生 QC 位点筛选后，优先补算名单为 63 位。未用旧标签缓存适配表代替重新分区，也没有批量启动新 MAPER；Figure 5 拟合仍等待真正的 Hammers CSV。
 
 - Figure 4 原分类器、解码专用 PCA、CV、置换、簇校正均保留。原结果中已存在的功能群分析对应 33 个拟合项：PS articulator 固定窗 9 项、LD lexicality 时间曲线 18 项、LD Delay 双向跨条件 6 项。没有增加旧版未计算的 Stimulus/Response 跨条件检验。解剖对照仅在确认输入／方法未变后复制并保存校验记录。
 - Figure 4 控制区保留本图原 palette，包括原 SMC/IFG 色值；未借本次数据刷新修改样式。

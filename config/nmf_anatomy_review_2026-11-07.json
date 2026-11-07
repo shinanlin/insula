@@ -1,0 +1,77 @@
+{
+  "date": "2026-11-07",
+  "status": "reviewed_anatomical_candidates_not_refitted",
+  "same_named_cross_task_coordinates_and_labels": "author confirmed consistent; do not recheck or reject based on old identity flags",
+  "accepted_both_insula_ids": [
+    "D0057_RAI4-5",
+    "D0057_RAI5-6",
+    "D0107_RFAI1-2",
+    "D0107_RIA1-2",
+    "D0107_RIA2-3",
+    "D0107_RIA3-4",
+    "D0107_RIA4-5",
+    "D0107_RIA5-6",
+    "D0139_LIA1-2",
+    "D0139_LIA4-5"
+  ],
+  "accepted_MAPER_CSF_ids": [
+    "D0032_LAI3-4",
+    "D0032_LPI6-7",
+    "D0049_LAI1-2",
+    "D0067_LAI2-3",
+    "D0085_RAI1-2",
+    "D0088_LTAS1-2",
+    "D0094_LIA1-2",
+    "D0094_LIA2-3",
+    "D0096_LIA1-2",
+    "D0096_LIP5-6",
+    "D0096_LTAS2-3",
+    "D0103_LTMS1-2",
+    "D0118_LIA5-6",
+    "D0118_RTAS2-3",
+    "D0131_RFAI3-4"
+  ],
+  "accepted_MAPER_WM_ids": [
+    "D0057_RPI2-3",
+    "D0057_RPI5-6"
+  ],
+  "accepted_additional_FreeSurfer_review_ids": [
+    "D0086_LTMM5-6",
+    "D0086_RTMM6-7",
+    "D0107_RTAS1-2"
+  ],
+  "listed_noninsula_ids": [
+    "D0086_RPI3-4",
+    "D0086_RTAM6-7"
+  ],
+  "original_five_no_MAPER_ids": [
+    "D0086_LTMM5-6",
+    "D0086_RPI2-3",
+    "D0086_RTMM6-7",
+    "D0086_RTPS4-9",
+    "D0107_RTAS1-2"
+  ],
+  "remaining_no_MAPER_review_ids": [
+    "D0086_RPI2-3",
+    "D0086_RTPS4-9"
+  ],
+  "accepted_n": 30,
+  "source_endpoint_table": "/cwork/ns458/insula-paper/results/audit/nmf_endpoint_review_2026-11-07/pending34_endpoint_labels.csv",
+  "source_endpoint_table_sha256": "dbcf57ebda030add9f18a829048bffa7b5021ffceb0db3aef6a393fd420b2d0f",
+  "functional_responsiveness_not_assigned": true,
+  "formal_cohort_and_NMF_unchanged": true,
+  "CT_review": {
+    "subject": "D0107",
+    "reconstruction": "D107B",
+    "task": "LexicalDelay",
+    "target_contacts": "RIA1 through RIA6",
+    "author_visual_confirmation": "reviewed RIA1 through RIA6 segment confirmed insular",
+    "confirmed_bipolar_ids": [
+      "D0107_RIA1-2",
+      "D0107_RIA2-3",
+      "D0107_RIA3-4",
+      "D0107_RIA4-5",
+      "D0107_RIA5-6"
+    ]
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task": "PictureNaming",
+  "subject_registry": "/cwork/ns458/insula-paper/results/picture_naming_restore_2026-10-24/subject_registry.json",
+  "status_table": "/cwork/ns458/insula-paper/results/picture_naming_restore_2026-10-24/subject_status.csv",
+  "transfer_manifest": "/cwork/ns458/insula-paper/results/audit/picture_naming_restore_2026-10-24/prepared_transfer_manifest.json",
+  "frozen_cohort_changed": false,
+  "selection_rule": "Original anatomical, native channel QC, full paired statistics and subject-level noise exclusions remain required; missing data are never negative",
+  "legacy_transfer_manifest": "/cwork/ns458/insula-paper/results/audit/picture_naming_restore_2026-10-24/legacy_transfer_manifest_2026-10-27.json",
+  "legacy_restore_status": "/cwork/ns458/insula-paper/results/audit/picture_naming_restore_2026-10-24/legacy_live_status_2026-10-27.json",
+  "legacy_transfer_receipt": "/cwork/ns458/insula-paper/results/audit/picture_naming_restore_2026-10-24/legacy_transfer_receipt_2026-10-27.json"
+}
