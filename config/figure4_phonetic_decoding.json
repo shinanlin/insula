@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "approved_date": "2026-10-20",
+  "task": "PhonemeSequence",
+  "description": "Repeat",
+  "feature": "articulator",
+  "recording": "1",
+  "inference": "repeated_cv_mean_restratified_whole_stimulus",
+  "variance": 0.8,
+  "C": 1.0,
+  "n_folds": 5,
+  "n_repeats": 30,
+  "n_permutations": 500,
+  "random_state": 42,
+  "max_iter": 10000,
+  "tol": 0.0001,
+  "preflight_permutations": 20,
+  "phase_windows": {
+    "Stimulus": [
+      0.0,
+      0.6
+    ],
+    "Delay": [
+      0.0,
+      1.0
+    ],
+    "Response": [
+      0.0,
+      1.0
+    ]
+  },
+  "time_resolved": {
+    "tmin": -0.5,
+    "tmax": 1.5,
+    "window": 0.3,
+    "step": 0.03,
+    "time_axis": "actual sample-window center",
+    "fixed_membership_and_trial_axis": true
+  },
+  "multiple_comparisons": {
+    "method": "fdr_bh",
+    "alpha": 0.05,
+    "stage_family": "all nine primary cluster-by-phase models",
+    "resolved_method": "ieeg_time_cluster",
+    "resolved_family": "original temporal cluster correction within each complete curve",
+    "resolved_function": "src.decoding.run_decoding_resolved.cluster_correction",
+    "resolved_p_thresh": 0.05,
+    "resolved_tails": 1,
+    "resolved_approved_date": "2026-10-21",
+    "sensitivity": "full14 is a descriptive post-selection sensitivity analysis, outside the primary families"
+  },
+  "versioned_output": "results/fig4/formal_2026-10-20",
+  "cv": "MinimumNaNSplit, same 30 seeds for observed and each relabeling, re-stratified using that draw's labels",
+  "permutation_unit": "whole stimulus blocks within equal retained-repeat-count strata",
+  "permutation_scope": "same global draw for train/test, all repeats and all time windows",
+  "convergence": "every observed and permuted fit must finish below max_iter with finite coefficients; no failed draw is discarded",
+  "SE": "SE across CV-repeat means; split variability only",
+  "analysis_exclusions": [
+    {
+      "roi": "Sustain",
+      "phase": "Delay",
+      "channel": "D0084_RAI4-5",
+      "stage": "after_reference_trial_QC_CV_and_imputation",
+      "reason": "User-reviewed Motor/Sustain mixed site; phase-specific exploratory decoding exclusion; global NMF unchanged",
+      "approved_date": "2026-10-19"
+    }
+  ],
+  "solver_overrides": [
+    {
+      "mode": "stage",
+      "roi": "Motor",
+      "phase": "Response",
+      "max_iter": 30000,
+      "approved_date": "2026-10-20",
+      "reason": "User approved only the Motor-Response stage optimization ceiling increase after the 10000-iteration convergence failure; all other settings unchanged"
+    }
+  ]
+}

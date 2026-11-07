@@ -1,0 +1,18 @@
+{
+  "approved_date": "2026-10-22",
+  "scope": "Three confusion matrices from the selected significant temporal clusters",
+  "selection_source": "results/fig4/time_cluster_p05_c10_2026-10-22/curves.h5",
+  "p_thresh": 0.05,
+  "p_cluster": 0.10,
+  "panels": [
+    {"roi": "Sensory", "phase": "Stimulus", "selection": "significant cluster crossing stimulus zero"},
+    {"roi": "Sustain", "phase": "Delay", "selection": "significant cluster within displayed Delay 0–1 s"},
+    {"roi": "Motor", "phase": "Response", "selection": "entire significant cluster crossing Response zero, explicitly confirmed by author"}
+  ],
+  "feature_window": "Continuous first-to-last significant window-center interval; original half-open integer sample crop, not the union of 300-ms sliding-window supports",
+  "classifier": "Unchanged formal_cv.evaluate_labels with original 30×5 CV, train-only scaler/PCA(.8), LinearSVC C=1 and existing per-stage solver ceiling",
+  "confusion": "Original first-repeat out-of-fold predictions, classes in original order, rows normalized by true class",
+  "preserve": "Native task/site/trial cohort, full-reference-before-exclusion imputation, all time curves/masks and stage-summary tests",
+  "new_permutation_test": false,
+  "exploratory_same_data_time_window_selection": true
+}

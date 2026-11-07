@@ -7,8 +7,11 @@ path = rootutils.setup_root(__file__, indicator=".project-root", pythonpath=True
 
 import argparse
 import gc
+import hashlib
+import json
 import logging
 import os
+from pathlib import Path
 import sys
 import time as _time
 
@@ -29,6 +32,10 @@ from src.decoding.decoder import (
     get_cv_predict,
 )
 from src.paths import decoding_task_dir, decoding_input_dir
+from src.decoding.repeated_cv import (
+    METHOD as REPEATED_METHOD, SCHEMA_VERSION, SE_DESCRIPTION,
+    repeated_cv_permutation,
+)
 
 logging.basicConfig(
     level=logging.INFO,
@@ -69,6 +76,7 @@ def load_roi_data(
     datatype,
     tmin,
     tmax,
+    recording=None,
 ):
     """Load and preprocess neural data from a specific brain region (ROI).
 
@@ -118,6 +126,8 @@ def load_roi_data(
         check=False
     )
     roi_path = root.copy().update(subject=roi)
+    if recording is not None:
+        roi_path.update(recording=str(recording), check=False)
     roi_files = roi_path.match()
 
     if not roi_files:
@@ -145,6 +155,81 @@ def load_roi_data(
     return Xs, ys, paths
 
 
+def first_repeat_inference(X, y, decoder, n_folds, n_repeats, n_perm, n_jobs):
+    """Historical first-repeat inference, retained for explicitly legacy callers."""
+    scores = np.empty((n_repeats, n_folds))
+    first_predictions = None
+    for repeat in range(n_repeats):
+        seed = RANDOM_SEED + repeat
+        cv = MinimumNaNSplit(n_splits=n_folds, n_repeats=1, random_state=seed)
+        if repeat == 0:
+            observed, permutations, p = decode_permutation_scores(
+                X, y, cv, decoder, n_jobs=n_jobs, n_permutations=n_perm,
+                scoring='balanced_accuracy', random_state=seed)
+            scores[repeat] = observed
+            first_predictions = get_cv_predict(X, y, cv, decoder,
+                n_jobs=n_jobs, random_state=seed)
+        else:
+            scores[repeat] = decode_cv_scores(X, y, cv, decoder,
+                n_jobs=n_jobs, scoring='balanced_accuracy', random_state=seed)
+    classes = np.unique(y)
+    return dict(accuracy=scores[0], accuracy_repeats=scores,
+        accuracy_stable=float(scores.mean()), perm_scores=permutations, p_value=p,
+        confusion=confusion_matrix(y, first_predictions, labels=classes),
+        confusion_norm=confusion_matrix(y, first_predictions, labels=classes, normalize='true'),
+        classes=classes, first_repeat_predictions=first_predictions)
+
+
+def save_window_result(destination, result, *, metadata, input_metadata, inference):
+    """Write one analysis schema atomically; plots consume it without overrides."""
+    destination = Path(destination)
+    temporary = destination.with_suffix('.pending.h5')
+    with h5py.File(temporary, 'w') as f:
+        for key in ['accuracy', 'accuracy_repeats', 'accuracy_stable', 'perm_scores',
+                    'p_value', 'confusion', 'confusion_norm', 'classes', 'first_repeat_predictions']:
+            f.create_dataset(key, data=result[key])
+        for key, value in metadata.items():
+            f.attrs[key] = value
+        text_dtype = h5py.string_dtype('utf-8')
+        for key in ['channel', 'input_channel', 'excluded_channel', 'trial', 'condition']:
+            f.create_dataset(key, data=np.asarray(input_metadata[key], dtype=text_dtype))
+        f.attrs['inference_method'] = inference
+        f.attrs['n_trials'] = len(input_metadata['trial'])
+        f.attrs['n_electrodes'] = len(input_metadata['channel'])
+        f.attrs['n_subjects'] = len({c.split('_')[0] for c in input_metadata['channel']})
+        if inference == REPEATED_METHOD:
+            f.attrs['result_schema_version'] = SCHEMA_VERSION
+            f.attrs['accuracy_unit'] = 'CV-repeat mean of fold balanced accuracies'
+            f.attrs['p_value_statistic'] = 'mean across all CV repeats and folds'
+            f.attrs['errorbar_definition'] = SE_DESCRIPTION
+            f.attrs['permutation_unit'] = 'whole stimulus blocks within equal retained-repeat-count strata'
+            f.attrs['permutation_labels'] = 'one global relabeling applied to both train and test in every repeat/fold'
+            f.attrs['exclusion_stage'] = 'after reference-input trial QC, CV and imputation; before training-fold transform'
+            f.attrs['confusion_definition'] = 'first-repeat out-of-fold predictions'
+            for key in ['accuracy_se', 'permutation_means', 'observed_iterations',
+                        'permutation_iterations', 'pca_component_counts']:
+                f.create_dataset(key, data=result[key])
+            f.create_dataset('accuracy_per_repeat', data=result['accuracy'])
+            f.attrs['null_exceedances'] = result['null_exceedances']
+            f.attrs['null_test_folds_missing_any_class'] = result['null_test_folds_missing_any_class']
+            f.attrs['observed_reference_check'] = json.dumps(result['reference_check'])
+            for key, value in result['permutation_plan'].items():
+                if key == 'group_names':
+                    value = np.asarray(value, dtype=text_dtype)
+                f.create_dataset('permutation_plan/'+key, data=value)
+            for item in result['folds']:
+                group = f.create_group(f'cv/repeat_{item.repeat:02d}/fold_{item.fold}')
+                group.create_dataset('train', data=item.train)
+                group.create_dataset('test', data=item.test)
+                group.attrs['full_train_digest'] = item.full_train_digest
+                group.attrs['full_test_digest'] = item.full_test_digest
+        else:
+            f.attrs['result_schema_version'] = 1
+            f.attrs['accuracy_unit'] = 'fold in first CV repeat'
+            f.attrs['p_value_statistic'] = 'first-repeat five-fold mean'
+    temporary.replace(destination)
+
+
 def main(
     bids_root,
     subject,
@@ -162,6 +247,10 @@ def main(
     tmin=None,
     tmax=None,
     results_root=None,
+    inference='first_repeat',
+    exclude_channel=None,
+    observed_reference=None,
+    recording=None,
 ):
     if tmin is None or tmax is None:
         try:
@@ -190,6 +279,7 @@ def main(
         datatype,
         tmin,
         tmax,
+        recording=recording,
     )
 
     n_files = len(Xs)
@@ -208,59 +298,32 @@ def main(
             LinearSVC(C=float(C), random_state=42, max_iter=5000),
         )
 
-        accuracy_repeats = np.zeros((n_repeats, n_folds))
-        confusion = None
-        confusion_norm = None
-        classes = None
-        obs_scores = None
-        perm_scores = None
-        p_value = None
-
-        for r in range(n_repeats):
-            cv_seed = RANDOM_SEED + r
-            cv_r = MinimumNaNSplit(
-                n_splits=n_folds,
-                n_repeats=1,
-                random_state=cv_seed,
-            )
-            if r == 0:
-                obs_scores, perm_scores, p_value = decode_permutation_scores(
-                    X,
-                    y,
-                    cv_r,
-                    decoder,
-                    n_jobs=n_jobs,
-                    n_permutations=n_perm,
-                    scoring="balanced_accuracy",
-                    random_state=RANDOM_SEED,
-                )
-                accuracy_repeats[r] = obs_scores
-
-                y_pred = get_cv_predict(
-                    X,
-                    y,
-                    cv_r,
-                    decoder,
-                    n_jobs=n_jobs,
-                    random_state=RANDOM_SEED,
-                )
-                classes = np.unique(y)
-                confusion = confusion_matrix(y, y_pred, labels=classes)
-                confusion_norm = confusion_matrix(
-                    y, y_pred, labels=classes, normalize="true"
-                )
-            else:
-                accuracy_repeats[r] = decode_cv_scores(
-                    X,
-                    y,
-                    cv_r,
-                    decoder,
-                    n_jobs=n_jobs,
-                    scoring="balanced_accuracy",
-                    random_state=cv_seed,
-                )
-
-        accuracy_stable = accuracy_repeats.mean()
+        decode_strings = lambda values: [v.decode() if isinstance(v, bytes) else str(v) for v in values]
+        with h5py.File(path.fpath, 'r') as input_file:
+            channels = decode_strings(input_file['channel'][:])
+            trials = decode_strings(input_file['trial'][:])
+            conditions = decode_strings(input_file['condition'][:])
+            assignment_sha = str(input_file.attrs.get('assignment_sha256', ''))
+            fs = float(input_file.attrs['fs'])
+        exclusions = list(exclude_channel or [])
+        unknown = set(exclusions)-set(channels)
+        if unknown:
+            raise ValueError(f'Excluded channels are absent from input: {sorted(unknown)}')
+        keep = [i for i, channel in enumerate(channels) if channel not in exclusions]
+        input_metadata = dict(channel=[channels[i] for i in keep], input_channel=channels,
+            excluded_channel=exclusions, trial=trials, condition=conditions)
+        if inference == REPEATED_METHOD:
+            groups = np.asarray([trial.rsplit('_', 1)[0] for trial in trials])
+            result = repeated_cv_permutation(X, y, groups, decoder[:-1], decoder[-1],
+                keep_channels=keep, n_splits=n_folds, n_repeats=n_repeats,
+                n_permutations=n_perm, random_state=RANDOM_SEED, n_jobs=n_jobs,
+                observed_reference=observed_reference)
+        elif inference == 'first_repeat':
+            if exclusions:
+                raise ValueError('Channel exclusions require explicit repeated-CV inference')
+            result = first_repeat_inference(X, y, decoder, n_folds, n_repeats, n_perm, n_jobs)
+        else:
+            raise ValueError(f'Unknown inference method: {inference}')
 
         # Sweep runs nest hyperparameters in the results root. BIDSPath
         # datatype cannot contain ``-`` or ``_``.
@@ -292,35 +355,17 @@ def main(
         save_path.mkdir(exist_ok=True)
 
         logger.info('Saving results to %s', save_path)
-        with h5py.File(save_path, "w") as f:
-            f.create_dataset(name="accuracy", data=obs_scores)
-            f.create_dataset(name='perm_scores', data=perm_scores)
-            f.create_dataset(name='p_value', data=p_value)
-            f.create_dataset(name='accuracy_repeats', data=accuracy_repeats)
-            f.create_dataset(name='accuracy_stable', data=accuracy_stable)
-            f.create_dataset(name='confusion', data=confusion)
-            f.create_dataset(name='confusion_norm', data=confusion_norm)
-            f.create_dataset(name='classes', data=classes)
-
-            f.attrs["fs"] = 128
-            f.attrs["tmin"] = float(tmin)
-            f.attrs["tmax"] = float(tmax)
-            f.attrs["variance"] = float(variance)
-            f.attrs["C"] = float(C)
-            f.attrs["n_perm"] = n_perm
-            f.attrs["n_folds"] = n_folds
-            f.attrs["n_repeats"] = n_repeats
-            f.attrs["n_jobs"] = n_jobs
-            f.attrs["cv_random_state"] = RANDOM_SEED
+        save_window_result(save_path.fpath, result, metadata=dict(fs=fs,
+            tmin=float(tmin), tmax=float(tmax), variance=float(variance), C=float(C),
+            n_perm=n_perm, n_folds=n_folds, n_repeats=n_repeats, n_jobs=n_jobs,
+            cv_random_state=RANDOM_SEED, assignment_sha256=assignment_sha,
+            input_path=str(path.fpath), input_sha256=hashlib.sha256(Path(path.fpath).read_bytes()).hexdigest()),
+            input_metadata=input_metadata, inference=inference)
 
         logger.info(f"File {i} completed in {_time.time() - _t0:.2f}s")
         Xs[i] = None
         ys[i] = None
-        del (
-            X, y, decoder, obs_scores, perm_scores, p_value,
-            accuracy_repeats, accuracy_stable, confusion, confusion_norm,
-            classes, y_pred,
-        )
+        del X, y, decoder, result
         gc.collect()
 
     return
@@ -363,9 +408,17 @@ if __name__ == "__main__":
     parser.add_argument("--n_folds", type=int, default=10,
                         help="number of folds")
     parser.add_argument("--n_repeats", type=int, default=1,
-                        help="number of CV-seed repeats (only r=0 runs permutations)")
+                        help="number of CV-seed repeats")
     parser.add_argument("--n_jobs", type=int, default=1,
                         help="number of jobs")
+    parser.add_argument('--inference', choices=['first_repeat', REPEATED_METHOD], default='first_repeat',
+                        help='Explicit inference statistic and null construction')
+    parser.add_argument('--exclude_channel', action='append', default=[],
+                        help='Analysis exclusion after reference-input CV and imputation')
+    parser.add_argument('--observed_reference', default=None,
+                        help='Optional archived result for exact observed-fold regression validation')
+    parser.add_argument('--recording', default=None,
+                        help='Optional recording selector, e.g. first phoneme recording 1')
 
     args = parser.parse_args()
     main(**vars(args))

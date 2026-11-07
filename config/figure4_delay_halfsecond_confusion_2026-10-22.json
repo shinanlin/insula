@@ -1,0 +1,15 @@
+{
+  "approved_date": "2026-10-22",
+  "author_request": "Use a 0.5-second Delay interval around the existing significant cluster",
+  "roi": "Sustain",
+  "phase": "Delay",
+  "window_seconds": [0.25, 0.75],
+  "total_duration_seconds": 0.5,
+  "window_definition": "Fixed total 0.5 seconds centered on the existing cluster midpoint (0.5 s); no additional window search",
+  "reference_plan": "results/fig4/cluster_window_confusion_2026-10-22/run_plan.json",
+  "matrix_definition": "Original first-repeat five-fold held-out predictions, true-class row normalization",
+  "classifier": "Unchanged shared formal_cv.evaluate_labels; 30 repeats, 5 folds, train-only StandardScaler/PCA(.8), LinearSVC C=1, max_iter=10000, tol=.0001",
+  "new_permutation_test": false,
+  "exploratory_window_selection": true,
+  "preserve": "All existing fits, cohorts, time-resolved curves/inference, Sensory and Motor confusion matrices, Figure 1/2 and NMF"
+}

@@ -1,0 +1,19 @@
+{
+  "approved_date": "2026-10-22",
+  "scope": "All nine articulator time-resolved curves",
+  "p_thresh": 0.05,
+  "p_cluster": 0.10,
+  "n_permutations": 500,
+  "n_centers_per_curve": 57,
+  "tails": 1,
+  "statistic": "Original positive temporal extent",
+  "correction_family": "Each complete original curve separately",
+  "background_handling": "Retain the same approved local background-zero exclusion and save installed legacy masks/p values separately",
+  "engine": "scripts.sustain_delay_cluster_threshold.infer, unchanged",
+  "output": "results/fig4/time_cluster_p05_c10_2026-10-22/curves.h5",
+  "audit": "results/audit/figure4_cluster_p05_c10_all_2026-10-22",
+  "preview": "fig4_articulator_p05_cluster10_20261022.png",
+  "display": "Thin candidate segments (pointwise p<.05); original thick bars for corrected cluster p<.10; caption only",
+  "exploratory_threshold_selected_after_viewing_original_results": true,
+  "preserve_prior_inference_and_fitted_results": true
+}

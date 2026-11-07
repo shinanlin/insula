@@ -13,6 +13,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from src.connectivity.pairwise.config import DEFAULT_DATASETS
+from src.paper_trial_inputs import paper_bids_root
 
 ROIS = ('Sensory', 'Sustain', 'Motor')
 PHASES = ('Stimulus', 'Delay', 'Response')
@@ -50,7 +51,7 @@ def prepare(task):
     from src.decoding.prepare_functional_decoding_dataset import run
     target = ROOT / 'results/decoding_inputs' / task
     target.mkdir(parents=True, exist_ok=True)
-    args = argparse.Namespace(bids_root=DEFAULT_DATASETS[task], bids_task=task,
+    args = argparse.Namespace(bids_root=paper_bids_root(task), bids_task=task,
         assignments=str(ROOT / 'results/nmf/channel_assignments.csv'), reference='bipolar',
         band='highgamma', output_root=str(target),
         intersection_output_root=str(ROOT / 'results/decoding_inputs_intersection' / task),
@@ -124,12 +125,23 @@ def prepare(task):
     print(task, 'prepared files', len(counts), 'reused controls', len(copied), flush=True)
 
 
-def fit(index):
+def fit(index, verify_previous=False):
     import h5py
     row = matrix()[index]
+    if row['mode'] == 'window':
+        # The approved phonetic specification has one standard source engine
+        # for stage and time-resolved analyses. Historical frozen-fold fits
+        # are retained as diagnostics, never invoked by a current refresh.
+        if verify_previous:
+            raise ValueError('Old windows/null are historical; formal validation uses the frozen input identities')
+        command = [sys.executable, '-u', '-m', 'src.decoding.figure4_formal',
+            'fit', '--mode', 'stage', '--index', str(index),
+            '--n-jobs', os.environ.get('SLURM_CPUS_PER_TASK', '1')]
+        subprocess.run(command, cwd=ROOT, check=True)
+        return
     task, roi, phase = row['task'], row['roi'], row['phase']
     os.environ['INSULA_DECODING_INPUT_ROOT'] = str(ROOT / 'results/decoding_inputs' / task)
-    feature = 'articulator' if row['mode'] == 'window' else 'lexicality'
+    feature = 'lexicality'
     root = Path(os.environ['INSULA_DECODING_INPUT_ROOT']) / f'sub-{roi}' / feature
     descriptions = [row['description']] if row['mode'] != 'cross' else [row['train'], row['test']]
     inputs = []
@@ -142,12 +154,9 @@ def fit(index):
             assert stream.attrs['assignment_sha256'] == sha(ROOT / 'results/nmf/channel_assignments.csv')
         inputs.append(dict(path=str(path), sha256=sha(path)))
     jobs = os.environ.get('SLURM_CPUS_PER_TASK', '16')
-    common = ['--bids_root', DEFAULT_DATASETS[task], '--subject', roi, '--ref', 'bipolar',
+    common = ['--bids_root', paper_bids_root(task), '--subject', roi, '--ref', 'bipolar',
               '--phase', phase, '--band', 'highgamma', '--datatype', feature, '--n_folds', '5', '--n_jobs', jobs]
-    if row['mode'] == 'window':
-        command = [sys.executable, '-u', 'src/decoding/run_decoding.py', *common,
-            '--description', row['description'], '--variance', '0.80', '--C', '1.0', '--n_perm', '200', '--n_repeats', '30']
-    elif row['mode'] == 'resolved':
+    if row['mode'] == 'resolved':
         command = [sys.executable, '-u', 'src/decoding/run_decoding_resolved_lda.py', *common,
             '--description', row['description'], '--n_bins', '5', '--window', '0.30', '--step', '0.03',
             '--n_perm', '5000', '--cv_scheme', 'group']
@@ -167,12 +176,14 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('mode', choices=['prepare', 'fit'])
     parser.add_argument('value')
+    parser.add_argument('--verify-previous', action='store_true',
+                        help='Validate all observed fold scores against the archived pre-refresh results')
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     if args.mode == 'prepare':
         prepare(args.value)
     else:
-        fit(int(args.value))
+        fit(int(args.value), verify_previous=args.verify_previous)
 
 
 if __name__ == '__main__':
