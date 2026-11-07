@@ -1922,3 +1922,134 @@ h1 {
   opacity: 0.55;
   cursor: not-allowed;
 }
+
+.detail-content.with-anatomy {
+  overflow-y: auto;
+}
+
+.detail-content.with-anatomy .roi-bar-chart {
+  overflow: visible;
+  flex: none;
+}
+
+.anatomy-review-card h3 {
+  margin-bottom: 8px;
+}
+
+.anatomy-note,
+.anatomy-error,
+.anatomy-atlas-hint {
+  margin-top: 6px;
+}
+
+.anatomy-note {
+  color: #9a3412;
+}
+
+.anatomy-error {
+  color: #b91c1c;
+}
+
+.anatomy-contact-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.anatomy-contact-picker select {
+  width: 100%;
+  border: 1px solid #dbe4ef;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #0f172a;
+  font-size: 12px;
+  padding: 6px 8px;
+}
+
+.anatomy-slice {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-top: 8px;
+  border-radius: 12px;
+  background: #111827;
+}
+
+.anatomy-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.anatomy-label-btn,
+.anatomy-clear-btn {
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.anatomy-label-btn {
+  flex: 1;
+  border: 1px solid #dbe4ef;
+  background: #ffffff;
+  color: #334155;
+  padding: 6px 8px;
+}
+
+.anatomy-label-btn.operculum.active {
+  background: #ea580c;
+  border-color: #ea580c;
+  color: #ffffff;
+}
+
+.anatomy-label-btn.anterior.active {
+  background: #db2777;
+  border-color: #db2777;
+  color: #ffffff;
+}
+
+.anatomy-label-btn:disabled,
+.anatomy-clear-btn:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+.anatomy-clear-btn {
+  margin-top: 8px;
+  border: 0;
+  background: transparent;
+  color: #2563eb;
+  padding: 0;
+}
+
+.anatomy-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 10px;
+  margin-top: 10px;
+}
+
+.anatomy-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #475569;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.anatomy-legend-item i {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  display: inline-block;
+}
+
+.anatomy-review-pill {
+  bottom: 44px;
+}

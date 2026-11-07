@@ -14,6 +14,7 @@ export default function SubjectBrainMesh({
   hemisphereView,
   useLitCortex = false,
   forceSolid: forceSolidOverride,
+  interactive = true,
 }) {
   const { scene } = useGLTF(meshUrl);
   const brain = useMemo(
@@ -31,5 +32,5 @@ export default function SubjectBrainMesh({
     setBrainHemisphereVisibility(brain, hemisphereView);
   }, [brain, opacity, hemisphereView, lit, resolvedForceSolid]);
 
-  return <primitive object={brain} />;
+  return <primitive object={brain} raycast={interactive ? undefined : () => null} />;
 }

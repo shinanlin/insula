@@ -1,0 +1,13 @@
+[
+  {
+    "id": "D0079_LAI7-8_LFMI2-3",
+    "subject": "D0079",
+    "task": "LexicalDelay",
+    "title": "D0079 · AIC 与 operculum 典型案例",
+    "selection_source": "User-designated anatomical example, confirmed 2026-10-18; inspected responses; not an automatically selected control",
+    "sites": [
+      {"channel":"D0079_LAI7-8","name":"LAI7–8","role":"AIC（人工定位）","contacts":["LAI7","LAI8"],"color":"#6A5ACD"},
+      {"channel":"D0079_LFMI2-3","name":"LFMI2–3","role":"Operculum（人工定位）","contacts":["LFMI2","LFMI3"],"color":"#2369BD"}
+    ]
+  }
+]

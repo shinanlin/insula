@@ -82,8 +82,11 @@ echo "From your laptop (via login node):"
 echo "  ssh -L ${PORT}:${NODE}:${PORT} ns458@dcc-login.oit.duke.edu"
 echo "Or: export HGA_EXPLORER_NODE=${NODE}; bash scripts/connect_tunnel.sh"
 echo "Then open: http://localhost:${PORT}/"
+echo "Anatomy review API is on the same port (/api/anatomy/)."
 echo "See docs/ACCESS.md"
 echo ""
 
-cd "${DIST_DIR}"
-exec python -m http.server "${PORT}" --bind 0.0.0.0
+exec python "${VIEWER_ROOT}/scripts/serve_anatomy.py" \
+  --host 0.0.0.0 \
+  --port "${PORT}" \
+  --static "${DIST_DIR}"

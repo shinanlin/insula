@@ -5,6 +5,7 @@ import Metric from './Metric.jsx';
 import RoiBarChart from './RoiBarChart.jsx';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
 import TraceLoadProgress from '../ui/TraceLoadProgress.jsx';
+import AnatomyReviewCard from './AnatomyReviewCard.jsx';
 
 function EndpointCard({ endpointKey, electrode, brainSpace, active }) {
   const coords = resolveEndpointCoords(electrode, endpointKey, brainSpace);
@@ -40,6 +41,20 @@ export default function DetailPanel({
   onDeselectAllRois,
   tracesLoading = false,
   tracesLoadProgress = { completed: 0, total: 0, progress: 0 },
+  anatomyReview = false,
+  anatomySubject = null,
+  anatomyContacts = [],
+  anatomyLabels = {},
+  selectedAnatomyContact = null,
+  anatomyReconstruction = null,
+  anatomyCoordinateSpace = null,
+  anatomyMeshNote = null,
+  anatomyNativeMeshMissing = false,
+  anatomyLoading = false,
+  anatomySaving = false,
+  anatomyError = null,
+  onSelectAnatomyContact,
+  onSetAnatomyLabel,
 }) {
   const subjectCount = new Set(tableElectrodes.map((electrode) => electrode.subject)).size;
   const enabledRoiCount = availableRois.filter((roi) => enabledRois.has(roi)).length;
@@ -48,7 +63,24 @@ export default function DetailPanel({
     : null;
 
   return (
-    <div className="detail-content">
+    <div className={`detail-content${anatomyReview ? ' with-anatomy' : ''}`}>
+      {anatomyReview && (
+        <AnatomyReviewCard
+          subject={anatomySubject}
+          contacts={anatomyContacts}
+          labelsByContact={anatomyLabels}
+          selectedContact={selectedAnatomyContact}
+          reconstruction={anatomyReconstruction}
+          coordinateSpace={anatomyCoordinateSpace}
+          meshNote={anatomyMeshNote}
+          nativeMeshMissing={anatomyNativeMeshMissing}
+          loading={anatomyLoading}
+          saving={anatomySaving}
+          error={anatomyError}
+          onSelectContact={onSelectAnatomyContact}
+          onSetLabel={onSetAnatomyLabel}
+        />
+      )}
       <div className="detail-summary-stack">
         <div className="selected-card">
           <div className="card-kicker">Selected region</div>

@@ -13,6 +13,7 @@ export default function NativeBrainStack({
   opacity,
   hemisphereView,
   useLitCortex = false,
+  interactive = true,
 }) {
   if (!insulaMode) {
     return (
@@ -21,6 +22,7 @@ export default function NativeBrainStack({
         opacity={opacity}
         hemisphereView={hemisphereView}
         useLitCortex={useLitCortex}
+        interactive={interactive}
       />
     );
   }

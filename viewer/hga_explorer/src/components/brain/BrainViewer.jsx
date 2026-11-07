@@ -37,6 +37,7 @@ import BipolarEndpoints from './BipolarEndpoints.jsx';
 import BrainKdeMesh from './BrainKdeMesh.jsx';
 import ElectrodePoint from './ElectrodePoint.jsx';
 import ElectrodeInstances from './ElectrodeInstances.jsx';
+import AnatomyContacts from './AnatomyContacts.jsx';
 import { resolveHgaMean } from '../../utils/hga.js';
 import { electrodeMatchesHemisphere } from '../../lib/brainMesh.js';
 import PanelEmptyState from '../layout/PanelEmptyState.jsx';
@@ -80,6 +81,13 @@ export default function BrainViewer({
   onHover,
   onSelect,
   onSelectEndpoint,
+  anatomyReview = false,
+  anatomyReviewAvailable = false,
+  onAnatomyReviewChange,
+  anatomyContacts = [],
+  anatomyLabels = {},
+  selectedAnatomyContact = null,
+  onSelectAnatomyContact,
 }) {
   const hgaScale = metadata?.hga_size_scale;
   const significanceWindows = metadata?.significance_windows;
@@ -273,9 +281,19 @@ export default function BrainViewer({
 
   useEffect(() => {
     setBrainOpacity(
-      brainViewMode === 'kde' ? DEFAULT_KDE_BRAIN_OPACITY : DEFAULT_ELECTRODE_BRAIN_OPACITY,
+      anatomyReview || brainViewMode !== 'kde'
+        ? DEFAULT_ELECTRODE_BRAIN_OPACITY
+        : DEFAULT_KDE_BRAIN_OPACITY,
     );
-  }, [brainViewMode]);
+  }, [brainViewMode, anatomyReview]);
+
+  const reviewBrain = Boolean(anatomyReview);
+  const effectiveBrainView = reviewBrain ? 'electrodes' : brainViewMode;
+  const nativeMeshMissing = reviewBrain && (!nativeMeshUrl || brainAssetOk === false);
+  const showAnatomyContacts = reviewBrain
+    && Boolean(nativeMeshUrl)
+    && brainAssetOk === true
+    && anatomyContacts.length > 0;
 
   useEffect(() => {
     if (brainViewMode === 'kde' && brainAssetOk === false) {
@@ -316,17 +334,18 @@ export default function BrainViewer({
       >
         <Suspense fallback={null}>
         <BrainSceneLighting mneStyle />
-        {brainAssetOk === true && brainViewMode === 'electrodes' && (
+        {brainAssetOk === true && effectiveBrainView === 'electrodes' && (
           nativeMeshUrl
             ? (
               <NativeBrainStack
                 key={nativeMeshUrl}
                 meshUrl={nativeMeshUrl}
                 insulaMeshUrl={insulaAssets.meshUrl}
-                insulaMode={insulaModeActive}
+                insulaMode={reviewBrain ? false : insulaModeActive}
                 opacity={brainOpacity}
                 hemisphereView={brainHemisphere}
                 useLitCortex
+                interactive={!reviewBrain}
               />
             )
             : (
@@ -338,7 +357,7 @@ export default function BrainViewer({
               />
             )
         )}
-        {brainAssetOk === true && brainViewMode === 'kde' && (
+        {brainAssetOk === true && effectiveBrainView === 'kde' && (
           <BrainKdeMesh
             key={activeMeshUrl}
             meshUrl={activeMeshUrl}
@@ -361,7 +380,7 @@ export default function BrainViewer({
         {brainAssetOk === false && (
           <FallbackBrainSphere opacity={brainOpacity} hemisphereView={brainHemisphere} />
         )}
-        {brainViewMode === 'electrodes' && useInstancedElectrodes && (
+        {effectiveBrainView === 'electrodes' && !reviewBrain && useInstancedElectrodes && (
           <ElectrodeInstances
             electrodes={instancedElectrodes}
             vennPhases={vennPhases}
@@ -381,7 +400,7 @@ export default function BrainViewer({
             onSelect={onSelect}
           />
         )}
-        {brainViewMode === 'electrodes' && (useInstancedElectrodes ? highlightedElectrodes : visibleElectrodes).map((electrode) => (
+        {effectiveBrainView === 'electrodes' && !reviewBrain && (useInstancedElectrodes ? highlightedElectrodes : visibleElectrodes).map((electrode) => (
           <ElectrodePoint
             key={electrode.id}
             electrode={electrode}
@@ -403,7 +422,15 @@ export default function BrainViewer({
             colorByFunctional={colorByFunctional}
           />
         ))}
-        {selectedElectrode && (
+        {showAnatomyContacts && (
+          <AnatomyContacts
+            contacts={anatomyContacts}
+            labelsByContact={anatomyLabels}
+            selectedContact={selectedAnatomyContact}
+            onSelect={onSelectAnatomyContact}
+          />
+        )}
+        {selectedElectrode && !reviewBrain && (
           <BipolarEndpoints
             electrode={selectedElectrode}
             brainSpace={brainSpace}
@@ -422,18 +449,21 @@ export default function BrainViewer({
         <div className="brain-controls-row" data-tour="brain-controls">
           <div className="brain-control-pill" data-tour="brain-space-toggle">
             <span className="brain-control-label">Brain</span>
-            {brainSpaceOptions.map((option) => (
-              <button
-                key={option.id}
-                type="button"
-                className={`brain-chip${brainSpace === option.id ? ' active' : ''}`}
-                disabled={option.disabled}
-                title={option.title}
-                onClick={() => onBrainSpaceChange?.(option.id)}
-              >
-                {option.label}
-              </button>
-            ))}
+            {brainSpaceOptions.map((option) => {
+              const templateLocked = reviewBrain && option.id === 'template' && Boolean(nativeMeshUrl);
+              return (
+                <button
+                  key={option.id}
+                  type="button"
+                  className={`brain-chip${brainSpace === option.id ? ' active' : ''}`}
+                  disabled={option.disabled || templateLocked}
+                  title={templateLocked ? 'Anatomy review uses the native brain' : option.title}
+                  onClick={() => onBrainSpaceChange?.(option.id)}
+                >
+                  {option.label}
+                </button>
+              );
+            })}
           </div>
           <div className="brain-control-pill">
             <span className="brain-control-label">Hemisphere</span>
@@ -451,14 +481,20 @@ export default function BrainViewer({
           <div className="brain-control-pill">
             <span className="brain-control-label">View</span>
             {BRAIN_VIEW_OPTIONS.map((option) => {
-              const disabled = option.id === 'kde' && brainAssetOk !== true;
+              const disabled = (option.id === 'kde' && brainAssetOk !== true) || (reviewBrain && option.id === 'kde');
               return (
                 <button
                   key={option.id}
                   type="button"
-                  className={`brain-chip${brainViewMode === option.id ? ' active' : ''}`}
+                  className={`brain-chip${effectiveBrainView === option.id ? ' active' : ''}`}
                   disabled={disabled}
-                  title={disabled ? 'KDE projection requires a brain mesh for the current subject' : undefined}
+                  title={
+                    reviewBrain && option.id === 'kde'
+                      ? 'Anatomy review shows reconstructed contacts on the brain'
+                      : (option.id === 'kde' && brainAssetOk !== true
+                        ? 'KDE projection requires a brain mesh for the current subject'
+                        : undefined)
+                  }
                   onClick={() => setBrainViewMode(option.id)}
                 >
                   {option.label}
@@ -481,6 +517,21 @@ export default function BrainViewer({
               onClick={handleInsulaModeToggle}
             >
               Insula
+            </button>
+          </div>
+          <div className="brain-control-pill">
+            <button
+              type="button"
+              className={`brain-chip${reviewBrain ? ' active' : ''}`}
+              disabled={!anatomyReviewAvailable}
+              title={
+                anatomyReviewAvailable
+                  ? 'Show reconstructed contacts and a native T1 slice for Operculum or Anterior Insula labels'
+                  : 'Select one subject to review anatomy'
+              }
+              onClick={() => onAnatomyReviewChange?.(!anatomyReview)}
+            >
+              Anatomy
             </button>
           </div>
           {brainViewMode === 'electrodes' && (
@@ -529,7 +580,7 @@ export default function BrainViewer({
           </label>
         )}
       </div>
-      {brainViewMode === 'kde' && (
+      {effectiveBrainView === 'kde' && (
         <KdeColorbar
           range={effectiveRange}
           vmaxValue={effectiveVmax}
@@ -545,26 +596,33 @@ export default function BrainViewer({
       >
         <Info size={14} />
       </button>
-      {brainViewMode === 'kde' && kdeSources.mode === 'roi' && (
+      {effectiveBrainView === 'kde' && kdeSources.mode === 'roi' && (
         <div className="brain-status-pill brain-kde-mode-pill">{kdeSources.label}</div>
       )}
       {playingPhase && (animationTime != null || awaitingKdeRender) && (
         <div className="brain-status-pill">
           {PHASE_LABELS[playingPhase]}
           {animationTime != null && ` · t = ${animationTime.toFixed(2)}s`}
-          {awaitingKdeRender && brainViewMode === 'kde' && ' · preparing map'}
+          {awaitingKdeRender && effectiveBrainView === 'kde' && ' · preparing map'}
           {!awaitingKdeRender && isPlaying && ' · playing'}
           {!awaitingKdeRender && !isPlaying && animationTime != null && ' · paused'}
         </div>
       )}
-      {awaitingKdeRender && brainViewMode === 'kde' && (
+      {awaitingKdeRender && effectiveBrainView === 'kde' && (
         <BrainRenderOverlay
           active
           progress={kdeFrameCacheStatus.progress}
           phaseLabel={playingPhase ? PHASE_LABELS[playingPhase] : null}
         />
       )}
-      <PanelEmptyState emptyState={selectionEmpty} className="brain-empty-state" />
+      {reviewBrain && (
+        <div className="brain-status-pill anatomy-review-pill">
+          {nativeMeshMissing
+            ? 'Native mesh is missing. Choose a contact in the detail panel for the MRI.'
+            : 'Anatomy review · click a reconstructed contact'}
+        </div>
+      )}
+      <PanelEmptyState emptyState={reviewBrain ? null : selectionEmpty} className="brain-empty-state" />
     </div>
   );
 }

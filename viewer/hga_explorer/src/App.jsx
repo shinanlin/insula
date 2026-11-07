@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import { Activity, Brain, Filter, HelpCircle, Info } from 'lucide-react';
 import { PHASES } from './constants/phases.js';
 import { VENN_MAX_PHASES, VENN_MIN_PHASES } from './constants/venn.js';
@@ -24,6 +24,7 @@ import { resolveElectrodesForBrainSpace } from './utils/electrodeCoords.js';
 import AtlasToggle from './components/layout/AtlasToggle.jsx';
 import { usesSplitTraces } from './utils/viewerLayout.js';
 import { resolvePhaseTrace } from './utils/traces.js';
+import useAnatomyReview from './hooks/useAnatomyReview.js';
 
 function traceHasFiniteValue(trace) {
   const values = trace?.value ?? trace?.y;
@@ -168,10 +169,35 @@ export default function App() {
     singleSubject,
     forcedTemplate,
     insulaAvailableForSelection,
+    nativeMeshAvailable,
   } = useBrainSpace({
     selectedSubjects,
     manifest: data?.manifest,
   });
+
+  const [anatomyReview, setAnatomyReview] = useState(false);
+  const [selectedAnatomyContact, setSelectedAnatomyContact] = useState(null);
+  const nativeMeshReady = Boolean(singleSubject && nativeMeshAvailable[singleSubject]);
+  const anatomy = useAnatomyReview(singleSubject, anatomyReview);
+
+  useEffect(() => {
+    if (!singleSubject && anatomyReview) setAnatomyReview(false);
+  }, [singleSubject, anatomyReview]);
+
+  useEffect(() => {
+    setSelectedAnatomyContact(null);
+  }, [singleSubject]);
+
+  useEffect(() => {
+    if (anatomyReview && nativeMeshReady && brainSpace !== 'native') {
+      setBrainSpace('native');
+    }
+  }, [anatomyReview, nativeMeshReady, brainSpace, setBrainSpace]);
+
+  const handleAnatomyReviewChange = useCallback((next) => {
+    setAnatomyReview(Boolean(next));
+    if (!next) setSelectedAnatomyContact(null);
+  }, []);
 
   const insulaFilter = useCallback(
     (electrode) => electrodeInInsula(electrode, selectedAtlas),
@@ -553,6 +579,13 @@ export default function App() {
             onHover={setHoveredId}
             onSelect={selectElectrode}
             onSelectEndpoint={selectEndpoint}
+            anatomyReview={anatomyReview}
+            anatomyReviewAvailable={Boolean(singleSubject)}
+            onAnatomyReviewChange={handleAnatomyReviewChange}
+            anatomyContacts={anatomy.contacts}
+            anatomyLabels={anatomy.labelsByContact}
+            selectedAnatomyContact={selectedAnatomyContact}
+            onSelectAnatomyContact={setSelectedAnatomyContact}
           />
         </section>
 
@@ -574,6 +607,20 @@ export default function App() {
             onDeselectAllRois={deselectAllRois}
             tracesLoading={tracesLoading}
             tracesLoadProgress={tracesLoadProgress}
+            anatomyReview={anatomyReview}
+            anatomySubject={singleSubject}
+            anatomyContacts={anatomy.contacts}
+            anatomyLabels={anatomy.labelsByContact}
+            selectedAnatomyContact={selectedAnatomyContact}
+            anatomyReconstruction={anatomy.reconstruction}
+            anatomyCoordinateSpace={anatomy.coordinateSpace}
+            anatomyMeshNote={anatomy.meshNote}
+            anatomyNativeMeshMissing={anatomyReview && !nativeMeshUrl}
+            anatomyLoading={anatomy.loading}
+            anatomySaving={anatomy.saving}
+            anatomyError={anatomy.error}
+            onSelectAnatomyContact={setSelectedAnatomyContact}
+            onSetAnatomyLabel={anatomy.setLabel}
           />
         </aside>
       </main>
