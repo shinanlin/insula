@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT))
 import pandas as pd
 from src.connectivity.pairwise.config import DEFAULT_DATASETS
 from src.main_analysis import COHORT_DIR
+from src.paper_trial_inputs import paper_bids_root,VIEW
 
 OUT = ROOT / 'results/fig5'
 RT = ROOT / 'results/rt'
@@ -35,8 +36,16 @@ def fit(index):
     os.environ['INSULA_RT_COHORT'] = str(SAMPLE)
     assert row['subject'] != 'D0121'
     records = []
+    coverage=pd.read_csv(VIEW/'subject_task_coverage.csv')
+    state=coverage.loc[coverage.task.eq(row['task'])&coverage.subject.eq(row['subject'])].iloc[0]
+    if state.status=='native_QC_zero_usable':
+        (OUT/f'model_{index:03d}.json').write_text(json.dumps(dict(index=index,**row,
+            completed=True,status='skipped_native_QC_zero_usable',outputs=[],cohort_sha256=sha(SAMPLE),
+            reason='All sampled channels already excluded by original native bad-channel QC; no channel reinstated'),indent=2)+'\n')
+        return
+    if state.status!='validated':raise RuntimeError(f'Native input not validated: {row}')
     for phases in (('Delay', 'Go'), ('Response',)):
-        outputs = run_subject(bids_root=DEFAULT_DATASETS[row['task']], output_root=RT,
+        outputs = run_subject(bids_root=paper_bids_root(row['task']), output_root=RT,
             task=row['task'], subject=row['subject'], phases=phases, description='Repeat',
             band='highgamma', ref='bipolar', atlas='hammers', window_s=.2, step_s=.02,
             n_folds=10, inner_folds=5, n_perm=1000, random_state=42,
@@ -100,7 +109,8 @@ def summarize():
     summary.mkdir(parents=True, exist_ok=True)
     for name, frame in [('coverage', coverage), ('electrodes', electrodes), ('significant_clusters', clusters)]:
         frame.to_csv(summary / f'{name}.csv', index=False)
-    summarize_hga_rt_encoding(RT, assignments_path=assignments)
+    summarize_hga_rt_encoding(RT, assignments_path=assignments,
+        bids_roots={task:Path(paper_bids_root(task)) for task in TASKS})
     for phase in ('go', 'delay', 'response'):
         frame = pd.read_csv(summary / f'hga_rt_{phase}_traces.csv')
         if frame.empty:
