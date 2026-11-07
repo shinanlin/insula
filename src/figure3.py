@@ -77,6 +77,40 @@ def render_main():
     return results
 
 
+def render_component_weight_pairs():
+    """Draw the two task-matched ternary pairs beside the existing weight panels."""
+    assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
+    from src.diagnostics import figure3_weight_distributions as weights
+    existing=(MAIN_IMG/'fig3_component_weight_ternary.svg',MAIN_IMG/'fig3_sound_gt_image_weight_ternary.svg')
+    before={str(path):sha(path) for path in existing}
+    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG):
+        written=weights.render_task_pairs()
+    assert {str(path):sha(path) for path in existing}==before
+    manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
+    panels=manifest.setdefault('component_weight_panels',{})
+    panels['picture_no_difference_and_sound']=str(written['picture'])
+    panels['lexical_no_difference_and_decision']=str(written['lexical'])
+    for svg in written.values():manifest['svg_sha256'][str(svg)]=sha(svg)
+    manifest['component_weight_task_pairs']=str(MAIN_RESULTS/'component_weights'/'task_pairs')
+    write(MAIN_RESULTS/'manifest.json',manifest)
+    return written['picture'],written['lexical']
+
+
+def render_component_weight_pair_overlays():
+    """Overlay each task pair's saved density clouds in one triangle, without points."""
+    assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
+    from src.diagnostics import figure3_weight_distributions as weights
+    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG):
+        written=weights.render_task_pair_overlays()
+    manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
+    panels=manifest.setdefault('component_weight_panels',{})
+    panels['picture_density_overlay']=str(written['picture'])
+    panels['lexical_density_overlay']=str(written['lexical'])
+    for svg in written.values():manifest['svg_sha256'][str(svg)]=sha(svg)
+    write(MAIN_RESULTS/'manifest.json',manifest)
+    return written['picture'],written['lexical']
+
+
 def render_component_weights(*,sound_gt_image=False):
     """Render the approved weight panels into the main Figure 3 output folders."""
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'

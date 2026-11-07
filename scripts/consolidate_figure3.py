@@ -28,7 +28,19 @@ The following cells execute the plotting code and export SVGs to `img/fig3/`, wi
         nbf.v4.new_markdown_cell('''### Sound > Image only · Stimulus0–1 s
 
 The same18 exclusively Sound > Image sites/12 participants use the frozen continuous weights, the same reference density peak and the same approved drawing. The one bidirectionally significant site remains separate. This is the original standalone component-colored plot; the later gray/blue group overlay remains in the diagnostic notebook.
-''',id='fig3-weight-sound-title'),nbf.v4.new_code_cell("sound_weight_svg=render_component_weights(sound_gt_image=True)\ndisplay(SVG(filename=str(sound_weight_svg)))\n",id='fig3-weight-sound-image')]
+''',id='fig3-weight-sound-title'),nbf.v4.new_code_cell("sound_weight_svg=render_component_weights(sound_gt_image=True)\ndisplay(SVG(filename=str(sound_weight_svg)))\n",id='fig3-weight-sound-image'),
+        nbf.v4.new_markdown_cell('''### Picture Naming · No detected difference and Sound > Image
+
+The same frozen weights, point colors, sigma0.09 clouds and reference density peak, now side by side: 21 no-detected-difference electrodes / 14 participants and 18 exclusively Sound > Image electrodes / 12 participants. Coordinates and density arrays for both groups are the previously exported ones. The bidirectional electrode stays separate. Image > Sound is not in this pair.
+''',id='fig3-weight-picture-pair-title'),nbf.v4.new_code_cell("from src.figure3 import render_component_weight_pairs\npicture_pair_svg,lexical_pair_svg=render_component_weight_pairs()\ndisplay(SVG(filename=str(picture_pair_svg)))\n",id='fig3-weight-picture-pair'),
+        nbf.v4.new_markdown_cell('''### Lexical Delay · No detected difference and Decision > Repeat
+
+43 no-detected-difference electrodes / 25 participants beside the existing 27 Decision > Repeat electrodes / 16 participants. The 27 reuse their exported coordinates and density. The 43 use the same frozen loading proportions, sigma and reference peak; this is their first ternary. Repeat > Decision is not in this pair.
+''',id='fig3-weight-lexical-pair-title'),nbf.v4.new_code_cell("display(SVG(filename=str(lexical_pair_svg)))\n",id='fig3-weight-lexical-pair'),
+        nbf.v4.new_markdown_cell('''### Overlaid density · no electrode points
+
+Each task's two groups share one triangle. Small group-colored electrode points are drawn on the density. The overlay uses sigma 0.06 and draws density at or above 25% of that pair's shared peak. Clouds and contour lines are lighter than the points. Gray is no detected difference, blue is Sound > Image, and purple is Decision > Repeat. The paired plots keep sigma 0.09.
+''',id='fig3-weight-overlay-title'),nbf.v4.new_code_cell("from src.figure3 import render_component_weight_pair_overlays\npicture_overlay_svg,lexical_overlay_svg=render_component_weight_pair_overlays()\ndisplay(SVG(filename=str(picture_overlay_svg)))\ndisplay(SVG(filename=str(lexical_overlay_svg)))\n",id='fig3-weight-overlays')]
 
 
 def main_notebook():
