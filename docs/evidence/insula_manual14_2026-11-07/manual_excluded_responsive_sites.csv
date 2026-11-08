@@ -1,0 +1,15 @@
+subject,site_id,sampled_in_tasks,responsive_in_tasks,confirmed_responsive,contact_1,contact_2,has_accepted_unknown_endpoint,accepted_unknown_contacts,all_usable_tasks_complete,NMF_input_complete,NMF_exclusion_reason,manual_analysis_excluded
+D0028,D0028_LAI3-4,LexicalDelay|PhonemeSequence|SentenceRep,LexicalDelay|PhonemeSequence|SentenceRep,True,LAI3,LAI4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0032,D0032_LPI2-3,LexicalDelay|SentenceRep,LexicalDelay,True,LPI2,LPI3,False,,False,False,author_adopted_historical_manual_exclusion,True
+D0032,D0032_LPI3-4,LexicalDelay|SentenceRep,LexicalDelay|SentenceRep,True,LPI3,LPI4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0055,D0055_RAI7-8,LexicalDelay|PhonemeSequence,LexicalDelay|PhonemeSequence,True,RAI7,RAI8,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0061,D0061_LAI2-3,PhonemeSequence|SentenceRep,PhonemeSequence,True,LAI2,LAI3,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0061,D0061_LPI1-2,PhonemeSequence|SentenceRep,SentenceRep,True,LPI1,LPI2,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0063,D0063_RAI1-2,LexicalDelay|PhonemeSequence|SentenceRep,PhonemeSequence,True,RAI1,RAI2,False,,False,False,author_adopted_historical_manual_exclusion,True
+D0067,D0067_LPII1-2,PhonemeSequence,PhonemeSequence,True,LPII1,LPII2,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0081,D0081_LTAS2-3,LexicalDelay|PictureNaming|SentenceRep,PictureNaming,True,LTAS2,LTAS3,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0090,D0090_RIP3-4,LexicalDelay|PictureNaming,LexicalDelay,True,RIP3,RIP4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0095,D0095_LIA3-4,PhonemeSequence,PhonemeSequence,True,LIA3,LIA4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0096,D0096_LIA3-4,LexicalDelay|PhonemeSequence|PictureNaming,LexicalDelay|PhonemeSequence|PictureNaming,True,LIA3,LIA4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0101,D0101_RIA3-4,LexicalDelay|PictureNaming,PictureNaming,True,RIA3,RIA4,False,,True,False,author_adopted_historical_manual_exclusion,True
+D0101,D0101_RIA5-6,LexicalDelay|PictureNaming,LexicalDelay|PictureNaming,True,RIA5,RIA6,False,,True,False,author_adopted_historical_manual_exclusion,True

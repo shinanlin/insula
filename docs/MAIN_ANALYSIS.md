@@ -1,5 +1,28 @@
 # 主分析口径：Repeat + sound-only
 
+## 作者采用的14个位点排除版本与Figure2更新（2026-11-07）
+
+- 作者明确采用旧手动排除名单与当前NMF输入交集的14个位点排除版本，并要求重生成 `vizpub/fig2.ipynb`。精确名单与决定记录在 `config/insula_manual14_2026-11-07.json`；本节覆盖下方此前“Figure2保持旧版本”的状态。
+- 排除名单：D0028_LAI3-4；D0032_LPI2-3、LPI3-4；D0055_RAI7-8；D0061_LAI2-3、LPI1-2；D0063_RAI1-2；D0067_LPII1-2；D0081_LTAS2-3；D0090_RIP3-4；D0095_LIA3-4；D0096_LIA3-4；D0101_RIA3-4、RIA5-6。仅将其作为分析排除；不把已保存的阳性响应改为阴性，也不撤销其解剖采样记录。
+- 完整解剖覆盖仍为378个位点／67人，原生统计确认响应仍为239个位点；排除14个后，符合本版分析纳入的响应位点225个，最终非零且完整的NMF输入224个位点／60人×399特征。那个截0后全零的响应位点仍未进入NMF。
+- 新采样与分析资格记录在 `docs/evidence/insula_manual14_2026-11-07/`。模型、输入、分组和选秩指标在 `results/insula_manual14_2026-11-07/nmf/`；Figure2通过 `src.main_analysis.FIG2_NMF_DIR` 与 `FIG2_COHORT_DIR` 显式读取，不覆盖供既有下游使用的历史 `results/nmf/`。
+- Figure2沿用三成分展示；三成分命名沿用原算法：对归一化H计算各阶段平均份额，以Hungarian分配对应Stimulus→Sensory、Delay→Sustained、Response→Motor，不转移旧电极标签。已有20次初始化中的最低重构误差模型与200次80%子采样、四种PC聚类各500次的完整评估经输入一致性核对后复用。
+- **模型选择和指标峰值分别报告**：本版保留k=3用于Figure2；最大cophenetic仍在k=2。seed42下cophenetic的k2／3／4为0.999032／0.998391／0.970170，平均ARI为0.982942／0.976276／0.868011；另一随机种子也复现2／3平台及4下降。此版本在536种探索性删减方案比较后由作者选定，随机种子重复不构成独立数据验证，不能把曲线改写为“所有指标都在3最高”。
+- 保留Repeat＋sound、原生任务坏道QC、保存cluster mask与原开区间响应窗、三个拟合窗，以及跨任务等权平均、负值截0、整条拼接L2归一化规则。Figure2组曲线为电极均值及电极间SEM；PCA仍按单个PC解释方差>5%纳入。显示Response保留至1.5秒，拟合仍只至1秒；额外显示数据来自相同任务的现成预处理结果，不补造信号或显著性。
+- Figure2热图继续将保存mask=False处留白，并在各阶段按首次显著时间独立排序。旧rank图实际绘制平均ARI，其错误纵轴“Cosine sil.”更正为“Mean ARI”。左右半球比例图沿用解剖覆盖作为分母（378，含手动分析排除和响应证据未定的采样记录），分子使用本版224个模型位点；原Fisher／chi-square检验随输入重算，Sustained星号由新p值决定。
+- Response显示的1.5秒边界不补造采样点：现成数据最后一个样本为1.4921875秒，保留原半开右边界及1.5秒坐标轴。旧下游分析的冻结输入校验记录继续保存，不把旧解码结果冒充为新224位点模型的结果。
+- 旧Figure2、图和入口参数保存到 `results/insula_manual14_2026-11-07/before/`。Figure1及Figure3–6现有图、统计和历史模型保持此前版本，尚未按新224个位点重做；后续使用必须明确区分版本。
+- 已完成：`vizpub/fig2.ipynb` 的20个代码单元全部执行，16张SVG全部重生成；Sensory37、Sustained57、Motor130。执行核对记录为 `results/fig2/execution_validation.json`。269个受保护的历史输入／其他图文件未变。左右采样分母为L222／R156；重算Sustained Fisher p=0.0132022，保留其星号；总体chi-square p=0.0324165。原有Figure2执行／重画入口已连接本版数据。
+
+## 电极补全与NMF成分数复评（2026-11-07，作者批准）
+
+- 当前采样／响应清单入口为 `docs/evidence/insula_completion_2026-11-07/`，由 `src.main_analysis.COHORT_DIR` 指向；当前版本注册在 `config/current_insula_analysis.json`。执行和复核入口为 `vizpub/insula_completion_2026-11-07.ipynb`。
+- 将作者明确确认的30个位点补入解剖采样池，采样从348个位点／65人更新为378个位点／67人。沿用 Repeat＋sound、各任务原有QC及主分析原始规则：在 Stimulus (0,.6)、Delay (0,1)、Response (-.5,.5) 开区间内读取已保存的 time-permutation cluster mask，不额外套用Figure3的点水平p值门槛。优先使用已有原生zscore＋statistics H5；原生结果不存在时，保留可核实的原有sound打包波形／mask，并明确记录来源和缺口。没有新做time-permutation检验。
+- 确认响应239个位点／61人；按原始负值截0、跨任务等权平均、拼接后L2归一化构建238个位点×399特征的NMF输入。1个响应位点的拼接波形截0后全为0，未进入NMF。相对旧231个输入位点，保留199、新增39、32个未继续进入：16个所有相关任务均被原有native QC排除，15个当前窗口内无阳性mask，1个仍有统计证据缺口。逐位点／逐任务／逐阶段证据均在同目录的CSV及汇总Excel中；缺证据不解释为无响应。
+- D0107按作者最新要求暂缓：已检查 `/work/ns458/` 两个对应同名数据集目录，未找到原生Repeat结果。7个已确认解剖位点仍计入采样覆盖，响应状态标记为待补预处理，本轮不进入NMF；未启动该人的预处理，也不追查raw BIDS。
+- 新NMF输入、k=2–6各200次80%电极子采样共识复评、每个rank的20次初始化模型，以及原PCA各PC解释方差>5%规则下的四方法聚类指标，保存在 `results/insula_completion_2026-11-07/nmf/`（`NMF_REASSESSMENT_DIR`）。PC聚类k=2–10，随机方法各500次。最大cophenetic规则选择k=2；其0.02近似范围包含2／3／4／5。NMF的ARI和cosine silhouette峰值也在2；GMM的silhouette和Calinski–Harabasz峰值在3，其余三种PC聚类方法两个指标均在2。
+- 更新前清单与NMF已保存于 `results/insula_completion_2026-11-07/before/`。原 `results/nmf/` 继续作为既有Figure1–6及下游统计的冻结模型来源（`FROZEN_FIGURE_NMF_DIR`）；本轮没有重画旧图或将旧功能标签自动转移到新rank。新模型使用数字成分标签，全部SVG另存于 `img/insula_completion_2026-11-07/`。下方旧版本计数与冻结规则保留作历史记录。
+
 ## Figure 3 正文与 supplementary 统一入口（2026-11-01 用户批准）
 
 - 正文 weight 图整合（2026-11-03 用户确认）：将原 PN21／LD27 双面板与单独 Sound > Image18 图的可执行绘图代码及输出加入 `vizpub/fig3.ipynb`，保留原25个单元及输出。统一调用 `src.figure3.render_component_weights`，SVG导出到 `img/fig3/`，数值及溯源文件保存到 `results/fig3/component_weights/`，并登记主图manifest。同步更新正文Notebook生成脚本，保留现有权重、配色、密度尺度、中心连顶点辅助线及无100%文字的画法。后来的灰蓝叠加图继续留在诊断Notebook；原图、检验与NMF不变。

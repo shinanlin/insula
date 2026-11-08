@@ -1,0 +1,13 @@
+subject,site_id,sampled_in_tasks,responsive_in_tasks,confirmed_responsive,contact_1,contact_2,has_accepted_unknown_endpoint,accepted_unknown_contacts,all_usable_tasks_complete,response_evidence_status,in_previous_NMF,in_completed_NMF_input,newly_anatomically_accepted,current_decision_reason
+D0022,D0022_LMIF3-4,PhonemeSequence|SentenceRep,,False,LMIF3,LMIF4,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0028,D0028_LPI1-2,LexicalDelay|PhonemeSequence|SentenceRep,,False,LPI1,LPI2,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0032,D0032_LAI1-2,LexicalDelay|SentenceRep,,False,LAI1,LAI2,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0035,D0035_LAI2-3,LexicalDelay|PhonemeSequence,,False,LAI2,LAI3,True,LAI3,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0079,D0079_LAI1-2,LexicalDelay|PhonemeSequence|PictureNaming,,False,LAI1,LAI2,True,LAI1,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0084,D0084_RAI1-2,LexicalDelay|PhonemeSequence|PictureNaming,,False,RAI1,RAI2,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0090,D0090_RIP2-3,LexicalDelay|PictureNaming,,False,RIP2,RIP3,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0092,D0092_LIA2-3,LexicalDelay|PhonemeSequence|PictureNaming,,False,LIA2,LIA3,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0093,D0093_LIA2-3,PhonemeSequence|PictureNaming,,False,LIA2,LIA3,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0103,D0103_LAI1-2,LexicalDelay|PhonemeSequence,PhonemeSequence,True,LAI1,LAI2,False,,True,responsive,False,True,False,newly_included_in_NMF
+D0137,D0137_LAI1-2,LexicalDelay|PictureNaming,,False,LAI1,LAI2,False,,True,not_responsive,False,False,False,no_saved_positive_mask_in_approved_main_windows
+D0138,D0138_LTAS2-3,LexicalDelay|PictureNaming,PictureNaming,True,LTAS2,LTAS3,False,,True,responsive,False,True,False,newly_included_in_NMF

@@ -1,0 +1,19 @@
+{
+  "version": "insula_manual14_2026-11-07",
+  "author_decision": "Adopt removal of the 14 historical manual-exclusion sites and regenerate Figure 2.",
+  "source_input": "results/insula_completion_2026-11-07/nmf/input_matrix.npz",
+  "validated_model": "results/diagnostics/insula_rank_exclusions_2026-11-07/validation/case_0001/seed_42",
+  "excluded_sites": [
+    "D0028_LAI3-4", "D0032_LPI2-3", "D0032_LPI3-4", "D0055_RAI7-8",
+    "D0061_LAI2-3", "D0061_LPI1-2", "D0063_RAI1-2", "D0067_LPII1-2",
+    "D0081_LTAS2-3", "D0090_RIP3-4", "D0095_LIA3-4", "D0096_LIA3-4",
+    "D0101_RIA3-4", "D0101_RIA5-6"
+  ],
+  "fitted_rank": 3,
+  "rank_choice": "Retain the existing three-component Figure 2 interpretation with the author-selected exclusion version; report maximum-cophenetic k=2 separately.",
+  "random_state": 42,
+  "anatomical_coverage_preserved": true,
+  "significance_evidence_preserved": true,
+  "downstream_figure_models": "Figures 1 and 3–6 retain their historical model/results until separately refreshed.",
+  "selection_history": "Selected after the exploratory 536-case search; seed replication is algorithmic stability on the same data, not independent validation."
+}

@@ -1,0 +1,57 @@
+{
+  "version": "insula_manual14_2026-11-07",
+  "status": "adopted_manual14_and_regenerated_figure2",
+  "cohort_dir": "/cwork/ns458/insula-paper/docs/evidence/insula_manual14_2026-11-07",
+  "nmf_results_dir": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/nmf",
+  "nmf_input_sites": 224,
+  "nmf_input_subjects": 60,
+  "sampled_sites": 378,
+  "sampled_subjects": 67,
+  "responsive_sites": 239,
+  "analysis_eligible_responsive_sites": 225,
+  "manual_exclusions": [
+    "D0028_LAI3-4",
+    "D0032_LPI2-3",
+    "D0032_LPI3-4",
+    "D0055_RAI7-8",
+    "D0061_LAI2-3",
+    "D0061_LPI1-2",
+    "D0063_RAI1-2",
+    "D0067_LPII1-2",
+    "D0081_LTAS2-3",
+    "D0090_RIP3-4",
+    "D0095_LIA3-4",
+    "D0096_LIA3-4",
+    "D0101_RIA3-4",
+    "D0101_RIA5-6"
+  ],
+  "fitted_rank": 3,
+  "rank_choice": "Retain the existing three-component Figure 2 interpretation with the author-selected exclusion version; report maximum-cophenetic k=2 separately.",
+  "reassessed_rank": {
+    "k": 2,
+    "rule": "max_cophenetic",
+    "tie_break": "smaller_k",
+    "cophenetic": 0.9990321544403963,
+    "near_tie_delta": 0.02,
+    "near_tie_ks": [
+      2,
+      3,
+      5
+    ]
+  },
+  "selection_history": "Selected after the exploratory 536-case search; seed replication is algorithmic stability on the same data, not independent validation.",
+  "previous_completed_cohort": "/cwork/ns458/insula-paper/docs/evidence/insula_completion_2026-11-07",
+  "previous_completed_NMF": "/cwork/ns458/insula-paper/results/insula_completion_2026-11-07/nmf",
+  "previous_figure_NMF": "/cwork/ns458/insula-paper/results/nmf",
+  "previous_snapshot": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/before",
+  "current_figures": {
+    "fig2": {
+      "version": "insula_manual14_2026-11-07",
+      "notebook": "/cwork/ns458/insula-paper/vizpub/fig2.ipynb",
+      "n_sites": 224,
+      "k": 3
+    },
+    "fig1_and_fig3_to_fig6": "preserved prior outputs/models; not refreshed for the224-site version"
+  },
+  "old_downstream_frozen_guards": "Historical scientific-input hashes remain frozen; they are not silently revalidated as the new Fig2 model."
+}

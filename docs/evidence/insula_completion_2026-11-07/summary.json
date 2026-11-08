@@ -1,0 +1,60 @@
+{
+  "condition": "Repeat",
+  "modality": "sound",
+  "sampled_sites": 378,
+  "sampled_subjects": 67,
+  "previously_sampled_sites": 348,
+  "author_approved_added_anatomical_sites": 30,
+  "responsive_sites": 239,
+  "responsive_subjects": 61,
+  "previous_NMF_sites": 231,
+  "added_responsive_sites": 40,
+  "previous_NMF_sites_no_longer_responsive": 32,
+  "NMF_input_sites": 238,
+  "NMF_input_subjects": 61,
+  "responsive_sites_without_complete_NMF_waveform": 1,
+  "native_QC_excluded_task_sites": 84,
+  "deferred_preprocessing_subjects": [
+    "D0107"
+  ],
+  "incomplete_response_sites": 6,
+  "confirmed_nonresponsive_sites": 96,
+  "phase_counts": {
+    "stimulus": 116,
+    "delay": 133,
+    "response": 185
+  },
+  "selection_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      0.5
+    ]
+  },
+  "job_id": "61355203",
+  "completed_utc": "2026-11-07T21:00:40.766136+00:00",
+  "added_NMF_input_sites": 39,
+  "removed_previous_NMF_input_sites": 32,
+  "retained_previous_NMF_input_sites": 199,
+  "removed_previous_NMF_reason_counts": {
+    "all_recorded_tasks_excluded_by_original_native_QC": 16,
+    "no_saved_positive_mask_in_approved_main_windows": 15,
+    "no_positive_mask_and_some_task_statistics_unavailable": 1
+  },
+  "approved30_responsive_sites": 17,
+  "approved30_NMF_input_sites": 17,
+  "native_task_site_phase_masks_independently_checked": 1521,
+  "all_tasks_native_QC_excluded_sites": 30,
+  "deferred_preprocessing_sites": 7,
+  "significance_rule": "original main mask-only rule, open selection intervals; Figure3 pointwise gate not applied",
+  "NMF_run": "/cwork/ns458/insula-paper/results/insula_completion_2026-11-07/nmf",
+  "figures_unchanged": true,
+  "previous_NMF_preserved": true
+}

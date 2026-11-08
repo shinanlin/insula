@@ -1,0 +1,2 @@
+subject,site_id,sampled_in_tasks,responsive_in_tasks,confirmed_responsive,contact_1,contact_2,has_accepted_unknown_endpoint,accepted_unknown_contacts,all_usable_tasks_complete,NMF_input_complete,NMF_exclusion_reason
+D0035,D0035_LAI1-2,LexicalDelay|PhonemeSequence,PhonemeSequence,True,LAI1,LAI2,False,,True,False,zero_rectified_waveform

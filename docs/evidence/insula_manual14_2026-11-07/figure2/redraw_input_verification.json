@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "identical_sound_site_waveforms": true,
+  "identical_source_membership": true,
+  "cohort_sha256": "b7efc4908045e7e6156c888557c73a39a119a54864cb5853b9aa45c4a92e9c4c",
+  "previous_figure1_notebook_sha256": "abedb0a4b9f363832274595116805c2246446bb5712bbb4f2d2c970a3663bb26",
+  "current_figure1_notebook_sha256": "d654bca6f1200e59b085eaa83b27583ad263d48c3556ec7b4daf6b72429b9f9c",
+  "nmf_refitted": false,
+  "unchanged_nmf_data_factors_labels_and_rank": {
+    "input_matrix.npz": "adb61127d0643c8c024ba46f7bce3f366311334f3d0fcfc4d934ddf9f2aca645",
+    "channel_assignments.csv": "1d2dd11236636fa216a9d7fb334d2e226066971f473ebe31f306571e84dd34b7",
+    "factors.npz": "738e7dfef3bdf42031a844765c0ce271a2bcf1cb2477c55c959ed794b087d2cc",
+    "rank_selection_metrics.csv": "a6dd58b5ddfd9df5c0b7a4fb41a74b855b0c3c85a11393ea3708e22dfd8a58b8"
+  }
+}

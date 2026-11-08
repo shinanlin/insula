@@ -1,0 +1,96 @@
+{
+  "version": "insula_manual14_2026-11-07",
+  "manual_exclusions": [
+    "D0028_LAI3-4",
+    "D0032_LPI2-3",
+    "D0032_LPI3-4",
+    "D0055_RAI7-8",
+    "D0061_LAI2-3",
+    "D0061_LPI1-2",
+    "D0063_RAI1-2",
+    "D0067_LPII1-2",
+    "D0081_LTAS2-3",
+    "D0090_RIP3-4",
+    "D0095_LIA3-4",
+    "D0096_LIA3-4",
+    "D0101_RIA3-4",
+    "D0101_RIA5-6"
+  ],
+  "model_directory": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/nmf",
+  "n_sites": 224,
+  "n_subjects": 60,
+  "k": 3,
+  "phases": [
+    "stimulus",
+    "delay",
+    "response"
+  ],
+  "condition": "Repeat",
+  "modality": "sound",
+  "sound_only_source_membership_verified": true,
+  "fit_windows": {
+    "stimulus": [
+      0.0,
+      0.6
+    ],
+    "delay": [
+      0.0,
+      1.0
+    ],
+    "response": [
+      -0.5,
+      1.0
+    ]
+  },
+  "cluster_counts": {
+    "sustain": 57,
+    "motor": 130,
+    "sensory": 37
+  },
+  "cluster_subject_counts": {
+    "sustain": 30,
+    "motor": 49,
+    "sensory": 21
+  },
+  "pending_response_evidence_sites": 6,
+  "rank_cophenetic_maximum": 2,
+  "rank_near_ties": [
+    2,
+    3,
+    5
+  ],
+  "component_naming": "Original Hungarian assignment maximizing phase-mean shares: stimulus=sensory, delay=sustain, response=motor; no legacy labels or anatomy used",
+  "previous_fig2_comparison": {
+    "shared_sites": 186,
+    "new_sites": 38,
+    "no_longer_included": 45,
+    "changed_labels": 7,
+    "ari": 0.9140704986012317
+  },
+  "nmf_manifest_sha256": "4b7864f03b695a2a032cc35aa35827d825329d3ef295194e826d5dca76a50487",
+  "assignments_sha256": "80a300c123092614713acf237f43e8525cd6d6b5a2a18fc5c50ba6c96c895482",
+  "heatmap": "saved nonsignificant points blank; first significant time order separately per phase",
+  "hga_error_bars": "SEM across electrode means",
+  "hga_average_weighting": "equal electrodes after averaging tasks within each site",
+  "pca_embedding_rule": "individual PC explained variance >5%",
+  "pca_embedding_pcs": 3,
+  "laterality": "original electrode-count Fisher/chi-square summaries of confirmed observations; denominator includes incomplete response evidence; not participant-level tests",
+  "figures": {
+    "fig2_cluster_density.svg": "4d71d44da63cb81852f0228b1edd53675d272e7817b6f8aa44d4936824247539",
+    "fig2_hga_heatmap.svg": "cf16ff8eb86ce69b66bb95826a8107fa712de9561acf134db92835dbb93c6c7c",
+    "fig2_hga_traces.svg": "9a9a041a4b9d9db9108dc78358087be0349f83e679e3c268b7af56965c3e5919",
+    "fig2_insula_average_traces.svg": "81584295ae6df8ce21d788eca6b78fbfba1d4a0c02267ed0ab7c037377319aac",
+    "fig2_insula_cluster_parcel_pies.svg": "78690c72d265106a77abd4a933e828f7c6f1eab3f2c69caada29f72e312658e2",
+    "fig2_insula_cluster_parcel_pies_k6.svg": "c04f2a5cbe1845b775408db74e8b30d184edd80d0fe02d492e361dace9d68ab0",
+    "fig2_insula_spatial_kdecontour.svg": "a52a301653a0cbecf9640119fd30840e4782e73de6ca93ce7de8c083889cf850",
+    "fig2_laterality_cluster_rate.svg": "0185a9002ebc989bd882f036d0e8a223bb3d1138f6fb004fa8e29e22127552cf",
+    "fig2_nmf_dominance.svg": "7075a9fba773bdaf971a696bd12cd9dcee58ba966ba78639e6b10a3abffcbb16",
+    "fig2_nmf_rank_k.svg": "0b24ff726598579fcf1eed5ea004bcd7ac430e85e34fa849028f872a7677fee5",
+    "fig2_nmf_traces.svg": "5e0bc7dd9e70989c40e9b7e6d3a3e54baffa07437da9395e6f6a1364eb142688",
+    "fig2_nmf_weight_density_all.svg": "c6f10704ec8580f5bc97611507ac4d1dc9d369b6d4ab6cf455146ce787cb0cba",
+    "fig2_nmf_weight_density_motor.svg": "d647e416f70035277674181dd576b0a09f39b4efa6b9befb19e35d6339e7974c",
+    "fig2_nmf_weight_density_sensory.svg": "dc12da608b22e4b2c0c575bf745744bfb477e94f6fcd1a5174b79d124b6128af",
+    "fig2_nmf_weight_density_sustain.svg": "2cfcca83814ed5c9d934f04ae2683dad9112cba1755d385040c51279696bb840",
+    "fig2_waveform_pca_kmeans.svg": "140ae07305239706e4b54ea0272a7ab34b758d362d6fd18f2b6fbcee9f1e5fc8"
+  }
+}

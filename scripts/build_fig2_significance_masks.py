@@ -109,4 +109,9 @@ def main():
  print(json.dumps({k:v for k,v in report.items() if k!='sources'},indent=2),flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+ from src.main_analysis import FIG2_NMF_DIR
+ if FIG2_NMF_DIR!=ROOT/'results/nmf':
+  from scripts.adopt_insula_manual14_fig2 import display_inputs
+  display_inputs()
+ else:main()

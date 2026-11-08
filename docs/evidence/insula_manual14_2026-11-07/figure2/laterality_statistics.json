@@ -1,0 +1,11 @@
+{
+  "fisher_two_sided": {
+    "sustain": 0.01320221768686043,
+    "motor": 0.1870484286234856,
+    "sensory": 0.48456250927045086
+  },
+  "chi_square_p": 0.03241647953456735,
+  "sampling_sites": 378,
+  "sampling_subjects": 67,
+  "manual_exclusions_retained_in_anatomical_coverage": true
+}

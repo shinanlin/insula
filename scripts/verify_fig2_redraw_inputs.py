@@ -47,4 +47,25 @@ def main():
  print(json.dumps(record,indent=2),flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+ from src.main_analysis import FIG2_NMF_DIR
+ if FIG2_NMF_DIR!=ROOT/'results/nmf':
+  import numpy as np
+  model=json.loads((FIG2_NMF_DIR/'nmf_manifest.json').read_text())
+  data=np.load(FIG2_NMF_DIR/'input_matrix.npz')
+  factors=np.load(FIG2_NMF_DIR/'factors.npz')
+  original=np.load(ROOT/'results/insula_completion_2026-11-07/nmf/input_matrix.npz')
+  excluded=set(model['manual_exclusions'])
+  keep=~np.isin(original['channels'],list(excluded))
+  assert np.array_equal(data['channels'],original['channels'][keep])
+  assert np.array_equal(data['X'],original['X'][keep])
+  assert sha(FIG2_NMF_DIR/'input_matrix.npz')==model['input_sha256']
+  assert sha(Path(model['fit_source']))==model['fit_source_sha256']
+  assert np.array_equal(factors['channels'],data['channels'])
+  assert np.isclose(np.linalg.norm(data['X']-factors['W']@factors['H']),model['reconstruction_error'])
+  record=dict(passed=True,version=model['version'],n_sites=len(data['channels']),
+   exact_selected_source_rows_verified=True,fitted_factors_verified=True,
+   source='completed native-good Repeat+sound inputs; independent of frozen Figure1 display cache',nmf_refitted=False)
+  (ROOT/'results/fig2/redraw_input_verification.json').write_text(json.dumps(record,indent=2)+'\n')
+  print(json.dumps(record,indent=2))
+ else:main()

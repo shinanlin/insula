@@ -112,4 +112,9 @@ def main():
  print(json.dumps({k:v for k,v in validation.items() if k!='protected_file_hashes'},indent=2),flush=True)
 
 
-if __name__=='__main__':main()
+if __name__=='__main__':
+ from src.main_analysis import FIG2_NMF_DIR
+ if FIG2_NMF_DIR!=NMF:
+  from scripts.execute_manual14_fig2 import main as current_main
+  current_main()
+ else:main()

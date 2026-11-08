@@ -1,0 +1,12 @@
+{
+  "author_approved_anatomy_review": "config/nmf_anatomy_review_2026-11-07.json",
+  "deferred_preprocessing_subjects": ["D0107"],
+  "defer_reason": "Author requested checking the corresponding /work directories, then skipping D0107 for now if its native Repeat HGA/time-permutation H5 was absent. Both /work dataset directories were inspected and no matching files were found.",
+  "keep_deferred_subject_in_anatomical_coverage": true,
+  "raw_BIDS_search_authorized": false,
+  "main_response_rule": "Original saved time-permutation cluster mask; open phase-selection intervals. No additional Figure3 pointwise p-value gate.",
+  "selection_windows": {"stimulus": [0.0, 0.6], "delay": [0.0, 1.0], "response": [-0.5, 0.5]},
+  "NMF_fit_windows": {"stimulus": [0.0, 0.6], "delay": [0.0, 1.0], "response": [-0.5, 1.0]},
+  "condition": "Repeat",
+  "modality": "sound"
+}
