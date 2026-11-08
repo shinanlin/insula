@@ -427,15 +427,18 @@ def load_groups(key):
     return pool,groups,counts,titles
 
 
+# Same hues as the condition-difference Venn: left exclusive, right exclusive, center.
+# The center fill is too light for markers on the pial surface, so its points use a visible gray.
+REGION_COLORS=dict(first_only='#2166AC',second_only='#D95F02',no_detected_difference='#6E6E6E',bidirectional='#555555')
+
+
 def render_maps(key,groups,titles):
     import numpy as np
     import pandas as pd
     import matplotlib.pyplot as plt
     from src.figure3 import CONDITION_SPECS
     from src.figure3_brain import brain_pair
-    from src.main_analysis import FUNCTIONAL_COMPONENTS,COMPONENT_COLORS
     paths={};dest=ROOT/'results/fig3/regions'/key
-    labels=dict(sensory='Sensory',sustain='Sustained',motor='Motor')
     for name,points in groups.items():
         path=ROOT/'img/fig3'/f'fig3_{key}_{name}_functional_brain.svg'
         if points.empty:
@@ -443,9 +446,9 @@ def render_maps(key,groups,titles):
             for suffix in ('display_coordinates.csv','contours.csv','map_provenance.json'):
                 (dest/f'{name}_{suffix}').unlink(missing_ok=True)
             continue
-        points=points.copy();points['display_group']=points.functional_cluster
+        points=points.copy();points['display_group']=name
         assert np.isfinite(points[['x','y','z']]).all().all() and points.x.ne(0).all()
-        fig,coordinates,rings=brain_pair(points,list(FUNCTIONAL_COMPONENTS),COMPONENT_COLORS,labels,
+        fig,coordinates,rings=brain_pair(points,[name],{name:REGION_COLORS[name]},{name:titles[name]},
             title=f'{titles[name]} · n={len(points)}\n{CONDITION_SPECS[key]["title"]}')
         fig.savefig(path,format='svg',bbox_inches='tight',pad_inches=.03);plt.close(fig)
         pd.DataFrame(coordinates).to_csv(dest/f'{name}_display_coordinates.csv',index=False)
@@ -454,10 +457,49 @@ def render_maps(key,groups,titles):
         write(dest/f'{name}_map_provenance.json',dict(passed=True,version=VERSION,n_sites=len(points),
             n_subjects=int(points.subject.nunique()),coordinates='Unchanged current NMF input coordinates',
             NMF_dir=str(NMF),renderer='Original Figure1 local-insula surface, camera-facing snap and4-mm lift',
-            point_size_pixels=24,contour='Original Figure2 KDE, minimum3 per component/hemisphere',
-            component_colors=COMPONENT_COLORS,svg=str(path),svg_sha256=sha(path)))
-        paths[name]=str(path);print('RENDERED CURRENT',key,name,len(points),flush=True)
+            point_size_pixels=24,contour='Original Figure2 KDE on the whole region, minimum 3 sites per hemisphere',
+            point_color=REGION_COLORS[name],color_matches_venn_region=True,functional_cluster_colors_not_used=True,
+            svg=str(path),svg_sha256=sha(path)))
+        paths[name]=str(path);print('RENDERED CURRENT',key,name,len(points),REGION_COLORS[name],flush=True)
+    combined_path=render_combined_map(key,groups,titles)
+    if combined_path is not None:paths['combined']=str(combined_path)
     return paths
+
+
+def render_combined_map(key,groups,titles):
+    """One bilateral map for the two large Venn regions, on the original 8.6 cm canvas."""
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    from src.figure3 import CONDITION_SPECS
+    from src.figure3_brain import brain_pair
+    combined=dict(picture=('fig3_picture_sound_and_nodifference_brain.svg','Sound > Image and no detected difference'),
+        lexical=('fig3_lexical_decision_and_nodifference_brain.svg','Decision > Repeat and no detected difference'))
+    if key not in combined:return None
+    names=['first_only','no_detected_difference']
+    frames=[]
+    for name in names:
+        part=groups[name]
+        if part.empty:continue
+        part=part.copy();part['display_group']=name
+        frames.append(part)
+    if len(frames)!=len(names):return None
+    points=pd.concat(frames,ignore_index=True)
+    assert points.electrode.is_unique
+    filename,heading=combined[key]
+    path=ROOT/'img/fig3'/filename
+    dest=ROOT/'results/fig3/regions'/key
+    fig,coordinates,rings=brain_pair(points,names,{name:REGION_COLORS[name] for name in names},
+        {name:titles[name] for name in names},title=f'{heading}\n{CONDITION_SPECS[key]["title"]}')
+    fig.savefig(path,format='svg',bbox_inches='tight',pad_inches=.03);plt.close(fig)
+    pd.DataFrame(coordinates).to_csv(dest/'combined_display_coordinates.csv',index=False)
+    pd.DataFrame(rings).to_csv(dest/'combined_contours.csv',index=False)
+    write(dest/'combined_map_provenance.json',dict(passed=True,version=VERSION,
+        groups={name:dict(n_sites=int(points.display_group.eq(name).sum()),color=REGION_COLORS[name]) for name in names},
+        coordinates='Unchanged current NMF input coordinates',point_size_pixels=24,figure_width_cm=8.6,
+        contour='Original Figure2 KDE within each Venn region, minimum 3 sites per hemisphere',
+        svg=str(path),svg_sha256=sha(path)))
+    print('RENDERED CURRENT',key,'combined',len(points),flush=True)
+    return path
 
 
 def prepare_temporal(key):
@@ -524,6 +566,615 @@ def prepare_temporal(key):
     return spec,selected,traces,orders,matrices,payload,ylim
 
 
+LEXICAL_P10=dict(p_thresh=.1,p_cluster=.05,n_perm=2000,tails=2,axis=0,
+    permutation_type='independent',n_jobs=1,seed=42)
+
+
+def _align_flag(frame, electrodes, times, column):
+    import numpy as np
+    pivoted=frame.pivot(index='electrode',columns='time',values=column)
+    columns=[]
+    for stamp in times:
+        hit=np.where(np.isclose(pivoted.columns.to_numpy(float),float(stamp),rtol=0,atol=1e-6))[0]
+        assert len(hit)==1,stamp
+        columns.append(pivoted.columns[hit[0]])
+    return pivoted.reindex(index=electrodes,columns=columns).set_axis(times,axis=1).fillna(False).astype(bool)
+
+
+def _directed_display(raw, group, first_mask, second_mask):
+    """Each class shows its own positive difference.
+
+    The first class keeps first minus second. The reverse class uses second
+    minus first. A class without one direction shows whichever direction was
+    significant, as a positive value.
+    """
+    import numpy as np
+    import pandas as pd
+    displayed=pd.DataFrame(np.nan,index=raw.index,columns=raw.columns,dtype=float)
+    for electrode in raw.index:
+        values=raw.loc[electrode].to_numpy(float)
+        own=group.loc[electrode]
+        if own=='second_only':
+            shown=np.where(second_mask.loc[electrode].to_numpy(bool),-values,np.nan)
+        elif own=='first_only':
+            shown=np.where(first_mask.loc[electrode].to_numpy(bool),values,np.nan)
+        else:
+            shown=np.where(first_mask.loc[electrode].to_numpy(bool),values,np.nan)
+            shown=np.where(second_mask.loc[electrode].to_numpy(bool),-values,shown)
+        displayed.loc[electrode]=shown
+    return displayed
+
+
+def _lexical_p10_subject(payload):
+    """One subject's phase-specific Decision−Repeat tests at the requested threshold."""
+    subject,channels,jobs=payload
+    import mne
+    import numpy as np
+    import pandas as pd
+    from ieeg.calc import stats
+    from scripts.run_decision_repeat_delay_selection import install_reviewed_runtime_compatibility
+    if not getattr(stats,'_insula_sort_patch',False):
+        install_reviewed_runtime_compatibility()
+        stats._insula_sort_patch=True
+    frames=[]
+    for phase,lo,hi,decision_path,repeat_path in jobs:
+        loaded={}
+        for level,path in (('Decision',decision_path),('Repeat',repeat_path)):
+            ep=mne.read_epochs(path,preload=True,verbose='ERROR')
+            names=[n if n.startswith(subject+'_') else subject+'_'+n for n in ep.ch_names]
+            inverse={v:k for k,v in ep.event_id.items()}
+            events=np.array([inverse[int(n)] for n in ep.events[:,2]])
+            assert not any('bad' in token.lower().split('/') for token in events)
+            retained=np.array(['/'.join(token.split('/')[4:])=='CORRECT' for token in events])
+            assert int(retained.sum())>=2
+            display=(ep.times>=lo)&(ep.times<=hi)
+            assert int(display.sum())>=2
+            missing=sorted(set(channels)-set(names))
+            assert not missing,(subject,phase,level,missing)
+            picks=[names.index(channel) for channel in channels]
+            values=ep.get_data(picks=picks,copy=True,verbose='ERROR')[:,:,display]
+            loaded[level]=(ep.times[display].copy(),values[retained],int(retained.sum()),int(len(events)))
+            del ep,values
+        times,decision,n_decision,n_decision_all=loaded['Decision']
+        repeat_times,repeat,n_repeat,n_repeat_all=loaded['Repeat']
+        np.testing.assert_allclose(times,repeat_times)
+        for index,channel in enumerate(channels):
+            x,y=decision[:,index,:],repeat[:,index,:]
+            print('TEST',subject,channel,phase,'p10 two-sided 2000',flush=True)
+            mask,pvalue=stats.time_perm_cluster(x,y,**LEXICAL_P10)
+            observed=(np.isfinite(x).sum(axis=0)>=2)&(np.isfinite(y).sum(axis=0)>=2)
+            difference=np.nanmean(x,axis=0)-np.nanmean(y,axis=0)
+            valid=observed&np.asarray(mask,bool)&(np.asarray(pvalue)<LEXICAL_P10['p_thresh'])
+            frames.append(pd.DataFrame(dict(electrode=f'{subject}|{channel}',subject=subject,channel=channel,
+                phase=phase,time=times,observed=observed,temporal_mask=np.asarray(mask,bool),
+                pointwise_p=np.asarray(pvalue,float),mean_difference=difference,
+                decision_gt_repeat=valid&(difference>0),repeat_gt_decision=valid&(difference<0),
+                n_decision_correct=n_decision,n_repeat_correct=n_repeat,
+                n_decision_epoch=n_decision_all,n_repeat_epoch=n_repeat_all)))
+    return pd.concat(frames,ignore_index=True)
+
+
+def lexical_difference_p10_table():
+    """Recompute the lexical difference test used by the additional heatmap.
+
+    The original .05/.05 masks, Venn groups, brain maps and component portrait
+    stay where they are. Row class uses the Delay window. Each displayed phase
+    gets its own mask.
+    """
+    assert os.environ.get('SLURM_JOB_ID'),'Run via Slurm'
+    import multiprocessing as mp
+    import numpy as np
+    import pandas as pd
+    dest=ROOT/'results/fig3/time_profiles/lexical_venn_difference/difference_p10'
+    receipt=dest/'completed.json'
+    if receipt.exists():
+        meta=json.loads(receipt.read_text())
+        if meta.get('passed') and meta.get('parameters')==LEXICAL_P10:
+            return pd.read_csv(dest/'tests.csv.gz'),pd.read_csv(dest/'groups.csv')
+    pool=[]
+    for name in ('first_only','second_only','no_detected_difference','bidirectional'):
+        path=ROOT/'results/fig3/regions/lexical'/f'{name}_electrodes.csv'
+        if path.exists() and path.stat().st_size:
+            table=pd.read_csv(path)
+            if len(table):
+                table=table.copy();table['original_difference_group']=name
+                pool.append(table)
+    pool=pd.concat(pool,ignore_index=True)
+    assert pool.electrode.is_unique and len(pool)==73
+    sources=pd.read_csv(RUN/'lexical'/'native_sources.csv')
+    spec=SPECS['lexical']
+    payloads=[]
+    for subject,part in pool.groupby('subject',sort=True):
+        channels=sorted(part.channel)
+        jobs=[]
+        for phase,(lo,hi) in spec['xlims'].items():
+            paths={}
+            for level in ('Decision','Repeat'):
+                row=sources[sources.subject.eq(subject)&sources.phase.eq(phase)&sources.level.eq(level)]
+                assert len(row)==1,(subject,phase,level)
+                epoch=Path(row.epoch_path.iloc[0])
+                assert sha(epoch)==row.epoch_sha256.iloc[0],epoch
+                paths[level]=str(epoch)
+            jobs.append((phase,lo,hi,paths['Decision'],paths['Repeat']))
+        payloads.append((subject,channels,jobs))
+    workers=min(len(payloads),int(os.environ.get('SLURM_CPUS_PER_TASK',1)))
+    with mp.get_context('fork').Pool(workers) as executor:
+        tested=pd.concat(executor.map(_lexical_p10_subject,payloads),ignore_index=True)
+    assert set(tested.electrode)==set(pool.electrode)
+    assert set(tested.phase)==set(PHASES)
+    delay=tested[tested.phase.eq('delay')]
+    hits=delay.groupby('electrode')[['decision_gt_repeat','repeat_gt_decision']].any()
+    groups=pool[['electrode','subject','channel','functional_cluster','original_difference_group']].copy()
+    groups['decision_gt_repeat']=groups.electrode.map(hits.decision_gt_repeat)
+    groups['repeat_gt_decision']=groups.electrode.map(hits.repeat_gt_decision)
+    groups['difference_group']=np.select([
+        groups.decision_gt_repeat&groups.repeat_gt_decision,groups.decision_gt_repeat,groups.repeat_gt_decision],
+        ['bidirectional','first_only','second_only'],default='no_detected_difference')
+    dest.mkdir(parents=True,exist_ok=True)
+    tested.to_csv(dest/'tests.csv.gz',index=False)
+    groups.to_csv(dest/'groups.csv',index=False)
+    counts=groups.groupby('difference_group').agg(n_sites=('electrode','size'),n_subjects=('subject','nunique')).reset_index()
+    counts.to_csv(dest/'group_counts.csv',index=False)
+    pd.crosstab(groups.original_difference_group,groups.difference_group,dropna=False).to_csv(dest/'group_change.csv')
+    write(receipt,dict(passed=True,parameters=LEXICAL_P10,statistic='default two-sample t',
+        tails=2,permutation_type='independent',n_perm=2000,seed=42,
+        pointwise_p=LEXICAL_P10['p_thresh'],cluster_p=LEXICAL_P10['p_cluster'],
+        trials='Lexical exact CORRECT',windows=spec['xlims'],row_class_window='delay',
+        each_phase_has_its_own_mask=True,official_05_results_unchanged=True,
+        n_electrodes=len(groups),counts=counts.to_dict('records'),
+        job_id=os.environ['SLURM_JOB_ID']))
+    return tested,groups
+
+
+def render_lexical_venn_difference_portrait():
+    """Additional lexical portrait using the p<.10 / cluster p<.05 difference mask.
+
+    Row classes come from the Delay window. The original .05/.05 portrait stays.
+    """
+    assert os.environ.get('SLURM_JOB_ID'),'Run via Slurm'
+    import numpy as np
+    import pandas as pd
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LinearSegmentedColormap
+    from src.paths import save_svg
+    from src.supplementary.lexical_condition_figures import summarize_traces
+    key='lexical'
+    catalog=[
+        ('first_only','Decision > Repeat','#2166AC'),
+        ('second_only','Repeat > Decision','#D95F02'),
+        ('bidirectional','Bidirectional','#555555'),
+        ('no_detected_difference','No detected difference','#6E6E6E')]
+    tests,classified=lexical_difference_p10_table()
+    current=ROOT/'results/fig3/time_profiles/lexical'
+    saved=json.loads((current/'plot_validation.json').read_text())
+    members=[]
+    for name in ('first_only','second_only','no_detected_difference','bidirectional'):
+        path=ROOT/'results/fig3/regions/lexical'/f'{name}_electrodes.csv'
+        if path.exists() and path.stat().st_size:
+            table=pd.read_csv(path)
+            if len(table):members.append(table)
+    members=pd.concat(members,ignore_index=True)
+    assert members.electrode.is_unique and set(members.electrode)==set(classified.electrode)
+    label=classified.set_index('electrode').difference_group
+    members['original_difference_group']=members.difference_group
+    members['difference_group']=members.electrode.map(label)
+    members['row_group']=members.difference_group
+    groups=[item for item in catalog if members.row_group.eq(item[0]).any()]
+    waves=pd.read_csv(RUN/key/'waveforms.csv.gz')
+    shown=waves[waves.electrode.isin(members.electrode)].copy()
+    spec=SPECS[key]
+    for phase,(lo,hi) in spec['xlims'].items():
+        part=shown[shown.phase.eq(phase)]
+        assert set(part.electrode)==set(members.electrode)
+        assert part.groupby(['electrode','condition']).time.nunique().min()>=2
+    # Same row rule as the component portrait, applied inside each Venn class.
+    shown['baseline_mask']=shown.baseline_mask.map(lambda x:x if isinstance(x,bool) else str(x).strip().lower() in {'1','true'})
+    first=shown[shown.baseline_mask].groupby('electrode').time.min()
+    members['first_time']=members.electrode.map(first)
+    pieces=[]
+    for name,_,_ in groups:
+        part=members[members.row_group.eq(name)].sort_values(['first_time','electrode'],na_position='last')
+        pieces.append(part)
+    members=pd.concat(pieces,ignore_index=True)
+    blocks=[]
+    for name,label,color in groups:
+        part=members[members.row_group.eq(name)]
+        blocks.append((name,label,color,part.electrode.tolist()))
+    with np.load(current/'heatmap_matrices.npz',allow_pickle=False) as old:
+        old_values={}
+        for phase in PHASES:
+            frames=[]
+            for component in ('sensory','sustain','motor'):
+                key_name=f'{phase}_{component}_unmasked_values'
+                if key_name not in old:continue
+                frames.append(pd.DataFrame(old[key_name],index=list(old[f'{phase}_{component}_electrodes']),
+                    columns=old[f'{phase}_time'].astype(float)))
+            old_values[phase]=pd.concat(frames)
+    matrices={};audit=[]
+    for phase,(lo,hi) in spec['xlims'].items():
+        part=shown[shown.phase.eq(phase)&shown.time.between(lo,hi)]
+        times=np.sort(part.time.unique())
+        x=part[part.condition.eq('Decision')].pivot(index='electrode',columns='time',values='value').reindex(columns=times)
+        y=part[part.condition.eq('Repeat')].pivot(index='electrode',columns='time',values='value').reindex(columns=times)
+        raw=x-y
+        phase_tests=tests[tests.phase.eq(phase)].copy()
+        first_mask=_align_flag(phase_tests,raw.index,times,'decision_gt_repeat')
+        second_mask=_align_flag(phase_tests,raw.index,times,'repeat_gt_decision')
+        reference=old_values[phase].reindex(index=raw.index,columns=times)
+        overlap=reference.dropna(how='all').index
+        np.testing.assert_allclose(raw.loc[overlap].to_numpy(float),reference.loc[overlap].to_numpy(float),equal_nan=True)
+        displayed=_directed_display(raw,members.set_index('electrode').row_group,first_mask,second_mask)
+        matrices[phase]=dict(time=times,raw=raw,displayed=displayed)
+        for name,label,color,order in blocks:
+            values=displayed.reindex(order)
+            audit.append(dict(phase=phase,group=name,label=label,color=color,n_sites=len(order),
+                n_subjects=int(members.loc[members.electrode.isin(order),'subject'].nunique()),
+                n_displayed_finite=int(np.isfinite(values.to_numpy(float)).sum()),
+                row_order='|'.join(order)))
+    geometry=json.loads((ROOT/'results/supplementary/decision_repeat_test/plot_validation.json').read_text())['reference_geometry']
+    time_scale=geometry['phase_widths_cm'][0]/1.1
+    widths=[time_scale*(spec['xlims'][phase][1]-spec['xlims'][phase][0]) for phase in PHASES]
+    assert np.allclose(widths,saved['phase_widths_cm'])
+    row=0.05;trace_h=geometry['trace_height_cm']
+    gap_x,gap_y=geometry['gap_x_cm'],geometry['gap_y_cm']
+    top,bottom,right=geometry['top_cm'],geometry['bottom_cm'],geometry['right_cm']
+    left=3.9
+    heights=[trace_h]+[row*len(order) for _,_,_,order in blocks]
+    canvas_w=left+sum(widths)+2*gap_x+right
+    canvas_h=top+sum(heights)+(len(heights)-1)*gap_y+bottom
+    from matplotlib import font_manager
+    for font in Path('/hpc/home/ns458/miniconda3/envs/ieeg/fonts').glob('arial*.ttf'):
+        font_manager.fontManager.addfont(str(font))
+    plt.rcParams.update({'svg.fonttype':'none','font.family':'Arial','font.size':7})
+    fig=plt.figure(figsize=(canvas_w/2.54,canvas_h/2.54))
+    grid=fig.add_gridspec(len(heights),3,height_ratios=heights,width_ratios=widths,left=left/canvas_w,right=1-right/canvas_w,
+        top=1-top/canvas_h,bottom=bottom/canvas_h,wspace=gap_x/np.mean(widths),hspace=gap_y/np.mean(heights))
+    axes=np.empty((len(heights),3),object);images={}
+    from src.supplementary.condition_region_time_profiles import shared_ylim
+    selected=members.copy()
+    assert len(selected)==len(members)
+    traces=summarize_traces(selected,waves,[('selected',selected)])
+    ylim,ylim_proof=shared_ylim(waves.drop(columns=['functional_cluster'],errors='ignore'),selected,spec)
+    for j,phase in enumerate(PHASES):
+        for i in range(len(heights)):
+            axes[i,j]=fig.add_subplot(grid[i,j],sharex=axes[0,j] if i else None)
+        ax=axes[0,j]
+        sub=traces[traces.phase.eq(phase)]
+        for condition,color in (('Decision','#6A5ACD'),('Repeat','#000000')):
+            item=sub[sub.condition.eq(condition)].sort_values('time')
+            ax.plot(item.time,item['mean'],color=color,lw=1,label=condition)
+            ax.fill_between(item.time,item['mean']-item['sem'],item['mean']+item['sem'],color=color,alpha=.18,lw=0)
+        ax.axhline(0,color='.2',ls='--',lw=.7);ax.axvline(0,color='.2',ls='--',lw=.7)
+        ax.set_xlim(*spec['xlims'][phase]);ax.set_ylim(*ylim);ax.set_title(phase.capitalize(),fontsize=7)
+        ax.spines[['top','right']].set_visible(False)
+        ax.tick_params(labelbottom=False,left=j==0,labelleft=j==0,width=.75,length=2)
+        if j==0:
+            ax.set_ylabel('HGA (z)',fontsize=7);ax.text(.02,.96,f'n={len(selected)}',transform=ax.transAxes,va='top',fontsize=7)
+        else:ax.spines['left'].set_visible(False)
+        lower,upper=spec['xlims'][phase]
+        ticks=[lower,0,upper] if lower<0 else [0,upper]
+        for i,(name,label,color,order) in enumerate(blocks):
+            ax=axes[i+1,j]
+            values=matrices[phase]['displayed'].reindex(order).to_numpy(float)
+            cmap=LinearSegmentedColormap.from_list(name,['#FFFFFF',color])
+            cmap.set_bad('white');cmap.set_under('white')
+            im=ax.imshow(values,extent=(lower,upper,0,len(order)),origin='lower',aspect='auto',cmap=cmap,
+                vmin=0,vmax=.5,interpolation='nearest',rasterized=True)
+            images[(phase,name)]=im
+            ax.axvline(0,color='.2',ls='--',lw=.8);ax.set_xlim(lower,upper);ax.set_ylim(0,len(order));ax.set_yticks([])
+            ax.set_xticks(ticks,labels=[f'{v:g}' for v in ticks])
+            ax.get_xticklabels()[0].set_ha('left');ax.get_xticklabels()[-1].set_ha('right')
+            ax.spines[['top','right','left']].set_visible(False)
+            ax.tick_params(labelbottom=i==len(blocks)-1,bottom=i==len(blocks)-1,labelsize=7,width=.75,length=2)
+            if j==0:ax.text(-.04,.5,f'{label} (n={len(order)})',transform=ax.transAxes,ha='right',va='center',fontsize=7,color=color)
+    axes[0,-1].legend(frameon=False,fontsize=7,loc='upper left',bbox_to_anchor=(1.02,1),borderaxespad=0)
+    axes[-1,1].set_xlabel('Time (s)',fontsize=7)
+    fig.text(left/canvas_w,1-.09/canvas_h,'Lexical Delay · Venn-grouped Decision − Repeat',ha='left',va='top',fontsize=7)
+    caption=fig.text(.01,.025,'Heatmap: each class shows its own positive difference\nDecision > Repeat is Decision − Repeat; Repeat > Decision is Repeat − Decision. Pointwise p < .10, cluster p < .05.',
+        ha='left',va='bottom',fontsize=6.2,linespacing=1.35)
+    fig.canvas.draw();renderer=fig.canvas.get_renderer()
+    bottom_labels=[v for ax in axes[-1] for v in ax.get_xticklabels()]+[axes[-1,1].xaxis.label]
+    lowest=min(v.get_window_extent(renderer).y0 for v in bottom_labels)
+    caption.set_position((.01,fig.transFigure.inverted().transform((0,lowest-3*fig.dpi/72))[1]));caption.set_verticalalignment('top')
+    for i,(name,_,_,_) in enumerate(blocks):
+        box=axes[i+1,-1].get_position()
+        cax=fig.add_axes([box.x1+.15/canvas_w,(box.y0+box.y1)/2,.75/canvas_w,.10/canvas_h])
+        bar=fig.colorbar(images[(PHASES[-1],name)],cax=cax,orientation='horizontal',ticks=[0,.5])
+        bar.ax.set_xticklabels(['0','0.5']);bar.ax.tick_params(labelsize=4.5,length=1.3,pad=1);bar.outline.set_visible(False)
+    for row_axes in axes:
+        scales=[ax.get_position().width/np.diff(ax.get_xlim())[0] for ax in row_axes]
+        np.testing.assert_allclose(scales,scales[0],rtol=1e-12)
+    for j in range(3):
+        physical=[axes[i+1,j].get_position().height*canvas_h/len(blocks[i][3]) for i in range(len(blocks))]
+        np.testing.assert_allclose(physical,row,rtol=1e-12)
+    dest=ROOT/'results/fig3/time_profiles/lexical_venn_difference'
+    dest.mkdir(parents=True,exist_ok=True)
+    for phase in PHASES:
+        for name,_,_,order in blocks:
+            matrices[phase]['displayed'].reindex(order).to_csv(dest/f'{phase}_{name}_displayed.csv')
+            matrices[phase]['raw'].reindex(order).to_csv(dest/f'{phase}_{name}_unmasked.csv')
+    members.to_csv(dest/'row_membership.csv',index=False)
+    pd.DataFrame(audit).to_csv(dest/'row_and_value_audit.csv',index=False)
+    traces.to_csv(dest/'upper_traces.csv',index=False)
+    path=save_svg(fig,ROOT/'img/fig3/fig3_lexical_venn_difference_time.svg',close=True)
+    write(dest/'plot_validation.json',dict(passed=True,svg=str(path),svg_sha256=sha(path),
+        upper_trace_sites=len(selected),upper_trace_set='All electrodes in the three heatmap classes',
+        heatmap_sites=len(members),
+        groups=[{'group':name,'label':text,'color':color,'n_sites':len(order)} for name,text,color,order in blocks],
+        metric='Class-specific positive difference',display_mask='Each class shows its own significant direction',
+        parameters=LEXICAL_P10,color_limits=[0,.5],
+        negative_values_displayed_white=True,official_05_results_unchanged=True,
+        component_portrait_retained=True,
+        row_height_cm=row,phase_widths_cm=list(widths),ylim=list(ylim),
+        row_order='Within each Venn class, first native-baseline-significant time; electrode id breaks ties'))
+    return path
+
+
+def _picture_p10_subject(payload):
+    """Picture Naming Sound−Image tests. Native trials stay in; no CORRECT gate."""
+    subject,channels,jobs=payload
+    import mne
+    import numpy as np
+    import pandas as pd
+    from ieeg.calc import stats
+    from scripts.run_decision_repeat_delay_selection import install_reviewed_runtime_compatibility
+    if not getattr(stats,'_insula_sort_patch',False):
+        install_reviewed_runtime_compatibility()
+        stats._insula_sort_patch=True
+    frames=[]
+    for phase,lo,hi,sound_path,image_path in jobs:
+        loaded={}
+        for level,path in (('sound',sound_path),('image',image_path)):
+            ep=mne.read_epochs(path,preload=True,verbose='ERROR')
+            names=[n if n.startswith(subject+'_') else subject+'_'+n for n in ep.ch_names]
+            inverse={v:k for k,v in ep.event_id.items()}
+            events=np.array([inverse[int(n)] for n in ep.events[:,2]])
+            assert not any('bad' in token.lower().split('/') for token in events)
+            if phase=='stimulus':
+                unexpected=sorted({token for token in events if token.split('/')[0]!='Stimulus'})
+                assert not unexpected,(subject,phase,unexpected[:8])
+            retained=np.ones(len(events),bool)
+            display=(ep.times>=lo)&(ep.times<=hi)
+            assert int(display.sum())>=2 and int(retained.sum())>=2
+            missing=sorted(set(channels)-set(names))
+            assert not missing,(subject,phase,level,missing)
+            picks=[names.index(channel) for channel in channels]
+            values=ep.get_data(picks=picks,copy=True,verbose='ERROR')[:,:,display]
+            loaded[level]=(ep.times[display].copy(),values[retained],int(len(events)))
+            del ep,values
+        times,sound,n_sound=loaded['sound']
+        image_times,image,n_image=loaded['image']
+        np.testing.assert_allclose(times,image_times)
+        for index,channel in enumerate(channels):
+            x,y=sound[:,index,:],image[:,index,:]
+            print('TEST',subject,channel,phase,'picture p10 two-sided 2000',flush=True)
+            mask,pvalue=stats.time_perm_cluster(x,y,**LEXICAL_P10)
+            observed=(np.isfinite(x).sum(axis=0)>=2)&(np.isfinite(y).sum(axis=0)>=2)
+            difference=np.nanmean(x,axis=0)-np.nanmean(y,axis=0)
+            valid=observed&np.asarray(mask,bool)&(np.asarray(pvalue)<LEXICAL_P10['p_thresh'])
+            frames.append(pd.DataFrame(dict(electrode=f'{subject}|{channel}',subject=subject,channel=channel,
+                phase=phase,time=times,observed=observed,temporal_mask=np.asarray(mask,bool),
+                pointwise_p=np.asarray(pvalue,float),mean_difference=difference,
+                sound_gt_image=valid&(difference>0),image_gt_sound=valid&(difference<0),
+                n_sound_trials=n_sound,n_image_trials=n_image)))
+    return pd.concat(frames,ignore_index=True)
+
+
+def picture_difference_p10_table():
+    """Sound versus Image at the same relaxed cluster-forming threshold.
+
+    Row class uses Stimulus [0, 1] s. Each displayed phase keeps its own mask.
+    The original .05/.05 Picture Naming results stay in place.
+    """
+    assert os.environ.get('SLURM_JOB_ID'),'Run via Slurm'
+    import multiprocessing as mp
+    import numpy as np
+    import pandas as pd
+    dest=ROOT/'results/fig3/time_profiles/picture_venn_difference/difference_p10'
+    receipt=dest/'completed.json'
+    if receipt.exists():
+        meta=json.loads(receipt.read_text())
+        if meta.get('passed') and meta.get('parameters')==LEXICAL_P10:
+            return pd.read_csv(dest/'tests.csv.gz'),pd.read_csv(dest/'groups.csv')
+    pool=[]
+    for name in ('first_only','second_only','no_detected_difference','bidirectional'):
+        path=ROOT/'results/fig3/regions/picture'/f'{name}_electrodes.csv'
+        table=pd.read_csv(path)
+        if len(table):
+            table=table.copy();table['original_difference_group']=name
+            pool.append(table)
+    pool=pd.concat(pool,ignore_index=True)
+    assert pool.electrode.is_unique and len(pool)==49
+    sources=pd.read_csv(RUN/'picture'/'native_sources.csv')
+    spec=SPECS['picture']
+    payloads=[]
+    for subject,part in pool.groupby('subject',sort=True):
+        channels=sorted(part.channel)
+        jobs=[]
+        for phase,(lo,hi) in spec['xlims'].items():
+            paths={}
+            for level in ('sound','image'):
+                row=sources[sources.subject.eq(subject)&sources.phase.eq(phase)&sources.level.eq(level)]
+                assert len(row)==1,(subject,phase,level)
+                epoch=Path(row.epoch_path.iloc[0])
+                assert sha(epoch)==row.epoch_sha256.iloc[0],epoch
+                paths[level]=str(epoch)
+            jobs.append((phase,lo,hi,paths['sound'],paths['image']))
+        payloads.append((subject,channels,jobs))
+    workers=min(len(payloads),int(os.environ.get('SLURM_CPUS_PER_TASK',1)))
+    with mp.get_context('fork').Pool(workers) as executor:
+        tested=pd.concat(executor.map(_picture_p10_subject,payloads),ignore_index=True)
+    stimulus=tested[tested.phase.eq('stimulus')&tested.time.between(0,1)]
+    assert stimulus.groupby('electrode').time.nunique().eq(129).all()
+    hits=stimulus.groupby('electrode')[['sound_gt_image','image_gt_sound']].any()
+    groups=pool[['electrode','subject','channel','functional_cluster','original_difference_group']].copy()
+    groups['sound_gt_image']=groups.electrode.map(hits.sound_gt_image)
+    groups['image_gt_sound']=groups.electrode.map(hits.image_gt_sound)
+    groups['difference_group']=np.select([
+        groups.sound_gt_image&groups.image_gt_sound,groups.sound_gt_image,groups.image_gt_sound],
+        ['bidirectional','first_only','second_only'],default='no_detected_difference')
+    dest.mkdir(parents=True,exist_ok=True)
+    tested.to_csv(dest/'tests.csv.gz',index=False)
+    groups.to_csv(dest/'groups.csv',index=False)
+    counts=groups.groupby('difference_group').agg(n_sites=('electrode','size'),n_subjects=('subject','nunique')).reset_index()
+    counts.to_csv(dest/'group_counts.csv',index=False)
+    pd.crosstab(groups.original_difference_group,groups.difference_group,dropna=False).to_csv(dest/'group_change.csv')
+    write(receipt,dict(passed=True,parameters=LEXICAL_P10,statistic='default two-sample t',
+        trials='Picture Naming native retained trials',class_window='stimulus [0, 1] s',
+        each_phase_has_its_own_mask=True,official_05_results_unchanged=True,
+        n_electrodes=len(groups),counts=counts.to_dict('records'),
+        job_id=os.environ['SLURM_JOB_ID']))
+    return tested,groups
+
+
+def render_picture_two_class_portrait():
+    """Sound > Image, Image > Sound, and no detected difference at the relaxed threshold."""
+    assert os.environ.get('SLURM_JOB_ID'),'Run via Slurm'
+    import numpy as np
+    import pandas as pd
+    import matplotlib
+    matplotlib.use('Agg')
+    import matplotlib.pyplot as plt
+    from matplotlib.colors import LinearSegmentedColormap
+    from src.paths import save_svg
+    from src.supplementary.lexical_condition_figures import summarize_traces
+    from src.supplementary.condition_region_time_profiles import shared_ylim
+    catalog=[
+        ('first_only','Sound > Image','#2166AC'),
+        ('second_only','Image > Sound','#D95F02'),
+        ('no_detected_difference','No detected difference','#6E6E6E')]
+    tests,classified=picture_difference_p10_table()
+    shown_groups={'first_only','second_only','no_detected_difference'}
+    members=classified[classified.difference_group.isin(shown_groups)].copy()
+    members['row_group']=members.difference_group
+    groups=[item for item in catalog if members.row_group.eq(item[0]).any()]
+    assert [name for name,_,_ in groups]==['first_only','second_only','no_detected_difference']
+    waves=pd.read_csv(RUN/'picture'/'waveforms.csv.gz')
+    shown=waves[waves.electrode.isin(members.electrode)].copy()
+    spec=SPECS['picture']
+    shown['baseline_mask']=shown.baseline_mask.map(lambda x:x if isinstance(x,bool) else str(x).strip().lower() in {'1','true'})
+    first=shown[shown.baseline_mask].groupby('electrode').time.min()
+    members['first_time']=members.electrode.map(first)
+    pieces=[]
+    for name,_,_ in groups:
+        pieces.append(members[members.row_group.eq(name)].sort_values(['first_time','electrode'],na_position='last'))
+    members=pd.concat(pieces,ignore_index=True)
+    blocks=[(name,label,color,members.loc[members.row_group.eq(name),'electrode'].tolist()) for name,label,color in groups]
+    matrices={};audit=[]
+    for phase,(lo,hi) in spec['xlims'].items():
+        part=shown[shown.phase.eq(phase)&shown.time.between(lo,hi)]
+        times=np.sort(part.time.unique())
+        x=part[part.condition.eq('sound')].pivot(index='electrode',columns='time',values='value').reindex(columns=times)
+        y=part[part.condition.eq('image')].pivot(index='electrode',columns='time',values='value').reindex(columns=times)
+        raw=x-y
+        phase_tests=tests[tests.phase.eq(phase)&tests.electrode.isin(members.electrode)].copy()
+        first_mask=_align_flag(phase_tests,raw.index,times,'sound_gt_image')
+        second_mask=_align_flag(phase_tests,raw.index,times,'image_gt_sound')
+        displayed=_directed_display(raw,members.set_index('electrode').row_group,first_mask,second_mask)
+        matrices[phase]=dict(displayed=displayed)
+        for name,label,color,order in blocks:
+            values=displayed.reindex(order)
+            audit.append(dict(phase=phase,group=name,n_sites=len(order),
+                n_displayed_finite=int(np.isfinite(values.to_numpy(float)).sum()),
+                row_order='|'.join(order)))
+    geometry=json.loads((ROOT/'results/supplementary/decision_repeat_test/plot_validation.json').read_text())['reference_geometry']
+    time_scale=geometry['phase_widths_cm'][0]/1.1
+    widths=[time_scale*(spec['xlims'][phase][1]-spec['xlims'][phase][0]) for phase in PHASES]
+    row=0.05
+    trace_h,gap_x,gap_y=geometry['trace_height_cm'],geometry['gap_x_cm'],geometry['gap_y_cm']
+    top,bottom,right=geometry['top_cm'],geometry['bottom_cm'],geometry['right_cm']
+    left=3.9
+    heights=[trace_h]+[row*len(order) for _,_,_,order in blocks]
+    canvas_w=left+sum(widths)+2*gap_x+right
+    canvas_h=top+sum(heights)+(len(heights)-1)*gap_y+bottom
+    from matplotlib import font_manager
+    for font in Path('/hpc/home/ns458/miniconda3/envs/ieeg/fonts').glob('arial*.ttf'):
+        font_manager.fontManager.addfont(str(font))
+    plt.rcParams.update({'svg.fonttype':'none','font.family':'Arial','font.size':7})
+    selected=members.copy()
+    traces=summarize_traces(selected,waves,[('selected',selected)])
+    ylim_spec=dict(conditions=('sound','image'),xlims=spec['xlims'])
+    ylim,ylim_proof=shared_ylim(waves.drop(columns=['functional_cluster'],errors='ignore'),selected,ylim_spec)
+    fig=plt.figure(figsize=(canvas_w/2.54,canvas_h/2.54))
+    grid=fig.add_gridspec(len(heights),3,height_ratios=heights,width_ratios=widths,left=left/canvas_w,right=1-right/canvas_w,
+        top=1-top/canvas_h,bottom=bottom/canvas_h,wspace=gap_x/np.mean(widths),hspace=gap_y/np.mean(heights))
+    axes=np.empty((len(heights),3),object);images={}
+    for j,phase in enumerate(PHASES):
+        for i in range(len(heights)):
+            axes[i,j]=fig.add_subplot(grid[i,j],sharex=axes[0,j] if i else None)
+        ax=axes[0,j]
+        sub=traces[traces.phase.eq(phase)]
+        for condition,color,text in (('sound','#6A5ACD','Sound'),('image','#000000','Image')):
+            item=sub[sub.condition.eq(condition)].sort_values('time')
+            ax.plot(item.time,item['mean'],color=color,lw=1,label=text)
+            ax.fill_between(item.time,item['mean']-item['sem'],item['mean']+item['sem'],color=color,alpha=.18,lw=0)
+        ax.axhline(0,color='.2',ls='--',lw=.7);ax.axvline(0,color='.2',ls='--',lw=.7)
+        ax.set_xlim(*spec['xlims'][phase]);ax.set_ylim(*ylim);ax.set_title(phase.capitalize(),fontsize=7)
+        ax.spines[['top','right']].set_visible(False)
+        ax.tick_params(labelbottom=False,left=j==0,labelleft=j==0,width=.75,length=2)
+        if j==0:
+            ax.set_ylabel('HGA (z)',fontsize=7);ax.text(.02,.96,f'n={len(selected)}',transform=ax.transAxes,va='top',fontsize=7)
+        else:ax.spines['left'].set_visible(False)
+        lower,upper=spec['xlims'][phase]
+        ticks=[lower,0,upper] if lower<0 else [0,upper]
+        for i,(name,label,color,order) in enumerate(blocks):
+            ax=axes[i+1,j]
+            values=matrices[phase]['displayed'].reindex(order).to_numpy(float)
+            cmap=LinearSegmentedColormap.from_list(name,['#FFFFFF',color])
+            cmap.set_bad('white');cmap.set_under('white')
+            im=ax.imshow(values,extent=(lower,upper,0,len(order)),origin='lower',aspect='auto',cmap=cmap,
+                vmin=0,vmax=.5,interpolation='nearest',rasterized=True)
+            images[(phase,name)]=im
+            ax.axvline(0,color='.2',ls='--',lw=.8);ax.set_xlim(lower,upper);ax.set_ylim(0,len(order));ax.set_yticks([])
+            ax.set_xticks(ticks,labels=[f'{v:g}' for v in ticks])
+            ax.get_xticklabels()[0].set_ha('left');ax.get_xticklabels()[-1].set_ha('right')
+            ax.spines[['top','right','left']].set_visible(False)
+            ax.tick_params(labelbottom=i==len(blocks)-1,bottom=i==len(blocks)-1,labelsize=7,width=.75,length=2)
+            if j==0:ax.text(-.04,.5,f'{label} (n={len(order)})',transform=ax.transAxes,ha='right',va='center',fontsize=7,color=color)
+    axes[0,-1].legend(frameon=False,fontsize=7,loc='upper left',bbox_to_anchor=(1.02,1),borderaxespad=0)
+    axes[-1,1].set_xlabel('Time (s)',fontsize=7)
+    fig.text(left/canvas_w,1-.09/canvas_h,'Picture Naming · Sound > Image, Image > Sound, and no detected difference',ha='left',va='top',fontsize=7)
+    caption=fig.text(.01,.025,'Heatmap: each class shows its own positive difference\nSound > Image is Sound − Image; Image > Sound is Image − Sound. Pointwise p < .10, cluster p < .05.',
+        ha='left',va='bottom',fontsize=6.2,linespacing=1.35)
+    fig.canvas.draw();renderer=fig.canvas.get_renderer()
+    bottom_labels=[v for ax in axes[-1] for v in ax.get_xticklabels()]+[axes[-1,1].xaxis.label]
+    lowest=min(v.get_window_extent(renderer).y0 for v in bottom_labels)
+    caption.set_position((.01,fig.transFigure.inverted().transform((0,lowest-3*fig.dpi/72))[1]));caption.set_verticalalignment('top')
+    for i,(name,_,_,_) in enumerate(blocks):
+        box=axes[i+1,-1].get_position()
+        cax=fig.add_axes([box.x1+.15/canvas_w,(box.y0+box.y1)/2,.75/canvas_w,.10/canvas_h])
+        bar=fig.colorbar(images[(PHASES[-1],name)],cax=cax,orientation='horizontal',ticks=[0,.5])
+        bar.ax.set_xticklabels(['0','0.5']);bar.ax.tick_params(labelsize=4.5,length=1.3,pad=1);bar.outline.set_visible(False)
+    for row_axes in axes:
+        scales=[ax.get_position().width/np.diff(ax.get_xlim())[0] for ax in row_axes]
+        np.testing.assert_allclose(scales,scales[0],rtol=1e-12)
+    dest=ROOT/'results/fig3/time_profiles/picture_venn_difference'
+    dest.mkdir(parents=True,exist_ok=True)
+    for phase in PHASES:
+        for name,_,_,order in blocks:
+            matrices[phase]['displayed'].reindex(order).to_csv(dest/f'{phase}_{name}_displayed.csv')
+    members.to_csv(dest/'row_membership.csv',index=False)
+    pd.DataFrame(audit).to_csv(dest/'row_and_value_audit.csv',index=False)
+    traces.to_csv(dest/'upper_traces.csv',index=False)
+    held=classified[~classified.difference_group.isin(shown_groups)]
+    held.to_csv(dest/'not_in_heatmap.csv',index=False)
+    path=save_svg(fig,ROOT/'img/fig3/fig3_picture_sound_and_nodifference_time.svg',close=True)
+    write(dest/'plot_validation.json',dict(passed=True,svg=str(path),svg_sha256=sha(path),
+        upper_trace_sites=len(selected),upper_trace_set='All electrodes in the three heatmap classes',
+        heatmap_sites=len(members),
+        groups=[{'group':name,'label':label,'n_sites':len(order),'n_subjects':int(members.loc[members.electrode.isin(order),'subject'].nunique())}
+            for name,label,color,order in blocks],
+        excluded_from_heatmap=held.difference_group.value_counts().to_dict(),
+        metric='Class-specific positive difference',display_mask='Each class shows its own significant direction',
+        class_window='stimulus [0, 1] s',parameters=LEXICAL_P10,color_limits=[0,.5],
+        negative_values_displayed_white=True,official_05_results_unchanged=True,
+        row_height_cm=row,phase_widths_cm=list(widths),ylim=[float(v) for v in ylim],
+        row_order='Within each class, first native-baseline-significant time; electrode id breaks ties'))
+    return path
+
+
 def render_main():
     assert os.environ.get('SLURM_JOB_ID'),'Run via Slurm'
     from src.figure3 import style,override
@@ -547,7 +1198,14 @@ def render_main():
         results[key]=dict(diagram=str(diagram),brains=brains,counts=counts.to_dict('records'),
             pool_n=len(pool),pool_subjects=int(pool.subject.nunique()),time_portrait=str(portrait),
             paired_sites=data['comparisons'][key]['paired_sites'])
-        paths += [str(diagram),str(portrait),*brains.values()]
+        extra=[]
+        if key=='picture':
+            extra.append(str(render_picture_two_class_portrait()))
+            results[key]['two_class_difference_portrait']=extra[-1]
+        if key=='lexical':
+            extra.append(str(render_lexical_venn_difference_portrait()))
+            results[key]['venn_difference_portrait']=extra[-1]
+        paths += [str(diagram),str(portrait),*brains.values(),*extra]
         # Keep the explicit statistical cohort as a main-Figure3 artifact.
         dest=ROOT/'results/fig3/cohorts'/key;dest.mkdir(parents=True,exist_ok=True)
         pd.read_csv(RUN/key/'electrodes.csv').to_csv(dest/'eligible_assigned_electrodes.csv',index=False)
@@ -579,11 +1237,11 @@ def build_notebook():
 
 **Picture Naming · Stimulus [0,1] s:** either-condition native baseline-response pool {p['active_sites']} sites/{p['active_subjects']} participants. Exclusive Sound > Image {counts[('picture','first_only')][0]}, no detected difference {counts[('picture','no_detected_difference')][0]}, Image > Sound {counts[('picture','second_only')][0]}, bidirectional {counts[('picture','bidirectional')][0]} separately. **Lexical Delay · Delay [0,1] s:** pool {l['active_sites']}/{l['active_subjects']}; Decision > Repeat {counts[('lexical','first_only')][0]}, no detected difference {counts[('lexical','no_detected_difference')][0]}, Repeat > Decision {counts[('lexical','second_only')][0]}, bidirectional {counts[('lexical','bidirectional')][0]} separately.
 
-The center means **no detected significant condition difference**, not equivalence or a literal baseline-response intersection. Preserve conventional overlapping circles and count-proportional areas at the original common scale. Maps use the original local-insula surface,24-pixel points,4-mm display lift and unchanged Figure2 density contours, colored by current functional assignments.
+The center means **no detected significant condition difference**, not equivalence or a literal baseline-response intersection. Preserve conventional overlapping circles and count-proportional areas at the original common scale. Maps use the original local-insula surface,24-pixel points,4-mm display lift and Figure2 density contours. Every electrode in a map uses that map's Venn color: blue for Sound > Image or Decision > Repeat, orange for Image > Sound or Repeat > Decision, and gray for no detected difference.
 
 Baseline eligibility retains native mask AND pointwise p<.05. Direct comparisons retain the original independent two-sided2000-permutation time_perm_cluster, .05/.05, seed42 and original trial handling (PN retained native trials; LD exact CORRECT trials for the direct test). {p['reused_tests']+l['reused_tests']} tests were reused after native input hash verification; {p['new_tests']+l['new_tests']} required the unchanged original test. No NMF refit or parameter search.
 
-PN temporal portrait: current no-difference sites, both electrode mean±SEM curves above and complete (Sound+Image)/2 below. LD: current Decision>Repeat sites, both curves above and Decision−Repeat below with the original Decision-baseline display mask. Retain original phase windows, proportional widths,1-mm rows, colors and0–.5 heatmaps. Recompute row membership/order using the original first-significant-time rule and current assignments; no old-population significance bars are reused.
+PN temporal portrait: current no-difference sites, both electrode mean±SEM curves above and complete (Sound+Image)/2 below. LD: current Decision>Repeat sites, both curves above and Decision−Repeat below with the original Decision-baseline display mask. An additional lexical heatmap keeps those Decision>Repeat traces and regroups the rows into Decision > Repeat, Repeat > Decision, and no detected difference, still showing Decision−Repeat. Retain original phase windows, proportional widths,1-mm rows, colors and0–.5 heatmaps. Recompute row membership/order using the original first-significant-time rule and current assignments; no old-population significance bars are reused.
 
 All seventeen original main panel types, including both paired ternaries and density overlays, remain executable below; empty condition classes are explicitly labeled0. Main SVGs: `img/fig3/`; versioned data/provenance: `results/{VERSION}/`. Supplementary notebooks retain their separately identified prior versions.
 '''
@@ -591,10 +1249,37 @@ All seventeen original main panel types, including both paired ternaries and den
         11:('picture','second_only','Image > Sound only'),13:('picture','bidirectional','Bidirectional'),
         17:('lexical','first_only','Decision > Repeat'),21:('lexical','no_detected_difference','No detected difference'),
         23:('lexical','second_only','Repeat > Decision')}
+    drop=[]
     for index,(key,region,text) in titles.items():
+        if (key,region)==('picture','first_only'):
+            nb.cells[index].source='### Sound > Image and no detected difference\n'
+            nb.cells[index+1].source="display(SVG(filename=results['picture']['brains']['combined']))\n"
+            continue
+        if (key,region)==('lexical','first_only'):
+            nb.cells[index].source='### Decision > Repeat and no detected difference\n'
+            nb.cells[index+1].source="display(SVG(filename=results['lexical']['brains']['combined']))\n"
+            continue
+        if region=='no_detected_difference':
+            drop.extend((nb.cells[index].id,nb.cells[index+1].id))
+            continue
         nb.cells[index].source=f'### {text} · n={counts[(key,region)][0]}'
         code=nb.cells[index+1]
         code.source=f"if '{region}' in results['{key}']['brains']:\n    display(SVG(filename=results['{key}']['brains']['{region}']))\nelse:\n    print('{text}: n=0; no electrodes to plot.')\n"
+    nb.cells=[cell for cell in nb.cells if cell.id not in drop]
+    picture=next(i for i,c in enumerate(nb.cells) if c.cell_type=='code' and "results['picture']['time_portrait']" in c.source)
+    nb.cells[picture+1:picture+1]=[
+        nbformat.v4.new_markdown_cell('''### Sound > Image, Image > Sound, and no detected difference · relaxed difference heatmap
+
+Upper traces are Sound and Image for every electrode in the three heatmap classes. Heatmap rows remain Sound > Image, Image > Sound, and no detected difference. A cell is shown only where the same Sound−Image test is significant in that phase. Pointwise p < .10 forms clusters and cluster p < .05. The bidirectional electrode stays out of this heatmap. The portrait above keeps the original display.
+''',id='fig3-picture-two-class-title'),
+        nbformat.v4.new_code_cell("display(SVG(filename=results['picture']['two_class_difference_portrait']))\n",id='fig3-picture-two-class')]
+    portrait=next(i for i,c in enumerate(nb.cells) if c.cell_type=='code' and "results['lexical']['time_portrait']" in c.source)
+    nb.cells[portrait+1:portrait+1]=[
+        nbformat.v4.new_markdown_cell('''### Venn-grouped Decision − Repeat heatmap
+
+Upper traces are Decision and Repeat for every electrode in the three heatmap classes. Decision > Repeat rows show Decision − Repeat in blue. Repeat > Decision rows show Repeat − Decision in orange. A cell is shown only where that direction is significant in that phase. Pointwise p < .10 forms clusters and cluster p < .05. The component portrait above keeps the original display.
+''',id='fig3-lexical-venn-difference-title'),
+        nbformat.v4.new_code_cell("display(SVG(filename=results['lexical']['venn_difference_portrait']))\n",id='fig3-lexical-venn-difference')]
     # A newly present reverse-direction class is displayed, never silently dropped.
     if counts[('lexical','bidirectional')][0]:
         insert=next(i for i,c in enumerate(nb.cells) if c.id=='fig3-weight-title')
@@ -609,9 +1294,9 @@ Current Figure2 NMF W proportions: PN no-detected-difference {label('picture','n
 
 {label('picture','first_only')} from the current mutually exclusive first-only class. Use the same current W proportions, sigma0.09 and reference density peak. Bidirectional sites remain separate.
 '''
-    byid['fig3-weight-picture-pair-title'].source=f'''### Picture Naming · No detected difference and Sound > Image
+    byid['fig3-weight-picture-pair-title'].source=f'''### Picture Naming · No detected difference, Sound > Image, and Image > Sound
 
-{label('picture','no_detected_difference')} beside {label('picture','first_only')}. Both panels reuse the current exported coordinates, component point colors and sigma0.09 density arrays on one shared reference scale.
+{label('picture','no_detected_difference')}, {label('picture','first_only')}, and {label('picture','second_only')}. The first two reuse the current exported coordinates. Image > Sound uses the same current W proportions. All three keep component point colors, sigma0.09 density, and one shared reference scale. The bidirectional electrode stays separate.
 '''
     byid['fig3-weight-lexical-pair-title'].source=f'''### Lexical Delay · No detected difference and Decision > Repeat
 

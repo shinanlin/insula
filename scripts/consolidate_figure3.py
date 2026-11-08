@@ -29,9 +29,9 @@ The following cells execute the plotting code and export SVGs to `img/fig3/`, wi
 
 The same18 exclusively Sound > Image sites/12 participants use the frozen continuous weights, the same reference density peak and the same approved drawing. The one bidirectionally significant site remains separate. This is the original standalone component-colored plot; the later gray/blue group overlay remains in the diagnostic notebook.
 ''',id='fig3-weight-sound-title'),nbf.v4.new_code_cell("sound_weight_svg=render_component_weights(sound_gt_image=True)\ndisplay(SVG(filename=str(sound_weight_svg)))\n",id='fig3-weight-sound-image'),
-        nbf.v4.new_markdown_cell('''### Picture Naming · No detected difference and Sound > Image
+        nbf.v4.new_markdown_cell('''### Picture Naming · No detected difference, Sound > Image, and Image > Sound
 
-The same frozen weights, point colors, sigma0.09 clouds and reference density peak, now side by side: 21 no-detected-difference electrodes / 14 participants and 18 exclusively Sound > Image electrodes / 12 participants. Coordinates and density arrays for both groups are the previously exported ones. The bidirectional electrode stays separate. Image > Sound is not in this pair.
+The same frozen weights, point colors, sigma0.09 clouds and reference density peak: no detected difference, exclusive Sound > Image, and exclusive Image > Sound. The first two reuse exported coordinates. Image > Sound is computed from the same current loadings. The bidirectional electrode stays separate.
 ''',id='fig3-weight-picture-pair-title'),nbf.v4.new_code_cell("from src.figure3 import render_component_weight_pairs\npicture_pair_svg,lexical_pair_svg=render_component_weight_pairs()\ndisplay(SVG(filename=str(picture_pair_svg)))\n",id='fig3-weight-picture-pair'),
         nbf.v4.new_markdown_cell('''### Lexical Delay · No detected difference and Decision > Repeat
 

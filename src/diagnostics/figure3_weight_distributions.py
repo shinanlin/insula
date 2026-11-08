@@ -222,11 +222,10 @@ def _cached_weight_panel(source,group,region,n,subjects,title):
         inputs={str(path):sha(path) for path in (coordinate_path,color_path,density_path,selection_path)})
 
 
-def _new_lexical_no_difference(reference):
-    """Frozen loadings for the 43 Lexical Delay sites, on the existing density scale."""
-    region,n,subjects='no_detected_difference',43,25
-    n,subjects=group_counts('lexical',region,n,subjects)
-    selection_path=ROOT/'results/fig3/regions/lexical'/f'{region}_electrodes.csv'
+def _new_weight_panel(task,region,default_n,default_subjects,title,reference):
+    """Current loading proportions for one condition group, on the existing density scale."""
+    n,subjects=group_counts(task,region,default_n,default_subjects)
+    selection_path=ROOT/'results/fig3/regions'/task/f'{region}_electrodes.csv'
     assignments=NMF_DIR/'channel_assignments.csv'
     selected=pd.read_csv(selection_path,float_precision='round_trip')
     w=pd.read_csv(assignments,float_precision='round_trip')
@@ -249,22 +248,28 @@ def _new_lexical_no_difference(reference):
     peak=reference['common_density_peak']
     point_rgb=proportions@np.array([to_rgb(color) for color in COLORS])
     coordinates=frame[['electrode','subject','channel']].copy()
-    coordinates.insert(0,'group','lexical')
+    coordinates.insert(0,'group',task)
     for index,name in enumerate(COMPONENTS):coordinates[name]=proportions[:,index]
     coordinates['ternary_x']=xy[:,0];coordinates['ternary_y']=xy[:,1]
-    colors=pd.DataFrame(dict(group='lexical',electrode=frame.electrode,sensory=proportions[:,0],
+    colors=pd.DataFrame(dict(group=task,electrode=frame.electrode,sensory=proportions[:,0],
         sustain=proportions[:,1],motor=proportions[:,2],red=point_rgb[:,0],green=point_rgb[:,1],
         blue=point_rgb[:,2],color_hex=[to_hex(row) for row in point_rgb]))
-    return dict(group='lexical',region=region,n=n,subjects=subjects,
-        title='Lexical Delay\nNo detected difference',frame=coordinates,colors=colors,
+    return dict(group=task,region=region,n=n,subjects=subjects,title=title,frame=coordinates,colors=colors,
         density=density,relative=density/peak,grid=reference,selection_path=selection_path,
         loadings=loadings,inputs={str(selection_path):sha(selection_path),str(assignments):sha(assignments)})
 
 
+def _new_lexical_no_difference(reference):
+    """Frozen loadings for the Lexical Delay no-difference sites, on the existing density scale."""
+    return _new_weight_panel('lexical','no_detected_difference',43,25,
+        'Lexical Delay\nNo detected difference',reference)
+
+
 def _draw_weight_pair(panels,svg,reference_peak):
-    """Two ternary panels with the approved component colors, guides and gray density."""
+    """Ternary panels with the approved component colors, guides and gray density."""
     style()
-    fig,axes=plt.subplots(1,2,squeeze=False,figsize=(8.8*2/2.54,10.4/2.54))
+    n_panels=len(panels)
+    fig,axes=plt.subplots(1,n_panels,squeeze=False,figsize=(8.8*n_panels/2.54,10.4/2.54))
     axes=axes[0]
     fig.subplots_adjust(left=.035,right=.965,bottom=.27,top=.77,wspace=.23)
     height=np.sqrt(3)/2;vertices=np.array([[.5,height],[0.,0.],[1.,0.]])
@@ -299,7 +304,8 @@ def _draw_weight_pair(panels,svg,reference_peak):
         axis.text(1.005,-.10,'Motor',ha='center',va='top',fontsize=8,color=COLORS[2])
         axis.set_title(f"{panel['title']}\n{panel['n']} electrodes / {panel['subjects']} participants",fontsize=9,pad=16)
         axis.set(xlim=(-.15,1.15),ylim=(-.20,height+.20),aspect='equal');axis.axis('off')
-    color_axis=fig.add_axes([.36,.175,.28,.012])
+    bar_width=.28*(2/n_panels)
+    color_axis=fig.add_axes([(1-bar_width)/2,.175,bar_width,.012])
     colorbar=fig.colorbar(ScalarMappable(norm=Normalize(0,1),cmap=cmap),cax=color_axis,orientation='horizontal')
     colorbar.set_ticks([0,.5,1]);colorbar.ax.tick_params(labelsize=6,length=2,pad=2)
     colorbar.set_label('Relative electrode density',fontsize=7,labelpad=2);colorbar.outline.set_visible(False)
@@ -353,9 +359,12 @@ def render_task_pairs():
         np.testing.assert_array_equal(picture_null['grid'][name],lexical_decision['grid'][name])
     reference_grid=dict(picture_null['grid'],common_density_peak=peak)
     lexical_null=_new_lexical_no_difference(reference_grid)
+    picture_image=_new_weight_panel('picture','second_only',4,4,'Sound–Image\nImage > Sound only',reference_grid)
     assert set(picture_null['frame'].electrode).isdisjoint(picture_sound['frame'].electrode)
+    assert set(picture_image['frame'].electrode).isdisjoint(picture_null['frame'].electrode)
+    assert set(picture_image['frame'].electrode).isdisjoint(picture_sound['frame'].electrode)
     assert set(lexical_null['frame'].electrode).isdisjoint(lexical_decision['frame'].electrode)
-    pairs=(('picture',(picture_null,picture_sound),picture_svg),
+    pairs=(('picture',(picture_null,picture_sound,picture_image),picture_svg),
         ('lexical',(lexical_null,lexical_decision),lexical_svg))
     written={}
     for name,panels,svg in pairs:
@@ -388,7 +397,8 @@ def render_task_pairs():
             density_sigma_in_triangle_side_units=DENSITY_SIGMA,
             max_relative_density={panel['region']:float(panel['relative'][panel['grid']['valid_simplex']].max()) for panel in panels},
             source_hashes=inputs,no_NMF_refit=True,no_new_inferential_tests=True,
-            reverse_direction_groups_not_included=True))
+            image_gt_sound_included=name=='picture',bidirectional_sites_not_included=True,
+            reverse_direction_groups_not_included=name!='picture'))
         written[name]=svg
     assert all(sha(p)==digest for p,digest in protected.items())
     return written
