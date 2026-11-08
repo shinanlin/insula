@@ -1,0 +1,44 @@
+{
+  "passed": true,
+  "version": "figure1_cohort67_2026-11-07",
+  "slurm_job_id": "61369856",
+  "code_cells": 21,
+  "all_code_cells_executed": true,
+  "output_errors": 0,
+  "svg_panels": 14,
+  "sampled_participants": 67,
+  "sampled_insula_sites": 378,
+  "confirmed_responsive_insula_sites": 239,
+  "wholebrain_plotted_sites": 12088,
+  "regional_sampling_counts": {
+    "Insula": 378,
+    "STG": 448,
+    "SMC": 372,
+    "IFG": 215,
+    "Other": 2953,
+    "total": 4366
+  },
+  "regional_response_counts": {
+    "Insula": 239,
+    "STG": 354,
+    "SMC": 260,
+    "IFG": 130,
+    "Other": 1426,
+    "total": 2409
+  },
+  "phase_response_counts": {
+    "stimulus": 116,
+    "delay": 133,
+    "response": 185
+  },
+  "native_QC_and_saved_statistics_preserved": true,
+  "new_timeperm_tests": false,
+  "group_average_unit": "electrode mean +/- SEM",
+  "figures2_to6_and_models_unchanged": true,
+  "protected_files": 394,
+  "original_drawing_AST_preserved": true,
+  "notebook_sha256": "bf75ca5e93617f96b9564c59fa5fd6da58af17835461e294a22b843ced6ebaf7",
+  "completed_utc": "2026-11-08T02:41:19.914186+00:00",
+  "documentation_finalized_utc": "2026-11-08T02:42:34.906921+00:00",
+  "documentation_only_changes_after_execution": true
+}

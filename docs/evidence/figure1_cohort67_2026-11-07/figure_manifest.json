@@ -1,0 +1,320 @@
+{
+  "cohort": "figure1_cohort67_2026-11-07",
+  "condition": "Repeat",
+  "modality": "sound",
+  "sampled_sites": 378,
+  "sampled_participants": 67,
+  "excluded_subjects": [
+    "D0121"
+  ],
+  "raw_recorded_site_count": 15986,
+  "retained_coordinate_site_count": 12362,
+  "noise_excluded_site_count": 194,
+  "confirmed_responsive_sites": 239,
+  "responsive_participants": 61,
+  "phase_response_counts": {
+    "stimulus": 116,
+    "delay": 133,
+    "response": 185
+  },
+  "response_windows": {
+    "stimulus": {
+      "phase": "stimulus",
+      "time_min": 0.0,
+      "time_max": 0.6
+    },
+    "delay": {
+      "phase": "delay",
+      "time_min": 0.0,
+      "time_max": 1.0
+    },
+    "response": {
+      "phase": "response",
+      "time_min": -0.5,
+      "time_max": 0.5
+    }
+  },
+  "response_count_finalized": false,
+  "unresolved_response_sites": 6,
+  "confirmed_nonresponsive_sites": 96,
+  "laterality": {
+    "L": {
+      "sampled": 222,
+      "confirmed_responsive": 146
+    },
+    "R": {
+      "sampled": 156,
+      "confirmed_responsive": 93
+    }
+  },
+  "group_average_weighting": "sound only; equal task means within site, then equal electrode means",
+  "group_average_error_bars": "SEM across electrode means",
+  "group_average_counts": {
+    "stimulus": {
+      "n_sites": 239,
+      "n_subjects": 61
+    },
+    "delay": {
+      "n_sites": 239,
+      "n_subjects": 61
+    },
+    "response": {
+      "n_sites": 239,
+      "n_subjects": 61
+    }
+  },
+  "group_average_missing_site_phase_pairs": 0,
+  "schematic_subject": "D0064",
+  "tfr_subject": "D0028",
+  "tfr_task": "PhonemeSequence",
+  "tfr_channel": "D0028_LAI3-4",
+  "tfr_recomputed": false,
+  "nmf_used_for_selection": false,
+  "nmf_files_unchanged": true,
+  "tfr_display_settings": {
+    "frequency_scale": "linear",
+    "frequency_range_hz": [
+      4,
+      200
+    ],
+    "full_unmasked": true,
+    "significance_contour": false,
+    "color_strength": 0.85,
+    "mapping_exponent": 6,
+    "vmin": -2.8408038102622073,
+    "vmax": 2.8408038102622073,
+    "bounds_from": "all visible finite values, pooled 2nd/98th percentiles",
+    "time_windows": {
+      "stimulus": [
+        -0.5,
+        0.6
+      ],
+      "delay": [
+        0.0,
+        1.0
+      ],
+      "response": [
+        -0.5,
+        1.5
+      ]
+    },
+    "data_smoothing": false,
+    "canonical_svg": "fig1_example_electrode_tfr.svg",
+    "compatibility_alias": "fig1_example_electrode_tfr_raw.svg"
+  },
+  "tfr_data_sources": {
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Stimulus_desc-Repeat_tfr.h5": "659939fc275a59b85f0000606709c2766fdc29f29528548f18ad8879e46ff67b",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Stimulus_desc-Repeat_stats.h5": "b7d4e07a06d0560ba2d03d31049c4691680e6774e8246db38fed00929315ee80",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Delay_desc-Repeat_tfr.h5": "d7c3ee541c7ac370347a8e5b4ad361af7120b9849f20e4d6819b1031660394d3",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Delay_desc-Repeat_stats.h5": "851e71344f203a5d37ea7cbd8de19d872466e27110e195b0652da54d5e909443",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Response_desc-Repeat_tfr.h5": "33948d465cd7acddc0bfd7241048f41f4275cbf666d95934e9d593e769634f5e",
+    "/hpc/group/coganlab/nanlinshi/insula-functional/results/tfr/PhonemeSequence/sub-D0028/tfr/sub-D0028_task-PhonemeSequence_proc-Response_desc-Repeat_stats.h5": "5175d9f0778bcbca659cfb4a013bff37b1176ae8662dcfdbd88eb9ffed4a5493"
+  },
+  "tfr_example_component": "Sustained (historical author-selected example)",
+  "data_source_root": "/hpc/group/coganlab/nanlinshi/insula-functional",
+  "output_root": "/cwork/ns458/insula-paper/img/fig1",
+  "roi_sampling_counts": {
+    "Insula": 378,
+    "STG": 448,
+    "SMC": 372,
+    "IFG": 215,
+    "Other": 2953,
+    "total": 4366
+  },
+  "roi_confirmed_counts": {
+    "Insula": 239,
+    "STG": 354,
+    "SMC": 260,
+    "IFG": 130,
+    "Other": 1426,
+    "total": 2409
+  },
+  "roi_colors": {
+    "Insula": "#6A5ACD",
+    "STG": "#20B2AA",
+    "SMC": "#F39B35",
+    "IFG": "#2369BD",
+    "Other": "#D3D3D3"
+  },
+  "smc_export_color_verified": true,
+  "source_lists": {
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/sampled_sites_unique.csv": "9c5e98ac4ed0a987da4ded2e5b7fd7953d0f5213f18ba75decfe8664eb5e6a72",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/response_evidence.csv": "78ab0aa859ae50a5ba21ddecabf9d5b73797c45305203219fceb4db8730f7e9b",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/wholebrain_subjects.csv": "013c38532c203cf62ec55cdec6b4670a30a2fe25c2bbc2453c94b1137ba5f762",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/task_summary.csv": "a7402889110f835167233ca95002ba07ace1bdfaf68b7ff2afe2beac5a17f0ee",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/sampled_sites_by_subject_task.csv": "b3a902f741e08a64254ea98a560626a4ec76239efe2dcf59242204d5592eaf6c",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/responsive_sites_by_subject_task.csv": "9533443851e59bbb3ed3f1121a5cd48dc643480f19c0e7cbf2107ed3095a6f1a",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/task_site_response_audit.csv": "321d1d20b01eb8964812d08c473e0a5aa5f7be8ccb727207ca9d1dcedd7c36c9",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/site_anatomy_audit.csv": "bf252f508585e293acd4f388860cf625e7632ac58baeb226c19ef1d97617b26e",
+    "/cwork/ns458/insula-paper/docs/evidence/figure1_cohort67_2026-11-07/subject_task_counts_and_lists.csv": "19b56a0072894bc6ee869783419be2e57541b7688b78a812b3c0287b98dccc2f"
+  },
+  "figures": {
+    "fig1_all_electrodes_projected.svg": {
+      "bytes": 231292,
+      "sha256": "33e1ca58263caa08c4a6ee3361f8c6e74b07e5cb9c96658b52ade227109279a4"
+    },
+    "fig1_example_electrode_tfr.svg": {
+      "bytes": 43042,
+      "sha256": "6f959a1f91203a1a32bc902c2239220ff4d361138da553de72bc64f788eaacd4"
+    },
+    "fig1_example_electrode_tfr_raw.svg": {
+      "bytes": 43042,
+      "sha256": "6f959a1f91203a1a32bc902c2239220ff4d361138da553de72bc64f788eaacd4"
+    },
+    "fig1_insula_average_traces.svg": {
+      "bytes": 39762,
+      "sha256": "0ce3355f611c8974cb4e85055bf04419239b0ce15eb631635633d690b5ab4478"
+    },
+    "fig1_insula_electrode_schematic.svg": {
+      "bytes": 375626,
+      "sha256": "42f63a41978e69f072be3c6811234ea01e9fd29a9de7b4542eab9cba0faec0bf"
+    },
+    "fig1_insula_electrode_schematic_seeg.svg": {
+      "bytes": 484844,
+      "sha256": "676915f75552e2f5aebebe6b78032fc1e08f4e7ee9d77d77e79de355c8d5f179"
+    },
+    "fig1_insula_electrodes_gyrus_lines.svg": {
+      "bytes": 224042,
+      "sha256": "0a3881c449fb76174cf537e58a63a9ea2d313830f7dadccd493534a104956bd2"
+    },
+    "fig1_insula_laterality_yield.svg": {
+      "bytes": 6646,
+      "sha256": "e9dc547eb294bf7d45263c11310d98b8d5af8265cb7c609ebce3bb600b2e9049"
+    },
+    "fig1_phase_insula_vs_other.svg": {
+      "bytes": 9561,
+      "sha256": "e59487e16c8dd7676b13323876681c923157dc555815f6e23f597771923a113b"
+    },
+    "fig1_phase_roi_breakdown.svg": {
+      "bytes": 14610,
+      "sha256": "8f106caad8cafc8639bebecf90399e65a0219debb678d2610ef9398e9ef04813"
+    },
+    "fig1_phase_roi_breakdown_union.svg": {
+      "bytes": 5495,
+      "sha256": "2fb3c24762e6bb742330cc833d7f2f92e8219bda116548863f87668686f368d9"
+    },
+    "fig1_roi_breakdown_sig_and_sampled.svg": {
+      "bytes": 9960,
+      "sha256": "ad59fde6e01d235c36b1e6ee8a90f0be74a7f90859d768b63f2d1b6db0de6a91"
+    },
+    "fig1_roi_significant_yield.svg": {
+      "bytes": 8934,
+      "sha256": "9b30ad64df8dcc73ef7aed194c8cd219bc81bacf8fe615d32c8f547fa1e1aa66"
+    },
+    "fig1_subject_task_counts.svg": {
+      "bytes": 14922,
+      "sha256": "1b6759f05ccc0221c9a57d91da0bee77e2483b0a3ecc2b58d97eae67f44fe28a"
+    }
+  },
+  "wholebrain_sampled_participants": 67,
+  "wholebrain_subject_ids": [
+    "D0022",
+    "D0023",
+    "D0027",
+    "D0028",
+    "D0032",
+    "D0035",
+    "D0038",
+    "D0040",
+    "D0042",
+    "D0044",
+    "D0045",
+    "D0047",
+    "D0049",
+    "D0052",
+    "D0053",
+    "D0054",
+    "D0055",
+    "D0057",
+    "D0058",
+    "D0059",
+    "D0060",
+    "D0061",
+    "D0063",
+    "D0064",
+    "D0065",
+    "D0067",
+    "D0068",
+    "D0070",
+    "D0071",
+    "D0075",
+    "D0076",
+    "D0079",
+    "D0080",
+    "D0081",
+    "D0084",
+    "D0085",
+    "D0086",
+    "D0088",
+    "D0090",
+    "D0091",
+    "D0092",
+    "D0093",
+    "D0094",
+    "D0095",
+    "D0096",
+    "D0101",
+    "D0102",
+    "D0103",
+    "D0105",
+    "D0107",
+    "D0108",
+    "D0115",
+    "D0118",
+    "D0119",
+    "D0122",
+    "D0123",
+    "D0125",
+    "D0128",
+    "D0129",
+    "D0131",
+    "D0132",
+    "D0134",
+    "D0137",
+    "D0138",
+    "D0139",
+    "D0140",
+    "D0143"
+  ],
+  "source_coordinate_participants": 94,
+  "excluded_noninsula_subjects": [
+    "D0005",
+    "D0008",
+    "D0015",
+    "D0017",
+    "D0018",
+    "D0019",
+    "D0020",
+    "D0024",
+    "D0025",
+    "D0026",
+    "D0029",
+    "D0030",
+    "D0031",
+    "D0041",
+    "D0056",
+    "D0066",
+    "D0069",
+    "D0073",
+    "D0077",
+    "D0097",
+    "D0100",
+    "D0106",
+    "D0117",
+    "D0126",
+    "D0127",
+    "D0130",
+    "D0135"
+  ],
+  "wholebrain_plotted_sites": 12088,
+  "wholebrain_plotted_participants": 67,
+  "sampling_scope": "All whole-brain electrodes of the67 reviewed insula-sampled participants",
+  "response_selection": "Figure1 native confirmed sound responses; independent of NMF eligibility",
+  "manual14_exclusions_scope": "Figure2 NMF analysis; Figure1 native response evidence retained",
+  "deferred_preprocessing_subjects": [
+    "D0107"
+  ],
+  "all_tasks_native_QC_excluded_sites": 30,
+  "native_good_HGA_source_manifest": "/cwork/ns458/insula-paper/results/figure1_cohort67_2026-11-07/display_inputs.json",
+  "previous_version": "/cwork/ns458/insula-paper/results/figure1_cohort67_2026-11-07/before"
+}

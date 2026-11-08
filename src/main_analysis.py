@@ -19,6 +19,9 @@ COHORT_DIR=ROOT/'docs/evidence/insula_manual14_2026-11-07'
 NMF_REASSESSMENT_DIR=ROOT/'results/insula_manual14_2026-11-07/nmf'
 FIG2_COHORT_DIR=COHORT_DIR
 FIG2_NMF_DIR=NMF_REASSESSMENT_DIR
+# Figure1 uses the completed anatomical67-subject inventory; its native
+# response selection remains independent of NMF analysis exclusions.
+FIG1_COHORT_DIR=ROOT/'docs/evidence/figure1_cohort67_2026-11-07'
 FROZEN_FIGURE_NMF_DIR=ROOT/'results/nmf'
 ROI_COLORS={'Insula':'#6A5ACD','STG':'#20B2AA','SMC':'#F39B35','IFG':'#2369BD','Other':'#D3D3D3'}
 # Functional components and anatomical ROIs have distinct meanings and palettes.

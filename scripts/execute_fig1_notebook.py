@@ -41,6 +41,11 @@ def update_analysis_markdown(nb,cohort):
 
 
 def main():
+    if (ROOT/'config/figure1_cohort67_2026-11-07.json').is_file():
+        sys.path.insert(0, str(ROOT))
+        from scripts.refresh_fig1_cohort67 import execute
+        execute()
+        return
     OUT.mkdir(parents=True,exist_ok=True)
     original_legacy=sha(SOURCE/'vizpub/fig1.ipynb')
     nb=nbformat.read(NOTEBOOK,as_version=4)
