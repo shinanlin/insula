@@ -28,6 +28,13 @@ def main():
                         help='Figure 4: execute the approved phonetic time-resolved cells only')
     args = parser.parse_args()
     number = args.figure
+    current = ROOT / f'config/figure{number}_manual14_2026-11-07.json'
+    if number in (5, 6) and current.is_file() and not (
+            args.available_only or args.phonetic_only or args.phonetic_resolved):
+        sys.path.insert(0, str(ROOT))
+        from src.figure56_current import execute
+        execute(number)
+        return
     out = ROOT / f'results/fig{number}'
     out.mkdir(parents=True, exist_ok=True)
     path = ROOT / f'vizpub/fig{number}.ipynb'

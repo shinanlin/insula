@@ -1,5 +1,16 @@
 # 主分析口径：Repeat + sound-only
 
+## Figure5／6按224位点模型更新（2026-11-07，作者要求）
+
+- Figure5、Figure6显式使用 `results/insula_manual14_2026-11-07/nmf/` 的224位点／60人三成分模型；重算数据、输入来源、旧版快照和验收均在 `results/figure56_manual14_2026-11-07/`。新版分别由 `FIG5_RT_ROOT`、`FIG6_PROJECTION_DIR` 读取；旧 `results/rt/` 和 `results/nmf/whole_brain_projection/` 保留，不覆盖旧模型。Figure1–4及所有NMF版本继续保护。本节覆盖下方Figure5／6的旧版本／冻结说明。RT计划为99组受试者×任务：79组匹配后复用，20组重拟，均保留原三阶段校正族。
+- Figure5保留原解剖候选建模规则，不额外要求HGA显著；使用原生任务坏道排除、Repeat＋sound、200-ms窗／20-ms步长、10×5折Ridge、1000次置换、seed42。Delay＋Go仍联合做原FWER，Response单独校正。新增解剖候选影响整个受试者×任务的校正族，因此涉及的三阶段一并重拟；其他原模型只在电极顺序、试次、RT、原生来源及参数匹配后复用。功能汇总、显著簇、HGA快慢RT曲线和编码零分布均重新取当前224个标签，不报告14个分析排除或Unassigned；原解剖校正族不因报告筛选而删除这14个。
+- Figure5恢复D0086的LexicalDelay／PhonemeSequence及D0139的PictureNaming试次级预处理，沿用原预处理入口，输出写入本次独立目录。原生power epoch之后，保留原 `lib/time_perm_stats.py` 的同一baseline z-score和15阈值outlier-to-NaN步骤，只为RT生成全通道zscore epoch；没有另做或伪造HGA显著性检验。D0139少量缺失触点坐标在独立副本中由同名既有ACPC米单位表补齐，来源与填补记录保留；没有改变原EDF、原生QC或通用数据。D0107依作者要求继续暂缓，不启动预处理。HGA仍按位点内部可用任务等权后画电极均值±SEM；RT的受试者层面推断及5000次编码零分布方法保留。Go图原0.55／0.93秒竖线保留为固定视觉参照，不能称作新版总体平均RT。
+- Figure6依作者进一步确认，统一限定Figure1的67位岛叶采样受试者，保留他们可用的全脑接点。用新版三阶段H重新做固定模板NNLS（399特征、mask-any、coverage≥.95、至少1个任务、ridge0），不重新拟合NMF。`in_discovery` 只标识224个建模位点的成员；其余合格全脑位点可保留连续投影，不赋予discovery标签。14个分析排除不等于删除这67人的全脑采样位置。
+- Figure6重新计算原空间缓存：8-mm带宽、15-mm最远距离、普通／focused至少5／3名受试者，focused正值比例.5、分位数.5、最多5簇、至少20顶点，图仍显示top50%。这是波形模板投影，不能解释为电极间连接。已完成67人／6689个位点投影，其中202个为当前discovery，22个建模位点没有进入现有投影来源，逐项列于 `fig6/discovery_sites_not_in_projection.csv`；原QC后独立投影图3623个位点／67人，原patch内非岛叶统计1116个位点／67人。
+- 已完成：Figure5正文10个代码单元及8张SVG全部执行通过，当前224个位点／60人均有至少一个任务的可用RT模型；原三阶段任一显著簇78个位点／43人，原Delay／Go主窗口命中24个位点／18人。99组原解剖受试者×任务模型中79组验证后复用、20组重拟；功能汇总保留当前224标签，不把原解剖校正族与功能报告范围混为一谈。Figure6正文7个代码单元及3张SVG通过模板／名单／缓存核对（Slurm61372881）。验收分别见 `results/fig5/execution_validation.json`、`results/fig6/execution_validation.json`，版本及来源登记到当前主分析registry。
+- 最终视觉核对发现新Sensory均值＋SEM超出旧固定纵轴；仅将三类HGA面板的共用上限由2扩到4.5（实际最大mean＋SEM约3.9324），raster上方OOF-r的共用上限由.6扩到.8（实际最大约.7147），下限、数据、SEM、检验、颜色和布局不变。初次完整新版图和notebook保留在 `fig5/before_display_limit_expansion/`；最终绘图Slurm61386650。原Go固定0.55／0.93-s参考线继续保留，不能解释为新版均值。
+- 原数值引擎未改：元数据读取只增加已审核来源和明确的boolean mix类型转换；真实D0103数据的4与12个worker预测／评分／全部1000次置换逐项一致。新增三组的原生标准化来源与参数逐项保存，297个H5的参数、任务、受试者、三阶段和SHA全部核对。统一入口 `scripts/execute_paper_notebook.py` 显式读取新版本，历史全脑刷新脚本也路由当前缓存，避免未来误覆盖旧NMF。最终Slurm61386661（2026-11-08）在显示修正后再次验证931个其他图／旧模型／诊断文件以及669个原生／投影输入未变；主分析registry已更新，最终视觉预览通过。完成记录 `results/figure56_manual14_2026-11-07/completed.json`。
+
 ## Figure3采用新名单与224位点模型（2026-11-07，作者要求）
 
 - 正文 `vizpub/fig3.ipynb` 的全部既有面板按新名单重画：两张分类示意、七张功能脑图、两张时间画像，以及六张成分权重／配对／密度叠加图。采样基础为378个位点／67人；功能分析只使用作者已采用的224位点三成分模型及其当前W、标签，保留14个分析排除，不把旧231位点标签搬到新模型。

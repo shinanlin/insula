@@ -1,0 +1,33 @@
+{
+  "version": "figure56_manual14_2026-11-07",
+  "status": "complete",
+  "notebook": "/cwork/ns458/insula-paper/vizpub/fig6.ipynb",
+  "NMF_dir": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/nmf",
+  "data_dir": "/cwork/ns458/insula-paper/results/figure56_manual14_2026-11-07/projection",
+  "validation": "/cwork/ns458/insula-paper/results/figure56_manual14_2026-11-07/fig6/execution_validation.json",
+  "counts": {
+    "passed": true,
+    "cohort_subjects": 67,
+    "n_projected_sites": 6689,
+    "n_projected_subjects": 67,
+    "n_discovery_sites_projected": 202,
+    "n_discovery_missing": 22,
+    "n_heldout_map_sites": 3623,
+    "n_heldout_map_subjects": 67,
+    "n_in_patch_noninsula_sites": 1116,
+    "n_in_patch_noninsula_subjects": 67,
+    "phases": [
+      "stimulus",
+      "delay",
+      "response"
+    ],
+    "n_features": 399,
+    "basis_sha256": "29ca9a86a93453f8b1a56f2109fb2a077a6ce5175e180c44b45c70c75bb3dadb",
+    "assignment_sha256": "80a300c123092614713acf237f43e8525cd6d6b5a2a18fc5c50ba6c96c895482",
+    "surface_cache_sha256": "2ad464c997f26229c10dab81c1f42b778bc17ef27e1c6dc9cb5d480a70cd09f1",
+    "original_fixed_H_NNLS_and_spatial_rules_preserved": true,
+    "keep_top": 0.5,
+    "not_pairwise_connectivity": true,
+    "trial_counts": "Unavailable in trial-averaged HGA sources; none invented."
+  }
+}

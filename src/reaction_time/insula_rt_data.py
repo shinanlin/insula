@@ -235,6 +235,25 @@ def load_strict_insula_parcellation(
     """Load strict AIC/PIC bipolar contacts, preserving native/template coords."""
 
     subject = subject[4:] if str(subject).startswith("sub-") else str(subject)
+    # The current reviewed cohort includes manually accepted contacts without
+    # a Hammers CSV (notably D0086). Use explicitly sourced contact metadata;
+    # this does not manufacture atlas labels or change the signal/RT loader.
+    reviewed_metadata = os.environ.get("INSULA_RT_METADATA")
+    if reviewed_metadata:
+        cohort_path = os.environ.get("INSULA_RT_COHORT")
+        if not cohort_path or task is None:
+            raise ValueError("Reviewed RT metadata requires a task-specific cohort")
+        cohort = pd.read_csv(cohort_path)
+        accepted = set(cohort.loc[cohort.subject.eq(subject) & cohort.task.eq(task), "site_id"])
+        metadata = pd.read_csv(reviewed_metadata, keep_default_na=False)
+        selected = metadata.loc[metadata.subject.eq(subject) & metadata.task.eq(task)].copy()
+        if set(selected.channel) != accepted or selected.channel.duplicated().any():
+            raise ValueError("Reviewed RT metadata and approved task cohort differ")
+        mix = selected['mix'].astype(str).str.lower().map({'0': False, '1': True, 'false': False, 'true': True})
+        if mix.isna().any():
+            raise ValueError("Reviewed RT mix flags must be booleans or0/1")
+        selected['mix'] = mix.astype(bool)
+        return selected.drop(columns=["subject", "task"]).reset_index(drop=True)
     root = Path(bids_root) / "derivatives" / "parcellation" / f"sub-{subject}" / ref
     matches = sorted(root.glob(f"*_{atlas}.csv"))
     if not matches:

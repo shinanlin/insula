@@ -14,6 +14,12 @@ export PYVISTA_OFF_SCREEN=true PYVISTA_USE_PANEL=false MNE_3D_BACKEND=notebook
 export MPLBACKEND=Agg MESA_GL_VERSION_OVERRIDE=3.3
 export INSULA_HGA_INPUT_ROOT=/hpc/group/coganlab/nanlinshi/insula-functional/results/hga
 PYTHON=/hpc/home/ns458/miniconda3/envs/ieeg/bin/python
+if [[ -f config/figure6_manual14_2026-11-07.json ]]; then
+    # The current 67-subject projection/spatial caches were rebuilt separately.
+    # Preserve legacy whole-brain results and redraw from this explicit version.
+    exec xvfb-run -a -n "$((SLURM_JOB_ID % 20000 + 100))" -s '-screen 0 1600x1600x24' \
+        "$PYTHON" -u scripts/execute_paper_notebook.py 6
+fi
 "$PYTHON" -u scripts/run_nmf_whole_brain_projection.py \
  --exclude-subject D0121 --tasks PhonemeSequence LexicalDelay PictureNaming SentenceRep \
  --phases stimulus delay response --significance-mode mask-any --min-coverage 0.95 --min-tasks 1

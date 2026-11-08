@@ -23,6 +23,13 @@ FIG2_NMF_DIR=NMF_REASSESSMENT_DIR
 # response selection remains independent of NMF analysis exclusions.
 FIG1_COHORT_DIR=ROOT/'docs/evidence/figure1_cohort67_2026-11-07'
 FROZEN_FIGURE_NMF_DIR=ROOT/'results/nmf'
+# Explicit current Figure5/6 routes; generic legacy paths remain frozen for
+# Figure4 and retained supplementary/diagnostic analyses.
+FIG5_NMF_DIR=FIG2_NMF_DIR
+FIG5_RT_ROOT=ROOT/'results/figure56_manual14_2026-11-07/rt'
+FIG6_NMF_DIR=FIG2_NMF_DIR
+FIG6_COHORT_DIR=FIG1_COHORT_DIR
+FIG6_PROJECTION_DIR=ROOT/'results/figure56_manual14_2026-11-07/projection'
 ROI_COLORS={'Insula':'#6A5ACD','STG':'#20B2AA','SMC':'#F39B35','IFG':'#2369BD','Other':'#D3D3D3'}
 # Functional components and anatomical ROIs have distinct meanings and palettes.
 COMPONENT_COLORS={'sustain':'#C4A35A','motor':'#A9373B','sensory':'#2369BD'}
