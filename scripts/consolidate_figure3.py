@@ -44,6 +44,9 @@ Each task's two groups share one triangle. Small group-colored electrode points 
 
 
 def main_notebook():
+    if (ROOT/'config/figure3_manual14_2026-11-07.json').is_file():
+        from src.figure3_current import build_notebook
+        return build_notebook()
     cells=[nbf.v4.new_markdown_cell('''# Figure 3 · Input modality and task demands
 
 **Current main-figure entry.** All functional statistics use frozen Sensory/Sustained/Motor labels; Unassigned is excluded. Anatomical Unknown endpoints keep the approved anatomical rule. NMF, native trial/QC rules, individual tests and drawing conventions remain unchanged.
@@ -130,6 +133,10 @@ def supplementary_notebook(sampling=None,hga=None):
 
 def main():
     assert os.environ.get('SLURM_JOB_ID'),'Use Slurm'
+    if (ROOT/'config/figure3_manual14_2026-11-07.json').is_file():
+        from src.figure3_current import execute_notebook
+        execute_notebook()
+        return
     from src.figure3 import sha,write
     checkpoint=json.loads((AUDIT/'checkpoint.json').read_text())
     old=subprocess.check_output(['git','show',checkpoint['checkpoint_commit']+':vizpub/fig3.ipynb'],cwd=ROOT)

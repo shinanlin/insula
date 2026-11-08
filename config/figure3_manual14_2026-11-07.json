@@ -1,0 +1,112 @@
+{
+  "version": "figure3_manual14_2026-11-07",
+  "scope": "Main Figure3 notebook and all its current panels",
+  "source_cohort": "/cwork/ns458/insula-paper/docs/evidence/insula_manual14_2026-11-07",
+  "NMF_dir": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/nmf",
+  "sampled_sites": 378,
+  "sampled_subjects": 67,
+  "functional_source_sites": 224,
+  "functional_source_subjects": 60,
+  "comparisons": {
+    "picture": {
+      "paired_sites": 84,
+      "paired_subjects": 24,
+      "active_sites": 49,
+      "active_subjects": 21,
+      "groups": [
+        {
+          "group": "first_only",
+          "n_sites": 20,
+          "n_subjects": 11,
+          "sensory": 8,
+          "sustain": 3,
+          "motor": 9
+        },
+        {
+          "group": "no_detected_difference",
+          "n_sites": 24,
+          "n_subjects": 16,
+          "sensory": 3,
+          "sustain": 12,
+          "motor": 9
+        },
+        {
+          "group": "second_only",
+          "n_sites": 4,
+          "n_subjects": 4,
+          "sensory": 0,
+          "sustain": 2,
+          "motor": 2
+        },
+        {
+          "group": "bidirectional",
+          "n_sites": 1,
+          "n_subjects": 1,
+          "sensory": 1,
+          "sustain": 0,
+          "motor": 0
+        }
+      ],
+      "reused_tests": 78,
+      "new_tests": 6,
+      "current_NMF_labels_used": true,
+      "baseline_mask_and_pointwise_p05": true
+    },
+    "lexical": {
+      "paired_sites": 136,
+      "paired_subjects": 35,
+      "active_sites": 73,
+      "active_subjects": 29,
+      "groups": [
+        {
+          "group": "first_only",
+          "n_sites": 26,
+          "n_subjects": 15,
+          "sensory": 3,
+          "sustain": 13,
+          "motor": 10
+        },
+        {
+          "group": "no_detected_difference",
+          "n_sites": 46,
+          "n_subjects": 26,
+          "sensory": 6,
+          "sustain": 21,
+          "motor": 19
+        },
+        {
+          "group": "second_only",
+          "n_sites": 1,
+          "n_subjects": 1,
+          "sensory": 0,
+          "sustain": 0,
+          "motor": 1
+        },
+        {
+          "group": "bidirectional",
+          "n_sites": 0,
+          "n_subjects": 0,
+          "sensory": 0,
+          "sustain": 0,
+          "motor": 0
+        }
+      ],
+      "reused_tests": 126,
+      "new_tests": 10,
+      "current_NMF_labels_used": true,
+      "baseline_mask_and_pointwise_p05": true
+    }
+  },
+  "no_NMF_refit": true,
+  "condition_test_parameters": {
+    "p_thresh": 0.05,
+    "p_cluster": 0.05,
+    "n_perm": 2000,
+    "tails": 2,
+    "axis": 0,
+    "permutation_type": "independent",
+    "n_jobs": 1,
+    "seed": 42
+  },
+  "supplementary_version": "Preserved prior main/SI separation; old SI is not claimed as refreshed"
+}

@@ -148,10 +148,15 @@ def diagram(key,pool,groups):
     for region,color in zip(('10','01','11'),('#2166AC','#D95F02','#E8E8E8')):
         patch=v.get_patch_by_id(region)
         group_id='region_'+names[region]
-        patch.set_alpha(None);patch.set_facecolor(to_rgba(color,1 if region=='11' else .22))
-        patch.set_edgecolor('none')
-        patch.set_clip_on(False);patch.set_gid(group_id+'_shape')
-        label=v.get_label_by_id(region);label.set_fontsize(12);label.set_gid(group_id+'_count')
+        if patch is not None:
+            patch.set_alpha(None);patch.set_facecolor(to_rgba(color,1 if region=='11' else .22))
+            patch.set_edgecolor('none')
+            patch.set_clip_on(False);patch.set_gid(group_id+'_shape')
+        else:region_groups[group_id]['members'].remove(group_id+'_shape')
+        label=v.get_label_by_id(region)
+        if label is None:
+            label=ax.text({'10':-.55,'01':.55,'11':0}[region],0,'0',ha='center',va='center')
+        label.set_fontsize(12);label.set_gid(group_id+'_count')
     for number,(circle,color) in enumerate(zip(circles,('#2166AC','#D95F02')),start=1):
         circle.set_edgecolor(color);circle.set_clip_on(False)
         circle.set_gid(f'venn_circle_{number}_outline')
@@ -172,7 +177,9 @@ def diagram(key,pool,groups):
     if len(groups['bidirectional']):
         fig.add_artist(Rectangle((.08,.12),.84,.105,transform=fig.transFigure,
             fill=False,linewidth=.65,edgecolor='#555555'))
-        fig.text(.5,.173,'Bidirectional: D0080 LPI2–3 · n=1 (shown separately)',ha='center',va='center',fontsize=6.7)
+        bidirectional=groups['bidirectional']
+        site_text='; '.join(bidirectional.channel.str.replace('_',' ',regex=False))
+        fig.text(.5,.173,f'Bidirectional: {site_text} · n={len(bidirectional)} (shown separately)',ha='center',va='center',fontsize=6.7)
     else:
         fig.text(.5,.17,'All three categories are mutually exclusive',ha='center',fontsize=6.5)
     fig.text(.5,.06,'Areas proportional to electrode counts · same scale across panels\n'

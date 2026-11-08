@@ -19,6 +19,12 @@ COLORS=('#2369BD','#C4A35A','#A9373B')
 GROUPS=(('picture','no_detected_difference',21,14,'Sound–Image\nNo detected difference'),
         ('lexical','first_only',27,16,'Lexical Delay\nDecision > Repeat'))
 DENSITY_SIGMA=.09
+NMF_DIR=ROOT/'results/nmf'
+GROUP_COUNTS=None  # Explicit current-Figure3 override; legacy diagnostics stay versioned.
+
+
+def group_counts(task,region,n,subjects):
+    return (n,subjects) if GROUP_COUNTS is None else GROUP_COUNTS[(task,region)]
 
 
 def composition_density(xy,xx,yy,sigma=DENSITY_SIGMA):
@@ -33,7 +39,8 @@ def render(*,sound_gt_image=False):
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
     results=RESULTS/'sound_gt_image' if sound_gt_image else RESULTS
     svg=IMAGES/('fig3_sound_gt_image_weight_ternary.svg' if sound_gt_image else 'fig3_component_weight_ternary.svg')
-    groups=(('picture','first_only',18,12,'Sound–Image\nSound > Image only'),) if sound_gt_image else GROUPS
+    n_sound,s_sound=group_counts('picture','first_only',18,12)
+    groups=(('picture','first_only',n_sound,s_sound,'Sound–Image\nSound > Image only'),) if sound_gt_image else GROUPS
     reference_peak=None
     if sound_gt_image:
         import json
@@ -44,10 +51,10 @@ def render(*,sound_gt_image=False):
     original_paths += [ROOT/f'vizpub/fig{i}.ipynb' for i in range(1,7)]
     original_paths += [ROOT/'vizpub/supplementary/fig3_supplementary.ipynb']
     protected={str(p):sha(p) for p in original_paths}
-    assignments=ROOT/'results/nmf/channel_assignments.csv'
+    assignments=NMF_DIR/'channel_assignments.csv'
     w=pd.read_csv(assignments,float_precision='round_trip')
     columns=[f'loading_{c}' for c in COMPONENTS]
-    with np.load(ROOT/'results/nmf/factors.npz',allow_pickle=False) as factors:
+    with np.load(NMF_DIR/'factors.npz',allow_pickle=False) as factors:
         np.testing.assert_allclose(np.linalg.norm(factors['H'],axis=1),1,rtol=0,atol=1e-12)
         assert w.channel.tolist()==factors['channels'].tolist()
         for index,name in enumerate(factors['component_names'].tolist()):
@@ -218,12 +225,13 @@ def _cached_weight_panel(source,group,region,n,subjects,title):
 def _new_lexical_no_difference(reference):
     """Frozen loadings for the 43 Lexical Delay sites, on the existing density scale."""
     region,n,subjects='no_detected_difference',43,25
+    n,subjects=group_counts('lexical',region,n,subjects)
     selection_path=ROOT/'results/fig3/regions/lexical'/f'{region}_electrodes.csv'
-    assignments=ROOT/'results/nmf/channel_assignments.csv'
+    assignments=NMF_DIR/'channel_assignments.csv'
     selected=pd.read_csv(selection_path,float_precision='round_trip')
     w=pd.read_csv(assignments,float_precision='round_trip')
     columns=[f'loading_{c}' for c in COMPONENTS]
-    with np.load(ROOT/'results/nmf/factors.npz',allow_pickle=False) as factors:
+    with np.load(NMF_DIR/'factors.npz',allow_pickle=False) as factors:
         np.testing.assert_allclose(np.linalg.norm(factors['H'],axis=1),1,rtol=0,atol=1e-12)
         assert w.channel.tolist()==factors['channels'].tolist()
     assert len(selected)==n and selected.subject.nunique()==subjects and selected.electrode.is_unique
@@ -320,10 +328,10 @@ def render_task_pairs():
     protected={str(p):sha(p) for p in protected_paths}
     reference=json.loads((RESULTS/'manifest.json').read_text())
     peak=reference['common_density_peak']
-    picture_null=_cached_weight_panel(RESULTS,'picture','no_detected_difference',21,14,'Sound–Image\nNo detected difference')
-    picture_sound=_cached_weight_panel(RESULTS/'sound_gt_image','picture','first_only',18,12,'Sound–Image\nSound > Image only')
-    lexical_decision=_cached_weight_panel(RESULTS,'lexical','first_only',27,16,'Lexical Delay\nDecision > Repeat')
-    assignments=ROOT/'results/nmf/channel_assignments.csv'
+    picture_null=_cached_weight_panel(RESULTS,'picture','no_detected_difference',*group_counts('picture','no_detected_difference',21,14),'Sound–Image\nNo detected difference')
+    picture_sound=_cached_weight_panel(RESULTS/'sound_gt_image','picture','first_only',*group_counts('picture','first_only',18,12),'Sound–Image\nSound > Image only')
+    lexical_decision=_cached_weight_panel(RESULTS,'lexical','first_only',*group_counts('lexical','first_only',27,16),'Lexical Delay\nDecision > Repeat')
+    assignments=NMF_DIR/'channel_assignments.csv'
     w=pd.read_csv(assignments,float_precision='round_trip')
     columns=[f'loading_{c}' for c in COMPONENTS]
     height=np.sqrt(3)/2;vertices=np.array([[.5,height],[0.,0.],[1.,0.]])
@@ -408,6 +416,13 @@ def render_task_pair_overlays():
         dict(name='lexical',task='lexical',svg=IMAGES/'fig3_lexical_weight_density_overlay.svg',title='Lexical Delay',
             groups=(('no_detected_difference',43,'No detected difference · 43 electrodes / 25 participants','#858F9E'),
                 ('first_only',27,'Decision > Repeat · 27 electrodes / 16 participants','#6A5ACD'))))
+    if GROUP_COUNTS is not None:
+        for spec in specs:
+            updated=[]
+            for region,_,label,color in spec['groups']:
+                n,subjects=GROUP_COUNTS[(spec['task'],region)]
+                updated.append((region,n,f'{label.split(" · ")[0]} · {n} electrodes / {subjects} participants',color))
+            spec['groups']=tuple(updated)
     results=RESULTS/'task_pairs'
     written={}
     for spec in specs:

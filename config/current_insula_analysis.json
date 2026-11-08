@@ -60,7 +60,20 @@
       "confirmed_responsive_sites": 239,
       "wholebrain_scope": "Only subjects with reviewed insula sampling; all their brain regions"
     },
-    "fig3_to_fig6": "Preserved prior outputs/models; not refreshed for the 224-site version."
+    "fig3": {
+      "version": "figure3_manual14_2026-11-07",
+      "notebook": "/cwork/ns458/insula-paper/vizpub/fig3.ipynb",
+      "NMF_dir": "/cwork/ns458/insula-paper/results/insula_manual14_2026-11-07/nmf",
+      "paired_sites": {
+        "picture": 84,
+        "lexical": 136
+      },
+      "active_sites": {
+        "picture": 49,
+        "lexical": 73
+      }
+    },
+    "fig4_to_fig6": "Preserved prior outputs/models; not refreshed for the 224-site version."
   },
   "old_downstream_frozen_guards": "Historical scientific-input hashes remain frozen; they are not silently revalidated as the new Fig2 model."
 }

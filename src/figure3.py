@@ -1,7 +1,8 @@
 """Unified Figure 3 main and supplementary entry points.
 
-Reuse reviewed statistical inputs and drawing functions. No model fitting,
-new tests, new NMF labels or changed plotting conventions are introduced.
+Reuse reviewed drawing functions and explicitly versioned statistical inputs.
+The current main version verifies existing tests and uses original parameters
+for new eligible sites. NMF models and supplementary versions remain separate.
 """
 from pathlib import Path
 import hashlib
@@ -55,6 +56,9 @@ def style():
 def render_main():
     """Generate the agreed diagrams, seven spatial maps and two time portraits."""
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
+    if (ROOT/'config/figure3_manual14_2026-11-07.json').is_file():
+        from src.figure3_current import render_main as render_current
+        return render_current()
     from src.supplementary import condition_difference_group_panels as spatial
     from src.supplementary import condition_region_time_profiles as temporal
     from src.supplementary import assigned_condition_cohorts as cohorts
@@ -83,7 +87,7 @@ def render_component_weight_pairs():
     from src.diagnostics import figure3_weight_distributions as weights
     existing=(MAIN_IMG/'fig3_component_weight_ternary.svg',MAIN_IMG/'fig3_sound_gt_image_weight_ternary.svg')
     before={str(path):sha(path) for path in existing}
-    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG):
+    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG,**_weight_version()):
         written=weights.render_task_pairs()
     assert {str(path):sha(path) for path in existing}==before
     manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
@@ -100,7 +104,7 @@ def render_component_weight_pair_overlays():
     """Overlay each task pair's saved density clouds in one triangle, without points."""
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
     from src.diagnostics import figure3_weight_distributions as weights
-    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG):
+    with override(weights,RESULTS=MAIN_RESULTS/'component_weights',IMAGES=MAIN_IMG,**_weight_version()):
         written=weights.render_task_pair_overlays()
     manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
     panels=manifest.setdefault('component_weight_panels',{})
@@ -116,7 +120,7 @@ def render_component_weights(*,sound_gt_image=False):
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
     from src.diagnostics import figure3_weight_distributions as weights
     output=MAIN_RESULTS/'component_weights'
-    with override(weights,RESULTS=output,IMAGES=MAIN_IMG):
+    with override(weights,RESULTS=output,IMAGES=MAIN_IMG,**_weight_version()):
         svg=weights.render(sound_gt_image=sound_gt_image)
     manifest=json.loads((MAIN_RESULTS/'manifest.json').read_text())
     key='sound_gt_image' if sound_gt_image else 'picture_lexical'
@@ -127,13 +131,20 @@ def render_component_weights(*,sound_gt_image=False):
     return svg
 
 
+def _weight_version():
+    if (ROOT/'config/figure3_manual14_2026-11-07.json').is_file():
+        from src.figure3_current import weight_attributes
+        return weight_attributes()
+    return {}
+
+
 def render_sampling():
     """Sampling counts and literal baseline-response Venns belong in SI."""
     assert os.environ.get('SLURM_JOB_ID'),'Run through Slurm'
     import pandas as pd
     from src.supplementary import assigned_condition_overviews as overview
     from src.supplementary import assigned_condition_cohorts as cohorts
-    from src.main_analysis import COHORT_DIR
+    from src.main_analysis import PREVIOUS_COHORT_DIR as COHORT_DIR
     style();SAMPLING_IMG.mkdir(parents=True,exist_ok=True)
     results={};rows=[];subjects=[]
     sampling_source=COHORT_DIR/'sampled_sites_by_subject_task.csv'
